@@ -57,14 +57,22 @@ extension QRScannerView {
         return captureSession?.isRunning ?? false
     }
 
+    var canEnableTorch: Bool {
+        guard let camera = videoCaptureDevice else { return false }
+
+        return camera.hasTorch && camera.isTorchAvailable
+    }
+
     func startScanning() {
         doInitialSetup()
         captureSession?.startRunning()
     }
 
     public func setCameraLight(on: Bool) {
+        guard let camera = videoCaptureDevice,
+              canEnableTorch else { return }
+
         lampOn = on
-        guard let camera = AVCaptureDevice.default(for: .video) else { return }
         try? camera.setLight(on: lampOn)
     }
 
