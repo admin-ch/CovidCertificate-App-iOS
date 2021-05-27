@@ -1,7 +1,7 @@
 
 /*Android App Name*/
 /*Fuzzy*/
-"verifier_app_name" = "COVID Check";
+"verifier_app_name" = "Covid Check";
 
 /*Title for the qr scanning screen*/
 /*Fuzzy*/
@@ -123,7 +123,7 @@
 "delete_button" = "Löschen";
 
 /*Android App Name für die Wallet*/
-"wallet_app_name" = "COVID Cert";
+"wallet_app_name" = "Covid Cert";
 
 /*Header im Onboarding-Screen "Die App"*/
 /*Fuzzy*/
@@ -301,7 +301,7 @@
 
 /*Titel 2 im FAQ-Screen der Wallet App*/
 /*Fuzzy*/
-"wallet_faq_works_title" = "Wie funktioniert die\nApp?";
+"wallet_faq_works_title" = "Wie funktioniert \ndie App?";
 
 /*Text 2 im FAQ-Screen der Wallet App*/
 /*Fuzzy*/
@@ -361,9 +361,8 @@ Certificat valide dès :
 /*Header im Onboarding-Screen "Vorteile, Vorweisen"*/
 "wallet_onboarding_show_header" = "Vorteile";
 
-/*Ist das Information oder Impressum?*/
 /*Accessibility: Information*/
-"accessibility_info_button" = "Information";
+"accessibility_info_button" = "Impressum";
 
 /*Accessibility: FAQ Button Titel*/
 "accessibility_faq_button" = "Häufige Fragen";
@@ -390,7 +389,6 @@ Certificat valide dès :
 /*Unbekannter Fehler*/
 "unknown_error" = "Ein unbekannter Fehler ist aufgetreten.";
 
-/*Bei den Übersetzungen beachten*/
 /*Verifier: Die Gültigkeit des Zertifikat ist abgelaufen*/
 /*Fuzzy*/
 "verifier_verifiy_error_expired" = "Entspricht nicht den Gültigkeitskriterien der Schweiz: Die Gültigkeit des Zertifikat ist abgelaufen.";
@@ -457,7 +455,7 @@ Zertifikat ist erst gültig ab {DATE}.*/
 "wallet_certificate_impfdosis_title" = "Impfdosis";
 
 /*Fuzzy*/
-"target_disease_name" = "COVID-19";
+"target_disease_name" = "Covid-19";
 "wallet_certificate_target_disease_title" = "Krankheit oder Erreger";
 "wallet_certificate_impfstoff_title" = "Impfstoff";
 "wallet_certificate_impfstoff_product_name_title" = "Produkt";
@@ -467,7 +465,7 @@ Zertifikat ist erst gültig ab {DATE}.*/
 
 /*Prüfen mit PDF Translation*/
 "wallet_certificate_vaccination_issuer_title" = "Herausgeber";
-"covid_certificate_recovery_title" = "Genesen";
+"covid_certificate_recovery_title" = "Genesung";
 "wallet_certificate_recovery_first_positiv_result" = "Datum des ersten positiven Resultats";
 "wallet_certificate_recovery_from" = "Gültig ab";
 "wallet_certificate_recovery_until" = "Gültig bis";

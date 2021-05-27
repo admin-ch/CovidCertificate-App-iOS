@@ -1,7 +1,7 @@
 
 /*Android App Name*/
 /*Fuzzy*/
-"verifier_app_name" = "COVID check";
+"verifier_app_name" = "Covid Check";
 
 /*Title for the qr scanning screen*/
 "verifier_title_qr_scan" = "Verify";
@@ -103,7 +103,7 @@
 "delete_button" = "Delete";
 
 /*Android App Name für die Wallet*/
-"wallet_app_name" = "COVID cert";
+"wallet_app_name" = "Covid Cert";
 
 /*Header im Onboarding-Screen "Die App"*/
 "wallet_onboarding_app_header" = "The app";
@@ -272,7 +272,7 @@ Certificate valid from:
 Certificat valide dès :
 {DATE}*/
 /*Wallet: Zertifikat gültig ab: {DATE}*/
-"wallet_certificate_valid_from" = "In der Schweiz gültig ab:\n{DATE}";
+"wallet_certificate_valid_from" = "Valid in Switzerland from:\n{DATE}";
 
 /*Wallet: Zertifikat Detail Geimpft*/
 "certificate_reason_vaccinated" = "Vaccination";
@@ -298,9 +298,8 @@ Certificat valide dès :
 /*Header im Onboarding-Screen "Vorteile, Vorweisen"*/
 "wallet_onboarding_show_header" = "Advantages";
 
-/*Ist das Information oder Impressum?*/
 /*Accessibility: Information*/
-"accessibility_info_button" = "Information";
+"accessibility_info_button" = "Imprint";
 
 /*Accessibility: FAQ Button Titel*/
 "accessibility_faq_button" = "FAQs";
@@ -324,103 +323,103 @@ Certificat valide dès :
 "impressum_title" = "Imprint";
 
 /*Unbekannter Fehler*/
-"unknown_error" = "Ein unbekannter Fehler ist aufgetreten.";
+"unknown_error" = "An unknown error has occurred";
 
 /*Verifier: Die Gültigkeit des Zertifikat ist abgelaufen*/
-"verifier_verifiy_error_expired" = "Entspricht nicht den Gültigkeitskriterien der Schweiz: Die Gültigkeit des Zertifikat ist abgelaufen.";
+"verifier_verifiy_error_expired" = "Does not meet Switzerland's validity criteria: The certificate is no longer valid.";
 
 /*cf: Text angepasst. War vorher:
 Zertifikat ist erst gültig ab {DATE}.*/
 /*Verifier: Zertifikat ist erst gültig ab {DATE}*/
-"verifier_verifiy_error_notyetvalid" = "Entspricht nicht den Gültigkeitskriterien der Schweiz: Das Zertifikat ist noch nicht gültig.";
+"verifier_verifiy_error_notyetvalid" = "Does not meet Switzerland's validity criteria: The certificate is not yet valid";
 
 /*Verifier: Ein Netzwerkfehler ist aufgetreten.*/
-"verifier_retry_network_error" = "Ein Netzwerkfehler ist aufgetreten.";
+"verifier_retry_network_error" = "A network error has occurred";
 
 /*Verifier: Das Gerät befindet sich im Flugmodus.*/
-"verifier_retry_flightmode_error" = "Das Gerät befindet sich im Flugmodus.";
+"verifier_retry_flightmode_error" = "Your device is in flight mode";
 
 /*Wallet: Zertifikat gültig ab: {DATE}*/
-"wallet_error_valid_from" = "In der Schweiz gültig ab:\n{DATE}";
+"wallet_error_valid_from" = "Valid in Switzerland from:\n{DATE}";
 
 /*Wallet: Fehler wenn Zertifikat nicht den CH-Gültigkeitskriterien entspricht*/
-"wallet_error_national_rules" = "Entspricht nicht den Gültigkeitskriterien der Schweiz";
+"wallet_error_national_rules" = "Does not meet the validity criteria for Switzerland";
 
 /*Wallet: Gültigkeit des Zertifikats abgelaufen*/
-"wallet_error_expired" = "Gültigkeit des Zertifikats\nabgelaufen";
+"wallet_error_expired" = "Certificate validity \nexpired";
 
 /*Wallet: Zertifikat wurde widerrufen*/
-"wallet_error_revocation" = "Zertifikat wurde\nwiderrufen";
+"wallet_error_revocation" = "Certificate has been \nrevoked";
 
 /*Wallet: Zertifikat mit ungültiger Signatur*/
-"wallet_error_invalid_signature" = "Zertifikat mit\nungültiger Signatur";
+"wallet_error_invalid_signature" = "Certificate with \ninvalid signature";
 
 /*Wallet: ungültiger Signatur (gleiche Worte wie wallet_error_invalid_signature)*/
-"wallet_error_invalid_signature_bold" = "ungültiger Signatur";
+"wallet_error_invalid_signature_bold" = "invalid signature";
 
 /*Wallet: widerrufen (gleiches Wort wie bei wallet_error_revocation)*/
-"wallet_error_revocation_bold" = "widerrufen";
+"wallet_error_revocation_bold" = "revoked";
 
 /*Wallet: abgelaufen (gleiches Wort wie bei wallet_error_expired verwenden)*/
-"wallet_error_expired_bold" = "abgelaufen";
+"wallet_error_expired_bold" = "expired";
 
 /*Meldung wenn erneute ein Zertifikat gescannt wurde, welches bereits in der App ist*/
-"wallet_certificate_already_exists" = "Dieses Zertifikat ist bereits in der App gespeichert";
+"wallet_certificate_already_exists" = "This certificate is already saved in the app";
 
 /*Titel Gültigkeit im Zertifikatsdetail*/
-"wallet_certificate_validity" = "Gültigkeit in der\nSchweiz";
+"wallet_certificate_validity" = "Validity in \nSwitzerland";
 
 /*"Bis" Label im Zertifikats-Detail*/
-"wallet_certificate_valid_until" = "bis";
+"wallet_certificate_valid_until" = "until";
 
 /*Message im Zertifikatsdetail während Überprüfung*/
-"wallet_certificate_verifying" = "Das Zertifikat wird geprüft";
+"wallet_certificate_verifying" = "The certificate is being verified";
 
 /*Message nach erfolgreicher Prüfung im Zertifikatdetail*/
-"wallet_certificate_verify_success" = "Prüfung erfolgreich";
+"wallet_certificate_verify_success" = "Validity in Switzerland";
 
 /*Accessibility: Info Box Butto*/
 "accessibility_info_box" = "Information";
 
 /*Button Schliessen*/
-"close_button" = "Schliessen";
-"wallet_certificate_impfdosis_title" = "Impfdosis";
-"target_disease_name" = "COVID-19";
-"wallet_certificate_target_disease_title" = "Krankheit oder Erreger";
-"wallet_certificate_impfstoff_title" = "Impfstoff";
-"wallet_certificate_impfstoff_product_name_title" = "Produkt";
-"wallet_certificate_impfstoff_holder" = "Hersteller";
-"wallet_certificate_vaccination_date_title" = "Impfdatum";
-"wallet_certificate_vaccination_country_title" = "Land der Impfung";
+"close_button" = "Close";
+"wallet_certificate_impfdosis_title" = "Nb of dose";
+"target_disease_name" = "Covid-19";
+"wallet_certificate_target_disease_title" = "Disease or agent targeted";
+"wallet_certificate_impfstoff_title" = "Vaccine type";
+"wallet_certificate_impfstoff_product_name_title" = "Product";
+"wallet_certificate_impfstoff_holder" = "Manufacturer";
+"wallet_certificate_vaccination_date_title" = "Date of vaccination";
+"wallet_certificate_vaccination_country_title" = "Country of vaccination";
 
 /*Prüfen mit PDF Translation*/
-"wallet_certificate_vaccination_issuer_title" = "Herausgeber";
-"covid_certificate_recovery_title" = "Genesen";
-"wallet_certificate_recovery_first_positiv_result" = "Datum des ersten positiven Resultats";
-"wallet_certificate_recovery_from" = "Gültig ab";
-"wallet_certificate_recovery_until" = "Gültig bis";
-"wallet_certificate_test_land" = "Land des Tests";
+"wallet_certificate_vaccination_issuer_title" = "Issuer";
+"covid_certificate_recovery_title" = "Recovery";
+"wallet_certificate_recovery_first_positiv_result" = "Date of first positive test result";
+"wallet_certificate_recovery_from" = "Valid from";
+"wallet_certificate_recovery_until" = "Valid until";
+"wallet_certificate_test_land" = "Country of Test";
 "covid_certificate_test_title" = "Test";
-"wallet_certificate_test_result_title" = "Ergebnis";
-"wallet_certificate_test_result_negativ" = "NEGATIV";
-"wallet_certificate_test_result_positiv" = "POSITIV";
-"wallet_certificate_test_type" = "Typ";
+"wallet_certificate_test_result_title" = "Result";
+"wallet_certificate_test_result_negativ" = "NEGATIVE";
+"wallet_certificate_test_result_positiv" = "POSITIVE";
+"wallet_certificate_test_type" = "Type";
 "wallet_certificate_test_name" = "Name";
-"wallet_certificate_test_holder" = "Hersteller";
-"wallet_certificate_test_sample_date_title" = "Datum der Probenentnahme";
-"wallet_certificate_test_result_date_title" = "Datum Resultat";
+"wallet_certificate_test_holder" = "Manufacturer";
+"wallet_certificate_test_sample_date_title" = "Date of sample collection";
+"wallet_certificate_test_result_date_title" = "Result date";
 
 /*Header im "So funktionierts" Screen der Verifier-App*/
-"verifier_support_header" = "So funktioniert's";
+"verifier_support_header" = "How it works";
 
 /*Text im Bestätigungs-Dialog beim Zertifikat löschen*/
-"wallet_certificate_delete_confirm_text" = "Wollen Sie das Zertifikat wirklich löschen?";
+"wallet_certificate_delete_confirm_text" = "Do you really want to delete the certificate?";
 
 /*Titel eines Abbrechen-Buttons*/
-"cancel_button" = "Abbrechen";
+"cancel_button" = "Cancel";
 
 /*Wallet: Titel bei Impfungen*/
-"covid_certificate_vaccination_title" = "Impfung";
+"covid_certificate_vaccination_title" = "Vaccination";
 
 /*Wallet: Apple App Store URL*/
 "wallet_apple_app_store_url" = "http://itunes.apple.com/app/id1565917320";
@@ -432,16 +431,16 @@ Zertifikat ist erst gültig ab {DATE}.*/
 "wallet_certificate_identifier" = "UVCI";
 
 /*Wallet: Zertifikat erstellt am {DATE}*/
-"wallet_certificate_date" = "Zertifikat erstellt am\n{DATE}";
+"wallet_certificate_date" = "Certificate created on {DATE}";
 
 /*Wallet: Detail Art des Impfstoffs*/
-"wallet_certificate_vaccine_prophylaxis" = "Art des Impfstoffs";
+"wallet_certificate_vaccine_prophylaxis" = "Vaccine type";
 
 /*Wallet: Test Detail Test durchgeführt durch*/
-"wallet_certificate_test_done_by" = "Testcenter";
+"wallet_certificate_test_done_by" = "Test centre";
 
 /*iOS: Erklärung bei Kamera */
-"NSCameraUsageDescription" = "Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können.";
+"NSCameraUsageDescription" = "The app needs access to your camera to be able to scan the QR code.";
 
 /*Titel 1 im FAQ der Verifier App*/
 "verifier_faq_works_title" = "How COVID certificates are checked";
@@ -486,10 +485,10 @@ Zertifikat ist erst gültig ab {DATE}.*/
 "verifier_faq_works_answer_6" = "No, no data is stored during the verification process, be it in the COVID Certificate Check app or in a central system. Therefore, it is not possible to trace which COVID certificate was checked by whom, when and where.";
 
 /*iOS Button zum Einstellungen öffnen*/
-"ios_settings_open" = "Einstellungen";
+"ios_settings_open" = "Settings";
 
 /*Wallet: Onboarding externer Link zu Datenschutz*/
-"wallet_onboarding_external_privacy_button" = "Datenschutzerklärung &\nNutzungsbedingungen";
+"wallet_onboarding_external_privacy_button" = "Data Protection Statement & Conditions of Use";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
 "wallet_certificate_detail_note" = "This certificate is not a travel document. \n\nThe scientific evidence on COVID-19 vaccination, testing and recovery continues to evolve, also in view of new variants of concern of the virus. \n\nBefore travelling, please check the applicable public health measures and related restrictions applied at the point of destination.";
