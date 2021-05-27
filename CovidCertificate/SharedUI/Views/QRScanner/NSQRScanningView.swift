@@ -59,7 +59,6 @@ extension QRScannerView {
 
     var canEnableTorch: Bool {
         guard let camera = videoCaptureDevice else { return false }
-
         return camera.hasTorch && camera.isTorchAvailable
     }
 

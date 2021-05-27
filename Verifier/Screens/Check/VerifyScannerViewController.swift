@@ -72,6 +72,11 @@ class VerifyScannerViewController: ViewController {
             guard let strongSelf = self else { return }
             strongSelf.dismissTouchUpCallback?()
         }
+
+        lightButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.toggleLight()
+        }
     }
 
     private func setup() {
@@ -117,21 +122,18 @@ class VerifyScannerViewController: ViewController {
             make.size.equalTo(44.0)
         }
 
-        view.addSubview(lightButton)
-        lightButton.snp.makeConstraints { make in
-            let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0.0
-            if bottomPadding > 0 {
-                make.bottom.equalTo(self.view.snp.bottomMargin).inset(Padding.medium)
-            } else {
-                make.bottom.equalToSuperview().inset(Padding.large)
+        if qrView?.canEnableTorch ?? false {
+            view.addSubview(lightButton)
+            lightButton.snp.makeConstraints { make in
+                let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0.0
+                if bottomPadding > 0 {
+                    make.bottom.equalTo(self.view.snp.bottomMargin).inset(Padding.medium)
+                } else {
+                    make.bottom.equalToSuperview().inset(Padding.large)
+                }
+
+                make.right.equalToSuperview().offset(-Padding.medium - Padding.small)
             }
-
-            make.right.equalToSuperview().offset(-Padding.medium - Padding.small)
-        }
-
-        lightButton.touchUpCallback = { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.toggleLight()
         }
 
         cameraErrorView = CameraErrorView(backgroundColor: UIColor(white: 0.6, alpha: 1.0), center: true)
