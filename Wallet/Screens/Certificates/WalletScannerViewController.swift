@@ -100,11 +100,14 @@ class WalletScannerViewController: ViewController {
 
         backgroundView.addSubview(explanationLabel)
         backgroundView.addSubview(imageView)
-        backgroundView.addSubview(lightButton)
 
-        lightButton.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(Padding.medium)
-            make.centerY.equalTo(self.backgroundView.snp.top)
+        if qrView?.canEnableTorch ?? false {
+            backgroundView.addSubview(lightButton)
+
+            lightButton.snp.makeConstraints { make in
+                make.right.equalToSuperview().inset(Padding.medium)
+                make.centerY.equalTo(self.backgroundView.snp.top)
+            }
         }
 
         imageView.snp.makeConstraints { make in
