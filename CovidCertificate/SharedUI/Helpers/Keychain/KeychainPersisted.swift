@@ -1,0 +1,47 @@
+/*
+ * Copyright (c) 2021 Ubique Innovation AG <https://www.ubique.ch>
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ *
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import Foundation
+
+@propertyWrapper
+class KeychainPersisted<Value: Codable> {
+    init(key: String, defaultValue: Value, keychain: KeychainProtocol = Keychain()) {
+        self.keychain = keychain
+        self.key = KeychainKey(key: key)
+        switch keychain.get(for: self.key) {
+        case let .success(value):
+            wrappedValue = value
+        case .failure:
+            wrappedValue = defaultValue
+        }
+    }
+
+    var keychain: KeychainProtocol {
+        didSet {
+            // in order for unit testing to work we have to relad the value in case of setting the keychain again
+            guard keychain.identifier != oldValue.identifier else { return }
+            reloadValue()
+        }
+    }
+
+    let key: KeychainKey<Value>
+
+    var wrappedValue: Value {
+        didSet {
+            keychain.set(wrappedValue, for: key)
+        }
+    }
+
+    func reloadValue() {
+        if case let Result.success(value) = keychain.get(for: key) {
+            wrappedValue = value
+        }
+    }
+}

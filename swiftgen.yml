@@ -1,0 +1,8 @@
+strings:
+   inputs:
+     - Translations/de.lproj/Localizable.strings
+   outputs:
+     - templatePath: Translations/UBTemplate.stencil
+       output: Translations/Strings+Generated.swift
+       params:
+          enumName: UBLocalized

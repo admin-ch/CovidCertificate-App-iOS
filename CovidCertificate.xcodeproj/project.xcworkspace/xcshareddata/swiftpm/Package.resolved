@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "base45-swift",
+        "repositoryURL": "https://github.com/ehn-digital-green-development/base45-swift",
+        "state": {
+          "branch": "distribution/swiftpackage",
+          "revision": "7c5d3e0640c7f0b949bba1905306867d06f2dbb3",
+          "version": null
+        }
+      },
+      {
+        "package": "CovidCertificateSDK",
+        "repositoryURL": "git@github.com:admin-ch/CovidCertificate-SDK-iOS.git",
+        "state": {
+          "branch": "main",
+          "revision": "bcdadaedd2b4fc5334e3d3bf78336c25477fdfa8",
+          "version": null
+        }
+      },
+      {
+        "package": "Gzip",
+        "repositoryURL": "https://github.com/1024jp/GzipSwift",
+        "state": {
+          "branch": null,
+          "revision": "ba0b6cb51cc6202f896e469b87d2889a46b10d1b",
+          "version": "5.1.1"
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit",
+        "state": {
+          "branch": null,
+          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+          "version": "5.0.1"
+        }
+      },
+      {
+        "package": "SwiftCBOR",
+        "repositoryURL": "https://github.com/unrelentingtech/SwiftCBOR",
+        "state": {
+          "branch": null,
+          "revision": "668c26fc3373d5f1bccbaad7665ca6048797e324",
+          "version": "0.4.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
