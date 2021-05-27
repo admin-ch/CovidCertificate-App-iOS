@@ -106,8 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func willAppearAfterColdstart(_: UIApplication, coldStart _: Bool, backgroundTime _: TimeInterval) {
         // Logic for coldstart / background
-
-        startForceUpdateCheck()
+        startConfigRequest()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -134,7 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Force update
 
-    private func startForceUpdateCheck() {
+    private func startConfigRequest() {
         if WalletUserStorage.shared.hasCompletedOnboarding {
             ConfigManager().startConfigRequest(window: window)
         }

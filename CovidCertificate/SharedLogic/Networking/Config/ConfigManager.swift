@@ -30,14 +30,13 @@ class ConfigManager: NSObject {
         }
     }
 
-    @UBUserDefault(key: "lastBackgroundConfigLoad", defaultValue: nil)
+    @UBUserDefault(key: "lastConfigLoad", defaultValue: nil)
     static var lastConfigLoad: Date?
 
     @UBUserDefault(key: "lastConfigURL", defaultValue: nil)
     static var lastConfigUrl: String?
 
-    static let configForegroundValidityInterval: TimeInterval = 60 * 60 * 12 // 12h
-    static let configBackgroundValidityInterval: TimeInterval = 60 * 60 * 6 // 6h
+    static let configForegroundValidityInterval: TimeInterval = 60 * 60 * 1 // 1h
 
     // MARK: - Version Numbers
 
@@ -58,24 +57,19 @@ class ConfigManager: NSObject {
 
     // MARK: - Start config request
 
-    static func shouldLoadConfig(backgroundTask: Bool, url: String?, lastConfigUrl: String?, lastConfigLoad: Date?) -> Bool {
+    static func shouldLoadConfig(url: String?, lastConfigUrl: String?, lastConfigLoad: Date?) -> Bool {
         // if the config url was changed (by OS version or app version changing) load config in anycase
         if url != lastConfigUrl {
             return true
         }
 
-        if backgroundTask {
-            return lastConfigLoad == nil || Date().timeIntervalSince(lastConfigLoad!) > Self.configBackgroundValidityInterval
-        } else {
-            return lastConfigLoad == nil || Date().timeIntervalSince(lastConfigLoad!) > Self.configForegroundValidityInterval
-        }
+        return lastConfigLoad == nil || Date().timeIntervalSince(lastConfigLoad!) > Self.configForegroundValidityInterval
     }
 
-    public func loadConfig(backgroundTask: Bool, completion: @escaping (ConfigResponseBody?) -> Void) {
+    public func loadConfig(completion: @escaping (ConfigResponseBody?) -> Void) {
         let request = Endpoint.config(appversion: ConfigManager.appVersion, osversion: ConfigManager.osVersion, buildnr: ConfigManager.buildNumber).request()
 
-        guard Self.shouldLoadConfig(backgroundTask: backgroundTask,
-                                    url: request.url?.absoluteString,
+        guard Self.shouldLoadConfig(url: request.url?.absoluteString,
                                     lastConfigUrl: Self.lastConfigUrl,
                                     lastConfigLoad: Self.lastConfigLoad)
         else {
@@ -113,7 +107,7 @@ class ConfigManager: NSObject {
     }
 
     public func startConfigRequest(window: UIWindow?) {
-        loadConfig(backgroundTask: false) { config in
+        loadConfig { config in
             // self must be strong
             if let config = config {
                 self.presentAlertIfNeeded(config: config, window: window)
