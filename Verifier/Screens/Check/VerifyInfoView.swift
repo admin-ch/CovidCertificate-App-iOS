@@ -58,7 +58,7 @@ class VerifyInfoView: UIView {
 
         stackView.axis = .horizontal
         stackView.spacing = p
-        stackView.alignment = .firstBaseline
+        stackView.alignment = .top
 
         addSubview(stackView)
         stackView.snp.makeConstraints { make in
@@ -69,14 +69,15 @@ class VerifyInfoView: UIView {
 
         let s = UIStackView()
         s.axis = .vertical
-        s.spacing = Padding.small
 
         retryContainer.addSubview(retryButton)
         retryButton.snp.makeConstraints { make in
-            make.top.left.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(Padding.small)
+            make.left.bottom.equalToSuperview()
             make.right.lessThanOrEqualToSuperview()
         }
 
+        s.addSpacerView(3.0)
         s.addArrangedView(label)
         s.addArrangedView(retryContainer)
 

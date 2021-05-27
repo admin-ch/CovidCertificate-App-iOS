@@ -54,7 +54,7 @@ class VerifyStatusView: UIView {
 
         stackView.axis = .horizontal
         stackView.spacing = p
-        stackView.alignment = .center
+        stackView.alignment = .top
 
         addSubview(stackView)
         stackView.snp.makeConstraints { make in
@@ -62,6 +62,14 @@ class VerifyStatusView: UIView {
         }
 
         stackView.addArrangedView(imageView)
-        stackView.addArrangedView(boldLabel)
+
+        let v = UIView()
+        v.addSubview(boldLabel)
+        boldLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(3.0)
+            make.left.right.bottom.equalToSuperview()
+        }
+
+        stackView.addArrangedView(v)
     }
 }
