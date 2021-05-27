@@ -23,6 +23,8 @@ protocol QRScannerViewDelegate: AnyObject {
 class QRScannerView: UIView {
     weak var delegate: QRScannerViewDelegate?
 
+    lazy var videoCaptureDevice: AVCaptureDevice? = AVCaptureDevice.default(for: .video)
+
     /// capture settion which allows us to start and stop scanning.
     var captureSession: AVCaptureSession?
 
@@ -81,7 +83,7 @@ extension QRScannerView {
     }
 
     func startCapture() {
-        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
+        guard let videoCaptureDevice = self.videoCaptureDevice else {
             return
         }
         let videoInput: AVCaptureDeviceInput
