@@ -8,6 +8,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+
+// simple user storage only for User Default values
 class WalletUserStorage {
     static let shared = WalletUserStorage()
 
@@ -17,6 +19,10 @@ class WalletUserStorage {
             ConfigManager().startConfigRequest(window: UIApplication.shared.keyWindow?.window)
         }
     }
+}
+
+class CertificateStorage {
+    static let shared = CertificateStorage()
 
     @KeychainPersisted(key: "wallet.user.certificates", defaultValue: [])
     var userCertificates: [UserCertificate] {
