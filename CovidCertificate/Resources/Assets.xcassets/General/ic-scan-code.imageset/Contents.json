@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "elements-icons-ic-qrcode-scan.png",
+      "filename" : "ic-scan-code.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "elements-icons-ic-qrcode-scan@2x.png",
+      "filename" : "ic-scan-code@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "elements-icons-ic-qrcode-scan@3x.png",
+      "filename" : "ic-scan-code@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
