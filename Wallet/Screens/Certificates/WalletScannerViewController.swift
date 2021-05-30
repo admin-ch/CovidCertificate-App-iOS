@@ -204,6 +204,9 @@ class WalletScannerViewController: ViewController {
         UIView.animate(withDuration: 0.25) {
             self.detailViewController.view.alpha = 1.0
         }
+
+        detailViewController.view.accessibilityViewIsModal = true
+        UIAccessibility.post(notification: .screenChanged, argument: detailViewController.view)
     }
 
     private func hideDetail() {
@@ -214,6 +217,9 @@ class WalletScannerViewController: ViewController {
         } completion: { _ in
             self.detailViewController.certificate = nil
         }
+
+        detailViewController.view.accessibilityViewIsModal = false
+        UIAccessibility.post(notification: .screenChanged, argument: view)
     }
 
     private func showError(error: CovidCertError?) {
