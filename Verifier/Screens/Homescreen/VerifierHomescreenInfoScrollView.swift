@@ -11,23 +11,23 @@
 
 import Foundation
 
-class VerifierHomescreenInfoViewController: ViewController {
+class VerifierHomescreenInfoViewController: UIView {
     private let stackScrollView = StackScrollView(axis: .horizontal, spacing: 0)
     private let pageControl = UIPageControl()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    init() {
+        super.init(frame: .zero)
         setup()
         setupInteraction()
     }
 
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     private func setup() {
-        let isSmall = view.frame.size.width <= 375
-        let isUltraSmall = view.frame.size.width <= 320
-
-        view.backgroundColor = .clear
-
-        view.addSubview(pageControl)
+        addSubview(pageControl)
 
         pageControl.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -35,7 +35,7 @@ class VerifierHomescreenInfoViewController: ViewController {
         }
 
         stackScrollView.scrollView.isPagingEnabled = true
-        view.addSubview(stackScrollView)
+        addSubview(stackScrollView)
 
         stackScrollView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -43,19 +43,9 @@ class VerifierHomescreenInfoViewController: ViewController {
             make.bottom.equalTo(self.pageControl.snp.top).offset(-Padding.small)
         }
 
-        stackScrollView.clipsToBounds = false
-        stackScrollView.scrollView.clipsToBounds = false
-        stackScrollView.stackView.clipsToBounds = false
-        stackScrollView.scrollView.delegate = self
-
         pageControl.numberOfPages = 2
 
-        var image1 = UIImage(named: "illu-home-step-1")
-
-        if isUltraSmall || isSmall {
-            image1 = image1?.ub_image(byScaling: isUltraSmall ? 0.45 : 0.7)
-        }
-
+        let image1 = UIImage(named: "illu-home-step-1")
         let v1 = InfoView(text: UBLocalized.verifier_homescreen_pager_description_1, image: image1)
         stackScrollView.addArrangedView(v1)
 
@@ -63,18 +53,18 @@ class VerifierHomescreenInfoViewController: ViewController {
             make.width.equalTo(stackScrollView)
         }
 
-        var image2 = UIImage(named: "illu-home-step-2")
-
-        if isUltraSmall || isSmall {
-            image2 = image2?.ub_image(byScaling: isUltraSmall ? 0.45 : 0.7)
-        }
-
+        let image2 = UIImage(named: "illu-home-step-2")
         let v2 = InfoView(text: UBLocalized.verifier_homescreen_pager_description_2, image: image2)
         stackScrollView.addArrangedView(v2)
 
         v2.snp.makeConstraints { make in
             make.width.equalTo(stackScrollView)
         }
+
+        stackScrollView.clipsToBounds = false
+        stackScrollView.scrollView.clipsToBounds = false
+        stackScrollView.stackView.clipsToBounds = false
+        stackScrollView.scrollView.delegate = self
     }
 
     private func setupInteraction() {
@@ -111,11 +101,11 @@ extension UIScrollView {
 }
 
 private class InfoView: UIView {
-    public let imageView: UIView
+    public let imageView: UIImageView
     private let textLabel: Label
 
     init(text: String, image: UIImage?) {
-        imageView = UIImageView.centered(with: image)
+        imageView = UIImageView(image: image)
         textLabel = Label(.text, textColor: UIColor(ub_hexString: "#2e2e2e"), textAlignment: .center)
         textLabel.text = text
         super.init(frame: .zero)
@@ -137,12 +127,20 @@ private class InfoView: UIView {
             make.left.right.equalToSuperview().inset(inset)
         }
 
+        let ratio = (imageView.image?.size.width ?? 1.0) / (imageView.image?.size.height ?? 1.0)
+
         addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.left.right.equalToSuperview().inset(inset)
+            make.right.lessThanOrEqualToSuperview().inset(inset)
+            make.left.greaterThanOrEqualToSuperview().inset(inset)
+            make.centerX.equalToSuperview()
             make.bottom.equalTo(self.textLabel.snp.top).offset(-Padding.medium)
+            make.width.equalTo(self.imageView.snp.height).multipliedBy(ratio).priority(.required)
         }
+
+        imageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        imageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
 
         textLabel.ub_setContentPriorityRequired()
     }
