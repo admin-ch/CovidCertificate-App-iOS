@@ -24,6 +24,7 @@ class VerifyScannerViewController: ViewController {
         cameraErrorView?.alpha = 0.0
         showError(error: nil)
         qrView?.startScanning()
+        qrView?.setCameraLight(on: isLightOn)
     }
 
     // MARK: - Subviews

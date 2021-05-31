@@ -189,6 +189,8 @@ class WalletScannerViewController: ViewController {
     private func startScanning() {
         cameraErrorView?.alpha = 0.0
         qrView?.startScanning()
+        qrView?.setCameraLight(on: isLightOn)
+
         showError(error: nil)
     }
 
