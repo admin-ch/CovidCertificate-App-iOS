@@ -37,11 +37,14 @@ class HomescreenCertificatesViewController: ViewController {
     private func setup() {
         view.backgroundColor = .clear
 
+        let isSmall = view.frame.size.width <= 375
+        let pageControlBottomPaddig = isSmall ? Padding.large : (Padding.large + Padding.medium)
+
         view.addSubview(pageControl)
 
         pageControl.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.bottom.equalToSuperview().inset(Padding.large + Padding.medium)
+            make.bottom.equalToSuperview().inset(pageControlBottomPaddig)
         }
 
         stackScrollView.scrollView.isPagingEnabled = true

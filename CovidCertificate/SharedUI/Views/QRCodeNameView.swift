@@ -77,6 +77,9 @@ class QRCodeNameView: UIView {
             make.leading.trailing.equalToSuperview().inset(self.qrCodeInset)
             make.bottom.equalToSuperview()
         }
+
+        nameView.ub_setContentPriorityRequired()
+        birthdayLabelView.ub_setContentPriorityRequired()
     }
 
     // MARK: - Update

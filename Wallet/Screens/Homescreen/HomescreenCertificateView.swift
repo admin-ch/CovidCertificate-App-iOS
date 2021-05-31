@@ -65,6 +65,7 @@ class HomescreenCertificateView: UIView {
         }
 
         contentView.addSubview(titleLabel)
+        titleLabel.ub_setContentPriorityRequired()
 
         titleLabel.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview().inset(Padding.large)
@@ -91,7 +92,7 @@ class HomescreenCertificateView: UIView {
 
         contentView.addSubview(stateView)
         stateView.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium)
+            make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium + Padding.small)
             make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
         }
 
