@@ -8,7 +8,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-
 // simple user storage only for User Default values
 class WalletUserStorage {
     static let shared = WalletUserStorage()

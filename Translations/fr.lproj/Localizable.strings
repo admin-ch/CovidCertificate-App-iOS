@@ -57,7 +57,7 @@
 "wallet_scanner_title" = "Ajouter";
 
 /*Titel bei erfolgreicher Prüfung*/
-"verifier_verify_success_title" = "La vérification a réussi";
+"verifier_verify_success_title" = "Vérification réussie";
 
 /*Info Text bei erfolgreicher Prüfung*/
 "verifier_verify_success_info" = "Valable uniquement avec \nune pièce d’identité";
@@ -107,7 +107,6 @@
 /*Header im Onboarding-Screen "Die App"*/
 "wallet_onboarding_app_header" = "L'application";
 
-/*Ist das bewusst mit Zeilentrennung?*/
 /*Titel im Onboardingscreen "Die App"*/
 "wallet_onboarding_app_title" = "COVID Certificate";
 
@@ -121,7 +120,7 @@
 "wallet_onboarding_privacy_header" = "Protection des données";
 
 /*Titel im Onboardingscreen "Datenschutz"*/
-"wallet_onboarding_privacy_title" = "Vos données restent dans l'application";
+"wallet_onboarding_privacy_title" = "Vos données restent \ndans l'application";
 
 /*Text im Onboardingscreen "Datenschutz"*/
 "wallet_onboarding_privacy_text" = "Les certifications sont uniquement stockés localement sur votre téléphone. Les données ne sont pas enregistrées dans un système central.";
@@ -248,7 +247,7 @@
 "wallet_faq_works_subtitle" = "L'app vous permet de stocker des certificats COVID de manière simple et sûre sur votre appareil mobile et de les présenter au moyen de ce dernier.";
 
 /*Antwort 1 im "So funktionierts" Screen beim Scannen*/
-"wallet_scanner_howitworks_answer1" = "Vous pouvez obtenir un certificat COVID après une vaccination complète, une guérison ou un test négatif au COVID-19. Le personnel médical l'établira sur place si vous en faites la demande.";
+"wallet_scanner_howitworks_answer1" = "Vous pouvez obtenir le certificat COVID si vous êtes entièrement vacciné contre le COVID-19, si vous avez guéri de la maladie ou si vous présentez un résultat de test négatif. En général, le certificat est délivré sur demande, par les professionnels de la santé présents sur le site.";
 
 /*Verifier: Detail Check Vorname*/
 "verifier_covid_certificate_prename" = "Prénom";
@@ -262,17 +261,8 @@
 /*Config: Update Button Aktualisieren*/
 "force_update_button" = "Mettre à jour";
 
-/*cf: Angepasst gem. Feedback BAG. War vorher:
-
-Zertifikat gültig ab:
-{DATE}
-Certificate valid from:
-{DATE}
-Certificat valide dès :
-{DATE}*/
 /*Wallet: Zertifikat gültig ab: {DATE}*/
-/*Fuzzy*/
-"wallet_certificate_valid_from" = "En Suisse valide dès : {DATE}";
+"wallet_certificate_valid_from" = "Valable en Suisse à partir du : \n{DATE}";
 
 /*Wallet: Zertifikat Detail Geimpft*/
 "certificate_reason_vaccinated" = "Vaccination";
@@ -328,8 +318,6 @@ Certificat valide dès :
 /*Verifier: Die Gültigkeit des Zertifikat ist abgelaufen*/
 "verifier_verifiy_error_expired" = "Ne remplit pas les critères de validité de la Suisse: La durée de validité du certificat a expiré.";
 
-/*cf: Text angepasst. War vorher:
-Zertifikat ist erst gültig ab {DATE}.*/
 /*Verifier: Zertifikat ist erst gültig ab {DATE}*/
 "verifier_verifiy_error_notyetvalid" = "Ne remplit pas les critères de validité de la Suisse: Le certificat n'est pas encore valable.";
 
@@ -366,7 +354,6 @@ Zertifikat ist erst gültig ab {DATE}.*/
 /*Meldung wenn erneute ein Zertifikat gescannt wurde, welches bereits in der App ist*/
 "wallet_certificate_already_exists" = "Le certificat est déjà enregistré dans l'application.";
 
-/*Umbruch prüfen*/
 /*Titel Gültigkeit im Zertifikatsdetail*/
 "wallet_certificate_validity" = "Validité en \nSuisse";
 
@@ -394,7 +381,6 @@ Zertifikat ist erst gültig ab {DATE}.*/
 "wallet_certificate_vaccination_country_title" = "Pays de vaccination";
 
 /*Prüfen mit PDF Translation*/
-/*Fuzzy*/
 "wallet_certificate_vaccination_issuer_title" = "Délivré par";
 "covid_certificate_recovery_title" = "Guérison";
 "wallet_certificate_recovery_first_positiv_result" = "Date du premier résultat positif";
@@ -403,18 +389,12 @@ Zertifikat ist erst gültig ab {DATE}.*/
 "wallet_certificate_test_land" = "Pays de test";
 "covid_certificate_test_title" = "Test";
 "wallet_certificate_test_result_title" = "Résultat";
-
-/*Fuzzy*/
 "wallet_certificate_test_result_negativ" = "NÉGATIF";
-
-/*Fuzzy*/
 "wallet_certificate_test_result_positiv" = "POSITIF";
 "wallet_certificate_test_type" = "Type";
 "wallet_certificate_test_name" = "Nom";
 "wallet_certificate_test_holder" = "Fabricant";
 "wallet_certificate_test_sample_date_title" = "Date du prélèvement de l'échantillon";
-
-/*Fuzzy*/
 "wallet_certificate_test_result_date_title" = "Date du résultat";
 
 /*Header im "So funktionierts" Screen der Verifier-App*/
@@ -478,7 +458,7 @@ Zertifikat ist erst gültig ab {DATE}.*/
 "verifier_faq_works_question_4" = "Peut-on aussi contrôler des certificats étrangers?";
 
 /*Antwort 4 im FAQ der Verifier App*/
-"verifier_faq_works_answer_4" = "Oui. L'app de contrôle permet de vérifier si les certificats COVID compatibles avec le certificat vert numérique de l'Union européenne remplissent les critères de validité fixés par la Suisse.";
+"verifier_faq_works_answer_4" = "Oui. L'app de contrôle permet de vérifier si les certificats COVID compatibles avec le certificat COVID numérique de l'UE remplissent les critères de validité fixés par la Suisse.";
 
 /*Frage 5 im FAQ der Verifier App*/
 "verifier_faq_works_question_5" = "À quelles données ai-je accès lors du contrôle?";
@@ -500,8 +480,6 @@ Zertifikat ist erst gültig ab {DATE}.*/
 
 /*Wallet: Hinweis im Zertifikat Detail*/
 "wallet_certificate_detail_note" = "La présente attestation ne constitue pas un document de voyage.\n\nLes connaissances scientifiques sur la vaccination contre le COVID-19, les tests et le rétablissement après une infection évoluent en permanence, y compris en ce qui concerne les nouveaux variants préoccupants du virus.\n\nAvant de partir en voyage, veuillez vérifier les mesures sanitaires applicables à votre destination et les restrictions associées.";
-
-/*Fuzzy*/
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/fr/home/documentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/fr/home/documentation/covid-certificate-check-app.html";
 
