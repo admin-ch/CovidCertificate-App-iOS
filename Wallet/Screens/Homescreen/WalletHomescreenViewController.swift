@@ -37,14 +37,14 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupViews()
-        setupInteraction()
-
         UIStateManager.shared.addObserver(self) { [weak self] s in
             guard let strongSelf = self else { return }
             strongSelf.state = s.certificateState.certificates.count == 0 ? .onboarding : .certificates
             strongSelf.infoBox = s.infoBoxState
         }
+
+        setupViews()
+        setupInteraction()
     }
 
     // MARK: - Update
