@@ -176,16 +176,6 @@ class CertificateTableViewCell: UITableViewCell {
             actions()
         }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        stateLabel.restoreBackgroundColor()
-    }
-
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(highlighted, animated: animated)
-        stateLabel.restoreBackgroundColor()
-    }
 }
 
 private class StateLabel: UIView {
@@ -194,10 +184,6 @@ private class StateLabel: UIView {
     private let label = Label(.smallUppercaseBold)
 
     // MARK: - Properties
-
-    private var currentBackgroundColor = UIColor.clear {
-        didSet { backgroundColor = currentBackgroundColor }
-    }
 
     public var type: CertType? {
         didSet { update() }
@@ -219,12 +205,6 @@ private class StateLabel: UIView {
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    // MARK: - iOS 12.0 tableview background color restoration
-
-    public func restoreBackgroundColor() {
-        backgroundColor = currentBackgroundColor
     }
 
     // MARK: - Setup
@@ -249,18 +229,29 @@ private class StateLabel: UIView {
             if let r = type {
                 switch r {
                 case .recovery, .vaccination:
-                    currentBackgroundColor = .cc_blue
+                    backgroundColor = .cc_blue
                     label.textColor = .cc_white
                 case .test:
-                    currentBackgroundColor = .cc_blueish
+                    backgroundColor = .cc_blueish
                     label.textColor = .cc_blue
                 }
             } else {
-                currentBackgroundColor = .clear
+                backgroundColor = .clear
             }
         } else {
-            currentBackgroundColor = .cc_greyBackground
+            backgroundColor = .cc_greyBackground
             label.textColor = .cc_greyText
         }
     }
+
+    // Fix for iOS 12:
+    // This prevents removal of the background color when this view is in a UITableViewCell that gets selected/highlighted/reordered
+    override var backgroundColor: UIColor? {
+        didSet {
+            if let alpha = backgroundColor?.cgColor.alpha, alpha == 0 {
+                backgroundColor = oldValue
+            }
+        }
+    }
+
 }
