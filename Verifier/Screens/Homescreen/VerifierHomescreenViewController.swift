@@ -86,16 +86,14 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
             make.bottom.equalTo(checkButton.snp.top).offset(isUltraSmall ? 0 : -Padding.large)
         }
 
-        let infoVC = VerifierHomescreenInfoViewController()
-        v.addSubview(infoVC.view)
-        infoVC.view.snp.makeConstraints { make in
+        let infoVC = VerifierHomescreenInfoView()
+        v.addSubview(infoVC)
+        infoVC.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.centerY.equalToSuperview()
             make.top.greaterThanOrEqualToSuperview()
             make.bottom.lessThanOrEqualToSuperview()
         }
-
-        infoVC.didMove(toParent: self)
 
         headerLabel.text = UBLocalized.verifier_homescreen_header_title
         titleLabel.text = UBLocalized.verifier_homescreen_title
