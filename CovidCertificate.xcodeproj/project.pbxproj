@@ -83,7 +83,7 @@
 		6EA5C35E2643FFFC00EA066F /* CertificateDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C35D2643FFFC00EA066F /* CertificateDetailViewController.swift */; };
 		6EA5C3602644133E00EA066F /* QRCodeNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C35F2644133E00EA066F /* QRCodeNameView.swift */; };
 		6EA5C362264418ED00EA066F /* BasicStaticContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C361264418ED00EA066F /* BasicStaticContentViewController.swift */; };
-		6EA5C3642644298E00EA066F /* VerifierHomescreenInfoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C3632644298E00EA066F /* VerifierHomescreenInfoScrollView.swift */; };
+		6EA5C3642644298E00EA066F /* VerifierHomescreenInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C3632644298E00EA066F /* VerifierHomescreenInfoView.swift */; };
 		6EA5C36526442D5500EA066F /* UIImageView+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C3572643C91A00EA066F /* UIImageView+CC.swift */; };
 		6EA5C36626442EBD00EA066F /* QRCodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C3592643CF0C00EA066F /* QRCodeUtils.swift */; };
 		6EA5C36C2644310D00EA066F /* VerifierImprintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C36B2644310D00EA066F /* VerifierImprintViewController.swift */; };
@@ -327,7 +327,7 @@
 		6EA5C35D2643FFFC00EA066F /* CertificateDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateDetailViewController.swift; sourceTree = "<group>"; };
 		6EA5C35F2644133E00EA066F /* QRCodeNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeNameView.swift; sourceTree = "<group>"; };
 		6EA5C361264418ED00EA066F /* BasicStaticContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicStaticContentViewController.swift; sourceTree = "<group>"; };
-		6EA5C3632644298E00EA066F /* VerifierHomescreenInfoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierHomescreenInfoScrollView.swift; sourceTree = "<group>"; };
+		6EA5C3632644298E00EA066F /* VerifierHomescreenInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierHomescreenInfoView.swift; sourceTree = "<group>"; };
 		6EA5C36B2644310D00EA066F /* VerifierImprintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierImprintViewController.swift; sourceTree = "<group>"; };
 		6EA5C36D26444E5600EA066F /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		6EA5C36F26444E6300EA066F /* VerifyScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyScannerViewController.swift; sourceTree = "<group>"; };
@@ -759,7 +759,7 @@
 			isa = PBXGroup;
 			children = (
 				6EC1735E2642A1B4002E27DB /* VerifierHomescreenViewController.swift */,
-				6EA5C3632644298E00EA066F /* VerifierHomescreenInfoScrollView.swift */,
+				6EA5C3632644298E00EA066F /* VerifierHomescreenInfoView.swift */,
 			);
 			path = Homescreen;
 			sourceTree = "<group>";
@@ -1378,7 +1378,7 @@
 				6EC1731526429E31002E27DB /* LayoutConstants.swift in Sources */,
 				6EC1731626429E31002E27DB /* KeychainPersisted.swift in Sources */,
 				6E8F52DA265BA94B00406430 /* CameraErrorView.swift in Sources */,
-				6EA5C3642644298E00EA066F /* VerifierHomescreenInfoScrollView.swift in Sources */,
+				6EA5C3642644298E00EA066F /* VerifierHomescreenInfoView.swift in Sources */,
 				6EA5C36626442EBD00EA066F /* QRCodeUtils.swift in Sources */,
 				6EC1731726429E31002E27DB /* Logger.swift in Sources */,
 				6EF166DC264E637C00426985 /* UIStateModel.swift in Sources */,

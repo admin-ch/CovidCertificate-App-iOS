@@ -86,7 +86,7 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
             make.bottom.equalTo(checkButton.snp.top).offset(isUltraSmall ? 0 : -Padding.large)
         }
 
-        let infoVC = VerifierHomescreenInfoViewController()
+        let infoVC = VerifierHomescreenInfoView()
         v.addSubview(infoVC)
         infoVC.snp.makeConstraints { make in
             make.left.right.equalToSuperview()

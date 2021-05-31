@@ -11,7 +11,7 @@
 
 import Foundation
 
-class VerifierHomescreenInfoViewController: UIView {
+class VerifierHomescreenInfoView: UIView {
     private let stackScrollView = StackScrollView(axis: .horizontal, spacing: 0)
     private let pageControl = UIPageControl()
 
@@ -83,7 +83,7 @@ class VerifierHomescreenInfoViewController: UIView {
     }
 }
 
-extension VerifierHomescreenInfoViewController: UIScrollViewDelegate {
+extension VerifierHomescreenInfoView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentPage = pageControl.currentPage
         let currentScrollPage = scrollView.currentPage
