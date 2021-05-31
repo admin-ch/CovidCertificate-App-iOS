@@ -26,7 +26,7 @@ class CertificateAddDetailViewController: ViewController {
             }
 
             certificateDetailView.certificate = cert
-            alreadyHasCertificate = WalletUserStorage.shared.userCertificates.contains(cert)
+            alreadyHasCertificate = CertificateStorage.shared.userCertificates.contains(cert)
         }
     }
 

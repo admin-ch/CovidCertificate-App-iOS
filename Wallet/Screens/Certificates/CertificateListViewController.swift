@@ -73,7 +73,7 @@ class CertificateListViewController: ViewController {
 
     private func update() {
         if !didReorder {
-            certificates = WalletUserStorage.shared.userCertificates
+            certificates = CertificateStorage.shared.userCertificates
 
             if certificates.count == 0 {
                 dismiss(animated: true, completion: nil)
@@ -106,7 +106,7 @@ extension CertificateListViewController: UITableViewDelegate {
         certificates.insert(movedObject, at: destinationIndexPath.row)
 
         didReorder = true
-        WalletUserStorage.shared.userCertificates = certificates
+        CertificateStorage.shared.userCertificates = certificates
     }
 
     func tableView(_: UITableView, editingStyleForRowAt _: IndexPath) -> UITableViewCell.EditingStyle {
