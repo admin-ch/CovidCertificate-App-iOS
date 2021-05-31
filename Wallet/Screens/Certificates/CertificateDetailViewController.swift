@@ -137,12 +137,15 @@ class CertificateDetailViewController: ViewController {
 
         verifyButton.backgroundColor = .cc_blue
         verifyButton.tintColor = .cc_white
-        verifyButton.layer.cornerRadius = 20
-        verifyButton.highlightCornerRadius = 20
+        let size: CGFloat = 50.0
+        verifyButton.layer.cornerRadius = size * 0.5
+        verifyButton.highlightCornerRadius = size * 0.5
+        verifyButton.ub_addShadow(radius: 4.0, opacity: 0.2, xOffset: 0.0, yOffset: 0.0)
         view.addSubview(verifyButton)
         verifyButton.snp.makeConstraints { make in
-            make.size.equalTo(40)
-            make.trailing.bottom.equalTo(view.safeAreaLayoutGuide).inset(Padding.large)
+            make.size.equalTo(size)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Padding.large)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(Padding.large + Padding.small)
         }
 
         update()

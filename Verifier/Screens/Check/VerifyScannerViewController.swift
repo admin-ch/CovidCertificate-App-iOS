@@ -117,7 +117,7 @@ class VerifyScannerViewController: ViewController {
         backgroundView.addSubview(closeButton)
 
         closeButton.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(Padding.small)
+            make.right.equalToSuperview().inset(Padding.small)
             make.centerY.equalTo(label)
             make.size.equalTo(44.0)
         }

@@ -22,7 +22,7 @@ class WalletScannerViewController: ViewController {
 
     private let backgroundView = RoundBackgroundView(backgroundColor: UIColor.cc_white, down: false)
 
-    private let imageView = UIImageView(image: UIImage(named: "ic-qrcode-scan"))
+    private let imageView = UIImageView(image: UIImage(named: "ic-scan-code"))
     private let explanationLabel = Label(.textBoldLarge, textAlignment: .center)
     private let moreInfoButton = SimpleTextButton(title: UBLocalized.wallet_scanner_info_button, color: .cc_blue)
 

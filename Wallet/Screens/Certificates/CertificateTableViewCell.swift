@@ -176,10 +176,28 @@ class CertificateTableViewCell: UITableViewCell {
             actions()
         }
     }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        stateLabel.restoreBackgroundColor()
+    }
+
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        stateLabel.restoreBackgroundColor()
+    }
 }
 
 private class StateLabel: UIView {
+    // MARK: - Subviews
+
     private let label = Label(.smallUppercaseBold)
+
+    // MARK: - Properties
+
+    private var currentBackgroundColor = UIColor.clear {
+        didSet { backgroundColor = currentBackgroundColor }
+    }
 
     public var type: CertType? {
         didSet { update() }
@@ -188,6 +206,8 @@ private class StateLabel: UIView {
     public var enabled: Bool = true {
         didSet { update() }
     }
+
+    // MARK: - Init
 
     init() {
         super.init(frame: .zero)
@@ -201,14 +221,22 @@ private class StateLabel: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - iOS 12.0 tableview background color restoration
+
+    public func restoreBackgroundColor() {
+        backgroundColor = currentBackgroundColor
+    }
+
+    // MARK: - Setup
+
     private func setup() {
+        layer.cornerRadius = 4.0
+
         addSubview(label)
         label.snp.makeConstraints { make in
             make.right.left.equalToSuperview().inset(Padding.small)
             make.top.bottom.equalToSuperview().inset(2.0)
         }
-
-        layer.cornerRadius = 4.0
 
         update()
     }
@@ -221,17 +249,17 @@ private class StateLabel: UIView {
             if let r = type {
                 switch r {
                 case .recovery, .vaccination:
-                    backgroundColor = .cc_blue
+                    currentBackgroundColor = .cc_blue
                     label.textColor = .cc_white
                 case .test:
-                    backgroundColor = .cc_blueish
+                    currentBackgroundColor = .cc_blueish
                     label.textColor = .cc_blue
                 }
             } else {
-                backgroundColor = .clear
+                currentBackgroundColor = .clear
             }
         } else {
-            backgroundColor = .cc_greyBackground
+            currentBackgroundColor = .cc_greyBackground
             label.textColor = .cc_greyText
         }
     }
