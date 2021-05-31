@@ -163,8 +163,8 @@ class CertificateStateView: UIView {
                 case let .invalid(errors, _, validUntil):
                     self.imageView.image = errors.first?.icon()
                     self.textLabel.attributedText = errors.first?.displayName()
-                    self.backgroundView.backgroundColor = .cc_blueish
-                    self.validityView.backgroundColor = .cc_blueish
+                    self.backgroundView.backgroundColor = .cc_greyish
+                    self.validityView.backgroundColor = .cc_greyish
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
                 case .retry:
