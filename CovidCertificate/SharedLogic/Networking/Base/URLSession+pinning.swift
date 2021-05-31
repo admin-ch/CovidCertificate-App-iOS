@@ -89,10 +89,9 @@ class CertificateEvaluator: NSObject, URLSessionDelegate {
                      "www.cc.bit.admin.ch"]
         for host in hosts {
             if let certificate = bundle.getCertificate(with: host) {
-                let evaluator = UBPinnedCertificatesTrustEvaluator(certificates: [certificate],
-                                                                   acceptSelfSignedCertificates: true,
-                                                                   performDefaultValidation: false,
-                                                                   validateHost: true)
+                // since we currently pin the Amazon Global CA we never want to accept self signed certificates in the trust-store
+                // and we also want all the default evalutions check for validity.
+                let evaluator = UBPinnedCertificatesTrustEvaluator(certificates: [certificate])
                 evaluators[host] = evaluator
             } else {
                 assertionFailure("Could not load certificate for pinned host")
