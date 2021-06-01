@@ -34,6 +34,7 @@ class QRScannerView: UIView {
         lampOn = false
         super.init(frame: .zero)
         self.delegate = delegate
+        clipsToBounds = true
     }
 
     @available(*, unavailable)
@@ -63,8 +64,11 @@ extension QRScannerView {
     }
 
     func startScanning() {
-        doInitialSetup()
-        captureSession?.startRunning()
+        setupCaptureSessionIfNeeded()
+
+        if let c = captureSession, !c.isRunning {
+            c.startRunning()
+        }
     }
 
     public func setCameraLight(on: Bool) {
@@ -83,16 +87,24 @@ extension QRScannerView {
     }
 
     /// Does the initial setup for captureSession
-    private func doInitialSetup() {
-        clipsToBounds = true
-        captureSession = AVCaptureSession()
-        startCapture()
+    private func setupCaptureSessionIfNeeded() {
+        // check if user didn't deny camera usage to show error
+        if AVCaptureDevice.authorizationStatus(for: .video) == .denied {
+            scanningDidFail()
+            return
+        }
+
+        if captureSession == nil {
+            captureSession = AVCaptureSession()
+            startCapture()
+        }
     }
 
     func startCapture() {
         guard let videoCaptureDevice = self.videoCaptureDevice else {
             return
         }
+
         let videoInput: AVCaptureDeviceInput
         do {
             videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
