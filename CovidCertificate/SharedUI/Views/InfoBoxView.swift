@@ -71,7 +71,7 @@ class InfoBoxView: UIView {
         }, completion: { _ in })
     }
 
-    public func dismiss() {
+    @objc public func dismiss() {
         if viewPoint == .zero {
             return
         }
@@ -169,6 +169,9 @@ class InfoBoxView: UIView {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
+
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismiss))
+        backgroundView.addGestureRecognizer(tapGestureRecognizer)
     }
 
     // MARK: - Update
