@@ -301,7 +301,7 @@ class VerifyNameBirthdayView: UIView {
         }
 
         override var accessibilityLabel: String? {
-            get { return [titleLabel.accessibilityLabel, descriptionLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ") }
+            get { return [descriptionLabel.accessibilityLabel, titleLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ") }
             set { super.accessibilityLabel = newValue }
         }
     }
@@ -337,7 +337,7 @@ class VerifyNameBirthdayView: UIView {
         birthdayView.descriptionLabel.text = UBLocalized.verifier_covid_certificate_birthdate
 
         accessibilityElements = [lastNameView, nameView, birthdayView, monoLabel]
-        isAccessibilityElement = true
+        isAccessibilityElement = false
     }
 
     @available(*, unavailable)
