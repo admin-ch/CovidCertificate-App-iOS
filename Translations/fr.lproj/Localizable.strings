@@ -60,7 +60,7 @@
 "verifier_verify_success_title" = "Vérification réussie";
 
 /*Info Text bei erfolgreicher Prüfung*/
-"verifier_verify_success_info" = "Valable uniquement avec \nune pièce d’identité";
+"verifier_verify_success_info" = "Valable uniquement avec \nune pièce d'identité";
 
 /*Prüfung loading text*/
 "verifier_verify_loading_text" = "Vérification en cours";
@@ -123,7 +123,7 @@
 "wallet_onboarding_privacy_title" = "Vos données restent \ndans l'application";
 
 /*Text im Onboardingscreen "Datenschutz"*/
-"wallet_onboarding_privacy_text" = "Les certifications sont uniquement stockés localement sur votre téléphone. Les données ne sont pas enregistrées dans un système central.";
+"wallet_onboarding_privacy_text" = "Les certificats sont uniquement stockés localement sur votre téléphone. Les données ne sont pas enregistrées dans un système central.";
 
 /*Titel im Onboardingscreen "Vorteile, Vorweisen"*/
 "wallet_onboarding_show_title" = "Présenter facilement vos certificats";
@@ -154,7 +154,7 @@
 "wallet_scanner_howitworks_text1" = "Pour ajouter un certificat COVID dans l'application, vous avez besoin de l'original en papier ou en PDF.";
 
 /*Textblock 2 im "So funktionierts" Screen beim Scannen*/
-"wallet_scanner_howitworks_text2" = "Cliquez sur \"Ajouter\" dans l'application pour ajouter un nouveau certification dans l'application.";
+"wallet_scanner_howitworks_text2" = "Cliquez sur \"Ajouter\" dans l'application pour ajouter un nouveau certificat dans l'application.";
 
 /*Textblock 3 im "So funktionierts" Screen beim Scannen*/
 "wallet_scanner_howitworks_text3" = "Maintenez l'appareil photo du téléphone sur le code QR du certificat original pour le scanner.";
