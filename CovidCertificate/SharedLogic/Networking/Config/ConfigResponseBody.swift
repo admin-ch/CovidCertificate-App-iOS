@@ -71,8 +71,7 @@ extension ConfigResponseBody {
         var models = [StaticContentViewModel]()
         if let imageString1 = questions?.value?.faqIconIos,
            let title1 = questions?.value?.faqTitle,
-           let subtitle1 = questions?.value?.faqSubTitle
-        {
+           let subtitle1 = questions?.value?.faqSubTitle {
             models.append(StaticContentViewModel(heading: nil,
                                                  foregroundImage: UIImage(named: imageString1),
                                                  title: title1,
@@ -82,8 +81,7 @@ extension ConfigResponseBody {
 
         if let imageString2 = works.value?.faqIconIos,
            let title2 = works.value?.faqTitle,
-           let subtitle2 = works.value?.faqSubTitle
-        {
+           let subtitle2 = works.value?.faqSubTitle {
             models.append(StaticContentViewModel(heading: nil,
                                                  foregroundImage: UIImage(named: imageString2),
                                                  title: title2,

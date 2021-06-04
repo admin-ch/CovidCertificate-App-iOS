@@ -146,8 +146,7 @@ extension Bundle {
     func getCertificate(with name: String, fileExtension: String = "der") -> SecCertificate? {
         if let certificateURL = url(forResource: name, withExtension: fileExtension),
            let certificateData = try? Data(contentsOf: certificateURL),
-           let certificate = SecCertificateCreateWithData(nil, certificateData as CFData)
-        {
+           let certificate = SecCertificateCreateWithData(nil, certificateData as CFData) {
             return certificate
         }
         return nil
