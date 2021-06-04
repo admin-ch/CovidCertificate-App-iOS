@@ -47,8 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let launchOptions = launchOptions,
            let activityType = launchOptions[UIApplication.LaunchOptionsKey.userActivityType] as? String,
            activityType == NSUserActivityTypeBrowsingWeb,
-           let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL
-        {
+           let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL {
             linkHandler.handle(url: url)
         }
 

@@ -253,5 +253,4 @@ private class StateLabel: UIView {
             }
         }
     }
-
 }

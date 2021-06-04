@@ -145,8 +145,7 @@ class HomescreenBaseViewController: ViewController {
         }
 
         if let infoBox = infoBox,
-           !InfoBoxVisibilityManager.shared.dismissedInfoBoxIds.contains(infoBox.infoId ?? "")
-        {
+           !InfoBoxVisibilityManager.shared.dismissedInfoBoxIds.contains(infoBox.infoId ?? "") {
             presentInfoBox()
         } else {
             dismissInfoBox()
