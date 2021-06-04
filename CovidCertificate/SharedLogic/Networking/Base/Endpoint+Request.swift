@@ -27,11 +27,12 @@ extension Endpoint {
     }
 
     private var userAgentHeader: String {
+        let bundleIdentifier = Bundle.main.bundleIdentifier ?? ""
         let appVersion = Bundle.appVersion
         let build = Bundle.buildNumber
         let os = "iOS"
         let systemVersion = UIDevice.current.systemVersion
-        let header = [appVersion, build, os, systemVersion].joined(separator: ";")
+        let header = [bundleIdentifier, appVersion, build, os, systemVersion].joined(separator: ";")
         return header
     }
 }
