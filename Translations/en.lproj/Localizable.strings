@@ -205,7 +205,7 @@
 "wallet_faq_works_question_5" = "What data is contained in the QR code?";
 
 /*Frage 11 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_question_6" = "What if I delete the COVID certificate or the app?";
+"wallet_faq_works_question_6" = "What do I need to do if I delete the COVID certificate or the app?";
 
 /*Antwort 1 im FAQ-Screen der Wallet App*/
 "wallet_faq_questions_answer_1" = "You can get a COVID-19 certificate after a complete COVID-19 vaccination, after you have recovered from the virus or after you have tested negative. The certificate is generally issued upon request by health care professionals on site.";
@@ -238,7 +238,7 @@
 "wallet_faq_works_answer_5" = "The QR code contains all the information that is found in plain text on your paper COVID certificate. The QR code also contains an electronic signature that can be used to check the authenticity of the COVID certificate. This makes the COVID certificate forgery-proof.";
 
 /*Antwort 11 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_answer_6" = "You can easily restore your COVID certificate to your mobile device. To do so, scan the QR code on your paper or PDF COVID certificate again.";
+"wallet_faq_works_answer_6" = "You can easily restore your COVID certificate on your mobile device. To do so, download the app again and then scan the QR code on your paper or PDF COVID certificate.";
 
 /*Titel 2 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_title" = "How the app works";
@@ -374,7 +374,6 @@
 "wallet_certificate_impfdosis_title" = "Dose";
 "target_disease_name" = "Covid-19";
 "wallet_certificate_target_disease_title" = "Disease or agent targeted";
-"wallet_certificate_impfstoff_title" = "Vaccine type";
 "wallet_certificate_impfstoff_product_name_title" = "Product";
 "wallet_certificate_impfstoff_holder" = "Manufacturer";
 "wallet_certificate_vaccination_date_title" = "Date of vaccination";
@@ -389,8 +388,8 @@
 "wallet_certificate_test_land" = "Country of Test";
 "covid_certificate_test_title" = "Test";
 "wallet_certificate_test_result_title" = "Result";
-"wallet_certificate_test_result_negativ" = "NEGATIVE";
-"wallet_certificate_test_result_positiv" = "POSITIVE";
+"wallet_certificate_test_result_negativ" = "Not detected (Negative)";
+"wallet_certificate_test_result_positiv" = "Positive";
 "wallet_certificate_test_type" = "Type";
 "wallet_certificate_test_name" = "Name";
 "wallet_certificate_test_holder" = "Manufacturer";
@@ -440,7 +439,7 @@
 "verifier_faq_works_question_1" = "How can COVID certificates be checked?";
 
 /*Antwort 1 im FAQ der Verifier App*/
-"verifier_faq_works_answer_1" = "To check a COVID certificate, scan the QR code on the paper certificate or in the COVID Certificate app presented.";
+"verifier_faq_works_answer_1" = "To check a COVID certificate, use the dedicated COVID Certificate Check app to scan the QR code on the paper certificate or in the COVID Certificate app presented.";
 
 /*Frage 2 im FAQ der Verifier App*/
 "verifier_faq_works_question_2" = "What exactly is checked?";
@@ -452,7 +451,7 @@
 "verifier_faq_works_question_3" = "Which identification documents are valid? Why do personal details have to be checked?";
 
 /*Antwort 3 im FAQ der Verifier App*/
-"verifier_faq_works_answer_3" = "Passports and ID cards are accepted as valid identification documents. Although the COVID certificate is forgery-proof, the only way to ensure that the certificate shown was issued to the person presenting it is to check the personal details.";
+"verifier_faq_works_answer_3" = "Aside from passports or ID cards, other photo identification documents that prove the identity of the person in question (e.g. driving licence) are also accepted. Although the COVID-19 certificate is forgery-proof, the only way to ensure that the certificate shown was issued to the person presenting it is to check the personal details.";
 
 /*Frage 4 im FAQ der Verifier App*/
 "verifier_faq_works_question_4" = "Can foreign certificates also be checked?";
@@ -485,3 +484,17 @@
 
 /*Verifier: Titel in der App (z.B. Impressum)*/
 "verifier_app_title" = "COVID Certificate Check";
+"wallet_faq_questions_question_1_1" = "How do I get a COVID-19 certificate after I have recovered from COVID-19?";
+"wallet_faq_questions_answer_1_1" = "People who have recovered from COVID-19 can apply for the COVID-19 certificate via an online form on the canton's website. The COVID-19 certificate will then be sent by post.";
+
+/*Wallet: Homescreen Was wollen sie machen?*/
+"wallet_homescreen_what_to_do" = "Was möchten Sie machen?";
+
+/*Wallet: Homescreen Titel Zertifikat hinzufügen*/
+"wallet_homescreen_add_title" = "Zertifikat hinzufügen";
+
+/*Wallet: Homescreen Zertifikat Description Text*/
+"wallet_homescreen_add_certificate_description" = "Sie haben ein Covid-Zertifikat auf Papier oder als PDF und möchten es zur App hinzufügen.";
+
+/*Wallet: Homescreen Transfer-Code erstellen*/
+"wallet_homescreen_add_transfer_code" = "Transfer-Code erstellen";

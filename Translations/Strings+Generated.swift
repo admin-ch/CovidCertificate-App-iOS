@@ -99,15 +99,15 @@ import Foundation
    static let verifier_covid_certificate_name = UBLocalized.tr("Localizable", "verifier_covid_certificate_name")
   /// Vorname
    static let verifier_covid_certificate_prename = UBLocalized.tr("Localizable", "verifier_covid_certificate_prename")
-  /// Um ein Covid-Zertifikat zu prüfen, scannen Sie den QR-Code auf dem Papierzertifikat oder in der vorgewiesenen COVID Certificate App.
+  /// Um ein Covid-Zertifikat zu prüfen, scannen Sie den QR-Code auf dem Papierzertifikat oder in der vorgewiesenen COVID Certificate App mit der dafür vorgesehenen COVID Certificate Check App.
    static let verifier_faq_works_answer_1 = UBLocalized.tr("Localizable", "verifier_faq_works_answer_1")
   /// Beim Scannen werden drei Aspekte geprüft:\n– Enthält das Zertifikat eine gültige elektronische Signatur?\n– Ist das Zertifikat nicht widerrufen worden?\n– Entspricht das Zertifikat den Gültigkeitskriterien der Schweiz?\n\nWenn alle drei Aspekte positiv bewertet werden, wird das Covid-Zertifikat als gültig ausgewiesen.
    static let verifier_faq_works_answer_2 = UBLocalized.tr("Localizable", "verifier_faq_works_answer_2")
-  /// Als gültige Ausweisdokumente werden Pass oder ID akzeptiert. Das Covid-Zertifikat ist zwar fälschungssicher, mit der Überprüfung der Personalien wird aber erst sichergestellt, dass das vorgezeigte Zertifikat auch auf den Vorweisenden ausgestellt wurde.
+  /// Neben Pass oder ID werden auch andere Ausweisdokumente akzeptiert, die die Identität der betreffenden Person mit einem Foto belegen (z.B. Führerausweis). Das Covid-Zertifikat ist zwar fälschungssicher, mit der Überprüfung der Personalien wird aber erst sichergestellt, dass das vorgezeigte Zertifikat auch auf den Vorweisenden ausgestellt wurde.
    static let verifier_faq_works_answer_3 = UBLocalized.tr("Localizable", "verifier_faq_works_answer_3")
   /// Ja, Covid-Zertifikate, die mit dem digitalen COVID-Zertifikat der EU kompatibel sind, können mit der COVID Certificate Check App gegen die Gültigkeitskriterien der Schweiz geprüft werden.
    static let verifier_faq_works_answer_4 = UBLocalized.tr("Localizable", "verifier_faq_works_answer_4")
-  /// Beim Prüfvorgang sehen Sie nur den Namen und das Geburtsdatum des Zertifikatsinhabers und ob das Covid-Zertifikat gültig ist.
+  /// Beim Prüfvorgang sehen Sie nur den Namen und das Geburtsdatum der Zertifikatsinhaberin oder des Zertifikatsinhabers und ob das Covid-Zertifikat gültig ist.
    static let verifier_faq_works_answer_5 = UBLocalized.tr("Localizable", "verifier_faq_works_answer_5")
   /// Nein, beim Prüfvorgang werden keine Daten gespeichert - weder in der COVID Certificate Check App noch in einem zentralen System. Es ist somit nicht möglich nachzuvollziehen, welches Covid-Zertifikat von wem, wann und wo überprüft wurde.
    static let verifier_faq_works_answer_6 = UBLocalized.tr("Localizable", "verifier_faq_works_answer_6")
@@ -199,8 +199,6 @@ import Foundation
    static let wallet_certificate_impfstoff_holder = UBLocalized.tr("Localizable", "wallet_certificate_impfstoff_holder")
   /// Produkt
    static let wallet_certificate_impfstoff_product_name_title = UBLocalized.tr("Localizable", "wallet_certificate_impfstoff_product_name_title")
-  /// Impfstoff
-   static let wallet_certificate_impfstoff_title = UBLocalized.tr("Localizable", "wallet_certificate_impfstoff_title")
   /// Zertifikate
    static let wallet_certificate_list_title = UBLocalized.tr("Localizable", "wallet_certificate_list_title")
   /// Datum des ersten positiven Resultats
@@ -221,9 +219,9 @@ import Foundation
    static let wallet_certificate_test_name = UBLocalized.tr("Localizable", "wallet_certificate_test_name")
   /// Datum Resultat
    static let wallet_certificate_test_result_date_title = UBLocalized.tr("Localizable", "wallet_certificate_test_result_date_title")
-  /// NEGATIV
+  /// Nicht erkannt (Negativ)
    static let wallet_certificate_test_result_negativ = UBLocalized.tr("Localizable", "wallet_certificate_test_result_negativ")
-  /// POSITIV
+  /// Positiv
    static let wallet_certificate_test_result_positiv = UBLocalized.tr("Localizable", "wallet_certificate_test_result_positiv")
   /// Ergebnis
    static let wallet_certificate_test_result_title = UBLocalized.tr("Localizable", "wallet_certificate_test_result_title")
@@ -269,16 +267,20 @@ import Foundation
    static let wallet_faq_header = UBLocalized.tr("Localizable", "wallet_faq_header")
   /// Ein Covid-Zertifikat können Sie nach einer vollständigen Covid-19-Impfung, nach einer durchgemachten Erkrankung oder nach einem negativen Testergebnis erhalten. Das Zertifikat stellt Ihnen in der Regel das Gesundheitsfachpersonal vor Ort auf Anfrage aus.
    static let wallet_faq_questions_answer_1 = UBLocalized.tr("Localizable", "wallet_faq_questions_answer_1")
-  /// Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass sie in jedem Fall auch noch ein Ausweisdokument (Pass oder ID) vorweisen müssen.
+  /// Von Covid-19 genesene Personen können das Covid-Zertifikat über ein Online-Formular auf der Webseite des Kantons beantragen. Das Covid-Zertifikat wird anschliessend per Post zugeschickt.
+   static let wallet_faq_questions_answer_1_1 = UBLocalized.tr("Localizable", "wallet_faq_questions_answer_1_1")
+  /// Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.
    static let wallet_faq_questions_answer_2 = UBLocalized.tr("Localizable", "wallet_faq_questions_answer_2")
   /// Ihre Daten werden nicht in einem zentralen System gespeichert, sondern nur lokal auf Ihrem Mobilgerät, respektive im QR-Code auf dem Covid-Zertifikat in Papierform.
    static let wallet_faq_questions_answer_3 = UBLocalized.tr("Localizable", "wallet_faq_questions_answer_3")
-  /// Der QR-Code auf dem Covid-Zertifikat enthält eine elektronische Signatur. Die Signatur ist ein wichtiges Sicherheitsmerkmal und macht das Covid-Zertifikat fälschungssicher. Das Covid-Zertifikat ist zudem nur in Kombination mit einem Ausweisdokument (Pass oder ID) gültig.
+  /// Der QR-Code auf dem Covid-Zertifikat enthält eine elektronische Signatur. Die Signatur ist ein wichtiges Sicherheitsmerkmal und macht das Covid-Zertifikat fälschungssicher. Das Covid-Zertifikat ist zudem nur in Kombination mit einem Ausweisdokument gültig.
    static let wallet_faq_questions_answer_4 = UBLocalized.tr("Localizable", "wallet_faq_questions_answer_4")
   /// Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier deshalb sorgfältig auf. Bei Verlust müssen Sie das Covid-Zertifikat erneut bei der ausgebenden Stelle anfragen.
    static let wallet_faq_questions_answer_5 = UBLocalized.tr("Localizable", "wallet_faq_questions_answer_5")
   /// Wann und wo kann ich ein Covid-Zertifikat erhalten?
    static let wallet_faq_questions_question_1 = UBLocalized.tr("Localizable", "wallet_faq_questions_question_1")
+  /// Wie erhalte ich nach einer durchgemachten Covid-19-Erkrankung ein Covid-Zertifikat?
+   static let wallet_faq_questions_question_1_1 = UBLocalized.tr("Localizable", "wallet_faq_questions_question_1_1")
   /// Wie kann ich ein Covid-Zertifikat vorweisen?
    static let wallet_faq_questions_question_2 = UBLocalized.tr("Localizable", "wallet_faq_questions_question_2")
   /// Wo sind meine Daten gespeichert?
@@ -293,7 +295,7 @@ import Foundation
    static let wallet_faq_questions_title = UBLocalized.tr("Localizable", "wallet_faq_questions_title")
   /// Um ein Covid-Zertifikat zur App hinzuzufügen, benötigen Sie das Ihnen ausgestellte Originalzertifikat auf Papier oder als PDF-Dokument. Den darauf abgebildeten QR-Code können Sie mit der COVID Certificate App scannen und hinzufügen. Anschliessend erscheint das Covid-Zertifikat direkt in der App.
    static let wallet_faq_works_answer_1 = UBLocalized.tr("Localizable", "wallet_faq_works_answer_1")
-  /// Ja das ist möglich. So können Sie z. B. alle Covid-Zertifikate von Familienangehörigen in Ihrer App speichern. Auch in diesem Fall gilt: Das Covid-Zertifikat ist nur in Kombination mit einem Ausweisdokument (Pass oder ID) des Zertifikatsinhabers gültig.
+  /// Ja das ist möglich. So können Sie z. B. alle Covid-Zertifikate von Familienangehörigen in Ihrer App speichern. Auch in diesem Fall gilt: Das Covid-Zertifikat ist nur in Kombination mit einem Ausweisdokument des Zertifikatsinhabers / der Zertifikatsinhaberin gültig.
    static let wallet_faq_works_answer_2 = UBLocalized.tr("Localizable", "wallet_faq_works_answer_2")
   /// In der COVID Certificate App wird ausgewiesen, wann Ihr Covid-Zertifikat in der Schweiz ablaufen wird. Sie können in der Detail-Ansicht zudem per Knopfdruck überprüfen, ob Ihr Covid-Zertifikat aktuell gültig ist.
    static let wallet_faq_works_answer_3 = UBLocalized.tr("Localizable", "wallet_faq_works_answer_3")
@@ -301,7 +303,7 @@ import Foundation
    static let wallet_faq_works_answer_4 = UBLocalized.tr("Localizable", "wallet_faq_works_answer_4")
   /// Der QR-Code enthält alle Informationen, die Sie auf Ihrem Covid-Zertifikat in Papierform im Klartext finden. Weiter befindet sich im QR-Code eine elektronische Signatur, mit der sich die Echtheit des Covid-Zertifikats überprüfen lässt. Dadurch wird das Covid-Zertifikat fälschungssicher.
    static let wallet_faq_works_answer_5 = UBLocalized.tr("Localizable", "wallet_faq_works_answer_5")
-  /// Sie können Ihr Covid-Zertifikat einfach wieder auf Ihr Mobilgerät bringen. Scannen Sie dazu erneut den QR-Code auf Ihrem Covid-Zertifikat auf Papier oder als PDF.
+  /// Sie können Ihr Covid-Zertifikat einfach wieder auf Ihrem Mobilgerät speichern. Laden Sie dazu die App erneut herunter und scannen Sie anschliessend den QR-Code auf Ihrem Covid-Zertifikat auf Papier oder als PDF.
    static let wallet_faq_works_answer_6 = UBLocalized.tr("Localizable", "wallet_faq_works_answer_6")
   /// Wie kann ich ein Covid-Zertifikat zur App hinzufügen?
    static let wallet_faq_works_question_1 = UBLocalized.tr("Localizable", "wallet_faq_works_question_1")
@@ -313,14 +315,22 @@ import Foundation
    static let wallet_faq_works_question_4 = UBLocalized.tr("Localizable", "wallet_faq_works_question_4")
   /// Welche Daten sind im QR-Code enthalten?
    static let wallet_faq_works_question_5 = UBLocalized.tr("Localizable", "wallet_faq_works_question_5")
-  /// Was, wenn ich das Covid-Zertifikat oder die App lösche?
+  /// Was muss ich tun, wenn ich das Covid-Zertifikat oder die App lösche?
    static let wallet_faq_works_question_6 = UBLocalized.tr("Localizable", "wallet_faq_works_question_6")
   /// Mit der COVID Certificate App können Sie Covid-Zertifikate einfach und sicher auf Ihrem Mobilgerät abspeichern und vorweisen.
    static let wallet_faq_works_subtitle = UBLocalized.tr("Localizable", "wallet_faq_works_subtitle")
   /// Wie funktioniert \ndie App?
    static let wallet_faq_works_title = UBLocalized.tr("Localizable", "wallet_faq_works_title")
+  /// Sie haben ein Covid-Zertifikat auf Papier oder als PDF und möchten es zur App hinzufügen.
+   static let wallet_homescreen_add_certificate_description = UBLocalized.tr("Localizable", "wallet_homescreen_add_certificate_description")
+  /// Zertifikat hinzufügen
+   static let wallet_homescreen_add_title = UBLocalized.tr("Localizable", "wallet_homescreen_add_title")
+  /// Transfer-Code erstellen
+   static let wallet_homescreen_add_transfer_code = UBLocalized.tr("Localizable", "wallet_homescreen_add_transfer_code")
   /// Scannen Sie den QR-Code auf dem Covid-Zertifikat, um es zur App hinzuzufügen.
    static let wallet_homescreen_explanation = UBLocalized.tr("Localizable", "wallet_homescreen_explanation")
+  /// Was möchten Sie machen?
+   static let wallet_homescreen_what_to_do = UBLocalized.tr("Localizable", "wallet_homescreen_what_to_do")
   /// Akzeptieren
    static let wallet_onboarding_accept_button = UBLocalized.tr("Localizable", "wallet_onboarding_accept_button")
   /// Die App
