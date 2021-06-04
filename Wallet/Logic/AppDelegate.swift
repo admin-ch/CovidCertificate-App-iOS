@@ -15,6 +15,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     internal var window: UIWindow?
     private var lastForegroundActivity: Date?
+    private var blurView: UIVisualEffectView?
 
     @UBUserDefault(key: "isFirstLaunch", defaultValue: true)
     var isFirstLaunch: Bool
@@ -101,8 +102,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    func applicationDidBecomeActive(_: UIApplication) {}
-
     private func willAppearAfterColdstart(_: UIApplication, coldStart _: Bool, backgroundTime _: TimeInterval) {
         // Logic for coldstart / background
         startConfigRequest()
@@ -114,6 +113,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // App should not have badges
         // Reset to 0 to ensure a unexpected badge doesn't stay forever
         application.applicationIconBadgeNumber = 0
+
+        addBlurView()
+    }
+
+    func applicationDidBecomeActive(_: UIApplication) {
+        removeBlurView()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -151,5 +156,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UIPageControl.appearance().pageIndicatorTintColor = .cc_black
         UIPageControl.appearance().currentPageIndicatorTintColor = .cc_white
+    }
+
+    // MARK: - Hide information on app switcher
+
+    private func removeBlurView() {
+        UIView.animate(withDuration: 0.15) {
+            self.blurView?.effect = nil
+            self.blurView?.alpha = 0.0
+        } completion: { _ in
+            self.blurView?.removeFromSuperview()
+            self.blurView = nil
+        }
+    }
+
+    private func addBlurView() {
+        blurView?.removeFromSuperview()
+
+        let bv = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        bv.frame = window?.frame ?? .zero
+        bv.isUserInteractionEnabled = false
+        window?.addSubview(bv)
+
+        blurView = bv
     }
 }
