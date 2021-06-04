@@ -143,13 +143,10 @@ class CertificateDetailView: UIView {
         for test in tests {
             addDividerLine()
 
-            let text = test.isNegative ? UBLocalized.wallet_certificate_test_result_negativ : UBLocalized.wallet_certificate_test_result_positiv
-            addTitleStatusItem(title: UBLocalized.wallet_certificate_test_result_title, value: text)
-
             if test.isTargetDiseaseCorrect {
                 addValueItem(title: UBLocalized.wallet_certificate_target_disease_title, value: UBLocalized.target_disease_name)
             }
-
+            addValueItem(title: UBLocalized.wallet_certificate_test_result_title, value: test.isNegative ? UBLocalized.wallet_certificate_test_result_negativ : UBLocalized.wallet_certificate_test_result_positiv)
             addValueItem(title: UBLocalized.wallet_certificate_test_type, value: test.testType)
             addValueItem(title: UBLocalized.wallet_certificate_test_name, value: test.testName)
             addValueItem(title: UBLocalized.wallet_certificate_test_holder, value: test.manufacturer)

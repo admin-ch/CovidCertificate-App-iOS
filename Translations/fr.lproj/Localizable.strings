@@ -211,13 +211,13 @@
 "wallet_faq_questions_answer_1" = "Vous pouvez obtenir le certificat COVID si vous êtes entièrement vacciné contre le COVID-19, si vous avez guéri de la maladie ou si vous présentez un résultat de test négatif. En général, le certificat est délivré sur demande, par les professionnels de la santé présents sur le site.";
 
 /*Antwort 2 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_2" = "Vous pouvez présenter votre certificat COVID sur papier ou au moyen de l'app de stockage créée à cet effet. Vous êtes libre de choisir l'une ou l'autre solution.\n\nDans tous les cas, vous devez aussi présenter un document d'identité (carte d'identité ou passeport).";
+"wallet_faq_questions_answer_2" = "Vous pouvez présenter votre certificat COVID sur papier ou au moyen de l'app de stockage créée à cet effet. Vous êtes libre de choisir l'une ou l'autre solution.\n\nDans tous les cas, vous devez aussi présenter une pièce d'identité sur demande.";
 
 /*Antwort 3 im FAQ-Screen der Wallet App*/
 "wallet_faq_questions_answer_3" = "Vos données ne sont pas stockées dans un système central, mais elles sont sauvegardées localement, sur votre appareil mobile ou dans le code QR figurant sur le certificat papier.";
 
 /*Antwort 4 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_4" = "Le code QR figurant sur le certificat COVID contient une signature électronique. Celle-ci est une caractéristique de sécurité importante qui rend le certificat infalsifiable. En outre, le certificat COVID n'est valable que sur présentation d'un document d'identité (carte d'identité ou passeport).";
+"wallet_faq_questions_answer_4" = "Le code QR figurant sur le certificat COVID contient une signature électronique. Celle-ci est une caractéristique de sécurité importante qui rend le certificat infalsifiable. En outre, le certificat COVID n'est valable que sur présentation d'une pièce d'identité.";
 
 /*Antwort 5 im FAQ-Screen der Wallet App*/
 "wallet_faq_questions_answer_5" = "Votre certificat COVID n'est pas stocké dans un système central. Vous en êtes le seul détenteur. Veuillez donc conserver soigneusement le document papier. En cas de perte, vous devrez demander au service émetteur de vous délivrer un nouveau certificat.";
@@ -226,7 +226,7 @@
 "wallet_faq_works_answer_1" = "Pour ajouter un certificat COVID à l'app, vous avez besoin du certificat original qui vous a été délivré sur papier ou par voie électronique, au format PDF. Au moyen de l'app, vous pouvez scanner le code QR figurant sur ce document. Ensuite, le certificat COVID apparaît directement dans l'app.";
 
 /*Antwort 7 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_answer_2" = "Oui. Vous pouvez par exemple stocker dans l'app les certificats COVID de tous les membres de votre famille. À noter également dans ce cas qu'un certificat COVID n'est valable que sur présentation d'un document d'identité (carte d'identité ou passeport).";
+"wallet_faq_works_answer_2" = "Oui. Vous pouvez par exemple stocker dans l'app les certificats COVID de tous les membres de votre famille. À noter également dans ce cas qu'un certificat COVID n'est valable que si son détenteur présente une pièce d'identité.";
 
 /*Antwort 8 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_3" = "L'app contient la date d'expiration de votre certificat COVID en Suisse. En pressant le bouton prévu à cet effet, vous pouvez en outre vérifier dans la vue détaillée si votre certificat COVID est encore valable.";
@@ -238,7 +238,7 @@
 "wallet_faq_works_answer_5" = "Le code QR contient toutes les informations qui apparaissent en clair sur le certificat papier. En outre, il renferme une signature électronique qui permet de vérifier l'authenticité du certificat COVID. Par conséquent, le certificat COVID est infalsifiable.";
 
 /*Antwort 11 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_answer_6" = "Vous pouvez récupérer facilement votre certificat COVID. À cet effet, il vous suffit de scanner de nouveau le code QR figurant sur le certificat original, établi sur papier ou au format PDF.";
+"wallet_faq_works_answer_6" = "Vous pouvez réenregistrer facilement votre certificat COVID sur votre appareil mobile. Il vous suffit de télécharger de nouveau l'app, puis de scanner le code QR figurant sur le certificat original, établi sur papier ou au format PDF.";
 
 /*Titel 2 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_title" = "Comment l'app \nfonctionne-t-elle?";
@@ -374,7 +374,6 @@
 "wallet_certificate_impfdosis_title" = "Dose";
 "target_disease_name" = "Covid-19";
 "wallet_certificate_target_disease_title" = "Maladie ou agent pathogène";
-"wallet_certificate_impfstoff_title" = "Type de vaccin";
 "wallet_certificate_impfstoff_product_name_title" = "Produit";
 "wallet_certificate_impfstoff_holder" = "Fabricant";
 "wallet_certificate_vaccination_date_title" = "Date de vaccination";
@@ -389,8 +388,8 @@
 "wallet_certificate_test_land" = "Pays de test";
 "covid_certificate_test_title" = "Test";
 "wallet_certificate_test_result_title" = "Résultat";
-"wallet_certificate_test_result_negativ" = "NÉGATIF";
-"wallet_certificate_test_result_positiv" = "POSITIF";
+"wallet_certificate_test_result_negativ" = "Non détecté (Négatif)";
+"wallet_certificate_test_result_positiv" = "Positif";
 "wallet_certificate_test_type" = "Type";
 "wallet_certificate_test_name" = "Nom";
 "wallet_certificate_test_holder" = "Fabricant";
@@ -440,7 +439,7 @@
 "verifier_faq_works_question_1" = "Comment contrôler un certificat COVID?";
 
 /*Antwort 1 im FAQ der Verifier App*/
-"verifier_faq_works_answer_1" = "Pour contrôler un certificat COVID, il vous suffit de scanner le code QR figurant sur le document papier ou dans l'app.";
+"verifier_faq_works_answer_1" = "Pour contrôler un certificat COVID, il vous suffit de scanner le code QR figurant sur le document papier ou dans l'app «COVID Certificate» au moyen de l'app de contrôle prévue à cet effet.";
 
 /*Frage 2 im FAQ der Verifier App*/
 "verifier_faq_works_question_2" = "Sur quoi porte le contrôle au juste?";
@@ -449,10 +448,10 @@
 "verifier_faq_works_answer_2" = "Le scan du code QR permet de répondre aux trois questions suivantes:\n– Le certificat contient-il une signature électronique valable?\n– Le certificat a-t-il été révoqué?\n– Le certificat remplit-il les critères de validité fixés par la Suisse?\n\nSi vous pouvez répondre oui à la 1re et à la 3e question et non à la 2e, la validité du certificat COVID est attestée.";
 
 /*Frage 3 im FAQ der Verifier App*/
-"verifier_faq_works_question_3" = "Quels documents d'identité sont valables? Pourquoi faut-il vérifier les données personnelles?";
+"verifier_faq_works_question_3" = "Quelles pièces d'identité sont valables? Pourquoi faut-il vérifier les données personnelles?";
 
 /*Antwort 3 im FAQ der Verifier App*/
-"verifier_faq_works_answer_3" = "Les documents d'identité réputés valables sont le passeport ou la carte d'identité. Le certificat COVID est certes infalsifiable, mais le contrôle des données personnelles est le seul moyen de vérifier que le certificat a été établi au nom de la personne qui le présente.";
+"verifier_faq_works_answer_3" = "Outre le passeport et la carte d'identité, les pièces d'identité réputées valables sont celles qui attestent l'identité de la personne concernée au moyen d'une photo (par ex. permis de conduire). Le certificat COVID est certes infalsifiable, mais le contrôle des données personnelles est le seul moyen de vérifier que le certificat a été établi au nom de la personne qui le présente.";
 
 /*Frage 4 im FAQ der Verifier App*/
 "verifier_faq_works_question_4" = "Peut-on aussi contrôler des certificats étrangers?";
@@ -485,3 +484,17 @@
 
 /*Verifier: Titel in der App (z.B. Impressum)*/
 "verifier_app_title" = "COVID Certificate Check";
+"wallet_faq_questions_question_1_1" = "Comment puis-je obtenir un certificat COVID après avoir guéri?";
+"wallet_faq_questions_answer_1_1" = "Les personnes qui ont guéri du COVID-19 peuvent demander un certificat COVID en remplissant le formulaire en ligne disponible sur le site Internet de leur canton de domicile. Elles recevront ensuite le certificat COVID par la poste. ";
+
+/*Wallet: Homescreen Was wollen sie machen?*/
+"wallet_homescreen_what_to_do" = "Was möchten Sie machen?";
+
+/*Wallet: Homescreen Titel Zertifikat hinzufügen*/
+"wallet_homescreen_add_title" = "Zertifikat hinzufügen";
+
+/*Wallet: Homescreen Zertifikat Description Text*/
+"wallet_homescreen_add_certificate_description" = "Sie haben ein Covid-Zertifikat auf Papier oder als PDF und möchten es zur App hinzufügen.";
+
+/*Wallet: Homescreen Transfer-Code erstellen*/
+"wallet_homescreen_add_transfer_code" = "Transfer-Code erstellen";
