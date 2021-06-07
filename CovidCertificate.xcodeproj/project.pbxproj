@@ -170,6 +170,8 @@
 		6EC1735F2642A1B4002E27DB /* VerifierHomescreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1735E2642A1B4002E27DB /* VerifierHomescreenViewController.swift */; };
 		6EC173622642A1E8002E27DB /* VerifierUserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC173612642A1E8002E27DB /* VerifierUserStorage.swift */; };
 		6ECBB9BD2642FB1700007E29 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6ECBB9BC2642FB1700007E29 /* SnapKit */; };
+		6EDE754D2667DB6900A2656F /* UBLocalized+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */; };
+		6EDE754E2667DB6900A2656F /* UBLocalized+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */; };
 		6EE81DEB245163C400FC7218 /* PhoneCallHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */; };
 		6EF166AF264BB18800426985 /* Verifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6B1A912649D17400DB4A38 /* Verifier.swift */; };
 		6EF166B7264C52BD00426985 /* QRScanErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC445D322645828E007DC8F2 /* QRScanErrorView.swift */; };
@@ -351,6 +353,7 @@
 		6EC173592642A0C0002E27DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EC1735E2642A1B4002E27DB /* VerifierHomescreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierHomescreenViewController.swift; sourceTree = "<group>"; };
 		6EC173612642A1E8002E27DB /* VerifierUserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierUserStorage.swift; sourceTree = "<group>"; };
+		6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UBLocalized+CC.swift"; sourceTree = "<group>"; };
 		6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCallHelper.swift; sourceTree = "<group>"; };
 		6EF166B8264D424700426985 /* PTMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTMono-Regular.ttf"; sourceTree = "<group>"; };
 		6EF166BB264D488A00426985 /* ScannerLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerLightButton.swift; sourceTree = "<group>"; };
@@ -472,6 +475,7 @@
 				F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */,
 				F85ED9A22499EF93007EBC49 /* Bundle+BuildInfo.swift */,
 				6EA5C38326453D1400EA066F /* EuHealthCert+CC.swift */,
+				6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1380,6 +1384,7 @@
 				6E8F52DA265BA94B00406430 /* CameraErrorView.swift in Sources */,
 				6EA5C3642644298E00EA066F /* VerifierHomescreenInfoView.swift in Sources */,
 				6EA5C36626442EBD00EA066F /* QRCodeUtils.swift in Sources */,
+				6EDE754E2667DB6900A2656F /* UBLocalized+CC.swift in Sources */,
 				6EC1731726429E31002E27DB /* Logger.swift in Sources */,
 				6EF166DC264E637C00426985 /* UIStateModel.swift in Sources */,
 				6E6B1A982649DCE800DB4A38 /* VerifyLoadingView.swift in Sources */,
@@ -1482,6 +1487,7 @@
 				DC8ABDF3264A652800FDE0E1 /* StaticContentViewModel.swift in Sources */,
 				6E0281F52655280500582904 /* InfoBoxButton.swift in Sources */,
 				6E5A0F29264336CA004718B4 /* CertificateState.swift in Sources */,
+				6EDE754D2667DB6900A2656F /* UBLocalized+CC.swift in Sources */,
 				F85ED9A32499EF93007EBC49 /* Bundle+BuildInfo.swift in Sources */,
 				F86A6A862637F944003CAC1B /* ReusableView.swift in Sources */,
 				6E7C0D39242E02A20017C4F9 /* LayoutConstants.swift in Sources */,
