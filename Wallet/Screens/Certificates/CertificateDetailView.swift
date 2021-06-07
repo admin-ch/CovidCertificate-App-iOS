@@ -152,7 +152,10 @@ class CertificateDetailView: UIView {
 
             let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_positiv_key)
 
-            let text = [texts.0, texts.1].joined(separator: "\n")
+            var text = [texts.0, texts.1].joined(separator: "\n")
+            if !self.showEnglishLabels {
+                text = texts.0
+            }
 
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_title_key), value: text)
 
