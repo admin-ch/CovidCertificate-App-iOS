@@ -28,6 +28,9 @@ extension VerificationError {
         case let .notYetValid(date):
             let dayDate = DateFormatter.ub_dayString(from: date)
             return UBLocalized.wallet_error_valid_from.replacingOccurrences(of: "{DATE}", with: dayDate).formattingOccurrenceBold(dayDate)
+        case .typeInvalid:
+            let bold = UBLocalized.wallet_error_invalid_format_bold
+            return UBLocalized.wallet_error_invalid_format.formattingOccurrenceBold(bold)
         case .unknown:
             return UBLocalized.unknown_error.formattingOccurrenceBold("")
         }
@@ -35,7 +38,7 @@ extension VerificationError {
 
     func icon(with color: UIColor? = nil) -> UIImage? {
         switch self {
-        case .signature: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
+        case .signature, .typeInvalid: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .revocation: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .otherNationalRules: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .expired:

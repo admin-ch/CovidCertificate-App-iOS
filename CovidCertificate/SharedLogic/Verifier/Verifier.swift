@@ -14,6 +14,7 @@ import Foundation
 
 enum VerificationError: Equatable, Comparable {
     case signature
+    case typeInvalid
     case revocation
     case expired(Date)
     case notYetValid(Date)
@@ -190,6 +191,9 @@ class Verifier: NSObject {
                 case .TRUST_SERVICE_ERROR:
                     // retry possible
                     callback(.retry(.network, [err.errorCode]))
+                case .SIGNATURE_TYPE_INVALID:
+                    // type invalid (multiple vaccines, tests
+                    callback(.invalid([.typeInvalid], [err.errorCode], nil))
                 default:
                     // error
                     callback(.invalid([.signature], [err.errorCode], nil))
