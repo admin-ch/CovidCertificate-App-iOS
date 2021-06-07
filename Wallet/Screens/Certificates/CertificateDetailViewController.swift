@@ -26,7 +26,7 @@ class CertificateDetailViewController: ViewController {
     private let qrCodeNameView = QRCodeNameView()
 
     private lazy var stateView = CertificateStateView(certificate: certificate)
-    private lazy var detailView = CertificateDetailView(certificate: certificate)
+    private lazy var detailView = CertificateDetailView(certificate: certificate, showEnglishLabelsIfNeeded: true)
     private var verifier: Verifier?
 
     private let removeButton = Button(title: UBLocalized.delete_button, style: .normal(.cc_bund))

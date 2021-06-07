@@ -90,7 +90,7 @@ class CertificateAddDetailView: UIView {
         stackScrollView.addSpacerView(2.0 * Padding.large)
 
         if let cert = certificate {
-            stackScrollView.addArrangedView(CertificateDetailView(certificate: cert))
+            stackScrollView.addArrangedView(CertificateDetailView(certificate: cert, showEnglishLabelsIfNeeded: false))
         }
 
         // adds enough padding to scroll further than linear gradient

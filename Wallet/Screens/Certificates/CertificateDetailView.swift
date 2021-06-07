@@ -22,16 +22,15 @@ class CertificateDetailView: UIView {
         didSet { update(animated: true) }
     }
 
-    private var showEnglishLabels = !UBLocalized.languageIsEnglish() {
-        didSet { updateEnglishLabelVisibility() }
-    }
+    private let showEnglishLabels: Bool
 
     private var labels: [UILabel] = []
     private var englishLabels: [UILabel] = []
 
     // MARK: - Init
 
-    init(certificate: UserCertificate) {
+    init(certificate: UserCertificate, showEnglishLabelsIfNeeded: Bool) {
+        showEnglishLabels = showEnglishLabelsIfNeeded && !UBLocalized.languageIsEnglish()
         self.certificate = certificate
         super.init(frame: .zero)
 
@@ -68,7 +67,7 @@ class CertificateDetailView: UIView {
         addTestEntries()
 
         updateEnglishLabelVisibility()
-        applyErrorState()
+        applySuccessState()
     }
 
     private func addVaccinationEntries() {
