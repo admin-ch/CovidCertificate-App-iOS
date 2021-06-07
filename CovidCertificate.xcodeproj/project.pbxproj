@@ -1633,7 +1633,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRIMARY_BUNDLE_IDENTIFIER = ch.admin.bag.covidcertificate.wallet.dev;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRIMARY_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1690,7 +1690,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRIMARY_BUNDLE_IDENTIFIER = ch.admin.bag.covidcertificate.verifier.debug;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRIMARY_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1717,7 +1717,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRIMARY_BUNDLE_IDENTIFIER = ch.admin.bag.covidcertificate.verifier.abn;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRIMARY_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1743,7 +1743,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRIMARY_BUNDLE_IDENTIFIER = ch.admin.bag.covidcertificate.verifier.dev;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRIMARY_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1769,7 +1769,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRIMARY_BUNDLE_IDENTIFIER = ch.admin.bag.covidcertificate.verifier;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRIMARY_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1858,7 +1858,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRIMARY_BUNDLE_IDENTIFIER = ch.admin.bag.covidcertificate.wallet.abn;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRIMARY_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1982,7 +1982,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRIMARY_BUNDLE_IDENTIFIER = ch.admin.bag.covidcertificate.wallet.debug;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRIMARY_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2093,7 +2093,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRIMARY_BUNDLE_IDENTIFIER = ch.admin.bag.covidcertificate.wallet;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRIMARY_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
