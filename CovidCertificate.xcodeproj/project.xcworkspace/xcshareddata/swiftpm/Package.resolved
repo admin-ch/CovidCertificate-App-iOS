@@ -15,7 +15,7 @@
         "repositoryURL": "git@github.com:admin-ch/CovidCertificate-SDK-iOS.git",
         "state": {
           "branch": "main",
-          "revision": "b259e3a85884501245325db9b47bc8173d0d9b15",
+          "revision": "94c56dceed6cd819bfc7a4d05091758bfa912bfa",
           "version": null
         }
       },
@@ -39,11 +39,11 @@
       },
       {
         "package": "SwiftCBOR",
-        "repositoryURL": "https://github.com/unrelentingtech/SwiftCBOR",
+        "repositoryURL": "https://github.com/eu-digital-green-certificates/SwiftCBOR",
         "state": {
-          "branch": null,
-          "revision": "668c26fc3373d5f1bccbaad7665ca6048797e324",
-          "version": "0.4.3"
+          "branch": "master",
+          "revision": "b76024995f6909e4615f943c7a03268fd29778fc",
+          "version": null
         }
       }
     ]
