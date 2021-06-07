@@ -200,7 +200,13 @@ class CertificateDetailView: UIView {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.isAccessibilityElement = true
-        sv.accessibilityLabel = [title.0, title.1, v].joined(separator: ", ")
+
+        // we add what the screen shows to accessibility
+        if UBLocalized.languageIsEnglish() || !addEnglishLabels {
+            sv.accessibilityLabel = [title.0, v].joined(separator: ", ")
+        } else {
+            sv.accessibilityLabel = [title.0, title.1, v].joined(separator: ", ")
+        }
 
         let titleLabel = Label(.textBold)
         titleLabel.text = v
