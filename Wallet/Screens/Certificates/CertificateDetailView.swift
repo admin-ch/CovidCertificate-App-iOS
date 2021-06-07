@@ -151,10 +151,6 @@ class CertificateDetailView: UIView {
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_target_disease_title_key), value: UBLocalized.target_disease_name)
             }
 
-            if test.isTargetDiseaseCorrect {
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_target_disease_title_key), value: UBLocalized.target_disease_name)
-            }
-
             let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_positiv_key)
 
             let text = [texts.0, texts.1].joined(separator: "\n")
