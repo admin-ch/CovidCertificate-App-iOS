@@ -153,7 +153,7 @@ class CertificateDetailView: UIView {
             let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_positiv_key)
 
             var text = [texts.0, texts.1].joined(separator: "\n")
-            if !self.showEnglishLabels {
+            if !showEnglishLabels {
                 text = texts.0
             }
 
