@@ -1,0 +1,39 @@
+name: build
+
+env:
+  XCODE_VERSION: 'Xcode_12.4'
+
+on:
+  push:
+    branches:
+      - main
+      - 'release/**'
+  pull_request:
+
+jobs:
+
+  build_verifier:
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Switch to Xcode ${{ env.XCODE_VERSION }}
+      run: sudo xcode-select --switch /Applications/${{ env.XCODE_VERSION }}.app
+    
+    # Compile "Release-Verifier-Prod" for iOS Simulator (no signing)
+    - name: Compile Release-Verifier-Prod
+      run: fastlane gym --scheme "Release-Verifier-Prod" --skip_package_ipa true --destination "generic/platform=iOS Simulator"
+
+  build_wallet:
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Switch to Xcode ${{ env.XCODE_VERSION }}
+      run: sudo xcode-select --switch /Applications/${{ env.XCODE_VERSION }}.app
+
+    # Compile "Release-Wallet-Prod" for iOS Simulator (no signing)
+    - name: Compile Release-Wallet-Prod
+      run: fastlane gym --scheme "Release-Wallet-Prod" --skip_package_ipa true --destination "generic/platform=iOS Simulator"
