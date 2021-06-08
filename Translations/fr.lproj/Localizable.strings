@@ -72,10 +72,10 @@
 "verifier_verify_error_info_for_national_rules" = "Ne remplit pas les critères de validité de la Suisse";
 
 /*Fehler Infotext bei Prüfung (Zertifikat Fehler)*/
-"verifier_verify_error_info_for_certificate_invalid" = "Le certificat n'a pas de signature valide";
+"verifier_verify_error_info_for_certificate_invalid" = "Le certificat COVID n'a pas de signature valide";
 
 /*Fehler Infotext bei Prüfung (Blacklist)*/
-"verifier_verify_error_info_for_blacklist" = "Le certificat a été révoqué";
+"verifier_verify_error_info_for_blacklist" = "Le certificat COVID a été révoqué";
 
 /*Fehler bei der geladen Liste*/
 "verifier_verify_error_list_title" = "La vérification a échoué";
@@ -498,3 +498,143 @@
 
 /*Wallet: Homescreen Transfer-Code erstellen*/
 "wallet_homescreen_add_transfer_code" = "Transfer-Code erstellen";
+
+/*Wallet: Transfer Codes Titel*/
+"wallet_transfer_code_onboarding_title" = "Transfer Codes";
+
+/*Wallet: Transfer Code Text*/
+"wallet_transfer_code_onboarding_text" = "Mit Transfer-Codes können Sie Covid-Zertifikate von negativen Testresultaten direkt in der App empfangen.";
+
+/*Wallet: Transfer Code Onboarding Button*/
+"wallet_transfer_code_onboarding_button" = "Code erstellen";
+
+/*Wallet: Transfer Code Onboarding So funktioniert's*/
+"wallet_transfer_code_onboarding_howto" = "So funktioniert's";
+
+/*Wallet: Transfer Code: FAQ Titel*/
+"wallet_transfer_code_faq_questions_title" = "Test-Zertifikate direkt in die App geliefert";
+
+/*Wallet: Transfer Code FAQ Text*/
+"wallet_transfer_code_faq_questions_subtitle" = "Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Zertifikat nach einem negativen Testresultat direkt in die App geliefert.";
+
+/*Wallet: Transfer Code FAQ Frage 1*/
+"wallet_transfer_code_faq_questions_question_1" = "Wer bietet die Übermittlung per Transfer-Code an?";
+
+/*Wallet: Transfer Code FAQ Frage 2*/
+"wallet_transfer_code_faq_questions_question_2" = "Geht das nur für Testzertifikate?";
+
+/*Wallet: Transfer Code FAQ Frage 3*/
+"wallet_transfer_code_faq_questions_question_3" = "Wie kann ich einen Transfer-Code erstellen?";
+
+/*Wallet: Transfer Code FAQ Frage 4*/
+"wallet_transfer_code_faq_questions_question_4" = "Wo muss ich den Transfer-Code notieren?";
+
+/*Wallet: Transfer Code FAQ Frage 5*/
+"wallet_transfer_code_faq_questions_question_5" = "Kann ich den Transfer-Code mehrmals benutzen?";
+
+/*Wallet: Transfer Code FAQ Antwort 1*/
+"wallet_transfer_code_faq_questions_answer_1" = "Text";
+
+/*Wallet: Transfer Code FAQ Antwort 2*/
+"wallet_transfer_code_faq_questions_answer_2" = "Text";
+
+/*Wallet: Transfer Code FAQ Antwort 3*/
+"wallet_transfer_code_faq_questions_answer_3" = "Text";
+
+/*Wallet: Transfer Code FAQ Antwort 4*/
+"wallet_transfer_code_faq_questions_answer_4" = "Text";
+
+/*Wallet: Transfer Code FAQ Antwort 5*/
+"wallet_transfer_code_faq_questions_answer_5" = "Text";
+"wallet_transfer_code_faq_works_title" = "So funktioniert der Transfer";
+"wallet_transfer_code_faq_works_subtitle" = "Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist. Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App.";
+
+/*Wallet: Tranfser Code FAQ 2 Frage 1*/
+"wallet_transfer_code_faq_works_question_1" = "Wie oft prüft die App, ob das Zertifikat da ist?";
+
+/*Wallet: Tranfser Code FAQ 2 Frage 2*/
+"wallet_transfer_code_faq_works_question_2" = "Werde ich von der App benachrichtigt?";
+
+/*Wallet: Tranfser Code FAQ 2 Frage 3*/
+"wallet_transfer_code_faq_works_question_3" = "Wie sind meine Daten beim Transfer geschützt?";
+
+/*Wallet: Tranfser Code FAQ 2 Frage 4*/
+"wallet_transfer_code_faq_works_question_4" = "Wie lange ist ein Transfer-Code gültig?";
+
+/*Wallet: Tranfser Code FAQ 2 Frage 5*/
+"wallet_transfer_code_faq_works_question_5" = "Was kann ich tun, wenn das Zertifikat nicht ankommt?";
+
+/*Wallet: Tranfser Code FAQ 2 Frage 6*/
+"wallet_transfer_code_faq_works_question_6" = "Was passiert bei einem positiven Testresultat?";
+
+/*Wallet: Transfer Code FAQ 2 Antwort 1*/
+"wallet_transfer_code_faq_works_answer_1" = "Text";
+
+/*Wallet: Transfer Code FAQ 2 Antwort 2*/
+"wallet_transfer_code_faq_works_answer_2" = "Text";
+
+/*Wallet: Transfer Code FAQ 2 Antwort 3*/
+"wallet_transfer_code_faq_works_answer_3" = "Text";
+
+/*Wallet: Transfer Code FAQ 2 Antwort 4*/
+"wallet_transfer_code_faq_works_answer_4" = "Text";
+
+/*Wallet: Transfer Code FAQ 2 Antwort 5*/
+"wallet_transfer_code_faq_works_answer_5" = "Text";
+
+/*Wallet: Transfer Code FAQ 2 Antwort 6*/
+"wallet_transfer_code_faq_works_answer_6" = "Text";
+
+/*Wallet: Transfer Code erstellt Titel*/
+"wallet_transfer_code_code_created_title" = "Ihr Transfer-Code wurde erstellt";
+
+/*Wallet: Transfer-Code*/
+"wallet_transfer_code_title" = "Transfer-Code";
+
+/*Wallet: Transfer Code Erstelltm am {DATE}*/
+"wallet_transfer_code_createdat" = "Erstellt am {DATE}";
+
+/*Wallet: Transfer Code Nächste Schritte*/
+"wallet_transfer_code_next_steps" = "Nächste Schritte";
+
+/*Wallet: Transfer Code Nächste Schritte 1*/
+"wallet_transfer_code_next_steps1" = "Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.";
+
+/*Wallet: Transfer Code Nächste Schritte 2*/
+"wallet_transfer_code_next_steps1" = "Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
+
+/*Wallet: Transfer Code Fertig Button*/
+"wallet_transfer_code_done_button" = "Fertig";
+
+/*Wallet: Transfer Code Card Titel*/
+"wallet_transfer_code_card_title" = "Transfer";
+
+/*Wallet: Transfer Code Staus Warten auf Transfer*/
+"wallet_transfer_code_state_waiting" = "Warten auf Transfer";
+
+/*Wallet: Transfer Code Ablauf in 1 Tag*/
+"wallet_transfer_code_expire_singular" = "Läuft ab in 1 Tag";
+
+/*Wallet: Transfer Code: Läuft ab in {DAYS} Tagen*/
+"wallet_transfer_code_expire_plural" = "Läuft ab in {DAYS} Tagen";
+
+/*Wallet: Transfer Code Status Abgelaufen*/
+"wallet_transfer_code_state_expired" = "Transfer abgelaufen";
+
+/*Wallet: Transfer Code Alter Code Titel*/
+"wallet_transfer_code_old_code" = "Code älter als 7 Tage";
+
+/*Wallet: Transfer Code State Zuletzt aktualisiert {DATE}*/
+"wallet_transfer_code_state_updated" = "Zuletzt aktualisiert\n{DATE}";
+
+/*Wallet: Transfer Code Kein Zertifikat mehr*/
+"wallet_transfer_code_state_no_certificate" = "Für diesen Code kann kein Zertifikat \nmehr empfangen werden";
+
+/*Wallet: Fehler Format des Zertifikat ungültig*/
+"wallet_error_invalid_format" = "Format des Zertifikat\nungültig";
+
+/*Wallet: Fehler Format des Zertifikat ungültig Fett*/
+"wallet_error_invalid_format_bold" = "ungültig";
+
+/*Verifier: Error Ungültiges Format*/
+"verifier_error_invalid_format" = "Das Format des Zertifikats ist ungültig.";
