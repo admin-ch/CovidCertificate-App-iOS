@@ -24,6 +24,8 @@ extension VerificationError {
             return UBLocalized.verifier_verifiy_error_expired
         case .notYetValid:
             return UBLocalized.verifier_verifiy_error_notyetvalid
+        case .typeInvalid:
+            return UBLocalized.verifier_error_invalid_format
         case .unknown:
             return UBLocalized.unknown_error
         }
