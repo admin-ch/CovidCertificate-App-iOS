@@ -276,7 +276,15 @@ class Verifier: NSObject {
                     callback(.invalid([.otherNationalRules], [], validUntil))
                 }
             case let .failure(err):
-                callback(.invalid([.otherNationalRules], [err.errorCode], nil))
+                switch err {
+                case .NETWORK_NO_INTERNET_CONNECTION:
+                    // retry possible
+                    callback(.retry(.noInternetConnection, [err.errorCode]))
+                case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
+                    callback(.retry(.network, [err.errorCode]))
+                default:
+                    callback(.invalid([.otherNationalRules], [err.errorCode], nil))
+                }
             }
 
             group.leave()
