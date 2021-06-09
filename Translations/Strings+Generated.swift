@@ -142,6 +142,14 @@ import Foundation
      case verifier_homescreen_support_button_key = "verifier_homescreen_support_button"
     /// Check
      case verifier_homescreen_title_key = "verifier_homescreen_title"
+    /// Ein unerwarteter Fehler ist aufgetreten
+     case verifier_network_error_text_key = "verifier_network_error_text"
+    /// Prüfung fehlgeschlagen
+     case verifier_network_error_title_key = "verifier_network_error_title"
+    /// Eine Internetverbindung wird benötigt, um die Prüflisten zu aktualisieren
+     case verifier_offline_error_text_key = "verifier_offline_error_text"
+    /// Offline-Prüfung nicht möglich
+     case verifier_offline_error_title_key = "verifier_offline_error_title"
     /// QR-Code scannen\nzum Prüfen
      case verifier_qr_scanner_scan_qr_text_key = "verifier_qr_scanner_scan_qr_text"
     /// Das Gerät befindet sich im Flugmodus.
@@ -250,6 +258,12 @@ import Foundation
      case wallet_certificate_verify_success_key = "wallet_certificate_verify_success"
     /// Das Zertifikat wird geprüft
      case wallet_certificate_verifying_key = "wallet_certificate_verifying"
+    /// Versuchen Sie es später erneut.
+     case wallet_detail_network_error_text_key = "wallet_detail_network_error_text"
+    /// Prüfung zur Zeit nicht möglich
+     case wallet_detail_network_error_title_key = "wallet_detail_network_error_title"
+    /// Prüfung offline nicht möglich
+     case wallet_detail_offline_retry_title_key = "wallet_detail_offline_retry_title"
     /// Gültigkeit des Zertifikats\nabgelaufen
      case wallet_error_expired_key = "wallet_error_expired"
     /// abgelaufen
@@ -336,8 +350,12 @@ import Foundation
      case wallet_homescreen_add_transfer_code_key = "wallet_homescreen_add_transfer_code"
     /// Scannen Sie den QR-Code auf dem Covid-Zertifikat, um es zur App hinzuzufügen.
      case wallet_homescreen_explanation_key = "wallet_homescreen_explanation"
+    /// Offline Modus
+     case wallet_homescreen_offline_key = "wallet_homescreen_offline"
     /// Was möchten Sie machen?
      case wallet_homescreen_what_to_do_key = "wallet_homescreen_what_to_do"
+    /// Um die aktuelle Gültigkeit anzeigen zu können, muss die App regelmässig online sein.
+     case wallet_offline_description_key = "wallet_offline_description"
     /// Akzeptieren
      case wallet_onboarding_accept_button_key = "wallet_onboarding_accept_button"
     /// Die App
@@ -622,6 +640,14 @@ import Foundation
    static let verifier_homescreen_support_button = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_support_button_key)
   /// Check
    static let verifier_homescreen_title = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_title_key)
+  /// Ein unerwarteter Fehler ist aufgetreten
+   static let verifier_network_error_text = UBLocalized.tr(UBLocalizedKey.verifier_network_error_text_key)
+  /// Prüfung fehlgeschlagen
+   static let verifier_network_error_title = UBLocalized.tr(UBLocalizedKey.verifier_network_error_title_key)
+  /// Eine Internetverbindung wird benötigt, um die Prüflisten zu aktualisieren
+   static let verifier_offline_error_text = UBLocalized.tr(UBLocalizedKey.verifier_offline_error_text_key)
+  /// Offline-Prüfung nicht möglich
+   static let verifier_offline_error_title = UBLocalized.tr(UBLocalizedKey.verifier_offline_error_title_key)
   /// QR-Code scannen\nzum Prüfen
    static let verifier_qr_scanner_scan_qr_text = UBLocalized.tr(UBLocalizedKey.verifier_qr_scanner_scan_qr_text_key)
   /// Das Gerät befindet sich im Flugmodus.
@@ -730,6 +756,12 @@ import Foundation
    static let wallet_certificate_verify_success = UBLocalized.tr(UBLocalizedKey.wallet_certificate_verify_success_key)
   /// Das Zertifikat wird geprüft
    static let wallet_certificate_verifying = UBLocalized.tr(UBLocalizedKey.wallet_certificate_verifying_key)
+  /// Versuchen Sie es später erneut.
+   static let wallet_detail_network_error_text = UBLocalized.tr(UBLocalizedKey.wallet_detail_network_error_text_key)
+  /// Prüfung zur Zeit nicht möglich
+   static let wallet_detail_network_error_title = UBLocalized.tr(UBLocalizedKey.wallet_detail_network_error_title_key)
+  /// Prüfung offline nicht möglich
+   static let wallet_detail_offline_retry_title = UBLocalized.tr(UBLocalizedKey.wallet_detail_offline_retry_title_key)
   /// Gültigkeit des Zertifikats\nabgelaufen
    static let wallet_error_expired = UBLocalized.tr(UBLocalizedKey.wallet_error_expired_key)
   /// abgelaufen
@@ -816,8 +848,12 @@ import Foundation
    static let wallet_homescreen_add_transfer_code = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_add_transfer_code_key)
   /// Scannen Sie den QR-Code auf dem Covid-Zertifikat, um es zur App hinzuzufügen.
    static let wallet_homescreen_explanation = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_explanation_key)
+  /// Offline Modus
+   static let wallet_homescreen_offline = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_offline_key)
   /// Was möchten Sie machen?
    static let wallet_homescreen_what_to_do = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_what_to_do_key)
+  /// Um die aktuelle Gültigkeit anzeigen zu können, muss die App regelmässig online sein.
+   static let wallet_offline_description = UBLocalized.tr(UBLocalizedKey.wallet_offline_description_key)
   /// Akzeptieren
    static let wallet_onboarding_accept_button = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_accept_button_key)
   /// Die App

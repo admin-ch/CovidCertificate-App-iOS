@@ -12,9 +12,19 @@
 import UIKit
 
 class CertificateStateValidityView: UIView {
+    // MARK: - Validity
+
     private let validityTitleLabel = Label(.text, numberOfLines: 2)
     private let untilTitleLabel = Label(.text, textAlignment: .right)
     private let untilTextLabel = Label(.textBold, textAlignment: .right)
+    private let validityView = UIView()
+
+    // MARK: - Offline
+
+    private let offlineLabel = Label(.text, textAlignment: .center)
+    private let offlineView = UIView()
+
+    // MARK: - API
 
     var untilText: String? {
         didSet { untilTextLabel.text = untilText ?? "–" }
@@ -28,9 +38,23 @@ class CertificateStateValidityView: UIView {
         }
     }
 
+    var isOfflineMode: Bool = false {
+        didSet {
+            validityView.ub_setHidden(isOfflineMode)
+            offlineView.ub_setHidden(!isOfflineMode)
+            validityView.alpha = isOfflineMode ? 0.0 : 1.0
+            offlineView.alpha = isOfflineMode ? 1.0 : 0.0
+        }
+    }
+
+    var offlineText: String? {
+        didSet { offlineLabel.text = offlineText }
+    }
+
+    // MARK: - Init
+
     init() {
         super.init(frame: .zero)
-
         setupView()
     }
 
@@ -39,12 +63,22 @@ class CertificateStateValidityView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Setup
+
     private func setupView() {
         layer.cornerRadius = 10
 
-        addSubview(validityTitleLabel)
-        addSubview(untilTitleLabel)
-        addSubview(untilTextLabel)
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+
+        addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        validityView.addSubview(validityTitleLabel)
+        validityView.addSubview(untilTitleLabel)
+        validityView.addSubview(untilTextLabel)
 
         validityTitleLabel.text = UBLocalized.wallet_certificate_validity
         validityTitleLabel.snp.makeConstraints { make in
@@ -64,5 +98,18 @@ class CertificateStateValidityView: UIView {
             make.top.equalTo(untilTitleLabel.snp.bottom)
             make.bottom.equalToSuperview().inset(2 * Padding.small)
         }
+
+        stackView.addArrangedSubview(validityView)
+
+        offlineView.addSubview(offlineLabel)
+
+        offlineLabel.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(2 * Padding.small)
+            make.left.right.equalToSuperview().inset(Padding.medium)
+        }
+
+        stackView.addArrangedSubview(offlineView)
+
+        isOfflineMode = false
     }
 }

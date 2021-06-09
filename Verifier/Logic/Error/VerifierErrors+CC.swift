@@ -33,14 +33,21 @@ extension VerificationError {
 }
 
 extension RetryError {
-    func displayName() -> String {
+    func displayTitle() -> String {
         switch self {
-        case .network:
-            return UBLocalized.verifier_retry_network_error
-        case .flightMode:
-            return UBLocalized.verifier_retry_flightmode_error
-        case .unknown:
-            return UBLocalized.unknown_error
+        case .network, .unknown:
+            return UBLocalized.verifier_network_error_title
+        case .noInternetConnection:
+            return UBLocalized.verifier_offline_error_title
+        }
+    }
+
+    func displayText() -> String {
+        switch self {
+        case .network, .unknown:
+            return UBLocalized.verifier_network_error_text
+        case .noInternetConnection:
+            return UBLocalized.verifier_offline_error_text
         }
     }
 }

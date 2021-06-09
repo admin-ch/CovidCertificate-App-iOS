@@ -642,3 +642,30 @@ fino al*/
 
 /*Verifier: Error Ungültiges Format*/
 "verifier_error_invalid_format" = "Das Format des Zertifikats ist ungültig.";
+
+/*Homescreen Zertifikat: Offline Modus Text*/
+"wallet_homescreen_offline" = "Offline Modus";
+
+/*Wallet: Detail Offline Text*/
+"wallet_offline_description" = "Um die aktuelle Gültigkeit anzeigen zu können, muss die App regelmässig online sein.";
+
+/*Wallet: Retry Titel Offline*/
+"wallet_detail_offline_retry_title" = "Prüfung offline nicht möglich";
+
+/*Wallet: Detail Netzwerkfehler Titel*/
+"wallet_detail_network_error_title" = "Prüfung zur Zeit nicht möglich";
+
+/*Wallet: Detail Netzwerkfehler Text*/
+"wallet_detail_network_error_text" = "Versuchen Sie es später erneut.";
+
+/*Verifier: Titel Fehler wenn kein Internet*/
+"verifier_offline_error_title" = "Offline-Prüfung nicht möglich";
+
+/*Verifier: Fehlertext wenn Offline bei Verifikation*/
+"verifier_offline_error_text" = "Eine Internetverbindung wird benötigt, um die Prüflisten zu aktualisieren";
+
+/*Verifier: Fehler Titel bei Netzwerkfehler*/
+"verifier_network_error_title" = "Prüfung fehlgeschlagen";
+
+/*Verifier: Fehler Text bei Netzwerkfehler*/
+"verifier_network_error_text" = "Ein unerwarteter Fehler ist aufgetreten";

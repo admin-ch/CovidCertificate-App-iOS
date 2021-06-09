@@ -62,3 +62,37 @@ extension VerificationError {
         }
     }
 }
+
+extension RetryError {
+    func displayTitle(isReload: Bool) -> NSAttributedString {
+        switch self {
+        case .noInternetConnection:
+            return isReload ? UBLocalized.wallet_detail_offline_retry_title.bold() : UBLocalized.wallet_homescreen_offline.bold()
+        case .network, .unknown:
+            return UBLocalized.wallet_detail_network_error_title.formattingOccurrenceBold("")
+        }
+    }
+
+    func displayText(isReload: Bool) -> String {
+        return isReload ? UBLocalized.wallet_detail_network_error_text : UBLocalized.wallet_offline_description
+    }
+
+    func icon(with color: UIColor? = nil) -> UIImage? {
+        switch self {
+        case .noInternetConnection:
+            var image = UIImage(named: "ic-offline")
+            if let c = color {
+                image = image?.ub_image(with: c)
+            }
+
+            return image
+        case .network, .unknown:
+            var image = UIImage(named: "ic-error")
+            if let c = color {
+                image = image?.ub_image(with: c)
+            }
+
+            return image
+        }
+    }
+}

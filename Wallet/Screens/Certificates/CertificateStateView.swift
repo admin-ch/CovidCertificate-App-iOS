@@ -95,6 +95,7 @@ class CertificateStateView: UIView {
                 make.top.equalTo(backgroundView.snp.bottom).offset(Padding.small)
                 make.bottom.equalToSuperview()
             }
+
             validityView.backgroundColor = .cc_greyBackground
         }
     }
@@ -115,6 +116,8 @@ class CertificateStateView: UIView {
 
         // switch animatable states
         let actions = {
+            self.validityView.isOfflineMode = false
+
             switch self.states.temporaryVerifierState {
             case let .success(validUntil):
                 self.imageView.image = UIImage(named: "ic-check-filled")
@@ -132,18 +135,20 @@ class CertificateStateView: UIView {
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
                 }
-            case .retry:
+            case let .retry(error):
                 self.imageView.image = UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange)
-                self.textLabel.attributedText = UBLocalized.verifier_verify_error_list_title.bold()
+                self.textLabel.attributedText = error.displayTitle(isReload: true)
                 self.backgroundView.backgroundColor = .cc_orangish
                 self.validityView.backgroundColor = .cc_orangish
-                self.validityView.textColor = .cc_grey
+                self.validityView.offlineText = error.displayText(isReload: true)
+                self.validityView.isOfflineMode = true
             case .verifying:
                 self.imageView.image = nil
                 self.textLabel.attributedText = NSAttributedString(string: UBLocalized.wallet_certificate_verifying)
                 self.backgroundView.backgroundColor = .cc_greyish
                 self.validityView.backgroundColor = .cc_greyish
                 self.validityView.textColor = .cc_grey
+
             case .idle:
                 switch self.states.state {
                 case .loading:
@@ -152,6 +157,7 @@ class CertificateStateView: UIView {
                     self.backgroundView.backgroundColor = .cc_greyish
                     self.validityView.backgroundColor = .cc_greyish
                     self.validityView.textColor = .cc_grey
+
                 case let .success(validUntil):
                     self.imageView.image = UIImage(named: "ic-info-filled")
                     self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
@@ -167,10 +173,15 @@ class CertificateStateView: UIView {
                     self.validityView.backgroundColor = .cc_greyish
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
-                case .retry:
-                    // TODO: fix retry state
-                    self.imageView.image = nil
-                    self.textLabel.text = nil
+
+                case let .retry(error, _):
+                    self.imageView.image = error.icon(with: nil)
+                    self.textLabel.attributedText = error.displayTitle(isReload: false)
+                    self.backgroundView.backgroundColor = .cc_greyish
+                    self.validityView.backgroundColor = .cc_greyish
+                    self.validityView.textColor = .cc_text
+                    self.validityView.offlineText = error.displayText(isReload: false)
+                    self.validityView.isOfflineMode = true
                 }
             }
 
