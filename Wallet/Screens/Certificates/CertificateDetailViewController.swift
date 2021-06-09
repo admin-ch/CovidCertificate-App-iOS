@@ -16,7 +16,7 @@ enum TemporaryVerifierState: Equatable {
     case verifying
     case success(String?)
     case failure
-    case retry(RetryError)
+    case retry(RetryError, [String])
 }
 
 class CertificateDetailViewController: ViewController {
@@ -183,7 +183,7 @@ class CertificateDetailViewController: ViewController {
                 case .loading: strongSelf.temporaryVerifierState = .verifying
                 case let .success(validUntil): strongSelf.temporaryVerifierState = .success(validUntil)
                 case .invalid: strongSelf.temporaryVerifierState = .failure
-                case let .retry(error, _): strongSelf.temporaryVerifierState = .retry(error)
+                case let .retry(error, errorCodes): strongSelf.temporaryVerifierState = .retry(error, errorCodes)
                 }
 
                 strongSelf.state = state

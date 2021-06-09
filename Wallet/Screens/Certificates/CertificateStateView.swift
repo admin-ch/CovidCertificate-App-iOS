@@ -22,6 +22,7 @@ class CertificateStateView: UIView {
     private let textLabel = Label(.text, textAlignment: .center)
 
     private let validityView = CertificateStateValidityView()
+    private let errorLabel = Label(.smallErrorLight, textAlignment: .center)
     private let certificate: UserCertificate?
     private var hasValidityView: Bool {
         certificate != nil
@@ -89,12 +90,19 @@ class CertificateStateView: UIView {
         }
 
         if hasValidityView {
-            addSubview(validityView)
-            validityView.snp.makeConstraints { make in
+            let stackView = UIStackView()
+            stackView.axis = .vertical
+            stackView.spacing = 2.0 * Padding.small
+
+            addSubview(stackView)
+            stackView.snp.makeConstraints { make in
                 make.leading.trailing.equalToSuperview()
                 make.top.equalTo(backgroundView.snp.bottom).offset(Padding.small)
                 make.bottom.equalToSuperview()
             }
+
+            stackView.addArrangedSubview(validityView)
+            stackView.addArrangedSubview(errorLabel)
 
             validityView.backgroundColor = .cc_greyBackground
         }
@@ -117,6 +125,7 @@ class CertificateStateView: UIView {
         // switch animatable states
         let actions = {
             self.validityView.isOfflineMode = false
+            self.errorLabel.ub_setHidden(true)
 
             switch self.states.temporaryVerifierState {
             case let .success(validUntil):
@@ -135,13 +144,20 @@ class CertificateStateView: UIView {
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
                 }
-            case let .retry(error):
+            case let .retry(error, errorCodes):
                 self.imageView.image = UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange)
                 self.textLabel.attributedText = error.displayTitle(isReload: true)
                 self.backgroundView.backgroundColor = .cc_orangish
                 self.validityView.backgroundColor = .cc_orangish
                 self.validityView.offlineText = error.displayText(isReload: true)
                 self.validityView.isOfflineMode = true
+
+                let codes = errorCodes.joined(separator: ", ")
+                if codes.count > 0 {
+                    self.errorLabel.ub_setHidden(false)
+                    self.errorLabel.text = codes
+                }
+
             case .verifying:
                 self.imageView.image = nil
                 self.textLabel.attributedText = NSAttributedString(string: UBLocalized.wallet_certificate_verifying)
@@ -174,7 +190,7 @@ class CertificateStateView: UIView {
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
 
-                case let .retry(error, _):
+                case let .retry(error, errorCodes):
                     self.imageView.image = error.icon(with: nil)
                     self.textLabel.attributedText = error.displayTitle(isReload: false)
                     self.backgroundView.backgroundColor = .cc_greyish
@@ -182,6 +198,12 @@ class CertificateStateView: UIView {
                     self.validityView.textColor = .cc_text
                     self.validityView.offlineText = error.displayText(isReload: false)
                     self.validityView.isOfflineMode = true
+
+                    let codes = errorCodes.joined(separator: ", ")
+                    if codes.count > 0 {
+                        self.errorLabel.ub_setHidden(false)
+                        self.errorLabel.text = codes
+                    }
                 }
             }
 
