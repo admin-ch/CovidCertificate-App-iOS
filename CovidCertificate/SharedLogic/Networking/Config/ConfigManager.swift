@@ -26,7 +26,7 @@ class ConfigManager: NSObject {
     @UBUserDefault(key: "config", defaultValue: fallbackConfig)
     static var currentConfig: ConfigResponseBody? {
         didSet {
-            UIStateManager.shared.refresh()
+            UIStateManager.shared.stateChanged()
         }
     }
 

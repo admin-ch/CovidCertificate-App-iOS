@@ -25,6 +25,6 @@ class CertificateStorage {
 
     @KeychainPersisted(key: "wallet.user.certificates", defaultValue: [])
     var userCertificates: [UserCertificate] {
-        didSet { UIStateManager.shared.refresh() }
+        didSet { UIStateManager.shared.stateChanged() }
     }
 }
