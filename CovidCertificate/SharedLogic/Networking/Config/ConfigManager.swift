@@ -8,6 +8,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
+import Foundation
 import UIKit
 
 /// Config request allows to disable old versions of the app if
@@ -17,9 +19,21 @@ class ConfigManager: NSObject {
     private let session = URLSession.certificatePinned
     private var dataTask: URLSessionDataTask?
 
+    private let jwsVerifier: JWSVerifier
+
     // MARK: - Init
 
-    override init() {}
+    /// This function will fail if anything happens to the pinning certificate. This should never happen on normal usage!
+    override init() {
+        guard let data = Bundle.main.url(forResource: "swiss_governmentrootcaii", withExtension: "der") else {
+            fatalError("Signing CA not in Bundle")
+        }
+        guard let caPem = try? Data(contentsOf: data),
+              let verifier = JWSVerifier(rootData: caPem) else {
+            fatalError("Cannot create certificate from data")
+        }
+        jwsVerifier = verifier
+    }
 
     // MARK: - Last Loaded Config
 
@@ -90,17 +104,20 @@ class ConfigManager: NSObject {
                 return
             }
 
-            DispatchQueue.main.async {
-                if let config = try? JSONDecoder().decode(ConfigResponseBody.self, from: data) {
-                    ConfigManager.currentConfig = config
-                    Self.lastConfigLoad = Date()
-                    Self.lastConfigUrl = request.url?.absoluteString
-                    completion(config)
-                } else {
-                    Logger.log("Failed to load config, error: \(error?.localizedDescription ?? "?")")
-                    completion(nil)
+            self.jwsVerifier.verifyAndDecode(httpBody: data) { (result: Result<ConfigResponseBody, JWSError>) in
+                DispatchQueue.main.async {
+                    if case let .success(config) = result {
+                        ConfigManager.currentConfig = config
+                        Self.lastConfigLoad = Date()
+                        Self.lastConfigUrl = request.url?.absoluteString
+                        completion(config)
+                    } else {
+                        Logger.log("Failed to load config, error: \(error?.localizedDescription ?? "?")")
+                        completion(nil)
+                    }
                 }
             }
+
         })
 
         dataTask?.resume()

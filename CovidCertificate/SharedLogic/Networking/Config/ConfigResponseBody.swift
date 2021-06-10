@@ -8,6 +8,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
 import UIKit
 
 struct LocalizedValue<T: Codable>: Codable {
@@ -43,7 +44,7 @@ struct InfoBox: UBCodable, Equatable {
     let isDismissible: Bool?
 }
 
-class ConfigResponseBody: UBCodable {
+class ConfigResponseBody: UBCodable, JWTExtension {
     let forceUpdate: Bool
     let infoBox: LocalizedValue<InfoBox>?
     let questions: LocalizedValue<FAQEntriesContainer>?
