@@ -43,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // background because of location change
         if shouldSetupWindow(application: application, launchOptions: launchOptions) {
             setupWindow()
-            setupImportHandler()
             willAppearAfterColdstart(application, coldStart: true, backgroundTime: 0)
         }
 
@@ -102,6 +101,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             onboardingViewController.modalPresentationStyle = .fullScreen
             window?.rootViewController?.present(onboardingViewController, animated: false)
         }
+
+        setupImportHandler()
     }
 
     private func willAppearAfterColdstart(_: UIApplication, coldStart _: Bool, backgroundTime _: TimeInterval) {
