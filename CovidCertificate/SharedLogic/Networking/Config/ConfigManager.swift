@@ -28,8 +28,10 @@ class ConfigManager: NSObject {
         guard let data = Bundle.main.url(forResource: "swiss_governmentrootcaii", withExtension: "der") else {
             fatalError("Signing CA not in Bundle")
         }
+        // currently we only have ref (aka abn) so we should use it for dev and ref (aka abn)
+        // TODO: switch on environment: prod = CH01-AppContentCertificate-prod; abn = CH01-AppContentCertificate-ref; dev = CH01-AppContentCertificate-dev
         guard let caPem = try? Data(contentsOf: data),
-              let verifier = JWSVerifier(rootData: caPem) else {
+              let verifier = JWSVerifier(rootData: caPem, leafCertMustMatch: "CH01-AppContentCertificate-ref") else {
             fatalError("Cannot create certificate from data")
         }
         jwsVerifier = verifier
