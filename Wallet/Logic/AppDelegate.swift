@@ -16,11 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     internal var window: UIWindow?
     private var lastForegroundActivity: Date?
     private var blurView: UIVisualEffectView?
+    private var importHandler: ImportHandler?
 
     @UBUserDefault(key: "isFirstLaunch", defaultValue: true)
     var isFirstLaunch: Bool
 
-    let linkHandler = LinkHandler()
+    private let linkHandler = LinkHandler()
 
     lazy var navigationController = NavigationController(rootViewController: WalletHomescreenViewController())
 
@@ -42,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // background because of location change
         if shouldSetupWindow(application: application, launchOptions: launchOptions) {
             setupWindow()
+            setupImportHandler()
             willAppearAfterColdstart(application, coldStart: true, backgroundTime: 0)
         }
 
@@ -179,5 +181,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.addSubview(bv)
 
         blurView = bv
+    }
+}
+
+extension AppDelegate {
+    private func setupImportHandler() {
+        guard let delegate = window?.rootViewController as? NavigationController else {
+            return
+        }
+
+        importHandler = ImportHandler(delegate: delegate)
+    }
+
+    func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        importHandler?.handle(url: url)
+        return true
     }
 }
