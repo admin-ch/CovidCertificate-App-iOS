@@ -14,7 +14,7 @@ import Foundation
 import PDFKit
 
 class ImportHandler {
-    private let delegate: NavigationController
+    private weak var delegate: NavigationController?
 
     // MARK: - Init
 
@@ -51,7 +51,7 @@ class ImportHandler {
 
         switch result {
         case .success:
-            delegate.topViewController?.dismiss(animated: false, completion: nil)
+            delegate?.topViewController?.dismiss(animated: false, completion: nil)
 
             let vc = CertificateAddDetailViewController(showScanAgainButton: false)
             vc.certificate = UserCertificate(qrCode: message)
@@ -62,14 +62,12 @@ class ImportHandler {
             vc.addOrOkCertificateTouchUpCallback = { certificate in
                 guard let c = certificate else { return }
 
-                if !CertificateStorage.shared.userCertificates.contains(c) {
-                    CertificateStorage.shared.userCertificates.insert(c, at: 0)
-                }
+                CertificateStorage.shared.insertCertificate(userCertificate: c)
 
                 navVC.dismiss(animated: true, completion: nil)
             }
 
-            delegate.present(navVC, animated: true, completion: nil)
+            delegate?.present(navVC, animated: true, completion: nil)
 
         case .failure:
             presentError()
@@ -85,7 +83,7 @@ class ImportHandler {
     }
 
     func presentError() {
-        delegate.topViewController?.dismiss(animated: false, completion: nil)
+        delegate?.topViewController?.dismiss(animated: false, completion: nil)
 
         let alert = UIAlertController(title: UBLocalized.error_title, message: UBLocalized.verifier_error_invalid_format, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: UBLocalized.ok_button, style: .default, handler: { _ in

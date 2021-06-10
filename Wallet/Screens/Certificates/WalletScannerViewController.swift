@@ -149,10 +149,7 @@ class WalletScannerViewController: ViewController {
         detailViewController.addOrOkCertificateTouchUpCallback = { [weak self] certificate in
             guard let strongSelf = self, let c = certificate else { return }
 
-            if !CertificateStorage.shared.userCertificates.contains(c) {
-                CertificateStorage.shared.userCertificates.insert(c, at: 0)
-            }
-
+            CertificateStorage.shared.insertCertificate(userCertificate: c)
             strongSelf.dismiss(animated: true, completion: nil)
         }
 
