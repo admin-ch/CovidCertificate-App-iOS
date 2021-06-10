@@ -136,13 +136,19 @@ class CertificateStateView: UIView {
                 self.validityView.textColor = .cc_black
                 self.validityView.untilText = validUntil
             case .failure:
-                if case let .invalid(errors, _, validUntil) = self.states.state {
+                if case let .invalid(errors, errorCodes, validUntil) = self.states.state {
                     self.imageView.image = errors.first?.icon(with: .cc_red)
                     self.textLabel.attributedText = errors.first?.displayName()
                     self.backgroundView.backgroundColor = .cc_redish
                     self.validityView.backgroundColor = .cc_redish
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
+
+                    let codes = errorCodes.joined(separator: ", ")
+                    if codes.count > 0 {
+                        self.errorLabel.ub_setHidden(false)
+                        self.errorLabel.text = codes
+                    }
                 }
             case let .retry(error, errorCodes):
                 self.imageView.image = UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange)
@@ -182,13 +188,19 @@ class CertificateStateView: UIView {
                     self.validityView.textColor = .cc_black
                     self.validityView.untilText = validUntil
 
-                case let .invalid(errors, _, validUntil):
+                case let .invalid(errors, errorCodes, validUntil):
                     self.imageView.image = errors.first?.icon()
                     self.textLabel.attributedText = errors.first?.displayName()
                     self.backgroundView.backgroundColor = .cc_greyish
                     self.validityView.backgroundColor = .cc_greyish
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
+
+                    let codes = errorCodes.joined(separator: ", ")
+                    if codes.count > 0 {
+                        self.errorLabel.ub_setHidden(false)
+                        self.errorLabel.text = codes
+                    }
 
                 case let .retry(error, errorCodes):
                     self.imageView.image = error.icon(with: nil)
