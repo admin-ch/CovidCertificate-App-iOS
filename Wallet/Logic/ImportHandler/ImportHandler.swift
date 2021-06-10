@@ -89,7 +89,8 @@ class ImportHandler {
         alert.addAction(UIAlertAction(title: UBLocalized.ok_button, style: .default, handler: { _ in
             alert.dismiss(animated: true, completion: nil)
         }))
-        delegate.present(alert, animated: true, completion: nil)
+
+        delegate?.present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Helpers
