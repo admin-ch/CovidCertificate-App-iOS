@@ -83,6 +83,6 @@ extension Endpoint {
         #else
             let path = "" // Not supported
         #endif
-        return Environment.current.configService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr])
+        return Environment.current.configService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Accept": "application/json+jws"])
     }
 }

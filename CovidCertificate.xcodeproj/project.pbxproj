@@ -32,6 +32,8 @@
 		24780B5B2431B5A9003BB26C /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24780B562431B5A9003BB26C /* DateFormatter.swift */; };
 		2485F4782456185100C3D8C3 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F4772456185000C3D8C3 /* DebugLog.swift */; };
 		2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F47F2459631A00C3D8C3 /* NetworkError.swift */; };
+		274E946B2671E46200110DC5 /* swiss_governmentrootcaii.der in Resources */ = {isa = PBXBuildFile; fileRef = 274E946A2671E46200110DC5 /* swiss_governmentrootcaii.der */; };
+		274E946C2671E46200110DC5 /* swiss_governmentrootcaii.der in Resources */ = {isa = PBXBuildFile; fileRef = 274E946A2671E46200110DC5 /* swiss_governmentrootcaii.der */; };
 		48CCA621265F93D200887F63 /* CovidCertificateSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 48CCA620265F93D200887F63 /* CovidCertificateSDK */; };
 		48CCA623265F93DB00887F63 /* CovidCertificateSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 48CCA622265F93DB00887F63 /* CovidCertificateSDK */; };
 		48ECCD2A264F0797008678DD /* StaticContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDF2264A652800FDE0E1 /* StaticContentViewModel.swift */; };
@@ -277,6 +279,7 @@
 		24780B562431B5A9003BB26C /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		2485F4772456185000C3D8C3 /* DebugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLog.swift; sourceTree = "<group>"; };
 		2485F47F2459631A00C3D8C3 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		274E946A2671E46200110DC5 /* swiss_governmentrootcaii.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = swiss_governmentrootcaii.der; sourceTree = "<group>"; };
 		6E0281EE2655022A00582904 /* Impressum */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Impressum; sourceTree = "<group>"; };
 		6E0281F126550E1100582904 /* InfoBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBoxView.swift; sourceTree = "<group>"; };
 		6E0281F42655280500582904 /* InfoBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBoxButton.swift; sourceTree = "<group>"; };
@@ -637,6 +640,7 @@
 		6E8F52E1265EC17300406430 /* PinnedCertificates */ = {
 			isa = PBXGroup;
 			children = (
+				274E946A2671E46200110DC5 /* swiss_governmentrootcaii.der */,
 				6E8F52E2265EC17300406430 /* www.cc-a.bit.admin.ch.der */,
 				6E8F52E3265EC17300406430 /* www.cc-d.bit.admin.ch.der */,
 				6E8F52E4265EC17300406430 /* www.cc.bit.admin.ch.der */,
@@ -1132,6 +1136,7 @@
 				DCF9C3652656395A00E34481 /* config_check.json in Resources */,
 				6EC1732F26429E31002E27DB /* InfoPlist.strings in Resources */,
 				6E8F52E6265EC17400406430 /* www.cc-a.bit.admin.ch.der in Resources */,
+				274E946C2671E46200110DC5 /* swiss_governmentrootcaii.der in Resources */,
 				6EC1733026429E31002E27DB /* Inter-ExtraLight.ttf in Resources */,
 				6EC1733126429E31002E27DB /* Launch Screen.storyboard in Resources */,
 				6EC1733226429E31002E27DB /* Inter-ExtraBold.ttf in Resources */,
@@ -1157,6 +1162,7 @@
 				8E81CCA2241FCC7F006F2437 /* Assets.xcassets in Resources */,
 				DCF9C3662656395A00E34481 /* config_wallet.json in Resources */,
 				6E8F52E5265EC17400406430 /* www.cc-a.bit.admin.ch.der in Resources */,
+				274E946B2671E46200110DC5 /* swiss_governmentrootcaii.der in Resources */,
 				DC9A81AC242CE5E000AD1548 /* InfoPlist.strings in Resources */,
 				6E0281EF2655022A00582904 /* Impressum in Resources */,
 				DCB4430A242DD34700F19AA5 /* Inter-ExtraLight.ttf in Resources */,
