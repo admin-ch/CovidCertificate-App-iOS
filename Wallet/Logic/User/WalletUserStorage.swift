@@ -27,4 +27,10 @@ class CertificateStorage {
     var userCertificates: [UserCertificate] {
         didSet { UIStateManager.shared.refresh() }
     }
+
+    func insertCertificate(userCertificate: UserCertificate) {
+        if !userCertificates.contains(userCertificate) {
+            userCertificates.insert(userCertificate, at: 0)
+        }
+    }
 }
