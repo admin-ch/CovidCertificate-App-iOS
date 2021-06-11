@@ -1,0 +1,663 @@
+
+/*Android App Name*/
+"verifier_app_name" = "Covid Check";
+
+/*Title for the qr scanning screen*/
+"verifier_title_qr_scan" = "Verifitgar";
+
+/*Titel über dem Haupttitel*/
+"verifier_homescreen_header_title" = "Covid Certificate";
+
+/*Homescreen App Name*/
+"verifier_homescreen_title" = "Check";
+
+/*Beschreibung für Pager Bild 1*/
+"verifier_homescreen_pager_description_1" = "Scannar il certificat preschentà";
+
+/*Beschreibung für Pager Bild 2*/
+"verifier_homescreen_pager_description_2" = "Ils certificats vegnan verifitgads automaticamain";
+
+/*Homescreen Button für Scanning*/
+"verifier_homescreen_scan_button" = "Verifitgar";
+
+/*Homescreen Button für Support*/
+"verifier_homescreen_support_button" = "Uschia funcziuni";
+"error_network_title" = "Sbagl en la rait";
+"error_network_text" = "Verifitgai Vossa colliaziun d'internet.";
+"error_action_retry" = "Empruvar danovamain";
+"error_camera_permission_title" = "Nagin access a la camera";
+"error_camera_permission_text" = "L'app dovra access a la camera per pudair scannar il code QR.";
+"error_action_change_settings" = "Midar las configuraziuns";
+"error_title" = "Sbagl";
+"qr_scanner_error" = "Il code n'è betg valaivel";
+"ok_button" = "OK";
+"camera_permission_dialog_text" = "L'app dovra access a la camera per pudair scannar il code QR.";
+"camera_permission_dialog_action" = "Permetter l'access a la camera";
+"verifier_qr_scanner_scan_qr_text" = "Scannar il code QR per verifitgar";
+
+/*Titel auf dem Verifikations-Screen*/
+"covid_certificate_title" = "Certificat COVID";
+
+/*Name des/der Zertifikatsinhabers/Zertifikatsinhaberin*/
+"verifier_covid_certificate_name" = "Num";
+
+/*Geburtsdatum des/der Zertifikatsinhabers/Zertifikatsinhaberin*/
+"verifier_covid_certificate_birthdate" = "Data da naschientscha";
+
+/*Wallet: Zertifikat hinzufügen*/
+"wallet_add_certificate" = "Agiuntar";
+
+/*Wallet: Homescreen Covid-Zertifikat*/
+"wallet_certificate" = "Certificat covid";
+
+/*Wallet: Homescreen Erklärung*/
+"wallet_homescreen_explanation" = "Scannai il code QR sin il certificat COVID per al agiuntar a l'app.";
+
+/*Wallet: Scanner Titel*/
+"wallet_scanner_title" = "Agiuntar";
+
+/*Titel bei erfolgreicher Prüfung*/
+"verifier_verify_success_title" = "Verificaziun reussida";
+
+/*Info Text bei erfolgreicher Prüfung*/
+"verifier_verify_success_info" = "Valaivel mo cun in \ndocument da legitimaziun";
+
+/*Prüfung loading text*/
+"verifier_verify_loading_text" = "Il certificat vegn verifitgà";
+
+/*Fehler Title bei Prüfung*/
+"verifier_verify_error_title" = "Il certificat n'è betg valaivel";
+
+/*Fehler Infotext bei Prüfung (Nationale Regeln)*/
+"verifier_verify_error_info_for_national_rules" = "Na correspunda betg als criteris da valaivladad da la Svizra";
+
+/*Fehler Infotext bei Prüfung (Zertifikat Fehler)*/
+"verifier_verify_error_info_for_certificate_invalid" = "Il certificat COVID n'ha betg ina signatura valaivla";
+
+/*Fehler Infotext bei Prüfung (Blacklist)*/
+"verifier_verify_error_info_for_blacklist" = "Il certificat COVID è vegnì revocà";
+
+/*Fehler bei der geladen Liste*/
+"verifier_verify_error_list_title" = "Verificaziun betg reussida";
+
+/*Fehler Info bei laden der Liste*/
+"verifier_verify_error_list_info_text" = "Igl è capità in sbagl imprevis.";
+
+/*Wallet: Scanner Text unten*/
+"wallet_scanner_explanation" = "Scannai il code QR sin il certificat COVID.";
+
+/*Wallet: Scanner Info Button unten*/
+"wallet_scanner_info_button" = "Uschia funcziuni";
+
+/*Wallet: Erneut scannen Button*/
+"wallet_scan_again" = "Scannar danovamain";
+
+/*Wallet: Hinzufügen von Zertifikat Button*/
+"wallet_add_certificate_button" = "Agiuntar";
+
+/*Wallet: Titel der Liste Zertifikate*/
+"wallet_certificate_list_title" = "Certificats";
+
+/*Wallet: Löschen Button Titel*/
+"delete_button" = "Stizzar";
+
+/*Android App Name für die Wallet*/
+"wallet_app_name" = "Covid Cert";
+
+/*Header im Onboarding-Screen "Die App"*/
+"wallet_onboarding_app_header" = "L'app";
+
+/*Titel im Onboardingscreen "Die App"*/
+"wallet_onboarding_app_title" = "COVID Certificate";
+
+/*Text im Onboardingscreen "Die App"*/
+"wallet_onboarding_app_text" = "Cun l'app pudais Vus tegnair en salv en moda segira ils certificats COVID sin Voss smartphone ed als preschentar en moda simpla.";
+
+/*Weiter-Button Titel*/
+"continue_button" = "Vinavant";
+
+/*Header im Onboarding-Screen "Datenschutz"*/
+"wallet_onboarding_privacy_header" = "Protecziun da datas";
+
+/*Titel im Onboardingscreen "Datenschutz"*/
+"wallet_onboarding_privacy_title" = "Vossas datas restan en l'app";
+
+/*Text im Onboardingscreen "Datenschutz"*/
+"wallet_onboarding_privacy_text" = "Ils certificats vegnan arcunads mo localmain sin Voss smartphone. Las datas na vegnan betg arcunadas en in sistem central.";
+
+/*Titel im Onboardingscreen "Vorteile, Vorweisen"*/
+"wallet_onboarding_show_title" = "Preschentar ils certificats en moda simpla";
+
+/*Text 1 im Onboardingscreen "Vorteile, Vorweisen"*/
+"wallet_onboarding_show_text1" = "Las datas sin il certificat COVID èn er cuntegnidas en il code QR. ";
+
+/*Text 2 im Onboardingscreen "Vorteile, Vorweisen"*/
+"wallet_onboarding_show_text2" = "Cun preschentar il certificat vegn scannà il code QR cun l'app da verificaziun. Las datas vegnan verifitgadas automaticamain areguard l'autenticitad e la valaivladad.";
+
+/*Titel des Datenschutzerklärungs-Elements im Onboardingscreen "Datenschutz"*/
+"wallet_onboarding_privacy_privacypolicy_title" = "Decleraziun davart la protecziun da datas";
+
+/*Titel des Nutzungsbedingungen-Elements im Onboardingscreen "Datenschutz"*/
+"wallet_onboarding_privacy_conditionsofuse_title" = "Cundiziuns d'utilisaziun";
+
+/*Button zum Abschliessen des Onboardings*/
+"wallet_onboarding_accept_button" = "Acceptar";
+"language_key" = "rm";
+
+/*Header im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_header" = "Uschia funcziuni";
+
+/*Titel im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_title" = "Agiuntar certificats COVID";
+
+/*Textblock 1 im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_text1" = "Per pudair agiuntar in certificat COVID a l'app duvrais Vus il certificat original sin palpiri u sco PDF. ";
+
+/*Textblock 2 im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_text2" = "Smatgai en l'app sin «Agiuntar» per agiuntar in nov certificat a l'app.";
+
+/*Textblock 3 im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_text3" = "Tegnai ussa la camera dal smartphone sur il code QR sin il certificat original per scannar il code.";
+
+/*Textblock 4 im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_text4" = "I cumpara ina prevista dal certificat covid. Smatgai sin «Agiuntar» per arcunar il certificat en moda segira en l'app.";
+
+/*Frage 1 im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_question1" = "Cura e co obtegn jau in certificat COVID?";
+
+/*Header im FAQ-Screen der Wallet App*/
+"wallet_faq_header" = "Dumondas frequentas";
+
+/*Titel 1 im FAQ-Screen der Wallet App*/
+"wallet_faq_questions_title" = "Tge è il certificat COVID?";
+
+/*Text 1im FAQ-Screen der Wallet App*/
+"wallet_faq_questions_subtitle" = "Il certificat COVID permetta da documentar – en moda nunfalsifitgabla – ina vaccinaziun cunter COVID-19, ina infecziun u in resultat negativ dal test.";
+
+/*Frage 1 im FAQ-Screen der Wallet App*/
+"wallet_faq_questions_question_1" = "Cura e co obtegn jau in certificat COVID?";
+
+/*Frage 2 im FAQ-Screen der Wallet App*/
+"wallet_faq_questions_question_2" = "Co poss jau preschentar in certificat COVID?";
+
+/*Frage 3 im FAQ-Screen der Wallet App*/
+"wallet_faq_questions_question_3" = "Nua vegnan arcunadas mias datas?";
+
+/*Frage 4 im FAQ-Screen der Wallet App*/
+"wallet_faq_questions_question_4" = "Co vegnan impedids abus e falsificaziuns?";
+
+/*Frage 5 im FAQ-Screen der Wallet App*/
+"wallet_faq_questions_question_5" = "Tge capita, sche jau perd mes certificat COVID?";
+
+/*Frage 6 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_question_1" = "Co poss jau agiuntar in certificat COVID a l'app?";
+
+/*Frage 7 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_question_2" = "Pon vegnir agiuntads er plirs certificats COVID?";
+
+/*Frage 8 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_question_3" = "Co ves jau, sche mes certificat COVID è valaivel?";
+
+/*Frage 9 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_question_4" = "Co vegnan protegidas mias datas?";
+
+/*Frage 10 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_question_5" = "Tge datas cuntegna il code QR?";
+
+/*Frage 11 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_question_6" = "Tge stoss jau far, sche jau stiz il certificat COVID u l'app?";
+
+/*Antwort 1 im FAQ-Screen der Wallet App*/
+"wallet_faq_questions_answer_1" = "In certificat COVID obtegnais Vus suenter ina vaccinaziun cumpletta cunter COVID-19, suenter ina infecziun u suenter in resultat negativ dal test. Il certificat vegn per il solit emess – sin dumonda – dal persunal spezialisà da sanadad al lieu.";
+
+/*Antwort 2 im FAQ-Screen der Wallet App*/
+"wallet_faq_questions_answer_2" = "Vus pudais preschentar Voss certificat COVID u en furma da palpiri u cun utilisar l'app COVID Certificate. L'app permetta d'arcunar certificats e d'als preschentar directamain sin il telefonin. Vus pudais decider sezza u sez, sche Vus vulais mussar Voss certificat sin palpiri u en l'app.\n\nResguardai per plaschair che Vus stuais en mintga cas preschentar – sin dumonda – ultra dal certificat er in document da legitimaziun.";
+
+/*Antwort 3 im FAQ-Screen der Wallet App*/
+"wallet_faq_questions_answer_3" = "Vossas datas na vegnan betg arcunadas en in sistem central, mabain mo localmain sin Voss telefonin resp. en il code QR sin il certificat COVID en furma da palpiri.";
+
+/*Antwort 4 im FAQ-Screen der Wallet App*/
+"wallet_faq_questions_answer_4" = "Il code QR sin Voss certificat COVID cuntegna ina signatura digitala. La signatura è ina impurtanta caracteristica da segirezza che impedescha da falsifitgar il certificat COVID. Il certificat COVID è ultra da quai valaivel mo en cumbinaziun cun in document da legitimaziun.";
+
+/*Antwort 5 im FAQ-Screen der Wallet App*/
+"wallet_faq_questions_answer_5" = "Voss certificat COVID na vegn betg arcunà en in sistem central. El è unicamain en Voss agen possess. Tegnai perquai en salv cun quità il certificat COVIDsin palpiri. En cas da perdita, stuais Vus dumandar in nov certificat COVID tar il post che l'ha emess.";
+
+/*Antwort 6 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_answer_1" = "Per agiuntar in certificat COVID a l'app, duvrais Vus il certificat original ch'è vegnì emess per Vus sin palpiri u en furma da PDF. Cun l'app COVID Certificate pudais Vus alura scannar il code QR sin il certificat ed al agiuntar a l'app. Silsuenter cumpara il certificat COVID directamain en l'app.";
+
+/*Antwort 7 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_answer_2" = "Gea, quai è pussaivel. Vus pudais p.ex. arcunar en Vossa app ils certificats COVID da tut Vossas confamigliaras e da tut Voss confamigliars. Er en quest cas vala: Il certificat COVID è valaivel mo en cumbinaziun cun in document da legitimaziun  da la possessura u dal possessur dal certificat.";
+
+/*Antwort 8 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_answer_3" = "En l'app COVID Certificate vegn inditgà cura che Voss certificat COVID spira en Svizra. Vus pudais ultra da quai verifitgar en la vista da detagls, sche Voss certificat COVID è actualmain valaivel.";
+
+/*Antwort 9 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_answer_4" = "Vossas datas persunalas na vegnan betg arcunadas en in sistem central, mabain mo localmain sin Voss telefonin resp. en il code QR sin Voss certificat COVID en furma da palpiri.";
+
+/*Antwort 10 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_answer_5" = "Il code QR cuntegna tut las infurmaziuns che Vus chattais sin Voss certificat COVID en furma da palpiri en text betg criptà. Plinavant sa chatta ina signatura digitala en il code QR. Cun quella po vegnir verifitgada l'autenticitad da Voss certificat COVID. Uschia na po il certificat COVID betg vegnir falsifitgà.";
+
+/*Antwort 11 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_answer_6" = "Vus pudais simplamain arcunar anc ina giada il certificat COVID sin Voss telefonin. Chargiai giu danovamain l’app e scannai alura il code QR sin Voss certificat COVID sin palpiri u en furma da PDF.";
+
+/*Titel 2 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_title" = "Co funcziuna \nl'app?";
+
+/*Text 2 im FAQ-Screen der Wallet App*/
+"wallet_faq_works_subtitle" = "Cun l'app COVID Certificate pudais Vus arcunar e preschentar en moda simpla e segira certificats COVID sin Voss telefonin.";
+
+/*Antwort 1 im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_answer1" = "In certificat COVID pudais Vus obtegnair suenter ina vaccinaziun cumpletta cunter COVID-19, suenter ina infecziun cun COVID-19 u suenter in resultat negativ dal test da COVID-19. Il certificat vegn emess – sin dumonda – dal persunal medicinal al lieu.";
+
+/*Verifier: Detail Check Vorname*/
+"verifier_covid_certificate_prename" = "Prenum";
+
+/*Config: Titel wenn App muss geupdatet werden*/
+"force_update_title" = "Update necessari";
+
+/*Config: Text der angezeigt wird falls App muss geupdatet werden*/
+"force_update_text" = "Chargiai giu la nova versiun da l'app.";
+
+/*Config: Update Button Aktualisieren*/
+"force_update_button" = "Actualisar";
+
+/*Wallet: Zertifikat gültig ab: {DATE}*/
+"wallet_certificate_valid_from" = "Valaivel en Svizra a partir dals: \n{DATE}";
+
+/*Wallet: Zertifikat Detail Geimpft*/
+"certificate_reason_vaccinated" = "Vaccinaziun";
+
+/*Wallet: Zertifikat Detail Genesen*/
+"certificate_reason_recovered" = "Guariziun";
+
+/*Wallet: Zertifikat Detail Getestet*/
+"certificate_reason_tested" = "Test";
+
+/*Header im Onboardingscreen "Vorteile, Aufbewahren"*/
+"wallet_onboarding_store_header" = "Avantatgs";
+
+/*Titel im Onboardingscreen "Vorteile, Aufbewahren"*/
+"wallet_onboarding_store_title" = "Tegnair en salv ils certificats COVID en moda digitala";
+
+/*Text1 im Onboardingscreen "Vorteile, Aufbewahren"*/
+"wallet_onboarding_store_text1" = "Ils certificats COVID pon vegnir agiuntads en moda simpla a l'app e vegnir tegnids en salv en moda digitala.";
+
+/*Text2 im Onboardingscreen "Vorteile, Aufbewahren"*/
+"wallet_onboarding_store_text2" = "L'app verifitgescha ils certificats areguard lur valaivladad en Svizra. Uschia pudais Vus As atschertar che Voss certificats èn valaivels. ";
+
+/*Header im Onboarding-Screen "Vorteile, Vorweisen"*/
+"wallet_onboarding_show_header" = "Avantatgs";
+
+/*Accessibility: Information*/
+"accessibility_info_button" = "Impressum";
+
+/*Accessibility: FAQ Button Titel*/
+"accessibility_faq_button" = "Dumondas frequentas";
+
+/*Accessibility: Button zur Liste der Zertifikate*/
+"accessibility_list_button" = "Glista dals certificats";
+
+/*Accessibility: Zertifikate hinzufügen*/
+"accessibility_add_button" = "Agiuntar in certificat";
+
+/*Accessibility: Schliessen Button*/
+"accessibility_close_button" = "Serrar";
+
+/*Accessibility: Taschenlampe anschalten Button*/
+"accessibility_lamp_on_button" = "Activar la glisch da giaglioffa";
+
+/*Accessibility: Lampe abschalten*/
+"accessibility_lamp_off_button" = "Deactivar la glisch da giaglioffa";
+
+/*Titel des Impressum-Screens*/
+"impressum_title" = "Configuraziuns";
+
+/*Unbekannter Fehler*/
+"unknown_error" = "Igl è capità in sbagl nunenconuschent.";
+
+/*Verifier: Die Gültigkeit des Zertifikat ist abgelaufen*/
+"verifier_verifiy_error_expired" = "Na correspunda betg als criteris da valaivladad da la Svizra. La valaivladad dal certificat è scadida.";
+
+/*Verifier: Zertifikat ist erst gültig ab {DATE}*/
+"verifier_verifiy_error_notyetvalid" = "Na correspunda betg als criteris da valaivladad da la Svizra. Il certificat n'è anc betg valaivel.";
+
+/*Verifier: Ein Netzwerkfehler ist aufgetreten.*/
+"verifier_retry_network_error" = "Igl è capità in sbagl en la rait.";
+
+/*Verifier: Das Gerät befindet sich im Flugmodus.*/
+"verifier_retry_flightmode_error" = "L'apparat è en il modus offline.";
+
+/*Wallet: Zertifikat gültig ab: {DATE}*/
+"wallet_error_valid_from" = "Valaivel en Svizra a partir dals: \n{DATE}";
+
+/*Wallet: Fehler wenn Zertifikat nicht den CH-Gültigkeitskriterien entspricht*/
+"wallet_error_national_rules" = "Na correspunda betg als criteris da valaivladad da la Svizra";
+
+/*Wallet: Gültigkeit des Zertifikats abgelaufen*/
+"wallet_error_expired" = "La valaivladad dal certificat \nè scadida";
+
+/*Wallet: Zertifikat wurde widerrufen*/
+"wallet_error_revocation" = "Il certificat è vegnì \nrevocà";
+
+/*Wallet: Zertifikat mit ungültiger Signatur*/
+"wallet_error_invalid_signature" = "Certificat cun \nsignatura nunvalaivla";
+
+/*Wallet: ungültiger Signatur (gleiche Worte wie wallet_error_invalid_signature)*/
+"wallet_error_invalid_signature_bold" = "signatura nunvalaivla";
+
+/*Wallet: widerrufen (gleiches Wort wie bei wallet_error_revocation)*/
+"wallet_error_revocation_bold" = "revocà";
+
+/*Wallet: abgelaufen (gleiches Wort wie bei wallet_error_expired verwenden)*/
+"wallet_error_expired_bold" = "è scadida";
+
+/*Meldung wenn erneute ein Zertifikat gescannt wurde, welches bereits in der App ist*/
+"wallet_certificate_already_exists" = "Quest certificat è gia arcunà en l'app";
+
+/*Titel Gültigkeit im Zertifikatsdetail*/
+"wallet_certificate_validity" = "Valaivladad en Svizra";
+
+/*"Bis" Label im Zertifikats-Detail*/
+"wallet_certificate_valid_until" = "fin ils";
+
+/*Message im Zertifikatsdetail während Überprüfung*/
+"wallet_certificate_verifying" = "Il certificat vegn verifitgà";
+
+/*Message nach erfolgreicher Prüfung im Zertifikatdetail*/
+"wallet_certificate_verify_success" = "Verificaziun reussida";
+
+/*Accessibility: Info Box Butto*/
+"accessibility_info_box" = "Infurmaziun";
+
+/*Button Schliessen*/
+"close_button" = "Serrar";
+"wallet_certificate_impfdosis_title" = "Dosa";
+"target_disease_name" = "Covid-19";
+"wallet_certificate_target_disease_title" = "Malsogna u agent patogen";
+"wallet_certificate_impfstoff_product_name_title" = "Product";
+"wallet_certificate_impfstoff_holder" = "Producent";
+"wallet_certificate_vaccination_date_title" = "Data da la vaccinaziun";
+"wallet_certificate_vaccination_country_title" = "Pajais da la vaccinaziun";
+
+/*Prüfen mit PDF Translation*/
+"wallet_certificate_vaccination_issuer_title" = "Emess da";
+"covid_certificate_recovery_title" = "Guariziun";
+"wallet_certificate_recovery_first_positiv_result" = "Data da l'emprim resultat positiv";
+"wallet_certificate_recovery_from" = "Valaivel a partir dals";
+"wallet_certificate_recovery_until" = "Valaivel fin ils";
+"wallet_certificate_test_land" = "Pajais dal test";
+"covid_certificate_test_title" = "Test";
+"wallet_certificate_test_result_title" = "Resultat";
+"wallet_certificate_test_result_negativ" = "Betg identifitgà (Negativ)";
+"wallet_certificate_test_result_positiv" = "Positiv";
+"wallet_certificate_test_type" = "Tip";
+"wallet_certificate_test_name" = "Num";
+"wallet_certificate_test_holder" = "Producent";
+"wallet_certificate_test_sample_date_title" = "Data da l'emprova";
+"wallet_certificate_test_result_date_title" = "Data da resultat";
+
+/*Header im "So funktionierts" Screen der Verifier-App*/
+"verifier_support_header" = "Uschia funcziuni";
+
+/*Text im Bestätigungs-Dialog beim Zertifikat löschen*/
+"wallet_certificate_delete_confirm_text" = "Vulais Vus propi stizzar il certificat?";
+
+/*Titel eines Abbrechen-Buttons*/
+"cancel_button" = "Interrumper";
+
+/*Wallet: Titel bei Impfungen*/
+"covid_certificate_vaccination_title" = "Vaccinaziun";
+
+/*Wallet: Apple App Store URL*/
+"wallet_apple_app_store_url" = "http://itunes.apple.com/app/id1565917320";
+
+/*Verifier: Apple App Store URL*/
+"verifier_apple_app_store_url" = "http://itunes.apple.com/app/id1565917510";
+
+/*Wallet: Abkürzung "UVCI" (Unique Vaccination Certificate Identifier)*/
+"wallet_certificate_identifier" = "UVCI";
+
+/*Wallet: Zertifikat erstellt am {DATE}*/
+"wallet_certificate_date" = "Certificat emess ils \n{DATE}";
+
+/*Wallet: Detail Art des Impfstoffs*/
+"wallet_certificate_vaccine_prophylaxis" = "Tip dal vaccin";
+
+/*Wallet: Test Detail Test durchgeführt durch*/
+"wallet_certificate_test_done_by" = "Center da test";
+
+/*iOS: Erklärung bei Kamera */
+"NSCameraUsageDescription" = "L'app dovra access a la camera per pudair scannar il code QR.";
+
+/*Titel 1 im FAQ der Verifier App*/
+"verifier_faq_works_title" = "Uschia vegnan verifitgads ils certificats COVID";
+
+/*Text 1 im FAQ der Verifier App*/
+"verifier_faq_works_subtitle" = "Cun l'app COVID Certificate Check pon vegnir scannads ils codes QR sin ils certificats COVID per verifitgar l'autenticitad e la valaivladad dals certificats.";
+
+/*Frage 1 im FAQ der Verifier App*/
+"verifier_faq_works_question_1" = "Co pon vegnir verifitgads ils certificats COVID?";
+
+/*Antwort 1 im FAQ der Verifier App*/
+"verifier_faq_works_answer_1" = "Per verifitgar in certificat COVID pudais Vus scannar il code QR sin Voss certificat sin palpiri u en l'app COVID Certificate cun l’app «COVID Certificate Check» previsa per quai.";
+
+/*Frage 2 im FAQ der Verifier App*/
+"verifier_faq_works_question_2" = "Tge vegn propi verifitgà?";
+
+/*Antwort 2 im FAQ der Verifier App*/
+"verifier_faq_works_answer_2" = "Cun scannar vegnan verifitgads trais aspects:\n– Cuntegna il certificat ina signatura digitala valaivla?\n– N'è il certificat betg vegnì revocà?\n– Correspunda il certificat als criteris da valaivladad en Svizra?\n\nSche tut ils trais aspects vegnan valitads en moda positiva, vegn il certificat COVID considerà sco valaivel.\n";
+
+/*Frage 3 im FAQ der Verifier App*/
+"verifier_faq_works_question_3" = "Tge documents da legitimaziun vegnan acceptads resp. èn valaivels? Pertge ston vegnir verifitgadas las persunalias?";
+
+/*Antwort 3 im FAQ der Verifier App*/
+"verifier_faq_works_answer_3" = "Ultra dal passaport e da la ID vegnan acceptads er auters documents da legitimaziun valaivels che cumprovan l’identitad da la persuna pertutgada cun ina fotografia (p.ex. permiss dad ir cun auto). Il certificat COVID na po bain betg vegnir falsifitgà, però pir cun verifitgar las persunalias vegn controllà, sch'il certificat preschentà è vegnì emess per la persuna ch'al preschenta.";
+
+/*Frage 4 im FAQ der Verifier App*/
+"verifier_faq_works_question_4" = "Pon vegnir verifitgads er certificats COVID esters?";
+
+/*Antwort 4 im FAQ der Verifier App*/
+"verifier_faq_works_answer_4" = "Gea, certificats COVID ch'èn cumpatibels cun il «Digital Covid Certificate» da la UE pon vegnir verifitgads cun l'app COVID Certificate Check areguard ils criteris da valaivladad da la Svizra.";
+
+/*Frage 5 im FAQ der Verifier App*/
+"verifier_faq_works_question_5" = "Tge datas ves jau tar la procedura da verificaziun?";
+
+/*Antwort 5 im FAQ der Verifier App*/
+"verifier_faq_works_answer_5" = "Tar la procedura da verificaziun vesais Vus mo il num e la data da naschientscha da la possessura u dal possessur dal certificat e sch'il certificat COVID è valaivel.";
+
+/*Frage 6 im FAQ der Verifier App*/
+"verifier_faq_works_question_6" = "Vegnan arcunadas datas en in sistem central u en l'app COVID Certificate Check tar la procedura da verificaziun?";
+
+/*Antwort 6 im FAQ der Verifier App*/
+"verifier_faq_works_answer_6" = "Na, tar la procedura da verificaziun na vegnan arcunadas naginas datas – ni en l'app COVID Certificate Check ni en in sistem central? I n'è pia betg pussaivel d'identifitgar tge certificat COVID ch'è vegnì verifitgà da tgi, cura e nua.";
+
+/*iOS Button zum Einstellungen öffnen*/
+"ios_settings_open" = "Configuraziun";
+
+/*Wallet: Onboarding externer Link zu Datenschutz*/
+"wallet_onboarding_external_privacy_button" = "Decleraziun davart la protecziun da datas & cundiziuns d’utilisaziun";
+
+/*Wallet: Hinweis im Zertifikat Detail*/
+"wallet_certificate_detail_note" = "Quest attest n'è betg in document da viadi.\n\nLas enconuschientschas scientificas davart la vaccinaziun cunter COVID-19, davart la guariziun da COVID-19 e davart ils tests da COVID-19 sa sviluppan cuntinuadamain, er areguard las novas variantas privlusas dal virus.\n\nAs infurmai per plaschair – avant d'As metter en viadi – davart las mesiras da sanadad e davart las restricziuns che valan en il lieu da destinaziun.";
+"wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html";
+"verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-check-app.html";
+
+/*Verifier: Titel in der App (z.B. Impressum)*/
+"verifier_app_title" = "COVID Certificate Check";
+"wallet_faq_questions_question_1_1" = "Co obtegn jau in certificat COVID suenter ina infecziun cun COVID-19?";
+"wallet_faq_questions_answer_1_1" = "Cun agid d’in formular online sin la pagina d’internet dal chantun pon las persunas guaridas da COVID-19 far ina dumonda per in certificat COVID. Il certificat COVID vegn alura tramess per posta.";
+
+/*Wallet: Homescreen Was wollen sie machen?*/
+"wallet_homescreen_what_to_do" = "Was möchten Sie machen?";
+
+/*Wallet: Homescreen Titel Zertifikat hinzufügen*/
+"wallet_homescreen_add_title" = "Zertifikat hinzufügen";
+
+/*Wallet: Homescreen Zertifikat Description Text*/
+"wallet_homescreen_add_certificate_description" = "Sie haben ein Covid-Zertifikat auf Papier oder als PDF und möchten es zur App hinzufügen.";
+
+/*Wallet: Homescreen Transfer-Code erstellen*/
+"wallet_homescreen_add_transfer_code" = "Transfer-Code erstellen";
+
+/*Wallet: Transfer Codes Titel*/
+"wallet_transfer_code_onboarding_title" = "Transfer Codes";
+
+/*Wallet: Transfer Code Text*/
+"wallet_transfer_code_onboarding_text" = "Mit Transfer-Codes können Sie Covid-Zertifikate von negativen Testresultaten direkt in der App empfangen.";
+
+/*Wallet: Transfer Code Onboarding Button*/
+"wallet_transfer_code_onboarding_button" = "Code erstellen";
+
+/*Wallet: Transfer Code Onboarding So funktioniert's*/
+"wallet_transfer_code_onboarding_howto" = "So funktioniert's";
+
+/*Wallet: Transfer Code: FAQ Titel*/
+"wallet_transfer_code_faq_questions_title" = "Covid-Zertifikate direkt in die App geliefert";
+
+/*Wallet: Transfer Code FAQ Text*/
+"wallet_transfer_code_faq_questions_subtitle" = "Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem negativen Covid-Test direkt in die App geliefert.";
+
+/*Wallet: Transfer Code FAQ Frage 1*/
+"wallet_transfer_code_faq_questions_question_1" = "Wer bietet die Übermittlung per Transfer-Code an?";
+
+/*Wallet: Transfer Code FAQ Frage 2*/
+"wallet_transfer_code_faq_questions_question_2" = "Können Transfer–Codes nur für Covid-Tests genutzt werden?";
+
+/*Wallet: Transfer Code FAQ Frage 3*/
+"wallet_transfer_code_faq_questions_question_3" = "Wie funktioniert die Übermittlung per Transfer-Code?";
+
+/*Wallet: Transfer Code FAQ Frage 4*/
+"wallet_transfer_code_faq_questions_question_4" = "Kann ich den Transfer-Code mehrmals benutzen?";
+
+/*Wallet: Transfer Code FAQ Antwort 1*/
+"wallet_transfer_code_faq_questions_answer_1" = "Text";
+
+/*Wallet: Transfer Code FAQ Antwort 2*/
+"wallet_transfer_code_faq_questions_answer_2" = "Text";
+
+/*Wallet: Transfer Code FAQ Antwort 3*/
+"wallet_transfer_code_faq_questions_answer_3" = "Text";
+
+/*Wallet: Transfer Code FAQ Antwort 4*/
+"wallet_transfer_code_faq_questions_answer_4" = "Text";
+"wallet_transfer_code_faq_works_title" = "So funktioniert der Transfer";
+
+/*Wallet: Tranfser Code FAQ 2 Frage 1*/
+"wallet_transfer_code_faq_works_question_1" = "Wie sind meine Daten beim Transfer geschützt?";
+
+/*Wallet: Tranfser Code FAQ 2 Frage 2*/
+"wallet_transfer_code_faq_works_question_2" = "Was kann ich tun, wenn das Zertifikat nicht ankommt?";
+
+/*Wallet: Tranfser Code FAQ 2 Frage 3*/
+"wallet_transfer_code_faq_works_question_3" = "Was passiert bei einem positiven Testresultat?";
+
+/*Wallet: Transfer Code FAQ 2 Antwort 1*/
+"wallet_transfer_code_faq_works_answer_1" = "Text";
+
+/*Wallet: Transfer Code FAQ 2 Antwort 2*/
+"wallet_transfer_code_faq_works_answer_2" = "Text";
+
+/*Wallet: Transfer Code FAQ 2 Antwort 3*/
+"wallet_transfer_code_faq_works_answer_3" = "Text";
+
+/*Wallet: Transfer Code erstellt Titel*/
+"wallet_transfer_code_code_created_title" = "Ihr Transfer-Code wurde erstellt";
+
+/*Wallet: Transfer-Code*/
+"wallet_transfer_code_title" = "Transfer-Code";
+
+/*Wallet: Transfer Code Erstelltm am {DATE}*/
+"wallet_transfer_code_createdat" = "Erstellt am {DATE}";
+
+/*Wallet: Transfer Code Nächste Schritte*/
+"wallet_transfer_code_next_steps" = "Nächste Schritte";
+
+/*Wallet: Transfer Code Nächste Schritte 1*/
+"wallet_transfer_code_next_steps1" = "Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.";
+
+/*Wallet: Transfer Code Nächste Schritte 2*/
+"wallet_transfer_code_next_steps2" = "Falls Sie mehrere Zertifikate zB. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
+
+/*Wallet: Transfer Code Fertig Button*/
+"wallet_transfer_code_done_button" = "Fertig";
+
+/*Wallet: Transfer Code Card Titel*/
+"wallet_transfer_code_card_title" = "Transfer";
+
+/*Wallet: Transfer Code Staus Warten auf Transfer*/
+"wallet_transfer_code_state_waiting" = "Warten auf Transfer";
+
+/*Wallet: Transfer Code Ablauf in 1 Tag*/
+"wallet_transfer_code_expire_singular" = "Noch 1 Tag gültig";
+
+/*Wallet: Transfer Code: Läuft ab in {DAYS} Tagen*/
+"wallet_transfer_code_expire_plural" = "Noch {DAYS} Tage gültig";
+
+/*Wallet: Transfer Code Status Abgelaufen*/
+"wallet_transfer_code_state_expired" = "Transfer fehlgeschlagen";
+
+/*Wallet: Transfer Code Alter Code Titel*/
+"wallet_transfer_code_old_code" = "Code abgelaufen";
+
+/*Wallet: Transfer Code State Zuletzt aktualisiert {DATE}*/
+"wallet_transfer_code_state_updated" = "Zuletzt aktualisiert\n{DATE}";
+
+/*Wallet: Transfer Code Kein Zertifikat mehr*/
+"wallet_transfer_code_state_no_certificate" = "Mit diesem Transfer kann kein  Zertifikat mehr empfangen werden.";
+
+/*Wallet: Fehler Format des Zertifikat ungültig*/
+"wallet_error_invalid_format" = "Il format dal certificat \nn’è betg valaivel";
+
+/*Wallet: Fehler Format des Zertifikat ungültig Fett*/
+"wallet_error_invalid_format_bold" = "n’è betg valaivel";
+
+/*Verifier: Error Ungültiges Format*/
+"verifier_error_invalid_format" = "Il format dal certificat COVID n’è betg valaivel.";
+
+/*Homescreen Zertifikat: Offline Modus Text*/
+"wallet_homescreen_offline" = "Modus offline";
+
+/*Wallet: Detail Offline Text*/
+"wallet_offline_description" = "Per pudair mussar la valaivladad actuala sto l’app esser regularmain online.";
+
+/*Wallet: Retry Titel Offline*/
+"wallet_detail_offline_retry_title" = "La verificaziun n’è betg pussaivla en il modus offline";
+
+/*Wallet: Detail Netzwerkfehler Titel*/
+"wallet_detail_network_error_title" = "Actualmain n’è la verificaziun betg pussaivla";
+
+/*Wallet: Detail Netzwerkfehler Text*/
+"wallet_detail_network_error_text" = "Empruvai pli tard anc ina giada";
+
+/*Verifier: Titel Fehler wenn kein Internet*/
+"verifier_offline_error_title" = "La verificaziun n’è betg pussaivla en il modus offline";
+
+/*Verifier: Fehlertext wenn Offline bei Verifikation*/
+"verifier_offline_error_text" = "Per actualisar las glistas da verificaziun dovri ina colliaziun cun l’internet.";
+
+/*Verifier: Fehler Titel bei Netzwerkfehler*/
+"verifier_network_error_title" = "Verificaziun betg reussida";
+
+/*Verifier: Fehler Text bei Netzwerkfehler*/
+"verifier_network_error_text" = "Igl è capità in sbagl imprevis";
+
+/*Wallet: Text auf Zertifikat auf Homescreen bei Netzwerkfehler*/
+"wallet_homescreen_network_error" = "La valaivladad n’ha betg pudì vegnir eruida";
+
+/*Wallet: Transfer Code So Funktionierts Text 1*/
+"wallet_transfer_code_faq_works_intro_1" = "Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist.";
+
+/*Wallet: Transfer Code So Funktionierts Text 2*/
+"wallet_transfer_code_faq_works_intro_2" = "Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.";
+
+/*Wallet: Transfer Code So Funktionierts Text 1*/
+"wallet_transfer_code_faq_works_intro_3" = "Nach 7 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor dieser abgebrochen wird.";
+
+/*Wallet: Titel im Custom-Popup Notification Permission*/
+"wallet_notification_permission_title" = "Mitteilungen erlauben";
+
+/*Wallet: Text im Custom-Popup Notification Permission*/
+"wallet_notification_permission_text" = "Die App kann Sie informieren, sobald das Zertifikat eingetroffen ist.  Erlauben Sie dazu der App, Ihnen Mitteilungen zu senden.";
+
+/*Wallet: Button im Custom-Popup Notification Permission*/
+"wallet_notification_permission_button" = "Weiter";
