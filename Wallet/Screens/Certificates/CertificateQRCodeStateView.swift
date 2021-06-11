@@ -68,9 +68,10 @@ class CertificateQRCodeStateView: UIView {
                 self.imageView.layer.removeAllAnimations()
                 self.imageView.image = UIImage(named: "ic-header-invalid")
                 self.backgroundView.backgroundColor = .cc_red
-            case .retry:
+            case let .retry(error, _):
                 self.imageView.layer.removeAllAnimations()
-                self.imageView.image = UIImage(named: "ic-header-error")
+                let imageName = error == .noInternetConnection ? "ic-header-offline" : "ic-header-error"
+                self.imageView.image = UIImage(named: imageName)
                 self.backgroundView.backgroundColor = .cc_orange
             }
         }

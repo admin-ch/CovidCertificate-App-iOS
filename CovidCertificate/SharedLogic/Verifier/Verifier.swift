@@ -24,7 +24,7 @@ enum VerificationError: Equatable, Comparable {
 
 enum RetryError: Equatable {
     case network
-    case flightMode
+    case noInternetConnection
     case unknown
 }
 
@@ -188,8 +188,10 @@ class Verifier: NSObject {
 
             case let .failure(err):
                 switch err {
-                case .TRUST_SERVICE_ERROR:
+                case .NETWORK_NO_INTERNET_CONNECTION:
                     // retry possible
+                    callback(.retry(.noInternetConnection, [err.errorCode]))
+                case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
                     callback(.retry(.network, [err.errorCode]))
                 case .SIGNATURE_TYPE_INVALID:
                     // type invalid (multiple vaccines, tests
@@ -222,7 +224,10 @@ class Verifier: NSObject {
 
             case let .failure(err):
                 switch err {
-                case .TRUST_SERVICE_ERROR:
+                case .NETWORK_NO_INTERNET_CONNECTION:
+                    // retry possible
+                    callback(.retry(.noInternetConnection, [err.errorCode]))
+                case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
                     callback(.retry(.network, [err.errorCode]))
                 default:
                     callback(.invalid([.revocation], [err.errorCode], nil))
@@ -271,7 +276,15 @@ class Verifier: NSObject {
                     callback(.invalid([.otherNationalRules], [], validUntil))
                 }
             case let .failure(err):
-                callback(.invalid([.otherNationalRules], [err.errorCode], nil))
+                switch err {
+                case .NETWORK_NO_INTERNET_CONNECTION:
+                    // retry possible
+                    callback(.retry(.noInternetConnection, [err.errorCode]))
+                case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
+                    callback(.retry(.network, [err.errorCode]))
+                default:
+                    callback(.invalid([.otherNationalRules], [err.errorCode], nil))
+                }
             }
 
             group.leave()

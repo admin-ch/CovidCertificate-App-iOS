@@ -193,8 +193,8 @@ class VerifyCheckContentViewController: ViewController {
 
         case let .retry(error, errorCodes):
             let color: UIColor = .cc_orangish
-            statusView.set(text: UBLocalized.verifier_verify_error_list_title, backgroundColor: color, icon: UIImage(named: "ic-error-orange"))
-            infoView.set(text: error.displayName(), backgroundColor: color, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange), showReloadButton: true)
+            statusView.set(text: error.displayTitle(), backgroundColor: color, icon: UIImage(named: "ic-error-orange"))
+            infoView.set(text: error.displayText(), backgroundColor: color, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange), showReloadButton: true)
 
             let codes = errorCodes.joined(separator: ", ")
             if codes.count > 0 {

@@ -27,53 +27,33 @@ class UIStateManager: NSObject {
 
     // MARK: - Refresh triggers
 
-    public func stateChanged() {
+    public func stateChanged(forceRefresh: Bool = false) {
         DispatchQueue.main.async {
             guard UIApplication.shared.applicationState == .active else { return }
+            self.forceRefresh = forceRefresh
             self.refresh()
         }
     }
 
     // MARK: - UI State Update
 
-    var pushOk: Bool = true
-
     private(set) var uiState: UIStateModel! {
         didSet {
-            let stateHasChanged = uiState != oldValue
+            let stateHasChanged = uiState != oldValue || forceRefresh
 
             if stateHasChanged {
-                observers = observers.filter { $0.object != nil }
-                DispatchQueue.main.async {
-                    self.observers.forEach { observer in
-                        observer.block(self.uiState)
-                    }
-                }
-
+                updateObservers()
                 dprint("New UI State")
             }
         }
     }
 
-    func refresh() {
-        // disable updates until end of block update
-        guard !isPerformingBlockUpdate else {
-            return
-        }
+    private var forceRefresh = false
 
+    private func refresh() {
         // build new state, sending update to observers if changed
         uiState = UIStateLogic(manager: self).buildState()
-    }
-
-    // MARK: - Block Update
-
-    private var isPerformingBlockUpdate = false
-
-    func blockUpdate(_ update: () -> Void) {
-        isPerformingBlockUpdate = true
-        update()
-        isPerformingBlockUpdate = false
-        refresh()
+        forceRefresh = false
     }
 
     // MARK: - State Observers
@@ -88,5 +68,14 @@ class UIStateManager: NSObject {
     func addObserver(_ object: AnyObject, block: @escaping (UIStateModel) -> Void) {
         observers.append(Observer(object: object, block: block))
         block(uiState)
+    }
+
+    func updateObservers() {
+        observers = observers.filter { $0.object != nil }
+        DispatchQueue.main.async {
+            self.observers.forEach { observer in
+                observer.block(self.uiState)
+            }
+        }
     }
 }

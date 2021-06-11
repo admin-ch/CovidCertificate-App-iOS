@@ -478,7 +478,7 @@
 "wallet_onboarding_external_privacy_button" = "Datenschutzerklärung &\nNutzungsbedingungen";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "Diese Bescheinigung ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über COVID-19-Impfung, -Genesung und -Tests entwickeln sich weiter, auch im Hinblick auf neue bedenkliche Varianten des Virus. \n\nBitte informieren Sie sich vor der Reise über die geltenden Gesundheitsmassnahmen und die damit verbundenen Einschränkungen am Zielort.";
+"wallet_certificate_detail_note" = "Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über COVID-19-Impfungen und ‑Tests sowie über die Genesung von einer COVID-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmaßnahmen und damit verbundenen Beschränkungen.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-check-app.html";
 
@@ -623,13 +623,15 @@
 "wallet_transfer_code_createdat" = "Erstellt am {DATE}";
 
 /*Wallet: Transfer Code Nächste Schritte*/
+/*Fuzzy*/
 "wallet_transfer_code_next_steps" = "Nächste Schritte";
 
 /*Wallet: Transfer Code Nächste Schritte 1*/
 "wallet_transfer_code_next_steps1" = "Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.";
 
 /*Wallet: Transfer Code Nächste Schritte 2*/
-"wallet_transfer_code_next_steps1" = "Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
+/*Fuzzy*/
+"wallet_transfer_code_next_steps2" = "Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
 
 /*Wallet: Transfer Code Fertig Button*/
 "wallet_transfer_code_done_button" = "Fertig";
@@ -665,4 +667,37 @@
 "wallet_error_invalid_format_bold" = "ungültig";
 
 /*Verifier: Error Ungültiges Format*/
-"verifier_error_invalid_format" = "Das Format des Zertifikats ist ungültig.";
+"verifier_error_invalid_format" = "Das Format des Covid-Zertifikats ist ungültig.";
+
+/*Homescreen Zertifikat: Offline Modus Text*/
+"wallet_homescreen_offline" = "Offline Modus";
+
+/*Wallet: Detail Offline Text*/
+/*Fuzzy*/
+"wallet_offline_description" = "Um die aktuelle Gültigkeit anzeigen zu können, muss die App regelmässig online sein.";
+
+/*Wallet: Retry Titel Offline*/
+"wallet_detail_offline_retry_title" = "Prüfung offline nicht möglich";
+
+/*Wallet: Detail Netzwerkfehler Titel*/
+"wallet_detail_network_error_title" = "Prüfung zur Zeit nicht möglich";
+
+/*Wallet: Detail Netzwerkfehler Text*/
+"wallet_detail_network_error_text" = "Versuchen Sie es später erneut.";
+
+/*Verifier: Titel Fehler wenn kein Internet*/
+"verifier_offline_error_title" = "Offline-Prüfung nicht möglich";
+
+/*Verifier: Fehlertext wenn Offline bei Verifikation*/
+"verifier_offline_error_text" = "Eine Internetverbindung wird benötigt, um die Prüflisten zu aktualisieren";
+
+/*Verifier: Fehler Titel bei Netzwerkfehler*/
+"verifier_network_error_title" = "Prüfung fehlgeschlagen";
+
+/*Verifier: Fehler Text bei Netzwerkfehler*/
+/*Fuzzy*/
+"verifier_network_error_text" = "Ein unerwarteter Fehler ist aufgetreten";
+
+/*Wallet: Text auf Zertifikat auf Homescreen bei Netzwerkfehler*/
+/*Fuzzy*/
+"wallet_homescreen_network_error" = "Gülltigkeit konnte nicht ermittelt werden";

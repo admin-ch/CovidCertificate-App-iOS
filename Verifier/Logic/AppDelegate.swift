@@ -109,6 +109,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func willAppearAfterColdstart(_: UIApplication, coldStart _: Bool, backgroundTime _: TimeInterval) {
         // Logic for coldstart / background
         startForceUpdateCheck()
+
+        CovidCertificateSDK.restartTrustListUpdate(completionHandler: {
+            UIStateManager.shared.stateChanged(forceRefresh: true)
+        }, updateTimeInterval: TimeInterval(60 * 60))
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
