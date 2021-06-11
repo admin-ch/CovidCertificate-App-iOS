@@ -64,12 +64,12 @@ extension VerificationError {
 }
 
 extension RetryError {
-    func displayTitle(isReload: Bool) -> NSAttributedString {
+    func displayTitle(isReload: Bool, isHomescreen: Bool) -> NSAttributedString {
         switch self {
         case .noInternetConnection:
             return isReload ? UBLocalized.wallet_detail_offline_retry_title.bold() : UBLocalized.wallet_homescreen_offline.bold()
         case .network, .unknown:
-            return UBLocalized.wallet_detail_network_error_title.formattingOccurrenceBold("")
+            return isHomescreen ? UBLocalized.wallet_homescreen_network_error.formattingOccurrenceBold("") : UBLocalized.wallet_detail_network_error_title.formattingOccurrenceBold("")
         }
     }
 

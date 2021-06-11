@@ -478,7 +478,7 @@
 "wallet_onboarding_external_privacy_button" = "Data Protection Statement & Conditions of Use";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "This certificate is not a travel document. \n\nThe scientific evidence on COVID-19 vaccination, testing and recovery continues to evolve, also in view of new variants of concern of the virus. \n\nBefore travelling, please check the applicable public health measures and related restrictions applied at the point of destination.";
+"wallet_certificate_detail_note" = "This certificate is not a travel document. \n\nThe scientific evidence on COVID-19 vaccination, testing and recovery continues to evolve, including with regard to new virus variants of concern. \n\nBefore travelling, please check the applicable public health measures and related restrictions applicable at the point of destination.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/en/home/documentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/en/home/documentation/covid-certificate-check-app.html";
 
@@ -601,7 +601,7 @@
 "wallet_transfer_code_next_steps1" = "Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.";
 
 /*Wallet: Transfer Code Nächste Schritte 2*/
-"wallet_transfer_code_next_steps1" = "Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
+"wallet_transfer_code_next_steps2" = "Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
 
 /*Wallet: Transfer Code Fertig Button*/
 "wallet_transfer_code_done_button" = "Fertig";
@@ -637,7 +637,7 @@
 "wallet_error_invalid_format_bold" = "ungültig";
 
 /*Verifier: Error Ungültiges Format*/
-"verifier_error_invalid_format" = "Das Format des Zertifikats ist ungültig.";
+"verifier_error_invalid_format" = "Das Format des Covid-Zertifikats ist ungültig.";
 
 /*Homescreen Zertifikat: Offline Modus Text*/
 "wallet_homescreen_offline" = "Offline Modus";
@@ -664,4 +664,7 @@
 "verifier_network_error_title" = "Prüfung fehlgeschlagen";
 
 /*Verifier: Fehler Text bei Netzwerkfehler*/
-"verifier_network_error_text" = "Ein unerwarteter Fehler ist aufgetreten";
+"verifier_network_error_text" = "An unexpected error has occurred";
+
+/*Wallet: Text auf Zertifikat auf Homescreen bei Netzwerkfehler*/
+"wallet_homescreen_network_error" = "Gülltigkeit konnte nicht ermittelt werden";

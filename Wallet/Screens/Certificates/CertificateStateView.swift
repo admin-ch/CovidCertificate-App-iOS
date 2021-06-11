@@ -32,9 +32,12 @@ class CertificateStateView: UIView {
         didSet { update(animated: true) }
     }
 
+    private let isHomescreen: Bool
+
     // MARK: - Init
 
-    init(certificate: UserCertificate? = nil) {
+    init(certificate: UserCertificate? = nil, isHomescreen: Bool = true) {
+        self.isHomescreen = isHomescreen
         self.certificate = certificate
 
         super.init(frame: .zero)
@@ -152,7 +155,7 @@ class CertificateStateView: UIView {
                 }
             case let .retry(error, errorCodes):
                 self.imageView.image = UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange)
-                self.textLabel.attributedText = error.displayTitle(isReload: true)
+                self.textLabel.attributedText = error.displayTitle(isReload: true, isHomescreen: self.isHomescreen)
                 self.backgroundView.backgroundColor = .cc_orangish
                 self.validityView.backgroundColor = .cc_orangish
                 self.validityView.offlineText = error.displayText(isReload: true)
@@ -204,7 +207,7 @@ class CertificateStateView: UIView {
 
                 case let .retry(error, errorCodes):
                     self.imageView.image = error.icon(with: nil)
-                    self.textLabel.attributedText = error.displayTitle(isReload: false)
+                    self.textLabel.attributedText = error.displayTitle(isReload: false, isHomescreen: self.isHomescreen)
                     self.backgroundView.backgroundColor = .cc_greyish
                     self.validityView.backgroundColor = .cc_greyish
                     self.validityView.textColor = .cc_text

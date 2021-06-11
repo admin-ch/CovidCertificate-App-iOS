@@ -100,7 +100,7 @@ import Foundation
      case verifier_covid_certificate_name_key = "verifier_covid_certificate_name"
     /// Vorname
      case verifier_covid_certificate_prename_key = "verifier_covid_certificate_prename"
-    /// Das Format des Zertifikats ist ungültig.
+    /// Das Format des Covid-Zertifikats ist ungültig.
      case verifier_error_invalid_format_key = "verifier_error_invalid_format"
     /// Um ein Covid-Zertifikat zu prüfen, scannen Sie den QR-Code auf dem Papierzertifikat oder in der vorgewiesenen COVID Certificate App mit der dafür vorgesehenen COVID Certificate Check App.
      case verifier_faq_works_answer_1_key = "verifier_faq_works_answer_1"
@@ -200,7 +200,7 @@ import Foundation
      case wallet_certificate_date_key = "wallet_certificate_date"
     /// Wollen Sie das Zertifikat wirklich löschen?
      case wallet_certificate_delete_confirm_text_key = "wallet_certificate_delete_confirm_text"
-    /// Diese Bescheinigung ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über COVID-19-Impfung, -Genesung und -Tests entwickeln sich weiter, auch im Hinblick auf neue bedenkliche Varianten des Virus. \n\nBitte informieren Sie sich vor der Reise über die geltenden Gesundheitsmassnahmen und die damit verbundenen Einschränkungen am Zielort.
+    /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über COVID-19-Impfungen und ‑Tests sowie über die Genesung von einer COVID-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmaßnahmen und damit verbundenen Beschränkungen.
      case wallet_certificate_detail_note_key = "wallet_certificate_detail_note"
     /// UVCI
      case wallet_certificate_identifier_key = "wallet_certificate_identifier"
@@ -350,6 +350,8 @@ import Foundation
      case wallet_homescreen_add_transfer_code_key = "wallet_homescreen_add_transfer_code"
     /// Scannen Sie den QR-Code auf dem Covid-Zertifikat, um es zur App hinzuzufügen.
      case wallet_homescreen_explanation_key = "wallet_homescreen_explanation"
+    /// Gülltigkeit konnte nicht ermittelt werden
+     case wallet_homescreen_network_error_key = "wallet_homescreen_network_error"
     /// Offline Modus
      case wallet_homescreen_offline_key = "wallet_homescreen_offline"
     /// Was möchten Sie machen?
@@ -484,8 +486,10 @@ import Foundation
      case wallet_transfer_code_faq_works_title_key = "wallet_transfer_code_faq_works_title"
     /// Nächste Schritte
      case wallet_transfer_code_next_steps_key = "wallet_transfer_code_next_steps"
-    /// Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
+    /// Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.
      case wallet_transfer_code_next_steps1_key = "wallet_transfer_code_next_steps1"
+    /// Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
+     case wallet_transfer_code_next_steps2_key = "wallet_transfer_code_next_steps2"
     /// Code älter als 7 Tage
      case wallet_transfer_code_old_code_key = "wallet_transfer_code_old_code"
     /// Code erstellen
@@ -598,7 +602,7 @@ import Foundation
    static let verifier_covid_certificate_name = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_name_key)
   /// Vorname
    static let verifier_covid_certificate_prename = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_prename_key)
-  /// Das Format des Zertifikats ist ungültig.
+  /// Das Format des Covid-Zertifikats ist ungültig.
    static let verifier_error_invalid_format = UBLocalized.tr(UBLocalizedKey.verifier_error_invalid_format_key)
   /// Um ein Covid-Zertifikat zu prüfen, scannen Sie den QR-Code auf dem Papierzertifikat oder in der vorgewiesenen COVID Certificate App mit der dafür vorgesehenen COVID Certificate Check App.
    static let verifier_faq_works_answer_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_1_key)
@@ -698,7 +702,7 @@ import Foundation
    static let wallet_certificate_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_date_key)
   /// Wollen Sie das Zertifikat wirklich löschen?
    static let wallet_certificate_delete_confirm_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_delete_confirm_text_key)
-  /// Diese Bescheinigung ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über COVID-19-Impfung, -Genesung und -Tests entwickeln sich weiter, auch im Hinblick auf neue bedenkliche Varianten des Virus. \n\nBitte informieren Sie sich vor der Reise über die geltenden Gesundheitsmassnahmen und die damit verbundenen Einschränkungen am Zielort.
+  /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über COVID-19-Impfungen und ‑Tests sowie über die Genesung von einer COVID-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmaßnahmen und damit verbundenen Beschränkungen.
    static let wallet_certificate_detail_note = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_key)
   /// UVCI
    static let wallet_certificate_identifier = UBLocalized.tr(UBLocalizedKey.wallet_certificate_identifier_key)
@@ -848,6 +852,8 @@ import Foundation
    static let wallet_homescreen_add_transfer_code = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_add_transfer_code_key)
   /// Scannen Sie den QR-Code auf dem Covid-Zertifikat, um es zur App hinzuzufügen.
    static let wallet_homescreen_explanation = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_explanation_key)
+  /// Gülltigkeit konnte nicht ermittelt werden
+   static let wallet_homescreen_network_error = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_network_error_key)
   /// Offline Modus
    static let wallet_homescreen_offline = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_offline_key)
   /// Was möchten Sie machen?
@@ -982,8 +988,10 @@ import Foundation
    static let wallet_transfer_code_faq_works_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_title_key)
   /// Nächste Schritte
    static let wallet_transfer_code_next_steps = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps_key)
-  /// Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
+  /// Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.
    static let wallet_transfer_code_next_steps1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps1_key)
+  /// Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
+   static let wallet_transfer_code_next_steps2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps2_key)
   /// Code älter als 7 Tage
    static let wallet_transfer_code_old_code = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_old_code_key)
   /// Code erstellen

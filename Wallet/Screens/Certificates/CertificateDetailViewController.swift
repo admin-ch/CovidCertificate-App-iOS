@@ -25,7 +25,7 @@ class CertificateDetailViewController: ViewController {
     private let stackScrollView = StackScrollView()
     private let qrCodeNameView = QRCodeNameView()
 
-    private lazy var stateView = CertificateStateView(certificate: certificate)
+    private lazy var stateView = CertificateStateView(certificate: certificate, isHomescreen: false)
     private lazy var detailView = CertificateDetailView(certificate: certificate, showEnglishLabelsIfNeeded: true)
     private var verifier: Verifier?
 

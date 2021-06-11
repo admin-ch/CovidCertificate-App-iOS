@@ -482,7 +482,7 @@ fino al*/
 "wallet_onboarding_external_privacy_button" = "Informativa sulla privacy e condizioni d'uso";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "La presente attestazione non costituisce un documento di viaggio. \n\nSi acquisiscono sempre più conoscenze scientifiche sulla vaccinazione COVID-19, sulla guarigione dalla COVID-19 e sui test COVID-19, anche sulle nuove varianti problematiche del virus. \n\nPrima di mettersi in viaggio, si informi sulle misure sanitarie e sulle relative restrizioni applicate nel luogo di destinazione.";
+"wallet_certificate_detail_note" = "Il presente certificato non è un documento di viaggio. \n\nI dati scientifici relativi alla vaccinazione, ai test e alla guarigione dalla COVID-19 continuano a evolvere, anche alla luce delle nuove varianti del virus che destano preoccupazione. \n\nPrima di mettersi in viaggio, verificare le misure sanitarie pubbliche applicabili e le relative restrizioni applicabili nel luogo di destinazione.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/it/home/documentazione/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/it/home/documentazione/covid-certificate-check-app.html";
 
@@ -605,7 +605,7 @@ fino al*/
 "wallet_transfer_code_next_steps1" = "Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.";
 
 /*Wallet: Transfer Code Nächste Schritte 2*/
-"wallet_transfer_code_next_steps1" = "Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
+"wallet_transfer_code_next_steps2" = "Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
 
 /*Wallet: Transfer Code Fertig Button*/
 "wallet_transfer_code_done_button" = "Fertig";
@@ -635,37 +635,40 @@ fino al*/
 "wallet_transfer_code_state_no_certificate" = "Für diesen Code kann kein Zertifikat \nmehr empfangen werden";
 
 /*Wallet: Fehler Format des Zertifikat ungültig*/
-"wallet_error_invalid_format" = "Format des Zertifikat\nungültig";
+"wallet_error_invalid_format" = "Formato del certificato \nnon valido";
 
 /*Wallet: Fehler Format des Zertifikat ungültig Fett*/
-"wallet_error_invalid_format_bold" = "ungültig";
+"wallet_error_invalid_format_bold" = "non valido";
 
 /*Verifier: Error Ungültiges Format*/
-"verifier_error_invalid_format" = "Das Format des Zertifikats ist ungültig.";
+"verifier_error_invalid_format" = "Il formato del certificato COVID non è valido";
 
 /*Homescreen Zertifikat: Offline Modus Text*/
-"wallet_homescreen_offline" = "Offline Modus";
+"wallet_homescreen_offline" = "Modalità offline";
 
 /*Wallet: Detail Offline Text*/
-"wallet_offline_description" = "Um die aktuelle Gültigkeit anzeigen zu können, muss die App regelmässig online sein.";
+"wallet_offline_description" = "Per poter visualizzare l'effettiva validità, l'app deve essere regolarmente online";
 
 /*Wallet: Retry Titel Offline*/
-"wallet_detail_offline_retry_title" = "Prüfung offline nicht möglich";
+"wallet_detail_offline_retry_title" = "Impossibile verificare il certificato offline";
 
 /*Wallet: Detail Netzwerkfehler Titel*/
-"wallet_detail_network_error_title" = "Prüfung zur Zeit nicht möglich";
+"wallet_detail_network_error_title" = "Impossibile verificare il certificato";
 
 /*Wallet: Detail Netzwerkfehler Text*/
-"wallet_detail_network_error_text" = "Versuchen Sie es später erneut.";
+"wallet_detail_network_error_text" = "Riprova più tardi";
 
 /*Verifier: Titel Fehler wenn kein Internet*/
-"verifier_offline_error_title" = "Offline-Prüfung nicht möglich";
+"verifier_offline_error_title" = "Impossibile verificare il certificato offline";
 
 /*Verifier: Fehlertext wenn Offline bei Verifikation*/
-"verifier_offline_error_text" = "Eine Internetverbindung wird benötigt, um die Prüflisten zu aktualisieren";
+"verifier_offline_error_text" = "Per aggiornare gli elenchi di verifica è necessaria una connessione a Internet";
 
 /*Verifier: Fehler Titel bei Netzwerkfehler*/
-"verifier_network_error_title" = "Prüfung fehlgeschlagen";
+"verifier_network_error_title" = "Verifica non riuscita";
 
 /*Verifier: Fehler Text bei Netzwerkfehler*/
-"verifier_network_error_text" = "Ein unerwarteter Fehler ist aufgetreten";
+"verifier_network_error_text" = "Si è verificato un errore imprevisto";
+
+/*Wallet: Text auf Zertifikat auf Homescreen bei Netzwerkfehler*/
+"wallet_homescreen_network_error" = "Impossibile determinare la validità";
