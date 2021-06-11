@@ -356,6 +356,12 @@ import Foundation
      case wallet_homescreen_offline_key = "wallet_homescreen_offline"
     /// Was möchten Sie machen?
      case wallet_homescreen_what_to_do_key = "wallet_homescreen_what_to_do"
+    /// Weiter
+     case wallet_notification_permission_button_key = "wallet_notification_permission_button"
+    /// Die App kann Sie informieren, sobald das Zertifikat eingetroffen ist.  Erlauben Sie dazu der App, Ihnen Mitteilungen zu senden.
+     case wallet_notification_permission_text_key = "wallet_notification_permission_text"
+    /// Mitteilungen erlauben
+     case wallet_notification_permission_title_key = "wallet_notification_permission_title"
     /// Um die aktuelle Gültigkeit anzeigen zu können, muss die App regelmässig online sein.
      case wallet_offline_description_key = "wallet_offline_description"
     /// Akzeptieren
@@ -428,9 +434,9 @@ import Foundation
      case wallet_transfer_code_createdat_key = "wallet_transfer_code_createdat"
     /// Fertig
      case wallet_transfer_code_done_button_key = "wallet_transfer_code_done_button"
-    /// Läuft ab in {DAYS} Tagen
+    /// Noch {DAYS} Tage gültig
      case wallet_transfer_code_expire_plural_key = "wallet_transfer_code_expire_plural"
-    /// Läuft ab in 1 Tag
+    /// Noch 1 Tag gültig
      case wallet_transfer_code_expire_singular_key = "wallet_transfer_code_expire_singular"
     /// Text
      case wallet_transfer_code_faq_questions_answer_1_key = "wallet_transfer_code_faq_questions_answer_1"
@@ -440,21 +446,17 @@ import Foundation
      case wallet_transfer_code_faq_questions_answer_3_key = "wallet_transfer_code_faq_questions_answer_3"
     /// Text
      case wallet_transfer_code_faq_questions_answer_4_key = "wallet_transfer_code_faq_questions_answer_4"
-    /// Text
-     case wallet_transfer_code_faq_questions_answer_5_key = "wallet_transfer_code_faq_questions_answer_5"
     /// Wer bietet die Übermittlung per Transfer-Code an?
      case wallet_transfer_code_faq_questions_question_1_key = "wallet_transfer_code_faq_questions_question_1"
-    /// Geht das nur für Testzertifikate?
+    /// Können Transfer–Codes nur für Covid-Tests genutzt werden?
      case wallet_transfer_code_faq_questions_question_2_key = "wallet_transfer_code_faq_questions_question_2"
-    /// Wie kann ich einen Transfer-Code erstellen?
+    /// Wie funktioniert die Übermittlung per Transfer-Code?
      case wallet_transfer_code_faq_questions_question_3_key = "wallet_transfer_code_faq_questions_question_3"
-    /// Wo muss ich den Transfer-Code notieren?
-     case wallet_transfer_code_faq_questions_question_4_key = "wallet_transfer_code_faq_questions_question_4"
     /// Kann ich den Transfer-Code mehrmals benutzen?
-     case wallet_transfer_code_faq_questions_question_5_key = "wallet_transfer_code_faq_questions_question_5"
-    /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Zertifikat nach einem negativen Testresultat direkt in die App geliefert.
+     case wallet_transfer_code_faq_questions_question_4_key = "wallet_transfer_code_faq_questions_question_4"
+    /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem negativen Covid-Test direkt in die App geliefert.
      case wallet_transfer_code_faq_questions_subtitle_key = "wallet_transfer_code_faq_questions_subtitle"
-    /// Test-Zertifikate direkt in die App geliefert
+    /// Covid-Zertifikate direkt in die App geliefert
      case wallet_transfer_code_faq_questions_title_key = "wallet_transfer_code_faq_questions_title"
     /// Text
      case wallet_transfer_code_faq_works_answer_1_key = "wallet_transfer_code_faq_works_answer_1"
@@ -462,35 +464,27 @@ import Foundation
      case wallet_transfer_code_faq_works_answer_2_key = "wallet_transfer_code_faq_works_answer_2"
     /// Text
      case wallet_transfer_code_faq_works_answer_3_key = "wallet_transfer_code_faq_works_answer_3"
-    /// Text
-     case wallet_transfer_code_faq_works_answer_4_key = "wallet_transfer_code_faq_works_answer_4"
-    /// Text
-     case wallet_transfer_code_faq_works_answer_5_key = "wallet_transfer_code_faq_works_answer_5"
-    /// Text
-     case wallet_transfer_code_faq_works_answer_6_key = "wallet_transfer_code_faq_works_answer_6"
-    /// Wie oft prüft die App, ob das Zertifikat da ist?
-     case wallet_transfer_code_faq_works_question_1_key = "wallet_transfer_code_faq_works_question_1"
-    /// Werde ich von der App benachrichtigt?
-     case wallet_transfer_code_faq_works_question_2_key = "wallet_transfer_code_faq_works_question_2"
+    /// Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist.
+     case wallet_transfer_code_faq_works_intro_1_key = "wallet_transfer_code_faq_works_intro_1"
+    /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
+     case wallet_transfer_code_faq_works_intro_2_key = "wallet_transfer_code_faq_works_intro_2"
+    /// Nach 7 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor dieser abgebrochen wird.
+     case wallet_transfer_code_faq_works_intro_3_key = "wallet_transfer_code_faq_works_intro_3"
     /// Wie sind meine Daten beim Transfer geschützt?
-     case wallet_transfer_code_faq_works_question_3_key = "wallet_transfer_code_faq_works_question_3"
-    /// Wie lange ist ein Transfer-Code gültig?
-     case wallet_transfer_code_faq_works_question_4_key = "wallet_transfer_code_faq_works_question_4"
+     case wallet_transfer_code_faq_works_question_1_key = "wallet_transfer_code_faq_works_question_1"
     /// Was kann ich tun, wenn das Zertifikat nicht ankommt?
-     case wallet_transfer_code_faq_works_question_5_key = "wallet_transfer_code_faq_works_question_5"
+     case wallet_transfer_code_faq_works_question_2_key = "wallet_transfer_code_faq_works_question_2"
     /// Was passiert bei einem positiven Testresultat?
-     case wallet_transfer_code_faq_works_question_6_key = "wallet_transfer_code_faq_works_question_6"
-    /// Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist. Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App.
-     case wallet_transfer_code_faq_works_subtitle_key = "wallet_transfer_code_faq_works_subtitle"
+     case wallet_transfer_code_faq_works_question_3_key = "wallet_transfer_code_faq_works_question_3"
     /// So funktioniert der Transfer
      case wallet_transfer_code_faq_works_title_key = "wallet_transfer_code_faq_works_title"
     /// Nächste Schritte
      case wallet_transfer_code_next_steps_key = "wallet_transfer_code_next_steps"
-    /// Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.
+    /// Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.
      case wallet_transfer_code_next_steps1_key = "wallet_transfer_code_next_steps1"
-    /// Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
+    /// Falls Sie mehrere Zertifikate zB. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
      case wallet_transfer_code_next_steps2_key = "wallet_transfer_code_next_steps2"
-    /// Code älter als 7 Tage
+    /// Code abgelaufen
      case wallet_transfer_code_old_code_key = "wallet_transfer_code_old_code"
     /// Code erstellen
      case wallet_transfer_code_onboarding_button_key = "wallet_transfer_code_onboarding_button"
@@ -500,9 +494,9 @@ import Foundation
      case wallet_transfer_code_onboarding_text_key = "wallet_transfer_code_onboarding_text"
     /// Transfer Codes
      case wallet_transfer_code_onboarding_title_key = "wallet_transfer_code_onboarding_title"
-    /// Transfer abgelaufen
+    /// Transfer fehlgeschlagen
      case wallet_transfer_code_state_expired_key = "wallet_transfer_code_state_expired"
-    /// Für diesen Code kann kein Zertifikat \nmehr empfangen werden
+    /// Mit diesem Transfer kann kein  Zertifikat mehr empfangen werden.
      case wallet_transfer_code_state_no_certificate_key = "wallet_transfer_code_state_no_certificate"
     /// Zuletzt aktualisiert\n{DATE}
      case wallet_transfer_code_state_updated_key = "wallet_transfer_code_state_updated"
@@ -858,6 +852,12 @@ import Foundation
    static let wallet_homescreen_offline = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_offline_key)
   /// Was möchten Sie machen?
    static let wallet_homescreen_what_to_do = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_what_to_do_key)
+  /// Weiter
+   static let wallet_notification_permission_button = UBLocalized.tr(UBLocalizedKey.wallet_notification_permission_button_key)
+  /// Die App kann Sie informieren, sobald das Zertifikat eingetroffen ist.  Erlauben Sie dazu der App, Ihnen Mitteilungen zu senden.
+   static let wallet_notification_permission_text = UBLocalized.tr(UBLocalizedKey.wallet_notification_permission_text_key)
+  /// Mitteilungen erlauben
+   static let wallet_notification_permission_title = UBLocalized.tr(UBLocalizedKey.wallet_notification_permission_title_key)
   /// Um die aktuelle Gültigkeit anzeigen zu können, muss die App regelmässig online sein.
    static let wallet_offline_description = UBLocalized.tr(UBLocalizedKey.wallet_offline_description_key)
   /// Akzeptieren
@@ -930,9 +930,9 @@ import Foundation
    static let wallet_transfer_code_createdat = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_createdat_key)
   /// Fertig
    static let wallet_transfer_code_done_button = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_done_button_key)
-  /// Läuft ab in {DAYS} Tagen
+  /// Noch {DAYS} Tage gültig
    static let wallet_transfer_code_expire_plural = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_expire_plural_key)
-  /// Läuft ab in 1 Tag
+  /// Noch 1 Tag gültig
    static let wallet_transfer_code_expire_singular = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_expire_singular_key)
   /// Text
    static let wallet_transfer_code_faq_questions_answer_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_1_key)
@@ -942,21 +942,17 @@ import Foundation
    static let wallet_transfer_code_faq_questions_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_3_key)
   /// Text
    static let wallet_transfer_code_faq_questions_answer_4 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_4_key)
-  /// Text
-   static let wallet_transfer_code_faq_questions_answer_5 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_5_key)
   /// Wer bietet die Übermittlung per Transfer-Code an?
    static let wallet_transfer_code_faq_questions_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_1_key)
-  /// Geht das nur für Testzertifikate?
+  /// Können Transfer–Codes nur für Covid-Tests genutzt werden?
    static let wallet_transfer_code_faq_questions_question_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_2_key)
-  /// Wie kann ich einen Transfer-Code erstellen?
+  /// Wie funktioniert die Übermittlung per Transfer-Code?
    static let wallet_transfer_code_faq_questions_question_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_3_key)
-  /// Wo muss ich den Transfer-Code notieren?
-   static let wallet_transfer_code_faq_questions_question_4 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_4_key)
   /// Kann ich den Transfer-Code mehrmals benutzen?
-   static let wallet_transfer_code_faq_questions_question_5 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_5_key)
-  /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Zertifikat nach einem negativen Testresultat direkt in die App geliefert.
+   static let wallet_transfer_code_faq_questions_question_4 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_4_key)
+  /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem negativen Covid-Test direkt in die App geliefert.
    static let wallet_transfer_code_faq_questions_subtitle = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_subtitle_key)
-  /// Test-Zertifikate direkt in die App geliefert
+  /// Covid-Zertifikate direkt in die App geliefert
    static let wallet_transfer_code_faq_questions_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_title_key)
   /// Text
    static let wallet_transfer_code_faq_works_answer_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_answer_1_key)
@@ -964,35 +960,27 @@ import Foundation
    static let wallet_transfer_code_faq_works_answer_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_answer_2_key)
   /// Text
    static let wallet_transfer_code_faq_works_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_answer_3_key)
-  /// Text
-   static let wallet_transfer_code_faq_works_answer_4 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_answer_4_key)
-  /// Text
-   static let wallet_transfer_code_faq_works_answer_5 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_answer_5_key)
-  /// Text
-   static let wallet_transfer_code_faq_works_answer_6 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_answer_6_key)
-  /// Wie oft prüft die App, ob das Zertifikat da ist?
-   static let wallet_transfer_code_faq_works_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_1_key)
-  /// Werde ich von der App benachrichtigt?
-   static let wallet_transfer_code_faq_works_question_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_2_key)
+  /// Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist.
+   static let wallet_transfer_code_faq_works_intro_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_1_key)
+  /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
+   static let wallet_transfer_code_faq_works_intro_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_2_key)
+  /// Nach 7 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor dieser abgebrochen wird.
+   static let wallet_transfer_code_faq_works_intro_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_3_key)
   /// Wie sind meine Daten beim Transfer geschützt?
-   static let wallet_transfer_code_faq_works_question_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_3_key)
-  /// Wie lange ist ein Transfer-Code gültig?
-   static let wallet_transfer_code_faq_works_question_4 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_4_key)
+   static let wallet_transfer_code_faq_works_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_1_key)
   /// Was kann ich tun, wenn das Zertifikat nicht ankommt?
-   static let wallet_transfer_code_faq_works_question_5 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_5_key)
+   static let wallet_transfer_code_faq_works_question_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_2_key)
   /// Was passiert bei einem positiven Testresultat?
-   static let wallet_transfer_code_faq_works_question_6 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_6_key)
-  /// Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist. Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App.
-   static let wallet_transfer_code_faq_works_subtitle = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_subtitle_key)
+   static let wallet_transfer_code_faq_works_question_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_3_key)
   /// So funktioniert der Transfer
    static let wallet_transfer_code_faq_works_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_title_key)
   /// Nächste Schritte
    static let wallet_transfer_code_next_steps = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps_key)
-  /// Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.
+  /// Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.
    static let wallet_transfer_code_next_steps1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps1_key)
-  /// Falls Sie mehrere Zertifikate zb. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
+  /// Falls Sie mehrere Zertifikate zB. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
    static let wallet_transfer_code_next_steps2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps2_key)
-  /// Code älter als 7 Tage
+  /// Code abgelaufen
    static let wallet_transfer_code_old_code = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_old_code_key)
   /// Code erstellen
    static let wallet_transfer_code_onboarding_button = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_button_key)
@@ -1002,9 +990,9 @@ import Foundation
    static let wallet_transfer_code_onboarding_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_text_key)
   /// Transfer Codes
    static let wallet_transfer_code_onboarding_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_title_key)
-  /// Transfer abgelaufen
+  /// Transfer fehlgeschlagen
    static let wallet_transfer_code_state_expired = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_expired_key)
-  /// Für diesen Code kann kein Zertifikat \nmehr empfangen werden
+  /// Mit diesem Transfer kann kein  Zertifikat mehr empfangen werden.
    static let wallet_transfer_code_state_no_certificate = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_no_certificate_key)
   /// Zuletzt aktualisiert\n{DATE}
    static let wallet_transfer_code_state_updated = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_updated_key)

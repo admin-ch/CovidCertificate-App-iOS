@@ -11,7 +11,7 @@
             "faqEntries": [
                 {
                     "title": "Wie können Covid-Zertifikate geprüft werden?",
-                    "text": "Um ein Covid-Zertifikat zu prüfen, scannen Sie den QR-Code auf dem Papierzertifikat oder in der vorgewiesenen COVID Certificate App.",
+                    "text": "Um ein Covid-Zertifikat zu prüfen, scannen Sie den QR-Code auf dem Papierzertifikat oder in der vorgewiesenen COVID Certificate App mit der dafür vorgesehenen COVID Certificate Check App.",
                     "iconAndroid": null,
                     "iconIos": null,
                     "linkTitle": null,
@@ -27,15 +27,7 @@
                 },
                 {
                     "title": "Welche Ausweisdokumente sind gültig? Weshalb müssen die Personalien überprüft werden?",
-                    "text": "Als gültige Ausweisdokumente werden Pass oder ID akzeptiert. Das Covid-Zertifikat ist zwar fälschungssicher, mit der Überprüfung der Personalien wird aber erst sichergestellt, dass das vorgezeigte Zertifikat auch auf den Vorweisenden ausgestellt wurde.",
-                    "iconAndroid": null,
-                    "iconIos": null,
-                    "linkTitle": null,
-                    "linkUrl": null
-                },
-                {
-                    "title": "Können auch ausländische Zertifikate geprüft werden?",
-                    "text": "Ja, Covid-Zertifikate, die mit dem digitalen COVID-Zertifikat der EU kompatibel sind, können mit der COVID Certificate Check App gegen die Gültigkeitskriterien der Schweiz geprüft werden.",
+                    "text": "Neben Pass oder ID werden auch andere Ausweisdokumente akzeptiert, die die Identität der betreffenden Person mit einem Foto belegen (z.B. Führerausweis). Das Covid-Zertifikat ist zwar fälschungssicher, mit der Überprüfung der Personalien wird aber erst sichergestellt, dass das vorgezeigte Zertifikat auch auf den Vorweisenden ausgestellt wurde.",
                     "iconAndroid": null,
                     "iconIos": null,
                     "linkTitle": null,
@@ -43,7 +35,7 @@
                 },
                 {
                     "title": "Welche Daten sehe ich beim Prüfvorgang?",
-                    "text": "Beim Prüfvorgang sehen Sie nur den Namen und das Geburtsdatum des Zertifikatsinhabers und ob das Covid-Zertifikat gültig ist.",
+                    "text": "Beim Prüfvorgang sehen Sie nur den Namen und das Geburtsdatum der Zertifikatsinhaberin oder des Zertifikatsinhabers und ob das Covid-Zertifikat gültig ist.",
                     "iconAndroid": null,
                     "iconIos": null,
                     "linkTitle": null,
@@ -67,7 +59,7 @@
             "faqEntries": [
                 {
                     "title": "How can COVID certificates be checked?",
-                    "text": "To check a COVID certificate, scan the QR code on the paper certificate or in the COVID Certificate app presented.",
+                    "text": "To check a COVID certificate, use the dedicated COVID Certificate Check app to scan the QR code on the paper certificate or in the COVID Certificate app presented.",
                     "iconAndroid": null,
                     "iconIos": null,
                     "linkTitle": null,
@@ -83,15 +75,7 @@
                 },
                 {
                     "title": "Which identification documents are valid? Why do personal details have to be checked?",
-                    "text": "Passports and ID cards are accepted as valid identification documents. Although the COVID certificate is forgery-proof, the only way to ensure that the certificate shown was issued to the person presenting it is to check the personal details.",
-                    "iconAndroid": null,
-                    "iconIos": null,
-                    "linkTitle": null,
-                    "linkUrl": null
-                },
-                {
-                    "title": "Can foreign certificates also be checked?",
-                    "text": "Yes, COVID certificates that are compatible with the EU digital COVID certificate can be checked according to Switzerland's validity criteria using the COVID Certificate check app.",
+                    "text": "Aside from passports or ID cards, other photo identification documents that prove the identity of the person in question (e.g. driving licence) are also accepted. Although the COVID-19 certificate is forgery-proof, the only way to ensure that the certificate shown was issued to the person presenting it is to check the personal details.",
                     "iconAndroid": null,
                     "iconIos": null,
                     "linkTitle": null,
@@ -123,7 +107,7 @@
             "faqEntries": [
                 {
                     "title": "Comment contrôler un certificat COVID?",
-                    "text": "Pour contrôler un certificat COVID, il vous suffit de scanner le code QR figurant sur le document papier ou dans l'app.",
+                    "text": "Pour contrôler un certificat COVID, il vous suffit de scanner le code QR figurant sur le document papier ou dans l'app «COVID Certificate» au moyen de l'app de contrôle prévue à cet effet.",
                     "iconAndroid": null,
                     "iconIos": null,
                     "linkTitle": null,
@@ -138,16 +122,8 @@
                     "linkUrl": null
                 },
                 {
-                    "title": "Quels documents d'identité sont valables? Pourquoi faut-il vérifier les données personnelles?",
-                    "text": "Les documents d'identité réputés valables sont le passeport ou la carte d'identité. Le certificat COVID est certes infalsifiable, mais le contrôle des données personnelles est le seul moyen de vérifier que le certificat a été établi au nom de la personne qui le présente.",
-                    "iconAndroid": null,
-                    "iconIos": null,
-                    "linkTitle": null,
-                    "linkUrl": null
-                },
-                {
-                    "title": "Peut-on aussi contrôler des certificats étrangers?",
-                    "text": "Oui. L'app de contrôle permet de vérifier si les certificats COVID compatibles avec le certificat COVID numérique de l'UE remplissent les critères de validité fixés par la Suisse.",
+                    "title": "Quelles pièces d'identité sont valables? Pourquoi faut-il vérifier les données personnelles?",
+                    "text": "Outre le passeport et la carte d'identité, les pièces d'identité réputées valables sont celles qui attestent l'identité de la personne concernée au moyen d'une photo (par ex. permis de conduire). Le certificat COVID est certes infalsifiable, mais le contrôle des données personnelles est le seul moyen de vérifier que le certificat a été établi au nom de la personne qui le présente.",
                     "iconAndroid": null,
                     "iconIos": null,
                     "linkTitle": null,
@@ -173,13 +149,13 @@
         },
         "it": {
             "faqTitle": "Come avviene la verifica dei certificati COVID?",
-            "faqSubTitle": "Con la app COVID Certificate Check è possibile scansionare i relativi codici QR e verificare l'autenticità e la validità dei certificati COVID.",
+            "faqSubTitle": "Con l'app COVID Certificate Check è possibile scansionare i relativi codici QR e verificare l'autenticità e la validità dei certificati COVID.",
             "faqIconIos": "ic-faq-image",
             "faqIconAndroid": "ic_faq_image",
             "faqEntries": [
                 {
                     "title": "Come posso verificare i certificati COVID?",
-                    "text": "Per verificare un certificato COVID, può scansionare il codice QR che trova sulla copia cartacea del certificato oppure sulla app che le viene mostrata.",
+                    "text": "Per verificare un certificato COVID, può scansionare il codice QR che trova sulla copia cartacea del certificato oppure, tramite la pertinente app COVID Certificate Check, sull’app che le viene mostrata.",
                     "iconAndroid": null,
                     "iconIos": null,
                     "linkTitle": null,
@@ -194,16 +170,8 @@
                     "linkUrl": null
                 },
                 {
-                    "title": "Quali documenti d’identità sono accettati? Perché devono essere verificati i dati personali?",
-                    "text": "Sono accettati come documenti d’identità validi il passaporto o la carta d’identità. Il certificato COVID non è falsificabile, tuttavia solo verificando i dati personali si garantisce che il certificato sia stato effettivamente rilasciato alla persona che lo sta mostrando.",
-                    "iconAndroid": null,
-                    "iconIos": null,
-                    "linkTitle": null,
-                    "linkUrl": null
-                },
-                {
-                    "title": "Possono essere verificati anche certificati esteri?",
-                    "text": "Sì, con la app COVID Certificate Check è possibile verificare il rispetto dei criteri di validità previsti dalla normativa svizzera dei certificati COVID compatibili con il certificato COVID digitale UE.",
+                    "title": "Quali documenti di legittimazione sono accettati o validi? Perché devono essere verificati i dati personali?",
+                    "text": "Oltre al passaporto o alla carta d'identità sono accettati altri documenti che provano l'identità della persona in questione tramite una foto (ad es. licenza di condurre). Il certificato COVID non è falsificabile, tuttavia solo verificando i dati personali si garantisce che il certificato sia stato effettivamente rilasciato alla persona che lo sta mostrando.",
                     "iconAndroid": null,
                     "iconIos": null,
                     "linkTitle": null,
@@ -211,15 +179,63 @@
                 },
                 {
                     "title": "Quali dati posso visualizzare durante il processo di verifica?",
-                    "text": "Durante il processo di verifica visualizzerà solo nome e cognome nonché la data di nascita del proprietario del certificato e l'indicazione della validità del certificato.",
+                    "text": "Durante il processo di verifica visualizzerà solo nome e cognome nonché la data di nascita del titolare del certificato e l'indicazione della validità del certificato.",
                     "iconAndroid": null,
                     "iconIos": null,
                     "linkTitle": null,
                     "linkUrl": null
                 },
                 {
-                    "title": "Durante il processo di verifica vengono salvati dati nella app COVID Certificate Check o in un sistema centrale?",
-                    "text": "No, durante il processo di verifica non vengono salvati dati nella app COVID Certificate Check né in un sistema centrale. In questo modo, non è possibile risalire a quali certificati sono stati verificati, da chi, quando e dove.",
+                    "title": "Durante il processo di verifica vengono salvati dati nell'app COVID Certificate Check o in un sistema centrale?",
+                    "text": "No, durante il processo di verifica non vengono salvati dati nell'app COVID Certificate Check né in un sistema centrale. In questo modo, non è possibile risalire a quali certificati sono stati verificati, da chi, quando e dove.",
+                    "iconAndroid": null,
+                    "iconIos": null,
+                    "linkTitle": null,
+                    "linkUrl": null
+                }
+            ]
+        },
+        "rm": {
+            "faqTitle": "Uschia vegnan verifitgads ils certificats COVID",
+            "faqSubTitle": "Cun l'app COVID Certificate Check pon vegnir scannads ils codes QR sin ils certificats COVID per verifitgar l'autenticitad e la valaivladad dals certificats.",
+            "faqIconIos": "ic-faq-image",
+            "faqIconAndroid": "ic_faq_image",
+            "faqEntries": [
+                {
+                    "title": "Co pon vegnir verifitgads ils certificats COVID?",
+                    "text": "Per verifitgar in certificat COVID pudais Vus scannar il code QR sin Voss certificat sin palpiri u en l'app COVID Certificate cun l’app «COVID Certificate Check» previsa per quai.",
+                    "iconAndroid": null,
+                    "iconIos": null,
+                    "linkTitle": null,
+                    "linkUrl": null
+                },
+                {
+                    "title": "Tge vegn propi verifitgà?",
+                    "text": "Cun scannar vegnan verifitgads trais aspects:\n– Cuntegna il certificat ina signatura digitala valaivla?\n– N'è il certificat betg vegnì revocà?\n– Correspunda il certificat als criteris da valaivladad en Svizra?\n\nSche tut ils trais aspects vegnan valitads en moda positiva, vegn il certificat COVID considerà sco valaivel.\n",
+                    "iconAndroid": null,
+                    "iconIos": null,
+                    "linkTitle": null,
+                    "linkUrl": null
+                },
+                {
+                    "title": "Tge documents da legitimaziun vegnan acceptads resp. èn valaivels? Pertge ston vegnir verifitgadas las persunalias?",
+                    "text": "Ultra dal passaport e da la ID vegnan acceptads er auters documents da legitimaziun valaivels che cumprovan l’identitad da la persuna pertutgada cun ina fotografia (p.ex. permiss dad ir cun auto). Il certificat COVID na po bain betg vegnir falsifitgà, però pir cun verifitgar las persunalias vegn controllà, sch'il certificat preschentà è vegnì emess per la persuna ch'al preschenta.",
+                    "iconAndroid": null,
+                    "iconIos": null,
+                    "linkTitle": null,
+                    "linkUrl": null
+                },
+                {
+                    "title": "Tge datas ves jau tar la procedura da verificaziun?",
+                    "text": "Tar la procedura da verificaziun vesais Vus mo il num e la data da naschientscha da la possessura u dal possessur dal certificat e sch'il certificat COVID è valaivel.",
+                    "iconAndroid": null,
+                    "iconIos": null,
+                    "linkTitle": null,
+                    "linkUrl": null
+                },
+                {
+                    "title": "Vegnan arcunadas datas en in sistem central u en l'app COVID Certificate Check tar la procedura da verificaziun?",
+                    "text": "Na, tar la procedura da verificaziun na vegnan arcunadas naginas datas – ni en l'app COVID Certificate Check ni en in sistem central? I n'è pia betg pussaivel d'identifitgar tge certificat COVID ch'è vegnì verifitgà da tgi, cura e nua.",
                     "iconAndroid": null,
                     "iconIos": null,
                     "linkTitle": null,
