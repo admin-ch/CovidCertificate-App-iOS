@@ -21,6 +21,7 @@ class CertificateStateView: UIView {
     private let loadingView = UIActivityIndicatorView(style: .gray)
     private let textLabel = Label(.text, textAlignment: .center)
 
+    private let validityErrorStackView = UIStackView()
     private let validityView = CertificateStateValidityView()
     private let errorLabel = Label(.smallErrorLight, textAlignment: .center)
     private let certificate: UserCertificate?
@@ -93,19 +94,18 @@ class CertificateStateView: UIView {
         }
 
         if hasValidityView {
-            let stackView = UIStackView()
-            stackView.axis = .vertical
-            stackView.spacing = 2.0 * Padding.small
+            validityErrorStackView.axis = .vertical
+            validityErrorStackView.spacing = 2.0 * Padding.small
 
-            addSubview(stackView)
-            stackView.snp.makeConstraints { make in
+            addSubview(validityErrorStackView)
+            validityErrorStackView.snp.makeConstraints { make in
                 make.leading.trailing.equalToSuperview()
                 make.top.equalTo(backgroundView.snp.bottom).offset(Padding.small)
                 make.bottom.equalToSuperview()
             }
 
-            stackView.addArrangedSubview(validityView)
-            stackView.addArrangedSubview(errorLabel)
+            validityErrorStackView.addArrangedSubview(validityView)
+            validityErrorStackView.addArrangedSubview(errorLabel)
 
             validityView.backgroundColor = .cc_greyBackground
         }
@@ -129,6 +129,7 @@ class CertificateStateView: UIView {
         let actions = {
             self.validityView.isOfflineMode = false
             self.errorLabel.ub_setHidden(true)
+            self.validityErrorStackView.ub_setHidden(false)
 
             switch self.states.temporaryVerifierState {
             case let .success(validUntil):
@@ -173,6 +174,7 @@ class CertificateStateView: UIView {
                 self.backgroundView.backgroundColor = .cc_greyish
                 self.validityView.backgroundColor = .cc_greyish
                 self.validityView.textColor = .cc_grey
+                self.validityErrorStackView.ub_setHidden(true)
 
             case .idle:
                 switch self.states.state {
@@ -182,6 +184,7 @@ class CertificateStateView: UIView {
                     self.backgroundView.backgroundColor = .cc_greyish
                     self.validityView.backgroundColor = .cc_greyish
                     self.validityView.textColor = .cc_grey
+                    self.validityErrorStackView.ub_setHidden(true)
 
                 case let .success(validUntil):
                     self.imageView.image = UIImage(named: "ic-info-filled")

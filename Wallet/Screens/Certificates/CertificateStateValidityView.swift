@@ -42,8 +42,6 @@ class CertificateStateValidityView: UIView {
         didSet {
             validityView.ub_setHidden(isOfflineMode)
             offlineView.ub_setHidden(!isOfflineMode)
-            validityView.alpha = isOfflineMode ? 0.0 : 1.0
-            offlineView.alpha = isOfflineMode ? 1.0 : 0.0
         }
     }
 
