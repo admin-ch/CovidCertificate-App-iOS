@@ -143,12 +143,21 @@ class CertificateTableViewCell: UITableViewCell {
             let notYetValid = UIImage(named: "ic-qrcode-small-temporary")
             let invalid = UIImage(named: "ic-qrcode-small-invalid")
             let load = UIImage(named: "ic-qrcode-small-load")
+            let networkError = UIImage(named: "ic-qrcode-small-network-error")
+            let noInternetError = UIImage(named: "ic-qrcode-small-nointernet-error")
 
             switch self.state {
             case .loading:
                 self.qrCodeStateImageView.image = load
-            case .success, .retry:
+            case .success:
                 self.qrCodeStateImageView.image = normal
+            case let .retry(err, _):
+                switch err {
+                case .network, .unknown:
+                    self.qrCodeStateImageView.image = networkError
+                case .noInternetConnection:
+                    self.qrCodeStateImageView.image = noInternetError
+                }
             case let .invalid(errors, _, _):
                 if let e = errors.first {
                     switch e {
