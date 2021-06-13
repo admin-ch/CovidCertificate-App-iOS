@@ -176,7 +176,7 @@ class CertificateDetailViewController: ViewController {
         }
 
         verifier = Verifier(qrString: certificate.qrCode)
-        verifier?.start(stateUpdate: { [weak self] state in
+        verifier?.start(forceUpdate: true, stateUpdate: { [weak self] state in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 guard let strongSelf = self else { return }
                 switch state {

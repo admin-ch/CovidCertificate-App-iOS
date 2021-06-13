@@ -95,6 +95,7 @@ enum VerificationState: Equatable {
 class Verifier: NSObject {
     private let holder: DGCHolder?
     private var stateUpdate: ((VerificationState) -> Void)?
+    private var forceUpdate: Bool = false
 
     // MARK: - Init
 
@@ -118,8 +119,9 @@ class Verifier: NSObject {
 
     // MARK: - Start
 
-    public func start(stateUpdate: @escaping ((VerificationState) -> Void)) {
+    public func start(forceUpdate: Bool = false, stateUpdate: @escaping ((VerificationState) -> Void)) {
         self.stateUpdate = stateUpdate
+        self.forceUpdate = forceUpdate
 
         guard holder != nil else {
             // should never happen
@@ -165,7 +167,7 @@ class Verifier: NSObject {
 
     public func restart() {
         guard let su = stateUpdate else { return }
-        start(stateUpdate: su)
+        start(forceUpdate: forceUpdate, stateUpdate: su)
     }
 
     // MARK: - Signature
@@ -175,7 +177,7 @@ class Verifier: NSObject {
 
         group.enter()
 
-        CovidCertificateSDK.checkSignature(cose: holder) { result in
+        CovidCertificateSDK.checkSignature(cose: holder, forceUpdate: forceUpdate) { result in
             switch result {
             case let .success(result):
                 if result.isValid {
@@ -211,7 +213,7 @@ class Verifier: NSObject {
 
         group.enter()
 
-        CovidCertificateSDK.checkRevocationStatus(dgc: holder.healthCert) { result in
+        CovidCertificateSDK.checkRevocationStatus(dgc: holder.healthCert, forceUpdate: forceUpdate) { result in
             switch result {
             case let .success(result):
                 if result.isValid {
@@ -243,7 +245,7 @@ class Verifier: NSObject {
 
         group.enter()
 
-        CovidCertificateSDK.checkNationalRules(dgc: holder.healthCert) { result in
+        CovidCertificateSDK.checkNationalRules(dgc: holder.healthCert, forceUpdate: forceUpdate) { result in
             switch result {
             case let .success(result):
                 var validUntil: String?

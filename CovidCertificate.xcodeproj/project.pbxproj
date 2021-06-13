@@ -2240,7 +2240,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/admin-ch/CovidCertificate-SDK-iOS";
 			requirement = {
-				branch = main;
+				branch = "feature/add-force-update-to-verification-checks";
 				kind = branch;
 			};
 		};
