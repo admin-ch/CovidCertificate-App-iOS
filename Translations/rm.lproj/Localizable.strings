@@ -372,7 +372,7 @@
 /*Button Schliessen*/
 "close_button" = "Serrar";
 "wallet_certificate_impfdosis_title" = "Dosa";
-"target_disease_name" = "Covid-19";
+"target_disease_name" = "COVID-19";
 "wallet_certificate_target_disease_title" = "Malsogna u agent patogen";
 "wallet_certificate_impfstoff_product_name_title" = "Product";
 "wallet_certificate_impfstoff_holder" = "Producent";

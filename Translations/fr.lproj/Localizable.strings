@@ -372,7 +372,7 @@
 /*Button Schliessen*/
 "close_button" = "Fermer";
 "wallet_certificate_impfdosis_title" = "Dose";
-"target_disease_name" = "Covid-19";
+"target_disease_name" = "COVID-19";
 "wallet_certificate_target_disease_title" = "Maladie ou agent pathogène";
 "wallet_certificate_impfstoff_product_name_title" = "Produit";
 "wallet_certificate_impfstoff_holder" = "Fabricant";
@@ -478,7 +478,7 @@
 "wallet_onboarding_external_privacy_button" = "Déclaration de confidentialité & condition d'utilisation";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "Le présent certificat n’est pas un document de voyage. \n\nLes preuves scientifiques relatives à la vaccination, aux tests et au rétablissement liés à la COVID-19 continuent d’évoluer, notamment en ce qui concerne de nouveaux variants préoccupants du virus. \n\nAvant de voyager, veuillez vérifier les mesures de santé publique applicables et les restrictions connexes applicables sur le lieu de destination.";
+"wallet_certificate_detail_note" = "Le présent certificat n'est pas un document de voyage. \n\nLes preuves scientifiques relatives à la vaccination, aux tests et au rétablissement liés à la COVID-19 continuent d'évoluer, notamment en ce qui concerne de nouveaux variants préoccupants du virus. \n\nAvant de voyager, veuillez vérifier les mesures de santé publique applicables et les restrictions connexes applicables sur le lieu de destination.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/fr/home/documentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/fr/home/documentation/covid-certificate-check-app.html";
 
