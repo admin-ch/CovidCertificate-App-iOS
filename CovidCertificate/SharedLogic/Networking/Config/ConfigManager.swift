@@ -39,7 +39,6 @@ class ConfigManager: NSObject {
     private static var leafCertificateCommonName: String {
         switch Environment.current {
         case .dev:
-            // TODO: fix this when we have a dedicated dev certificate
             return "CH01-AppContentCertificate-ref"
         case .abnahme:
             return "CH01-AppContentCertificate-abn"
