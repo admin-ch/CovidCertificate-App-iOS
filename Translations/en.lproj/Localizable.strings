@@ -372,7 +372,7 @@
 /*Button Schliessen*/
 "close_button" = "Close";
 "wallet_certificate_impfdosis_title" = "Dose";
-"target_disease_name" = "Covid-19";
+"target_disease_name" = "COVID-19";
 "wallet_certificate_target_disease_title" = "Disease or agent targeted";
 "wallet_certificate_impfstoff_product_name_title" = "Product";
 "wallet_certificate_impfstoff_holder" = "Manufacturer";
