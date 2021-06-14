@@ -107,11 +107,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func willAppearAfterColdstart(_: UIApplication, coldStart _: Bool, backgroundTime _: TimeInterval) {
         // Logic for coldstart / background
-        startConfigRequest()
+        if WalletUserStorage.shared.hasCompletedOnboarding {
+            // Refresh config
+            startConfigRequest()
 
-        CovidCertificateSDK.restartTrustListUpdate(completionHandler: {
-            UIStateManager.shared.stateChanged(forceRefresh: true)
-        }, updateTimeInterval: TimeInterval(60 * 60))
+            // Refresh trust list (public keys, revocation list, business rules,...)
+            CovidCertificateSDK.restartTrustListUpdate(completionHandler: {
+                UIStateManager.shared.stateChanged(forceRefresh: true)
+            }, updateTimeInterval: TimeInterval(60 * 60))
+        }
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -145,9 +149,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Force update
 
     private func startConfigRequest() {
-        if WalletUserStorage.shared.hasCompletedOnboarding {
-            ConfigManager().startConfigRequest(window: window)
-        }
+        ConfigManager().startConfigRequest(window: window)
     }
 
     // MARK: - Appearance
