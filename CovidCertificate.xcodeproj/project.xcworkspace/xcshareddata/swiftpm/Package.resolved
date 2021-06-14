@@ -41,8 +41,8 @@
         "package": "CovidCertificateSDK",
         "repositoryURL": "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
         "state": {
-          "branch": "feature/add-force-update-to-verification-checks",
-          "revision": "403c4b021983c692c9984edcd156c27ae6a4a64c",
+          "branch": "main",
+          "revision": "17058be8c37e1b4bcbc6b3fa0a902727e6be7085",
           "version": null
         }
       },
