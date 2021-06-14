@@ -77,5 +77,5 @@ struct StaticContentViewModel: Equatable {
                                                                 (UIImage(named: "ic-one"), UBLocalized.wallet_scanner_howitworks_text2),
                                                                 (UIImage(named: "ic-two"), UBLocalized.wallet_scanner_howitworks_text3),
                                                                 (UIImage(named: "ic-three"), UBLocalized.wallet_scanner_howitworks_text4)],
-                                                   expandableTextGroups: [(UBLocalized.wallet_scanner_howitworks_question1, UBLocalized.wallet_scanner_howitworks_answer1, nil, nil)])
+                                                   expandableTextGroups: [(UBLocalized.wallet_scanner_howitworks_question1, UBLocalized.wallet_scanner_howitworks_answer1, UBLocalized.wallet_scanner_howitworks_external_link_title, URL(string: UBLocalized.wallet_scanner_howitworks_external_link))])
 }

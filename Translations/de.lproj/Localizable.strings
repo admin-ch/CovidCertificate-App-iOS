@@ -488,8 +488,7 @@
 "wallet_faq_questions_answer_1_1" = "Von Covid-19 genesene Personen können das Covid-Zertifikat über ein Online-Formular auf der Webseite des Kantons beantragen. Das Covid-Zertifikat wird anschliessend per Post zugeschickt.";
 
 /*Wallet: Homescreen Was wollen sie machen?*/
-/*Fuzzy*/
-"wallet_homescreen_what_to_do" = "Was möchten Sie machen?";
+"wallet_homescreen_what_to_do" = "Nächsten Schritt wählen";
 
 /*Wallet: Homescreen Titel Zertifikat hinzufügen*/
 "wallet_homescreen_add_title" = "Zertifikat hinzufügen";
@@ -504,8 +503,7 @@
 "wallet_transfer_code_onboarding_title" = "Transfer Codes";
 
 /*Wallet: Transfer Code Text*/
-/*Fuzzy*/
-"wallet_transfer_code_onboarding_text" = "Mit Transfer-Codes können Sie Covid-Zertifikate von negativen Testresultaten direkt in der App empfangen.";
+"wallet_transfer_code_onboarding_text" = "Sie können Transfer-Codes z. B. bei Covid-Tests angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.";
 
 /*Wallet: Transfer Code Onboarding Button*/
 "wallet_transfer_code_onboarding_button" = "Code erstellen";
@@ -662,7 +660,7 @@
 "verifier_network_error_text" = "Ein unerwarteter Fehler ist aufgetreten";
 
 /*Wallet: Text auf Zertifikat auf Homescreen bei Netzwerkfehler*/
-"wallet_homescreen_network_error" = "Gülltigkeit konnte nicht ermittelt werden";
+"wallet_homescreen_network_error" = "Gültigkeit konnte nicht ermittelt werden";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
 /*Fuzzy*/
@@ -684,3 +682,9 @@
 
 /*Wallet: Button im Custom-Popup Notification Permission*/
 "wallet_notification_permission_button" = "Weiter";
+
+/*Externe URL im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_external_link" = "https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/";
+
+/*Label der externen URL im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_external_link_title" = "Weitere Informationen";

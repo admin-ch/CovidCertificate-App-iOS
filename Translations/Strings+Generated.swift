@@ -350,11 +350,11 @@ import Foundation
      case wallet_homescreen_add_transfer_code_key = "wallet_homescreen_add_transfer_code"
     /// Scannen Sie den QR-Code auf dem Covid-Zertifikat, um es zur App hinzuzufügen.
      case wallet_homescreen_explanation_key = "wallet_homescreen_explanation"
-    /// Gülltigkeit konnte nicht ermittelt werden
+    /// Gültigkeit konnte nicht ermittelt werden
      case wallet_homescreen_network_error_key = "wallet_homescreen_network_error"
     /// Offline Modus
      case wallet_homescreen_offline_key = "wallet_homescreen_offline"
-    /// Was möchten Sie machen?
+    /// Nächsten Schritt wählen
      case wallet_homescreen_what_to_do_key = "wallet_homescreen_what_to_do"
     /// Weiter
      case wallet_notification_permission_button_key = "wallet_notification_permission_button"
@@ -406,6 +406,10 @@ import Foundation
      case wallet_scanner_explanation_key = "wallet_scanner_explanation"
     /// Ein Covid-Zertifikat können Sie nach einer vollständigen Covid-19-Impfung, nach einer durchgemachten Erkrankung oder nach einem negativen Testergebnis erhalten. Das Zertifikat stellt Ihnen in der Regel das Gesundheitsfachpersonal vor Ort auf Anfrage aus.
      case wallet_scanner_howitworks_answer1_key = "wallet_scanner_howitworks_answer1"
+    /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/
+     case wallet_scanner_howitworks_external_link_key = "wallet_scanner_howitworks_external_link"
+    /// Weitere Informationen
+     case wallet_scanner_howitworks_external_link_title_key = "wallet_scanner_howitworks_external_link_title"
     /// So funktioniert's
      case wallet_scanner_howitworks_header_key = "wallet_scanner_howitworks_header"
     /// Wann und wo kann ich ein Covid-Zertifikat erhalten?
@@ -490,7 +494,7 @@ import Foundation
      case wallet_transfer_code_onboarding_button_key = "wallet_transfer_code_onboarding_button"
     /// So funktioniert's
      case wallet_transfer_code_onboarding_howto_key = "wallet_transfer_code_onboarding_howto"
-    /// Mit Transfer-Codes können Sie Covid-Zertifikate von negativen Testresultaten direkt in der App empfangen.
+    /// Sie können Transfer-Codes z. B. bei Covid-Tests angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.
      case wallet_transfer_code_onboarding_text_key = "wallet_transfer_code_onboarding_text"
     /// Transfer Codes
      case wallet_transfer_code_onboarding_title_key = "wallet_transfer_code_onboarding_title"
@@ -846,11 +850,11 @@ import Foundation
    static let wallet_homescreen_add_transfer_code = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_add_transfer_code_key)
   /// Scannen Sie den QR-Code auf dem Covid-Zertifikat, um es zur App hinzuzufügen.
    static let wallet_homescreen_explanation = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_explanation_key)
-  /// Gülltigkeit konnte nicht ermittelt werden
+  /// Gültigkeit konnte nicht ermittelt werden
    static let wallet_homescreen_network_error = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_network_error_key)
   /// Offline Modus
    static let wallet_homescreen_offline = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_offline_key)
-  /// Was möchten Sie machen?
+  /// Nächsten Schritt wählen
    static let wallet_homescreen_what_to_do = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_what_to_do_key)
   /// Weiter
    static let wallet_notification_permission_button = UBLocalized.tr(UBLocalizedKey.wallet_notification_permission_button_key)
@@ -902,6 +906,10 @@ import Foundation
    static let wallet_scanner_explanation = UBLocalized.tr(UBLocalizedKey.wallet_scanner_explanation_key)
   /// Ein Covid-Zertifikat können Sie nach einer vollständigen Covid-19-Impfung, nach einer durchgemachten Erkrankung oder nach einem negativen Testergebnis erhalten. Das Zertifikat stellt Ihnen in der Regel das Gesundheitsfachpersonal vor Ort auf Anfrage aus.
    static let wallet_scanner_howitworks_answer1 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_answer1_key)
+  /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/
+   static let wallet_scanner_howitworks_external_link = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_external_link_key)
+  /// Weitere Informationen
+   static let wallet_scanner_howitworks_external_link_title = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_external_link_title_key)
   /// So funktioniert's
    static let wallet_scanner_howitworks_header = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_header_key)
   /// Wann und wo kann ich ein Covid-Zertifikat erhalten?
@@ -986,7 +994,7 @@ import Foundation
    static let wallet_transfer_code_onboarding_button = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_button_key)
   /// So funktioniert's
    static let wallet_transfer_code_onboarding_howto = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_howto_key)
-  /// Mit Transfer-Codes können Sie Covid-Zertifikate von negativen Testresultaten direkt in der App empfangen.
+  /// Sie können Transfer-Codes z. B. bei Covid-Tests angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.
    static let wallet_transfer_code_onboarding_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_text_key)
   /// Transfer Codes
    static let wallet_transfer_code_onboarding_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_title_key)
