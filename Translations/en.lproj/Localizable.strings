@@ -120,16 +120,16 @@
 "wallet_onboarding_privacy_header" = "Data privacy";
 
 /*Titel im Onboardingscreen "Datenschutz"*/
-"wallet_onboarding_privacy_title" = "Your data remain \nin the app";
+"wallet_onboarding_privacy_title" = "Your data remains \nin the app";
 
 /*Text im Onboardingscreen "Datenschutz"*/
-"wallet_onboarding_privacy_text" = "The certificates are only saved locally on your smartphone. The data are not stored centrally.";
+"wallet_onboarding_privacy_text" = "The certificates are only saved locally on your smartphone. The data is not stored centrally.";
 
 /*Titel im Onboardingscreen "Vorteile, Vorweisen"*/
 "wallet_onboarding_show_title" = "Present certificates simply";
 
 /*Text 1 im Onboardingscreen "Vorteile, Vorweisen"*/
-"wallet_onboarding_show_text1" = "The data in the COVID certificate are also contained in the QR code.";
+"wallet_onboarding_show_text1" = "The data in the COVID certificate is also contained in the QR code.";
 
 /*Text 2 im Onboardingscreen "Vorteile, Vorweisen"*/
 "wallet_onboarding_show_text2" = "On presentation, the QR code is scanned using a verifier app. The authenticity and validity of the data are automatically checked.";
@@ -488,7 +488,7 @@
 "wallet_faq_questions_answer_1_1" = "People who have recovered from COVID-19 can apply for the COVID-19 certificate via an online form on the canton's website. The COVID-19 certificate will then be sent by post.";
 
 /*Wallet: Homescreen Was wollen sie machen?*/
-"wallet_homescreen_what_to_do" = "Was möchten Sie machen?";
+"wallet_homescreen_what_to_do" = "Nächsten Schritt wählen";
 
 /*Wallet: Homescreen Titel Zertifikat hinzufügen*/
 "wallet_homescreen_add_title" = "Zertifikat hinzufügen";
@@ -503,7 +503,7 @@
 "wallet_transfer_code_onboarding_title" = "Transfer Codes";
 
 /*Wallet: Transfer Code Text*/
-"wallet_transfer_code_onboarding_text" = "Mit Transfer-Codes können Sie Covid-Zertifikate von negativen Testresultaten direkt in der App empfangen.";
+"wallet_transfer_code_onboarding_text" = "Sie können Transfer-Codes z. B. bei Covid-Tests angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.";
 
 /*Wallet: Transfer Code Onboarding Button*/
 "wallet_transfer_code_onboarding_button" = "Code erstellen";
@@ -642,7 +642,7 @@
 "verifier_network_error_text" = "An unexpected error has occurred";
 
 /*Wallet: Text auf Zertifikat auf Homescreen bei Netzwerkfehler*/
-"wallet_homescreen_network_error" = "Gülltigkeit konnte nicht ermittelt werden";
+"wallet_homescreen_network_error" = "Validity could not be determined";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
 "wallet_transfer_code_faq_works_intro_1" = "Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist.";
@@ -661,3 +661,9 @@
 
 /*Wallet: Button im Custom-Popup Notification Permission*/
 "wallet_notification_permission_button" = "Weiter";
+
+/*Externe URL im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_external_link" = "https://foph-coronavirus.ch/certificate/how-do-i-get-a-covid-certificate-and-how-do-i-use-it/";
+
+/*Label der externen URL im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_external_link_title" = "Further information";

@@ -488,7 +488,7 @@
 "wallet_faq_questions_answer_1_1" = "Les personnes qui ont guéri du COVID-19 peuvent demander un certificat COVID en remplissant le formulaire en ligne disponible sur le site Internet de leur canton de domicile. Elles recevront ensuite le certificat COVID par la poste. ";
 
 /*Wallet: Homescreen Was wollen sie machen?*/
-"wallet_homescreen_what_to_do" = "Was möchten Sie machen?";
+"wallet_homescreen_what_to_do" = "Nächsten Schritt wählen";
 
 /*Wallet: Homescreen Titel Zertifikat hinzufügen*/
 "wallet_homescreen_add_title" = "Zertifikat hinzufügen";
@@ -503,7 +503,7 @@
 "wallet_transfer_code_onboarding_title" = "Transfer Codes";
 
 /*Wallet: Transfer Code Text*/
-"wallet_transfer_code_onboarding_text" = "Mit Transfer-Codes können Sie Covid-Zertifikate von negativen Testresultaten direkt in der App empfangen.";
+"wallet_transfer_code_onboarding_text" = "Sie können Transfer-Codes z. B. bei Covid-Tests angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.";
 
 /*Wallet: Transfer Code Onboarding Button*/
 "wallet_transfer_code_onboarding_button" = "Code erstellen";
@@ -661,3 +661,9 @@
 
 /*Wallet: Button im Custom-Popup Notification Permission*/
 "wallet_notification_permission_button" = "Weiter";
+
+/*Externe URL im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_external_link" = "https://ofsp-coronavirus.ch/certificat/comment-obtenir-le-certificat-covid-et-comment-men-servir/";
+
+/*Label der externen URL im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_external_link_title" = "Informations supplémentaires";
