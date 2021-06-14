@@ -69,6 +69,28 @@ enum Environment {
             return SDKEnvironment.prod
         }
     }
+
+    var sdkAPIKey: String {
+        #if VERIFIER
+            switch self {
+            case .dev:
+                return "7f64903d-4420-4cc3-ac90-c14306b5e556"
+            case .abnahme:
+                return "f731fd3b-cb55-4cfd-9c46-fb3a927ffcd8"
+            case .prod:
+                return "25958ed0-7790-4846-9341-7c7ef87ec389"
+            }
+        #elseif WALLET
+            switch self {
+            case .dev:
+                return "c838a4c4-39e5-4bbb-8e75-e4382df2edfe"
+            case .abnahme:
+                return "e9802c49-4f2b-49cc-a645-24c206366455"
+            case .prod:
+                return "0795dc8b-d8d0-4313-abf2-510b12d50939"
+            }
+        #endif
+    }
 }
 
 extension Endpoint {

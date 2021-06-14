@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // isFirstLaunch still works)
         VerifierUserStorage.shared.hasCompletedOnboarding = true
 
-        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment)
+        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.sdkAPIKey)
 
         // defer window initialization if app was launched in
         // background because of location change
