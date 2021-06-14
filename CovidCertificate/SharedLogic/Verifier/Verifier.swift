@@ -95,7 +95,6 @@ enum VerificationState: Equatable {
 class Verifier: NSObject {
     private let holder: DGCHolder?
     private var stateUpdate: ((VerificationState) -> Void)?
-    private var forceUpdate: Bool = false
 
     // MARK: - Init
 
@@ -121,7 +120,6 @@ class Verifier: NSObject {
 
     public func start(forceUpdate: Bool = false, stateUpdate: @escaping ((VerificationState) -> Void)) {
         self.stateUpdate = stateUpdate
-        self.forceUpdate = forceUpdate
 
         guard holder != nil else {
             // should never happen
@@ -139,9 +137,9 @@ class Verifier: NSObject {
         var checkRevocationState: VerificationState = .loading
         var checkNationalRulesState: VerificationState = .loading
 
-        checkSignature(group: group) { state in checkSignatureState = state }
-        checkRevocationStatus(group: group) { state in checkRevocationState = state }
-        checkNationalRules(group: group) { state in checkNationalRulesState = state }
+        checkSignature(group: group, forceUpdate: forceUpdate) { state in checkSignatureState = state }
+        checkRevocationStatus(group: group, forceUpdate: forceUpdate) { state in checkRevocationState = state }
+        checkNationalRules(group: group, forceUpdate: forceUpdate) { state in checkNationalRulesState = state }
 
         group.notify(queue: .main) {
             let states = [checkSignatureState, checkRevocationState, checkNationalRulesState]
@@ -165,14 +163,14 @@ class Verifier: NSObject {
         }
     }
 
-    public func restart() {
+    public func restart(forceUpdate: Bool = false) {
         guard let su = stateUpdate else { return }
         start(forceUpdate: forceUpdate, stateUpdate: su)
     }
 
     // MARK: - Signature
 
-    private func checkSignature(group: DispatchGroup, callback: @escaping (VerificationState) -> Void) {
+    private func checkSignature(group: DispatchGroup, forceUpdate: Bool, callback: @escaping (VerificationState) -> Void) {
         guard let holder = self.holder else { return }
 
         group.enter()
@@ -208,7 +206,7 @@ class Verifier: NSObject {
         }
     }
 
-    private func checkRevocationStatus(group: DispatchGroup, callback: @escaping (VerificationState) -> Void) {
+    private func checkRevocationStatus(group: DispatchGroup, forceUpdate: Bool, callback: @escaping (VerificationState) -> Void) {
         guard let holder = self.holder else { return }
 
         group.enter()
@@ -240,7 +238,7 @@ class Verifier: NSObject {
         }
     }
 
-    private func checkNationalRules(group: DispatchGroup, callback: @escaping (VerificationState) -> Void) {
+    private func checkNationalRules(group: DispatchGroup, forceUpdate: Bool, callback: @escaping (VerificationState) -> Void) {
         guard let holder = self.holder else { return }
 
         group.enter()
