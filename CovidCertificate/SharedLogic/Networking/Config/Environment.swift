@@ -70,7 +70,7 @@ enum Environment {
         }
     }
 
-    var sdkAPIKey: String {
+    var appToken: String {
         #if VERIFIER
             switch self {
             case .dev:
