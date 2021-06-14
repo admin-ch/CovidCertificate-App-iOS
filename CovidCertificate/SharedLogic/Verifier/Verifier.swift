@@ -118,7 +118,7 @@ class Verifier: NSObject {
 
     // MARK: - Start
 
-    public func start(stateUpdate: @escaping ((VerificationState) -> Void)) {
+    public func start(forceUpdate: Bool = false, stateUpdate: @escaping ((VerificationState) -> Void)) {
         self.stateUpdate = stateUpdate
 
         guard holder != nil else {
@@ -137,9 +137,9 @@ class Verifier: NSObject {
         var checkRevocationState: VerificationState = .loading
         var checkNationalRulesState: VerificationState = .loading
 
-        checkSignature(group: group) { state in checkSignatureState = state }
-        checkRevocationStatus(group: group) { state in checkRevocationState = state }
-        checkNationalRules(group: group) { state in checkNationalRulesState = state }
+        checkSignature(group: group, forceUpdate: forceUpdate) { state in checkSignatureState = state }
+        checkRevocationStatus(group: group, forceUpdate: forceUpdate) { state in checkRevocationState = state }
+        checkNationalRules(group: group, forceUpdate: forceUpdate) { state in checkNationalRulesState = state }
 
         group.notify(queue: .main) {
             let states = [checkSignatureState, checkRevocationState, checkNationalRulesState]
@@ -163,19 +163,19 @@ class Verifier: NSObject {
         }
     }
 
-    public func restart() {
+    public func restart(forceUpdate: Bool = false) {
         guard let su = stateUpdate else { return }
-        start(stateUpdate: su)
+        start(forceUpdate: forceUpdate, stateUpdate: su)
     }
 
     // MARK: - Signature
 
-    private func checkSignature(group: DispatchGroup, callback: @escaping (VerificationState) -> Void) {
+    private func checkSignature(group: DispatchGroup, forceUpdate: Bool, callback: @escaping (VerificationState) -> Void) {
         guard let holder = self.holder else { return }
 
         group.enter()
 
-        CovidCertificateSDK.checkSignature(cose: holder) { result in
+        CovidCertificateSDK.checkSignature(cose: holder, forceUpdate: forceUpdate) { result in
             switch result {
             case let .success(result):
                 if result.isValid {
@@ -206,12 +206,12 @@ class Verifier: NSObject {
         }
     }
 
-    private func checkRevocationStatus(group: DispatchGroup, callback: @escaping (VerificationState) -> Void) {
+    private func checkRevocationStatus(group: DispatchGroup, forceUpdate: Bool, callback: @escaping (VerificationState) -> Void) {
         guard let holder = self.holder else { return }
 
         group.enter()
 
-        CovidCertificateSDK.checkRevocationStatus(dgc: holder.healthCert) { result in
+        CovidCertificateSDK.checkRevocationStatus(dgc: holder.healthCert, forceUpdate: forceUpdate) { result in
             switch result {
             case let .success(result):
                 if result.isValid {
@@ -238,12 +238,12 @@ class Verifier: NSObject {
         }
     }
 
-    private func checkNationalRules(group: DispatchGroup, callback: @escaping (VerificationState) -> Void) {
+    private func checkNationalRules(group: DispatchGroup, forceUpdate: Bool, callback: @escaping (VerificationState) -> Void) {
         guard let holder = self.holder else { return }
 
         group.enter()
 
-        CovidCertificateSDK.checkNationalRules(dgc: holder.healthCert) { result in
+        CovidCertificateSDK.checkNationalRules(dgc: holder.healthCert, forceUpdate: forceUpdate) { result in
             switch result {
             case let .success(result):
                 var validUntil: String?
