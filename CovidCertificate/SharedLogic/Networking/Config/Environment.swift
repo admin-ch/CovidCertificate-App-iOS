@@ -71,6 +71,8 @@ enum Environment {
     }
 
     var appToken: String {
+        // These app tokens are reserved for the official COVID Certificate and COVID Certificate Check app.
+        // If you intend to integrate the CovidCertificate-SDK into your app, please get in touch with BIT/BAG to get a token assigned.
         #if VERIFIER
             switch self {
             case .dev:
