@@ -281,9 +281,16 @@ class Verifier: NSObject {
                     // retry possible
                     callback(.retry(.noInternetConnection, [err.errorCode]))
                 case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
+                    // retry possible
                     callback(.retry(.network, [err.errorCode]))
                 default:
-                    callback(.invalid([.otherNationalRules], [err.errorCode], nil))
+                    // do not show the explicit error code on the verifier app, s.t.
+                    // no information is shown about the checked user (e.g. certificate type)
+                    #if WALLET
+                        callback(.invalid([.otherNationalRules], [err.errorCode], nil))
+                    #elseif VERIFIER
+                        callback(.invalid([.otherNationalRules], [], nil))
+                    #endif
                 }
             }
 
