@@ -21,7 +21,6 @@ class HomescreenCertificatesViewController: ViewController {
     private let stackScrollView = StackScrollView(axis: .horizontal, spacing: 0)
     private let pageControl = UIPageControl()
     private var certificateViews: [HomescreenCertificateView] = []
-    private var certificateViewVerifiers: [Verifier] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,15 +103,10 @@ class HomescreenCertificatesViewController: ViewController {
     }
 
     private func startChecks() {
-        certificateViewVerifiers = []
-
         for i in certificateViews {
-            let v = Verifier(qrString: i.certificate.qrCode)
-            v.start { [weak i] state in
+            VerifierManager.shared.addObserver(self, for: i.certificate.qrCode) { [weak i] state in
                 i?.state = state
             }
-
-            certificateViewVerifiers.append(v)
         }
     }
 }

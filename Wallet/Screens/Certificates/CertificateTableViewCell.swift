@@ -27,7 +27,6 @@ class CertificateTableViewCell: UITableViewCell {
 
     private let stateLabel = StateLabel()
 
-    private var verifier: Verifier?
     private var state: VerificationState = .loading {
         didSet { self.updateState(animated: true) }
     }
@@ -116,15 +115,13 @@ class CertificateTableViewCell: UITableViewCell {
             nameLabel.text = holder.healthCert.displayFullName
             stateLabel.type = holder.healthCert.certType
 
-            verifier = Verifier(holder: holder)
-
-            verifier?.start(stateUpdate: { [weak self] state in
+            VerifierManager.shared.addObserver(self, for: cert.qrCode) { [weak self] state in
                 guard let strongSelf = self else { return }
                 strongSelf.state = state
-            })
+            }
 
         case .failure:
-            verifier = nil
+            break
         }
 
         accessibilityLabel = [nameLabel.accessibilityLabel, stateLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")

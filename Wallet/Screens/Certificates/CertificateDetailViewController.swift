@@ -27,7 +27,6 @@ class CertificateDetailViewController: ViewController {
 
     private lazy var stateView = CertificateStateView(certificate: certificate, isHomescreen: false)
     private lazy var detailView = CertificateDetailView(certificate: certificate, showEnglishLabelsIfNeeded: true)
-    private var verifier: Verifier?
 
     private let removeButton = Button(title: UBLocalized.delete_button, style: .normal(.cc_bund))
 
@@ -175,8 +174,7 @@ class CertificateDetailViewController: ViewController {
             self.qrCodeStateView.state = self.temporaryVerifierState
         }
 
-        verifier = Verifier(qrString: certificate.qrCode)
-        verifier?.start(forceUpdate: true, stateUpdate: { [weak self] state in
+        VerifierManager.shared.addObserver(self, for: certificate.qrCode, forceUpdate: true) { [weak self] state in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 guard let strongSelf = self else { return }
                 switch state {
@@ -188,13 +186,12 @@ class CertificateDetailViewController: ViewController {
 
                 strongSelf.state = state
             }
-        })
+        }
     }
 
     private func startCheck() {
         state = .loading
-        verifier = Verifier(qrString: certificate.qrCode)
-        verifier?.start { [weak self] state in
+        VerifierManager.shared.addObserver(self, for: certificate.qrCode) { [weak self] state in
             guard let strongSelf = self else { return }
             strongSelf.qrCodeStateView.alpha = 0
             strongSelf.verifyButton.alpha = 1
