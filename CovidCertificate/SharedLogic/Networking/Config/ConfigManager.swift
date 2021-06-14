@@ -42,9 +42,9 @@ class ConfigManager: NSObject {
             // TODO: fix this when we have a dedicated dev certificate
             return "CH01-AppContentCertificate-ref"
         case .abnahme:
-            return "CH01-AppContentCertificate-ref"
+            return "CH01-AppContentCertificate-abn"
         case .prod:
-            return "CH01-AppContentCertificate-prod"
+            return "CH01-AppContentCertificate"
         }
     }
 

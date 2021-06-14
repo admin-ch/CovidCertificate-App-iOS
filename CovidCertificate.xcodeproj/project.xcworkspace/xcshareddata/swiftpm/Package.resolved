@@ -42,7 +42,7 @@
         "repositoryURL": "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
         "state": {
           "branch": "main",
-          "revision": "663209bec8992426a7a7fe0f53f5f4ca67a1c37d",
+          "revision": "9690fe3acb4ebe0ab62311a117e8dd046547ec9c",
           "version": null
         }
       },
@@ -53,6 +53,15 @@
           "branch": null,
           "revision": "ba0b6cb51cc6202f896e469b87d2889a46b10d1b",
           "version": "5.1.1"
+        }
+      },
+      {
+        "package": "jsonlogic",
+        "repositoryURL": "https://github.com/admin-ch/json-logic-swift",
+        "state": {
+          "branch": "master",
+          "revision": "f0f9fa1f6d7326f59bf45e1d31548134cd8cb6f4",
+          "version": null
         }
       },
       {
