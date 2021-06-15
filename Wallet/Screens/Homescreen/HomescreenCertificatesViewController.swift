@@ -105,7 +105,7 @@ class HomescreenCertificatesViewController: ViewController {
     private func startChecks() {
         for i in certificateViews {
             if let qrCode = i.certificate.qrCode {
-                VerifierManager.shared.addObserver(self, for: i.certificate.qrCode) { [weak i] state in
+                VerifierManager.shared.addObserver(self, for: qrCode) { [weak i] state in
                     i?.state = state
                 }
             }
