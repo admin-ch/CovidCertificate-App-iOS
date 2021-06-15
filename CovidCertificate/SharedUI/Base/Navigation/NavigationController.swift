@@ -55,5 +55,8 @@ class NavigationController: UINavigationController {
         navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationBar.shadowImage = UIImage()
         navigationBar.barTintColor = .white
+        if #available(iOS 15.0, *) {
+            navigationBar.backgroundColor = .white
+        }
     }
 }
