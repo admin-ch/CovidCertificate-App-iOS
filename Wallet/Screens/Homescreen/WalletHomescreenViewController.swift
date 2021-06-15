@@ -30,6 +30,11 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
 
     let bottomView = HomescreenBottomView()
 
+    let addCertificateButton = Button(image: UIImage(named: "ic-add-certificate"), accessibilityName: UBLocalized.accessibility_add_button)
+    private var actionViewIsShown = false
+
+    let actionPopupView = WalletHomescreenActionPopupView()
+
     init() {
         super.init(color: .cc_blue)
     }
@@ -51,6 +56,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
 
     private func updateState(_ animated: Bool) {
         let actions = {
+            self.addCertificateButton.alpha = self.state == .onboarding ? 0.0 : 1.0
             self.certificatesViewController.view.alpha = self.state == .certificates ? 1.0 : 0.0
             self.onboardingViewController.view.alpha = self.state == .onboarding ? 1.0 : 0.0
 
@@ -71,8 +77,32 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
     // MARK: - Setup
 
     private func setupInteraction() {
-        onboardingViewController.addTouchUpCallback = { [weak self] in
+        onboardingViewController.addCertificateTouchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
+            let vc = WalletScannerViewController()
+            vc.presentInNavigationController(from: strongSelf)
+        }
+
+        actionPopupView.addCertificateTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.actionPopupView.dismiss()
+
+            let vc = WalletScannerViewController()
+            vc.presentInNavigationController(from: strongSelf)
+        }
+
+        onboardingViewController.addTransferCodeTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            // TODO: add correct viewcontroller
+            let vc = ViewController()
+            vc.addDismissButton()
+            vc.presentInNavigationController(from: strongSelf)
+        }
+
+        actionPopupView.addTransferCodeTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.actionPopupView.dismiss()
+
             let vc = WalletScannerViewController()
             vc.presentInNavigationController(from: strongSelf)
         }
@@ -90,10 +120,22 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             vc.presentInNavigationController(from: strongSelf)
         }
 
-        bottomView.addButtonCallback = { [weak self] in
+        addCertificateButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            let vc = WalletScannerViewController()
-            vc.presentInNavigationController(from: strongSelf)
+            if strongSelf.actionViewIsShown {
+                strongSelf.actionPopupView.dismiss()
+            } else {
+                strongSelf.actionPopupView.presentFrom(view: strongSelf.addCertificateButton)
+            }
+        }
+
+        actionPopupView.showCallback = { [weak self] show in
+            guard let strongSelf = self else { return }
+            strongSelf.actionViewIsShown = show
+
+            UIView.animate(withDuration: 0.25, delay: 0.0, options: [.curveEaseInOut]) {
+                strongSelf.addCertificateButton.transform = CGAffineTransform(rotationAngle: show ? CGFloat.pi * 0.25 : 0.0)
+            } completion: { _ in }
         }
 
         infoButtonCallback = { [weak self] in
@@ -126,6 +168,16 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             make.top.equalTo(self.backgroundTopLayoutGuide)
             make.left.right.equalToSuperview()
             make.bottom.equalTo(self.bottomView.snp.top)
+        }
+
+        view.addSubview(actionPopupView)
+        actionPopupView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        view.addSubview(addCertificateButton)
+        addCertificateButton.snp.makeConstraints { make in
+            make.center.equalTo(self.bottomView.addButtonGuide.snp.center)
         }
 
         updateState(false)
