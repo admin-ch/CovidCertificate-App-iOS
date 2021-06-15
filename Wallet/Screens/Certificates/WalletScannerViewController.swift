@@ -48,7 +48,6 @@ class WalletScannerViewController: ViewController {
         setupInteraction()
 
         addDismissButton()
-        startScanning()
 
         NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
             guard let strongSelf = self else { return }
@@ -59,6 +58,11 @@ class WalletScannerViewController: ViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         stopScanning()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        startScanning()
     }
 
     private func setup() {
