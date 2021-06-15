@@ -34,7 +34,7 @@ class CertificateDetailView: UIView {
         self.certificate = certificate
         super.init(frame: .zero)
 
-        let result = CovidCertificateSDK.decode(encodedData: self.certificate.qrCode)
+        let result = CovidCertificateSDK.decode(encodedData: self.certificate.qrCode ?? "")
 
         switch result {
         case let .success(holder):

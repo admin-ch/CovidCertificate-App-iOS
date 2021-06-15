@@ -174,7 +174,9 @@ class CertificateDetailViewController: ViewController {
             self.qrCodeStateView.state = self.temporaryVerifierState
         }
 
-        VerifierManager.shared.addObserver(self, for: certificate.qrCode, forceUpdate: true) { [weak self] state in
+        guard let qrCode = certificate.qrCode else { return }
+
+        VerifierManager.shared.addObserver(self, for: qrCode, forceUpdate: true) { [weak self] state in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 guard let strongSelf = self else { return }
                 switch state {
@@ -190,8 +192,12 @@ class CertificateDetailViewController: ViewController {
     }
 
     private func startCheck() {
+        guard let qrCode = certificate.qrCode else { return }
+
         state = .loading
-        VerifierManager.shared.addObserver(self, for: certificate.qrCode) { [weak self] state in
+
+        VerifierManager.shared.addObserver(self, for: certificqrCode) { [weak self] state in
+
             guard let strongSelf = self else { return }
             strongSelf.qrCodeStateView.alpha = 0
             strongSelf.verifyButton.alpha = 1

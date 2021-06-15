@@ -71,8 +71,8 @@ class CertificateAddDetailView: UIView {
         let nameLabel = Label(.title, textAlignment: .center)
         let birthdayLabel = Label(.text, textAlignment: .center)
 
-        if let cert = certificate {
-            let c = CovidCertificateSDK.decode(encodedData: cert.qrCode)
+        if let qrCode = certificate?.qrCode {
+            let c = CovidCertificateSDK.decode(encodedData: qrCode)
 
             switch c {
             case let .success(holder):
