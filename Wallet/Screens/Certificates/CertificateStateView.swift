@@ -180,7 +180,7 @@ class CertificateStateView: UIView {
                 switch self.states.state {
                 case .loading:
                     self.imageView.image = nil
-                    self.textLabel.text = nil
+                    self.textLabel.attributedText = nil
                     self.backgroundView.backgroundColor = .cc_greyish
                     self.validityView.backgroundColor = .cc_greyish
                     self.validityView.textColor = .cc_grey
