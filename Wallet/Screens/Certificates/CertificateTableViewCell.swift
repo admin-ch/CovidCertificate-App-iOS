@@ -102,13 +102,13 @@ class CertificateTableViewCell: UITableViewCell {
     private func update() {
         updateState(animated: false)
 
-        guard let cert = certificate else {
+        guard let qrCode = certificate?.qrCode else {
             nameLabel.text = nil
             qrCodeStateImageView.image = nil
             return
         }
 
-        let c = CovidCertificateSDK.decode(encodedData: cert.qrCode)
+        let c = CovidCertificateSDK.decode(encodedData: qrCode)
 
         switch c {
         case let .success(holder):

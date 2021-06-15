@@ -85,9 +85,9 @@ class QRCodeNameView: UIView {
     // MARK: - Update
 
     private func update() {
-        guard let cert = certificate else { return }
+        guard let qrCode = certificate?.qrCode else { return }
 
-        let c = CovidCertificateSDK.decode(encodedData: cert.qrCode)
+        let c = CovidCertificateSDK.decode(encodedData: qrCode)
 
         switch c {
         case let .success(holder):
@@ -97,7 +97,7 @@ class QRCodeNameView: UIView {
             break
         }
 
-        imageView.setQrCode(cert.qrCode)
+        imageView.setQrCode(qrCode)
 
         accessibilityLabel = [nameView.text, birthdayLabelView.text].compactMap { $0 }.joined(separator: ", ")
     }

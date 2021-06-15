@@ -263,7 +263,7 @@ extension WalletScannerViewController: QRScannerViewDelegate {
 
                 qrView?.stopScanning()
 
-                let cert = UserCertificate(qrCode: s)
+                let cert = UserCertificate(qrCode: s, transferCode: nil)
                 detailViewController.certificate = cert
                 showDetail()
 
