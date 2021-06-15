@@ -29,7 +29,6 @@ class UIStateManager: NSObject {
 
     public func stateChanged(forceRefresh: Bool = false) {
         DispatchQueue.main.async {
-            guard UIApplication.shared.applicationState == .active else { return }
             self.forceRefresh = forceRefresh
             self.refresh()
         }
