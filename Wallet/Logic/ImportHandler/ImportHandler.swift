@@ -79,7 +79,7 @@ class ImportHandler {
             delegate?.topViewController?.dismiss(animated: false, completion: nil)
 
             let vc = CertificateAddDetailViewController(showScanAgainButton: false)
-            vc.certificate = UserCertificate(qrCode: message)
+            vc.certificate = UserCertificate(qrCode: message, transferCode: nil)
             vc.addDismissButton()
 
             let navVC = NavigationController(rootViewController: vc, useNavigationBar: true)

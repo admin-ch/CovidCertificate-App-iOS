@@ -52,6 +52,8 @@
 		6E5A0F26264336B4004718B4 /* UIStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A0F23264336B4004718B4 /* UIStateManager.swift */; };
 		6E5A0F27264336B4004718B4 /* UIStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A0F24264336B4004718B4 /* UIStateModel.swift */; };
 		6E5A0F29264336CA004718B4 /* CertificateState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A0F28264336CA004718B4 /* CertificateState.swift */; };
+		6E603601267878ED00EB57E7 /* TransferCodeOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E603600267878EC00EB57E7 /* TransferCodeOnboardingViewController.swift */; };
+		6E6036032678792000EB57E7 /* UserTransferCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6036022678792000EB57E7 /* UserTransferCode.swift */; };
 		6E6B1A922649D17400DB4A38 /* Verifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6B1A912649D17400DB4A38 /* Verifier.swift */; };
 		6E6B1A942649D88A00DB4A38 /* VerifyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6B1A932649D88A00DB4A38 /* VerifyInfoView.swift */; };
 		6E6B1A962649D89500DB4A38 /* VerifyStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6B1A952649D89500DB4A38 /* VerifyStatusView.swift */; };
@@ -299,6 +301,8 @@
 		6E5A0F24264336B4004718B4 /* UIStateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStateModel.swift; sourceTree = "<group>"; };
 		6E5A0F28264336CA004718B4 /* CertificateState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateState.swift; sourceTree = "<group>"; };
 		6E5CD9F32642F6AE00A2A405 /* Wallet-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Wallet-Info.plist"; sourceTree = "<group>"; };
+		6E603600267878EC00EB57E7 /* TransferCodeOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCodeOnboardingViewController.swift; sourceTree = "<group>"; };
+		6E6036022678792000EB57E7 /* UserTransferCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTransferCode.swift; sourceTree = "<group>"; };
 		6E6B1A912649D17400DB4A38 /* Verifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Verifier.swift; sourceTree = "<group>"; };
 		6E6B1A932649D88A00DB4A38 /* VerifyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyInfoView.swift; sourceTree = "<group>"; };
 		6E6B1A952649D89500DB4A38 /* VerifyStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyStatusView.swift; sourceTree = "<group>"; };
@@ -516,6 +520,7 @@
 		24780B00242DF983003BB26C /* User */ = {
 			isa = PBXGroup;
 			children = (
+				6E6036022678792000EB57E7 /* UserTransferCode.swift */,
 				24780B06242DFCD9003BB26C /* WalletUserStorage.swift */,
 				6EC172DA26427296002E27DB /* UserCertificate.swift */,
 			);
@@ -614,6 +619,14 @@
 				6E5A0F28264336CA004718B4 /* CertificateState.swift */,
 			);
 			path = UIStateManager;
+			sourceTree = "<group>";
+		};
+		6E6035FF267878EC00EB57E7 /* TransferCode */ = {
+			isa = PBXGroup;
+			children = (
+				6E603600267878EC00EB57E7 /* TransferCodeOnboardingViewController.swift */,
+			);
+			path = TransferCode;
 			sourceTree = "<group>";
 		};
 		6E701451265404520097BBC8 /* Error */ = {
@@ -911,6 +924,7 @@
 		DC286A27242CE1D2001D5344 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6E6035FF267878EC00EB57E7 /* TransferCode */,
 				DC8ABDE9264A5C4500FDE0E1 /* Onboarding */,
 				6EC172BD26407EAB002E27DB /* Homescreen */,
 				6EC172C326407F0E002E27DB /* Certificates */,
@@ -1503,6 +1517,7 @@
 				DC8ABDFB264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift in Sources */,
 				DC702B01243F6F640066C773 /* String+CC.swift in Sources */,
 				6EC172C926407F5F002E27DB /* CertificateAddDetailViewController.swift in Sources */,
+				6E6036032678792000EB57E7 /* UserTransferCode.swift in Sources */,
 				6E0281FE265660E500582904 /* CertificateDetailView.swift in Sources */,
 				6E0281FC26565AD200582904 /* BrightnessQRScanning.swift in Sources */,
 				6EA5C35C2643E8DD00EA066F /* CertificateTableViewCell.swift in Sources */,
@@ -1515,6 +1530,7 @@
 				6EF28CFF26370538001C1565 /* NSQRScanningView.swift in Sources */,
 				6EC172D126414EBA002E27DB /* HomescreenBaseViewController.swift in Sources */,
 				6E87E3862669744D000C5517 /* WalletHomescreenActionPopupView.swift in Sources */,
+				6E603601267878ED00EB57E7 /* TransferCodeOnboardingViewController.swift in Sources */,
 				6E87E384266971E5000C5517 /* PopUpView.swift in Sources */,
 				6EC172D726416FF7002E27DB /* HomescreenCertificatesViewController.swift in Sources */,
 				F80E735A245AD7B400C934B8 /* URLSession+pinning.swift in Sources */,

@@ -115,7 +115,7 @@ class CertificateTableViewCell: UITableViewCell {
             nameLabel.text = holder.healthCert.displayFullName
             stateLabel.type = holder.healthCert.certType
 
-            VerifierManager.shared.addObserver(self, for: cert.qrCode) { [weak self] state in
+            VerifierManager.shared.addObserver(self, for: qrCode) { [weak self] state in
                 guard let strongSelf = self else { return }
                 strongSelf.state = state
             }
