@@ -667,3 +667,6 @@
 
 /*Label der externen URL im "So funktionierts" Screen beim Scannen*/
 "wallet_scanner_howitworks_external_link_title" = "Ulteriuras infurmaziuns";
+
+/*Buttontitel im Screen, wo ein Code erstellt werden kann*/
+"wallet_transfer_code_create_code_button" = "Code erstellen";
