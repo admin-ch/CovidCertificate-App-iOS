@@ -11,4 +11,24 @@
 
 import Foundation
 
-class TransferCodeOnboardingViewController: ViewController {}
+class TransferCodeOnboardingViewController: BasicStaticContentViewController {
+    private let createCodeButton = Button(title: UBLocalized.wallet_transfer_code_create_code_button)
+    private let howItWorksButton = Button(title: UBLocalized.wallet_transfer_code_onboarding_howto, style: .text(.cc_blue))
+
+    init() {
+        super.init(models: [StaticContentViewModel(foregroundImage: UIImage(named: "illu-transfer-code"),
+                                                   title: UBLocalized.wallet_transfer_code_title,
+                                                   alignment: .center,
+                                                   textGroups: [(nil, UBLocalized.wallet_transfer_code_onboarding_text)])],
+        title: UBLocalized.wallet_transfer_code_card_title.uppercased())
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        stackScrollView.addArrangedView(createCodeButton)
+        stackScrollView.addSpacerView(40)
+        stackScrollView.addArrangedView(howItWorksButton)
+        stackScrollView.addSpacerView(40)
+    }
+}
