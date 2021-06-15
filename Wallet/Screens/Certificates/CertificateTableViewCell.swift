@@ -139,6 +139,7 @@ class CertificateTableViewCell: UITableViewCell {
             let normal = UIImage(named: "ic-qrcode-small")
             let notYetValid = UIImage(named: "ic-qrcode-small-temporary")
             let invalid = UIImage(named: "ic-qrcode-small-invalid")
+            let expired = UIImage(named: "ic-qrcode-small-expired")
             let load = UIImage(named: "ic-qrcode-small-load")
             let networkError = UIImage(named: "ic-qrcode-small-network-error")
             let noInternetError = UIImage(named: "ic-qrcode-small-nointernet-error")
@@ -161,7 +162,7 @@ class CertificateTableViewCell: UITableViewCell {
                     case .signature, .revocation, .otherNationalRules, .unknown, .typeInvalid:
                         self.qrCodeStateImageView.image = invalid
                     case .expired:
-                        self.qrCodeStateImageView.image = invalid
+                        self.qrCodeStateImageView.image = expired
                     case .notYetValid:
                         self.qrCodeStateImageView.image = notYetValid
                     }
