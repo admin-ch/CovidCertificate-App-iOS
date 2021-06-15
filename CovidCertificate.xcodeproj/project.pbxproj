@@ -66,6 +66,9 @@
 		6E7C0D37242E02600017C4F9 /* StackScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D36242E02600017C4F9 /* StackScrollView.swift */; };
 		6E7C0D39242E02A20017C4F9 /* LayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D38242E02A20017C4F9 /* LayoutConstants.swift */; };
 		6E7C0D43242E44D80017C4F9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D42242E44D80017C4F9 /* WebViewController.swift */; };
+		6E87E382266950D1000C5517 /* WalletHomescreenActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E87E381266950D1000C5517 /* WalletHomescreenActionView.swift */; };
+		6E87E384266971E5000C5517 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E87E383266971E5000C5517 /* PopUpView.swift */; };
+		6E87E3862669744D000C5517 /* WalletHomescreenActionPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E87E3852669744D000C5517 /* WalletHomescreenActionPopupView.swift */; };
 		6E8F52D9265BA94B00406430 /* CameraErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F52D8265BA94B00406430 /* CameraErrorView.swift */; };
 		6E8F52DA265BA94B00406430 /* CameraErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8F52D8265BA94B00406430 /* CameraErrorView.swift */; };
 		6E8F52E5265EC17400406430 /* www.cc-a.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = 6E8F52E2265EC17300406430 /* www.cc-a.bit.admin.ch.der */; };
@@ -320,6 +323,9 @@
 		6E7C0D36242E02600017C4F9 /* StackScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackScrollView.swift; sourceTree = "<group>"; };
 		6E7C0D38242E02A20017C4F9 /* LayoutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstants.swift; sourceTree = "<group>"; };
 		6E7C0D42242E44D80017C4F9 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		6E87E381266950D1000C5517 /* WalletHomescreenActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomescreenActionView.swift; sourceTree = "<group>"; };
+		6E87E383266971E5000C5517 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		6E87E3852669744D000C5517 /* WalletHomescreenActionPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomescreenActionPopupView.swift; sourceTree = "<group>"; };
 		6E8F52D8265BA94B00406430 /* CameraErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraErrorView.swift; sourceTree = "<group>"; };
 		6E8F52E2265EC17300406430 /* www.cc-a.bit.admin.ch.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "www.cc-a.bit.admin.ch.der"; sourceTree = "<group>"; };
 		6E8F52E3265EC17300406430 /* www.cc-d.bit.admin.ch.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "www.cc-d.bit.admin.ch.der"; sourceTree = "<group>"; };
@@ -697,6 +703,8 @@
 				6EC172D626416FF7002E27DB /* HomescreenCertificatesViewController.swift */,
 				6EC172DC26427451002E27DB /* HomescreenCertificateView.swift */,
 				6E5A0F1F26432148004718B4 /* HomescreenBottomView.swift */,
+				6E87E381266950D1000C5517 /* WalletHomescreenActionView.swift */,
+				6E87E3852669744D000C5517 /* WalletHomescreenActionPopupView.swift */,
 			);
 			path = Homescreen;
 			sourceTree = "<group>";
@@ -982,6 +990,7 @@
 				6EA5C35F2644133E00EA066F /* QRCodeNameView.swift */,
 				DC445D322645828E007DC8F2 /* QRScanErrorView.swift */,
 				6E0281F126550E1100582904 /* InfoBoxView.swift */,
+				6E87E383266971E5000C5517 /* PopUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1505,6 +1514,8 @@
 				6E8F52EC265EC33F00406430 /* CertificateNoteView.swift in Sources */,
 				6EF28CFF26370538001C1565 /* NSQRScanningView.swift in Sources */,
 				6EC172D126414EBA002E27DB /* HomescreenBaseViewController.swift in Sources */,
+				6E87E3862669744D000C5517 /* WalletHomescreenActionPopupView.swift in Sources */,
+				6E87E384266971E5000C5517 /* PopUpView.swift in Sources */,
 				6EC172D726416FF7002E27DB /* HomescreenCertificatesViewController.swift in Sources */,
 				F80E735A245AD7B400C934B8 /* URLSession+pinning.swift in Sources */,
 				F88D99DB2497938E0081790E /* UIImage+localizedImage.swift in Sources */,
@@ -1540,6 +1551,7 @@
 				F8454AA3263983B8005CF491 /* NSMutableAttributedString+CC.swift in Sources */,
 				6EF166AF264BB18800426985 /* Verifier.swift in Sources */,
 				2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */,
+				6E87E382266950D1000C5517 /* WalletHomescreenActionView.swift in Sources */,
 				6EC172BF26407EBF002E27DB /* WalletHomescreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

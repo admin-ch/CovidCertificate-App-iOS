@@ -14,15 +14,16 @@ import Foundation
 class HomescreenOnboardingViewController: ViewController {
     // MARK: - Touch Up Callback
 
-    public var addTouchUpCallback: (() -> Void)?
+    public var addCertificateTouchUpCallback: (() -> Void)?
+    public var addTransferCodeTouchUpCallback: (() -> Void)?
 
     // MARK: - Subviews
 
     private let stackScrollView = StackScrollView(axis: .vertical)
 
     private let titleLabel = Label(.uppercaseBold, textColor: .white, textAlignment: .center)
-    private var explanationLabel = Label(.textLarge, textColor: .white, textAlignment: .center)
-    private let button = Button(title: UBLocalized.wallet_add_certificate, style: .normal(.white), customTextColor: .cc_blue)
+    private let questionLabel = Label(.title, textColor: .white, textAlignment: .center)
+    private let homescreenButtons = WalletHomescreenActionView()
 
     // MARK: - View
 
@@ -30,22 +31,20 @@ class HomescreenOnboardingViewController: ViewController {
         super.viewDidLoad()
         setupViews()
 
-        button.touchUpCallback = { [weak self] in
+        homescreenButtons.addCertificateTouchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.addTouchUpCallback?()
+            strongSelf.addCertificateTouchUpCallback?()
+        }
+
+        homescreenButtons.addTransferCodeTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.addTransferCodeTouchUpCallback?()
         }
     }
 
     // MARK: - Setup
 
     private func setupViews() {
-        let isSmall = view.frame.size.width <= 375
-        let isUltraSmall = view.frame.size.width <= 320
-
-        if isUltraSmall {
-            explanationLabel = Label(.text, textColor: .white, textAlignment: .center)
-        }
-
         view.backgroundColor = UIColor.clear
         view.addSubview(stackScrollView)
 
@@ -59,25 +58,16 @@ class HomescreenOnboardingViewController: ViewController {
         stackScrollView.stackView.layoutMargins = UIEdgeInsets(top: 0.0, left: p, bottom: 0.0, right: p)
 
         stackScrollView.addSpacerView(Padding.large)
+
         stackScrollView.addArrangedView(titleLabel)
-        stackScrollView.addSpacerView(Padding.large)
+        stackScrollView.addSpacerView(Padding.large + Padding.medium)
 
-        var image = UIImage(named: "wallet-illu-home-empty")
+        stackScrollView.addArrangedView(questionLabel)
+        stackScrollView.addSpacerView(Padding.medium + Padding.small)
 
-        if isUltraSmall || isSmall {
-            image = image?.ub_image(byScaling: isUltraSmall ? 0.45 : 0.7)
-        }
-
-        let imageView = UIImageView.centered(with: image)
-        stackScrollView.addArrangedView(imageView)
-
-        stackScrollView.addSpacerView(isUltraSmall ? Padding.medium : Padding.large + Padding.medium)
-        stackScrollView.addArrangedView(explanationLabel)
-
-        stackScrollView.addSpacerView(isUltraSmall ? Padding.large : 2.5 * Padding.large)
-        stackScrollView.addArrangedViewCentered(button)
+        stackScrollView.addArrangedView(homescreenButtons)
 
         titleLabel.text = UBLocalized.wallet_certificate
-        explanationLabel.text = UBLocalized.wallet_homescreen_explanation
+        questionLabel.text = UBLocalized.wallet_homescreen_what_to_do
     }
 }

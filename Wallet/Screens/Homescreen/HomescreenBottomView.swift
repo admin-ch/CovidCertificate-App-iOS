@@ -21,11 +21,12 @@ class HomescreenBottomView: UIView {
     private let faqRoundView = UIView()
     private let faqButton = Button(image: UIImage(named: "ic-faq"), accessibilityName: UBLocalized.accessibility_faq_button)
     private let listButton = Button(image: UIImage(named: "ic-list"), accessibilityName: UBLocalized.accessibility_list_button)
-    private let addCertificateButton = Button(image: UIImage(named: "ic-add-certificate"), accessibilityName: UBLocalized.accessibility_add_button)
 
     public var state: HomescreenState = .onboarding {
         didSet { update() }
     }
+
+    public var addButtonGuide = UILayoutGuide()
 
     init() {
         super.init(frame: .zero)
@@ -70,18 +71,23 @@ class HomescreenBottomView: UIView {
 
         stackView.addArrangedView(faqButton)
         stackView.addArrangedView(listButton)
-        stackView.addArrangedView(addCertificateButton)
+
+        let v = UIView()
+        stackView.addArrangedView(v)
+        v.snp.makeConstraints { make in
+            make.size.equalTo(44.0)
+        }
+
+        addLayoutGuide(addButtonGuide)
+        addButtonGuide.snp.makeConstraints { make in
+            make.center.equalTo(v)
+        }
     }
 
     private func setupInteraction() {
         faqButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.faqButtonCallback?()
-        }
-
-        addCertificateButton.touchUpCallback = { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.addButtonCallback?()
         }
 
         listButton.touchUpCallback = { [weak self] in
@@ -91,7 +97,6 @@ class HomescreenBottomView: UIView {
     }
 
     private func update() {
-        addCertificateButton.alpha = state == .certificates ? 1.0 : 0.0
         let hasMultipleCertificates = UIStateManager.shared.uiState.certificateState.certificates.count > 1
         listButton.alpha = state == .certificates && hasMultipleCertificates ? 1.0 : 0.0
         faqButton.alpha = state == .certificates || state == .onboarding ? 1.0 : 0.0
