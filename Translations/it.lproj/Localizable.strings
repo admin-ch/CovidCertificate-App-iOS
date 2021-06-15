@@ -15,7 +15,7 @@
 "verifier_homescreen_pager_description_1" = "Scansionare il certificato esibito";
 
 /*Beschreibung für Pager Bild 2*/
-"verifier_homescreen_pager_description_2" = "I certificati sono verificati automaticamente";
+"verifier_homescreen_pager_description_2" = "I certificati vengono verificati automaticamente";
 
 /*Homescreen Button für Scanning*/
 "verifier_homescreen_scan_button" = "Verifica";
@@ -33,7 +33,7 @@
 "ok_button" = "OK";
 "camera_permission_dialog_text" = "L'app necessita dell'accesso alla fotocamera per scansionare il codice QR.";
 "camera_permission_dialog_action" = "Consentire l'accesso alla fotocamera";
-"verifier_qr_scanner_scan_qr_text" = "Scansionare il codice QR \nper verificare";
+"verifier_qr_scanner_scan_qr_text" = "Inquadrare il codice QR \nper verificare";
 
 /*Titel auf dem Verifikations-Screen*/
 "covid_certificate_title" = "Certificato COVID";
@@ -51,7 +51,7 @@
 "wallet_certificate" = "Certificato COVID";
 
 /*Wallet: Homescreen Erklärung*/
-"wallet_homescreen_explanation" = "Scansionare il codice QR apposto sul certificato COVID per aggiungerlo all'app.";
+"wallet_homescreen_explanation" = "Inquadrare il codice QR apposto sul certificato COVID per aggiungerlo all'app.";
 
 /*Wallet: Scanner Titel*/
 "wallet_scanner_title" = "Aggiungere";
@@ -84,7 +84,7 @@
 "verifier_verify_error_list_info_text" = "Si è verificato un errore imprevisto.";
 
 /*Wallet: Scanner Text unten*/
-"wallet_scanner_explanation" = "Scansionare il codice QR apposto sul certificato COVID.";
+"wallet_scanner_explanation" = "Inquadrare il codice QR apposto sul certificato COVID.";
 
 /*Wallet: Scanner Info Button unten*/
 "wallet_scanner_info_button" = "Funziona così";
@@ -111,7 +111,7 @@
 "wallet_onboarding_app_title" = "COVID Certificate";
 
 /*Text im Onboardingscreen "Die App"*/
-"wallet_onboarding_app_text" = "Con la app può conservare in sicurezza i certificati COVID sullo smartphone ed esibirli facilmente.";
+"wallet_onboarding_app_text" = "Con l'app può conservare in sicurezza i certificati COVID sullo smartphone e mostrarli facilmente.";
 
 /*Weiter-Button Titel*/
 "continue_button" = "Avanti";
@@ -123,7 +123,7 @@
 "wallet_onboarding_privacy_title" = "I dati rimangono \nnell'app";
 
 /*Text im Onboardingscreen "Datenschutz"*/
-"wallet_onboarding_privacy_text" = "I certificati sono salvati solo localmente sullo smartphone. I dati non sono salvati su un sistema centralizzato.";
+"wallet_onboarding_privacy_text" = "I certificati sono salvati solo localmente sullo smartphone. I dati non sono salvati in un sistema centralizzato.";
 
 /*Titel im Onboardingscreen "Vorteile, Vorweisen"*/
 "wallet_onboarding_show_title" = "Esibire facilmente i certificati";
@@ -154,7 +154,7 @@
 "wallet_scanner_howitworks_text1" = "Per aggiungere un certificato COVID a un'app è necessario il certificato originale cartaceo o in formato PDF.";
 
 /*Textblock 2 im "So funktionierts" Screen beim Scannen*/
-"wallet_scanner_howitworks_text2" = "Nell'app prema su «aggiungi» per aggiungere un nuovo certificato allʼapp.";
+"wallet_scanner_howitworks_text2" = "Prema su «aggiungi» per aggiungere un nuovo certificato allʼapp.";
 
 /*Textblock 3 im "So funktionierts" Screen beim Scannen*/
 "wallet_scanner_howitworks_text3" = "Tenga la fotocamera dello smartphone sopra il codice QR apposto sul certificato originale per scansionarlo.";
@@ -184,7 +184,7 @@
 "wallet_faq_questions_question_3" = "Dove vengono salvati i miei dati?";
 
 /*Frage 4 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_question_4" = "Come vengono impediti usi abusivi e falsificazioni?";
+"wallet_faq_questions_question_4" = "Come vengono impediti l'uso improprio e le falsificazioni?";
 
 /*Frage 5 im FAQ-Screen der Wallet App*/
 "wallet_faq_questions_question_5" = "Cosa succede se perdo il mio certificato COVID su carta?";
@@ -211,19 +211,19 @@
 "wallet_faq_questions_answer_1" = "Può ricevere un certificato COVID in seguito alla completa vaccinazione anti-COVID-19, all'avvenuta guarigione o a un risultato negativo al test. Normalmente, il certificato è rilasciato su richiesta dal personale medico specializzato presso le strutture sanitarie.";
 
 /*Antwort 2 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_2" = "Può mostrare il Suo certificato COVID in formato cartaceo oppure salvarlo e presentarlo utilizzando l'app COVID Certificate. Può decidere liberamente se mostrare il certificato in formato cartaceo o elettronico.\n\nIn entrambi i casi, dovrà esibire su richiesta anche un documento di legittimazione.";
+"wallet_faq_questions_answer_2" = "Può mostrare il Suo certificato COVID in formato cartaceo oppure salvarlo e presentarlo utilizzando l'app COVID Certificate. Può decidere liberamente se mostrare il certificato in formato cartaceo o elettronico.\n\nIn entrambi i casi, dovrà mostrare su richiesta anche un documento di legittimazione.";
 
 /*Antwort 3 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_3" = "I Suoi dati non vengono salvati in un sistema centrale ma solo localmente sul Suo dispositivo mobile oppure nel codice QR indicato nel certificato COVID in formato cartaceo.";
+"wallet_faq_questions_answer_3" = "I Suoi dati non vengono salvati in un sistema centrale ma solo localmente sul Suo dispositivo mobile, rispettivamente nel codice QR stampato sul certificato COVID in formato cartaceo.";
 
 /*Antwort 4 im FAQ-Screen der Wallet App*/
 "wallet_faq_questions_answer_4" = "Il codice QR sul certificato COVID contiene una firma elettronica. Questa firma è un elemento di sicurezza importante e garantisce che il certificato non possa essere falsificato. Inoltre, il certificato COVID è valido solo con un documento di legittimazione.";
 
 /*Antwort 5 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_5" = "Il Suo certificato COVID non è salvato su un sistema centrale. Lei ne ha il possesso esclusivo. Conservi quindi con cura il certificato COVID su carta. In caso di smarrimento, dovrà richiedere un nuovo certificato presso l'ufficio emittente.";
+"wallet_faq_questions_answer_5" = "Il Suo certificato COVID non è salvato su un sistema centrale. Lei ne ha il possesso esclusivo. Conservi quindi con cura il certificato COVID su carta. In caso di smarrimento, dovrà richiedere un nuovo certificato presso l'ufficio che lo ha emesso.";
 
 /*Antwort 6 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_answer_1" = "Per inserire sull'app un certificato COVID serve il certificato originale rilasciatole su carta o in formato PDF. Utilizzando l'app COVID Certificate può scansionare e aggiungere il codice QR raffigurato sul certificato. In questo modo, il certificato COVID appare direttamente sull'app.";
+"wallet_faq_works_answer_1" = "Per inserire sull'app un certificato COVID serve il certificato originale rilasciatole su carta o in formato PDF. Utilizzando l'app COVID Certificate può aggiungere il certificato inquadrando il codice QR raffigurato sul certificato. In questo modo, il certificato COVID appare direttamente sull'app.";
 
 /*Antwort 7 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_2" = "Sì, è possibile. Ad esempio, può salvare nella Sua app i certificati COVID dei suoi familiari. Anche in questo caso, il certificato COVID è valido solo con un documento di legittimazione del titolare.";
@@ -248,7 +248,7 @@
 
 /*Vergleichen mit FAQ*/
 /*Antwort 1 im "So funktionierts" Screen beim Scannen*/
-"wallet_scanner_howitworks_answer1" = "Può ricevere un certificato COVID in seguito alla completa vaccinazione anti-COVID-19, all'avvenuta guarigione o a un risultato negativo al test. Normalmente, il certificato è rilasciato su richiesta dal personale medico specializzato presso le strutture sanitarie.";
+"wallet_scanner_howitworks_answer1" = "Può ricevere un certificato COVID in seguito alla completa vaccinazione COVID-19, all'avvenuta guarigione o a un risultato negativo al test. Il certificato è rilasciato su richiesta dal personale medico specializzato presso le strutture sanitarie.";
 
 /*Verifier: Detail Check Vorname*/
 "verifier_covid_certificate_prename" = "Nome";
@@ -284,7 +284,7 @@
 "wallet_onboarding_store_text1" = "I certificati COVID possono essere aggiunti facilmente all'app e conservati in formato digitalizzato.";
 
 /*Text2 im Onboardingscreen "Vorteile, Aufbewahren"*/
-"wallet_onboarding_store_text2" = "Lʼapp verifica la validità dei certificati in Svizzera. In tal modo hai la certezza che i tuoi certificati sono validi.";
+"wallet_onboarding_store_text2" = "Lʼapp verifica la validità dei certificati in Svizzera. In questo puoi assicurarti che i tuoi certificati siano validi.";
 
 /*Header im Onboarding-Screen "Vorteile, Vorweisen"*/
 "wallet_onboarding_show_header" = "Vantaggi";
@@ -317,10 +317,10 @@
 "unknown_error" = "Si è verificato un errore sconosciuto.";
 
 /*Verifier: Die Gültigkeit des Zertifikat ist abgelaufen*/
-"verifier_verifiy_error_expired" = "Non conforme ai criteri di validità svizzeri: La validità del certificato è scaduta.";
+"verifier_verifiy_error_expired" = "Non conforme ai criteri di validità svizzeri: la validità del certificato è scaduta.";
 
 /*Verifier: Zertifikat ist erst gültig ab {DATE}*/
-"verifier_verifiy_error_notyetvalid" = "Non conforme ai criteri di validità svizzeri: Il certificato non è ancora valido.";
+"verifier_verifiy_error_notyetvalid" = "Non conforme ai criteri di validità svizzeri: il certificato non è ancora valido.";
 
 /*Verifier: Ein Netzwerkfehler ist aufgetreten.*/
 "verifier_retry_network_error" = "Si è verificato un errore di rete.";
@@ -431,7 +431,7 @@ fino al*/
 "wallet_certificate_test_done_by" = "Centro di test";
 
 /*iOS: Erklärung bei Kamera */
-"NSCameraUsageDescription" = "Per poter scannerizzare il codice QR l'app deve accedere alla fotocamera";
+"NSCameraUsageDescription" = "Per poter inquadrare il codice QR l'app deve accedere alla fotocamera.";
 
 /*Titel 1 im FAQ der Verifier App*/
 "verifier_faq_works_title" = "Come avviene la verifica dei certificati COVID?";
@@ -443,7 +443,7 @@ fino al*/
 "verifier_faq_works_question_1" = "Come posso verificare i certificati COVID?";
 
 /*Antwort 1 im FAQ der Verifier App*/
-"verifier_faq_works_answer_1" = "Per verificare un certificato COVID, può scansionare il codice QR che trova sulla copia cartacea del certificato oppure, tramite la pertinente app COVID Certificate Check, sull’app che le viene mostrata.";
+"verifier_faq_works_answer_1" = "Per verificare un certificato COVID tramite l'app COVID Certificate Check, può scansionare il codice QR che trova sulla copia cartacea del certificato oppure sull’app che le viene mostrata.";
 
 /*Frage 2 im FAQ der Verifier App*/
 "verifier_faq_works_question_2" = "Cosa viene verificato esattamente?";
@@ -482,7 +482,7 @@ fino al*/
 "wallet_onboarding_external_privacy_button" = "Informativa sulla privacy e condizioni d'uso";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "Il presente certificato non è un documento di viaggio. \n\nI dati scientifici relativi alla vaccinazione, ai test e alla guarigione dalla COVID-19 continuano a evolvere, anche alla luce delle nuove varianti del virus che destano preoccupazione. \n\nPrima di mettersi in viaggio, verificare le misure sanitarie pubbliche applicabili e le relative restrizioni applicabili nel luogo di destinazione.";
+"wallet_certificate_detail_note" = "La presente certificato non costituisce un documento di viaggio. \n\nSi acquisiscono sempre più conoscenze scientifiche sulla vaccinazione COVID-19, sulla guarigione dalla COVID-19 e sui test COVID-19, così come sulle nuove varianti problematiche del virus. \n\nPrima di mettersi in viaggio, si informi sulle misure sanitarie e sulle relative restrizioni applicate nel luogo di destinazione.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/it/home/documentazione/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/it/home/documentazione/covid-certificate-check-app.html";
 
@@ -671,3 +671,6 @@ fino al*/
 
 /*Label der externen URL im "So funktionierts" Screen beim Scannen*/
 "wallet_scanner_howitworks_external_link_title" = "Ulteriori informazioni";
+
+/*Buttontitel im Screen, wo ein Code erstellt werden kann*/
+"wallet_transfer_code_create_code_button" = "Code erstellen";

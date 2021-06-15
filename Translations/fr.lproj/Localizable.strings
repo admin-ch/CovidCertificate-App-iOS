@@ -485,7 +485,7 @@
 /*Verifier: Titel in der App (z.B. Impressum)*/
 "verifier_app_title" = "COVID Certificate Check";
 "wallet_faq_questions_question_1_1" = "Comment puis-je obtenir un certificat COVID après avoir guéri?";
-"wallet_faq_questions_answer_1_1" = "Les personnes qui ont guéri du COVID-19 peuvent demander un certificat COVID en remplissant le formulaire en ligne disponible sur le site Internet de leur canton de domicile. Elles recevront ensuite le certificat COVID par la poste. ";
+"wallet_faq_questions_answer_1_1" = "Les personnes qui ont guéri du COVID-19 peuvent demander un certificat COVID en remplissant le formulaire en ligne disponible sur le site Internet de leur canton de domicile. Elles recevront ensuite le certificat COVID par la poste.";
 
 /*Wallet: Homescreen Was wollen sie machen?*/
 "wallet_homescreen_what_to_do" = "Nächsten Schritt wählen";
@@ -667,3 +667,6 @@
 
 /*Label der externen URL im "So funktionierts" Screen beim Scannen*/
 "wallet_scanner_howitworks_external_link_title" = "Informations supplémentaires";
+
+/*Buttontitel im Screen, wo ein Code erstellt werden kann*/
+"wallet_transfer_code_create_code_button" = "Code erstellen";
