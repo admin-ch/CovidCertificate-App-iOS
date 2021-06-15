@@ -193,7 +193,9 @@ class VerifyCheckContentViewController: ViewController {
 
         case let .retry(error, errorCodes):
             let color: UIColor = .cc_orangish
-            statusView.set(text: error.displayTitle(), backgroundColor: color, icon: UIImage(named: "ic-error-orange"))
+            let imageName = error == .noInternetConnection ? "ic-nocon" : "ic-error-orange"
+
+            statusView.set(text: error.displayTitle(), backgroundColor: color, icon: UIImage(named: imageName))
             infoView.set(text: error.displayText(), backgroundColor: color, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange), showReloadButton: true)
 
             let codes = errorCodes.joined(separator: ", ")

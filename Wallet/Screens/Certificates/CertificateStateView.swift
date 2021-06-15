@@ -155,7 +155,7 @@ class CertificateStateView: UIView {
                     }
                 }
             case let .retry(error, errorCodes):
-                self.imageView.image = UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange)
+                self.imageView.image = error.icon(with: .cc_orange)
                 self.textLabel.attributedText = error.displayTitle(isReload: true, isHomescreen: self.isHomescreen)
                 self.backgroundView.backgroundColor = .cc_orangish
                 self.validityView.backgroundColor = .cc_orangish
