@@ -59,6 +59,17 @@ enum Environment {
         }
     }
 
+    var registerService: Backend {
+        switch self {
+        case .dev:
+            return Backend("https://www.covidcertificate-app-d.bit.admin.ch/app/delivery", version: "v1")
+        case .abnahme:
+            return Backend("https://www.covidcertificate-app-a.bit.admin.ch/app/delivery", version: "v1")
+        case .prod:
+            return Backend("https://www.covidcertificate-app.bit.admin.ch/app/delivery", version: "v1")
+        }
+    }
+
     var sdkEnvironment: SDKEnvironment {
         switch self {
         case .dev:
@@ -108,5 +119,20 @@ extension Endpoint {
             let path = "" // Not supported
         #endif
         return Environment.current.configService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Accept": "application/json+jws"])
+    }
+
+    static func register(payload: InAppDeliveryPayload, appversion av: String, osversion os: String, buildnr: String) -> Endpoint {
+        let path = "covidcert/register"
+        return Environment.current.registerService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Accept": "application/json+jws"], body: payload)
+    }
+
+    static func certificate(payload: InAppDeliveryPayload, appversion av: String, osversion os: String, buildnr: String) -> Endpoint {
+        let path = "covidcert/get"
+        return Environment.current.registerService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Accept": "application/json+jws"], body: payload)
+    }
+
+    static func deleteCertificate(payload: InAppDeliveryPayload, appversion av: String, osversion os: String, buildnr: String) -> Endpoint {
+        let path = "covidcert/delete"
+        return Environment.current.registerService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Accept": "application/json+jws"], body: payload)
     }
 }

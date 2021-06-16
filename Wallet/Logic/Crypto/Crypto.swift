@@ -19,6 +19,10 @@ public enum CryptoError: Error {
     case CREATE_KEY_ERROR(Error?)
     case CANNOT_GET_PUBLIC_KEY
     case CANNOT_ENCODE_PUBLIC_KEY(Error?)
+    case REGISTER_FAILED(Error?)
+    case GET_CERTIFICATE_FAILED(Error?)
+    case CANNOT_DECODE_RESPONSE
+    case DELETE_CERTIFICATE_FAILED(Error?)
 }
 
 public enum Crypto {
