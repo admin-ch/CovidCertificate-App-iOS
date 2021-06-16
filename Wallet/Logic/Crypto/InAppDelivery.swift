@@ -12,7 +12,7 @@
 import Foundation
 
 public class InAppDelivery {
-    private let session = URLSession.certificatePinned
+    private let session = URLSession.shared
     private var dataTask: URLSessionDataTask?
 
     public func registerNewCode(callback: @escaping (Result<String, CryptoError>) -> Void) {
@@ -50,19 +50,20 @@ public class InAppDelivery {
 
         // do some requests
         let request = Endpoint.register(payload: payload, appversion: ConfigManager.appVersion, osversion: ConfigManager.osVersion, buildnr: ConfigManager.buildNumber).request()
-        dataTask = session.dataTask(with: request, completionHandler: { data, response, error in
-            guard let resp = response as? HTTPURLResponse,
-                  let data = data
-            else {
-                callback(.failure(.REGISTER_FAILED(error)))
+        dataTask = session.dataTask(with: request, completionHandler: { _, response, error in
+            DispatchQueue.main.async {
+                guard let resp = response as? HTTPURLResponse
+                else {
+                    callback(.failure(.REGISTER_FAILED(error)))
+                    return
+                }
+                if resp.statusCode < 200 || resp.statusCode >= 300 {
+                    callback(.failure(.REGISTER_FAILED(nil)))
+                    return
+                }
+                callback(.success(code))
                 return
             }
-            if resp.statusCode < 200 || resp.statusCode >= 300 {
-                callback(.failure(.REGISTER_FAILED(nil)))
-                return
-            }
-            callback(.success(code))
-            return
         })
 
         dataTask?.resume()
@@ -83,48 +84,50 @@ public class InAppDelivery {
 
         let request = Endpoint.certificate(payload: payload, appversion: ConfigManager.appVersion, osversion: ConfigManager.osVersion, buildnr: ConfigManager.buildNumber).request()
         dataTask = session.dataTask(with: request, completionHandler: { data, response, error in
-            guard let _ = response as? HTTPURLResponse,
-                  let data = data
-            else {
-                callback(.failure(.GET_CERTIFICATE_FAILED(error)))
-                return
-            }
+            DispatchQueue.main.async {
+                guard let _ = response as? HTTPURLResponse,
+                      let data = data
+                else {
+                    callback(.failure(.GET_CERTIFICATE_FAILED(error)))
+                    return
+                }
 
-            guard let certs = try? JSONDecoder().decode(InAppDeliveryCertificateBody.self, from: data) else {
-                callback(.failure(.CANNOT_DECODE_RESPONSE))
-                return
-            }
+                guard let certs = try? JSONDecoder().decode(InAppDeliveryCertificateBody.self, from: data) else {
+                    callback(.failure(.CANNOT_DECODE_RESPONSE))
+                    return
+                }
 
-            let privateKey: SecKey
-            switch Crypto.loadKey(name: code) {
-            case let .success(key): privateKey = key
-            case let .failure(error):
-                callback(.failure(error))
-                return
-            }
-
-            var collectedCerts: [DecryptedCertificate] = []
-
-            for cert in certs.covidCerts {
-                let hcert: Data
-                switch Crypto.decryptData(privateKey: privateKey, cipherText: cert.encryptedHcert) {
-                case let .success(hc): hcert = hc
+                let privateKey: SecKey
+                switch Crypto.loadKey(name: code) {
+                case let .success(key): privateKey = key
                 case let .failure(error):
                     callback(.failure(error))
                     return
                 }
-                let pdf: Data
-                switch Crypto.decryptData(privateKey: privateKey, cipherText: cert.encryptedPdf) {
-                case let .success(pdfData): pdf = pdfData
-                case let .failure(error):
-                    callback(.failure(error))
-                    return
-                }
-                collectedCerts.append(DecryptedCertificate(hcert, pdf))
-            }
 
-            callback(.success(collectedCerts))
-            return
+                var collectedCerts: [DecryptedCertificate] = []
+
+                for cert in certs.covidCerts {
+                    let hcert: Data
+                    switch Crypto.decryptData(privateKey: privateKey, cipherText: cert.encryptedHcert) {
+                    case let .success(hc): hcert = hc
+                    case let .failure(error):
+                        callback(.failure(error))
+                        return
+                    }
+                    let pdf: Data
+                    switch Crypto.decryptData(privateKey: privateKey, cipherText: cert.encryptedPdf) {
+                    case let .success(pdfData): pdf = pdfData
+                    case let .failure(error):
+                        callback(.failure(error))
+                        return
+                    }
+                    collectedCerts.append(DecryptedCertificate(hcert, pdf))
+                }
+
+                callback(.success(collectedCerts))
+                return
+            }
         })
         dataTask?.resume()
     }
@@ -144,13 +147,15 @@ public class InAppDelivery {
 
         let request = Endpoint.deleteCertificate(payload: payload, appversion: ConfigManager.appVersion, osversion: ConfigManager.osVersion, buildnr: ConfigManager.buildNumber).request()
         dataTask = session.dataTask(with: request, completionHandler: { data, response, error in
-            guard let _ = response as? HTTPURLResponse,
-                  let _ = data
-            else {
-                callback(.failure(.DELETE_CERTIFICATE_FAILED(error)))
-                return
+            DispatchQueue.main.async {
+                guard let _ = response as? HTTPURLResponse,
+                      let _ = data
+                else {
+                    callback(.failure(.DELETE_CERTIFICATE_FAILED(error)))
+                    return
+                }
+                callback(.success(true))
             }
-            callback(.success(true))
         })
         dataTask?.resume()
     }
