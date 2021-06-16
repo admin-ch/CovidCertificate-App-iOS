@@ -32,6 +32,9 @@
 		24780B5B2431B5A9003BB26C /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24780B562431B5A9003BB26C /* DateFormatter.swift */; };
 		2485F4782456185100C3D8C3 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F4772456185000C3D8C3 /* DebugLog.swift */; };
 		2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F47F2459631A00C3D8C3 /* NetworkError.swift */; };
+		273324662679D117002D0ED2 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273324652679D117002D0ED2 /* Crypto.swift */; };
+		273324682679D429002D0ED2 /* InAppDeliveryPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273324672679D429002D0ED2 /* InAppDeliveryPayload.swift */; };
+		2733246A2679DC8D002D0ED2 /* Luhn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273324692679DC8D002D0ED2 /* Luhn.swift */; };
 		274E946B2671E46200110DC5 /* swiss_governmentrootcaii.der in Resources */ = {isa = PBXBuildFile; fileRef = 274E946A2671E46200110DC5 /* swiss_governmentrootcaii.der */; };
 		274E946C2671E46200110DC5 /* swiss_governmentrootcaii.der in Resources */ = {isa = PBXBuildFile; fileRef = 274E946A2671E46200110DC5 /* swiss_governmentrootcaii.der */; };
 		48CCA621265F93D200887F63 /* CovidCertificateSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 48CCA620265F93D200887F63 /* CovidCertificateSDK */; };
@@ -294,6 +297,9 @@
 		24780B562431B5A9003BB26C /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		2485F4772456185000C3D8C3 /* DebugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLog.swift; sourceTree = "<group>"; };
 		2485F47F2459631A00C3D8C3 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		273324652679D117002D0ED2 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		273324672679D429002D0ED2 /* InAppDeliveryPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppDeliveryPayload.swift; sourceTree = "<group>"; };
+		273324692679DC8D002D0ED2 /* Luhn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Luhn.swift; sourceTree = "<group>"; };
 		274E946A2671E46200110DC5 /* swiss_governmentrootcaii.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = swiss_governmentrootcaii.der; sourceTree = "<group>"; };
 		6E0281EE2655022A00582904 /* Impressum */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Impressum; sourceTree = "<group>"; };
 		6E0281F126550E1100582904 /* InfoBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBoxView.swift; sourceTree = "<group>"; };
@@ -607,6 +613,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		273324642679D103002D0ED2 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				273324652679D117002D0ED2 /* Crypto.swift */,
+				273324672679D429002D0ED2 /* InAppDeliveryPayload.swift */,
+				273324692679DC8D002D0ED2 /* Luhn.swift */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
 		6E0281F826565A7500582904 /* Brightness */ = {
 			isa = PBXGroup;
 			children = (
@@ -799,6 +815,7 @@
 		6EC1735B2642A0D5002E27DB /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				273324642679D103002D0ED2 /* Crypto */,
 				6E361223267239A4008C0C86 /* ImportHandler */,
 				6E701454265409090097BBC8 /* Error */,
 				6E5A0F21264336B4004718B4 /* UIStateManager */,
@@ -1492,6 +1509,7 @@
 				6E7C0D22242CE2100017C4F9 /* Button.swift in Sources */,
 				DC702AFF243F6ED90066C773 /* UIColor+HEX.swift in Sources */,
 				6EA5C35E2643FFFC00EA066F /* CertificateDetailViewController.swift in Sources */,
+				2733246A2679DC8D002D0ED2 /* Luhn.swift in Sources */,
 				DC8AC74926541723005A2543 /* CertificateStateValidityView.swift in Sources */,
 				6EF28CFE26370538001C1565 /* WalletQRScannerOverlay.swift in Sources */,
 				6E5A0F25264336B4004718B4 /* UIStateLogic.swift in Sources */,
@@ -1524,6 +1542,7 @@
 				6EF166BC264D488A00426985 /* ScannerLightButton.swift in Sources */,
 				DC702B17243F70060066C773 /* UIView+CC.swift in Sources */,
 				DC8ABDFD264AA83D00FDE0E1 /* ExpandableViewHeader.swift in Sources */,
+				273324662679D117002D0ED2 /* Crypto.swift in Sources */,
 				6E70145726540F5E0097BBC8 /* WalletErrors+CC.swift in Sources */,
 				6EFF9AE3245AAFC800C98FF3 /* UIImage+UBHelpers.m in Sources */,
 				F87E96D7263AEA9100755AF1 /* OSLogger.swift in Sources */,
@@ -1550,6 +1569,7 @@
 				8EB23D78245AF2C30073E83A /* RandomGenerators.swift in Sources */,
 				6E7C0D43242E44D80017C4F9 /* WebViewController.swift in Sources */,
 				DC8AC7472653B7F5005A2543 /* CertificateQRCodeStateView.swift in Sources */,
+				273324682679D429002D0ED2 /* InAppDeliveryPayload.swift in Sources */,
 				6E8F52EC265EC33F00406430 /* CertificateNoteView.swift in Sources */,
 				6EF28CFF26370538001C1565 /* NSQRScanningView.swift in Sources */,
 				6EC172D126414EBA002E27DB /* HomescreenBaseViewController.swift in Sources */,
