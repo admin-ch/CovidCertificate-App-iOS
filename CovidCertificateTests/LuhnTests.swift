@@ -21,4 +21,22 @@ final class LuhnTests: XCTestCase {
         let result = Luhn.checkLuhnCode(luhnCode)
         XCTAssertTrue(result)
     }
+
+//    func testInApp() {
+//        let iap = InAppDelivery()
+//        let expectations = expectation(description: "async task")
+//        iap.registerNewCode { result in
+//            let code = try? result.get()
+//            XCTAssertNotNil(code)
+//            print(code!)
+//            iap.tryDownloadCertificate(withCode: code!) { result in
+//                let certs = try? result.get()
+//                XCTAssertNotNil(certs)
+//                XCTAssertNotNil(certs![0].pdf)
+//                XCTAssertNotNil(certs![0].cert)
+//                expectations.fulfill()
+//            }
+//        }
+//        waitForExpectations(timeout: 60, handler: nil)
+//    }
 }
