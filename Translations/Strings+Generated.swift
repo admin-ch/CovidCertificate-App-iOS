@@ -200,7 +200,7 @@ import Foundation
      case wallet_certificate_date_key = "wallet_certificate_date"
     /// Wollen Sie das Zertifikat wirklich löschen?
      case wallet_certificate_delete_confirm_text_key = "wallet_certificate_delete_confirm_text"
-    /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmaßnahmen und damit verbundenen Beschränkungen.
+    /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
      case wallet_certificate_detail_note_key = "wallet_certificate_detail_note"
     /// UVCI
      case wallet_certificate_identifier_key = "wallet_certificate_identifier"
@@ -434,6 +434,8 @@ import Foundation
      case wallet_transfer_code_card_title_key = "wallet_transfer_code_card_title"
     /// Ihr Transfer-Code wurde erstellt
      case wallet_transfer_code_code_created_title_key = "wallet_transfer_code_code_created_title"
+    /// Code erstellen
+     case wallet_transfer_code_create_code_button_key = "wallet_transfer_code_create_code_button"
     /// Erstellt am {DATE}
      case wallet_transfer_code_createdat_key = "wallet_transfer_code_createdat"
     /// Fertig
@@ -700,7 +702,7 @@ import Foundation
    static let wallet_certificate_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_date_key)
   /// Wollen Sie das Zertifikat wirklich löschen?
    static let wallet_certificate_delete_confirm_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_delete_confirm_text_key)
-  /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmaßnahmen und damit verbundenen Beschränkungen.
+  /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
    static let wallet_certificate_detail_note = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_key)
   /// UVCI
    static let wallet_certificate_identifier = UBLocalized.tr(UBLocalizedKey.wallet_certificate_identifier_key)
@@ -934,6 +936,8 @@ import Foundation
    static let wallet_transfer_code_card_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_card_title_key)
   /// Ihr Transfer-Code wurde erstellt
    static let wallet_transfer_code_code_created_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_code_created_title_key)
+  /// Code erstellen
+   static let wallet_transfer_code_create_code_button = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_create_code_button_key)
   /// Erstellt am {DATE}
    static let wallet_transfer_code_createdat = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_createdat_key)
   /// Fertig
