@@ -24,6 +24,7 @@ class HomescreenCertificateView: UIView {
     private let contentView = UIView()
 
     private let stateView = CertificateStateView()
+    private let transferCodeView = TransferCodeStatusView()
 
     public let certificate: UserCertificate
 
@@ -88,12 +89,22 @@ class HomescreenCertificateView: UIView {
         }
 
         titleLabel.text = UBLocalized.wallet_certificate
-        nameView.certificate = certificate
 
-        contentView.addSubview(stateView)
-        stateView.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium + Padding.small)
-            make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
+        switch certificate.type {
+        case .certificate:
+            nameView.certificate = certificate
+            contentView.addSubview(stateView)
+            stateView.snp.makeConstraints { make in
+                make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium + Padding.small)
+                make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
+            }
+        case .transferCode:
+            transferCodeView.transferCode = certificate.transferCode
+            contentView.addSubview(transferCodeView)
+            transferCodeView.snp.makeConstraints { make in
+                make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium + Padding.small)
+                make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
+            }
         }
 
         // disable user interaction

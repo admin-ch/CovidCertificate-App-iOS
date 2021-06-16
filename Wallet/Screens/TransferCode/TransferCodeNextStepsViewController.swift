@@ -12,7 +12,7 @@
 import UIKit
 
 class TransferCodeNextStepsViewController: StackScrollViewController {
-    private let transferCodeStatusView = TransferCodeStatusView()
+    private let transferCodeStatusView = TransferCodeStatusView(isNewlyCreated: true)
 
     private let insets = UIEdgeInsets(top: 0, left: 2 * Padding.medium, bottom: 0, right: 2 * Padding.medium)
 
@@ -87,6 +87,10 @@ class TransferCodeNextStepsViewController: StackScrollViewController {
     func startLoading() {
         loadingView.startLoading()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            let code = UserTransferCode(transferCode: "A2X56K7WP", created: Date())
+            let cert = UserCertificate(qrCode: nil, transferCode: code)
+            CertificateStorage.shared.insertCertificate(userCertificate: cert)
+            self.transferCodeStatusView.transferCode = code
             self.stopLoading()
         }
     }
