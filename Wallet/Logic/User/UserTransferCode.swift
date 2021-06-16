@@ -11,11 +11,46 @@
 
 import Foundation
 
-class UserTransferCode: Codable, Equatable {
+struct UserTransferCode: Codable, Equatable {
     let transferCode: String
     let created: Date
+}
 
-    static func == (lhs: UserTransferCode, rhs: UserTransferCode) -> Bool {
-        return lhs.transferCode == rhs.transferCode && lhs.created == rhs.created
+extension UserTransferCode {
+    var isValid: Bool {
+        created.addingTimeInterval(60 * 60 * 24 * 7) >= Date()
+    }
+
+    var validDays: Int? {
+        let day: TimeInterval = 60 * 60 * 24
+        let validUntil = created.addingTimeInterval(day * 7).timeIntervalSince(Date()) // 7 days
+
+        if validUntil < 0 {
+            return nil
+        } else if validUntil >= day * 6 {
+            return 7
+        } else {
+            return Int((validUntil / day).rounded(.up))
+        }
+    }
+
+    var validityIcon: UIImage? {
+        switch validDays {
+        case let .some(x) where x >= 1 && x <= 7:
+            return UIImage(named: "ic-expire-\(x)")
+        default:
+            return nil
+        }
+    }
+
+    var validDaysText: String? {
+        switch validDays {
+        case 1:
+            return UBLocalized.wallet_transfer_code_expire_singular
+        case let .some(x) where x >= 2 && x <= 7:
+            return UBLocalized.wallet_transfer_code_expire_plural.replacingOccurrences(of: "{DAYS}", with: "\(x)")
+        default:
+            return nil
+        }
     }
 }

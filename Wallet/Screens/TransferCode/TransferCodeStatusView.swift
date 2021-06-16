@@ -11,10 +11,6 @@
 
 import UIKit
 
-enum TransferCodeStatus: Equatable {
-    case created(code: String, createdAt: Date)
-}
-
 class TransferCodeStatusView: UIView {
     private let imageView = UIImageView()
     private let roundImageBackgroundView = UIView()
@@ -23,11 +19,14 @@ class TransferCodeStatusView: UIView {
     private let codeLabel = TransferCodeLabel()
     private let createdAtLabel = Label(.text, textAlignment: .center)
 
-    var status: TransferCodeStatus = .created(code: "A2X56K7WP", createdAt: Date()) {
+    private var isNewlyCreated: Bool
+
+    var transferCode: UserTransferCode? {
         didSet { update() }
     }
 
-    init() {
+    init(isNewlyCreated: Bool = false) {
+        self.isNewlyCreated = isNewlyCreated
         super.init(frame: .zero)
 
         setupView()
@@ -78,12 +77,18 @@ class TransferCodeStatusView: UIView {
     }
 
     private func update() {
-        switch status {
-        case let .created(code, createdAt):
+        guard let code = transferCode else { return }
+        if isNewlyCreated {
             imageView.image = UIImage(named: "ic-check-mark")
             titleLabel.text = UBLocalized.wallet_transfer_code_title
-            codeLabel.code = code
-            createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: createdAt))
+            codeLabel.code = code.transferCode
+            createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
+
+        } else {
+            imageView.image = code.validityIcon
+            titleLabel.text = code.validDaysText
+            codeLabel.code = code.transferCode
+            createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
         }
     }
 
