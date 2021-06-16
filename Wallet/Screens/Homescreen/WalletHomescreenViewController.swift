@@ -93,7 +93,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
 
         onboardingViewController.addTransferCodeTouchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            let vc = TransferCodeOnboardingViewController()
+            let vc = TransferCodeViewController()
             vc.presentInNavigationController(from: strongSelf)
         }
 
@@ -101,7 +101,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             guard let strongSelf = self else { return }
             strongSelf.actionPopupView.dismiss()
 
-            let vc = TransferCodeOnboardingViewController()
+            let vc = TransferCodeViewController()
             vc.presentInNavigationController(from: strongSelf)
         }
 

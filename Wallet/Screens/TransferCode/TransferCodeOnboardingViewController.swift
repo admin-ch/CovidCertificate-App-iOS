@@ -12,7 +12,7 @@
 import Foundation
 
 class TransferCodeOnboardingViewController: BasicStaticContentViewController {
-    private let createCodeButton = Button(title: UBLocalized.wallet_transfer_code_create_code_button)
+    let createCodeButton = Button(title: UBLocalized.wallet_transfer_code_create_code_button)
     private let howItWorksButton = Button(title: UBLocalized.wallet_transfer_code_onboarding_howto, style: .text(.cc_blue))
 
     init() {
@@ -30,5 +30,12 @@ class TransferCodeOnboardingViewController: BasicStaticContentViewController {
         stackScrollView.addSpacerView(40)
         stackScrollView.addArrangedView(howItWorksButton)
         stackScrollView.addSpacerView(40)
+
+        howItWorksButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            // TODO: Add static content from config request once available
+            let vc = BasicStaticContentViewController(models: [], title: UBLocalized.wallet_faq_header.uppercased())
+            vc.presentInNavigationController(from: strongSelf)
+        }
     }
 }
