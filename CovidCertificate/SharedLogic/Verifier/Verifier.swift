@@ -90,6 +90,28 @@ enum VerificationState: Equatable {
             return []
         }
     }
+
+    public func showSignatureValidInformation() -> Bool {
+        switch self {
+        case let .invalid(errors, _, _):
+            // show that the certificate has a valid signature when there is no
+            // signature error, so this test worked
+            return !errors.contains { $0 == .signature }
+        default:
+            return false
+        }
+    }
+
+    public func showNotRevokedInformation() -> Bool {
+        switch self {
+        case let .invalid(errors, _, _):
+            // show that the certificate was not revoked, when there is no revocation error,
+            // but don't show it when there is a signature error also present
+            return !errors.contains { $0 == .revocation } && !errors.contains { $0 == .signature }
+        default:
+            return false
+        }
+    }
 }
 
 class Verifier: NSObject {
