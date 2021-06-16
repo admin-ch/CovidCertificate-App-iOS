@@ -51,19 +51,24 @@ public class InAppDelivery {
         // do some requests
         let request = Endpoint.register(payload: payload, appversion: ConfigManager.appVersion, osversion: ConfigManager.osVersion, buildnr: ConfigManager.buildNumber).request()
         dataTask = session.dataTask(with: request, completionHandler: { data, response, error in
-            guard let _ = response as? HTTPURLResponse,
+            guard let resp = response as? HTTPURLResponse,
                   let data = data
             else {
                 callback(.failure(.REGISTER_FAILED(error)))
                 return
             }
-
+            if resp.statusCode < 200 || resp.statusCode >= 300 {
+                callback(.failure(.REGISTER_FAILED(nil)))
+                return
+            }
             callback(.success(code))
             return
         })
+
+        dataTask?.resume()
     }
 
-    public func tryDownloadCertificate(withCode code: String, callback: @escaping (Result<DecryptedCertificate, CryptoError>) -> Void) {
+    public func tryDownloadCertificate(withCode code: String, callback: @escaping (Result<[DecryptedCertificate], CryptoError>) -> Void) {
         let payload = InAppDeliveryPayload()
 
         switch getSignature(forAction: InAppDeliveryAction.Get, withCode: code) {
@@ -98,24 +103,30 @@ public class InAppDelivery {
                 return
             }
 
-            let hcert: Data
-            switch Crypto.decryptData(privateKey: privateKey, cipherText: certs.cert) {
-            case let .success(hc): hcert = hc
-            case let .failure(error):
-                callback(.failure(error))
-                return
-            }
-            let pdf: Data
-            switch Crypto.decryptData(privateKey: privateKey, cipherText: certs.pdf) {
-            case let .success(pdfData): pdf = pdfData
-            case let .failure(error):
-                callback(.failure(error))
-                return
+            var collectedCerts: [DecryptedCertificate] = []
+
+            for cert in certs.covidCerts {
+                let hcert: Data
+                switch Crypto.decryptData(privateKey: privateKey, cipherText: cert.encryptedHcert) {
+                case let .success(hc): hcert = hc
+                case let .failure(error):
+                    callback(.failure(error))
+                    return
+                }
+                let pdf: Data
+                switch Crypto.decryptData(privateKey: privateKey, cipherText: cert.encryptedPdf) {
+                case let .success(pdfData): pdf = pdfData
+                case let .failure(error):
+                    callback(.failure(error))
+                    return
+                }
+                collectedCerts.append(DecryptedCertificate(hcert, pdf))
             }
 
-            callback(.success(DecryptedCertificate(hcert, pdf)))
+            callback(.success(collectedCerts))
             return
         })
+        dataTask?.resume()
     }
 
     public func tryDeleteCertificate(withCode code: String, callback: @escaping (Result<Bool, CryptoError>) -> Void) {
@@ -141,6 +152,7 @@ public class InAppDelivery {
             }
             callback(.success(true))
         })
+        dataTask?.resume()
     }
 
     func getSignature(forAction action: InAppDeliveryAction, withCode code: String) -> Result<(String, String), CryptoError> {

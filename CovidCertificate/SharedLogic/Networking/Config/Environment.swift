@@ -123,16 +123,16 @@ extension Endpoint {
 
     static func register(payload: InAppDeliveryPayload, appversion av: String, osversion os: String, buildnr: String) -> Endpoint {
         let path = "covidcert/register"
-        return Environment.current.registerService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Accept": "application/json+jws"], body: payload)
+        return Environment.current.registerService.endpoint(path, method: .post, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Content-Type": "application/json"], body: payload)
     }
 
     static func certificate(payload: InAppDeliveryPayload, appversion av: String, osversion os: String, buildnr: String) -> Endpoint {
-        let path = "covidcert/get"
-        return Environment.current.registerService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Accept": "application/json+jws"], body: payload)
+        let path = "covidcert"
+        return Environment.current.registerService.endpoint(path, method: .post, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Content-Type": "application/json", "Accept": "application/json"], body: payload)
     }
 
     static func deleteCertificate(payload: InAppDeliveryPayload, appversion av: String, osversion os: String, buildnr: String) -> Endpoint {
-        let path = "covidcert/delete"
-        return Environment.current.registerService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Accept": "application/json+jws"], body: payload)
+        let path = "covidcert/complete"
+        return Environment.current.registerService.endpoint(path, method: .post, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Content-Type": "application/json"], body: payload)
     }
 }

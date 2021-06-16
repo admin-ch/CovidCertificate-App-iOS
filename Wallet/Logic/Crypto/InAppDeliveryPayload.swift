@@ -24,8 +24,12 @@ public class InAppDeliveryPayload: Codable {
 }
 
 public class InAppDeliveryCertificateBody: Codable {
-    var pdf: String
-    var cert: String
+    var covidCerts: [EncryptedCertificates]
+}
+
+public class EncryptedCertificates: Codable {
+    var encryptedHcert: String
+    var encryptedPdf: String
 }
 
 public class DecryptedCertificate {
