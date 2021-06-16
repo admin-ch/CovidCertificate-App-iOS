@@ -19,18 +19,16 @@ class HomescreenCertificateView: UIView {
     public static let inset: CGFloat = 6.0
 
     private let titleLabel = Label(.uppercaseBold, textColor: .cc_greyText, textAlignment: .center)
-
-    private let nameView = QRCodeNameView(qrCodeInset: Padding.large)
     private let contentView = UIView()
 
-    private let stateView = CertificateStateView()
-    private let transferCodeView = TransferCodeStatusView()
+    private let qrCodeView: QRCodeView
+    private let transferView: TransferView
 
     public let certificate: UserCertificate
 
     public var state: VerificationState = .loading {
         didSet {
-            stateView.states = (state, .idle)
+            qrCodeView.state = state
             update(animated: true)
         }
     }
@@ -39,6 +37,8 @@ class HomescreenCertificateView: UIView {
 
     init(certificate: UserCertificate) {
         self.certificate = certificate
+        qrCodeView = QRCodeView(certificate: certificate)
+        transferView = TransferView(certificate: certificate)
         super.init(frame: .zero)
         setup()
 
@@ -72,11 +72,16 @@ class HomescreenCertificateView: UIView {
             make.top.left.right.equalToSuperview().inset(Padding.large)
         }
 
-        contentView.addSubview(nameView)
+        contentView.addSubview(qrCodeView)
+        qrCodeView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(self.titleLabel.snp.bottom)
+        }
 
-        nameView.snp.makeConstraints { make in
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(Padding.medium)
-            make.left.right.equalToSuperview().inset(Padding.large)
+        contentView.addSubview(transferView)
+        transferView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(self.titleLabel.snp.bottom)
         }
 
         let holeViews = [HoleView(radius: 10.0, shadowRadius: shadowRadius, shadowOpacity: shadowOpacity, left: true), HoleView(radius: 10.0, shadowRadius: shadowRadius, shadowOpacity: shadowOpacity, left: false)]
@@ -85,25 +90,6 @@ class HomescreenCertificateView: UIView {
             h.snp.makeConstraints { make in
                 make.centerX.equalTo(i == 0 ? self.contentView.snp.left : self.contentView.snp.right)
                 make.top.equalTo(self.contentView.snp.bottom).multipliedBy(0.618)
-            }
-        }
-
-        titleLabel.text = UBLocalized.wallet_certificate
-
-        switch certificate.type {
-        case .certificate:
-            nameView.certificate = certificate
-            contentView.addSubview(stateView)
-            stateView.snp.makeConstraints { make in
-                make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium + Padding.small)
-                make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
-            }
-        case .transferCode:
-            transferCodeView.transferCode = certificate.transferCode
-            contentView.addSubview(transferCodeView)
-            transferCodeView.snp.makeConstraints { make in
-                make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium + Padding.small)
-                make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
             }
         }
 
@@ -129,10 +115,18 @@ class HomescreenCertificateView: UIView {
     }
 
     private func update(animated _: Bool) {
-        let isInvalid = state.isInvalid()
-        nameView.enabled = !isInvalid
-
-        accessibilityLabel = [titleLabel.text, nameView.accessibilityLabel, stateView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+        switch certificate.type {
+        case .certificate:
+            titleLabel.text = UBLocalized.wallet_certificate
+            qrCodeView.alpha = 1.0
+            transferView.alpha = 0.0
+            accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+        case .transferCode:
+            titleLabel.text = UBLocalized.wallet_transfer_code_title
+            qrCodeView.alpha = 0.0
+            transferView.alpha = 1.0
+            accessibilityLabel = [titleLabel.text, transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+        }
     }
 }
 
@@ -191,5 +185,158 @@ private class HoleView: UIView {
         }
         context!.endTransparencyLayer()
         context?.restoreGState()
+    }
+}
+
+private class TransferView: UIView {
+    // MARK: - Inset
+
+    private let transferCodeView = TransferCodeStatusView()
+    public var certificate: UserCertificate
+
+    public let phoneAnimationView = UIImageView()
+    public let ringAnimationView = UIImageView()
+
+    private var timer: Timer?
+    private var animationCounter: Int = 2
+
+    // MARK: - Subviews
+
+    init(certificate: UserCertificate) {
+        self.certificate = certificate
+        super.init(frame: .zero)
+        setup()
+
+        isAccessibilityElement = true
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setup() {
+        addSubview(ringAnimationView)
+
+        ringAnimationView.snp.makeConstraints { make in
+            make.left.right.top.equalToSuperview()
+        }
+
+        ringAnimationView.loadAnimation(pattern: "210616_wait_for_transfer_animation_ripple_only_00000", numberOfImages: 17)
+        ringAnimationView.startAnimating()
+
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0 * 17.0 / 24.0, repeats: true, block: { _ in
+            self.animationCounter = self.animationCounter + 1
+
+            if self.animationCounter % 8 == 0 {
+                self.ringAnimationView.startAnimating()
+                self.animationCounter = 0
+            } else {
+                self.ringAnimationView.stopAnimating()
+            }
+        })
+
+        timer?.fire()
+
+        addSubview(phoneAnimationView)
+
+        phoneAnimationView.snp.makeConstraints { make in
+            make.left.right.top.equalToSuperview()
+        }
+
+        phoneAnimationView.loadAnimation(pattern: "210616_wait_for_transfer_phone_only_00000", numberOfImages: 71)
+        phoneAnimationView.startAnimating()
+
+        transferCodeView.transferCode = certificate.transferCode
+
+        addSubview(transferCodeView)
+        transferCodeView.snp.makeConstraints { make in
+            make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
+        }
+
+        update(animated: false)
+    }
+
+    public func update(animated _: Bool) {
+        accessibilityLabel = [transferCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+    }
+}
+
+private class QRCodeView: UIView {
+    // MARK: - Inset
+
+    private let titleLabel = Label(.uppercaseBold, textColor: .cc_greyText, textAlignment: .center)
+    private let nameView = QRCodeNameView(qrCodeInset: Padding.large)
+    private let stateView = CertificateStateView()
+
+    public var certificate: UserCertificate
+
+    public var state: VerificationState = .loading {
+        didSet {
+            stateView.states = (state, .idle)
+            update(animated: true)
+        }
+    }
+
+    // MARK: - Subviews
+
+    init(certificate: UserCertificate) {
+        self.certificate = certificate
+        super.init(frame: .zero)
+        setup()
+
+        isAccessibilityElement = true
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setup() {
+        addSubview(nameView)
+
+        nameView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(Padding.medium)
+            make.left.right.equalToSuperview().inset(Padding.large)
+        }
+
+        nameView.certificate = certificate
+        addSubview(stateView)
+        stateView.snp.makeConstraints { make in
+            make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium + Padding.small)
+            make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
+        }
+
+        update(animated: false)
+    }
+
+    public func update(animated _: Bool) {
+        let isInvalid = state.isInvalid()
+        nameView.enabled = !isInvalid
+
+        accessibilityLabel = [nameView.accessibilityLabel, stateView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+    }
+}
+
+public extension UIImageView {
+    func loadAnimation(pattern: String, numberOfImages: Int) {
+        var images: [UIImage] = []
+        for i in 0 ..< numberOfImages {
+            var number = "\(i)"
+            while number.count < 5 {
+                number = "0\(number)"
+            }
+
+            let name = pattern.replacingOccurrences(of: "00000", with: number)
+
+            if let img = UIImage(named: name) {
+                images.append(img)
+            }
+        }
+
+        animationImages = images
+        contentMode = .scaleAspectFit
+        animationDuration = Double(numberOfImages) * (1.0 / 24.0)
     }
 }

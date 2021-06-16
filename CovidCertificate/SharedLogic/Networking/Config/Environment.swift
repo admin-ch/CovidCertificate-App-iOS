@@ -62,11 +62,11 @@ enum Environment {
     var registerService: Backend {
         switch self {
         case .dev:
-            return Backend("https://www.covidcertificate-app-d.bit.admin.ch/app/delivery", version: "v1")
+            return Backend("https://covidcertificate-app-d.bit.admin.ch/app/delivery", version: "v1")
         case .abnahme:
-            return Backend("https://www.covidcertificate-app-a.bit.admin.ch/app/delivery", version: "v1")
+            return Backend("https://covidcertificate-app-a.bit.admin.ch/app/delivery", version: "v1")
         case .prod:
-            return Backend("https://www.covidcertificate-app.bit.admin.ch/app/delivery", version: "v1")
+            return Backend("https://covidcertificate-app.bit.admin.ch/app/delivery", version: "v1")
         }
     }
 
