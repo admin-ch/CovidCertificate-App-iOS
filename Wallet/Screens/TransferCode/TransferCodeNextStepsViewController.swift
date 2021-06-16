@@ -21,6 +21,8 @@ class TransferCodeNextStepsViewController: StackScrollViewController {
     private let doneContainer = UIView()
     private let doneButton = Button(title: UBLocalized.wallet_transfer_code_done_button)
 
+    private let inAppDelivery = InAppDelivery()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -86,11 +88,20 @@ class TransferCodeNextStepsViewController: StackScrollViewController {
 
     func startLoading() {
         loadingView.startLoading()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            let code = UserTransferCode(transferCode: "A2X56K7WP", created: Date())
-            let cert = UserCertificate(qrCode: nil, transferCode: code)
-            CertificateStorage.shared.insertCertificate(userCertificate: cert)
-            self.transferCodeStatusView.transferCode = code
+
+        inAppDelivery.registerNewCode { result in
+
+            switch result {
+            case let .success(code):
+                let code = UserTransferCode(transferCode: code, created: Date())
+                let cert = UserCertificate(qrCode: nil, transferCode: code)
+                CertificateStorage.shared.insertCertificate(userCertificate: cert)
+                self.transferCodeStatusView.transferCode = code
+            case let .failure(error):
+                // TODO: handle error
+                break
+            }
+
             self.stopLoading()
         }
     }
@@ -134,9 +145,7 @@ private class LoadingView: UIView {
     }
 
     func startLoading() {
-        UIView.animate(withDuration: 0.25, delay: 0, options: .beginFromCurrentState, animations: {
-            self.alpha = 1
-        }, completion: nil)
+        alpha = 1.0
         activityIndicator.startAnimating()
     }
 
