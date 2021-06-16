@@ -1,4 +1,6 @@
 //
+// Heavily inspired by https://github.com/ebluehands/LuhnModN/blob/master/LuhnModN/LuhnModN.swift
+
 /*
  * Copyright (c) 2021 Ubique Innovation AG <https://www.ubique.ch>
  *
