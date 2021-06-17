@@ -49,6 +49,15 @@ public enum CryptoError: Error {
         }
     }
 
+    public var cornerIcon: UIImage? {
+        switch self {
+        case .GET_CERTIFICATE_FAILED, .REGISTER_FAILED:
+            return UIImage(named: "corner-left-no-internet")
+        default:
+            return UIImage(named: "corner-left-error")
+        }
+    }
+
     // MARK: - Title / text shown on code generation
 
     public var generateErrorTitle: String {

@@ -102,6 +102,7 @@ class TransferCodeDetailViewController: ViewController {
 
     private func update() {
         // data changes
+        statusView.error = error
         errorLabel.text = error?.errorCode
         updateView.date = updateDate
 
