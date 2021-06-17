@@ -20,9 +20,15 @@ class TransferCodeStatusView: UIView {
     private let codeLabel = TransferCodeLabel()
     private let createdAtLabel = Label(.text, textAlignment: .center)
 
+    private let errorCorner = UIImageView()
+
     private var isNewlyCreated: Bool
 
     var transferCode: UserTransferCode? {
+        didSet { update() }
+    }
+
+    var error: CryptoError? {
         didSet { update() }
     }
 
@@ -31,7 +37,6 @@ class TransferCodeStatusView: UIView {
         super.init(frame: .zero)
 
         setupView()
-
         update()
     }
 
@@ -49,6 +54,7 @@ class TransferCodeStatusView: UIView {
         addSubview(validLabel)
         addSubview(codeLabel)
         addSubview(createdAtLabel)
+        addSubview(errorCorner)
 
         roundImageBackgroundView.backgroundColor = .cc_white
         roundImageBackgroundView.snp.makeConstraints { make in
@@ -81,6 +87,10 @@ class TransferCodeStatusView: UIView {
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(Padding.medium)
         }
+
+        errorCorner.snp.makeConstraints { make in
+            make.top.left.equalToSuperview()
+        }
     }
 
     private func update() {
@@ -98,6 +108,8 @@ class TransferCodeStatusView: UIView {
             createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
 
         } else {
+            errorCorner.image = error?.cornerIcon
+
             imageView.image = code.validityIcon
             validLabel.isHidden = false
             titleLabel.isHidden = true

@@ -39,6 +39,12 @@ class HomescreenCertificateView: UIView {
         }
     }
 
+    public var transferError: CryptoError? {
+        didSet {
+            transferView.error = transferError
+        }
+    }
+
     // MARK: - Subviews
 
     init(certificate: UserCertificate) {
@@ -207,6 +213,10 @@ private class TransferView: UIView {
 
     private var timer: Timer?
     private var animationCounter: Int = 2
+
+    public var error: CryptoError? {
+        didSet { transferCodeView.error = error }
+    }
 
     // MARK: - Subviews
 
