@@ -62,7 +62,6 @@ public class InAppDelivery {
                     return
                 }
                 callback(.success(code))
-                return
             }
         })
 
@@ -126,7 +125,6 @@ public class InAppDelivery {
                 }
 
                 callback(.success(collectedCerts))
-                return
             }
         })
         dataTask?.resume()

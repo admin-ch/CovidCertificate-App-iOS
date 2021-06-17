@@ -43,12 +43,12 @@ extension UserTransferCode {
         }
     }
 
-    var validDaysText: String? {
+    var validDaysText: NSAttributedString? {
         switch validDays {
         case 1:
-            return UBLocalized.wallet_transfer_code_expire_singular
+            return UBLocalized.wallet_transfer_code_expire_singular.formattingOccurrenceBold(UBLocalized.wallet_transfer_code_expire_singular_bold)
         case let .some(x) where x >= 2 && x <= 7:
-            return UBLocalized.wallet_transfer_code_expire_plural.replacingOccurrences(of: "{DAYS}", with: "\(x)")
+            return UBLocalized.wallet_transfer_code_expire_plural.replacingOccurrences(of: "{DAYS}", with: "\(x)").formattingOccurrenceBold(UBLocalized.wallet_transfer_code_expire_plural_bold.replacingOccurrences(of: "{DAYS}", with: "\(x)"))
         default:
             return nil
         }

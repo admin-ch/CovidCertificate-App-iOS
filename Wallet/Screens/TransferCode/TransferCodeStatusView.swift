@@ -16,6 +16,7 @@ class TransferCodeStatusView: UIView {
     private let roundImageBackgroundView = UIView()
 
     private let titleLabel = Label(.textBold, textAlignment: .center)
+    private let validLabel = Label(.text, textColor: .cc_blue, textAlignment: .center)
     private let codeLabel = TransferCodeLabel()
     private let createdAtLabel = Label(.text, textAlignment: .center)
 
@@ -45,6 +46,7 @@ class TransferCodeStatusView: UIView {
         addSubview(roundImageBackgroundView)
         addSubview(imageView)
         addSubview(titleLabel)
+        addSubview(validLabel)
         addSubview(codeLabel)
         addSubview(createdAtLabel)
 
@@ -60,6 +62,11 @@ class TransferCodeStatusView: UIView {
         }
 
         titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+        }
+
+        validLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
         }
@@ -80,13 +87,25 @@ class TransferCodeStatusView: UIView {
         guard let code = transferCode else { return }
         if isNewlyCreated {
             imageView.image = UIImage(named: "ic-check-mark")
+            validLabel.isHidden = true
+            titleLabel.isHidden = false
             titleLabel.text = UBLocalized.wallet_transfer_code_title
+            codeLabel.snp.remakeConstraints { make in
+                make.top.equalTo(titleLabel.snp.bottom).offset(Padding.medium)
+                make.centerX.equalToSuperview()
+            }
             codeLabel.code = code.transferCode
             createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
 
         } else {
             imageView.image = code.validityIcon
-            titleLabel.text = code.validDaysText
+            validLabel.isHidden = false
+            titleLabel.isHidden = true
+            validLabel.attributedText = code.validDaysText
+            codeLabel.snp.remakeConstraints { make in
+                make.top.equalTo(validLabel.snp.bottom).offset(Padding.medium)
+                make.centerX.equalToSuperview()
+            }
             codeLabel.code = code.transferCode
             createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
         }

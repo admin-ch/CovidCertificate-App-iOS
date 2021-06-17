@@ -49,6 +49,8 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     let infoBox: LocalizedValue<InfoBox>?
     let questions: LocalizedValue<FAQEntriesContainer>?
     let works: LocalizedValue<FAQEntriesContainer>
+    let transferQuestions: LocalizedValue<FAQEntriesContainer>
+    let transferWorks: LocalizedValue<FAQEntriesContainer>
 
     class FAQEntriesContainer: UBCodable {
         let faqTitle: String
@@ -91,5 +93,15 @@ extension ConfigResponseBody {
         }
 
         return models
+    }
+
+    var transferQuestionsViewModels: [StaticContentViewModel] {
+        return [
+            StaticContentViewModel(foregroundImage: UIImage(named: transferQuestions.value?.faqIconIos ?? ""),
+                                   title: transferQuestions.value?.faqTitle ?? "",
+                                   alignment: .left,
+                                   textGroups: [(nil, transferQuestions.value?.faqSubTitle ?? "")],
+                                   expandableTextGroups: transferQuestions.value?.faqEntries.compactMap { ($0.title, $0.text, $0.linkTitle, $0.linkUrl) } ?? []),
+        ]
     }
 }

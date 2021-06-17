@@ -18,7 +18,7 @@ public enum Luhn {
     private static let codeSize = 8
     public static func generateLuhnCode() -> String {
         let luhnCode = (0 ..< 8).map { _ in characterSet.randomElement()! }.joined()
-        let checksum = calculateLuhnSum(luhnCode, shouldDouble: { ($0 % 2 == 0) })
+        let checksum = calculateLuhnSum(luhnCode, shouldDouble: { $0 % 2 == 0 })
         let mod = characterSet.count
         let remainder = checksum % mod
         let checkCodePoint = (mod - remainder) % mod
@@ -27,7 +27,7 @@ public enum Luhn {
     }
 
     public static func checkLuhnCode(_ luhnCode: String) -> Bool {
-        let sum = calculateLuhnSum(luhnCode, shouldDouble: { ($0 % 2 != 0) })
+        let sum = calculateLuhnSum(luhnCode, shouldDouble: { $0 % 2 != 0 })
         let remainder = sum % characterSet.count
         return remainder == 0
     }
