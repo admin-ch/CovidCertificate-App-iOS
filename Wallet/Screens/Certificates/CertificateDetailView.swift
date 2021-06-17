@@ -13,7 +13,13 @@ import CovidCertificateSDK
 import Foundation
 
 class CertificateDetailView: UIView {
-    private let certificate: UserCertificate
+    public var certificate: UserCertificate? {
+        didSet {
+            setup()
+            update(animated: true)
+        }
+    }
+
     private var holder: DGCHolder?
 
     private let stackView = UIStackView()
@@ -29,21 +35,9 @@ class CertificateDetailView: UIView {
 
     // MARK: - Init
 
-    init(certificate: UserCertificate, showEnglishLabelsIfNeeded: Bool) {
+    init(showEnglishLabelsIfNeeded: Bool) {
         showEnglishLabels = showEnglishLabelsIfNeeded && !UBLocalized.languageIsEnglish()
-        self.certificate = certificate
         super.init(frame: .zero)
-
-        let result = CovidCertificateSDK.decode(encodedData: self.certificate.qrCode ?? "")
-
-        switch result {
-        case let .success(holder):
-            self.holder = holder
-        case .failure:
-            break
-        }
-
-        setup()
     }
 
     @available(*, unavailable)
@@ -54,6 +48,20 @@ class CertificateDetailView: UIView {
     // MARK: - Setup
 
     private func setup() {
+        let result = CovidCertificateSDK.decode(encodedData: certificate?.qrCode ?? "")
+
+        switch result {
+        case let .success(holder):
+            self.holder = holder
+        case .failure:
+            break
+        }
+
+        for v in stackView.arrangedSubviews {
+            stackView.removeArrangedSubview(v)
+            v.removeFromSuperview()
+        }
+
         addSubview(stackView)
 
         stackView.axis = .vertical

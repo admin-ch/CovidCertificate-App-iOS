@@ -20,13 +20,11 @@ enum TemporaryVerifierState: Equatable {
 }
 
 class CertificateDetailViewController: ViewController {
-    private let certificate: UserCertificate
-
     private let stackScrollView = StackScrollView()
     private let qrCodeNameView = QRCodeNameView()
 
-    private lazy var stateView = CertificateStateView(certificate: certificate, isHomescreen: false)
-    private lazy var detailView = CertificateDetailView(certificate: certificate, showEnglishLabelsIfNeeded: true)
+    private lazy var stateView = CertificateStateView(isHomescreen: false, showValidity: true)
+    private lazy var detailView = CertificateDetailView(showEnglishLabelsIfNeeded: true)
 
     private let removeButton = Button(title: UBLocalized.delete_button, style: .normal(.cc_bund))
 
@@ -60,6 +58,10 @@ class CertificateDetailViewController: ViewController {
         }
     }
 
+    public var certificate: UserCertificate? {
+        didSet { updateCertificate() }
+    }
+
     init(certificate: UserCertificate) {
         self.certificate = certificate
         super.init()
@@ -73,6 +75,7 @@ class CertificateDetailViewController: ViewController {
         super.viewDidLoad()
         setup()
         setupInteraction()
+        updateCertificate()
 
         addDismissButton()
 
@@ -109,8 +112,6 @@ class CertificateDetailViewController: ViewController {
 
         stackScrollView.addSpacerView(Padding.large)
         stackScrollView.addArrangedView(qrCodeNameView)
-
-        qrCodeNameView.certificate = certificate
 
         view.addSubview(qrCodeStateView)
         qrCodeStateView.snp.makeConstraints { make in
@@ -162,6 +163,12 @@ class CertificateDetailViewController: ViewController {
         }
     }
 
+    private func updateCertificate() {
+        detailView.certificate = certificate
+        qrCodeNameView.certificate = certificate
+        startCheck()
+    }
+
     // MARK: - Check
 
     private func startTemporaryCheck() {
@@ -172,7 +179,7 @@ class CertificateDetailViewController: ViewController {
             self.qrCodeStateView.state = self.temporaryVerifierState
         }
 
-        guard let qrCode = certificate.qrCode else { return }
+        guard let qrCode = certificate?.qrCode else { return }
 
         VerifierManager.shared.addObserver(self, for: qrCode, forceUpdate: true) { [weak self] state in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
@@ -190,7 +197,7 @@ class CertificateDetailViewController: ViewController {
     }
 
     private func startCheck() {
-        guard let qrCode = certificate.qrCode else { return }
+        guard let qrCode = certificate?.qrCode else { return }
 
         state = .loading
 

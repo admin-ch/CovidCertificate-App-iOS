@@ -17,11 +17,11 @@ enum CertificateType {
 }
 
 struct UserCertificate: Codable, Equatable {
-    let qrCode: String?
+    var qrCode: String?
     let transferCode: UserTransferCode?
 
     var type: CertificateType {
-        if transferCode != nil {
+        if qrCode == nil {
             return .transferCode
         }
 
