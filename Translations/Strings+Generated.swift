@@ -162,9 +162,9 @@ import Foundation
      case verifier_terms_privacy_link_key = "verifier_terms_privacy_link"
     /// Prüfen
      case verifier_title_qr_scan_key = "verifier_title_qr_scan"
-    /// Entspricht nicht den Gültigkeitskriterien der Schweiz: Die Gültigkeit des Zertifikat ist abgelaufen.
+    /// Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDie Gültigkeit des Zertifikat ist abgelaufen.
      case verifier_verifiy_error_expired_key = "verifier_verifiy_error_expired"
-    /// Entspricht nicht den Gültigkeitskriterien der Schweiz: Das Zertifikat ist noch nicht gültig.
+    /// Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDas Zertifikat ist noch nicht gültig.
      case verifier_verifiy_error_notyetvalid_key = "verifier_verifiy_error_notyetvalid"
     /// Das Covid-Zertifikat wurde widerrufen
      case verifier_verify_error_info_for_blacklist_key = "verifier_verify_error_info_for_blacklist"
@@ -178,10 +178,16 @@ import Foundation
      case verifier_verify_error_list_title_key = "verifier_verify_error_list_title"
     /// Covid-Zertifikat ungültig
      case verifier_verify_error_title_key = "verifier_verify_error_title"
+    /// Entspricht nicht den Gültigkeitskriterien der Schweiz.
+     case verifier_verify_error_validity_range_bold_key = "verifier_verify_error_validity_range_bold"
     /// Zertifikat wird geprüft
      case verifier_verify_loading_text_key = "verifier_verify_loading_text"
     /// Nur mit einem \nAusweisdokument gültig
      case verifier_verify_success_info_key = "verifier_verify_success_info"
+    /// Nicht wiederrufen
+     case verifier_verify_success_info_for_blacklist_key = "verifier_verify_success_info_for_blacklist"
+    /// Signatur gültig
+     case verifier_verify_success_info_for_certificate_valid_key = "verifier_verify_success_info_for_certificate_valid"
     /// Prüfung erfolgreich
      case verifier_verify_success_title_key = "verifier_verify_success_title"
     /// Hinzufügen
@@ -440,10 +446,16 @@ import Foundation
      case wallet_transfer_code_createdat_key = "wallet_transfer_code_createdat"
     /// Fertig
      case wallet_transfer_code_done_button_key = "wallet_transfer_code_done_button"
+    /// Transfer-Code konnte nicht erstellt werden
+     case wallet_transfer_code_error_title_key = "wallet_transfer_code_error_title"
     /// Noch {DAYS} Tage gültig
      case wallet_transfer_code_expire_plural_key = "wallet_transfer_code_expire_plural"
+    /// {DAYS} Tage
+     case wallet_transfer_code_expire_plural_bold_key = "wallet_transfer_code_expire_plural_bold"
     /// Noch 1 Tag gültig
      case wallet_transfer_code_expire_singular_key = "wallet_transfer_code_expire_singular"
+    /// 1 Tag
+     case wallet_transfer_code_expire_singular_bold_key = "wallet_transfer_code_expire_singular_bold"
     /// Text
      case wallet_transfer_code_faq_questions_answer_1_key = "wallet_transfer_code_faq_questions_answer_1"
     /// Text
@@ -484,12 +496,20 @@ import Foundation
      case wallet_transfer_code_faq_works_question_3_key = "wallet_transfer_code_faq_works_question_3"
     /// So funktioniert der Transfer
      case wallet_transfer_code_faq_works_title_key = "wallet_transfer_code_faq_works_title"
+    /// Versuchen Sie es später erneut.
+     case wallet_transfer_code_generate_error_text_key = "wallet_transfer_code_generate_error_text"
+    /// Ein unerwarteter Fehler ist aufgetreten.
+     case wallet_transfer_code_generate_error_title_key = "wallet_transfer_code_generate_error_title"
+    /// Um einen Transfer-Code erstellen zu können, muss die App online sein.
+     case wallet_transfer_code_generate_no_internet_error_text_key = "wallet_transfer_code_generate_no_internet_error_text"
     /// Nächste Schritte
      case wallet_transfer_code_next_steps_key = "wallet_transfer_code_next_steps"
-    /// Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.
+    /// Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.
      case wallet_transfer_code_next_steps1_key = "wallet_transfer_code_next_steps1"
     /// Falls Sie mehrere Zertifikate zB. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
      case wallet_transfer_code_next_steps2_key = "wallet_transfer_code_next_steps2"
+    /// Keine Verbindung zum Internet
+     case wallet_transfer_code_no_internet_title_key = "wallet_transfer_code_no_internet_title"
     /// Code abgelaufen
      case wallet_transfer_code_old_code_key = "wallet_transfer_code_old_code"
     /// Code erstellen
@@ -510,6 +530,12 @@ import Foundation
      case wallet_transfer_code_state_waiting_key = "wallet_transfer_code_state_waiting"
     /// Transfer-Code
      case wallet_transfer_code_title_key = "wallet_transfer_code_title"
+    /// Aktualisierung zur Zeit nicht möglich
+     case wallet_transfer_code_update_error_title_key = "wallet_transfer_code_update_error_title"
+    /// Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.
+     case wallet_transfer_code_update_general_error_text_key = "wallet_transfer_code_update_general_error_text"
+    /// Um den Transfer empfangen zu können, muss die App online sein.
+     case wallet_transfer_code_update_no_internet_error_text_key = "wallet_transfer_code_update_no_internet_error_text"
   }
 
   /// Zertifikat hinzufügen
@@ -664,9 +690,9 @@ import Foundation
    static let verifier_terms_privacy_link = UBLocalized.tr(UBLocalizedKey.verifier_terms_privacy_link_key)
   /// Prüfen
    static let verifier_title_qr_scan = UBLocalized.tr(UBLocalizedKey.verifier_title_qr_scan_key)
-  /// Entspricht nicht den Gültigkeitskriterien der Schweiz: Die Gültigkeit des Zertifikat ist abgelaufen.
+  /// Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDie Gültigkeit des Zertifikat ist abgelaufen.
    static let verifier_verifiy_error_expired = UBLocalized.tr(UBLocalizedKey.verifier_verifiy_error_expired_key)
-  /// Entspricht nicht den Gültigkeitskriterien der Schweiz: Das Zertifikat ist noch nicht gültig.
+  /// Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDas Zertifikat ist noch nicht gültig.
    static let verifier_verifiy_error_notyetvalid = UBLocalized.tr(UBLocalizedKey.verifier_verifiy_error_notyetvalid_key)
   /// Das Covid-Zertifikat wurde widerrufen
    static let verifier_verify_error_info_for_blacklist = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_info_for_blacklist_key)
@@ -680,10 +706,16 @@ import Foundation
    static let verifier_verify_error_list_title = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_list_title_key)
   /// Covid-Zertifikat ungültig
    static let verifier_verify_error_title = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_title_key)
+  /// Entspricht nicht den Gültigkeitskriterien der Schweiz.
+   static let verifier_verify_error_validity_range_bold = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_validity_range_bold_key)
   /// Zertifikat wird geprüft
    static let verifier_verify_loading_text = UBLocalized.tr(UBLocalizedKey.verifier_verify_loading_text_key)
   /// Nur mit einem \nAusweisdokument gültig
    static let verifier_verify_success_info = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_key)
+  /// Nicht wiederrufen
+   static let verifier_verify_success_info_for_blacklist = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_for_blacklist_key)
+  /// Signatur gültig
+   static let verifier_verify_success_info_for_certificate_valid = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_for_certificate_valid_key)
   /// Prüfung erfolgreich
    static let verifier_verify_success_title = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_title_key)
   /// Hinzufügen
@@ -942,10 +974,16 @@ import Foundation
    static let wallet_transfer_code_createdat = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_createdat_key)
   /// Fertig
    static let wallet_transfer_code_done_button = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_done_button_key)
+  /// Transfer-Code konnte nicht erstellt werden
+   static let wallet_transfer_code_error_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_error_title_key)
   /// Noch {DAYS} Tage gültig
    static let wallet_transfer_code_expire_plural = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_expire_plural_key)
+  /// {DAYS} Tage
+   static let wallet_transfer_code_expire_plural_bold = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_expire_plural_bold_key)
   /// Noch 1 Tag gültig
    static let wallet_transfer_code_expire_singular = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_expire_singular_key)
+  /// 1 Tag
+   static let wallet_transfer_code_expire_singular_bold = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_expire_singular_bold_key)
   /// Text
    static let wallet_transfer_code_faq_questions_answer_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_1_key)
   /// Text
@@ -986,12 +1024,20 @@ import Foundation
    static let wallet_transfer_code_faq_works_question_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_3_key)
   /// So funktioniert der Transfer
    static let wallet_transfer_code_faq_works_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_title_key)
+  /// Versuchen Sie es später erneut.
+   static let wallet_transfer_code_generate_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_generate_error_text_key)
+  /// Ein unerwarteter Fehler ist aufgetreten.
+   static let wallet_transfer_code_generate_error_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_generate_error_title_key)
+  /// Um einen Transfer-Code erstellen zu können, muss die App online sein.
+   static let wallet_transfer_code_generate_no_internet_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_generate_no_internet_error_text_key)
   /// Nächste Schritte
    static let wallet_transfer_code_next_steps = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps_key)
-  /// Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.
+  /// Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.
    static let wallet_transfer_code_next_steps1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps1_key)
   /// Falls Sie mehrere Zertifikate zB. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
    static let wallet_transfer_code_next_steps2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps2_key)
+  /// Keine Verbindung zum Internet
+   static let wallet_transfer_code_no_internet_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_no_internet_title_key)
   /// Code abgelaufen
    static let wallet_transfer_code_old_code = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_old_code_key)
   /// Code erstellen
@@ -1012,6 +1058,12 @@ import Foundation
    static let wallet_transfer_code_state_waiting = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_waiting_key)
   /// Transfer-Code
    static let wallet_transfer_code_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_title_key)
+  /// Aktualisierung zur Zeit nicht möglich
+   static let wallet_transfer_code_update_error_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_update_error_title_key)
+  /// Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.
+   static let wallet_transfer_code_update_general_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_update_general_error_text_key)
+  /// Um den Transfer empfangen zu können, muss die App online sein.
+   static let wallet_transfer_code_update_no_internet_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_update_no_internet_error_text_key)
 }
 // swiftlint:enable function_parameter_count identifier_name line_length type_body_length
 

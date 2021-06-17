@@ -16,12 +16,14 @@ class TransferCodeNextStepsViewController: StackScrollViewController {
 
     private let insets = UIEdgeInsets(top: 0, left: 2 * Padding.medium, bottom: 0, right: 2 * Padding.medium)
 
-    private let loadingView = LoadingView()
-
     private let doneContainer = UIView()
     private let doneButton = Button(title: UBLocalized.wallet_transfer_code_done_button)
 
-    private let inAppDelivery = InAppDelivery()
+    public var transferCode: UserTransferCode? {
+        didSet {
+            self.transferCodeStatusView.transferCode = transferCode
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,36 +80,6 @@ class TransferCodeNextStepsViewController: StackScrollViewController {
         let step2 = OnboardingInfoView(icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_blue), text: UBLocalized.wallet_transfer_code_next_steps2, alignment: .left)
         addArrangedView(step2)
         stackScrollView.addSpacerView(2 * Padding.medium)
-
-        // Loading view
-        view.addSubview(loadingView)
-        loadingView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-    }
-
-    func startLoading() {
-        loadingView.startLoading()
-
-        inAppDelivery.registerNewCode { result in
-
-            switch result {
-            case let .success(code):
-                let code = UserTransferCode(transferCode: code, created: Date())
-                let cert = UserCertificate(qrCode: nil, transferCode: code)
-                CertificateStorage.shared.insertCertificate(userCertificate: cert)
-                self.transferCodeStatusView.transferCode = code
-            case let .failure(error):
-                // TODO: handle error
-                break
-            }
-
-            self.stopLoading()
-        }
-    }
-
-    func stopLoading() {
-        loadingView.stopLoading()
     }
 
     override func viewSafeAreaInsetsDidChange() {
@@ -118,41 +90,5 @@ class TransferCodeNextStepsViewController: StackScrollViewController {
         doneContainer.snp.updateConstraints { make in
             make.height.equalTo(80 + self.view.safeAreaInsets.bottom)
         }
-    }
-}
-
-private class LoadingView: UIView {
-    private let activityIndicator = UIActivityIndicatorView(style: .gray)
-
-    init() {
-        super.init(frame: .zero)
-
-        setupView()
-    }
-
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    private func setupView() {
-        backgroundColor = .cc_white
-        addSubview(activityIndicator)
-        activityIndicator.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-        }
-
-        alpha = 0
-    }
-
-    func startLoading() {
-        alpha = 1.0
-        activityIndicator.startAnimating()
-    }
-
-    func stopLoading() {
-        UIView.animate(withDuration: 0.25, delay: 0, options: .beginFromCurrentState, animations: {
-            self.alpha = 0
-        }, completion: nil)
-        activityIndicator.stopAnimating()
     }
 }
