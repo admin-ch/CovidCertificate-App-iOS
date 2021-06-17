@@ -144,7 +144,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
 
         certificatesViewController.touchedCertificateCallback = { [weak self] cert in
             guard let strongSelf = self else { return }
-            let vc = CertificateDetailViewController(certificate: cert)
+            let vc = WalletDetailViewController(certificate: cert)
             vc.presentInNavigationController(from: strongSelf)
         }
     }

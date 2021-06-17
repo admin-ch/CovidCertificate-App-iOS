@@ -36,8 +36,6 @@ class CertificateDetailViewController: ViewController {
 
     private let brightnessQRScanning = BrightnessQRScanning()
 
-    public var deinitCallback: (() -> Void)?
-
     private var state: VerificationState = .loading {
         didSet {
             update()
@@ -222,7 +220,6 @@ class CertificateDetailViewController: ViewController {
     }
 
     deinit {
-        self.deinitCallback?()
         NotificationCenter.default.removeObserver(self)
     }
 }
