@@ -16,7 +16,7 @@ class WalletDetailViewController: ViewController {
     private let transferCodeDetailVC: TransferCodeDetailViewController
     private let loadingView = LoadingView()
 
-    private let certificate: UserCertificate
+    private var certificate: UserCertificate
 
     // MARK: - Init
 
@@ -34,9 +34,55 @@ class WalletDetailViewController: ViewController {
 
         addSubviewController(certificateDetailVC)
         addSubviewController(transferCodeDetailVC)
+
+        view.addSubview(loadingView)
+
+        loadingView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
         update(animated: false)
 
         addDismissButton()
+
+        UIStateManager.shared.addObserver(self) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.startDownloadIfNeeded()
+        }
+    }
+
+    private func startDownloadIfNeeded() {
+        guard let code = self.certificate.transferCode?.transferCode,
+              certificate.type == .transferCode
+        else { return }
+
+        certificateDetailVC.view.alpha = 0.0
+        transferCodeDetailVC.view.alpha = 0.0
+        loadingView.alpha = 1.0
+
+        loadingView.startLoading()
+
+        TransferManager.shared.addObserver(self, for: code) { [weak self] result in
+            guard let strongSelf = self else { return }
+
+            switch result {
+            case let .success(certificate):
+                strongSelf.certificate.qrCode = certificate.first?.cert
+                strongSelf.certificateDetailVC.certificate = strongSelf.certificate
+                CertificateStorage.shared.updateCertificate(with: code, qrCode: certificate.first?.cert)
+
+            case let .failure(error):
+                switch error {
+                case .GET_CERTIFICATE_FAILED:
+                    strongSelf.transferCodeDetailVC.updateDate = Date()
+                default:
+                    strongSelf.transferCodeDetailVC.error = error
+                }
+            }
+
+            strongSelf.loadingView.stopLoading()
+            strongSelf.update(animated: true)
+        }
     }
 
     private func update(animated: Bool) {

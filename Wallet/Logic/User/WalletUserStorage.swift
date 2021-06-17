@@ -33,4 +33,14 @@ class CertificateStorage {
             userCertificates.insert(userCertificate, at: 0)
         }
     }
+
+    func updateCertificate(with transferCode: String, qrCode: String?) {
+        userCertificates = userCertificates.map { uc in
+            if let t = uc.transferCode?.transferCode, t == transferCode {
+                return UserCertificate(qrCode: qrCode, transferCode: uc.transferCode)
+            }
+
+            return uc
+        }
+    }
 }

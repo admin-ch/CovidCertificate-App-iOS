@@ -24,7 +24,13 @@ class HomescreenCertificateView: UIView {
     private let qrCodeView: QRCodeView
     private let transferView: TransferView
 
-    public let certificate: UserCertificate
+    public var certificate: UserCertificate? {
+        didSet {
+            qrCodeView.certificate = certificate
+            transferView.certificate = certificate
+            update(animated: true)
+        }
+    }
 
     public var state: VerificationState = .loading {
         didSet {
@@ -115,7 +121,9 @@ class HomescreenCertificateView: UIView {
     }
 
     private func update(animated _: Bool) {
-        switch certificate.type {
+        guard let cert = certificate else { return }
+
+        switch cert.type {
         case .certificate:
             titleLabel.text = UBLocalized.wallet_certificate
             qrCodeView.alpha = 1.0
@@ -192,7 +200,7 @@ private class TransferView: UIView {
     // MARK: - Views
 
     private let transferCodeView = TransferCodeStatusView()
-    public var certificate: UserCertificate
+    public var certificate: UserCertificate?
 
     private let nameView = Label(.title, textAlignment: .center)
     private let animationView = TransferCodeAnimationView()
@@ -202,7 +210,7 @@ private class TransferView: UIView {
 
     // MARK: - Subviews
 
-    init(certificate: UserCertificate) {
+    init(certificate: UserCertificate?) {
         self.certificate = certificate
         super.init(frame: .zero)
         setup()
@@ -232,7 +240,7 @@ private class TransferView: UIView {
         nameView.text = UBLocalized.wallet_transfer_code_state_waiting
         nameView.ub_setContentPriorityRequired()
 
-        transferCodeView.transferCode = certificate.transferCode
+        transferCodeView.transferCode = certificate?.transferCode
 
         addSubview(transferCodeView)
         transferCodeView.snp.makeConstraints { make in
@@ -254,9 +262,9 @@ private class QRCodeView: UIView {
 
     private let titleLabel = Label(.uppercaseBold, textColor: .cc_greyText, textAlignment: .center)
     private let nameView = QRCodeNameView(qrCodeInset: Padding.large)
-    private let stateView = CertificateStateView()
+    private let stateView = CertificateStateView(showValidity: false)
 
-    public var certificate: UserCertificate
+    public var certificate: UserCertificate?
 
     public var state: VerificationState = .loading {
         didSet {
@@ -301,6 +309,7 @@ private class QRCodeView: UIView {
     public func update(animated _: Bool) {
         let isInvalid = state.isInvalid()
         nameView.enabled = !isInvalid
+        nameView.certificate = certificate
 
         accessibilityLabel = [nameView.accessibilityLabel, stateView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
     }

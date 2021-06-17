@@ -126,7 +126,7 @@ extension CertificateListViewController: UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
 
         let cert = certificates[indexPath.row]
-        let vc = CertificateDetailViewController(certificate: cert)
+        let vc = WalletDetailViewController(certificate: cert)
         vc.presentInNavigationController(from: self)
     }
 }

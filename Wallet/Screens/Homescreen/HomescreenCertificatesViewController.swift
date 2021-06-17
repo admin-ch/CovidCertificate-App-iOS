@@ -104,9 +104,30 @@ class HomescreenCertificatesViewController: ViewController {
 
     private func startChecks() {
         for i in certificateViews {
-            if let qrCode = i.certificate.qrCode {
+            if let qrCode = i.certificate?.qrCode {
                 VerifierManager.shared.addObserver(self, for: qrCode) { [weak i] state in
                     i?.state = state
+                }
+            } else if let code = i.certificate?.transferCode?.transferCode {
+                TransferManager.shared.addObserver(self, for: code) { [weak i] result in
+
+                    switch result {
+                    case let .success(certificate):
+                        var cert = i?.certificate
+                        cert?.qrCode = certificate.first?.cert
+                        i?.certificate = cert
+                        CertificateStorage.shared.updateCertificate(with: code, qrCode: certificate.first?.cert)
+
+                    case let .failure(error):
+                        switch error {
+                        case .GET_CERTIFICATE_FAILED:
+                            // TODO: update date
+                            break
+                        default:
+                            // TODO: update error
+                            break
+                        }
+                    }
                 }
             }
         }

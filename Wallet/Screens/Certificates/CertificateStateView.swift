@@ -24,10 +24,8 @@ class CertificateStateView: UIView {
     private let validityErrorStackView = UIStackView()
     private let validityView = CertificateStateValidityView()
     private let errorLabel = Label(.smallErrorLight, textAlignment: .center)
-    private let certificate: UserCertificate?
-    private var hasValidityView: Bool {
-        certificate != nil
-    }
+
+    private let hasValidityView: Bool
 
     var states: (state: VerificationState, temporaryVerifierState: TemporaryVerifierState) = (.loading, .idle) {
         didSet { update(animated: true) }
@@ -37,9 +35,9 @@ class CertificateStateView: UIView {
 
     // MARK: - Init
 
-    init(certificate: UserCertificate? = nil, isHomescreen: Bool = true) {
+    init(isHomescreen: Bool = true, showValidity: Bool) {
         self.isHomescreen = isHomescreen
-        self.certificate = certificate
+        hasValidityView = showValidity
 
         super.init(frame: .zero)
 
