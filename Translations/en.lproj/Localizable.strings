@@ -709,3 +709,6 @@
 
 /*Wallet: Transfer Code Fehlertext bei Generieren ohne Internet*/
 "wallet_transfer_code_generate_no_internet_error_text" = "Um einen Transfer-Code erstellen zu können, muss die App online sein.";
+
+/*Wallet: Accessibility Name für Refresh Button*/
+"accessibility_refresh_button" = "Aktualisieren";

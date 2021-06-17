@@ -26,6 +26,8 @@ import Foundation
      case accessibility_lamp_on_button_key = "accessibility_lamp_on_button"
     /// Zertifikate Liste
      case accessibility_list_button_key = "accessibility_list_button"
+    /// Aktualisieren
+     case accessibility_refresh_button_key = "accessibility_refresh_button"
     /// Zugriff auf Kamera erlauben
      case camera_permission_dialog_action_key = "camera_permission_dialog_action"
     /// Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können.
@@ -554,6 +556,8 @@ import Foundation
    static let accessibility_lamp_on_button = UBLocalized.tr(UBLocalizedKey.accessibility_lamp_on_button_key)
   /// Zertifikate Liste
    static let accessibility_list_button = UBLocalized.tr(UBLocalizedKey.accessibility_list_button_key)
+  /// Aktualisieren
+   static let accessibility_refresh_button = UBLocalized.tr(UBLocalizedKey.accessibility_refresh_button_key)
   /// Zugriff auf Kamera erlauben
    static let camera_permission_dialog_action = UBLocalized.tr(UBLocalizedKey.camera_permission_dialog_action_key)
   /// Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können.
