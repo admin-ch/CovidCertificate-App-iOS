@@ -14,7 +14,8 @@
 import Foundation
 
 public enum Luhn {
-    private static let characterSet = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "E", "F", "G", "H", "K", "M", "N", "P", "R", "S", "T", "U", "L", "W", "Y", "Z"]
+    private static let characterSet = "1234567890ABCDEFGHKMNPRSTUWXYZ".map { "\($0)" }
+
     private static let codeSize = 8
     public static func generateLuhnCode() -> String {
         let luhnCode = (0 ..< 8).map { _ in characterSet.randomElement()! }.joined()
