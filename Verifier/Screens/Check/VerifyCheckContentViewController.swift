@@ -276,9 +276,13 @@ class VerifyCheckContentViewController: ViewController {
                 self.loadingView.alpha = 0.0
                 self.statusView.alpha = 1.0
                 self.infoView.alpha = 1.0
+                self.infoErrorView1.alpha = 0.0
+                self.infoErrorView2.alpha = 0.0
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
                 self.infoView.ub_setHidden(false)
+                self.infoErrorView1.ub_setHidden(true)
+                self.infoErrorView2.ub_setHidden(true)
                 self.errorLabel.ub_setHidden(false)
             default:
                 break
