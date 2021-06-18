@@ -209,6 +209,7 @@ private class TransferView: UIView {
     public var certificate: UserCertificate?
 
     private let nameView = Label(.title, textAlignment: .center)
+    private let failedImageView = UIImageView(image: UIImage(named: "illu-transfer-failed"))
     private let animationView = TransferCodeAnimationView()
 
     private var timer: Timer?
@@ -236,18 +237,33 @@ private class TransferView: UIView {
     private func setup() {
         addSubview(animationView)
 
-        animationView.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
+        let codeHasFailed = certificate?.transferCode?.state == .failed
+
+        if codeHasFailed {
+            failedImageView.ub_setContentPriorityRequired()
+            addSubview(failedImageView)
+            failedImageView.snp.makeConstraints { make in
+                make.top.equalToSuperview().inset(40)
+                make.centerX.equalToSuperview()
+            }
+        } else {
+            animationView.snp.makeConstraints { make in
+                make.top.left.right.equalToSuperview()
+            }
         }
 
         addSubview(nameView)
 
         nameView.snp.makeConstraints { make in
-            make.top.equalTo(animationView.snp.bottom).offset(Padding.medium)
+            if codeHasFailed {
+                make.top.equalTo(failedImageView.snp.bottom).offset(50)
+            } else {
+                make.top.equalTo(animationView.snp.bottom).offset(Padding.medium)
+            }
             make.left.right.equalToSuperview().inset(Padding.large)
         }
 
-        nameView.text = UBLocalized.wallet_transfer_code_state_waiting
+        nameView.text = codeHasFailed ? UBLocalized.wallet_transfer_code_state_expired : UBLocalized.wallet_transfer_code_state_waiting
         nameView.ub_setContentPriorityRequired()
 
         transferCodeView.transferCode = certificate?.transferCode

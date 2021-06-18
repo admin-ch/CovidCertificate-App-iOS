@@ -28,6 +28,7 @@ class TransferCodeLabel: UIView {
         super.init(frame: .zero)
 
         setupView()
+        update()
     }
 
     required init?(coder _: NSCoder) {

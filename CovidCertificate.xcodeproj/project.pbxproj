@@ -249,6 +249,8 @@
 		DC8AC73E265291C1005A2543 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AC73C265291C0005A2543 /* Strings+Generated.swift */; };
 		DC8AC7472653B7F5005A2543 /* CertificateQRCodeStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AC7462653B7F5005A2543 /* CertificateQRCodeStateView.swift */; };
 		DC8AC74926541723005A2543 /* CertificateStateValidityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AC74826541723005A2543 /* CertificateStateValidityView.swift */; };
+		DC8F1ED8267C6E6300F44FF7 /* SmallTransferCodeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8F1ED7267C6E6300F44FF7 /* SmallTransferCodeLabel.swift */; };
+		DC8F1EDA267C6F8200F44FF7 /* TransferCodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8F1ED9267C6F8200F44FF7 /* TransferCodeTableViewCell.swift */; };
 		DC9A81AB242CE5E000AD1548 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC9A81A1242CE5E000AD1548 /* Localizable.strings */; };
 		DC9A81AC242CE5E000AD1548 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC9A81A3242CE5E000AD1548 /* InfoPlist.strings */; };
 		DCA3FFB824504B190003F5AD /* ClickthroughStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA3FFB724504B190003F5AD /* ClickthroughStackView.swift */; };
@@ -455,6 +457,8 @@
 		DC8AC73C265291C0005A2543 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		DC8AC7462653B7F5005A2543 /* CertificateQRCodeStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateQRCodeStateView.swift; sourceTree = "<group>"; };
 		DC8AC74826541723005A2543 /* CertificateStateValidityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateStateValidityView.swift; sourceTree = "<group>"; };
+		DC8F1ED7267C6E6300F44FF7 /* SmallTransferCodeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTransferCodeLabel.swift; sourceTree = "<group>"; };
+		DC8F1ED9267C6F8200F44FF7 /* TransferCodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeTableViewCell.swift; sourceTree = "<group>"; };
 		DC9A81A2242CE5E000AD1548 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DC9A81A4242CE5E000AD1548 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DC9A81A5242CE5E000AD1548 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -695,6 +699,7 @@
 				6E173927267B330200813D30 /* TransferCodeDetailViewController.swift */,
 				6E173929267B382900813D30 /* TransferCodeAnimationView.swift */,
 				6EEAFBEC267B4F3300807C16 /* TransferCodeRefreshView.swift */,
+				DC8F1ED9267C6F8200F44FF7 /* TransferCodeTableViewCell.swift */,
 			);
 			path = TransferCode;
 			sourceTree = "<group>";
@@ -810,6 +815,7 @@
 				6EC172C826407F5F002E27DB /* CertificateAddDetailViewController.swift */,
 				6EA5C3552643BDA600EA066F /* CertificateAddDetailView.swift */,
 				6EA5C35B2643E8DD00EA066F /* CertificateTableViewCell.swift */,
+				DC8F1ED7267C6E6300F44FF7 /* SmallTransferCodeLabel.swift */,
 				6EA5C35D2643FFFC00EA066F /* CertificateDetailViewController.swift */,
 				DC8AC7462653B7F5005A2543 /* CertificateQRCodeStateView.swift */,
 				6EF166DF264E7FD900426985 /* CertificateStateView.swift */,
@@ -1553,6 +1559,7 @@
 				DC8AC74926541723005A2543 /* CertificateStateValidityView.swift in Sources */,
 				6EF28CFE26370538001C1565 /* WalletQRScannerOverlay.swift in Sources */,
 				6E5A0F25264336B4004718B4 /* UIStateLogic.swift in Sources */,
+				DC8F1EDA267C6F8200F44FF7 /* TransferCodeTableViewCell.swift in Sources */,
 				6EF166D4264E5C3200426985 /* ConfigResponseBody.swift in Sources */,
 				6EC172C526407F1A002E27DB /* WalletScannerViewController.swift in Sources */,
 				6EEAFBED267B4F3300807C16 /* TransferCodeRefreshView.swift in Sources */,
@@ -1582,6 +1589,7 @@
 				6EF166D6264E5C3200426985 /* InfoBoxVisibilityManager.swift in Sources */,
 				6EEAFBEF267B63BC00807C16 /* TransferManager.swift in Sources */,
 				6EA5C3602644133E00EA066F /* QRCodeNameView.swift in Sources */,
+				DC8F1ED8267C6E6300F44FF7 /* SmallTransferCodeLabel.swift in Sources */,
 				242D2276245D62D8005DAEA8 /* WalletUserStorage.swift in Sources */,
 				6EF166BC264D488A00426985 /* ScannerLightButton.swift in Sources */,
 				DC702B17243F70060066C773 /* UIView+CC.swift in Sources */,
