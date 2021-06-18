@@ -25,6 +25,14 @@ class ImportHandler {
     // MARK: - Handle URL
 
     public func handle(url: URL) {
+        let accessingSecurityScopedResource = url.startAccessingSecurityScopedResource()
+
+        defer {
+            if accessingSecurityScopedResource {
+                url.stopAccessingSecurityScopedResource()
+            }
+        }
+
         var images: [UIImage] = []
 
         if isPdf(url: url) {
