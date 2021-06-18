@@ -25,6 +25,14 @@ class ImportHandler {
     // MARK: - Handle URL
 
     public func handle(url: URL) {
+        let accessingSecurityScopedResource = url.startAccessingSecurityScopedResource()
+
+        defer {
+            if accessingSecurityScopedResource {
+                url.stopAccessingSecurityScopedResource()
+            }
+        }
+
         var images: [UIImage] = []
 
         if isPdf(url: url) {
@@ -100,14 +108,6 @@ class ImportHandler {
     }
 
     func drawImagesFromPDF(url: URL) -> [UIImage] {
-        let accessingSecurityScopedResource = url.startAccessingSecurityScopedResource()
-
-        defer {
-            if accessingSecurityScopedResource {
-                url.stopAccessingSecurityScopedResource()
-            }
-        }
-
         guard let document = CGPDFDocument(url as CFURL) else { return [] }
 
         var images: [UIImage] = []
