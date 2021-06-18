@@ -12,9 +12,15 @@
 import Foundation
 
 class LoadingView: UIView {
-    private let activityIndicator = UIActivityIndicatorView(style: .gray)
+    private let activityIndicator: UIActivityIndicatorView
 
     init() {
+        if #available(iOS 13.0, *) {
+            activityIndicator = UIActivityIndicatorView(style: .large)
+        } else {
+            activityIndicator = UIActivityIndicatorView(style: .gray)
+        }
+
         super.init(frame: .zero)
 
         setupView()
@@ -28,7 +34,8 @@ class LoadingView: UIView {
         backgroundColor = .cc_white
         addSubview(activityIndicator)
         activityIndicator.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.centerY.equalToSuperview().multipliedBy(0.5)
+            make.centerX.equalToSuperview()
         }
 
         alpha = 0

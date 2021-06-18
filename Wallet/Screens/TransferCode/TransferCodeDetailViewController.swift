@@ -32,7 +32,10 @@ class TransferCodeDetailViewController: ViewController {
     }
 
     public var updateDate: Date? {
-        didSet { update() }
+        didSet {
+            error = nil
+            update()
+        }
     }
 
     public var refreshCallback: (() -> Void)?
@@ -103,6 +106,7 @@ class TransferCodeDetailViewController: ViewController {
     private func update() {
         // data changes
         statusView.error = error
+        refreshView.error = error
         errorLabel.text = error?.errorCode
         updateView.date = updateDate
 

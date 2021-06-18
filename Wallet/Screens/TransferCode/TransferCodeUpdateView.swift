@@ -14,9 +14,7 @@ import Foundation
 class TransferCodeUpdateView: UIView {
     // MARK: Views
 
-    private let titleLabel = Label(.textBold)
     private let textLabel = Label(.text)
-
     public let refreshButton = Button(image: UIImage(named: "ic-refresh-blue"), accessibilityName: UBLocalized.accessibility_refresh_button)
 
     public var date: Date? {
@@ -40,7 +38,6 @@ class TransferCodeUpdateView: UIView {
         backgroundColor = .cc_blueish
         layer.cornerRadius = 10
 
-        addSubview(titleLabel)
         addSubview(textLabel)
         addSubview(refreshButton)
 
@@ -53,16 +50,20 @@ class TransferCodeUpdateView: UIView {
         textLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(Padding.medium - 3.0)
             make.left.equalToSuperview().inset(Padding.medium)
-            make.right.lessThanOrEqualTo(refreshButton.snp.left).offset(-Padding.small)
-        }
-
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(Padding.small)
-            make.left.equalToSuperview().inset(Padding.medium)
-            make.right.lessThanOrEqualTo(refreshButton.snp.left).offset(-Padding.small)
+            make.right.lessThanOrEqualTo(refreshButton.snp.left).offset(-Padding.medium)
             make.bottom.equalToSuperview().inset(2.0 * Padding.small)
         }
     }
 
-    private func update() {}
+    private func update() {
+        guard let d = date else {
+            textLabel.text = nil
+            return
+        }
+
+        let date = DateFormatter.ub_dayTimeString(from: d)
+        let text = UBLocalized.wallet_transfer_code_state_updated
+        let attributed = text.replacingOccurrences(of: "{DATE}", with: date).formattingOccurrenceBold(date)
+        textLabel.attributedText = attributed
+    }
 }
