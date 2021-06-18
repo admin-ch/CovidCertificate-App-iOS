@@ -100,6 +100,14 @@ class ImportHandler {
     }
 
     func drawImagesFromPDF(url: URL) -> [UIImage] {
+        let accessingSecurityScopedResource = url.startAccessingSecurityScopedResource()
+
+        defer {
+            if accessingSecurityScopedResource {
+                url.stopAccessingSecurityScopedResource()
+            }
+        }
+
         guard let document = CGPDFDocument(url as CFURL) else { return [] }
 
         var images: [UIImage] = []
