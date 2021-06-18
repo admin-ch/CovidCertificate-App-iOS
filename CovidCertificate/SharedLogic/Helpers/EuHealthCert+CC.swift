@@ -80,11 +80,19 @@ extension Vaccination {
     var displayCountry: String {
         return Locale.current.localizedString(forRegionCode: country) ?? country
     }
+
+    var displayCountryEnglish: String? {
+        return Locale(identifier: "en").localizedString(forRegionCode: country)
+    }
 }
 
 extension PastInfection {
     var displayCountry: String {
         return Locale.current.localizedString(forRegionCode: countryOfTest) ?? countryOfTest
+    }
+
+    var displayCountryEnglish: String? {
+        return Locale(identifier: "en").localizedString(forRegionCode: countryOfTest)
     }
 
     var displayFirstPositiveTest: String? {
@@ -97,8 +105,12 @@ extension PastInfection {
 }
 
 extension Test {
-    var displayCountry: String? {
+    var displayCountry: String {
         return Locale.current.localizedString(forRegionCode: country) ?? country
+    }
+
+    var displayCountryEnglish: String? {
+        return Locale(identifier: "en").localizedString(forRegionCode: country)
     }
 
     var displaySampleDateTime: String? {
