@@ -224,7 +224,7 @@ class VerifyCheckContentViewController: ViewController {
             switch self.state {
             case .loading:
                 self.loadingView.rotate()
-                
+
                 self.loadingView.ub_setHidden(false)
                 self.statusView.ub_setHidden(true)
                 self.infoView.ub_setHidden(true)
@@ -233,7 +233,7 @@ class VerifyCheckContentViewController: ViewController {
                 self.infoErrorView2.ub_setHidden(true)
             case .success:
                 self.loadingView.stopRotation()
-                
+
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
                 self.infoView.ub_setHidden(false)
@@ -246,7 +246,7 @@ class VerifyCheckContentViewController: ViewController {
                 let showInfo1 = self.state?.showSignatureValidInformation() ?? false
                 let showInfo2 = self.state?.showNotRevokedInformation() ?? false
                 self.loadingView.stopRotation()
-                
+
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
                 self.infoView.ub_setHidden(false)
@@ -256,7 +256,7 @@ class VerifyCheckContentViewController: ViewController {
 
             case .retry:
                 self.loadingView.stopRotation()
-                
+
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
                 self.infoView.ub_setHidden(false)
