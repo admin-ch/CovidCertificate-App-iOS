@@ -123,6 +123,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.applicationIconBadgeNumber = 0
 
         addBlurView()
+
+        window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 
     func applicationDidBecomeActive(_: UIApplication) {
