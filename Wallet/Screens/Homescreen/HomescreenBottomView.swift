@@ -97,7 +97,10 @@ class HomescreenBottomView: UIView {
     }
 
     private func update() {
-        let hasMultipleCertificates = UIStateManager.shared.uiState.certificateState.certificates.count > 1
+        var hasMultipleCertificates = false
+        if let uiState = UIStateManager.shared.uiState {
+            hasMultipleCertificates = uiState.certificateState.certificates.count > 1
+        }
         listButton.alpha = state == .certificates && hasMultipleCertificates ? 1.0 : 0.0
         faqButton.alpha = state == .certificates || state == .onboarding ? 1.0 : 0.0
     }
