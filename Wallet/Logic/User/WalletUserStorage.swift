@@ -18,14 +18,31 @@ class WalletUserStorage {
             ConfigManager().startConfigRequest(window: UIApplication.shared.keyWindow?.window)
         }
     }
+
+    @UBUserDefault(key: "wallet.user.hasCompletedSecureStorageMigration", defaultValue: false)
+    var hasCompletedSecureStorageMigration: Bool
 }
 
 class CertificateStorage {
+    // MARK: - Shared
+
+    private lazy var certificates: [UserCertificate] = self.secureStorage.loadSynchronously() ?? []
+    private lazy var secureStorage = SecureStorage<[UserCertificate]>(name: "wallet.user.certificates")
+
     static let shared = CertificateStorage()
 
-    @KeychainPersisted(key: "wallet.user.certificates", defaultValue: [])
+    // MARK: - Certificates API
+
     var userCertificates: [UserCertificate] {
-        didSet { UIStateManager.shared.stateChanged() }
+        set {
+            certificates = newValue
+            _ = secureStorage.saveSynchronously(certificates)
+            UIStateManager.shared.stateChanged()
+        }
+
+        get {
+            certificates
+        }
     }
 
     func insertCertificate(userCertificate: UserCertificate) {
@@ -43,4 +60,9 @@ class CertificateStorage {
             return uc
         }
     }
+
+    // MARK: - Migration
+
+    @KeychainPersisted(key: "wallet.user.certificates", defaultValue: [])
+    var keyChainUserCertificates: [UserCertificate]
 }
