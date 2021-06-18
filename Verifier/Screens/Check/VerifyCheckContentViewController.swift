@@ -224,12 +224,7 @@ class VerifyCheckContentViewController: ViewController {
             switch self.state {
             case .loading:
                 self.loadingView.rotate()
-
-                self.loadingView.alpha = 1.0
-                self.statusView.alpha = 0.0
-                self.infoView.alpha = 0.0
-                self.infoErrorView1.alpha = 0.0
-                self.infoErrorView2.alpha = 0.0
+                
                 self.loadingView.ub_setHidden(false)
                 self.statusView.ub_setHidden(true)
                 self.infoView.ub_setHidden(true)
@@ -238,12 +233,7 @@ class VerifyCheckContentViewController: ViewController {
                 self.infoErrorView2.ub_setHidden(true)
             case .success:
                 self.loadingView.stopRotation()
-
-                self.loadingView.alpha = 0.0
-                self.statusView.alpha = 1.0
-                self.infoView.alpha = 1.0
-                self.infoErrorView1.alpha = 0.0
-                self.infoErrorView2.alpha = 0.0
+                
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
                 self.infoView.ub_setHidden(false)
@@ -255,14 +245,8 @@ class VerifyCheckContentViewController: ViewController {
 
                 let showInfo1 = self.state?.showSignatureValidInformation() ?? false
                 let showInfo2 = self.state?.showNotRevokedInformation() ?? false
-
                 self.loadingView.stopRotation()
-
-                self.loadingView.alpha = 0.0
-                self.statusView.alpha = 1.0
-                self.infoView.alpha = 1.0
-                self.infoErrorView1.alpha = showInfo1 ? 1.0 : 0.0
-                self.infoErrorView2.alpha = showInfo2 ? 1.0 : 0.0
+                
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
                 self.infoView.ub_setHidden(false)
@@ -272,12 +256,7 @@ class VerifyCheckContentViewController: ViewController {
 
             case .retry:
                 self.loadingView.stopRotation()
-
-                self.loadingView.alpha = 0.0
-                self.statusView.alpha = 1.0
-                self.infoView.alpha = 1.0
-                self.infoErrorView1.alpha = 0.0
-                self.infoErrorView2.alpha = 0.0
+                
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
                 self.infoView.ub_setHidden(false)
