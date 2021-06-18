@@ -185,17 +185,17 @@ class VerifyCheckContentViewController: ViewController {
             infoView.set(text: UBLocalized.verifier_verify_success_info, backgroundColor: .cc_blueish, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_blue), showReloadButton: false)
         case let .invalid(errors, errorCodes, _):
             let color: UIColor = .cc_redish
-            
+
             // !: count is checked
             let text = errors.count == 1 ? errors.first!.displayName() : errors.map { "• " + $0.displayName() }.joined(separator: "\n")
 
             statusView.set(text: text, backgroundColor: color, icon: UIImage(named: "ic-info-alert-red"))
 
             if state?.showSignatureValidInformation() ?? false {
-                infoErrorView1.set(text: "Signatur gültig", backgroundColor: .cc_greyish, icon: UIImage(named: "ic-info-alert-red"), showReloadButton: false)
+                infoErrorView1.set(text: UBLocalized.verifier_verify_success_info_for_certificate_valid, backgroundColor: .cc_greyish, icon: UIImage(named: "ic-privacy-gray"), showReloadButton: false)
             }
             if state?.showNotRevokedInformation() ?? false {
-                infoErrorView2.set(text: "Nicht widerrufen", backgroundColor: .cc_greyish, icon: UIImage(named: "ic-info-alert-red"), showReloadButton: false)
+                infoErrorView2.set(text: UBLocalized.verifier_verify_success_info_for_blacklist, backgroundColor: .cc_greyish, icon: UIImage(named: "ic-check-gray"), showReloadButton: false)
             }
 
             let codes = errorCodes.joined(separator: ", ")
@@ -252,32 +252,24 @@ class VerifyCheckContentViewController: ViewController {
                 self.infoErrorView2.ub_setHidden(true)
 
             case .invalid:
+
+                let showInfo1 = self.state?.showSignatureValidInformation() ?? false
+                let showInfo2 = self.state?.showNotRevokedInformation() ?? false
+
                 self.loadingView.stopRotation()
 
                 self.loadingView.alpha = 0.0
                 self.statusView.alpha = 1.0
                 self.infoView.alpha = 1.0
+                self.infoErrorView1.alpha = showInfo1 ? 1.0 : 0.0
+                self.infoErrorView2.alpha = showInfo2 ? 1.0 : 0.0
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
                 self.infoView.ub_setHidden(false)
+                self.infoErrorView1.ub_setHidden(showInfo1 ? false : true)
+                self.infoErrorView2.ub_setHidden(showInfo2 ? false : true)
                 self.errorLabel.ub_setHidden(false)
 
-                if self.state?.showSignatureValidInformation() ?? false {
-                    self.infoView.alpha = 0.0
-                    self.infoErrorView1.alpha = 1.0
-                    self.infoErrorView2.alpha = 0.0
-                    self.infoView.ub_setHidden(true)
-                    self.infoErrorView1.ub_setHidden(false)
-                    self.infoErrorView2.ub_setHidden(true)
-                }
-                if self.state?.showNotRevokedInformation() ?? false {
-                    self.infoView.alpha = 0.0
-                    self.infoErrorView1.alpha = 1.0
-                    self.infoErrorView2.alpha = 1.0
-                    self.infoView.ub_setHidden(true)
-                    self.infoErrorView1.ub_setHidden(false)
-                    self.infoErrorView2.ub_setHidden(false)
-                }
             case .retry:
                 self.loadingView.stopRotation()
 
