@@ -121,6 +121,9 @@
 		6EA5C38426453D1400EA066F /* EuHealthCert+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C38326453D1400EA066F /* EuHealthCert+CC.swift */; };
 		6EA5C38526453E0000EA066F /* EuHealthCert+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C38326453D1400EA066F /* EuHealthCert+CC.swift */; };
 		6EA5C38B2645CF3B00EA066F /* VerifyCheckContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C38A2645CF3B00EA066F /* VerifyCheckContentViewController.swift */; };
+		6EBF9C77267C807B00E86B45 /* Enclave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF9C75267C807B00E86B45 /* Enclave.swift */; };
+		6EBF9C78267C807B00E86B45 /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF9C76267C807B00E86B45 /* SecureStorage.swift */; };
+		6EBF9C7A267C809700E86B45 /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF9C79267C809700E86B45 /* Migration.swift */; };
 		6EC172BB2640769D002E27DB /* LinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC172BA2640769D002E27DB /* LinkHandler.swift */; };
 		6EC172BC26407753002E27DB /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089EB2493695200A66CD1 /* Keychain.swift */; };
 		6EC172BF26407EBF002E27DB /* WalletHomescreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC172BE26407EBF002E27DB /* WalletHomescreenViewController.swift */; };
@@ -397,6 +400,9 @@
 		6EA5C3732644500C00EA066F /* VerifyQRScannerOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyQRScannerOverlay.swift; sourceTree = "<group>"; };
 		6EA5C38326453D1400EA066F /* EuHealthCert+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EuHealthCert+CC.swift"; sourceTree = "<group>"; };
 		6EA5C38A2645CF3B00EA066F /* VerifyCheckContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyCheckContentViewController.swift; sourceTree = "<group>"; };
+		6EBF9C75267C807B00E86B45 /* Enclave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enclave.swift; sourceTree = "<group>"; };
+		6EBF9C76267C807B00E86B45 /* SecureStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
+		6EBF9C79267C809700E86B45 /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		6EC172BA2640769D002E27DB /* LinkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkHandler.swift; sourceTree = "<group>"; };
 		6EC172BE26407EBF002E27DB /* WalletHomescreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHomescreenViewController.swift; sourceTree = "<group>"; };
 		6EC172C126407EE6002E27DB /* WalletImprintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImprintViewController.swift; sourceTree = "<group>"; };
@@ -570,6 +576,8 @@
 		24780B00242DF983003BB26C /* User */ = {
 			isa = PBXGroup;
 			children = (
+				6EBF9C79267C809700E86B45 /* Migration.swift */,
+				6EBF9C74267C807B00E86B45 /* SecureStorage */,
 				6E6036022678792000EB57E7 /* UserTransferCode.swift */,
 				24780B06242DFCD9003BB26C /* WalletUserStorage.swift */,
 				6EC172DA26427296002E27DB /* UserCertificate.swift */,
@@ -781,6 +789,15 @@
 				24780B02242DF9C7003BB26C /* Style */,
 			);
 			path = SharedUI;
+			sourceTree = "<group>";
+		};
+		6EBF9C74267C807B00E86B45 /* SecureStorage */ = {
+			isa = PBXGroup;
+			children = (
+				6EBF9C75267C807B00E86B45 /* Enclave.swift */,
+				6EBF9C76267C807B00E86B45 /* SecureStorage.swift */,
+			);
+			path = SecureStorage;
 			sourceTree = "<group>";
 		};
 		6EC172BD26407EAB002E27DB /* Homescreen */ = {
@@ -1563,6 +1580,7 @@
 				6EF166D4264E5C3200426985 /* ConfigResponseBody.swift in Sources */,
 				6EC172C526407F1A002E27DB /* WalletScannerViewController.swift in Sources */,
 				6EEAFBED267B4F3300807C16 /* TransferCodeRefreshView.swift in Sources */,
+				6EBF9C77267C807B00E86B45 /* Enclave.swift in Sources */,
 				6E5A0F2026432148004718B4 /* HomescreenBottomView.swift in Sources */,
 				DC8ABDEB264A5C5600FDE0E1 /* OnboardingBaseViewController.swift in Sources */,
 				6E8FC0FA24518BF2002AB1E5 /* UIScrollView+UBKeyboardObserver.m in Sources */,
@@ -1577,6 +1595,7 @@
 				6EC172D526416FF1002E27DB /* HomescreenOnboardingViewController.swift in Sources */,
 				6EA49E2924443E69009EFCAB /* SimpleTextButton.swift in Sources */,
 				6EC172DD26427451002E27DB /* HomescreenCertificateView.swift in Sources */,
+				6EBF9C7A267C809700E86B45 /* Migration.swift in Sources */,
 				8E81CC9D241FCC7D006F2437 /* ViewController.swift in Sources */,
 				6E173924267B31BB00813D30 /* TransferCodeErrorRetryViewController.swift in Sources */,
 				DC8ABDF1264A64DD00FDE0E1 /* StaticContentViewController.swift in Sources */,
@@ -1619,6 +1638,7 @@
 				6E0281FC26565AD200582904 /* BrightnessQRScanning.swift in Sources */,
 				6EA5C35C2643E8DD00EA066F /* CertificateTableViewCell.swift in Sources */,
 				242D227B245D6557005DAEA8 /* Backend.swift in Sources */,
+				6EBF9C78267C807B00E86B45 /* SecureStorage.swift in Sources */,
 				6E17391E267B204700813D30 /* LoadingView.swift in Sources */,
 				DC8ABDED264A62A800FDE0E1 /* OnboardingContentViewController.swift in Sources */,
 				8EB23D78245AF2C30073E83A /* RandomGenerators.swift in Sources */,
