@@ -32,14 +32,8 @@ class WalletDetailViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addSubviewController(certificateDetailVC)
-        addSubviewController(transferCodeDetailVC)
-
-        view.addSubview(loadingView)
-
-        loadingView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        setup()
+        setupInteraction()
 
         update(animated: false)
 
@@ -50,6 +44,28 @@ class WalletDetailViewController: ViewController {
             strongSelf.startDownloadIfNeeded()
         }
     }
+
+    // MARK: - Setup
+
+    private func setup() {
+        addSubviewController(certificateDetailVC)
+        addSubviewController(transferCodeDetailVC)
+
+        view.addSubview(loadingView)
+
+        loadingView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+
+    private func setupInteraction() {
+        transferCodeDetailVC.refreshCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.startDownloadIfNeeded()
+        }
+    }
+
+    // MARK: - Download
 
     private func startDownloadIfNeeded() {
         guard let code = certificate.transferCode?.transferCode,
@@ -67,17 +83,16 @@ class WalletDetailViewController: ViewController {
 
             switch result {
             case let .success(certificate):
-                strongSelf.certificate.qrCode = certificate.first?.cert
-                strongSelf.certificateDetailVC.certificate = strongSelf.certificate
-                CertificateStorage.shared.updateCertificate(with: code, qrCode: certificate.first?.cert)
+                if certificate.count > 0 {
+                    strongSelf.certificate.qrCode = certificate.first?.cert
+                    strongSelf.certificateDetailVC.certificate = strongSelf.certificate
+                    CertificateStorage.shared.updateCertificate(with: code, qrCode: certificate.first?.cert)
+                } else {
+                    strongSelf.transferCodeDetailVC.updateDate = Date()
+                }
 
             case let .failure(error):
-                switch error {
-                case .GET_CERTIFICATE_FAILED:
-                    strongSelf.transferCodeDetailVC.updateDate = Date()
-                default:
-                    strongSelf.transferCodeDetailVC.error = error
-                }
+                strongSelf.transferCodeDetailVC.error = error
             }
 
             strongSelf.loadingView.stopLoading()

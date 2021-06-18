@@ -53,13 +53,13 @@ class TransferCodeRefreshView: UIView {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(Padding.medium - 3.0)
             make.left.equalToSuperview().inset(Padding.medium)
-            make.right.lessThanOrEqualTo(refreshButton.snp.left).offset(-Padding.small)
+            make.right.lessThanOrEqualTo(refreshButton.snp.left).offset(-Padding.medium)
         }
 
         textLabel.snp.makeConstraints { make in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(Padding.small)
             make.left.equalToSuperview().inset(Padding.medium)
-            make.right.lessThanOrEqualTo(refreshButton.snp.left).offset(-Padding.small)
+            make.right.lessThanOrEqualTo(refreshButton.snp.left).offset(-Padding.medium)
             make.bottom.equalToSuperview().inset(2.0 * Padding.small)
         }
     }
