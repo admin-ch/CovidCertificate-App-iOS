@@ -28,15 +28,13 @@ class UIStateManager: NSObject {
     // MARK: - Refresh triggers
 
     public func stateChanged(forceRefresh: Bool = false) {
-        DispatchQueue.main.async {
-            self.forceRefresh = forceRefresh
-            self.refresh()
-        }
+        self.forceRefresh = forceRefresh
+        refresh()
     }
 
     // MARK: - UI State Update
 
-    private(set) var uiState: UIStateModel! {
+    private(set) var uiState: UIStateModel? {
         didSet {
             let stateHasChanged = uiState != oldValue || forceRefresh
 
@@ -50,9 +48,11 @@ class UIStateManager: NSObject {
     private var forceRefresh = false
 
     private func refresh() {
-        // build new state, sending update to observers if changed
-        uiState = UIStateLogic(manager: self).buildState()
-        forceRefresh = false
+        DispatchQueue.global().async {
+            // build new state, sending update to observers if changed
+            self.uiState = UIStateLogic(manager: self).buildState()
+            self.forceRefresh = false
+        }
     }
 
     // MARK: - State Observers
@@ -66,14 +66,19 @@ class UIStateManager: NSObject {
 
     func addObserver(_ object: AnyObject, block: @escaping (UIStateModel) -> Void) {
         observers.append(Observer(object: object, block: block))
-        block(uiState)
+
+        if let currentState = uiState {
+            block(currentState)
+        }
     }
 
     func updateObservers() {
+        guard let currentState = uiState else { return }
+
         observers = observers.filter { $0.object != nil }
         DispatchQueue.main.async {
             self.observers.forEach { observer in
-                observer.block(self.uiState)
+                observer.block(currentState)
             }
         }
     }
