@@ -26,19 +26,22 @@ class WalletUserStorage {
 class CertificateStorage {
     // MARK: - Shared
 
+    private lazy var certificates: [UserCertificate] = self.secureStorage.loadSynchronously() ?? []
+    private lazy var secureStorage = SecureStorage<[UserCertificate]>(name: "wallet.user.certificates")
+
     static let shared = CertificateStorage()
 
     // MARK: - Certificates API
 
     var userCertificates: [UserCertificate] {
         set {
-            Self.certificates = newValue
-            _ = Self.secureStorage.saveSynchronously(Self.certificates)
+            certificates = newValue
+            _ = secureStorage.saveSynchronously(certificates)
             UIStateManager.shared.stateChanged()
         }
 
         get {
-            Self.certificates
+            certificates
         }
     }
 
@@ -56,17 +59,6 @@ class CertificateStorage {
 
             return uc
         }
-    }
-
-    // MARK: Secure storage
-
-    private static var certificates: [UserCertificate] = []
-    private static var secureStorage = SecureStorage<[UserCertificate]>(name: "wallet.user.certificates")
-
-    // MARK: - Init
-
-    init() {
-        Self.certificates = Self.secureStorage.loadSynchronously() ?? []
     }
 
     // MARK: - Migration
