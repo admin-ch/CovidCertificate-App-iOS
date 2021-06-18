@@ -249,7 +249,7 @@ class VerifyCheckContentViewController: ViewController {
 
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
-                self.infoView.ub_setHidden(false)
+                self.infoView.ub_setHidden(true)
                 self.infoErrorView1.ub_setHidden(showInfo1 ? false : true)
                 self.infoErrorView2.ub_setHidden(showInfo2 ? false : true)
                 self.errorLabel.ub_setHidden(false)
