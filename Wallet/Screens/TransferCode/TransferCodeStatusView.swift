@@ -91,6 +91,8 @@ class TransferCodeStatusView: UIView {
         errorCorner.snp.makeConstraints { make in
             make.top.left.equalToSuperview()
         }
+
+        errorCorner.alpha = 0.0
     }
 
     private func update() {
@@ -108,7 +110,14 @@ class TransferCodeStatusView: UIView {
             createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
 
         } else {
-            errorCorner.image = error?.cornerIcon
+            if let img = error?.cornerIcon {
+                // alpha handling is done afterwards
+                // and will correctly fade when icon
+                // should disappear
+                errorCorner.image = img
+            }
+
+            errorCorner.alpha = error?.cornerIcon == nil ? 0.0 : 1.0
 
             imageView.image = code.validityIcon
             validLabel.isHidden = false
