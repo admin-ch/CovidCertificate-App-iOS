@@ -52,7 +52,7 @@ class WalletDetailViewController: ViewController {
     }
 
     private func startDownloadIfNeeded() {
-        guard let code = self.certificate.transferCode?.transferCode,
+        guard let code = certificate.transferCode?.transferCode,
               certificate.type == .transferCode
         else { return }
 
