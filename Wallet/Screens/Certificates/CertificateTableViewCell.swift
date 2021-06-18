@@ -50,7 +50,8 @@ class CertificateTableViewCell: UITableViewCell {
 
         qrCodeStateImageView.ub_setContentPriorityRequired()
         qrCodeStateImageView.snp.makeConstraints { make in
-            make.top.left.equalToSuperview().inset(2.0 * Padding.small)
+            make.top.equalToSuperview().inset(2.0 * Padding.small)
+            make.left.equalToSuperview()
             make.bottom.lessThanOrEqualToSuperview().inset(2.0 * Padding.small)
         }
 

@@ -15,6 +15,7 @@ class TransferCodeStatusView: UIView {
     private let imageView = UIImageView()
     private let roundImageBackgroundView = UIView()
 
+    private let expiredLabel = Label(.title, textAlignment: .center)
     private let titleLabel = Label(.textBold, textAlignment: .center)
     private let validLabel = Label(.text, textColor: .cc_blue, textAlignment: .center)
     private let codeLabel = TransferCodeLabel()
@@ -50,6 +51,7 @@ class TransferCodeStatusView: UIView {
 
         addSubview(roundImageBackgroundView)
         addSubview(imageView)
+        addSubview(expiredLabel)
         addSubview(titleLabel)
         addSubview(validLabel)
         addSubview(codeLabel)
@@ -76,6 +78,12 @@ class TransferCodeStatusView: UIView {
             make.top.equalTo(imageView.snp.bottom).offset(10)
             make.centerX.equalToSuperview()
         }
+
+        expiredLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview().inset(2 * Padding.medium)
+        }
+        expiredLabel.isHidden = true
 
         codeLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(Padding.medium)
@@ -108,26 +116,45 @@ class TransferCodeStatusView: UIView {
             }
             codeLabel.code = code.transferCode
             createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
-
         } else {
-            if let img = error?.cornerIcon {
-                // alpha handling is done afterwards
-                // and will correctly fade when icon
-                // should disappear
-                errorCorner.image = img
+            switch code.state {
+            case .valid:
+                if let img = error?.cornerIcon {
+                    // alpha handling is done afterwards
+                    // and will correctly fade when icon
+                    // should disappear
+                    errorCorner.image = img
+                }
+
+                errorCorner.alpha = error?.cornerIcon == nil ? 0.0 : 1.0
+
+                imageView.image = code.validityIcon
+                validLabel.isHidden = false
+                titleLabel.isHidden = true
+                codeLabel.isHidden = false
+                expiredLabel.isHidden = true
+                validLabel.attributedText = code.validDaysText
+                codeLabel.snp.remakeConstraints { make in
+                    make.top.equalTo(validLabel.snp.bottom).offset(Padding.medium)
+                    make.centerX.equalToSuperview()
+                }
+
+                backgroundColor = .cc_blueish
+                codeLabel.code = code.transferCode
+            case .expired, .failed:
+                backgroundColor = code.state == .expired ? .cc_blueish : .cc_redish
+                imageView.image = UIImage(named: "ic-info-outline")?.ub_image(with: code.state == .expired ? .cc_blue : .cc_red)
+
+                validLabel.isHidden = true
+                titleLabel.isHidden = true
+                codeLabel.isHidden = true
+                expiredLabel.isHidden = false
+                errorCorner.image = nil
+
+                expiredLabel.text = UBLocalized.wallet_transfer_code_old_code
+                expiredLabel.textColor = code.state == .expired ? .cc_blue : .cc_red
             }
 
-            errorCorner.alpha = error?.cornerIcon == nil ? 0.0 : 1.0
-
-            imageView.image = code.validityIcon
-            validLabel.isHidden = false
-            titleLabel.isHidden = true
-            validLabel.attributedText = code.validDaysText
-            codeLabel.snp.remakeConstraints { make in
-                make.top.equalTo(validLabel.snp.bottom).offset(Padding.medium)
-                make.centerX.equalToSuperview()
-            }
-            codeLabel.code = code.transferCode
             createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
         }
     }

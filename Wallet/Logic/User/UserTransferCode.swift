@@ -17,13 +17,30 @@ struct UserTransferCode: Codable, Equatable {
 }
 
 extension UserTransferCode {
-    var isValid: Bool {
-        created.addingTimeInterval(60 * 60 * 24 * 7) >= Date()
+    static let validPeriod: TimeInterval = 60 * 60 * 24 * 7 // 7 days
+    static let expiredPeriod: TimeInterval = 60 * 60 * 24 * 10 // 10 days
+
+    enum State: Equatable {
+        case valid
+        case expired
+        case failed
+    }
+
+    var state: State {
+        let interval = Date().timeIntervalSince(created)
+        switch interval {
+        case let x where x <= Self.validPeriod:
+            return .valid
+        case let x where x <= Self.expiredPeriod:
+            return .expired
+        default:
+            return .failed
+        }
     }
 
     var validDays: Int? {
         let day: TimeInterval = 60 * 60 * 24
-        let validUntil = created.addingTimeInterval(day * 7).timeIntervalSince(Date()) // 7 days
+        let validUntil = created.addingTimeInterval(Self.validPeriod).timeIntervalSince(Date())
 
         if validUntil < 0 {
             return nil

@@ -12,7 +12,8 @@
 import Foundation
 
 class CertificateListViewController: ViewController {
-    private static let reuseIdentifier = "certificate.cell"
+    private static let certificateReuseIdentifier = "certificate.cell"
+    private static let transferCodeReuseIdentifier = "transfercode.cell"
 
     private let tableView = UITableView(frame: .zero, style: .grouped)
 
@@ -64,7 +65,8 @@ class CertificateListViewController: ViewController {
         tableView.sectionFooterHeight = 0.0
         tableView.separatorStyle = .none
 
-        tableView.register(CertificateTableViewCell.classForCoder(), forCellReuseIdentifier: CertificateListViewController.reuseIdentifier)
+        tableView.register(CertificateTableViewCell.classForCoder(), forCellReuseIdentifier: CertificateListViewController.certificateReuseIdentifier)
+        tableView.register(TransferCodeTableViewCell.classForCoder(), forCellReuseIdentifier: CertificateListViewController.transferCodeReuseIdentifier)
         tableView.isEditing = true
         tableView.allowsSelectionDuringEditing = true
     }
@@ -116,10 +118,20 @@ extension CertificateListViewController: UITableViewDelegate {
 
 extension CertificateListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CertificateListViewController.reuseIdentifier, for: indexPath) as! CertificateTableViewCell
-        cell.certificate = certificates[indexPath.row]
-        cell.showsReorderControl = true
-        return cell
+        let cert = certificates[indexPath.row]
+
+        switch cert.type {
+        case .certificate:
+            let cell = tableView.dequeueReusableCell(withIdentifier: CertificateListViewController.certificateReuseIdentifier, for: indexPath) as! CertificateTableViewCell
+            cell.certificate = certificates[indexPath.row]
+            cell.showsReorderControl = true
+            return cell
+        case .transferCode:
+            let cell = tableView.dequeueReusableCell(withIdentifier: CertificateListViewController.transferCodeReuseIdentifier, for: indexPath) as! TransferCodeTableViewCell
+            cell.certificate = certificates[indexPath.row]
+            cell.showsReorderControl = true
+            return cell
+        }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
