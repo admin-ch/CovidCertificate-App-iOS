@@ -23,6 +23,8 @@ class TransferCodeTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
+
+        isAccessibilityElement = true
     }
 
     @available(*, unavailable)
@@ -96,5 +98,7 @@ class TransferCodeTableViewCell: UITableViewCell {
                 // nothing to do here since TransferManager adds certificates and reloads tableview
             }
         }
+
+        accessibilityLabel = [stateLabel.text, transferCodeLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
     }
 }

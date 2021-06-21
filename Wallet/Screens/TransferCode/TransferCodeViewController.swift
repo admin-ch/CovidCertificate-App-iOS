@@ -96,6 +96,7 @@ class TransferCodeViewController: ViewController {
             }
 
             strongSelf.loadingView.stopLoading()
+            UIAccessibility.post(notification: .screenChanged, argument: nil)
         }
     }
 }

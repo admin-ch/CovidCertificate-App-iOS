@@ -102,6 +102,8 @@ class WalletDetailViewController: ViewController {
 
             strongSelf.loadingView.stopLoading()
             strongSelf.update(animated: true)
+
+            UIAccessibility.post(notification: .screenChanged, argument: nil)
         }
     }
 

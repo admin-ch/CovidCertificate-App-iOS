@@ -206,8 +206,6 @@ private class StateLabel: UIView {
     init() {
         super.init(frame: .zero)
         setup()
-
-        isAccessibilityElement = true
     }
 
     @available(*, unavailable)
