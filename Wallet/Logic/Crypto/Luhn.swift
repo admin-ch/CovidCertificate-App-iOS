@@ -14,7 +14,7 @@
 import Foundation
 
 public enum Luhn {
-    private static let characterSet = "1234567890ABCDEFGHKMNPRSTUWXYZ".map { "\($0)" }
+    private static let characterSet = "1234567890ABCDEFHKMNPRSTUWXYZ".map { "\($0)" }
 
     private static let codeSize = 8
     public static func generateLuhnCode() -> String {
@@ -28,14 +28,26 @@ public enum Luhn {
     }
 
     public static func checkLuhnCode(_ luhnCode: String) -> Bool {
+        guard hasOnlyValidChars(luhnCode) else {
+            return false
+        }
         let sum = calculateLuhnSum(luhnCode, shouldDouble: { $0 % 2 != 0 })
         let remainder = sum % characterSet.count
         return remainder == 0
     }
 
+    private static func hasOnlyValidChars(_ luhnCode: String) -> Bool {
+        for c in luhnCode {
+            if !characterSet.contains(String(c)) {
+                return false
+            }
+        }
+        return true
+    }
+
     private static func calculateLuhnSum(_ luhnCode: String, shouldDouble: (_ index: Int) -> Bool) -> Int {
         return luhnCode.reversed().map {
-            characterSet.firstIndex(of: String($0))!
+            characterSet.firstIndex(of: String($0)) ?? 0
         }.enumerated()
             .map {
                 sum(digits: $1 * (shouldDouble($0) ? 2 : 1), withModulo: characterSet.count)
