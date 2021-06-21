@@ -68,8 +68,10 @@ class WalletDetailViewController: ViewController {
     // MARK: - Download
 
     private func startDownloadIfNeeded() {
-        guard let code = certificate.transferCode?.transferCode,
-              certificate.type == .transferCode
+        // only start if it's a not failed transfer-code
+        guard certificate.type == .transferCode,
+              let transferCode = certificate.transferCode,
+              transferCode.state != .failed
         else { return }
 
         certificateDetailVC.view.alpha = 0.0
@@ -78,7 +80,7 @@ class WalletDetailViewController: ViewController {
 
         loadingView.startLoading()
 
-        TransferManager.shared.addObserver(self, for: code) { [weak self] result in
+        TransferManager.shared.addObserver(self, for: transferCode.transferCode) { [weak self] result in
             guard let strongSelf = self else { return }
 
             switch result {
