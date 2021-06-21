@@ -94,11 +94,13 @@ class TransferCodeDetailViewController: ViewController {
 
         stackScrollView.addArrangedView(stackView)
 
-        statusView.transferCode = certificate.transferCode
+        stackScrollView.addSpacerView(Padding.large + 2.0 * Padding.small)
 
-        stackScrollView.addSpacerView(Padding.large + Padding.small)
+        let models = ConfigManager.currentConfig?.transferQuestionsViewModels ?? []
+        StaticContentViewController.setupViews(models: models, stackView: stackScrollView.stackView, showAllViews: true)
 
         nameView.text = UBLocalized.wallet_transfer_code_state_waiting
+        statusView.transferCode = certificate.transferCode
 
         update()
     }
