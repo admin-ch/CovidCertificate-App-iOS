@@ -46,8 +46,16 @@ class CertificateStorage {
     }
 
     func insertCertificate(userCertificate: UserCertificate) {
-        if !userCertificates.contains(userCertificate) {
-            userCertificates.insert(userCertificate, at: 0)
+        insertCertificates(certificates: [userCertificate])
+    }
+
+    func insertCertificates(certificates: [UserCertificate]) {
+        // add all certificates at the front of the list
+        // that are not already added
+        let toBeAdded = certificates.filter { uc in !userCertificates.contains(uc) }
+
+        if toBeAdded.count > 0 {
+            userCertificates = toBeAdded + userCertificates
         }
     }
 

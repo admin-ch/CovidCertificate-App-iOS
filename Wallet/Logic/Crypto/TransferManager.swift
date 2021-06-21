@@ -58,6 +58,7 @@ final class TransferManager {
         if let v = downloaders[code] {
             v.tryDownloadCertificate(withCode: code) { [weak self] result in
                 guard let strongSelf = self else { return }
+                strongSelf.updateCertificates(code: code, result: result)
                 strongSelf.updateObservers(for: code, state: result)
             }
         } else {
@@ -66,8 +67,32 @@ final class TransferManager {
 
             v.tryDownloadCertificate(withCode: code) { [weak self] result in
                 guard let strongSelf = self else { return }
+                strongSelf.updateCertificates(code: code, result: result)
                 strongSelf.updateObservers(for: code, state: result)
             }
+        }
+    }
+
+    func updateCertificates(code: String, result: Result<[DecryptedCertificate], CryptoError>) {
+        switch result {
+        case let .success(certificates):
+            guard certificates.count > 0 else { return }
+
+            // get created date of object with transfer-code equal to code
+            let created: Date? = CertificateStorage.shared.userCertificates.first { $0.transferCode?.transferCode ?? "" == code }?.transferCode?.created
+
+            // update card of transfer-code to have a certificate
+            if let first = certificates.first {
+                CertificateStorage.shared.updateCertificate(with: code, qrCode: first.cert)
+            }
+
+            // add all additional codes
+            var certs: [UserCertificate] = certificates.map { UserCertificate(qrCode: $0.cert, transferCode: UserTransferCode(transferCode: code, created: created ?? Date())) }
+            certs = certs + certs
+            CertificateStorage.shared.insertCertificates(certificates: certs)
+
+        case .failure:
+            break
         }
     }
 }

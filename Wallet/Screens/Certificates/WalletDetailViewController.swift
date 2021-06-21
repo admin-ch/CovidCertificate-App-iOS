@@ -83,15 +83,18 @@ class WalletDetailViewController: ViewController {
 
             switch result {
             case let .success(certificate):
+                // TransferManager adds all the certificates, so we
+                // just update the UI with the first certificate or
+                // update date
                 if certificate.count > 0 {
                     strongSelf.certificate.qrCode = certificate.first?.cert
                     strongSelf.certificateDetailVC.certificate = strongSelf.certificate
-                    CertificateStorage.shared.updateCertificate(with: code, qrCode: certificate.first?.cert)
                 } else {
                     strongSelf.transferCodeDetailVC.updateDate = Date()
                 }
 
             case let .failure(error):
+                // update error
                 strongSelf.transferCodeDetailVC.error = error
             }
 
