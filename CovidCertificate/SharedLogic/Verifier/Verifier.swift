@@ -112,6 +112,23 @@ enum VerificationState: Equatable {
             return false
         }
     }
+
+    // get errors: (signature, revocation, nationalRuleError)
+    // always show up to first error ->
+    // (nil, error, error) --> show signature ok, show revocation error
+    // (nil, nil, error) --> show signature ok, revocation ok, show national error
+    public func getVerifierErrorState() -> (VerificationError?, VerificationError?, VerificationError?)? {
+        switch self {
+        case let .invalid(errors, _, _):
+            let signatureError = errors.filter { $0 == .signature || $0 == .typeInvalid }.first
+            let revocationError = errors.filter { $0 == .revocation }.first
+            let nationalError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 != .revocation }.first
+
+            return (signatureError, revocationError, nationalError)
+        default:
+            return nil
+        }
+    }
 }
 
 class Verifier: NSObject {
