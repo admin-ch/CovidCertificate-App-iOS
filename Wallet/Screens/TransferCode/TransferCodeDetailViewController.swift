@@ -94,9 +94,9 @@ class TransferCodeDetailViewController: ViewController {
 
         stackScrollView.addArrangedView(stackView)
 
-        stackScrollView.addSpacerView(Padding.large + 2.0 * Padding.small)
+        stackScrollView.addSpacerView(2.0 * Padding.large)
 
-        let models = ConfigManager.currentConfig?.transferQuestionsViewModels ?? []
+        let models = ConfigManager.currentConfig?.transferWorksViewModels ?? []
         StaticContentViewController.setupViews(models: models, stackView: stackScrollView.stackView, showAllViews: true)
 
         nameView.text = UBLocalized.wallet_transfer_code_state_waiting
