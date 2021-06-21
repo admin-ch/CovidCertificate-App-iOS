@@ -21,6 +21,7 @@ final class TransferManager {
     // MARK: - Properties
 
     private var downloaders: [String: InAppDelivery] = [:]
+    private var deleters: [String: InAppDelivery] = [:]
 
     // MARK: - State Observers
 
@@ -90,6 +91,13 @@ final class TransferManager {
             var certs: [UserCertificate] = certificates.map { UserCertificate(qrCode: $0.cert, transferCode: UserTransferCode(transferCode: code, created: created ?? Date())) }
             certs = certs + certs
             CertificateStorage.shared.insertCertificates(certificates: certs)
+
+            // certificates were inserted, can be deleted on backend (best effort)
+            deleters[code] = InAppDelivery()
+            deleters[code]?.tryDeleteCertificate(withCode: code, callback: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                strongSelf.deleters[code] = nil
+            })
 
         case .failure:
             break
