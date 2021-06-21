@@ -113,8 +113,8 @@ class HomescreenCertificatesViewController: ViewController {
 
                     switch result {
                     case let .success(certificate):
-                        CertificateStorage.shared.updateCertificate(with: code, qrCode: certificate.first?.cert)
-
+                        // TransferManager adds all the certificates
+                        break
                     case let .failure(error):
                         i?.transferError = error
                     }

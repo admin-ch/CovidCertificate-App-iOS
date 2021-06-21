@@ -88,5 +88,10 @@ class TransferCodeTableViewCell: UITableViewCell {
             stateLabel.text = UBLocalized.wallet_transfer_code_state_expired
             icon.image = UIImage(named: "ic-transfer-failed")
         }
+
+        TransferManager.shared.addObserver(self, for: code.transferCode) { _ in
+            // just add the observer to start download, then
+            // nothing to do here since TransferManager adds certificates and reloads tableview
+        }
     }
 }
