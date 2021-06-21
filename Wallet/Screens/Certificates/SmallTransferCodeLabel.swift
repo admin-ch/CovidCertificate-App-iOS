@@ -20,7 +20,6 @@ class SmallTransferCodeLabel: UIView {
 
     init() {
         super.init(frame: .zero)
-
         setupView()
     }
 
@@ -71,5 +70,7 @@ class SmallTransferCodeLabel: UIView {
             }
             label.text = UBLocalized.wallet_transfer_code_old_code
         }
+
+        accessibilityLabel = label.text
     }
 }

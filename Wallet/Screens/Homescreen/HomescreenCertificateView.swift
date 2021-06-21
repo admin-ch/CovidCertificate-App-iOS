@@ -277,7 +277,7 @@ private class TransferView: UIView {
     }
 
     public func update(animated _: Bool) {
-        accessibilityLabel = [transferCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+        accessibilityLabel = [nameView.text, transferCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
     }
 
     // MARK: - Setup Helper

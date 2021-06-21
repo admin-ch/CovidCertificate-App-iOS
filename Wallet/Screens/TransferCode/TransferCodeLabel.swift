@@ -26,6 +26,7 @@ class TransferCodeLabel: UIView {
 
     init() {
         super.init(frame: .zero)
+        isAccessibilityElement = true
 
         setupView()
         update()
@@ -67,6 +68,8 @@ class TransferCodeLabel: UIView {
         label1.text = "\(arrayCode[0])\(arrayCode[1])\(arrayCode[2])"
         label2.text = "\(arrayCode[3])\(arrayCode[4])\(arrayCode[5])"
         label3.text = "\(arrayCode[6])\(arrayCode[7])\(arrayCode[8])"
+
+        accessibilityLabel = arrayCode.map { "\($0)" }.joined(separator: ", ")
     }
 }
 

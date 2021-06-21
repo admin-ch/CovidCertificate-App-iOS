@@ -123,6 +123,8 @@ class AddCertificateButton: UBButton {
             make.right.equalToSuperview().inset(lr)
             make.bottom.lessThanOrEqualToSuperview().inset(2.0 * Padding.medium)
         }
+
+        accessibilityLabel = [topLabel.text, textLabel.text].compactMap { $0 }.joined(separator: ", ")
     }
 }
 
@@ -156,5 +158,7 @@ class AddTransferCodeButton: UBButton {
         topLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: tb, left: lr, bottom: tb, right: lr))
         }
+
+        accessibilityLabel = topLabel.text
     }
 }

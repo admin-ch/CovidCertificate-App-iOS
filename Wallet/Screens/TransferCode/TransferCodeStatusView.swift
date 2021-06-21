@@ -36,6 +36,7 @@ class TransferCodeStatusView: UIView {
     init(isNewlyCreated: Bool = false) {
         self.isNewlyCreated = isNewlyCreated
         super.init(frame: .zero)
+        isAccessibilityElement = true
 
         setupView()
         update()
@@ -116,7 +117,11 @@ class TransferCodeStatusView: UIView {
             }
             codeLabel.code = code.transferCode
             createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
+
+            accessibilityLabel = [titleLabel.text, codeLabel.accessibilityLabel, createdAtLabel.text].compactMap { $0 }.joined(separator: ", ")
         } else {
+            createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
+
             switch code.state {
             case .valid:
                 if let img = error?.cornerIcon {
@@ -141,6 +146,9 @@ class TransferCodeStatusView: UIView {
 
                 backgroundColor = .cc_blueish
                 codeLabel.code = code.transferCode
+
+                accessibilityLabel = [validLabel.text, codeLabel.accessibilityLabel, createdAtLabel.text].compactMap { $0 }.joined(separator: ", ")
+
             case .expired, .failed:
                 backgroundColor = code.state == .expired ? .cc_blueish : .cc_redish
                 imageView.image = UIImage(named: "ic-info-outline")?.ub_image(with: code.state == .expired ? .cc_blue : .cc_red)
@@ -153,9 +161,9 @@ class TransferCodeStatusView: UIView {
 
                 expiredLabel.text = UBLocalized.wallet_transfer_code_old_code
                 expiredLabel.textColor = code.state == .expired ? .cc_blue : .cc_red
-            }
 
-            createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
+                accessibilityLabel = [expiredLabel.text, codeLabel.accessibilityLabel, createdAtLabel.text].compactMap { $0 }.joined(separator: ", ")
+            }
         }
     }
 
