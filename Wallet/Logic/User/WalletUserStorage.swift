@@ -69,6 +69,10 @@ class CertificateStorage {
         }
     }
 
+    func removeAll() {
+        userCertificates = []
+    }
+
     // MARK: - Migration
 
     @KeychainPersisted(key: "wallet.user.certificates", defaultValue: [])

@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Reset keychain on first launch
         if isFirstLaunch {
+            CertificateStorage.shared.removeAll()
             Keychain().deleteAll()
             isFirstLaunch = false
         }
