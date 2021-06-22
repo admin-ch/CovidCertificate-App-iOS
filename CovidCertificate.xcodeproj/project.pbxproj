@@ -196,6 +196,17 @@
 		6EC1735F2642A1B4002E27DB /* VerifierHomescreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC1735E2642A1B4002E27DB /* VerifierHomescreenViewController.swift */; };
 		6EC173622642A1E8002E27DB /* VerifierUserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC173612642A1E8002E27DB /* VerifierUserStorage.swift */; };
 		6ECBB9BD2642FB1700007E29 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6ECBB9BC2642FB1700007E29 /* SnapKit */; };
+		6ED916162681B171006D9E7C /* PushHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9160B2681B171006D9E7C /* PushHandler.swift */; };
+		6ED916172681B171006D9E7C /* PushRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9160C2681B171006D9E7C /* PushRegistration.swift */; };
+		6ED916192681B171006D9E7C /* PushRegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9160E2681B171006D9E7C /* PushRegistrationManager.swift */; };
+		6ED9161A2681B171006D9E7C /* SilentPushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9160F2681B171006D9E7C /* SilentPushManager.swift */; };
+		6ED9161B2681B171006D9E7C /* UBPushHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED916112681B171006D9E7C /* UBPushHandler.swift */; };
+		6ED9161C2681B171006D9E7C /* UBPushLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED916122681B171006D9E7C /* UBPushLocalStorage.swift */; };
+		6ED9161D2681B171006D9E7C /* UBPushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED916132681B171006D9E7C /* UBPushManager.swift */; };
+		6ED9161E2681B171006D9E7C /* UBPushManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED916142681B171006D9E7C /* UBPushManagerError.swift */; };
+		6ED9161F2681B171006D9E7C /* UBPushRegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED916152681B171006D9E7C /* UBPushRegistrationManager.swift */; };
+		6ED916302681D932006D9E7C /* LocalPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9162F2681D932006D9E7C /* LocalPush.swift */; };
+		6ED916312681D932006D9E7C /* LocalPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9162F2681D932006D9E7C /* LocalPush.swift */; };
 		6EDE754D2667DB6900A2656F /* UBLocalized+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */; };
 		6EDE754E2667DB6900A2656F /* UBLocalized+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */; };
 		6EE81DEB245163C400FC7218 /* PhoneCallHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */; };
@@ -415,6 +426,16 @@
 		6EC173592642A0C0002E27DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EC1735E2642A1B4002E27DB /* VerifierHomescreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierHomescreenViewController.swift; sourceTree = "<group>"; };
 		6EC173612642A1E8002E27DB /* VerifierUserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierUserStorage.swift; sourceTree = "<group>"; };
+		6ED9160B2681B171006D9E7C /* PushHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushHandler.swift; sourceTree = "<group>"; };
+		6ED9160C2681B171006D9E7C /* PushRegistration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushRegistration.swift; sourceTree = "<group>"; };
+		6ED9160E2681B171006D9E7C /* PushRegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushRegistrationManager.swift; sourceTree = "<group>"; };
+		6ED9160F2681B171006D9E7C /* SilentPushManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SilentPushManager.swift; sourceTree = "<group>"; };
+		6ED916112681B171006D9E7C /* UBPushHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushHandler.swift; sourceTree = "<group>"; };
+		6ED916122681B171006D9E7C /* UBPushLocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushLocalStorage.swift; sourceTree = "<group>"; };
+		6ED916132681B171006D9E7C /* UBPushManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushManager.swift; sourceTree = "<group>"; };
+		6ED916142681B171006D9E7C /* UBPushManagerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushManagerError.swift; sourceTree = "<group>"; };
+		6ED916152681B171006D9E7C /* UBPushRegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushRegistrationManager.swift; sourceTree = "<group>"; };
+		6ED9162F2681D932006D9E7C /* LocalPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalPush.swift; sourceTree = "<group>"; };
 		6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UBLocalized+CC.swift"; sourceTree = "<group>"; };
 		6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCallHelper.swift; sourceTree = "<group>"; };
 		6EEAFBEC267B4F3300807C16 /* TransferCodeRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeRefreshView.swift; sourceTree = "<group>"; };
@@ -871,6 +892,7 @@
 		6EC1735B2642A0D5002E27DB /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				6ED9160A2681B171006D9E7C /* Push */,
 				273324642679D103002D0ED2 /* Crypto */,
 				6E361223267239A4008C0C86 /* ImportHandler */,
 				6E701454265409090097BBC8 /* Error */,
@@ -906,6 +928,31 @@
 				6EC173612642A1E8002E27DB /* VerifierUserStorage.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		6ED9160A2681B171006D9E7C /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				6ED9162F2681D932006D9E7C /* LocalPush.swift */,
+				6ED9160B2681B171006D9E7C /* PushHandler.swift */,
+				6ED9160C2681B171006D9E7C /* PushRegistration.swift */,
+				6ED9160E2681B171006D9E7C /* PushRegistrationManager.swift */,
+				6ED9160F2681B171006D9E7C /* SilentPushManager.swift */,
+				6ED916102681B171006D9E7C /* UBPush */,
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
+		6ED916102681B171006D9E7C /* UBPush */ = {
+			isa = PBXGroup;
+			children = (
+				6ED916112681B171006D9E7C /* UBPushHandler.swift */,
+				6ED916122681B171006D9E7C /* UBPushLocalStorage.swift */,
+				6ED916132681B171006D9E7C /* UBPushManager.swift */,
+				6ED916142681B171006D9E7C /* UBPushManagerError.swift */,
+				6ED916152681B171006D9E7C /* UBPushRegistrationManager.swift */,
+			);
+			path = UBPush;
 			sourceTree = "<group>";
 		};
 		6EE81DF22451809D00FC7218 /* UBKeyboardHelpers */ = {
@@ -1474,6 +1521,7 @@
 				6EF166BD264D488A00426985 /* ScannerLightButton.swift in Sources */,
 				6EF166DE264E63A500426985 /* UIStateManager.swift in Sources */,
 				6EC172ED26429E31002E27DB /* UIColor+HEX.swift in Sources */,
+				6ED916312681D932006D9E7C /* LocalPush.swift in Sources */,
 				6EA5C37026444E6300EA066F /* VerifyScannerViewController.swift in Sources */,
 				6EF166D7264E5C3200426985 /* InfoBoxVisibilityManager.swift in Sources */,
 				6EA5C38B2645CF3B00EA066F /* VerifyCheckContentViewController.swift in Sources */,
@@ -1560,8 +1608,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EA5C3562643BDA600EA066F /* CertificateAddDetailView.swift in Sources */,
+				6ED916162681B171006D9E7C /* PushHandler.swift in Sources */,
 				2485F4782456185100C3D8C3 /* DebugLog.swift in Sources */,
 				27F7B20B267A26900046AAE4 /* InAppDelivery.swift in Sources */,
+				6ED916172681B171006D9E7C /* PushRegistration.swift in Sources */,
 				DC702AFD243F6E410066C773 /* UBButton.swift in Sources */,
 				AAF73668242F3D030051E34A /* UIStackView+CC.swift in Sources */,
 				6E8FC0FB24518BF2002AB1E5 /* UBKeyboardObserver.m in Sources */,
@@ -1590,9 +1640,11 @@
 				6EF166D2264E5C3200426985 /* ConfigManager.swift in Sources */,
 				6EC172D526416FF1002E27DB /* HomescreenOnboardingViewController.swift in Sources */,
 				6EA49E2924443E69009EFCAB /* SimpleTextButton.swift in Sources */,
+				6ED9161E2681B171006D9E7C /* UBPushManagerError.swift in Sources */,
 				6EC172DD26427451002E27DB /* HomescreenCertificateView.swift in Sources */,
 				6EBF9C7A267C809700E86B45 /* Migration.swift in Sources */,
 				8E81CC9D241FCC7D006F2437 /* ViewController.swift in Sources */,
+				6ED9161F2681B171006D9E7C /* UBPushRegistrationManager.swift in Sources */,
 				6E173924267B31BB00813D30 /* TransferCodeErrorRetryViewController.swift in Sources */,
 				DC8ABDF1264A64DD00FDE0E1 /* StaticContentViewController.swift in Sources */,
 				6E17392A267B382900813D30 /* TransferCodeAnimationView.swift in Sources */,
@@ -1607,6 +1659,7 @@
 				DC8F1ED8267C6E6300F44FF7 /* SmallTransferCodeLabel.swift in Sources */,
 				242D2276245D62D8005DAEA8 /* WalletUserStorage.swift in Sources */,
 				6EF166BC264D488A00426985 /* ScannerLightButton.swift in Sources */,
+				6ED9161C2681B171006D9E7C /* UBPushLocalStorage.swift in Sources */,
 				DC702B17243F70060066C773 /* UIView+CC.swift in Sources */,
 				DC8ABDFD264AA83D00FDE0E1 /* ExpandableViewHeader.swift in Sources */,
 				273324662679D117002D0ED2 /* Crypto.swift in Sources */,
@@ -1639,7 +1692,9 @@
 				DC8ABDED264A62A800FDE0E1 /* OnboardingContentViewController.swift in Sources */,
 				8EB23D78245AF2C30073E83A /* RandomGenerators.swift in Sources */,
 				6E7C0D43242E44D80017C4F9 /* WebViewController.swift in Sources */,
+				6ED916192681B171006D9E7C /* PushRegistrationManager.swift in Sources */,
 				DC8AC7472653B7F5005A2543 /* CertificateQRCodeStateView.swift in Sources */,
+				6ED9161B2681B171006D9E7C /* UBPushHandler.swift in Sources */,
 				273324682679D429002D0ED2 /* InAppDeliveryPayload.swift in Sources */,
 				6E8F52EC265EC33F00406430 /* CertificateNoteView.swift in Sources */,
 				6EF28CFF26370538001C1565 /* NSQRScanningView.swift in Sources */,
@@ -1662,14 +1717,17 @@
 				6E7C0D39242E02A20017C4F9 /* LayoutConstants.swift in Sources */,
 				6E5A0F27264336B4004718B4 /* UIStateModel.swift in Sources */,
 				6E0281FA26565A8100582904 /* ScreenBrightness.swift in Sources */,
+				6ED9161D2681B171006D9E7C /* UBPushManager.swift in Sources */,
 				F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */,
 				6E70145C265421940097BBC8 /* CertificateAlreadyAddedView.swift in Sources */,
+				6ED916302681D932006D9E7C /* LocalPush.swift in Sources */,
 				242D21D1245C3853005DAEA8 /* Logger.swift in Sources */,
 				6EC172C226407EE6002E27DB /* WalletImprintViewController.swift in Sources */,
 				DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */,
 				6EC172DB26427296002E27DB /* UserCertificate.swift in Sources */,
 				F80E7376245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift in Sources */,
 				6EC172BB2640769D002E27DB /* LinkHandler.swift in Sources */,
+				6ED9161A2681B171006D9E7C /* SilentPushManager.swift in Sources */,
 				6EA5C3582643C91A00EA066F /* UIImageView+CC.swift in Sources */,
 				8E81CC99241FCC7D006F2437 /* AppDelegate.swift in Sources */,
 				DCBF64DB267881E700450D51 /* TransferCodeStatusView.swift in Sources */,
