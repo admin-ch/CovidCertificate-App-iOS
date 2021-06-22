@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-class PushRegistration {
+class PushRegistration: Codable {
     var pushToken: String = ""
     var pushType: String = ""
 }

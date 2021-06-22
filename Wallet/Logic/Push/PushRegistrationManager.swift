@@ -13,8 +13,17 @@ import Foundation
 
 class PushRegistrationManager: UBPushRegistrationManager {
     override var pushRegistrationRequest: URLRequest? {
-        // TODO: add push registration request
-        return nil
+        #if DEBUG
+            let pushType = "IOD"
+        #else
+            let pushType = "IOS"
+        #endif
+
+        let pushRegistration = PushRegistration()
+        pushRegistration.pushToken = UBPushManager.shared.pushToken ?? ""
+        pushRegistration.pushType = pushType
+
+        return Endpoint.pushRegister(payload: pushRegistration, appversion: ConfigManager.appVersion, osversion: ConfigManager.osVersion, buildnr: ConfigManager.buildNumber).request()
     }
 }
 
