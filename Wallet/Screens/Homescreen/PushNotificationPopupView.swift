@@ -19,7 +19,7 @@ class PushNotificationPopUpView: PopupView {
     private let imageView = UIImageView(image: UIImage(named: "illu-notification"))
     private let titleLabel = Label(.title, textAlignment: .center)
     private let textLabel = Label(.text, textAlignment: .center)
-    private let button = Button(title: "", style: .normal(.cc_blue))
+    private let button = Button(title: UBLocalized.continue_button, style: .normal(.cc_blue))
 
     private var buttonView = UIView()
 
@@ -63,8 +63,6 @@ class PushNotificationPopUpView: PopupView {
         textLabel.text = UBLocalized.wallet_notification_permission_text
         stackView.addArrangedView(textLabel)
         stackView.addSpacerView(Padding.medium + Padding.small + 2.0)
-
-        button.title = UBLocalized.continue_button
 
         buttonView.addSubview(button)
         button.snp.makeConstraints { make in
