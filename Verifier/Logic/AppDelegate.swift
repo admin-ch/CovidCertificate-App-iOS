@@ -123,6 +123,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.applicationIconBadgeNumber = 0
 
         addBlurView()
+
+        // Close all views that are currently shown, such that people can start to scan directly when opening the app the next time.
+        window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 
     func applicationDidBecomeActive(_: UIApplication) {
