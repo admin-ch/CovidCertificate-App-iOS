@@ -48,6 +48,19 @@ class CertificateStorage {
         }
     }
 
+    var openTransferCodes: [String] {
+        return certificates.filter { cert in
+            // only not-downloaded codes
+            guard cert.qrCode == nil else { return false }
+            // transfer code needs to be there
+            guard let tc = cert.transferCode else { return false }
+            // transfer code should not be in failed state
+            guard tc.state != .failed else { return false }
+            // everything ok
+            return true
+        }.compactMap { $0.transferCode?.transferCode }
+    }
+
     func insertCertificate(userCertificate: UserCertificate) {
         insertCertificates(certificates: [userCertificate])
     }

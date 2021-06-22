@@ -61,32 +61,16 @@ class LocalPush: NSObject {
         .init()
     }
 
-    private func scheduleNotification(identifier: String) {
+    public func scheduleNotification(identifier: String) {
         let content = UNMutableNotificationContent()
-        // content.title = "push_exposed_title".ub_localized
-        // content.body = "push_exposed_text".ub_localized
+        // TODO:
+        // content.title = ""
+        // content.body = ""
         content.sound = .default
         content.threadIdentifier = identifier
 
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: nil)
         center.add(request, withCompletionHandler: nil)
-
-        // applicationState can only be accessed from the main thread
-        let state: UIApplication.State
-        if Thread.isMainThread {
-            state = applicationState
-        } else {
-            state = DispatchQueue.main.sync {
-                applicationState
-            }
-        }
-
-        // only if the app is in the background
-        if state == .background {
-            // schedule a notification every 4h for the next 2 days
-            // so that the user can not miss the notification
-            // TODO:
-        }
     }
 
     func showDebugNotification(title: String, body: String) {
@@ -103,12 +87,10 @@ extension LocalPush: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_: UNUserNotificationCenter,
                                 willPresent _: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        // TODO: implement
         completionHandler([.alert, .sound])
     }
 
     func userNotificationCenter(_: UNUserNotificationCenter, didReceive _: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        // TODO: implement
         completionHandler()
     }
 }

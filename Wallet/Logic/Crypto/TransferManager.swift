@@ -77,20 +77,9 @@ final class TransferManager {
     func updateCertificates(code: String, result: Result<[DecryptedCertificate], CryptoError>) {
         switch result {
         case let .success(certificates):
-            guard certificates.count > 0 else { return }
+            guard certificates.count > 0 else { break }
 
-            // get created date of object with transfer-code equal to code
-            let created: Date? = CertificateStorage.shared.userCertificates.first { $0.transferCode?.transferCode ?? "" == code }?.transferCode?.created
-
-            // update card of transfer-code to have a certificate
-            if let first = certificates.first {
-                CertificateStorage.shared.updateCertificate(with: code, qrCode: first.cert)
-            }
-
-            // add all additional codes
-            var certs: [UserCertificate] = certificates.map { UserCertificate(qrCode: $0.cert, transferCode: UserTransferCode(transferCode: code, created: created ?? Date())) }
-            certs = certs + certs
-            CertificateStorage.shared.insertCertificates(certificates: certs)
+            Self.updateCertificateStorage(code: code, certificates: certificates)
 
             // certificates were inserted, can be deleted on backend (best effort)
             deleters[code] = InAppDelivery()
@@ -102,5 +91,45 @@ final class TransferManager {
         case .failure:
             break
         }
+    }
+
+    static func updateCertificateStorage(code: String, certificates: [DecryptedCertificate]) {
+        // get created date of object with transfer-code equal to code
+        let created: Date? = CertificateStorage.shared.userCertificates.first { $0.transferCode?.transferCode ?? "" == code }?.transferCode?.created
+
+        // update card of transfer-code to have a certificate
+        if let first = certificates.first {
+            CertificateStorage.shared.updateCertificate(with: code, qrCode: first.cert)
+        }
+
+        // add all additional codes
+        let certs: [UserCertificate] = certificates.map { UserCertificate(qrCode: $0.cert, transferCode: UserTransferCode(transferCode: code, created: created ?? Date())) }
+        CertificateStorage.shared.insertCertificates(certificates: certs)
+    }
+
+    public static func updateAllOpenCodes(completion: @escaping (_ downloadedCertificates: [String]) -> Void) {
+        var downloadedCertificates: [String] = []
+
+        for code in CertificateStorage.shared.openTransferCodes {
+            let semaphore = DispatchSemaphore(value: 0)
+
+            let delivery = InAppDelivery()
+            delivery.tryDownloadCertificate(withCode: code) { result in
+                switch result {
+                case let .success(certificates):
+                    guard certificates.count > 0 else { break }
+                    Self.updateCertificateStorage(code: code, certificates: certificates)
+                    downloadedCertificates.append(code)
+                case .failure:
+                    break
+                }
+
+                semaphore.signal()
+            }
+
+            _ = semaphore.wait(timeout: .distantFuture)
+        }
+
+        completion(downloadedCertificates)
     }
 }
