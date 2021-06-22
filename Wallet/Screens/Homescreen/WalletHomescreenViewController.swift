@@ -35,6 +35,8 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
 
     let actionPopupView = WalletHomescreenActionPopupView()
 
+    let pushPopupView = PushNotificationPopUpView()
+
     init() {
         super.init(color: .cc_blue)
     }
@@ -46,6 +48,9 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             guard let strongSelf = self else { return }
             strongSelf.state = s.certificateState.certificates.count == 0 ? .onboarding : .certificates
             strongSelf.infoBox = s.infoBoxState
+            if !WalletUserStorage.shared.hasCompletedPushRegistration, s.certificateState.certificates.contains(where: { $0.type == .transferCode }) {
+                strongSelf.pushPopupView.presentFrom(view: strongSelf.view)
+            }
         }
 
         setupViews()
@@ -181,5 +186,10 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
         }
 
         updateState(false)
+
+        view.addSubview(pushPopupView)
+        pushPopupView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }

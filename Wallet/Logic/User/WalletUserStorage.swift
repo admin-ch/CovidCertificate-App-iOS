@@ -21,6 +21,9 @@ class WalletUserStorage {
 
     @UBUserDefault(key: "wallet.user.hasCompletedSecureStorageMigration", defaultValue: false)
     var hasCompletedSecureStorageMigration: Bool
+
+    @UBUserDefault(key: "wallet.user.hasCompletedPushRegistration", defaultValue: false)
+    var hasCompletedPushRegistration: Bool
 }
 
 class CertificateStorage {
