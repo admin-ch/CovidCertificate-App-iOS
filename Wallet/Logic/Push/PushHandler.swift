@@ -44,6 +44,10 @@ class PushHandler: UBPushHandler {
                 LocalPush.shared.scheduleNotification(identifier: downloadedCertificates.joined())
             }
 
+            if CertificateStorage.shared.openTransferCodes.count == 0 {
+                UBPushManager.shared.setActive(false)
+            }
+
             if self.backgroundTask != .invalid {
                 UIApplication.shared.endBackgroundTask(self.backgroundTask)
                 self.backgroundTask = .invalid

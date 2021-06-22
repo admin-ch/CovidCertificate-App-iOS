@@ -48,8 +48,16 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             guard let strongSelf = self else { return }
             strongSelf.state = s.certificateState.certificates.count == 0 ? .onboarding : .certificates
             strongSelf.infoBox = s.infoBoxState
-            if !WalletUserStorage.shared.hasCompletedPushRegistration, s.certificateState.certificates.contains(where: { $0.type == .transferCode }) {
+
+            // show push if first time there is a transfer code
+            let hasTransferCode = s.certificateState.certificates.contains(where: { $0.type == .transferCode })
+            if !WalletUserStorage.shared.hasCompletedPushRegistration, hasTransferCode {
                 strongSelf.pushPopupView.presentFrom(view: strongSelf.view)
+            }
+
+            // disable push when there are no transfer codes
+            if !hasTransferCode {
+                UBPushManager.shared.setActive(false)
             }
         }
 
