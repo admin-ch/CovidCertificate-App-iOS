@@ -65,6 +65,8 @@ class OnboardingBaseViewController: ViewController {
 
         setOnboardingStep(0, animated: true)
         startSplashCountDown()
+        
+        UIAccessibility.post(notification: .screenChanged, argument: stepViewControllers[currentStep].stackScrollView)
     }
 
     private func addSplashViewController() {
@@ -133,6 +135,9 @@ class OnboardingBaseViewController: ViewController {
         vcToShow.view.setNeedsLayout()
         vcToShow.view.layoutIfNeeded()
 
+        UIAccessibility.post(notification: .screenChanged, argument: vcToShow.stackScrollView)
+
+        
         if animated {
             vcToShow.fadeAnimation(fromFactor: forward ? 1 : -1, toFactor: 0, delay: 0.2, completion: { completed in if completed {
                 self.continueButton.isUserInteractionEnabled = true
@@ -148,7 +153,6 @@ class OnboardingBaseViewController: ViewController {
                 if completed {
                     vcToHide.view.isHidden = true
                     self.continueButton.isUserInteractionEnabled = true
-                    UIAccessibility.post(notification: .screenChanged, argument: nil)
                 }
             })
         } else if step < stepViewControllers.count - 1, !forward {
@@ -158,7 +162,6 @@ class OnboardingBaseViewController: ViewController {
                 if completed {
                     vcToHide.view.isHidden = true
                     self.continueButton.isUserInteractionEnabled = true
-                    UIAccessibility.post(notification: .screenChanged, argument: nil)
                 }
             })
         } else {
