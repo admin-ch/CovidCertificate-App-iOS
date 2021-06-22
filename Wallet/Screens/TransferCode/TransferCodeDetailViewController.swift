@@ -25,6 +25,8 @@ class TransferCodeDetailViewController: ViewController {
     private let refreshView = TransferCodeRefreshView()
     private let errorLabel = Label(.smallErrorLight, textAlignment: .center)
 
+    private let deleteButton = Button(title: UBLocalized.delete_button, style: .normal(.cc_bund))
+
     // MARK: - Variables
 
     public var error: CryptoError? {
@@ -64,6 +66,11 @@ class TransferCodeDetailViewController: ViewController {
             guard let strongSelf = self else { return }
             strongSelf.refreshCallback?()
         }
+
+        deleteButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.removeCertificate()
+        }
     }
 
     // MARK: - Setup
@@ -99,6 +106,12 @@ class TransferCodeDetailViewController: ViewController {
         let models = ConfigManager.currentConfig?.transferWorksViewModels ?? []
         StaticContentViewController.setupViews(models: models, stackView: stackScrollView.stackView, showAllViews: true)
 
+        stackScrollView.addSpacerView(Padding.large)
+
+        stackScrollView.addArrangedViewCentered(deleteButton)
+
+        stackScrollView.addSpacerView(5.0 * Padding.large)
+
         nameView.text = UBLocalized.wallet_transfer_code_state_waiting
         statusView.transferCode = certificate.transferCode
 
@@ -116,5 +129,16 @@ class TransferCodeDetailViewController: ViewController {
         refreshView.ub_setHidden(error == nil)
         errorLabel.ub_setHidden(error == nil)
         updateView.ub_setHidden(error != nil)
+    }
+
+    private func removeCertificate() {
+        let alert = UIAlertController(title: nil, message: UBLocalized.wallet_certificate_delete_confirm_text, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: UBLocalized.delete_button, style: .destructive, handler: { _ in
+            CertificateStorage.shared.userCertificates = CertificateStorage.shared.userCertificates.filter { $0 != self.certificate }
+            self.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: UBLocalized.cancel_button, style: .cancel, handler: nil))
+
+        present(alert, animated: true, completion: nil)
     }
 }
