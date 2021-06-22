@@ -16,7 +16,7 @@ class VerifyStatusView: UIView {
 
     private let stackView = UIStackView()
     public let imageView = UIImageView()
-    public let boldLabel = Label(.textBold, textColor: .cc_black)
+    public let boldLabel = Label(.text, textColor: .cc_black)
 
     // MARK: - Init
 
@@ -34,9 +34,9 @@ class VerifyStatusView: UIView {
 
     // MARK: - API
 
-    public func set(text: String, backgroundColor: UIColor, icon: UIImage?) {
+    public func set(text: NSAttributedString, backgroundColor: UIColor, icon: UIImage?) {
         imageView.image = icon
-        boldLabel.text = text
+        boldLabel.attributedText = text
         self.backgroundColor = backgroundColor
 
         accessibilityLabel = boldLabel.accessibilityLabel
