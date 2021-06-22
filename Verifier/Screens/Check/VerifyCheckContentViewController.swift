@@ -196,7 +196,7 @@ class VerifyCheckContentViewController: ViewController {
             let (signatureError, revocationError, nationalError) = state?.getVerifierErrorState() ?? (nil, nil, nil)
 
             // errors can never be empty in invalid state, therefore one optional will always safely unwrap
-            let text = signatureError?.displayName() ?? revocationError?.displayName() ?? nationalError?.displayName() ?? errors.first?.displayName() ?? ""
+            let text: NSAttributedString = signatureError?.displayName() ?? revocationError?.displayName() ?? nationalError?.displayName() ?? errors.first?.displayName() ?? NSAttributedString(string: "")
 
             statusView.set(text: text, backgroundColor: color, icon: UIImage(named: "ic-info-alert-red"))
 
