@@ -91,28 +91,6 @@ enum VerificationState: Equatable {
         }
     }
 
-    public func showSignatureValidInformation() -> Bool {
-        switch self {
-        case let .invalid(errors, _, _):
-            // show that the certificate has a valid signature when there is no
-            // signature error, so this test worked
-            return !errors.contains { $0 == .signature }
-        default:
-            return false
-        }
-    }
-
-    public func showNotRevokedInformation() -> Bool {
-        switch self {
-        case let .invalid(errors, _, _):
-            // show that the certificate was not revoked, when there is no revocation error,
-            // but don't show it when there is a signature error also present
-            return !errors.contains { $0 == .revocation } && !errors.contains { $0 == .signature }
-        default:
-            return false
-        }
-    }
-
     // get errors: (signature, revocation, nationalRuleError)
     // always show up to first error ->
     // (nil, error, error) --> show signature ok, show revocation error
@@ -121,7 +99,7 @@ enum VerificationState: Equatable {
         switch self {
         case let .invalid(errors, _, _):
             let signatureError = errors.filter { $0 == .signature || $0 == .typeInvalid }.first
-            let revocationError = errors.filter { $0 == .revocation }.first
+            let revocationError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 == .revocation }.first
             let nationalError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 != .revocation }.first
 
             return (signatureError, revocationError, nationalError)
