@@ -39,7 +39,6 @@ class VerifyInfoView: UIView {
         super.init(frame: .zero)
         setup()
 
-        isAccessibilityElement = true
         accessibilityElements = [label, retryButton]
     }
 

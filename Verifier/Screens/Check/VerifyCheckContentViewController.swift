@@ -339,7 +339,7 @@ class VerifyNameBirthdayView: UIView {
         birthdayView.descriptionLabel.text = UBLocalized.verifier_covid_certificate_birthdate
 
         accessibilityElements = [lastNameView, nameView, birthdayView, monoLabel]
-        isAccessibilityElement = true
+        isAccessibilityElement = false
     }
 
     @available(*, unavailable)
