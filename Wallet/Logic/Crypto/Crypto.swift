@@ -42,8 +42,12 @@ public enum CryptoError: Error {
 
     public var icon: UIImage? {
         switch self {
-        case .GET_CERTIFICATE_FAILED, .REGISTER_FAILED:
-            return UIImage(named: "ic-nocon")
+        case let .GET_CERTIFICATE_FAILED(error as NSError), let .REGISTER_FAILED(error as NSError):
+            if error.noInternetError() {
+                return UIImage(named: "ic-nocon")
+            } else {
+                return UIImage(named: "ic-error-orange")
+            }
         default:
             return UIImage(named: "ic-error-orange")
         }
@@ -51,8 +55,12 @@ public enum CryptoError: Error {
 
     public var cornerIcon: UIImage? {
         switch self {
-        case .GET_CERTIFICATE_FAILED, .REGISTER_FAILED:
-            return UIImage(named: "corner-left-no-internet")
+        case let .GET_CERTIFICATE_FAILED(error as NSError), let .REGISTER_FAILED(error as NSError):
+            if error.noInternetError() {
+                return UIImage(named: "corner-left-no-internet")
+            } else {
+                return UIImage(named: "corner-left-error")
+            }
         default:
             return UIImage(named: "corner-left-error")
         }
@@ -62,8 +70,12 @@ public enum CryptoError: Error {
 
     public var generateErrorTitle: String {
         switch self {
-        case .REGISTER_FAILED:
-            return UBLocalized.wallet_transfer_code_no_internet_title
+        case let .REGISTER_FAILED(error as NSError):
+            if error.noInternetError() {
+                return UBLocalized.wallet_transfer_code_no_internet_title
+            } else {
+                return UBLocalized.wallet_transfer_code_generate_error_title
+            }
         default:
             return UBLocalized.wallet_transfer_code_generate_error_title
         }
@@ -71,8 +83,12 @@ public enum CryptoError: Error {
 
     public var generateErrorText: String {
         switch self {
-        case .REGISTER_FAILED:
-            return UBLocalized.wallet_transfer_code_generate_no_internet_error_text
+        case let .REGISTER_FAILED(error as NSError):
+            if error.noInternetError() {
+                return UBLocalized.wallet_transfer_code_generate_no_internet_error_text
+            } else {
+                return UBLocalized.wallet_transfer_code_generate_error_text
+            }
         default:
             return UBLocalized.wallet_transfer_code_generate_error_text
         }
@@ -82,8 +98,12 @@ public enum CryptoError: Error {
 
     public var updateErrorTitle: String {
         switch self {
-        case .GET_CERTIFICATE_FAILED:
-            return UBLocalized.wallet_transfer_code_no_internet_title
+        case let .GET_CERTIFICATE_FAILED(error as NSError):
+            if error.noInternetError() {
+                return UBLocalized.wallet_transfer_code_no_internet_title
+            } else {
+                return UBLocalized.wallet_transfer_code_update_error_title
+            }
         default:
             return UBLocalized.wallet_transfer_code_update_error_title
         }
@@ -91,8 +111,12 @@ public enum CryptoError: Error {
 
     public var updateErrorText: String {
         switch self {
-        case .GET_CERTIFICATE_FAILED:
-            return UBLocalized.wallet_transfer_code_update_no_internet_error_text
+        case let .GET_CERTIFICATE_FAILED(error as NSError):
+            if error.noInternetError() {
+                return UBLocalized.wallet_transfer_code_update_no_internet_error_text
+            } else {
+                return UBLocalized.wallet_transfer_code_update_general_error_text
+            }
         default:
             return UBLocalized.wallet_transfer_code_update_general_error_text
         }
@@ -195,5 +219,23 @@ public enum Crypto {
         }
 
         return .success(privateKey)
+    }
+}
+
+extension NSError {
+    func noInternetError() -> Bool {
+        switch code {
+        case NSURLErrorTimedOut,
+             NSURLErrorCannotFindHost,
+             NSURLErrorCannotConnectToHost,
+             NSURLErrorNetworkConnectionLost,
+             NSURLErrorDNSLookupFailed,
+             NSURLErrorNotConnectedToInternet,
+             NSURLErrorInternationalRoamingOff,
+             NSURLErrorDataNotAllowed:
+            return true
+        default:
+            return false
+        }
     }
 }
