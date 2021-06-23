@@ -49,8 +49,8 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     let infoBox: LocalizedValue<InfoBox>?
     let questions: LocalizedValue<FAQEntriesContainer>?
     let works: LocalizedValue<FAQEntriesContainer>
-    let transferQuestions: LocalizedValue<FAQEntriesContainer>
-    let transferWorks: LocalizedValue<FAQEntriesContainer>
+    let transferQuestions: LocalizedValue<FAQEntriesContainer>?
+    let transferWorks: LocalizedValue<FAQEntriesContainer>?
 
     class FAQEntriesContainer: UBCodable {
         let faqTitle: String
@@ -102,21 +102,21 @@ extension ConfigResponseBody {
 
     var transferQuestionsViewModels: [StaticContentViewModel] {
         return [
-            StaticContentViewModel(foregroundImage: UIImage(named: transferQuestions.value?.faqIconIos ?? ""),
-                                   title: transferQuestions.value?.faqTitle ?? "",
+            StaticContentViewModel(foregroundImage: UIImage(named: transferQuestions?.value?.faqIconIos ?? ""),
+                                   title: transferQuestions?.value?.faqTitle ?? "",
                                    alignment: .left,
-                                   textGroups: [(nil, transferQuestions.value?.faqSubTitle ?? "")],
-                                   expandableTextGroups: transferQuestions.value?.faqEntries.compactMap { ($0.title, $0.text, $0.linkTitle, $0.linkUrl) } ?? []),
+                                   textGroups: [(nil, transferQuestions?.value?.faqSubTitle ?? "")],
+                                   expandableTextGroups: transferQuestions?.value?.faqEntries.compactMap { ($0.title, $0.text, $0.linkTitle, $0.linkUrl) } ?? []),
         ]
     }
 
     var transferWorksViewModels: [StaticContentViewModel] {
         return [
-            StaticContentViewModel(foregroundImage: UIImage(named: transferWorks.value?.faqIconIos ?? ""),
-                                   title: transferWorks.value?.faqTitle ?? "",
+            StaticContentViewModel(foregroundImage: UIImage(named: transferWorks?.value?.faqIconIos ?? ""),
+                                   title: transferWorks?.value?.faqTitle ?? "",
                                    alignment: .left,
-                                   textGroups: transferWorks.value?.faqIntroSections?.map { (UIImage(named: $0.iconIos ?? ""), $0.text) } ?? [],
-                                   expandableTextGroups: transferWorks.value?.faqEntries.compactMap { ($0.title, $0.text, $0.linkTitle, $0.linkUrl) } ?? []),
+                                   textGroups: transferWorks?.value?.faqIntroSections?.map { (UIImage(named: $0.iconIos ?? ""), $0.text) } ?? [],
+                                   expandableTextGroups: transferWorks?.value?.faqEntries.compactMap { ($0.title, $0.text, $0.linkTitle, $0.linkUrl) } ?? []),
         ]
     }
 }
