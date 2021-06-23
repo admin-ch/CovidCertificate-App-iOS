@@ -12,11 +12,11 @@
 import UIKit
 
 class TransferCodeLabel: UIView {
-    private let label1 = InsetLabel(.title, textColor: .cc_blue, textAlignment: .center)
-    private let label2 = InsetLabel(.title, textColor: .cc_blue, textAlignment: .center)
-    private let label3 = InsetLabel(.title, textColor: .cc_blue, textAlignment: .center)
+    private let label1 = InsetLabel()
+    private let label2 = InsetLabel()
+    private let label3 = InsetLabel()
 
-    private var labels: [UILabel] {
+    private var labels: [InsetLabel] {
         [label1, label2, label3]
     }
 
@@ -39,50 +39,60 @@ class TransferCodeLabel: UIView {
     private func setupView() {
         labels.forEach {
             addSubview($0)
-            $0.backgroundColor = .cc_white
         }
 
         label1.snp.makeConstraints { make in
-            make.top.leading.bottom.equalToSuperview()
+            make.leading.greaterThanOrEqualToSuperview()
+            make.top.bottom.equalToSuperview()
             make.height.equalTo(32)
         }
         label2.snp.makeConstraints { make in
-            make.top.bottom.height.equalTo(label1)
+            make.top.bottom.equalTo(label1)
             make.leading.equalTo(label1.snp.trailing).offset(4)
         }
         label3.snp.makeConstraints { make in
-            make.top.bottom.height.equalTo(label1)
+            make.top.bottom.equalTo(label1)
             make.leading.equalTo(label2.snp.trailing).offset(4)
-            make.trailing.equalToSuperview()
+            make.trailing.lessThanOrEqualToSuperview()
         }
     }
 
     private func update() {
         guard let c = code, c.count == 9 else {
-            labels.forEach { $0.text = "---" }
+            labels.forEach { $0.label.text = "---" }
             return
         }
 
         let arrayCode = Array(c)
 
-        label1.text = "\(arrayCode[0])\(arrayCode[1])\(arrayCode[2])"
-        label2.text = "\(arrayCode[3])\(arrayCode[4])\(arrayCode[5])"
-        label3.text = "\(arrayCode[6])\(arrayCode[7])\(arrayCode[8])"
+        label1.label.text = "\(arrayCode[0])\(arrayCode[1])\(arrayCode[2])"
+        label2.label.text = "\(arrayCode[3])\(arrayCode[4])\(arrayCode[5])"
+        label3.label.text = "\(arrayCode[6])\(arrayCode[7])\(arrayCode[8])"
 
         accessibilityLabel = arrayCode.map { "\($0)" }.joined(separator: ", ")
     }
 }
 
-private class InsetLabel: Label {
+private class InsetLabel: UIView {
     private let inset: CGFloat = 7
+    public let label = Label(.title, textColor: .cc_blue, textAlignment: .center)
 
-    override func drawText(in rect: CGRect) {
-        super.drawText(in: rect.inset(by: UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)))
+    init() {
+        super.init(frame: .zero)
+        setup()
     }
 
-    override var intrinsicContentSize: CGSize {
-        var size = super.intrinsicContentSize
-        size.width += 2 * inset
-        return size
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setup() {
+        backgroundColor = .cc_white
+        addSubview(label)
+
+        label.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.right.equalToSuperview().inset(inset)
+        }
     }
 }

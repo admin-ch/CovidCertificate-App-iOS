@@ -206,7 +206,9 @@ private class TransferView: UIView {
     // MARK: - Views
 
     private let transferCodeView = TransferCodeStatusView()
-    public var certificate: UserCertificate?
+    public var certificate: UserCertificate? {
+        didSet { update(animated: true) }
+    }
 
     private let nameView = Label(.title, textAlignment: .center)
     private let failedImageView = UIImageView(image: UIImage(named: "illu-transfer-failed"))
@@ -235,28 +237,34 @@ private class TransferView: UIView {
     }
 
     private func setup() {
-        addSubview(animationView)
+        addSubview(nameView)
+        addSubview(transferCodeView)
 
         let codeHasFailed = certificate?.transferCode?.state == .failed
 
         if codeHasFailed {
-            failedImageView.ub_setContentPriorityRequired()
             addSubview(failedImageView)
             failedImageView.snp.makeConstraints { make in
                 make.top.equalToSuperview().inset(40)
                 make.centerX.equalToSuperview()
             }
+
+            failedImageView.contentMode = .scaleAspectFit
+
+            failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+            failedImageView.setContentHuggingPriority(.defaultLow, for: .vertical)
+            failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+            failedImageView.setContentHuggingPriority(.defaultLow, for: .horizontal)
         } else {
+            addSubview(animationView)
             animationView.snp.makeConstraints { make in
                 make.top.left.right.equalToSuperview()
             }
         }
 
-        addSubview(nameView)
-
         nameView.snp.makeConstraints { make in
             if codeHasFailed {
-                make.top.equalTo(failedImageView.snp.bottom).offset(50)
+                make.top.equalTo(failedImageView.snp.bottom).offset(Padding.large)
             } else {
                 make.top.equalTo(animationView.snp.bottom).offset(Padding.medium)
             }
@@ -264,23 +272,23 @@ private class TransferView: UIView {
         }
 
         nameView.text = codeHasFailed ? UBLocalized.wallet_transfer_code_state_expired : UBLocalized.wallet_transfer_code_state_waiting
+
         nameView.ub_setContentPriorityRequired()
 
-        transferCodeView.transferCode = certificate?.transferCode
-
-        addSubview(transferCodeView)
         transferCodeView.snp.makeConstraints { make in
+            make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium)
             make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
         }
+
+        transferCodeView.ub_setContentPriorityRequired()
 
         update(animated: false)
     }
 
     public func update(animated _: Bool) {
+        transferCodeView.transferCode = certificate?.transferCode
         accessibilityLabel = [nameView.text, transferCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
     }
-
-    // MARK: - Setup Helper
 }
 
 private class QRCodeView: UIView {

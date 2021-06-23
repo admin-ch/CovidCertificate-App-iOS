@@ -18,7 +18,10 @@ class TransferCodeStatusView: UIView {
     private let expiredLabel = Label(.title, textAlignment: .center)
     private let titleLabel = Label(.textBold, textAlignment: .center)
     private let validLabel = Label(.text, textColor: .cc_blue, textAlignment: .center)
+
     private let codeLabel = TransferCodeLabel()
+    private let codeContainer = UIView()
+
     private let createdAtLabel = Label(.text, textAlignment: .center)
 
     private let errorCorner = UIImageView()
@@ -40,6 +43,8 @@ class TransferCodeStatusView: UIView {
 
         setupView()
         update()
+
+        ub_setContentPriorityRequired()
     }
 
     required init?(coder _: NSCoder) {
@@ -52,10 +57,8 @@ class TransferCodeStatusView: UIView {
 
         addSubview(roundImageBackgroundView)
         addSubview(imageView)
-        addSubview(expiredLabel)
         addSubview(titleLabel)
         addSubview(validLabel)
-        addSubview(codeLabel)
         addSubview(createdAtLabel)
         addSubview(errorCorner)
 
@@ -70,30 +73,33 @@ class TransferCodeStatusView: UIView {
             make.centerX.equalToSuperview()
         }
 
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(10)
-            make.centerX.equalToSuperview()
-        }
+        let titleValidStackView = UIStackView()
+        titleValidStackView.axis = .vertical
+        titleValidStackView.spacing = 0.0
+        titleValidStackView.addArrangedSubview(titleLabel)
+        titleValidStackView.addArrangedSubview(validLabel)
+        titleValidStackView.addArrangedSubview(codeContainer)
+        titleValidStackView.addArrangedSubview(expiredLabel)
+        titleValidStackView.ub_setContentPriorityRequired()
 
-        validLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(10)
-            make.centerX.equalToSuperview()
-        }
-
-        expiredLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(10)
-            make.leading.trailing.equalToSuperview().inset(2 * Padding.medium)
-        }
-        expiredLabel.isHidden = true
-
+        codeContainer.addSubview(codeLabel)
         codeLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(Padding.medium)
-            make.centerX.equalToSuperview()
+            make.left.greaterThanOrEqualToSuperview()
+            make.right.lessThanOrEqualToSuperview()
+            make.top.equalToSuperview().inset(Padding.medium)
+            make.centerX.bottom.equalToSuperview()
+        }
+
+        addSubview(titleValidStackView)
+
+        titleValidStackView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Padding.medium)
+            make.top.equalTo(imageView.snp.bottom).offset(10)
         }
 
         createdAtLabel.snp.makeConstraints { make in
-            make.top.equalTo(codeLabel.snp.bottom).offset(Padding.medium)
-            make.centerX.equalToSuperview()
+            make.top.equalTo(titleValidStackView.snp.bottom).offset(Padding.medium)
+            make.leading.trailing.equalToSuperview().inset(Padding.medium)
             make.bottom.equalToSuperview().inset(Padding.medium)
         }
 
@@ -106,22 +112,20 @@ class TransferCodeStatusView: UIView {
 
     private func update() {
         guard let code = transferCode else { return }
+
+        createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
+
         if isNewlyCreated {
             imageView.image = UIImage(named: "ic-check-mark")
             validLabel.isHidden = true
             titleLabel.isHidden = false
             titleLabel.text = UBLocalized.wallet_transfer_code_title
-            codeLabel.snp.remakeConstraints { make in
-                make.top.equalTo(titleLabel.snp.bottom).offset(Padding.medium)
-                make.centerX.equalToSuperview()
-            }
+
             codeLabel.code = code.transferCode
-            createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
+            expiredLabel.ub_setHidden(true)
 
             accessibilityLabel = [titleLabel.text, codeLabel.accessibilityLabel, createdAtLabel.text].compactMap { $0 }.joined(separator: ", ")
         } else {
-            createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
-
             switch code.state {
             case .valid:
                 if let img = error?.cornerIcon {
@@ -134,15 +138,11 @@ class TransferCodeStatusView: UIView {
                 errorCorner.alpha = error?.cornerIcon == nil ? 0.0 : 1.0
 
                 imageView.image = code.validityIcon
-                validLabel.isHidden = false
-                titleLabel.isHidden = true
-                codeLabel.isHidden = false
-                expiredLabel.isHidden = true
+                validLabel.ub_setHidden(false)
+                titleLabel.ub_setHidden(true)
+                codeContainer.ub_setHidden(false)
+                expiredLabel.ub_setHidden(true)
                 validLabel.attributedText = code.validDaysText
-                codeLabel.snp.remakeConstraints { make in
-                    make.top.equalTo(validLabel.snp.bottom).offset(Padding.medium)
-                    make.centerX.equalToSuperview()
-                }
 
                 backgroundColor = .cc_blueish
                 codeLabel.code = code.transferCode
@@ -153,10 +153,10 @@ class TransferCodeStatusView: UIView {
                 backgroundColor = code.state == .expired ? .cc_blueish : .cc_redish
                 imageView.image = UIImage(named: "ic-info-outline")?.ub_image(with: code.state == .expired ? .cc_blue : .cc_red)
 
-                validLabel.isHidden = true
-                titleLabel.isHidden = true
-                codeLabel.isHidden = true
-                expiredLabel.isHidden = false
+                validLabel.ub_setHidden(true)
+                titleLabel.ub_setHidden(true)
+                codeContainer.ub_setHidden(true)
+                expiredLabel.ub_setHidden(false)
                 errorCorner.image = nil
 
                 expiredLabel.text = UBLocalized.wallet_transfer_code_old_code
@@ -165,6 +165,8 @@ class TransferCodeStatusView: UIView {
                 accessibilityLabel = [expiredLabel.text, codeLabel.accessibilityLabel, createdAtLabel.text].compactMap { $0 }.joined(separator: ", ")
             }
         }
+
+        layoutIfNeeded()
     }
 
     override func layoutSubviews() {

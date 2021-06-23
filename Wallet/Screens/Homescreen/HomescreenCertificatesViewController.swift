@@ -113,12 +113,13 @@ class HomescreenCertificatesViewController: ViewController {
                 guard transferCode.state != .failed else { return }
 
                 TransferManager.shared.addObserver(self, for: transferCode.transferCode) { [weak i] result in
+                    guard let strongI = i else { return }
                     switch result {
                     case .success:
                         // TransferManager adds all the certificates
-                        break
+                        strongI.transferError = nil
                     case let .failure(error):
-                        i?.transferError = error
+                        strongI.transferError = error
                     }
                 }
             }

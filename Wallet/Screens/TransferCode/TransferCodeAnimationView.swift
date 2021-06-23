@@ -60,6 +60,16 @@ class TransferCodeAnimationView: UIView {
 
         phoneAnimationView.loadAnimation(pattern: "210616_wait_for_transfer_phone_only_00000", numberOfImages: 71)
         phoneAnimationView.startAnimating()
+
+        phoneAnimationView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        phoneAnimationView.setContentHuggingPriority(.defaultLow, for: .vertical)
+        phoneAnimationView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        phoneAnimationView.setContentHuggingPriority(.defaultLow, for: .horizontal)
+
+        ringAnimationView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        ringAnimationView.setContentHuggingPriority(.defaultLow, for: .vertical)
+        ringAnimationView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        ringAnimationView.setContentHuggingPriority(.defaultLow, for: .horizontal)
     }
 }
 
