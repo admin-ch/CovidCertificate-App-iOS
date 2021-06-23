@@ -697,15 +697,7 @@
 "wallet_transfer_code_expire_plural_bold" = "{DAYS} Tage";
 
 /*Infotext bei erfolgreicher Prüfung (Blacklist)*/
-<<<<<<< HEAD
-<<<<<<< HEAD
 "verifier_verify_success_info_for_blacklist" = "Nicht widerrufen";
-=======
-"verifier_verify_success_info_for_blacklist" = "Nicht wiederrufen";
->>>>>>> c696464 (adds error screen on transfer code generation)
-=======
-"verifier_verify_success_info_for_blacklist" = "Nicht widerrufen";
->>>>>>> f6372f1 (change text of alert when deleting a transfer code)
 
 /*Infotext bei erfolgreicher Prüfung (Zertifikat)*/
 "verifier_verify_success_info_for_certificate_valid" = "Signatur gültig";
@@ -737,29 +729,12 @@
 "wallet_transfer_code_generate_error_text" = "Versuchen Sie es später erneut.";
 
 /*Wallet: Transfer Code Fehlertext bei Generieren ohne Internet*/
-<<<<<<< HEAD
-<<<<<<< HEAD
 /*Fuzzy*/
 "wallet_transfer_code_generate_no_internet_error_text" = "Um einen Transfer-Code erstellen zu können, muss die App online sein.";
 
 /*Wallet: Accessibility Name für Refresh Button*/
 /*Fuzzy*/
 "accessibility_refresh_button" = "Aktualisieren";
-=======
-=======
-/*Fuzzy*/
->>>>>>> 557be35 (Fix bold formatting in transfer code status view, update config request for transfer code content)
-"wallet_transfer_code_generate_no_internet_error_text" = "Um einen Transfer-Code erstellen zu können, muss die App online sein.";
-<<<<<<< HEAD
->>>>>>> c696464 (adds error screen on transfer code generation)
-=======
-
-/*Wallet: Accessibility Name für Refresh Button*/
-/*Fuzzy*/
-"accessibility_refresh_button" = "Aktualisieren";
-<<<<<<< HEAD
->>>>>>> 27d46de (adds basic transfer code detail views)
-=======
 
 /*Fuzzy*/
 "wallet_transfer_delete_confirm_text" = "Wollen Sie den Transfer-Code wirklich löschen?";
@@ -777,4 +752,3 @@
 "verifier_faq_works_linkurl_2_1" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624";
 "verifier_faq_works_question_6" = "Können Zertifikate auch offline geprüft werden?";
 "verifier_faq_works_answer_6" = "Grundsätzlich können Covid-Zertifikate auch ohne eine Internetverbindung geprüft werden. Dazu werden regelmässig aktualisierte Prüflisten von einem zentralen Server heruntergeladen. Diese lokal gespeicherten Prüflisten dürfen nicht älter als 48h sein. \n\nUm die Prüflisten zu aktualisieren muss die App mit dem Internet verbunden sein und geöffnet werden. Die Aktualisierung erfolgt unmittelbar und automatisch.";
->>>>>>> f6372f1 (change text of alert when deleting a transfer code)

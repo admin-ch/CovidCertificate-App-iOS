@@ -194,15 +194,7 @@ import Foundation
      case verifier_verify_loading_text_key = "verifier_verify_loading_text"
     /// Nur mit einem \nAusweisdokument gültig
      case verifier_verify_success_info_key = "verifier_verify_success_info"
-<<<<<<< HEAD
-<<<<<<< HEAD
     /// Nicht widerrufen
-=======
-    /// Nicht wiederrufen
->>>>>>> c696464 (adds error screen on transfer code generation)
-=======
-    /// Nicht widerrufen
->>>>>>> f6372f1 (change text of alert when deleting a transfer code)
      case verifier_verify_success_info_for_blacklist_key = "verifier_verify_success_info_for_blacklist"
     /// Signatur gültig
      case verifier_verify_success_info_for_certificate_valid_key = "verifier_verify_success_info_for_certificate_valid"
@@ -758,15 +750,7 @@ import Foundation
    static let verifier_verify_loading_text = UBLocalized.tr(UBLocalizedKey.verifier_verify_loading_text_key)
   /// Nur mit einem \nAusweisdokument gültig
    static let verifier_verify_success_info = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_key)
-<<<<<<< HEAD
-<<<<<<< HEAD
   /// Nicht widerrufen
-=======
-  /// Nicht wiederrufen
->>>>>>> c696464 (adds error screen on transfer code generation)
-=======
-  /// Nicht widerrufen
->>>>>>> f6372f1 (change text of alert when deleting a transfer code)
    static let verifier_verify_success_info_for_blacklist = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_for_blacklist_key)
   /// Signatur gültig
    static let verifier_verify_success_info_for_certificate_valid = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_for_certificate_valid_key)

@@ -571,15 +571,7 @@
 "wallet_transfer_code_next_steps" = "Passaggi successivi";
 
 /*Wallet: Transfer Code Nächste Schritte 1*/
-<<<<<<< HEAD
-<<<<<<< HEAD
 "wallet_transfer_code_next_steps1" = "Al momento dell'esecuzione del test comunica il codice alla farmacia, al centro di test o al medico.";
-=======
-"wallet_transfer_code_next_steps1" = "Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.";
->>>>>>> c696464 (adds error screen on transfer code generation)
-=======
-"wallet_transfer_code_next_steps1" = "Al momento dell'esecuzione del test comunica il codice alla farmacia, al centro di test o al medico.";
->>>>>>> f6372f1 (change text of alert when deleting a transfer code)
 
 /*Wallet: Transfer Code Nächste Schritte 2*/
 "wallet_transfer_code_next_steps2" = "Al momento dell'esecuzione del test comunica il codice alla farmacia, al centro di test o al medico.";
@@ -675,8 +667,6 @@
 "wallet_scanner_howitworks_external_link_title" = "Ulteriori informazioni";
 
 /*Buttontitel im Screen, wo ein Code erstellt werden kann*/
-<<<<<<< HEAD
-<<<<<<< HEAD
 "wallet_transfer_code_create_code_button" = "Crea codice";
 
 /*Wallet: Transfer Code Ablauf in 1 Tag (fetter Teil)*/
@@ -690,35 +680,11 @@
 
 /*Infotext bei erfolgreicher Prüfung (Zertifikat)*/
 "verifier_verify_success_info_for_certificate_valid" = "Firma valida";
-=======
-"wallet_transfer_code_create_code_button" = "Code erstellen";
-=======
-"wallet_transfer_code_create_code_button" = "Crea codice";
->>>>>>> f6372f1 (change text of alert when deleting a transfer code)
-
-/*Wallet: Transfer Code Ablauf in 1 Tag (fetter Teil)*/
-"wallet_transfer_code_expire_singular_bold" = "1 giorno";
-
-/*Wallet: Transfer Code: Läuft in {DAYS} Tagen ab (fetter Teil)*/
-"wallet_transfer_code_expire_plural_bold" = "{DAYS} giorni";
-
-/*Infotext bei erfolgreicher Prüfung (Blacklist)*/
-"verifier_verify_success_info_for_blacklist" = "Non revocare";
-
-/*Infotext bei erfolgreicher Prüfung (Zertifikat)*/
-<<<<<<< HEAD
-"verifier_verify_success_info_for_certificate_valid" = "Signatur gültig";
->>>>>>> c696464 (adds error screen on transfer code generation)
-=======
-"verifier_verify_success_info_for_certificate_valid" = "Firma valida";
->>>>>>> f6372f1 (change text of alert when deleting a transfer code)
 
 /*Teil der Fehlermeldung bei noch nicht/nicht mehr gültigem Zertifikat, der Bold sein sollte (ref. verifier_verifiy_error_expired und _notyetvalid)*/
 "verifier_verify_error_validity_range_bold" = "Non conforme ai criteri di validità svizzeri.";
 
 /*Wallet: Transfer Code Fehler Titel*/
-<<<<<<< HEAD
-<<<<<<< HEAD
 "wallet_transfer_code_error_title" = "Non è stato possibile creare il codice di trasferimento.";
 
 /*Wallet: Erstellen Fehler Titel*/
@@ -740,45 +706,6 @@
 "wallet_transfer_code_generate_error_text" = "Riprova più tardi.";
 
 /*Wallet: Transfer Code Fehlertext bei Generieren ohne Internet*/
-"wallet_transfer_code_generate_no_internet_error_text" = "Per creare un codice di trasferimento l'app deve essere on-line.";
-
-/*Wallet: Accessibility Name für Refresh Button*/
-"accessibility_refresh_button" = "Aggiorna";
-=======
-"wallet_transfer_code_error_title" = "Transfer-Code konnte nicht erstellt werden";
-=======
-"wallet_transfer_code_error_title" = "Non è stato possibile creare il codice di trasferimento.";
->>>>>>> f6372f1 (change text of alert when deleting a transfer code)
-
-/*Wallet: Erstellen Fehler Titel*/
-"wallet_transfer_code_no_internet_title" = "Nessuna connessione a Internet";
-
-/*Wallet: Erstellen anderer Fehler Titel*/
-"wallet_transfer_code_generate_error_title" = "Si è verificato un errore imprevisto.";
-
-/*Wallet: Aktualisierung Transfer Code Fehler Titel*/
-"wallet_transfer_code_update_error_title" = "Aggiornamento al momento non disponibile";
-
-/*Wallet: Transfer Code Update Fehler Text*/
-"wallet_transfer_code_update_no_internet_error_text" = "Per effettuare il trasferimento l'app deve essere on-line.";
-
-/*Wallet Transfer Code Update Fehler Text*/
-"wallet_transfer_code_update_general_error_text" = "Si è verificato un errore imprevisto. Riprova più tardi";
-
-/*Wallet: Transfer Code Fehlertext bei Generieren*/
-"wallet_transfer_code_generate_error_text" = "Riprova più tardi.";
-
-/*Wallet: Transfer Code Fehlertext bei Generieren ohne Internet*/
-<<<<<<< HEAD
-"wallet_transfer_code_generate_no_internet_error_text" = "Um einen Transfer-Code erstellen zu können, muss die App online sein.";
-<<<<<<< HEAD
->>>>>>> c696464 (adds error screen on transfer code generation)
-=======
-
-/*Wallet: Accessibility Name für Refresh Button*/
-"accessibility_refresh_button" = "Aktualisieren";
->>>>>>> 27d46de (adds basic transfer code detail views)
-=======
 "wallet_transfer_code_generate_no_internet_error_text" = "Per creare un codice di trasferimento l'app deve essere on-line.";
 
 /*Wallet: Accessibility Name für Refresh Button*/
@@ -800,4 +727,3 @@
 "verifier_faq_works_linkurl_2_1" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624";
 "verifier_faq_works_question_6" = "I certificati possono essere verificati anche offline?";
 "verifier_faq_works_answer_6" = "In linea di principio, i certificati COVID possono essere verificati anche senza connessione Internet. A tale scopo, vengono scaricati regolarmente da un server centrale gli elenchi di verifica aggiornati. Questi elenchi salvati localmente non devono avere più di 48 ore. \n\nPer poter aggiornare gli elenchi di verifica, l’app deve essere aperta e collegata a Internet. L’aggiornamento avviene in modo immediato e automatico.";
->>>>>>> f6372f1 (change text of alert when deleting a transfer code)
