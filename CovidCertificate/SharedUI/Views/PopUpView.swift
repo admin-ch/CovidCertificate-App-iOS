@@ -58,7 +58,7 @@ class PopupView: UIView {
         }, completion: { _ in })
     }
 
-    public func dismiss() {
+    @objc public func dismiss() {
         if viewPoint == .zero {
             return
         }
@@ -98,5 +98,8 @@ class PopupView: UIView {
         backgroundView.backgroundColor = UIColor.cc_black.withAlphaComponent(0.54)
 
         addSubview(contentView)
+
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismiss))
+        backgroundView.addGestureRecognizer(tapGestureRecognizer)
     }
 }
