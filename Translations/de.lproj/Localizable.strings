@@ -589,7 +589,7 @@
 "wallet_transfer_code_next_steps" = "Nächste Schritte";
 
 /*Wallet: Transfer Code Nächste Schritte 1*/
-"wallet_transfer_code_next_steps1" = "Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.";
+"wallet_transfer_code_next_steps1" = "Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.";
 
 /*Wallet: Transfer Code Nächste Schritte 2*/
 "wallet_transfer_code_next_steps2" = "Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
@@ -697,7 +697,11 @@
 "wallet_transfer_code_expire_plural_bold" = "{DAYS} Tage";
 
 /*Infotext bei erfolgreicher Prüfung (Blacklist)*/
+<<<<<<< HEAD
 "verifier_verify_success_info_for_blacklist" = "Nicht widerrufen";
+=======
+"verifier_verify_success_info_for_blacklist" = "Nicht wiederrufen";
+>>>>>>> c696464 (adds error screen on transfer code generation)
 
 /*Infotext bei erfolgreicher Prüfung (Zertifikat)*/
 "verifier_verify_success_info_for_certificate_valid" = "Signatur gültig";
@@ -729,9 +733,13 @@
 "wallet_transfer_code_generate_error_text" = "Versuchen Sie es später erneut.";
 
 /*Wallet: Transfer Code Fehlertext bei Generieren ohne Internet*/
+<<<<<<< HEAD
 /*Fuzzy*/
 "wallet_transfer_code_generate_no_internet_error_text" = "Um einen Transfer-Code erstellen zu können, muss die App online sein.";
 
 /*Wallet: Accessibility Name für Refresh Button*/
 /*Fuzzy*/
 "accessibility_refresh_button" = "Aktualisieren";
+=======
+"wallet_transfer_code_generate_no_internet_error_text" = "Um einen Transfer-Code erstellen zu können, muss die App online sein.";
+>>>>>>> c696464 (adds error screen on transfer code generation)

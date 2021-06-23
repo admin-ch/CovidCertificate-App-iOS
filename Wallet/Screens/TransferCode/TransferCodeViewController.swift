@@ -12,8 +12,15 @@
 import UIKit
 
 class TransferCodeViewController: ViewController {
+    private let inAppDelivery = InAppDelivery()
+
     private let infoVC = TransferCodeOnboardingViewController()
     private let nextStepsVC = TransferCodeNextStepsViewController()
+    private let errorRetryVC = TransferCodeErrorRetryViewController()
+
+    private let loadingView = LoadingView()
+
+    // MARK: - View
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,25 +29,73 @@ class TransferCodeViewController: ViewController {
         addDismissButton()
 
         addChildViewControllers()
-
-        infoVC.createCodeButton.touchUpCallback = { [weak self] in
-            guard let strongSelf = self else { return }
-
-            strongSelf.startLoading()
-        }
+        setupInteraction()
     }
+
+    // MARK: - Setup
 
     private func addChildViewControllers() {
         addSubviewController(infoVC)
         addSubviewController(nextStepsVC)
+        addSubviewController(errorRetryVC)
+
+        view.addSubview(loadingView)
+
+        loadingView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
         nextStepsVC.view.alpha = 0
+        errorRetryVC.view.alpha = 0
+        loadingView.alpha = 0.0
     }
 
+    private func setupInteraction() {
+        infoVC.createCodeButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.startLoading()
+        }
+
+        errorRetryVC.retryCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.startLoading()
+        }
+    }
+
+    // MARK: - Start
+
     private func startLoading() {
-        nextStepsVC.startLoading()
+        loadingView.startLoading()
+
         UIView.animate(withDuration: 0.25) {
             self.infoVC.view.alpha = 0
-            self.nextStepsVC.view.alpha = 1
+            self.errorRetryVC.view.alpha = 0.0
+            self.nextStepsVC.view.alpha = 0.0
+        }
+
+        inAppDelivery.registerNewCode { [weak self] result in
+            guard let strongSelf = self else { return }
+
+            switch result {
+            case let .success(code):
+                let code = UserTransferCode(transferCode: code, created: Date())
+                let cert = UserCertificate(qrCode: nil, transferCode: code)
+                CertificateStorage.shared.insertCertificate(userCertificate: cert)
+                strongSelf.nextStepsVC.transferCode = code
+
+                UIView.animate(withDuration: 0.25) {
+                    strongSelf.nextStepsVC.view.alpha = 1.0
+                }
+
+            case let .failure(error):
+                strongSelf.errorRetryVC.error = error
+
+                UIView.animate(withDuration: 0.25) {
+                    strongSelf.errorRetryVC.view.alpha = 1.0
+                }
+            }
+
+            strongSelf.loadingView.stopLoading()
         }
     }
 }

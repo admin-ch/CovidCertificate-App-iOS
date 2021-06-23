@@ -186,7 +186,11 @@ import Foundation
      case verifier_verify_loading_text_key = "verifier_verify_loading_text"
     /// Nur mit einem \nAusweisdokument gültig
      case verifier_verify_success_info_key = "verifier_verify_success_info"
+<<<<<<< HEAD
     /// Nicht widerrufen
+=======
+    /// Nicht wiederrufen
+>>>>>>> c696464 (adds error screen on transfer code generation)
      case verifier_verify_success_info_for_blacklist_key = "verifier_verify_success_info_for_blacklist"
     /// Signatur gültig
      case verifier_verify_success_info_for_certificate_valid_key = "verifier_verify_success_info_for_certificate_valid"
@@ -506,7 +510,7 @@ import Foundation
      case wallet_transfer_code_generate_no_internet_error_text_key = "wallet_transfer_code_generate_no_internet_error_text"
     /// Nächste Schritte
      case wallet_transfer_code_next_steps_key = "wallet_transfer_code_next_steps"
-    /// Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.
+    /// Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.
      case wallet_transfer_code_next_steps1_key = "wallet_transfer_code_next_steps1"
     /// Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
      case wallet_transfer_code_next_steps2_key = "wallet_transfer_code_next_steps2"
@@ -716,7 +720,11 @@ import Foundation
    static let verifier_verify_loading_text = UBLocalized.tr(UBLocalizedKey.verifier_verify_loading_text_key)
   /// Nur mit einem \nAusweisdokument gültig
    static let verifier_verify_success_info = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_key)
+<<<<<<< HEAD
   /// Nicht widerrufen
+=======
+  /// Nicht wiederrufen
+>>>>>>> c696464 (adds error screen on transfer code generation)
    static let verifier_verify_success_info_for_blacklist = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_for_blacklist_key)
   /// Signatur gültig
    static let verifier_verify_success_info_for_certificate_valid = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_for_certificate_valid_key)
@@ -1036,7 +1044,7 @@ import Foundation
    static let wallet_transfer_code_generate_no_internet_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_generate_no_internet_error_text_key)
   /// Nächste Schritte
    static let wallet_transfer_code_next_steps = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps_key)
-  /// Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.
+  /// Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.
    static let wallet_transfer_code_next_steps1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps1_key)
   /// Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
    static let wallet_transfer_code_next_steps2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps2_key)
