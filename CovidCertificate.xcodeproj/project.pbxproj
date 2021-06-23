@@ -300,6 +300,7 @@
 		F86A6A862637F944003CAC1B /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86A6A852637F944003CAC1B /* ReusableView.swift */; };
 		F87E96D7263AEA9100755AF1 /* OSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E96D6263AEA9100755AF1 /* OSLogger.swift */; };
 		F88D99DB2497938E0081790E /* UIImage+localizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */; };
+		F8944F8326834E94005A2B33 /* TransferCodeExpiredExplanatoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8944F8226834E94005A2B33 /* TransferCodeExpiredExplanatoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -512,6 +513,7 @@
 		F87C369F258B6652008DCC81 /* ExposureNotification.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExposureNotification.framework; path = System/Library/Frameworks/ExposureNotification.framework; sourceTree = SDKROOT; };
 		F87E96D6263AEA9100755AF1 /* OSLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogger.swift; sourceTree = "<group>"; };
 		F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+localizedImage.swift"; sourceTree = "<group>"; };
+		F8944F8226834E94005A2B33 /* TransferCodeExpiredExplanatoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeExpiredExplanatoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -723,6 +725,7 @@
 				6E17391B267B193800813D30 /* TransferCodeErrorView.swift */,
 				6E17391D267B204700813D30 /* LoadingView.swift */,
 				6E173927267B330200813D30 /* TransferCodeDetailViewController.swift */,
+				F8944F8226834E94005A2B33 /* TransferCodeExpiredExplanatoryView.swift */,
 				6E173929267B382900813D30 /* TransferCodeAnimationView.swift */,
 				6EEAFBEC267B4F3300807C16 /* TransferCodeRefreshView.swift */,
 				DC8F1ED9267C6F8200F44FF7 /* TransferCodeTableViewCell.swift */,
@@ -1623,6 +1626,7 @@
 				2733246A2679DC8D002D0ED2 /* Luhn.swift in Sources */,
 				DC8AC74926541723005A2543 /* CertificateStateValidityView.swift in Sources */,
 				6EF28CFE26370538001C1565 /* WalletQRScannerOverlay.swift in Sources */,
+				F8944F8326834E94005A2B33 /* TransferCodeExpiredExplanatoryView.swift in Sources */,
 				6E5A0F25264336B4004718B4 /* UIStateLogic.swift in Sources */,
 				DC8F1EDA267C6F8200F44FF7 /* TransferCodeTableViewCell.swift in Sources */,
 				6EF166D4264E5C3200426985 /* ConfigResponseBody.swift in Sources */,
