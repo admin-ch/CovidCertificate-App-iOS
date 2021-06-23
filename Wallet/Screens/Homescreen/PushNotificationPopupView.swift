@@ -57,10 +57,12 @@ class PushNotificationPopUpView: PopupView {
 
         titleLabel.text = UBLocalized.wallet_notification_permission_title
         stackView.addArrangedView(titleLabel)
+        titleLabel.ub_setContentPriorityRequired()
 
         stackView.addSpacerView(Padding.medium + Padding.small - 2.0)
 
         textLabel.text = UBLocalized.wallet_notification_permission_text
+        textLabel.ub_setContentPriorityRequired()
         stackView.addArrangedView(textLabel)
         stackView.addSpacerView(Padding.medium + Padding.small + 2.0)
 

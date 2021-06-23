@@ -55,8 +55,8 @@ class InfoBoxView: PopupView {
         contentView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Padding.large)
             make.centerY.equalToSuperview()
-            make.top.greaterThanOrEqualToSuperview().inset(3.0 * Padding.large)
-            make.bottom.lessThanOrEqualToSuperview().inset(3.0 * Padding.large)
+            make.top.greaterThanOrEqualToSuperview().inset(2.0 * Padding.large)
+            make.bottom.lessThanOrEqualToSuperview().inset(2.0 * Padding.large)
         }
 
         contentView.addSubview(stackView)
