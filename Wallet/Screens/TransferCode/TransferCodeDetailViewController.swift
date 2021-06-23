@@ -69,7 +69,7 @@ class TransferCodeDetailViewController: ViewController {
 
         deleteButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.removeCertificate()
+            strongSelf.removeTransfer()
         }
     }
 
@@ -131,8 +131,8 @@ class TransferCodeDetailViewController: ViewController {
         updateView.ub_setHidden(error != nil)
     }
 
-    private func removeCertificate() {
-        let alert = UIAlertController(title: nil, message: UBLocalized.wallet_certificate_delete_confirm_text, preferredStyle: .actionSheet)
+    private func removeTransfer() {
+        let alert = UIAlertController(title: nil, message: UBLocalized.wallet_transfer_delete_confirm_text, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: UBLocalized.delete_button, style: .destructive, handler: { _ in
             CertificateStorage.shared.userCertificates = CertificateStorage.shared.userCertificates.filter { $0 != self.certificate }
             self.dismiss(animated: true, completion: nil)

@@ -572,10 +572,14 @@
 
 /*Wallet: Transfer Code Nächste Schritte 1*/
 <<<<<<< HEAD
+<<<<<<< HEAD
 "wallet_transfer_code_next_steps1" = "Consegnai il code a l'apoteca, al center da test u a la media / al medi a chaschun da la prova da test.";
 =======
 "wallet_transfer_code_next_steps1" = "Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.";
 >>>>>>> c696464 (adds error screen on transfer code generation)
+=======
+"wallet_transfer_code_next_steps1" = "Consegnai il code a l'apoteca, al center da test u a la media / al medi a chaschun da la prova da test.";
+>>>>>>> f6372f1 (change text of alert when deleting a transfer code)
 
 /*Wallet: Transfer Code Nächste Schritte 2*/
 "wallet_transfer_code_next_steps2" = "En cas che Vus vulais retschaiver plirs certificats, per exempel da confamigliaras u confamigliars, creai per mintga certificat in nov code.";
@@ -672,6 +676,7 @@
 
 /*Buttontitel im Screen, wo ein Code erstellt werden kann*/
 <<<<<<< HEAD
+<<<<<<< HEAD
 "wallet_transfer_code_create_code_button" = "Crear in code";
 
 /*Wallet: Transfer Code Ablauf in 1 Tag (fetter Teil)*/
@@ -687,24 +692,32 @@
 "verifier_verify_success_info_for_certificate_valid" = "La signatura è valaivla";
 =======
 "wallet_transfer_code_create_code_button" = "Code erstellen";
+=======
+"wallet_transfer_code_create_code_button" = "Crear in code";
+>>>>>>> f6372f1 (change text of alert when deleting a transfer code)
 
 /*Wallet: Transfer Code Ablauf in 1 Tag (fetter Teil)*/
-"wallet_transfer_code_expire_singular_bold" = "1 Tag";
+"wallet_transfer_code_expire_singular_bold" = "1 di";
 
 /*Wallet: Transfer Code: Läuft in {DAYS} Tagen ab (fetter Teil)*/
-"wallet_transfer_code_expire_plural_bold" = "{DAYS} Tage";
+"wallet_transfer_code_expire_plural_bold" = "{DAYS} dis";
 
 /*Infotext bei erfolgreicher Prüfung (Blacklist)*/
-"verifier_verify_success_info_for_blacklist" = "Nicht wiederrufen";
+"verifier_verify_success_info_for_blacklist" = "Betg revocar";
 
 /*Infotext bei erfolgreicher Prüfung (Zertifikat)*/
+<<<<<<< HEAD
 "verifier_verify_success_info_for_certificate_valid" = "Signatur gültig";
 >>>>>>> c696464 (adds error screen on transfer code generation)
+=======
+"verifier_verify_success_info_for_certificate_valid" = "La signatura è valaivla";
+>>>>>>> f6372f1 (change text of alert when deleting a transfer code)
 
 /*Teil der Fehlermeldung bei noch nicht/nicht mehr gültigem Zertifikat, der Bold sein sollte (ref. verifier_verifiy_error_expired und _notyetvalid)*/
 "verifier_verify_error_validity_range_bold" = "Na correspunda betg als criteris da valaivladad da la Svizra.";
 
 /*Wallet: Transfer Code Fehler Titel*/
+<<<<<<< HEAD
 <<<<<<< HEAD
 "wallet_transfer_code_error_title" = "Il code da transfer n'ha betg pudì vegnir creà";
 
@@ -733,26 +746,30 @@
 "accessibility_refresh_button" = "Actualisar";
 =======
 "wallet_transfer_code_error_title" = "Transfer-Code konnte nicht erstellt werden";
+=======
+"wallet_transfer_code_error_title" = "Il code da transfer n'ha betg pudì vegnir creà";
+>>>>>>> f6372f1 (change text of alert when deleting a transfer code)
 
 /*Wallet: Erstellen Fehler Titel*/
-"wallet_transfer_code_no_internet_title" = "Keine Verbindung zum Internet";
+"wallet_transfer_code_no_internet_title" = "Nagina colliaziun cun l'internet";
 
 /*Wallet: Erstellen anderer Fehler Titel*/
-"wallet_transfer_code_generate_error_title" = "Ein unerwarteter Fehler ist aufgetreten.";
+"wallet_transfer_code_generate_error_title" = "Igl è capità in sbagl imprevis.";
 
 /*Wallet: Aktualisierung Transfer Code Fehler Titel*/
-"wallet_transfer_code_update_error_title" = "Aktualisierung zur Zeit nicht möglich";
+"wallet_transfer_code_update_error_title" = "Actualmain n'è l'actualisaziun betg pussaivla";
 
 /*Wallet: Transfer Code Update Fehler Text*/
-"wallet_transfer_code_update_no_internet_error_text" = "Um den Transfer empfangen zu können, muss die App online sein.";
+"wallet_transfer_code_update_no_internet_error_text" = "Per pudair retschaiver il transfer, sto l'app esser online.";
 
 /*Wallet Transfer Code Update Fehler Text*/
-"wallet_transfer_code_update_general_error_text" = "Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.";
+"wallet_transfer_code_update_general_error_text" = "Igl è capità in sbagl imprevis. Empruvai pli tard anc ina giada.";
 
 /*Wallet: Transfer Code Fehlertext bei Generieren*/
-"wallet_transfer_code_generate_error_text" = "Versuchen Sie es später erneut.";
+"wallet_transfer_code_generate_error_text" = "Empruvai pli tard anc ina giada.";
 
 /*Wallet: Transfer Code Fehlertext bei Generieren ohne Internet*/
+<<<<<<< HEAD
 "wallet_transfer_code_generate_no_internet_error_text" = "Um einen Transfer-Code erstellen zu können, muss die App online sein.";
 <<<<<<< HEAD
 >>>>>>> c696464 (adds error screen on transfer code generation)
@@ -761,3 +778,26 @@
 /*Wallet: Accessibility Name für Refresh Button*/
 "accessibility_refresh_button" = "Aktualisieren";
 >>>>>>> 27d46de (adds basic transfer code detail views)
+=======
+"wallet_transfer_code_generate_no_internet_error_text" = "Per pudair crear in code da transfer, sto l'app esser online.";
+
+/*Wallet: Accessibility Name für Refresh Button*/
+"accessibility_refresh_button" = "Actualisar";
+
+/*Fuzzy*/
+"wallet_transfer_delete_confirm_text" = "Vulais Vus propi stizzar il transfer?";
+"wallet_notification_transfer_title" = "Transfer reussì";
+"wallet_notification_transfer_text" = "Il certificat COVID è arrivà";
+"wallet_faq_questions_question_2_1" = "Quant ditg è il certificat COVID valaivel?";
+"wallet_faq_questions_answer_2_1" = "La durada da valaivladad variescha tut tenor, sche Vus avais ina vaccinaziun cunter COVID-19, sche Vus essas guarida u guarì d'ina infecziun u sche Vus avais in test negativ. A basa da novas enconuschientschas scientificas po la durada da valaivladad sa midar. La durada da valaivladad actuala dals certificats COVID chattais Vus qua:";
+"wallet_faq_questions_linktext_2_1" = "Ulteriuras infurmaziuns";
+"wallet_faq_questions_linkurl_2_1" = "https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/#contents2";
+"wallet_faq_works_question_3_1" = "Poss jau er duvrar l'app offline?";
+"wallet_faq_works_answer_3_1" = "Vus pudais duvrar l'app senza ina colliaziun cun l'internet. Er en il modus offline pon ils certificats vegnir preschentads sco er scannads e verifitgads dals verifitgaders.\n\nPer vesair en l'app «COVID Certificate», sche Voss certificat correspunda als criteris da valaivladad da la Svizra e fin cura che Voss certificat è valaivel, sto l'app però esser regularmain online.";
+"verifier_faq_works_question_2_1" = "Tge èn ils criteris da valaivladad actuals da la Svizra?";
+"verifier_faq_works_answer_2_1" = "La durada da valaivladad vertenta actuala dals certificats COVID chattais Vus qua:";
+"verifier_faq_works_linktext_2_1" = "Ulteriuras infurmaziuns";
+"verifier_faq_works_linkurl_2_1" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624";
+"verifier_faq_works_question_6" = "Pon ils certificats er vegnir verifitgads offline?";
+"verifier_faq_works_answer_6" = "Da princip pon ils certificats COVID er vegnir verifitgads senza ina colliaziun cun l'internet. Per far quai vegnan chargiadas giu regularmain d'in server central glistas da verificaziun actualisadas. Questas glistas da verificaziun arcunadas localmain na dastgan betg esser pli veglias che 48 uras.\n\nPer actualisar las glistas da verificaziun sto l'app esser colliada cun l'internet e vegnir averta. L'actualisaziun succeda immediatamain ed automaticamain.";
+>>>>>>> f6372f1 (change text of alert when deleting a transfer code)

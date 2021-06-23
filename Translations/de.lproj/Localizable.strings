@@ -589,7 +589,7 @@
 "wallet_transfer_code_next_steps" = "Nächste Schritte";
 
 /*Wallet: Transfer Code Nächste Schritte 1*/
-"wallet_transfer_code_next_steps1" = "Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.";
+"wallet_transfer_code_next_steps1" = "Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.";
 
 /*Wallet: Transfer Code Nächste Schritte 2*/
 "wallet_transfer_code_next_steps2" = "Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
@@ -698,10 +698,14 @@
 
 /*Infotext bei erfolgreicher Prüfung (Blacklist)*/
 <<<<<<< HEAD
+<<<<<<< HEAD
 "verifier_verify_success_info_for_blacklist" = "Nicht widerrufen";
 =======
 "verifier_verify_success_info_for_blacklist" = "Nicht wiederrufen";
 >>>>>>> c696464 (adds error screen on transfer code generation)
+=======
+"verifier_verify_success_info_for_blacklist" = "Nicht widerrufen";
+>>>>>>> f6372f1 (change text of alert when deleting a transfer code)
 
 /*Infotext bei erfolgreicher Prüfung (Zertifikat)*/
 "verifier_verify_success_info_for_certificate_valid" = "Signatur gültig";
@@ -751,5 +755,26 @@
 =======
 
 /*Wallet: Accessibility Name für Refresh Button*/
+/*Fuzzy*/
 "accessibility_refresh_button" = "Aktualisieren";
+<<<<<<< HEAD
 >>>>>>> 27d46de (adds basic transfer code detail views)
+=======
+
+/*Fuzzy*/
+"wallet_transfer_delete_confirm_text" = "Wollen Sie den Transfer wirklich löschen?";
+"wallet_notification_transfer_title" = "Transfer erfolgreich";
+"wallet_notification_transfer_text" = "Das Covid-Zertifikat ist eingetroffen";
+"wallet_faq_questions_question_2_1" = "Wie lange ist das Covid-Zertifikat gültig?";
+"wallet_faq_questions_answer_2_1" = "Die Gültigkeitsdauer unterscheidet sich je nachdem, ob Sie eine Covid-19-Impfung, eine durchgemachte Erkrankung oder ein negatives Testergebnis haben. Aufgrund neuer wissenschaftlicher Erkenntnisse kann sich die Gültigkeitsdauer verändern. Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:";
+"wallet_faq_questions_linktext_2_1" = "Weitere Informationen";
+"wallet_faq_questions_linkurl_2_1" = "https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/#contents2";
+"wallet_faq_works_question_3_1" = "Kann ich die App auch offline verwenden?";
+"wallet_faq_works_answer_3_1" = "Sie können die App ohne eine Internetverbindung verwenden. Auch im Offline-Modus können Zertifikate vorgewiesen und von den Prüfern gescannt und verifiziert werden.\n\nUm in der «COVID Certificate»-App anzeigen zu können, ob ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht und bis wann Ihr Zertifikat gültig ist, muss die App jedoch regelmässig online sein.";
+"verifier_faq_works_question_2_1" = "Was sind die aktuellen Gültigkeitskriterien der Schweiz?";
+"verifier_faq_works_answer_2_1" = "Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:";
+"verifier_faq_works_linktext_2_1" = "Weitere Informationen";
+"verifier_faq_works_linkurl_2_1" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624";
+"verifier_faq_works_question_6" = "Können Zertifikate auch offline geprüft werden?";
+"verifier_faq_works_answer_6" = "Grundsätzlich können Covid-Zertifikate auch ohne eine Internetverbindung geprüft werden. Dazu werden regelmässig aktualisierte Prüflisten von einem zentralen Server heruntergeladen. Diese lokal gespeicherten Prüflisten dürfen nicht älter als 48h sein. \n\nUm die Prüflisten zu aktualisieren muss die App mit dem Internet verbunden sein und geöffnet werden. Die Aktualisierung erfolgt unmittelbar und automatisch.";
+>>>>>>> f6372f1 (change text of alert when deleting a transfer code)

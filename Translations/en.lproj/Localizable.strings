@@ -572,10 +572,14 @@
 
 /*Wallet: Transfer Code Nächste Schritte 1*/
 <<<<<<< HEAD
+<<<<<<< HEAD
 "wallet_transfer_code_next_steps1" = "Provide the pharmacy, test centre, or doctor with your code when you get tested.";
 =======
 "wallet_transfer_code_next_steps1" = "Notieren Sie den Code in das entsprechende Feld auf dem Anmeldeformular zum Covid-Test.";
 >>>>>>> c696464 (adds error screen on transfer code generation)
+=======
+"wallet_transfer_code_next_steps1" = "Provide the pharmacy, test centre, or doctor with your code when you get tested.";
+>>>>>>> f6372f1 (change text of alert when deleting a transfer code)
 
 /*Wallet: Transfer Code Nächste Schritte 2*/
 "wallet_transfer_code_next_steps2" = "If you have multiple certificates, e.g. for other family members, generate a new code for each certificate.";
@@ -672,6 +676,7 @@
 
 /*Buttontitel im Screen, wo ein Code erstellt werden kann*/
 <<<<<<< HEAD
+<<<<<<< HEAD
 "wallet_transfer_code_create_code_button" = "Generate code";
 
 /*Wallet: Transfer Code Ablauf in 1 Tag (fetter Teil)*/
@@ -687,24 +692,32 @@
 "verifier_verify_success_info_for_certificate_valid" = "Signature valid";
 =======
 "wallet_transfer_code_create_code_button" = "Code erstellen";
+=======
+"wallet_transfer_code_create_code_button" = "Generate code";
+>>>>>>> f6372f1 (change text of alert when deleting a transfer code)
 
 /*Wallet: Transfer Code Ablauf in 1 Tag (fetter Teil)*/
-"wallet_transfer_code_expire_singular_bold" = "1 Tag";
+"wallet_transfer_code_expire_singular_bold" = "1 more day";
 
 /*Wallet: Transfer Code: Läuft in {DAYS} Tagen ab (fetter Teil)*/
-"wallet_transfer_code_expire_plural_bold" = "{DAYS} Tage";
+"wallet_transfer_code_expire_plural_bold" = "{DAYS} days";
 
 /*Infotext bei erfolgreicher Prüfung (Blacklist)*/
-"verifier_verify_success_info_for_blacklist" = "Nicht wiederrufen";
+"verifier_verify_success_info_for_blacklist" = "Not revoked";
 
 /*Infotext bei erfolgreicher Prüfung (Zertifikat)*/
+<<<<<<< HEAD
 "verifier_verify_success_info_for_certificate_valid" = "Signatur gültig";
 >>>>>>> c696464 (adds error screen on transfer code generation)
+=======
+"verifier_verify_success_info_for_certificate_valid" = "Signature valid";
+>>>>>>> f6372f1 (change text of alert when deleting a transfer code)
 
 /*Teil der Fehlermeldung bei noch nicht/nicht mehr gültigem Zertifikat, der Bold sein sollte (ref. verifier_verifiy_error_expired und _notyetvalid)*/
 "verifier_verify_error_validity_range_bold" = "Does not meet Switzerland's validity criteria.";
 
 /*Wallet: Transfer Code Fehler Titel*/
+<<<<<<< HEAD
 <<<<<<< HEAD
 "wallet_transfer_code_error_title" = "Unable to generate transfer code";
 
@@ -733,26 +746,30 @@
 "accessibility_refresh_button" = "Update";
 =======
 "wallet_transfer_code_error_title" = "Transfer-Code konnte nicht erstellt werden";
+=======
+"wallet_transfer_code_error_title" = "Unable to generate transfer code";
+>>>>>>> f6372f1 (change text of alert when deleting a transfer code)
 
 /*Wallet: Erstellen Fehler Titel*/
-"wallet_transfer_code_no_internet_title" = "Keine Verbindung zum Internet";
+"wallet_transfer_code_no_internet_title" = "No Internet connection";
 
 /*Wallet: Erstellen anderer Fehler Titel*/
-"wallet_transfer_code_generate_error_title" = "Ein unerwarteter Fehler ist aufgetreten.";
+"wallet_transfer_code_generate_error_title" = "An unexpected error has occurred.";
 
 /*Wallet: Aktualisierung Transfer Code Fehler Titel*/
-"wallet_transfer_code_update_error_title" = "Aktualisierung zur Zeit nicht möglich";
+"wallet_transfer_code_update_error_title" = "Update not possible at this time";
 
 /*Wallet: Transfer Code Update Fehler Text*/
-"wallet_transfer_code_update_no_internet_error_text" = "Um den Transfer empfangen zu können, muss die App online sein.";
+"wallet_transfer_code_update_no_internet_error_text" = "The app must be online to receive the transfer.";
 
 /*Wallet Transfer Code Update Fehler Text*/
-"wallet_transfer_code_update_general_error_text" = "Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.";
+"wallet_transfer_code_update_general_error_text" = "An unexpected error has occurred. Please try again later.";
 
 /*Wallet: Transfer Code Fehlertext bei Generieren*/
-"wallet_transfer_code_generate_error_text" = "Versuchen Sie es später erneut.";
+"wallet_transfer_code_generate_error_text" = "Please try again later.";
 
 /*Wallet: Transfer Code Fehlertext bei Generieren ohne Internet*/
+<<<<<<< HEAD
 "wallet_transfer_code_generate_no_internet_error_text" = "Um einen Transfer-Code erstellen zu können, muss die App online sein.";
 <<<<<<< HEAD
 >>>>>>> c696464 (adds error screen on transfer code generation)
@@ -761,3 +778,26 @@
 /*Wallet: Accessibility Name für Refresh Button*/
 "accessibility_refresh_button" = "Aktualisieren";
 >>>>>>> 27d46de (adds basic transfer code detail views)
+=======
+"wallet_transfer_code_generate_no_internet_error_text" = "The app must be online to generate a transfer code.";
+
+/*Wallet: Accessibility Name für Refresh Button*/
+"accessibility_refresh_button" = "Update";
+
+/*Fuzzy*/
+"wallet_transfer_delete_confirm_text" = "Are you sure you want to delete the transfer?";
+"wallet_notification_transfer_title" = "Transfer successful";
+"wallet_notification_transfer_text" = "The COVID certificate has been delivered";
+"wallet_faq_questions_question_2_1" = "How long is the COVID certificate valid?";
+"wallet_faq_questions_answer_2_1" = "Just how long your certificate is valid depends on whether you have been vaccinated, have recovered from COVID or have tested negative. The duration of validity may change in line with the latest scientific findings. The current duration of validity for COVID certificates can be found here:";
+"wallet_faq_questions_linktext_2_1" = "Further information";
+"wallet_faq_questions_linkurl_2_1" = "https://foph-coronavirus.ch/certificate/how-do-i-get-a-covid-certificate-and-how-do-i-use-it/#contents2";
+"wallet_faq_works_question_3_1" = "Can I use the app offline?";
+"wallet_faq_works_answer_3_1" = "You can use the app without an internet connection, so you can still call up your certificates and present them for scanning and verification.\n\nHowever, in order to show whether your certificate meets Switzerland’s validity criteria and how long it is valid for, the COVID Certificate app has to be online at regular intervals.";
+"verifier_faq_works_question_2_1" = "What are the current validity criteria in Switzerland?";
+"verifier_faq_works_answer_2_1" = "The current validity period of Covid certificates can be found here:";
+"verifier_faq_works_linktext_2_1" = "Further information";
+"verifier_faq_works_linkurl_2_1" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624";
+"verifier_faq_works_question_6" = "Is it possible to verify the certificates offline?";
+"verifier_faq_works_answer_6" = "In principle, COVID certificates can also be verified without an Internet connection. For this purpose, regularly updated checklists are downloaded from a central server. These locally stored checklists must not be older than 48 hours. \n\nIn order to update the checklists, the app must be open and connected to the Internet. Updating occurs immediately and automatically.";
+>>>>>>> f6372f1 (change text of alert when deleting a transfer code)
