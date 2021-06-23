@@ -11,8 +11,7 @@
 
 import Foundation
 
-class TransferCodeErrorRetryViewController : StackScrollViewController {
-
+class TransferCodeErrorRetryViewController: StackScrollViewController {
     private let titleLabel = Label(.title, textAlignment: .center)
 
     private let errorView = TransferCodeErrorView()
@@ -23,9 +22,9 @@ class TransferCodeErrorRetryViewController : StackScrollViewController {
 
     // MARK: - Error
 
-    public var retryCallback : (() -> ())?
+    public var retryCallback: (() -> Void)?
 
-    public var error : CryptoError? {
+    public var error: CryptoError? {
         didSet { self.update() }
     }
 
@@ -33,33 +32,33 @@ class TransferCodeErrorRetryViewController : StackScrollViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setup()
+        setup()
 
-        self.retryButton.touchUpCallback = { [weak self] in
-            guard let strongSelf = self else  { return }
+        retryButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
             strongSelf.retryCallback?()
         }
     }
 
     private func setup() {
-        self.titleLabel.text = UBLocalized.wallet_transfer_code_error_title
+        titleLabel.text = UBLocalized.wallet_transfer_code_error_title
 
-        self.addArrangedView(self.titleLabel, insets: insets)
+        addArrangedView(titleLabel, insets: insets)
 
-        self.stackScrollView.addSpacerView(3.0 * Padding.medium)
+        stackScrollView.addSpacerView(3.0 * Padding.medium)
 
-        self.addArrangedView(self.errorView, insets: insets)
+        addArrangedView(errorView, insets: insets)
 
-        self.stackScrollView.addSpacerView(Padding.medium + Padding.large)
+        stackScrollView.addSpacerView(Padding.medium + Padding.large)
 
-        self.addArrangedView(self.retryButton, insets: insets)
+        addArrangedView(retryButton, insets: insets)
 
-        self.stackScrollView.addSpacerView(Padding.large)
+        stackScrollView.addSpacerView(Padding.large)
     }
 
     // MARK: - Update
 
     private func update() {
-        self.errorView.error = self.error
+        errorView.error = error
     }
 }

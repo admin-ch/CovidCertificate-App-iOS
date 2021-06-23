@@ -33,8 +33,7 @@ class TransferCodeOnboardingViewController: BasicStaticContentViewController {
 
         howItWorksButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            // TODO: Add static content from config request once available
-            let vc = BasicStaticContentViewController(models: [], title: UBLocalized.wallet_faq_header.uppercased())
+            let vc = BasicStaticContentViewController(models: ConfigManager.currentConfig?.transferQuestionsViewModels ?? [], title: UBLocalized.wallet_faq_header.uppercased())
             vc.presentInNavigationController(from: strongSelf)
         }
     }
