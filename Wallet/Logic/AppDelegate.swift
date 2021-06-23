@@ -205,7 +205,18 @@ extension AppDelegate {
             return false
         }
 
-        importHandler?.handle(url: url)
-        return true
+        let sendingAppID = options[.sourceApplication]
+        dprint("source application = \(sendingAppID ?? "Unknown")")
+
+        let supportedSchemes = ["hcert", "covidcert"]
+
+        if supportedSchemes.contains(supportedSchemes) {
+            if url.host?.starts(with: "hc1")
+            return importHandler?.handle(url: url)
+
+        } else {
+            return importHandler?.handle(url: url)
+
+        }
     }
 }

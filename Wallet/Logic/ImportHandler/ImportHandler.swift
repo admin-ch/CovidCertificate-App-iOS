@@ -25,6 +25,8 @@ class ImportHandler {
     // MARK: - Handle URL
 
     public func handle(url: URL) {
+        // TODO handle custom url schemes
+        
         var images: [UIImage] = []
 
         if isPdf(url: url) {
@@ -44,6 +46,8 @@ class ImportHandler {
         } else {
             presentWrongFileError()
         }
+
+        return true
     }
 
     public func handleMessage(message: String) {
