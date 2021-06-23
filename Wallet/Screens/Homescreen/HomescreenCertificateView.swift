@@ -122,7 +122,7 @@ class HomescreenCertificateView: UIView {
             transferView.alpha = 0.0
             accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
         case .transferCode:
-            titleLabel.text = UBLocalized.wallet_transfer_code_title
+            titleLabel.text = UBLocalized.wallet_transfer_code_card_title
             qrCodeView.alpha = 0.0
             transferView.alpha = 1.0
             accessibilityLabel = [titleLabel.text, transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
@@ -197,6 +197,8 @@ private class TransferView: UIView {
     public let phoneAnimationView = UIImageView()
     public let ringAnimationView = UIImageView()
 
+    private let nameView = Label(.title, textAlignment: .center)
+
     private var timer: Timer?
     private var animationCounter: Int = 2
 
@@ -216,11 +218,36 @@ private class TransferView: UIView {
     }
 
     private func setup() {
-        addSubview(ringAnimationView)
+        setupImageAnimationViews()
 
-        ringAnimationView.snp.makeConstraints { make in
-            make.left.right.top.equalToSuperview()
+        addSubview(nameView)
+
+        nameView.snp.makeConstraints { make in
+            make.top.equalTo(phoneAnimationView.snp.bottom).offset(Padding.medium)
+            make.left.right.equalToSuperview().inset(Padding.large)
         }
+
+        nameView.text = UBLocalized.wallet_transfer_code_state_waiting
+        nameView.ub_setContentPriorityRequired()
+
+        transferCodeView.transferCode = certificate.transferCode
+
+        addSubview(transferCodeView)
+        transferCodeView.snp.makeConstraints { make in
+            make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
+        }
+
+        update(animated: false)
+    }
+
+    public func update(animated _: Bool) {
+        accessibilityLabel = [transferCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+    }
+
+    // MARK: - Setup Helpers
+
+    private func setupImageAnimationViews() {
+        addSubview(ringAnimationView)
 
         ringAnimationView.loadAnimation(pattern: "210616_wait_for_transfer_animation_ripple_only_00000", numberOfImages: 17)
         ringAnimationView.startAnimating()
@@ -244,21 +271,12 @@ private class TransferView: UIView {
             make.left.right.top.equalToSuperview()
         }
 
-        phoneAnimationView.loadAnimation(pattern: "210616_wait_for_transfer_phone_only_00000", numberOfImages: 71)
-        phoneAnimationView.startAnimating()
-
-        transferCodeView.transferCode = certificate.transferCode
-
-        addSubview(transferCodeView)
-        transferCodeView.snp.makeConstraints { make in
-            make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
+        ringAnimationView.snp.makeConstraints { make in
+            make.edges.equalTo(phoneAnimationView)
         }
 
-        update(animated: false)
-    }
-
-    public func update(animated _: Bool) {
-        accessibilityLabel = [transferCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+        phoneAnimationView.loadAnimation(pattern: "210616_wait_for_transfer_phone_only_00000", numberOfImages: 71)
+        phoneAnimationView.startAnimating()
     }
 }
 
