@@ -18,6 +18,8 @@ class TransferCodeDetailViewController: ViewController {
 
     private let nameView = Label(.title, textAlignment: .center)
     private let animationView = TransferCodeAnimationView()
+    private let failedImageView = UIImageView(image: UIImage(named: "illu-transfer-failed"))
+    private let failedImageContainerView = UIView()
 
     private let statusView = TransferCodeStatusView()
 
@@ -88,10 +90,21 @@ class TransferCodeDetailViewController: ViewController {
             make.edges.equalToSuperview()
         }
 
+        stackScrollView.addArrangedView(failedImageContainerView)
+
+        failedImageContainerView.addSubview(failedImageView)
+        failedImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(Padding.large)
+            make.bottom.equalToSuperview().inset(Padding.large + Padding.medium)
+            make.left.greaterThanOrEqualToSuperview()
+            make.right.lessThanOrEqualToSuperview()
+        }
+
         stackScrollView.addArrangedView(animationView)
         stackScrollView.addSpacerView(Padding.medium)
         stackScrollView.addArrangedView(nameView)
-        stackScrollView.addSpacerView(Padding.large + Padding.small)
+        stackScrollView.addSpacerView(Padding.large + Padding.small + Padding.medium)
 
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -115,7 +128,6 @@ class TransferCodeDetailViewController: ViewController {
 
         stackScrollView.addSpacerView(5.0 * Padding.large)
 
-        nameView.text = UBLocalized.wallet_transfer_code_state_waiting
         statusView.transferCode = certificate.transferCode
 
         update()
@@ -127,8 +139,11 @@ class TransferCodeDetailViewController: ViewController {
         refreshView.error = error
         errorLabel.text = error?.errorCode
         updateView.date = updateDate
+        nameView.text = certificate.transferCode?.state != .failed ? UBLocalized.wallet_transfer_code_state_waiting : UBLocalized.wallet_transfer_code_state_expired
 
         // visibility changes
+        failedImageContainerView.ub_setHidden(certificate.transferCode?.state != .failed)
+        animationView.ub_setHidden(certificate.transferCode?.state == .failed)
         errorLabel.ub_setHidden(error == nil)
         refreshView.ub_setHidden(error == nil || certificate.transferCode?.state == .failed)
         updateView.ub_setHidden(error != nil || certificate.transferCode?.state == .failed)
