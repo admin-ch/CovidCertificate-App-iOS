@@ -201,22 +201,10 @@ extension AppDelegate {
     }
 
     func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        guard WalletUserStorage.shared.hasCompletedOnboarding else {
+        guard WalletUserStorage.shared.hasCompletedOnboarding,
+              let importHandler = importHandler else {
             return false
         }
-
-        let sendingAppID = options[.sourceApplication]
-        dprint("source application = \(sendingAppID ?? "Unknown")")
-
-        let supportedSchemes = ["hcert", "covidcert"]
-
-        if supportedSchemes.contains(supportedSchemes) {
-            if url.host?.starts(with: "hc1")
-            return importHandler?.handle(url: url)
-
-        } else {
-            return importHandler?.handle(url: url)
-
-        }
+        return importHandler.handle(url: url)
     }
 }

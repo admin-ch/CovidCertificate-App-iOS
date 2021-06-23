@@ -24,9 +24,21 @@ class ImportHandler {
 
     // MARK: - Handle URL
 
-    public func handle(url: URL) {
-        // TODO handle custom url schemes
-        
+    public func handle(url: URL) -> Bool {
+        if let urlComponents = NSURLComponents(url: url,
+                                               resolvingAgainstBaseURL: true) {
+            switch urlComponents.scheme {
+            case "hcert", "covidcert":
+                guard let data = Data(base64Encoded: urlComponents.host ?? ""),
+                      let string = String(data: data, encoding: .utf8),
+                      string.starts(with: "HC1:") else { break }
+                handleMessage(message: string)
+                return true
+            default:
+                break
+            }
+        }
+
         var images: [UIImage] = []
 
         if isPdf(url: url) {
