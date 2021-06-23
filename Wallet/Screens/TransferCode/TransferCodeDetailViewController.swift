@@ -21,7 +21,7 @@ class TransferCodeDetailViewController: ViewController {
 
     private let statusView = TransferCodeStatusView()
 
-    private let expiredExplanatoryView = TransferCodeExpiredExplanatoryView()
+    private let failedExplanatoryView = TransferCodeFailedExplanatoryView()
 
     private let updateView = TransferCodeUpdateView()
     private let refreshView = TransferCodeRefreshView()
@@ -97,7 +97,7 @@ class TransferCodeDetailViewController: ViewController {
         stackView.axis = .vertical
         stackView.spacing = Padding.small
         stackView.addArrangedSubview(statusView)
-        stackView.addArrangedSubview(expiredExplanatoryView)
+        stackView.addArrangedSubview(failedExplanatoryView)
         stackView.addArrangedSubview(updateView)
         stackView.addArrangedSubview(refreshView)
         stackView.addArrangedSubview(errorLabel)
@@ -129,10 +129,10 @@ class TransferCodeDetailViewController: ViewController {
         updateView.date = updateDate
 
         // visibility changes
-        refreshView.ub_setHidden(error == nil)
         errorLabel.ub_setHidden(error == nil)
-        updateView.ub_setHidden(error != nil)
-        expiredExplanatoryView.ub_setHidden(certificate.transferCode?.state != .expired)
+        refreshView.ub_setHidden(error == nil || certificate.transferCode?.state == .failed)
+        updateView.ub_setHidden(error != nil || certificate.transferCode?.state == .failed)
+        failedExplanatoryView.ub_setHidden(certificate.transferCode?.state != .failed)
     }
 
     private func removeTransfer() {

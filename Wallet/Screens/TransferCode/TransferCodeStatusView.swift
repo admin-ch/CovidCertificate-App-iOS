@@ -126,17 +126,17 @@ class TransferCodeStatusView: UIView {
 
             accessibilityLabel = [titleLabel.text, codeLabel.accessibilityLabel, createdAtLabel.text].compactMap { $0 }.joined(separator: ", ")
         } else {
+            if let img = error?.cornerIcon {
+                // alpha handling is done afterwards
+                // and will correctly fade when icon
+                // should disappear
+                errorCorner.image = img
+            }
+
+            errorCorner.alpha = error?.cornerIcon == nil ? 0.0 : 1.0
+
             switch code.state {
             case .valid:
-                if let img = error?.cornerIcon {
-                    // alpha handling is done afterwards
-                    // and will correctly fade when icon
-                    // should disappear
-                    errorCorner.image = img
-                }
-
-                errorCorner.alpha = error?.cornerIcon == nil ? 0.0 : 1.0
-
                 imageView.image = code.validityIcon
                 validLabel.ub_setHidden(false)
                 titleLabel.ub_setHidden(true)
@@ -157,12 +157,16 @@ class TransferCodeStatusView: UIView {
                 titleLabel.ub_setHidden(true)
                 codeContainer.ub_setHidden(true)
                 expiredLabel.ub_setHidden(false)
-                errorCorner.image = nil
 
                 expiredLabel.text = UBLocalized.wallet_transfer_code_old_code
                 expiredLabel.textColor = code.state == .expired ? .cc_blue : .cc_red
 
                 accessibilityLabel = [expiredLabel.text, codeLabel.accessibilityLabel, createdAtLabel.text].compactMap { $0 }.joined(separator: ", ")
+
+                if code.state == .failed {
+                    errorCorner.image = nil
+                    errorCorner.alpha = 0.0
+                }
             }
         }
 

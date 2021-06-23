@@ -11,7 +11,7 @@
 
 import Foundation
 
-class TransferCodeExpiredExplanatoryView: UIView {
+class TransferCodeFailedExplanatoryView: UIView {
     private let textLabel = Label(.text, textAlignment: .center)
 
     init() {
