@@ -22,6 +22,7 @@ class PushRegistrationManager: UBPushRegistrationManager {
         let pushRegistration = PushRegistration()
         pushRegistration.pushToken = UBPushManager.shared.pushToken ?? ""
         pushRegistration.pushType = pushType
+        pushRegistration.registerId = Device.deviceID
 
         return Endpoint.pushRegister(payload: pushRegistration, appversion: ConfigManager.appVersion, osversion: ConfigManager.osVersion, buildnr: ConfigManager.buildNumber).request()
     }

@@ -63,9 +63,8 @@ class LocalPush: NSObject {
 
     public func scheduleNotification(identifier: String) {
         let content = UNMutableNotificationContent()
-        // TODO:
-        // content.title = ""
-        // content.body = ""
+        content.title = UBLocalized.wallet_notification_transfer_title
+        content.body = UBLocalized.wallet_notification_transfer_text
         content.sound = .default
         content.threadIdentifier = identifier
 

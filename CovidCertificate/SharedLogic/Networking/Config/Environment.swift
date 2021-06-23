@@ -140,9 +140,4 @@ extension Endpoint {
         let path = "push/register"
         return Environment.current.registerService.endpoint(path, method: .post, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Content-Type": "application/json"], body: payload)
     }
-
-    static func pushDeregister(payload: PushRegistration, appversion av: String, osversion os: String, buildnr: String) -> Endpoint {
-        let path = "push/deregister"
-        return Environment.current.registerService.endpoint(path, method: .post, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Content-Type": "application/json"], body: payload)
-    }
 }

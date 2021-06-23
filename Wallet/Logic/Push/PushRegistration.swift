@@ -10,6 +10,7 @@
  */
 
 class PushRegistration: Codable {
-    var pushToken: String = ""
+    var pushToken: String? = nil
     var pushType: String = ""
+    var registerId: String = ""
 }
