@@ -316,10 +316,10 @@
 "unknown_error" = "Igl è capità in sbagl nunenconuschent.";
 
 /*Verifier: Die Gültigkeit des Zertifikat ist abgelaufen*/
-"verifier_verifiy_error_expired" = "Na correspunda betg als criteris da valaivladad da la Svizra. La valaivladad dal certificat è scadida.";
+"verifier_verifiy_error_expired" = "Na correspunda betg als criteris da valaivladad da la Svizra.\n\nLa valaivladad dal certificat è scadida.";
 
 /*Verifier: Zertifikat ist erst gültig ab {DATE}*/
-"verifier_verifiy_error_notyetvalid" = "Na correspunda betg als criteris da valaivladad da la Svizra. Il certificat n'è anc betg valaivel.";
+"verifier_verifiy_error_notyetvalid" = "Na correspunda betg als criteris da valaivladad da la Svizra.\n\nIl certificat n'è anc betg valaivel.";
 
 /*Verifier: Ein Netzwerkfehler ist aufgetreten.*/
 "verifier_retry_network_error" = "Igl è capità in sbagl en la rait.";
@@ -378,8 +378,6 @@
 "wallet_certificate_impfstoff_holder" = "Producent";
 "wallet_certificate_vaccination_date_title" = "Data da la vaccinaziun";
 "wallet_certificate_vaccination_country_title" = "Pajais da la vaccinaziun";
-
-/*Prüfen mit PDF Translation*/
 "wallet_certificate_vaccination_issuer_title" = "Emess da";
 "covid_certificate_recovery_title" = "Guariziun";
 "wallet_certificate_recovery_first_positiv_result" = "Data da l'emprim resultat positiv";
@@ -488,28 +486,28 @@
 "wallet_faq_questions_answer_1_1" = "Cun agid d’in formular online sin la pagina d’internet dal chantun pon las persunas guaridas da COVID-19 far ina dumonda per in certificat COVID. Il certificat COVID vegn alura tramess per posta.";
 
 /*Wallet: Homescreen Was wollen sie machen?*/
-"wallet_homescreen_what_to_do" = "Nächsten Schritt wählen";
+"wallet_homescreen_what_to_do" = "Tscherner il proxim pass";
 
 /*Wallet: Homescreen Titel Zertifikat hinzufügen*/
-"wallet_homescreen_add_title" = "Zertifikat hinzufügen";
+"wallet_homescreen_add_title" = "Agiuntar in certificat";
 
 /*Wallet: Homescreen Zertifikat Description Text*/
-"wallet_homescreen_add_certificate_description" = "Sie haben ein Covid-Zertifikat auf Papier oder als PDF und möchten es zur App hinzufügen.";
+"wallet_homescreen_add_certificate_description" = "Vus avais in certificat COVID sin palpiri u sco PDF ed al vulais agiuntar a l'app.";
 
 /*Wallet: Homescreen Transfer-Code erstellen*/
-"wallet_homescreen_add_transfer_code" = "Transfer-Code erstellen";
+"wallet_homescreen_add_transfer_code" = "Crear in code da transfer";
 
 /*Wallet: Transfer Codes Titel*/
-"wallet_transfer_code_onboarding_title" = "Transfer Codes";
+"wallet_transfer_code_onboarding_title" = "Codes da transfer";
 
 /*Wallet: Transfer Code Text*/
-"wallet_transfer_code_onboarding_text" = "Sie können Transfer-Codes z. B. bei Covid-Tests angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.";
+"wallet_transfer_code_onboarding_text" = "Vus pudais inditgar ils codes da transfer p.ex. a chaschun da tests da COVID. Vus retschavais alura il certificat COVID directamain en l'app.";
 
 /*Wallet: Transfer Code Onboarding Button*/
-"wallet_transfer_code_onboarding_button" = "Code erstellen";
+"wallet_transfer_code_onboarding_button" = "Crear in code";
 
 /*Wallet: Transfer Code Onboarding So funktioniert's*/
-"wallet_transfer_code_onboarding_howto" = "So funktioniert's";
+"wallet_transfer_code_onboarding_howto" = "Uschia funcziuni";
 
 /*Wallet: Transfer Code: FAQ Titel*/
 "wallet_transfer_code_faq_questions_title" = "Covid-Zertifikate direkt in die App geliefert";
@@ -561,49 +559,49 @@
 "wallet_transfer_code_faq_works_answer_3" = "Text";
 
 /*Wallet: Transfer Code erstellt Titel*/
-"wallet_transfer_code_code_created_title" = "Ihr Transfer-Code wurde erstellt";
+"wallet_transfer_code_code_created_title" = "Voss code da transfer è vegnì creà";
 
 /*Wallet: Transfer-Code*/
-"wallet_transfer_code_title" = "Transfer-Code";
+"wallet_transfer_code_title" = "Code da transfer";
 
 /*Wallet: Transfer Code Erstelltm am {DATE}*/
-"wallet_transfer_code_createdat" = "Erstellt am {DATE}";
+"wallet_transfer_code_createdat" = "Creà ils {DATE}";
 
 /*Wallet: Transfer Code Nächste Schritte*/
-"wallet_transfer_code_next_steps" = "Nächste Schritte";
+"wallet_transfer_code_next_steps" = "Proxims pass";
 
 /*Wallet: Transfer Code Nächste Schritte 1*/
-"wallet_transfer_code_next_steps1" = "Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.";
+"wallet_transfer_code_next_steps1" = "Consegnai il code a l'apoteca, al center da test u a la media / al medi a chaschun da la prova da test.";
 
 /*Wallet: Transfer Code Nächste Schritte 2*/
-"wallet_transfer_code_next_steps2" = "Falls Sie mehrere Zertifikate zB. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
+"wallet_transfer_code_next_steps2" = "En cas che Vus vulais retschaiver plirs certificats, per exempel da confamigliaras u confamigliars, creai per mintga certificat in nov code.";
 
 /*Wallet: Transfer Code Fertig Button*/
-"wallet_transfer_code_done_button" = "Fertig";
+"wallet_transfer_code_done_button" = "Terminà";
 
 /*Wallet: Transfer Code Card Titel*/
 "wallet_transfer_code_card_title" = "Transfer";
 
 /*Wallet: Transfer Code Staus Warten auf Transfer*/
-"wallet_transfer_code_state_waiting" = "Warten auf Transfer";
+"wallet_transfer_code_state_waiting" = "Spetgar il transfer";
 
 /*Wallet: Transfer Code Ablauf in 1 Tag*/
-"wallet_transfer_code_expire_singular" = "Noch 1 Tag gültig";
+"wallet_transfer_code_expire_singular" = "Anc valaivel 1 di";
 
 /*Wallet: Transfer Code: Läuft ab in {DAYS} Tagen*/
-"wallet_transfer_code_expire_plural" = "Noch {DAYS} Tage gültig";
+"wallet_transfer_code_expire_plural" = "Anc valaivel {DAYS} dis";
 
 /*Wallet: Transfer Code Status Abgelaufen*/
-"wallet_transfer_code_state_expired" = "Transfer fehlgeschlagen";
+"wallet_transfer_code_state_expired" = "Il transfer n'è betg reussì";
 
 /*Wallet: Transfer Code Alter Code Titel*/
-"wallet_transfer_code_old_code" = "Code abgelaufen";
+"wallet_transfer_code_old_code" = "Il code è scadì";
 
 /*Wallet: Transfer Code State Zuletzt aktualisiert {DATE}*/
-"wallet_transfer_code_state_updated" = "Zuletzt aktualisiert\n{DATE}";
+"wallet_transfer_code_state_updated" = "Actualisà l'ultima giada\n{DATE}";
 
 /*Wallet: Transfer Code Kein Zertifikat mehr*/
-"wallet_transfer_code_state_no_certificate" = "Mit diesem Transfer kann kein  Zertifikat mehr empfangen werden.";
+"wallet_transfer_code_state_no_certificate" = "Cun quest transfer na po vegnir retschavì pli nagin certificat.";
 
 /*Wallet: Fehler Format des Zertifikat ungültig*/
 "wallet_error_invalid_format" = "Il format dal certificat \nn’è betg valaivel";
@@ -654,13 +652,13 @@
 "wallet_transfer_code_faq_works_intro_3" = "Nach 7 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor dieser abgebrochen wird.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
-"wallet_notification_permission_title" = "Mitteilungen erlauben";
+"wallet_notification_permission_title" = "Permetter avis";
 
 /*Wallet: Text im Custom-Popup Notification Permission*/
-"wallet_notification_permission_text" = "Die App kann Sie informieren, sobald das Zertifikat eingetroffen ist.  Erlauben Sie dazu der App, Ihnen Mitteilungen zu senden.";
+"wallet_notification_permission_text" = "L'app As po infurmar, uschespert ch'il certificat è arrivà. Permettai a l'app d'As trametter avis.";
 
 /*Wallet: Button im Custom-Popup Notification Permission*/
-"wallet_notification_permission_button" = "Weiter";
+"wallet_notification_permission_button" = "Vinavant";
 
 /*Externe URL im "So funktionierts" Screen beim Scannen*/
 "wallet_scanner_howitworks_external_link" = "https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/";
@@ -669,4 +667,46 @@
 "wallet_scanner_howitworks_external_link_title" = "Ulteriuras infurmaziuns";
 
 /*Buttontitel im Screen, wo ein Code erstellt werden kann*/
-"wallet_transfer_code_create_code_button" = "Code erstellen";
+"wallet_transfer_code_create_code_button" = "Crear in code";
+
+/*Wallet: Transfer Code Ablauf in 1 Tag (fetter Teil)*/
+"wallet_transfer_code_expire_singular_bold" = "1 di";
+
+/*Wallet: Transfer Code: Läuft in {DAYS} Tagen ab (fetter Teil)*/
+"wallet_transfer_code_expire_plural_bold" = "{DAYS} dis";
+
+/*Infotext bei erfolgreicher Prüfung (Blacklist)*/
+"verifier_verify_success_info_for_blacklist" = "Betg revocar";
+
+/*Infotext bei erfolgreicher Prüfung (Zertifikat)*/
+"verifier_verify_success_info_for_certificate_valid" = "La signatura è valaivla";
+
+/*Teil der Fehlermeldung bei noch nicht/nicht mehr gültigem Zertifikat, der Bold sein sollte (ref. verifier_verifiy_error_expired und _notyetvalid)*/
+"verifier_verify_error_validity_range_bold" = "Na correspunda betg als criteris da valaivladad da la Svizra.";
+
+/*Wallet: Transfer Code Fehler Titel*/
+"wallet_transfer_code_error_title" = "Il code da transfer n'ha betg pudì vegnir creà";
+
+/*Wallet: Erstellen Fehler Titel*/
+"wallet_transfer_code_no_internet_title" = "Nagina colliaziun cun l'internet";
+
+/*Wallet: Erstellen anderer Fehler Titel*/
+"wallet_transfer_code_generate_error_title" = "Igl è capità in sbagl imprevis.";
+
+/*Wallet: Aktualisierung Transfer Code Fehler Titel*/
+"wallet_transfer_code_update_error_title" = "Actualmain n'è l'actualisaziun betg pussaivla";
+
+/*Wallet: Transfer Code Update Fehler Text*/
+"wallet_transfer_code_update_no_internet_error_text" = "Per pudair retschaiver il transfer, sto l'app esser online.";
+
+/*Wallet Transfer Code Update Fehler Text*/
+"wallet_transfer_code_update_general_error_text" = "Igl è capità in sbagl imprevis. Empruvai pli tard anc ina giada.";
+
+/*Wallet: Transfer Code Fehlertext bei Generieren*/
+"wallet_transfer_code_generate_error_text" = "Empruvai pli tard anc ina giada.";
+
+/*Wallet: Transfer Code Fehlertext bei Generieren ohne Internet*/
+"wallet_transfer_code_generate_no_internet_error_text" = "Per pudair crear in code da transfer, sto l'app esser online.";
+
+/*Wallet: Accessibility Name für Refresh Button*/
+"accessibility_refresh_button" = "Actualisar";

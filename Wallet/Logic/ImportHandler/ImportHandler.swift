@@ -25,6 +25,15 @@ class ImportHandler {
     // MARK: - Handle URL
 
     public func handle(url: URL) -> Bool {
+        let accessingSecurityScopedResource = url.startAccessingSecurityScopedResource()
+
+        defer {
+            url.stopAccessingSecurityScopedResource()
+            if accessingSecurityScopedResource {
+                url.stopAccessingSecurityScopedResource()
+            }
+        }
+
         if let urlComponents = NSURLComponents(url: url,
                                                resolvingAgainstBaseURL: true) {
             switch urlComponents.scheme {

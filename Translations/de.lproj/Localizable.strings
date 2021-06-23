@@ -316,10 +316,10 @@
 "unknown_error" = "Ein unbekannter Fehler ist aufgetreten.";
 
 /*Verifier: Die Gültigkeit des Zertifikat ist abgelaufen*/
-"verifier_verifiy_error_expired" = "Entspricht nicht den Gültigkeitskriterien der Schweiz: Die Gültigkeit des Zertifikat ist abgelaufen.";
+"verifier_verifiy_error_expired" = "Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDie Gültigkeit des Zertifikat ist abgelaufen.";
 
 /*Verifier: Zertifikat ist erst gültig ab {DATE}*/
-"verifier_verifiy_error_notyetvalid" = "Entspricht nicht den Gültigkeitskriterien der Schweiz: Das Zertifikat ist noch nicht gültig.";
+"verifier_verifiy_error_notyetvalid" = "Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDas Zertifikat ist noch nicht gültig.";
 
 /*Verifier: Ein Netzwerkfehler ist aufgetreten.*/
 "verifier_retry_network_error" = "Ein Netzwerkfehler ist aufgetreten.";
@@ -378,8 +378,6 @@
 "wallet_certificate_impfstoff_holder" = "Hersteller";
 "wallet_certificate_vaccination_date_title" = "Impfdatum";
 "wallet_certificate_vaccination_country_title" = "Land der Impfung";
-
-/*Prüfen mit PDF Translation*/
 "wallet_certificate_vaccination_issuer_title" = "Herausgeber";
 "covid_certificate_recovery_title" = "Genesung";
 "wallet_certificate_recovery_first_positiv_result" = "Datum des ersten positiven Resultats";
@@ -594,7 +592,7 @@
 "wallet_transfer_code_next_steps1" = "Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.";
 
 /*Wallet: Transfer Code Nächste Schritte 2*/
-"wallet_transfer_code_next_steps2" = "Falls Sie mehrere Zertifikate zB. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
+"wallet_transfer_code_next_steps2" = "Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.";
 
 /*Wallet: Transfer Code Fertig Button*/
 "wallet_transfer_code_done_button" = "Fertig";
@@ -691,3 +689,49 @@
 
 /*Buttontitel im Screen, wo ein Code erstellt werden kann*/
 "wallet_transfer_code_create_code_button" = "Code erstellen";
+
+/*Wallet: Transfer Code Ablauf in 1 Tag (fetter Teil)*/
+"wallet_transfer_code_expire_singular_bold" = "1 Tag";
+
+/*Wallet: Transfer Code: Läuft in {DAYS} Tagen ab (fetter Teil)*/
+"wallet_transfer_code_expire_plural_bold" = "{DAYS} Tage";
+
+/*Infotext bei erfolgreicher Prüfung (Blacklist)*/
+"verifier_verify_success_info_for_blacklist" = "Nicht widerrufen";
+
+/*Infotext bei erfolgreicher Prüfung (Zertifikat)*/
+"verifier_verify_success_info_for_certificate_valid" = "Signatur gültig";
+
+/*Teil der Fehlermeldung bei noch nicht/nicht mehr gültigem Zertifikat, der Bold sein sollte (ref. verifier_verifiy_error_expired und _notyetvalid)*/
+"verifier_verify_error_validity_range_bold" = "Entspricht nicht den Gültigkeitskriterien der Schweiz.";
+
+/*Wallet: Transfer Code Fehler Titel*/
+"wallet_transfer_code_error_title" = "Transfer-Code konnte nicht erstellt werden";
+
+/*Wallet: Erstellen Fehler Titel*/
+/*Fuzzy*/
+"wallet_transfer_code_no_internet_title" = "Keine Verbindung zum Internet";
+
+/*Wallet: Erstellen anderer Fehler Titel*/
+"wallet_transfer_code_generate_error_title" = "Ein unerwarteter Fehler ist aufgetreten.";
+
+/*Wallet: Aktualisierung Transfer Code Fehler Titel*/
+"wallet_transfer_code_update_error_title" = "Aktualisierung zur Zeit nicht möglich";
+
+/*Wallet: Transfer Code Update Fehler Text*/
+/*Fuzzy*/
+"wallet_transfer_code_update_no_internet_error_text" = "Um den Transfer empfangen zu können, muss die App online sein.";
+
+/*Wallet Transfer Code Update Fehler Text*/
+"wallet_transfer_code_update_general_error_text" = "Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.";
+
+/*Wallet: Transfer Code Fehlertext bei Generieren*/
+"wallet_transfer_code_generate_error_text" = "Versuchen Sie es später erneut.";
+
+/*Wallet: Transfer Code Fehlertext bei Generieren ohne Internet*/
+/*Fuzzy*/
+"wallet_transfer_code_generate_no_internet_error_text" = "Um einen Transfer-Code erstellen zu können, muss die App online sein.";
+
+/*Wallet: Accessibility Name für Refresh Button*/
+/*Fuzzy*/
+"accessibility_refresh_button" = "Aktualisieren";

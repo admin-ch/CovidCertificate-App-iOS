@@ -12,22 +12,22 @@
 import Foundation
 
 extension VerificationError {
-    func displayName() -> String {
+    func displayName() -> NSAttributedString {
         switch self {
         case .signature:
-            return UBLocalized.verifier_verify_error_info_for_certificate_invalid
+            return UBLocalized.verifier_verify_error_info_for_certificate_invalid.bold()
         case .revocation:
-            return UBLocalized.verifier_verify_error_info_for_blacklist
+            return UBLocalized.verifier_verify_error_info_for_blacklist.bold()
         case .otherNationalRules:
-            return UBLocalized.verifier_verify_error_info_for_national_rules
+            return UBLocalized.verifier_verify_error_info_for_national_rules.bold()
         case .expired:
-            return UBLocalized.verifier_verifiy_error_expired
+            return UBLocalized.verifier_verifiy_error_expired.formattingOccurrenceBold(UBLocalized.verifier_verify_error_validity_range_bold)
         case .notYetValid:
-            return UBLocalized.verifier_verifiy_error_notyetvalid
+            return UBLocalized.verifier_verifiy_error_notyetvalid.formattingOccurrenceBold(UBLocalized.verifier_verify_error_validity_range_bold)
         case .typeInvalid:
-            return UBLocalized.verifier_error_invalid_format
+            return UBLocalized.verifier_error_invalid_format.bold()
         case .unknown:
-            return UBLocalized.unknown_error
+            return UBLocalized.unknown_error.bold()
         }
     }
 }
