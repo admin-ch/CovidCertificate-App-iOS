@@ -24,12 +24,27 @@ class ImportHandler {
 
     // MARK: - Handle URL
 
-    public func handle(url: URL) {
+    public func handle(url: URL) -> Bool {
         let accessingSecurityScopedResource = url.startAccessingSecurityScopedResource()
 
         defer {
+            url.stopAccessingSecurityScopedResource()
             if accessingSecurityScopedResource {
                 url.stopAccessingSecurityScopedResource()
+            }
+        }
+
+        if let urlComponents = NSURLComponents(url: url,
+                                               resolvingAgainstBaseURL: true) {
+            switch urlComponents.scheme {
+            case "hcert", "chcovidcert":
+                guard let data = Data(base64Encoded: urlComponents.host ?? ""),
+                      let string = String(data: data, encoding: .utf8),
+                      string.starts(with: "HC1:") else { break }
+                handleMessage(message: string)
+                return true
+            default:
+                break
             }
         }
 
@@ -52,6 +67,8 @@ class ImportHandler {
         } else {
             presentWrongFileError()
         }
+
+        return true
     }
 
     public func handleMessage(message: String) {

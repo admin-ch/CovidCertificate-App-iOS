@@ -201,11 +201,10 @@ extension AppDelegate {
     }
 
     func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        guard WalletUserStorage.shared.hasCompletedOnboarding else {
+        guard WalletUserStorage.shared.hasCompletedOnboarding,
+              let importHandler = importHandler else {
             return false
         }
-
-        importHandler?.handle(url: url)
-        return true
+        return importHandler.handle(url: url)
     }
 }
