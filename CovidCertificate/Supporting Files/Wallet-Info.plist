@@ -57,7 +57,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>hcert</string>
-				<string>covidcert</string>
+				<string>chcovidcert</string>
 			</array>
 		</dict>
 	</array>

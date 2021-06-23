@@ -28,7 +28,7 @@ class ImportHandler {
         if let urlComponents = NSURLComponents(url: url,
                                                resolvingAgainstBaseURL: true) {
             switch urlComponents.scheme {
-            case "hcert", "covidcert":
+            case "hcert", "chcovidcert":
                 guard let data = Data(base64Encoded: urlComponents.host ?? ""),
                       let string = String(data: data, encoding: .utf8),
                       string.starts(with: "HC1:") else { break }
