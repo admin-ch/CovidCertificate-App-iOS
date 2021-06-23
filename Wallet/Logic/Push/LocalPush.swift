@@ -28,21 +28,6 @@ class LocalPush: NSObject {
 
     private var center: UserNotificationCenter
 
-    enum Identifiers: String, CaseIterable, Codable {
-        case transferCodeDownloaded = "ch.admin.bag.certificate.downloaded"
-    }
-
-    enum Actions: String, CaseIterable, Codable {
-        case transferCodeDownloaded = "ch.admin.bag.certificate.downloaded.action"
-
-        // TODO: implement
-        var action: UNNotificationAction {
-            return UNNotificationAction(identifier: rawValue,
-                                        title: "",
-                                        options: [])
-        }
-    }
-
     var applicationState: UIApplication.State {
         UIApplication.shared.applicationState
     }
