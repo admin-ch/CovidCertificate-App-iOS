@@ -19,7 +19,7 @@ enum HomescreenState {
 class WalletHomescreenViewController: HomescreenBaseViewController {
     // MARK: - Screens
 
-    private var state: HomescreenState = .onboarding {
+    private var state: HomescreenState? {
         didSet {
             updateState(true)
         }
@@ -29,6 +29,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
     let certificatesViewController = HomescreenCertificatesViewController()
 
     let bottomView = HomescreenBottomView()
+    let loadingView = LoadingView(center: true, white: true)
 
     let addCertificateButton = Button(image: UIImage(named: "ic-add-certificate"), accessibilityName: UBLocalized.accessibility_add_button)
     private var actionViewIsShown = false
@@ -69,13 +70,21 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
 
     private func updateState(_ animated: Bool) {
         let actions = {
-            self.addCertificateButton.alpha = self.state == .onboarding ? 0.0 : 1.0
-            self.certificatesViewController.view.alpha = self.state == .certificates ? 1.0 : 0.0
-            self.onboardingViewController.view.alpha = self.state == .onboarding ? 1.0 : 0.0
-
-            self.backgroundViewOffset = self.state == .certificates ? CGPoint(x: -Padding.large, y: 170.0) : .zero
-
-            self.bottomView.state = self.state
+            if let s = self.state {
+                self.addCertificateButton.alpha = s == .onboarding ? 0.0 : 1.0
+                self.certificatesViewController.view.alpha = s == .certificates ? 1.0 : 0.0
+                self.onboardingViewController.view.alpha = s == .onboarding ? 1.0 : 0.0
+                self.backgroundViewOffset = s == .certificates ? CGPoint(x: -Padding.large, y: 170.0) : .zero
+                self.bottomView.state = s
+                self.bottomView.alpha = 1.0
+                self.loadingView.stopLoading()
+            } else {
+                self.loadingView.startLoading()
+                self.addCertificateButton.alpha = 0.0
+                self.certificatesViewController.view.alpha = 0.0
+                self.onboardingViewController.view.alpha = 0.0
+                self.bottomView.alpha = 0.0
+            }
         }
 
         if animated {
@@ -169,6 +178,16 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
 
         bottomView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
+        }
+
+        // loading view for start of app
+        view.addSubview(loadingView)
+        loadingView.backgroundColor = UIColor.clear
+
+        loadingView.snp.makeConstraints { make in
+            make.top.equalTo(self.backgroundTopLayoutGuide)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(self.bottomView.snp.top)
         }
 
         addSubviewController(onboardingViewController) { make in

@@ -13,13 +13,16 @@ import Foundation
 
 class LoadingView: UIView {
     private let activityIndicator: UIActivityIndicatorView
+    private let centerOnScreen: Bool
 
-    init() {
+    init(center: Bool = false, white: Bool = false) {
         if #available(iOS 13.0, *) {
-            activityIndicator = UIActivityIndicatorView(style: .large)
+            activityIndicator = UIActivityIndicatorView(style: white ? .whiteLarge : .large)
         } else {
-            activityIndicator = UIActivityIndicatorView(style: .gray)
+            activityIndicator = UIActivityIndicatorView(style: white ? .white : .gray)
         }
+
+        centerOnScreen = center
 
         super.init(frame: .zero)
 
@@ -34,7 +37,11 @@ class LoadingView: UIView {
         backgroundColor = .cc_white
         addSubview(activityIndicator)
         activityIndicator.snp.makeConstraints { make in
-            make.centerY.equalToSuperview().multipliedBy(0.5)
+            if self.centerOnScreen {
+                make.centerY.equalToSuperview()
+            } else {
+                make.centerY.equalToSuperview().multipliedBy(0.5)
+            }
             make.centerX.equalToSuperview()
         }
 
