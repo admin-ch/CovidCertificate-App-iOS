@@ -211,7 +211,7 @@
 "wallet_faq_questions_answer_1" = "Ein Covid-Zertifikat können Sie nach einer vollständigen Covid-19-Impfung, nach einer durchgemachten Erkrankung oder nach einem negativen Testergebnis erhalten. Das Zertifikat stellt Ihnen in der Regel das Gesundheitsfachpersonal vor Ort auf Anfrage aus.";
 
 /*Antwort 2 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_2" = "Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.";
+"wallet_faq_questions_answer_2" = "Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass Sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.";
 
 /*Antwort 3 im FAQ-Screen der Wallet App*/
 "wallet_faq_questions_answer_3" = "Ihre Daten werden nicht in einem zentralen System gespeichert, sondern nur lokal auf Ihrem Mobilgerät, respektive im QR-Code auf dem Covid-Zertifikat in Papierform.";
@@ -619,7 +619,7 @@
 "wallet_transfer_code_state_updated" = "Zuletzt aktualisiert\n{DATE}";
 
 /*Wallet: Transfer Code Kein Zertifikat mehr*/
-"wallet_transfer_code_state_no_certificate" = "Mit diesem Transfer kann kein  Zertifikat mehr empfangen werden.";
+"wallet_transfer_code_state_no_certificate" = "Mit diesem Transfer kann kein Zertifikat mehr empfangen werden.";
 
 /*Wallet: Fehler Format des Zertifikat ungültig*/
 "wallet_error_invalid_format" = "Format des Zertifikat\nungültig";
@@ -762,7 +762,7 @@
 =======
 
 /*Fuzzy*/
-"wallet_transfer_delete_confirm_text" = "Wollen Sie den Transfer wirklich löschen?";
+"wallet_transfer_delete_confirm_text" = "Wollen Sie den Transfer-Code wirklich löschen?";
 "wallet_notification_transfer_title" = "Transfer erfolgreich";
 "wallet_notification_transfer_text" = "Das Covid-Zertifikat ist eingetroffen";
 "wallet_faq_questions_question_2_1" = "Wie lange ist das Covid-Zertifikat gültig?";

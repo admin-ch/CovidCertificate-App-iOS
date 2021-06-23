@@ -314,7 +314,7 @@ import Foundation
      case wallet_faq_questions_answer_1_key = "wallet_faq_questions_answer_1"
     /// Von Covid-19 genesene Personen können das Covid-Zertifikat über ein Online-Formular auf der Webseite des Kantons beantragen. Das Covid-Zertifikat wird anschliessend per Post zugeschickt.
      case wallet_faq_questions_answer_1_1_key = "wallet_faq_questions_answer_1_1"
-    /// Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.
+    /// Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass Sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.
      case wallet_faq_questions_answer_2_key = "wallet_faq_questions_answer_2"
     /// Die Gültigkeitsdauer unterscheidet sich je nachdem, ob Sie eine Covid-19-Impfung, eine durchgemachte Erkrankung oder ein negatives Testergebnis haben. Aufgrund neuer wissenschaftlicher Erkenntnisse kann sich die Gültigkeitsdauer verändern. Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:
      case wallet_faq_questions_answer_2_1_key = "wallet_faq_questions_answer_2_1"
@@ -556,7 +556,7 @@ import Foundation
      case wallet_transfer_code_onboarding_title_key = "wallet_transfer_code_onboarding_title"
     /// Transfer fehlgeschlagen
      case wallet_transfer_code_state_expired_key = "wallet_transfer_code_state_expired"
-    /// Mit diesem Transfer kann kein  Zertifikat mehr empfangen werden.
+    /// Mit diesem Transfer kann kein Zertifikat mehr empfangen werden.
      case wallet_transfer_code_state_no_certificate_key = "wallet_transfer_code_state_no_certificate"
     /// Zuletzt aktualisiert\n{DATE}
      case wallet_transfer_code_state_updated_key = "wallet_transfer_code_state_updated"
@@ -570,7 +570,7 @@ import Foundation
      case wallet_transfer_code_update_general_error_text_key = "wallet_transfer_code_update_general_error_text"
     /// Um den Transfer empfangen zu können, muss die App online sein.
      case wallet_transfer_code_update_no_internet_error_text_key = "wallet_transfer_code_update_no_internet_error_text"
-    /// Wollen Sie den Transfer wirklich löschen?
+    /// Wollen Sie den Transfer-Code wirklich löschen?
      case wallet_transfer_delete_confirm_text_key = "wallet_transfer_delete_confirm_text"
   }
 
@@ -878,7 +878,7 @@ import Foundation
    static let wallet_faq_questions_answer_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_1_key)
   /// Von Covid-19 genesene Personen können das Covid-Zertifikat über ein Online-Formular auf der Webseite des Kantons beantragen. Das Covid-Zertifikat wird anschliessend per Post zugeschickt.
    static let wallet_faq_questions_answer_1_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_1_1_key)
-  /// Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.
+  /// Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass Sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.
    static let wallet_faq_questions_answer_2 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_2_key)
   /// Die Gültigkeitsdauer unterscheidet sich je nachdem, ob Sie eine Covid-19-Impfung, eine durchgemachte Erkrankung oder ein negatives Testergebnis haben. Aufgrund neuer wissenschaftlicher Erkenntnisse kann sich die Gültigkeitsdauer verändern. Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:
    static let wallet_faq_questions_answer_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_2_1_key)
@@ -1120,7 +1120,7 @@ import Foundation
    static let wallet_transfer_code_onboarding_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_title_key)
   /// Transfer fehlgeschlagen
    static let wallet_transfer_code_state_expired = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_expired_key)
-  /// Mit diesem Transfer kann kein  Zertifikat mehr empfangen werden.
+  /// Mit diesem Transfer kann kein Zertifikat mehr empfangen werden.
    static let wallet_transfer_code_state_no_certificate = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_no_certificate_key)
   /// Zuletzt aktualisiert\n{DATE}
    static let wallet_transfer_code_state_updated = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_updated_key)
@@ -1134,7 +1134,7 @@ import Foundation
    static let wallet_transfer_code_update_general_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_update_general_error_text_key)
   /// Um den Transfer empfangen zu können, muss die App online sein.
    static let wallet_transfer_code_update_no_internet_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_update_no_internet_error_text_key)
-  /// Wollen Sie den Transfer wirklich löschen?
+  /// Wollen Sie den Transfer-Code wirklich löschen?
    static let wallet_transfer_delete_confirm_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_delete_confirm_text_key)
 }
 // swiftlint:enable function_parameter_count identifier_name line_length type_body_length
