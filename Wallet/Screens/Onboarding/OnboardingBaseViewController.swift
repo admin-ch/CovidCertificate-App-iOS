@@ -65,7 +65,7 @@ class OnboardingBaseViewController: ViewController {
 
         setOnboardingStep(0, animated: true)
         startSplashCountDown()
-        
+
         UIAccessibility.post(notification: .screenChanged, argument: stepViewControllers[currentStep].stackScrollView)
     }
 
@@ -137,7 +137,6 @@ class OnboardingBaseViewController: ViewController {
 
         UIAccessibility.post(notification: .screenChanged, argument: vcToShow.stackScrollView)
 
-        
         if animated {
             vcToShow.fadeAnimation(fromFactor: forward ? 1 : -1, toFactor: 0, delay: 0.2, completion: { completed in if completed {
                 self.continueButton.isUserInteractionEnabled = true
