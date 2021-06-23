@@ -30,7 +30,7 @@ class CertificateDetailViewController: ViewController {
 
     private let removeButton = Button(title: UBLocalized.delete_button, style: .normal(.cc_bund))
 
-    private let verifyButton = Button(image: UIImage(named: "ic-load")?.withRenderingMode(.alwaysTemplate), accessibilityName: "")
+    private let verifyButton = Button(image: UIImage(named: "ic-load")?.withRenderingMode(.alwaysTemplate), accessibilityName: UBLocalized.accessibility_refresh_button)
 
     private lazy var qrCodeStateView = CertificateQRCodeStateView(initialState: temporaryVerifierState)
 

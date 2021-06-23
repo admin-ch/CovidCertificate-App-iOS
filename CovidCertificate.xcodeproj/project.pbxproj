@@ -62,6 +62,7 @@
 		6E173926267B322C00813D30 /* WalletDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E173925267B322C00813D30 /* WalletDetailViewController.swift */; };
 		6E173928267B330200813D30 /* TransferCodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E173927267B330200813D30 /* TransferCodeDetailViewController.swift */; };
 		6E17392A267B382900813D30 /* TransferCodeAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E173929267B382900813D30 /* TransferCodeAnimationView.swift */; };
+		6E17392E267B487900813D30 /* TransferCodeUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E17392D267B487900813D30 /* TransferCodeUpdateView.swift */; };
 		6E361225267239A4008C0C86 /* ImportHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E361224267239A4008C0C86 /* ImportHandler.swift */; };
 		6E5A0F2026432148004718B4 /* HomescreenBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A0F1F26432148004718B4 /* HomescreenBottomView.swift */; };
 		6E5A0F25264336B4004718B4 /* UIStateLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A0F22264336B4004718B4 /* UIStateLogic.swift */; };
@@ -199,6 +200,7 @@
 		6EDE754D2667DB6900A2656F /* UBLocalized+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */; };
 		6EDE754E2667DB6900A2656F /* UBLocalized+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */; };
 		6EE81DEB245163C400FC7218 /* PhoneCallHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */; };
+		6EEAFBED267B4F3300807C16 /* TransferCodeRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEAFBEC267B4F3300807C16 /* TransferCodeRefreshView.swift */; };
 		6EF166AF264BB18800426985 /* Verifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6B1A912649D17400DB4A38 /* Verifier.swift */; };
 		6EF166B7264C52BD00426985 /* QRScanErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC445D322645828E007DC8F2 /* QRScanErrorView.swift */; };
 		6EF166B9264D424700426985 /* PTMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EF166B8264D424700426985 /* PTMono-Regular.ttf */; };
@@ -328,6 +330,7 @@
 		6E173925267B322C00813D30 /* WalletDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletDetailViewController.swift; sourceTree = "<group>"; };
 		6E173927267B330200813D30 /* TransferCodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeDetailViewController.swift; sourceTree = "<group>"; };
 		6E173929267B382900813D30 /* TransferCodeAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeAnimationView.swift; sourceTree = "<group>"; };
+		6E17392D267B487900813D30 /* TransferCodeUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCodeUpdateView.swift; sourceTree = "<group>"; };
 		6E361224267239A4008C0C86 /* ImportHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportHandler.swift; sourceTree = "<group>"; };
 		6E5A0F1E26430B99004718B4 /* Verifier-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Verifier-Info.plist"; sourceTree = "<group>"; };
 		6E5A0F1F26432148004718B4 /* HomescreenBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenBottomView.swift; sourceTree = "<group>"; };
@@ -409,6 +412,7 @@
 		6EC173612642A1E8002E27DB /* VerifierUserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifierUserStorage.swift; sourceTree = "<group>"; };
 		6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UBLocalized+CC.swift"; sourceTree = "<group>"; };
 		6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCallHelper.swift; sourceTree = "<group>"; };
+		6EEAFBEC267B4F3300807C16 /* TransferCodeRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeRefreshView.swift; sourceTree = "<group>"; };
 		6EF166B8264D424700426985 /* PTMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTMono-Regular.ttf"; sourceTree = "<group>"; };
 		6EF166BB264D488A00426985 /* ScannerLightButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerLightButton.swift; sourceTree = "<group>"; };
 		6EF166CD264E5C3200426985 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
@@ -676,6 +680,7 @@
 		6E6035FF267878EC00EB57E7 /* TransferCode */ = {
 			isa = PBXGroup;
 			children = (
+				6E17392D267B487900813D30 /* TransferCodeUpdateView.swift */,
 				6E173923267B31BB00813D30 /* TransferCodeErrorRetryViewController.swift */,
 				DCBF64E52678D8AE00450D51 /* TransferCodeViewController.swift */,
 				6E603600267878EC00EB57E7 /* TransferCodeOnboardingViewController.swift */,
@@ -686,6 +691,7 @@
 				6E17391D267B204700813D30 /* LoadingView.swift */,
 				6E173927267B330200813D30 /* TransferCodeDetailViewController.swift */,
 				6E173929267B382900813D30 /* TransferCodeAnimationView.swift */,
+				6EEAFBEC267B4F3300807C16 /* TransferCodeRefreshView.swift */,
 			);
 			path = TransferCode;
 			sourceTree = "<group>";
@@ -1546,6 +1552,7 @@
 				6E5A0F25264336B4004718B4 /* UIStateLogic.swift in Sources */,
 				6EF166D4264E5C3200426985 /* ConfigResponseBody.swift in Sources */,
 				6EC172C526407F1A002E27DB /* WalletScannerViewController.swift in Sources */,
+				6EEAFBED267B4F3300807C16 /* TransferCodeRefreshView.swift in Sources */,
 				6E5A0F2026432148004718B4 /* HomescreenBottomView.swift in Sources */,
 				DC8ABDEB264A5C5600FDE0E1 /* OnboardingBaseViewController.swift in Sources */,
 				6E8FC0FA24518BF2002AB1E5 /* UIScrollView+UBKeyboardObserver.m in Sources */,
@@ -1592,6 +1599,7 @@
 				DC286A26242CE0B9001D5344 /* Environment.swift in Sources */,
 				DC8ABDFB264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift in Sources */,
 				DC702B01243F6F640066C773 /* String+CC.swift in Sources */,
+				6E17392E267B487900813D30 /* TransferCodeUpdateView.swift in Sources */,
 				6EC172C926407F5F002E27DB /* CertificateAddDetailViewController.swift in Sources */,
 				6E6036032678792000EB57E7 /* UserTransferCode.swift in Sources */,
 				6E0281FE265660E500582904 /* CertificateDetailView.swift in Sources */,

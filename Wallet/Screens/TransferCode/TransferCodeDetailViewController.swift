@@ -19,6 +19,24 @@ class TransferCodeDetailViewController: ViewController {
     private let nameView = Label(.title, textAlignment: .center)
     private let animationView = TransferCodeAnimationView()
 
+    private let statusView = TransferCodeStatusView()
+
+    private let updateView = TransferCodeUpdateView()
+    private let refreshView = TransferCodeRefreshView()
+    private let errorLabel = Label(.smallErrorLight, textAlignment: .center)
+
+    // MARK: - Variables
+
+    public var error: CryptoError? {
+        didSet { update() }
+    }
+
+    public var updateDate: Date? {
+        didSet { update() }
+    }
+
+    public var refreshCallback: (() -> Void)?
+
     // MARK: - Init
 
     init(certificate: UserCertificate) {
@@ -33,6 +51,16 @@ class TransferCodeDetailViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+
+        refreshView.refreshButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.refreshCallback?()
+        }
+
+        updateView.refreshButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.refreshCallback?()
+        }
     }
 
     // MARK: - Setup
@@ -48,9 +76,38 @@ class TransferCodeDetailViewController: ViewController {
             make.edges.equalToSuperview()
         }
 
-        stackScrollView.addSpacerView(Padding.large)
-
         stackScrollView.addArrangedView(animationView)
+        stackScrollView.addSpacerView(Padding.medium)
         stackScrollView.addArrangedView(nameView)
+        stackScrollView.addSpacerView(Padding.large + Padding.small)
+
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = Padding.small
+        stackView.addArrangedSubview(statusView)
+        stackView.addArrangedSubview(updateView)
+        stackView.addArrangedSubview(refreshView)
+        stackView.addArrangedSubview(errorLabel)
+
+        stackScrollView.addArrangedView(stackView)
+
+        statusView.transferCode = certificate.transferCode
+
+        stackScrollView.addSpacerView(Padding.large + Padding.small)
+
+        nameView.text = UBLocalized.wallet_transfer_code_state_waiting
+
+        update()
+    }
+
+    private func update() {
+        // data changes
+        errorLabel.text = error?.errorCode
+        updateView.date = updateDate
+
+        // visibility changes
+        refreshView.ub_setHidden(error == nil)
+        errorLabel.ub_setHidden(error == nil)
+        updateView.ub_setHidden(error != nil)
     }
 }
