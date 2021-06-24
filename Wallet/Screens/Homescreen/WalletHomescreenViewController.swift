@@ -57,9 +57,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             }
 
             // disable push when there are no transfer codes
-            if !hasTransferCode {
-                UBPushManager.shared.setActive(false)
-            }
+            UBPushManager.shared.setActive(hasTransferCode)
         }
 
         setupViews()

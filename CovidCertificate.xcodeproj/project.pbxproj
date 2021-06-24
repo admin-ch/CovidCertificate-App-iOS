@@ -303,6 +303,9 @@
 		F8944F8326834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8944F8226834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift */; };
 		F8E6C56826845DE600A9E112 /* FiraCode-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */; };
 		F8E6C56926845EF200A9E112 /* FiraCode-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */; };
+		F8E6C57A268480D200A9E112 /* covidcertificate-app-a.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C577268480D100A9E112 /* covidcertificate-app-a.bit.admin.ch.der */; };
+		F8E6C57C268480D200A9E112 /* covidcertificate-app.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C578268480D100A9E112 /* covidcertificate-app.bit.admin.ch.der */; };
+		F8E6C57E268480D200A9E112 /* covidcertificate-app-d.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C579268480D100A9E112 /* covidcertificate-app-d.bit.admin.ch.der */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -518,6 +521,9 @@
 		F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+localizedImage.swift"; sourceTree = "<group>"; };
 		F8944F8226834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeFailedExplanatoryView.swift; sourceTree = "<group>"; };
 		F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Bold.ttf"; sourceTree = "<group>"; };
+		F8E6C577268480D100A9E112 /* covidcertificate-app-a.bit.admin.ch.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "covidcertificate-app-a.bit.admin.ch.der"; sourceTree = "<group>"; };
+		F8E6C578268480D100A9E112 /* covidcertificate-app.bit.admin.ch.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "covidcertificate-app.bit.admin.ch.der"; sourceTree = "<group>"; };
+		F8E6C579268480D100A9E112 /* covidcertificate-app-d.bit.admin.ch.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "covidcertificate-app-d.bit.admin.ch.der"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -777,6 +783,9 @@
 				6E8F52E2265EC17300406430 /* www.cc-a.bit.admin.ch.der */,
 				6E8F52E3265EC17300406430 /* www.cc-d.bit.admin.ch.der */,
 				6E8F52E4265EC17300406430 /* www.cc.bit.admin.ch.der */,
+				F8E6C577268480D100A9E112 /* covidcertificate-app-a.bit.admin.ch.der */,
+				F8E6C579268480D100A9E112 /* covidcertificate-app-d.bit.admin.ch.der */,
+				F8E6C578268480D100A9E112 /* covidcertificate-app.bit.admin.ch.der */,
 			);
 			path = PinnedCertificates;
 			sourceTree = "<group>";
@@ -1335,7 +1344,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8E6C57A268480D200A9E112 /* covidcertificate-app-a.bit.admin.ch.der in Resources */,
 				F8E6C56826845DE600A9E112 /* FiraCode-Bold.ttf in Resources */,
+				F8E6C57E268480D200A9E112 /* covidcertificate-app-d.bit.admin.ch.der in Resources */,
 				DCB4430E242DD34700F19AA5 /* Inter-SemiBold.ttf in Resources */,
 				DCB44308242DD34700F19AA5 /* Inter-Bold.ttf in Resources */,
 				6EF166B9264D424700426985 /* PTMono-Regular.ttf in Resources */,
@@ -1347,6 +1358,7 @@
 				DC9A81AC242CE5E000AD1548 /* InfoPlist.strings in Resources */,
 				6E0281EF2655022A00582904 /* Impressum in Resources */,
 				DCB4430A242DD34700F19AA5 /* Inter-ExtraLight.ttf in Resources */,
+				F8E6C57C268480D200A9E112 /* covidcertificate-app.bit.admin.ch.der in Resources */,
 				6E8F52E9265EC17400406430 /* www.cc.bit.admin.ch.der in Resources */,
 				24780B34242FDF4C003BB26C /* Launch Screen.storyboard in Resources */,
 				DCB44309242DD34700F19AA5 /* Inter-ExtraBold.ttf in Resources */,
