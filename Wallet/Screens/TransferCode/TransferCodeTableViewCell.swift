@@ -91,14 +91,6 @@ class TransferCodeTableViewCell: UITableViewCell {
             icon.image = UIImage(named: "ic-transfer-failed")
         }
 
-        // only start if not failed
-        if code.state != .failed {
-            TransferManager.shared.addObserver(self, for: code.transferCode) { _ in
-                // just add the observer to start download, then
-                // nothing to do here since TransferManager adds certificates and reloads tableview
-            }
-        }
-
         accessibilityLabel = [stateLabel.text, transferCodeLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
     }
 }

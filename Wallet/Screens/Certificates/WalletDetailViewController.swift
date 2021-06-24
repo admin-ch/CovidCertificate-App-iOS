@@ -61,13 +61,13 @@ class WalletDetailViewController: ViewController {
     private func setupInteraction() {
         transferCodeDetailVC.refreshCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.startDownloadIfNeeded()
+            strongSelf.startDownloadIfNeeded(forceUpdate: true)
         }
     }
 
     // MARK: - Download
 
-    private func startDownloadIfNeeded() {
+    private func startDownloadIfNeeded(forceUpdate: Bool = false) {
         // only start if it's a not failed transfer-code
         guard certificate.type == .transferCode,
               let transferCode = certificate.transferCode,
@@ -80,7 +80,7 @@ class WalletDetailViewController: ViewController {
 
         loadingView.startLoading()
 
-        TransferManager.shared.addObserver(self, for: transferCode.transferCode) { [weak self] result in
+        TransferManager.shared.addObserver(self, for: transferCode.transferCode, forceUpdate: forceUpdate) { [weak self] result in
             guard let strongSelf = self else { return }
 
             switch result {
