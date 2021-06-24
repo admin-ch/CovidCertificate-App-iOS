@@ -729,10 +729,10 @@
 "verifier_faq_works_answer_7" = "In principle, COVID certificates can also be verified without an Internet connection. For this purpose, regularly updated checklists are downloaded from a central server. These locally stored checklists must not be older than 48 hours. \n\nIn order to update the checklists, the app must be open and connected to the Internet. Updating occurs immediately and automatically.";
 
 /*Button zum QR Code Scannen öffnen*/
-"wallet_homescreen_qr_code_scannen" = "QR-Code scannen";
+"wallet_homescreen_qr_code_scannen" = "Scan QR code";
 
 /*Button zum PDF importieren*/
-"wallet_homescreen_pdf_import" = "PDF importieren";
+"wallet_homescreen_pdf_import" = "Import PDF";
 
 /*Wallet: Titel im Transfer Code screen bei deaktiveren Notifications*/
 "wallet_notification_disabled_titel" = "Tip: Activate notifications";

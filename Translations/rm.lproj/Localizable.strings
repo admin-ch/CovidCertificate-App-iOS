@@ -729,7 +729,7 @@
 "verifier_faq_works_answer_7" = "Da princip pon ils certificats COVID er vegnir verifitgads senza ina colliaziun cun l'internet. Per far quai vegnan chargiadas giu regularmain d'in server central glistas da verificaziun actualisadas. Questas glistas da verificaziun arcunadas localmain na dastgan betg esser pli veglias che 48 uras.\n\nPer actualisar las glistas da verificaziun sto l'app esser colliada cun l'internet e vegnir averta. L'actualisaziun succeda immediatamain ed automaticamain.";
 
 /*Button zum QR Code Scannen öffnen*/
-"wallet_homescreen_qr_code_scannen" = "QR-Code scannen";
+"wallet_homescreen_qr_code_scannen" = "Scannar il code QR";
 
 /*Button zum PDF importieren*/
 "wallet_homescreen_pdf_import" = "PDF importieren";

@@ -729,7 +729,7 @@
 "verifier_faq_works_answer_7" = "En principe, il est aussi possible de vérifier les certificats COVID sans connexion Internet. À cette fin, des listes de contrôle régulièrement mises à jour sont téléchargées à partir d’un serveur central. Elles sont enregistrées localement et ne doivent pas remonter à plus de 48 h.\n\nPour actualiser les listes de contrôle, l’application doit être ouverte et connectée à Internet. La mise à jour s’effectue immédiatement et automatiquement.";
 
 /*Button zum QR Code Scannen öffnen*/
-"wallet_homescreen_qr_code_scannen" = "QR-Code scannen";
+"wallet_homescreen_qr_code_scannen" = "Scanner le code QR";
 
 /*Button zum PDF importieren*/
 "wallet_homescreen_pdf_import" = "PDF importieren";

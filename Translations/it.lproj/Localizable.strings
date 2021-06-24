@@ -729,7 +729,7 @@
 "verifier_faq_works_answer_7" = "In linea di principio, i certificati COVID possono essere verificati anche senza connessione Internet. A tale scopo, vengono scaricati regolarmente da un server centrale gli elenchi di verifica aggiornati. Questi elenchi salvati localmente non devono avere più di 48 ore. \n\nPer poter aggiornare gli elenchi di verifica, l’app deve essere aperta e collegata a Internet. L’aggiornamento avviene in modo immediato e automatico.";
 
 /*Button zum QR Code Scannen öffnen*/
-"wallet_homescreen_qr_code_scannen" = "QR-Code scannen";
+"wallet_homescreen_qr_code_scannen" = "Scansiona codice QR";
 
 /*Button zum PDF importieren*/
 "wallet_homescreen_pdf_import" = "PDF importieren";
