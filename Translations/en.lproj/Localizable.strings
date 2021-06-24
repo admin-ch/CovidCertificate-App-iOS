@@ -733,3 +733,9 @@
 
 /*Button zum PDF importieren*/
 "wallet_homescreen_pdf_import" = "PDF importieren";
+
+/*Wallet: Titel im Transfer Code screen bei deaktiveren Notifications*/
+"wallet_notification_disabled_titel" = "Tipp: Mitteilungen aktivieren ";
+
+/*Wallet: Button im Transfer Code screen bei deaktiveren Notifications der die Einstellungen öffnet*/
+"wallet_notification_disabled_button" = "Activate";

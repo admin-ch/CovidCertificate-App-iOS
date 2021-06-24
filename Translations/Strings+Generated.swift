@@ -392,6 +392,10 @@ import Foundation
      case wallet_homescreen_qr_code_scannen_key = "wallet_homescreen_qr_code_scannen"
     /// Nächsten Schritt wählen
      case wallet_homescreen_what_to_do_key = "wallet_homescreen_what_to_do"
+    /// Aktivieren
+     case wallet_notification_disabled_button_key = "wallet_notification_disabled_button"
+    /// Tipp: Mitteilungen aktivieren 
+     case wallet_notification_disabled_titel_key = "wallet_notification_disabled_titel"
     /// Weiter
      case wallet_notification_permission_button_key = "wallet_notification_permission_button"
     /// Die App kann Sie informieren, sobald das Zertifikat eingetroffen ist.  Erlauben Sie dazu der App, Ihnen Mitteilungen zu senden.
@@ -956,6 +960,10 @@ import Foundation
    static let wallet_homescreen_qr_code_scannen = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_qr_code_scannen_key)
   /// Nächsten Schritt wählen
    static let wallet_homescreen_what_to_do = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_what_to_do_key)
+  /// Aktivieren
+   static let wallet_notification_disabled_button = UBLocalized.tr(UBLocalizedKey.wallet_notification_disabled_button_key)
+  /// Tipp: Mitteilungen aktivieren 
+   static let wallet_notification_disabled_titel = UBLocalized.tr(UBLocalizedKey.wallet_notification_disabled_titel_key)
   /// Weiter
    static let wallet_notification_permission_button = UBLocalized.tr(UBLocalizedKey.wallet_notification_permission_button_key)
   /// Die App kann Sie informieren, sobald das Zertifikat eingetroffen ist.  Erlauben Sie dazu der App, Ihnen Mitteilungen zu senden.

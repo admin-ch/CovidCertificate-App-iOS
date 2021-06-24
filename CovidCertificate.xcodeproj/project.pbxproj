@@ -301,6 +301,7 @@
 		F87E96D7263AEA9100755AF1 /* OSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E96D6263AEA9100755AF1 /* OSLogger.swift */; };
 		F88D99DB2497938E0081790E /* UIImage+localizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */; };
 		F8944F8326834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8944F8226834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift */; };
+		F8A259512684A07A0087D86E /* TransferCodeNotificationDisabledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A259502684A07A0087D86E /* TransferCodeNotificationDisabledView.swift */; };
 		F8E6C56826845DE600A9E112 /* FiraCode-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */; };
 		F8E6C56926845EF200A9E112 /* FiraCode-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */; };
 		F8E6C57A268480D200A9E112 /* covidcertificate-app-a.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C577268480D100A9E112 /* covidcertificate-app-a.bit.admin.ch.der */; };
@@ -520,6 +521,7 @@
 		F87E96D6263AEA9100755AF1 /* OSLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogger.swift; sourceTree = "<group>"; };
 		F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+localizedImage.swift"; sourceTree = "<group>"; };
 		F8944F8226834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeFailedExplanatoryView.swift; sourceTree = "<group>"; };
+		F8A259502684A07A0087D86E /* TransferCodeNotificationDisabledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCodeNotificationDisabledView.swift; sourceTree = "<group>"; };
 		F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Bold.ttf"; sourceTree = "<group>"; };
 		F8E6C577268480D100A9E112 /* covidcertificate-app-a.bit.admin.ch.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "covidcertificate-app-a.bit.admin.ch.der"; sourceTree = "<group>"; };
 		F8E6C578268480D100A9E112 /* covidcertificate-app.bit.admin.ch.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "covidcertificate-app.bit.admin.ch.der"; sourceTree = "<group>"; };
@@ -736,6 +738,7 @@
 				6E17391D267B204700813D30 /* LoadingView.swift */,
 				6E173927267B330200813D30 /* TransferCodeDetailViewController.swift */,
 				F8944F8226834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift */,
+				F8A259502684A07A0087D86E /* TransferCodeNotificationDisabledView.swift */,
 				6E173929267B382900813D30 /* TransferCodeAnimationView.swift */,
 				6EEAFBEC267B4F3300807C16 /* TransferCodeRefreshView.swift */,
 				DC8F1ED9267C6F8200F44FF7 /* TransferCodeTableViewCell.swift */,
@@ -1746,6 +1749,7 @@
 				6E0281FA26565A8100582904 /* ScreenBrightness.swift in Sources */,
 				6ED9161D2681B171006D9E7C /* UBPushManager.swift in Sources */,
 				F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */,
+				F8A259512684A07A0087D86E /* TransferCodeNotificationDisabledView.swift in Sources */,
 				6E70145C265421940097BBC8 /* CertificateAlreadyAddedView.swift in Sources */,
 				6ED916302681D932006D9E7C /* LocalPush.swift in Sources */,
 				242D21D1245C3853005DAEA8 /* Logger.swift in Sources */,

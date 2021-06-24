@@ -29,6 +29,8 @@ class TransferCodeDetailViewController: ViewController {
     private let refreshView = TransferCodeRefreshView()
     private let errorLabel = Label(.smallErrorLight, textAlignment: .center)
 
+    private let notificationDisabledView = TransferCodeNotificationDisabledView()
+
     private let deleteButton = Button(title: UBLocalized.delete_button, style: .normal(.cc_bund))
 
     // MARK: - Variables
@@ -74,6 +76,11 @@ class TransferCodeDetailViewController: ViewController {
         deleteButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.removeTransfer()
+        }
+
+        notificationDisabledView.openSettingsCallback = {
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+            UIApplication.shared.open(settingsUrl, options: [:], completionHandler: nil)
         }
     }
 
@@ -122,6 +129,12 @@ class TransferCodeDetailViewController: ViewController {
         let models = ConfigManager.currentConfig?.transferWorksViewModels ?? []
         StaticContentViewController.setupViews(models: models, stackView: stackScrollView.stackView, showAllViews: true)
 
+        stackScrollView.addArrangedView(notificationDisabledView)
+        notificationDisabledView.isHidden = true
+        notificationDisabledView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(stackScrollView.stackView).inset(Padding.medium)
+        }
+
         stackScrollView.addSpacerView(Padding.large)
 
         stackScrollView.addArrangedViewCentered(deleteButton)
@@ -148,6 +161,12 @@ class TransferCodeDetailViewController: ViewController {
         refreshView.ub_setHidden(error == nil || certificate.transferCode?.state == .failed)
         updateView.ub_setHidden(error != nil || certificate.transferCode?.state == .failed)
         failedExplanatoryView.ub_setHidden(certificate.transferCode?.state != .failed)
+
+        // notificationview
+        UBPushManager.shared.queryPushPermissions { [weak self] enabled in
+            guard let strongSelf = self else { return }
+            strongSelf.notificationDisabledView.isHidden = enabled
+        }
     }
 
     private func removeTransfer() {
