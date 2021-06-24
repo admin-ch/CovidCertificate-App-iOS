@@ -43,7 +43,7 @@ class PushHandler: UBPushHandler {
         #endif
 
         DispatchQueue.global().async {
-            TransferManager.updateAllOpenCodes { downloadedCertificates in
+            TransferManager.shared.updateAllOpenCodes { downloadedCertificates in
                 if downloadedCertificates.count > 0 {
                     LocalPush.shared.scheduleNotification(identifier: downloadedCertificates.joined())
                 }

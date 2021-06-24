@@ -92,11 +92,6 @@ final class TransferManager {
         }
     }
 
-    func download(code: String, completionBlock: ) {
-
-
-    }
-
     func updateCertificates(code: String, result: TransferCodeResult) {
         switch result {
         case let .success(certificates):
