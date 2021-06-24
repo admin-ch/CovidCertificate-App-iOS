@@ -12,7 +12,7 @@
 import Foundation
 
 public class InAppDelivery {
-    private let session = URLSession.shared
+    private let session = URLSession.certificatePinned
     private var dataTask: URLSessionDataTask?
 
     public func registerNewCode(callback: @escaping (Result<String, CryptoError>) -> Void) {

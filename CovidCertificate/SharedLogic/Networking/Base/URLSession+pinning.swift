@@ -86,7 +86,10 @@ class CertificateEvaluator: NSObject, URLSessionDelegate {
         // all these hosts have a seperate certificate
         let hosts = ["www.cc-d.bit.admin.ch",
                      "www.cc-a.bit.admin.ch",
-                     "www.cc.bit.admin.ch"]
+                     "www.cc.bit.admin.ch",
+                     "covidcertificate-app-d.bit.admin.ch",
+                     "covidcertificate-app-a.bit.admin.ch",
+                     "covidcertificate-app.bit.admin.ch"]
         for host in hosts {
             if let certificate = bundle.getCertificate(with: host) {
                 // since we currently pin the Amazon Global CA we never want to accept self signed certificates in the trust-store
