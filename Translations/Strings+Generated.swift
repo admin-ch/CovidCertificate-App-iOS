@@ -222,6 +222,10 @@ import Foundation
      case wallet_certificate_delete_confirm_text_key = "wallet_certificate_delete_confirm_text"
     /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
      case wallet_certificate_detail_note_key = "wallet_certificate_detail_note"
+    /// Nachweis erstellt am\n{DATE}
+     case wallet_certificate_evidence_creation_date_key = "wallet_certificate_evidence_creation_date"
+    /// Nachweis
+     case wallet_certificate_evidence_title_key = "wallet_certificate_evidence_title"
     /// UVCI
      case wallet_certificate_identifier_key = "wallet_certificate_identifier"
     /// Impfdosis
@@ -260,6 +264,8 @@ import Foundation
      case wallet_certificate_test_sample_date_title_key = "wallet_certificate_test_sample_date_title"
     /// Typ
      case wallet_certificate_test_type_key = "wallet_certificate_test_type"
+    /// Unvollständige Impfung
+     case wallet_certificate_type_incomplete_vaccine_key = "wallet_certificate_type_incomplete_vaccine"
     /// Land der Impfung
      case wallet_certificate_vaccination_country_title_key = "wallet_certificate_vaccination_country_title"
     /// Impfdatum
@@ -790,6 +796,10 @@ import Foundation
    static let wallet_certificate_delete_confirm_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_delete_confirm_text_key)
   /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
    static let wallet_certificate_detail_note = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_key)
+  /// Nachweis erstellt am\n{DATE}
+   static let wallet_certificate_evidence_creation_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_evidence_creation_date_key)
+  /// Nachweis
+   static let wallet_certificate_evidence_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_evidence_title_key)
   /// UVCI
    static let wallet_certificate_identifier = UBLocalized.tr(UBLocalizedKey.wallet_certificate_identifier_key)
   /// Impfdosis
@@ -828,6 +838,8 @@ import Foundation
    static let wallet_certificate_test_sample_date_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_sample_date_title_key)
   /// Typ
    static let wallet_certificate_test_type = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_type_key)
+  /// Unvollständige Impfung
+   static let wallet_certificate_type_incomplete_vaccine = UBLocalized.tr(UBLocalizedKey.wallet_certificate_type_incomplete_vaccine_key)
   /// Land der Impfung
    static let wallet_certificate_vaccination_country_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_vaccination_country_title_key)
   /// Impfdatum

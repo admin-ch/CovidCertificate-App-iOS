@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
 import Foundation
 
 enum TemporaryVerifierState: Equatable {
@@ -67,6 +68,17 @@ class CertificateDetailViewController: ViewController {
         super.init()
 
         title = UBLocalized.wallet_certificate.uppercased()
+
+        let c = CovidCertificateSDK.decode(encodedData: certificate.qrCode ?? "")
+        switch c {
+        case let .success(holder):
+            let vaccinations = holder.healthCert.vaccinations ?? []
+            if !vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
+                title = UBLocalized.wallet_certificate_evidence_title.uppercased()
+            }
+        case .failure:
+            break
+        }
     }
 
     // MARK: - View

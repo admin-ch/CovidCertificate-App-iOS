@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
 import Foundation
 
 class HomescreenCertificateView: UIView {
@@ -131,10 +132,22 @@ class HomescreenCertificateView: UIView {
 
         switch cert.type {
         case .certificate:
-            titleLabel.text = UBLocalized.wallet_certificate
             qrCodeView.alpha = 1.0
             transferView.alpha = 0.0
             accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+
+            let c = CovidCertificateSDK.decode(encodedData: cert.qrCode ?? "")
+            switch c {
+            case let .success(holder):
+                let vaccinations = holder.healthCert.vaccinations ?? []
+                if vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
+                    titleLabel.text = UBLocalized.wallet_certificate
+                } else {
+                    titleLabel.text = UBLocalized.wallet_certificate_evidence_title
+                }
+            case .failure:
+                break
+            }
         case .transferCode:
             titleLabel.text = UBLocalized.wallet_transfer_code_card_title
             qrCodeView.alpha = 0.0
