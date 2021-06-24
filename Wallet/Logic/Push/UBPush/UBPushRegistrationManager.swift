@@ -36,9 +36,7 @@ open class UBPushRegistrationManager {
         2 * 7 * 24 * 60 * 60 // enforce new push registration every two weeks
     }
 
-    /// :nodoc:
     private var task: URLSessionDataTask?
-    private var backgroundTask = UIBackgroundTaskIdentifier.invalid
 
     // MARK: - Initialization
 
@@ -80,13 +78,16 @@ open class UBPushRegistrationManager {
             return
         }
 
+        var backgroundTask = UIBackgroundTaskIdentifier.invalid
+
         if backgroundTask == .invalid {
-            backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+            UIApplication.shared.beginBackgroundTask(withName: "PushRegistrationManager") { [weak self] in
                 guard let self = self else {
                     return
                 }
-                if self.backgroundTask != .invalid {
-                    UIApplication.shared.endBackgroundTask(self.backgroundTask)
+                if backgroundTask != .invalid {
+                    UIApplication.shared.endBackgroundTask(backgroundTask)
+                    backgroundTask = .invalid
                 }
             }
         }
@@ -103,8 +104,9 @@ open class UBPushRegistrationManager {
                 completion?(nil)
             }
 
-            if self.backgroundTask != .invalid {
-                UIApplication.shared.endBackgroundTask(self.backgroundTask)
+            if backgroundTask != .invalid {
+                UIApplication.shared.endBackgroundTask(backgroundTask)
+                backgroundTask = .invalid
             }
         })
 

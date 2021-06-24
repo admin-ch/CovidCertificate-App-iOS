@@ -83,6 +83,7 @@ public class InAppDelivery {
 
         let request = Endpoint.certificate(payload: payload, appversion: ConfigManager.appVersion, osversion: ConfigManager.osVersion, buildnr: ConfigManager.buildNumber).request()
         dataTask = session.dataTask(with: request, completionHandler: { data, response, error in
+            // TODO: dont do everything on main thread
             DispatchQueue.main.async {
                 guard let _ = response as? HTTPURLResponse,
                       let data = data

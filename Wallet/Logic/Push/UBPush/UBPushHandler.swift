@@ -57,7 +57,7 @@ open class UBPushHandler {
     open func showInAppPushDetails(for _: UBPushNotification) {}
 
     /// Override to update local data (e.g. current warnings) after every remote notification.
-    open func updateLocalData(withSilent _: Bool, remoteNotification _: UBPushNotification) {}
+    open func updateLocalData(withSilent _: Bool, remoteNotification _: UBPushNotification, completionHandler _: @escaping () -> Void) {}
 
     // MARK: - Handlers
 
@@ -82,15 +82,15 @@ open class UBPushHandler {
     /// Handles a notification that arrived while the app was running in the foreground.
     public func handleWillPresentNotification(_ notification: UNNotification, completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let ubNotification = UBPushNotification(categoryIdentifier: notification.request.content.categoryIdentifier, userInfo: notification.request.content.userInfo)
-        didReceive(ubNotification, whileActive: true)
-        completionHandler([])
+        didReceive(ubNotification, whileActive: true) {
+            completionHandler([])
+        }
     }
 
     /// Handles the user's response to an incoming notification.
     public func handleDidReceiveResponse(_ response: UNNotificationResponse, completionHandler: @escaping () -> Void) {
         let ubNotification = UBPushNotification(categoryIdentifier: response.notification.request.content.categoryIdentifier, userInfo: response.notification.request.content.userInfo)
-        didReceive(ubNotification, whileActive: false)
-        completionHandler()
+        didReceive(ubNotification, whileActive: false, completionHandler: completionHandler)
     }
 
     /// Handles e.g. silent pushes that arrive in legacy method `AppDelegate.application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`
@@ -98,24 +98,23 @@ open class UBPushHandler {
     ///     As soon as you finish processing the notification, you must call the block in the handler parameter or your app will be terminated.
     public func handleDidReceiveResponse(_ userInfo: [AnyHashable: Any], completionHandler: @escaping () -> Void) {
         let ubNotification = UBPushNotification(userInfo: userInfo)
-        didReceive(ubNotification, whileActive: UIApplication.shared.applicationState == .active)
-        completionHandler()
+        didReceive(ubNotification, whileActive: UIApplication.shared.applicationState == .active, completionHandler: completionHandler)
     }
 
     // MARK: - Helpers
 
-    private func didReceive(_ notification: UBPushNotification, whileActive isActive: Bool) {
+    private func didReceive(_ notification: UBPushNotification, whileActive isActive: Bool, completionHandler: @escaping () -> Void) {
         lastPushed = Date()
 
         if !notification.isSilentPush {
-            updateLocalData(withSilent: false, remoteNotification: notification)
-            showNonSilent(notification, isActive: isActive)
+            updateLocalData(withSilent: false, remoteNotification: notification, completionHandler: completionHandler)
+            showNonSilent(notification, isActive: isActive, completionHandler: completionHandler)
         } else {
-            updateLocalData(withSilent: true, remoteNotification: notification)
+            updateLocalData(withSilent: true, remoteNotification: notification, completionHandler: completionHandler)
         }
     }
 
-    private func showNonSilent(_ notification: UBPushNotification, isActive: Bool) {
+    private func showNonSilent(_ notification: UBPushNotification, isActive: Bool, completionHandler: @escaping () -> Void) {
         // Non-silent push while active
         // Show alert
         if isActive {
@@ -142,6 +141,7 @@ open class UBPushHandler {
                 self?.showInAppPushDetails(for: notification)
             }
         }
+        completionHandler()
     }
 }
 

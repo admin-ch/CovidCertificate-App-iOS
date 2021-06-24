@@ -19,11 +19,14 @@ class PushHandler: UBPushHandler {
 
     private var backgroundTask = UIBackgroundTaskIdentifier.invalid
 
-    override func updateLocalData(withSilent isSilent: Bool, remoteNotification _: UBPushNotification) {
-        guard isSilent else { return }
+    override func updateLocalData(withSilent isSilent: Bool, remoteNotification _: UBPushNotification, completionHandler: @escaping () -> Void) {
+        guard isSilent else {
+            completionHandler()
+            return
+        }
 
         if backgroundTask == .invalid {
-            backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+            backgroundTask = UIApplication.shared.beginBackgroundTask(withName: "PushHandler") { [weak self] in
                 guard let self = self else {
                     return
                 }
@@ -40,21 +43,24 @@ class PushHandler: UBPushHandler {
         #endif
 
         DispatchQueue.global().async {
-            TransferManager.updateAllOpenCodes { downloadedCertificates in
-                DispatchQueue.main.async {
-                    if downloadedCertificates.count > 0 {
-                        LocalPush.shared.scheduleNotification(identifier: downloadedCertificates.joined())
-                    }
+            TransferManager.updateAllOpenCodes { _ in
+                // DispatchQueue.main.async {
+                /*
+                 if downloadedCertificates.count > 0 {
+                     LocalPush.shared.scheduleNotification(identifier: downloadedCertificates.joined())
+                 }
 
-                    if CertificateStorage.shared.openTransferCodes.count == 0 {
-                        UBPushManager.shared.setActive(false)
-                    }
+                 if CertificateStorage.shared.openTransferCodes.count == 0 {
+                     UBPushManager.shared.setActive(false)
+                 }
 
-                    if self.backgroundTask != .invalid {
-                        UIApplication.shared.endBackgroundTask(self.backgroundTask)
-                        self.backgroundTask = .invalid
-                    }
+                 completionHandler()
+                 */
+                if self.backgroundTask != .invalid {
+                    UIApplication.shared.endBackgroundTask(self.backgroundTask)
+                    self.backgroundTask = .invalid
                 }
+                // }
             }
         }
     }
