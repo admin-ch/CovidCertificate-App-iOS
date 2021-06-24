@@ -25,7 +25,7 @@ class TransferCodeErrorView: UIView {
 
     private let errorLabel = Label(.smallErrorLight, textAlignment: .center)
 
-    public var error: CryptoError? {
+    public var error: TransferError? {
         didSet { update(animated: false) }
     }
 

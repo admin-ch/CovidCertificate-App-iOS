@@ -32,7 +32,7 @@ class TransferCodeStatusView: UIView {
         didSet { update() }
     }
 
-    var error: CryptoError? {
+    var error: TransferError? {
         didSet { update() }
     }
 

@@ -40,7 +40,7 @@ class HomescreenCertificateView: UIView {
         }
     }
 
-    public var transferError: CryptoError? {
+    public var transferError: TransferError? {
         didSet {
             transferView.error = transferError
         }
@@ -230,7 +230,7 @@ private class TransferView: UIView {
     private var timer: Timer?
     private var animationCounter: Int = 2
 
-    public var error: CryptoError? {
+    public var error: TransferError? {
         didSet { transferCodeView.error = error }
     }
 
