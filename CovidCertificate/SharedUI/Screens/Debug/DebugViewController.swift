@@ -31,7 +31,7 @@ class DebugViewController: ViewController {
             stackView.stackView.layoutMargins = UIEdgeInsets(top: 0, left: Padding.medium, bottom: 0, right: Padding.medium)
 
             stackView.addArrangedView(DebugSwitchView(title: "Certificate Pinning",
-                                                        isOn: URLSession.evaluator.useCertificatePinning,
+                                                      isOn: URLSession.evaluator.useCertificatePinning,
                                                       valueChanged: { newValue in
                                                           URLSession.evaluator.useCertificatePinning = newValue
                                                       }))
