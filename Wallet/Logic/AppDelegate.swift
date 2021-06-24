@@ -137,6 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_: UIApplication) {
         removeBlurView()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
