@@ -301,6 +301,8 @@
 		F87E96D7263AEA9100755AF1 /* OSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E96D6263AEA9100755AF1 /* OSLogger.swift */; };
 		F88D99DB2497938E0081790E /* UIImage+localizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */; };
 		F8944F8326834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8944F8226834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift */; };
+		F8E6C56826845DE600A9E112 /* FiraCode-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */; };
+		F8E6C56926845EF200A9E112 /* FiraCode-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -515,6 +517,7 @@
 		F87E96D6263AEA9100755AF1 /* OSLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogger.swift; sourceTree = "<group>"; };
 		F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+localizedImage.swift"; sourceTree = "<group>"; };
 		F8944F8226834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeFailedExplanatoryView.swift; sourceTree = "<group>"; };
+		F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -762,6 +765,7 @@
 				6E7C0D2C242D04290017C4F9 /* Inter-Medium.ttf */,
 				6E7C0D2B242D04290017C4F9 /* Inter-Regular.ttf */,
 				6E7C0D27242D04280017C4F9 /* Inter-SemiBold.ttf */,
+				F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -1304,6 +1308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8E6C56926845EF200A9E112 /* FiraCode-Bold.ttf in Resources */,
 				6EC1732B26429E31002E27DB /* Inter-SemiBold.ttf in Resources */,
 				6EC1732C26429E31002E27DB /* Inter-Bold.ttf in Resources */,
 				6EC1732D26429E31002E27DB /* Inter-Light.ttf in Resources */,
@@ -1330,6 +1335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8E6C56826845DE600A9E112 /* FiraCode-Bold.ttf in Resources */,
 				DCB4430E242DD34700F19AA5 /* Inter-SemiBold.ttf in Resources */,
 				DCB44308242DD34700F19AA5 /* Inter-Bold.ttf in Resources */,
 				6EF166B9264D424700426985 /* PTMono-Regular.ttf in Resources */,

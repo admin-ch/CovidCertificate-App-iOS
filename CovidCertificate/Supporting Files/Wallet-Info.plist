@@ -80,6 +80,7 @@
 		<string>Inter-SemiBold.ttf</string>
 		<string>Inter-ExtraLight.ttf</string>
 		<string>PTMono-Regular.ttf</string>
+		<string>FiraCode-Bold.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>

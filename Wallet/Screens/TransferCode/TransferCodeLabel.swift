@@ -75,7 +75,7 @@ class TransferCodeLabel: UIView {
 
 private class InsetLabel: UIView {
     private let inset: CGFloat = 7
-    public let label = Label(.title, textColor: .cc_blue, textAlignment: .center)
+    public let label = Label(.codeBold, textColor: .cc_blue, textAlignment: .center)
 
     init() {
         super.init(frame: .zero)

@@ -750,5 +750,11 @@
 "verifier_faq_works_answer_2_1" = "Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:";
 "verifier_faq_works_linktext_2_1" = "Weitere Informationen";
 "verifier_faq_works_linkurl_2_1" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624";
-"verifier_faq_works_question_6" = "Können Zertifikate auch offline geprüft werden?";
-"verifier_faq_works_answer_6" = "Grundsätzlich können Covid-Zertifikate auch ohne eine Internetverbindung geprüft werden. Dazu werden regelmässig aktualisierte Prüflisten von einem zentralen Server heruntergeladen. Diese lokal gespeicherten Prüflisten dürfen nicht älter als 48h sein. \n\nUm die Prüflisten zu aktualisieren muss die App mit dem Internet verbunden sein und geöffnet werden. Die Aktualisierung erfolgt unmittelbar und automatisch.";
+"verifier_faq_works_question_7" = "Können Zertifikate auch offline geprüft werden?";
+"verifier_faq_works_answer_7" = "Grundsätzlich können Covid-Zertifikate auch ohne eine Internetverbindung geprüft werden. Dazu werden regelmässig aktualisierte Prüflisten von einem zentralen Server heruntergeladen. Diese lokal gespeicherten Prüflisten dürfen nicht älter als 48h sein. \n\nUm die Prüflisten zu aktualisieren muss die App mit dem Internet verbunden sein und geöffnet werden. Die Aktualisierung erfolgt unmittelbar und automatisch.";
+
+/*Button zum QR Code Scannen öffnen*/
+"wallet_homescreen_qr_code_scannen" = "QR-Code scannen";
+
+/*Button zum PDF importieren*/
+"wallet_homescreen_pdf_import" = "PDF importieren";
