@@ -739,3 +739,12 @@
 
 /*Wallet: Button im Transfer Code screen bei deaktiveren Notifications der die Einstellungen öffnet*/
 "wallet_notification_disabled_button" = "Activate";
+
+/*Titel für einen "Nachweis" (e.g. unvollständige Impfung)*/
+"wallet_certificate_evidence_title" = "Evidence";
+
+/*Typenbezeichnung für eine unvollständige Impfung*/
+"wallet_certificate_type_incomplete_vaccine" = "Vaccination incomplete";
+
+/*Label für das Erstellungsdatum eines Nachweises (mit Platzhalter für Datum und Uhrzeit)*/
+"wallet_certificate_evidence_creation_date" = "Evidence created on\n{DATE}";
