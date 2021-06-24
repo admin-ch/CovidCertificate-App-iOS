@@ -38,11 +38,14 @@ open class UBPushRegistrationManager {
 
     private var task: URLSessionDataTask?
 
+    private let operationQueue = OperationQueue()
+
     // MARK: - Initialization
 
     /// Creates push registration manager for the provided `registrationUrl`
     public init(registrationUrl: URL? = nil) {
         self.registrationUrl = registrationUrl
+        operationQueue.maxConcurrentOperationCount = 1
     }
 
     /// Sets the push token for the device, which starts a push registration
@@ -67,8 +70,10 @@ open class UBPushRegistrationManager {
 
     /// :nodoc:
     func invalidate(completion: ((Error?) -> Void)? = nil) {
-        UBPushLocalStorage.shared.isValid = false
-        sendPushRegistration(completion: completion)
+        operationQueue.addOperation {
+            UBPushLocalStorage.shared.isValid = false
+            self.sendPushRegistration(completion: completion)
+        }
     }
 
     /// :nodoc:
@@ -79,18 +84,13 @@ open class UBPushRegistrationManager {
         }
 
         var backgroundTask = UIBackgroundTaskIdentifier.invalid
-
-        if backgroundTask == .invalid {
-            UIApplication.shared.beginBackgroundTask(withName: "PushRegistrationManager") { [weak self] in
-                guard let self = self else {
-                    return
-                }
-                if backgroundTask != .invalid {
-                    UIApplication.shared.endBackgroundTask(backgroundTask)
-                    backgroundTask = .invalid
-                }
+        backgroundTask = UIApplication.shared.beginBackgroundTask(withName: "PushRegistrationManager") {
+            if backgroundTask != .invalid {
+                UIApplication.shared.endBackgroundTask(backgroundTask)
+                backgroundTask = .invalid
             }
         }
+        let semaphore = DispatchSemaphore(value: 0)
 
         task = session.dataTask(with: registrationRequest, completionHandler: { [weak self] data, _, error in
             guard let self = self else {
@@ -108,9 +108,13 @@ open class UBPushRegistrationManager {
                 UIApplication.shared.endBackgroundTask(backgroundTask)
                 backgroundTask = .invalid
             }
+
+            semaphore.signal()
         })
 
         task?.resume()
+
+        semaphore.wait()
     }
 
     /// The registration request sent to the server. Clients may override this property to
@@ -133,18 +137,20 @@ open class UBPushRegistrationManager {
 
     /// :nodoc:
     func sendPushRegistrationIfOutdated() {
-        if !UBPushLocalStorage.shared.isValid {
-            sendPushRegistration()
-        } else {
-            let justPushed = UBPushManager.shared.pushHandler.lastPushed.map { lastPushed in
-                let fifteenSecondsAgo = Date(timeIntervalSinceNow: -15)
-                return lastPushed > fifteenSecondsAgo
-            } ?? false
+        operationQueue.addOperation {
+            if !UBPushLocalStorage.shared.isValid {
+                self.sendPushRegistration()
+            } else {
+                let justPushed = UBPushManager.shared.pushHandler.lastPushed.map { lastPushed in
+                    let fifteenSecondsAgo = Date(timeIntervalSinceNow: -15)
+                    return lastPushed > fifteenSecondsAgo
+                } ?? false
 
-            let outdated = -(UBPushLocalStorage.shared.lastRegistrationDate?.timeIntervalSinceNow ?? 0) > maxRegistrationAge
+                let outdated = -(UBPushLocalStorage.shared.lastRegistrationDate?.timeIntervalSinceNow ?? 0) > self.maxRegistrationAge
 
-            if outdated, !justPushed {
-                invalidate()
+                if outdated, !justPushed {
+                    self.invalidate()
+                }
             }
         }
     }
