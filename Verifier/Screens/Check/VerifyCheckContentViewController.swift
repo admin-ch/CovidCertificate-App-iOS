@@ -14,7 +14,6 @@ import Foundation
 
 class VerifyCheckContentViewController: ViewController {
     private let stackScrollView = StackScrollView()
-    private let titleLabel = Label(.uppercaseBold, textAlignment: .center)
     private let okButton = Button(title: UBLocalized.ok_button, style: .normal(.cc_blue))
 
     private let loadingView = VerifyLoadingView()
@@ -97,9 +96,10 @@ class VerifyCheckContentViewController: ViewController {
 
     private func setupStateViews() {
         // title View
-        titleLabel.text = UBLocalized.covid_certificate_title
+        let label = Label(.uppercaseBold, textAlignment: .center)
+        label.text = UBLocalized.covid_certificate_title
 
-        view.addSubview(titleLabel)
+        view.addSubview(label)
 
         let lr = Padding.large - Padding.small
         label.snp.makeConstraints { make in
