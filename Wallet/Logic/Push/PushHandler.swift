@@ -39,18 +39,22 @@ class PushHandler: UBPushHandler {
             LocalPush.shared.showDebugNotification(title: "Debug", body: "Silent Push triggered sync at \(Date().description)")
         #endif
 
-        TransferManager.updateAllOpenCodes { downloadedCertificates in
-            if downloadedCertificates.count > 0 {
-                LocalPush.shared.scheduleNotification(identifier: downloadedCertificates.joined())
-            }
+        DispatchQueue.global().async {
+            TransferManager.updateAllOpenCodes { downloadedCertificates in
+                DispatchQueue.main.async {
+                    if downloadedCertificates.count > 0 {
+                        LocalPush.shared.scheduleNotification(identifier: downloadedCertificates.joined())
+                    }
 
-            if CertificateStorage.shared.openTransferCodes.count == 0 {
-                UBPushManager.shared.setActive(false)
-            }
+                    if CertificateStorage.shared.openTransferCodes.count == 0 {
+                        UBPushManager.shared.setActive(false)
+                    }
 
-            if self.backgroundTask != .invalid {
-                UIApplication.shared.endBackgroundTask(self.backgroundTask)
-                self.backgroundTask = .invalid
+                    if self.backgroundTask != .invalid {
+                        UIApplication.shared.endBackgroundTask(self.backgroundTask)
+                        self.backgroundTask = .invalid
+                    }
+                }
             }
         }
     }
