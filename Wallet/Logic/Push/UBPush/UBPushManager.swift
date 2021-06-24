@@ -71,7 +71,6 @@ open class UBPushManager: NSObject {
                                               pushRegistrationManager: UBPushRegistrationManager) {
         self.pushHandler = pushHandler
         self.pushRegistrationManager = pushRegistrationManager
-        self.pushRegistrationManager.sendPushRegistrationIfOutdated()
         self.pushHandler.handleLaunchOptions(launchOptions)
 
         if isActive {
