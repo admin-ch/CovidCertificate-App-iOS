@@ -60,6 +60,8 @@ open class UBPushManager: NSObject {
     override private init() {
         super.init()
 
+        UNUserNotificationCenter.current().delegate = self
+
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 

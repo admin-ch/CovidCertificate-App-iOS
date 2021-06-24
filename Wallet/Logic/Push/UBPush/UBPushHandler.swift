@@ -39,17 +39,13 @@ open class UBPushHandler {
 
     /// Overrride to show an application-specific alert/popup in response to a push
     /// arriving while the application is running.
-    open func showInAppPushAlert(withTitle proposedTitle: String, proposedMessage: String, notification: UBPushNotification) {
-        let alertController = UIAlertController(title: proposedTitle, message: proposedMessage, preferredStyle: .alert)
-
-        alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
-
-        alertController.addAction(UIAlertAction(title: "Details", style: .default) { [weak self] _ in
-            self?.showInAppPushDetails(for: notification)
-        })
-
-        UIApplication.shared.delegate?.window??.rootViewController?
-            .present(alertController, animated: true)
+    open func showInAppPushAlert(withTitle _: String, proposedMessage _: String, notification _: UBPushNotification, shouldPresentCompletionHandler: ((UNNotificationPresentationOptions) -> Void)? = nil) {
+        // Show notification banner also when app is already in foreground
+        if #available(iOS 14.0, *) {
+            shouldPresentCompletionHandler?([.banner, .sound])
+        } else {
+            shouldPresentCompletionHandler?([.alert, .sound])
+        }
     }
 
     /// Override to present detail view after app is started when user responded to a push.
@@ -57,7 +53,7 @@ open class UBPushHandler {
     open func showInAppPushDetails(for _: UBPushNotification) {}
 
     /// Override to update local data (e.g. current warnings) after every remote notification.
-    open func updateLocalData(withSilent _: Bool, remoteNotification _: UBPushNotification, completionHandler _: @escaping () -> Void) {}
+    open func updateLocalData(withSilent _: Bool, remoteNotification _: UBPushNotification, fetchCompletionHandler _: ((UIBackgroundFetchResult) -> Void)?) {}
 
     // MARK: - Handlers
 
@@ -82,39 +78,40 @@ open class UBPushHandler {
     /// Handles a notification that arrived while the app was running in the foreground.
     public func handleWillPresentNotification(_ notification: UNNotification, completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let ubNotification = UBPushNotification(categoryIdentifier: notification.request.content.categoryIdentifier, userInfo: notification.request.content.userInfo)
-        didReceive(ubNotification, whileActive: true) {
-            completionHandler([])
-        }
+
+        // Let app decide (by overriding) whether and how to show a banner or not
+        didReceive(ubNotification, whileActive: true, shouldPresentCompletionHandler: completionHandler)
     }
 
     /// Handles the user's response to an incoming notification.
     public func handleDidReceiveResponse(_ response: UNNotificationResponse, completionHandler: @escaping () -> Void) {
         let ubNotification = UBPushNotification(categoryIdentifier: response.notification.request.content.categoryIdentifier, userInfo: response.notification.request.content.userInfo)
-        didReceive(ubNotification, whileActive: false, completionHandler: completionHandler)
+        didReceive(ubNotification, whileActive: false)
+        completionHandler()
     }
 
     /// Handles e.g. silent pushes that arrive in legacy method `AppDelegate.application(_:didReceiveRemoteNotification:fetchCompletionHandler:)`
     /// From Apple documentation:
     ///     As soon as you finish processing the notification, you must call the block in the handler parameter or your app will be terminated.
-    public func handleDidReceiveResponse(_ userInfo: [AnyHashable: Any], completionHandler: @escaping () -> Void) {
+    public func handleDidReceiveResponse(_ userInfo: [AnyHashable: Any], fetchCompletionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         let ubNotification = UBPushNotification(userInfo: userInfo)
-        didReceive(ubNotification, whileActive: UIApplication.shared.applicationState == .active, completionHandler: completionHandler)
+        didReceive(ubNotification, whileActive: UIApplication.shared.applicationState == .active, fetchCompletionHandler: fetchCompletionHandler)
     }
 
     // MARK: - Helpers
 
-    private func didReceive(_ notification: UBPushNotification, whileActive isActive: Bool, completionHandler: @escaping () -> Void) {
+    private func didReceive(_ notification: UBPushNotification, whileActive isActive: Bool, fetchCompletionHandler: ((UIBackgroundFetchResult) -> Void)? = nil, shouldPresentCompletionHandler: ((UNNotificationPresentationOptions) -> Void)? = nil) {
         lastPushed = Date()
 
         if !notification.isSilentPush {
-            updateLocalData(withSilent: false, remoteNotification: notification, completionHandler: completionHandler)
-            showNonSilent(notification, isActive: isActive, completionHandler: completionHandler)
+            updateLocalData(withSilent: false, remoteNotification: notification, fetchCompletionHandler: fetchCompletionHandler)
+            showNonSilent(notification, isActive: isActive, shouldPresentCompletionHandler: shouldPresentCompletionHandler)
         } else {
-            updateLocalData(withSilent: true, remoteNotification: notification, completionHandler: completionHandler)
+            updateLocalData(withSilent: true, remoteNotification: notification, fetchCompletionHandler: fetchCompletionHandler)
         }
     }
 
-    private func showNonSilent(_ notification: UBPushNotification, isActive: Bool, completionHandler: @escaping () -> Void) {
+    private func showNonSilent(_ notification: UBPushNotification, isActive: Bool, shouldPresentCompletionHandler: ((UNNotificationPresentationOptions) -> Void)? = nil) {
         // Non-silent push while active
         // Show alert
         if isActive {
@@ -130,7 +127,7 @@ open class UBPushHandler {
                 message = ""
             }
 
-            showInAppPushAlert(withTitle: appName, proposedMessage: message, notification: notification)
+            showInAppPushAlert(withTitle: appName, proposedMessage: message, notification: notification, shouldPresentCompletionHandler: shouldPresentCompletionHandler)
         }
         // Non-silent push while running in background
         // App will be launched because user selected "show more"
@@ -141,7 +138,6 @@ open class UBPushHandler {
                 self?.showInAppPushDetails(for: notification)
             }
         }
-        completionHandler()
     }
 }
 
