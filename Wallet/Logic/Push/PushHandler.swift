@@ -43,11 +43,7 @@ class PushHandler: UBPushHandler {
         #endif
 
         DispatchQueue.global().async {
-            let downloadedCertificates = TransferManager.shared.updateAllOpenCodes()
-
-            if downloadedCertificates.count > 0 {
-                LocalPush.shared.scheduleNotification(identifier: downloadedCertificates.joined())
-            }
+            TransferManager.shared.updateAllOpenCodes()
 
             if CertificateStorage.shared.openTransferCodes.count == 0 {
                 UBPushManager.shared.setActive(false)

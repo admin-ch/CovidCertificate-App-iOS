@@ -80,7 +80,7 @@ final class TransferManager {
     }
 
     func download(code: String, result completion: ((TransferCodeResult) -> Void)? = nil) {
-        #if DEBUG || RELEASE_DEV
+        #if DEBUG
             LocalPush.shared.showDebugNotification(title: "Debug", body: "Transfermanager download for code: \(code) called at \(Date().description)")
         #endif
         DispatchQueue.global().async {
@@ -94,6 +94,9 @@ final class TransferManager {
             switch result {
             case let .success(certificates):
                 guard certificates.count > 0 else { break }
+
+                // if a certificate was downloaded we schedule a local notification
+                LocalPush.shared.scheduleNotification(identifier: code)
 
                 Self.updateCertificateStorage(code: code, certificates: certificates)
 
@@ -127,20 +130,16 @@ final class TransferManager {
         CertificateStorage.shared.insertCertificates(certificates: certs)
     }
 
-    @discardableResult
-    public func updateAllOpenCodes() -> [String] {
-        var downloadedCertificates: [String] = []
-
+    public func updateAllOpenCodes() {
         for code in CertificateStorage.shared.openTransferCodes {
             let semaphore = DispatchSemaphore(value: 0)
 
             download(code: code) { result in
                 switch result {
-                case let .success(certificates):
-                    guard certificates.count > 0 else { break }
-                    downloadedCertificates.append(code)
+                case .success:
+                    Logger.log("updateAllOpenCodes succeeded")
                 case .failure:
-                    Logger.log("tryDownloadCertificate failed: \(result)")
+                    Logger.log("updateAllOpenCodes failed: \(result)")
                 }
 
                 semaphore.signal()
@@ -148,7 +147,5 @@ final class TransferManager {
 
             _ = semaphore.wait(timeout: .distantFuture)
         }
-
-        return downloadedCertificates
     }
 }
