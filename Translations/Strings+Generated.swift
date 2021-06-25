@@ -500,37 +500,41 @@ import Foundation
      case wallet_transfer_code_expire_singular_key = "wallet_transfer_code_expire_singular"
     /// 1 Tag
      case wallet_transfer_code_expire_singular_bold_key = "wallet_transfer_code_expire_singular_bold"
-    /// Text
+    /// Wenn Sie einen Covid-Test machen (PCR-Test oder Antigen-Schnelltest), kann der Transfer-Code zur schnellen Übermittlung von Covid-Zertifikaten zum Einsatz kommen.\n\nInformieren Sie sich bei Ihrem Testcenter, in der Apotheke oder bei Ihrem Arzt, ob die Übermittlung per Transfer-Code angeboten wird.
      case wallet_transfer_code_faq_questions_answer_1_key = "wallet_transfer_code_faq_questions_answer_1"
-    /// Text
+    /// Aktuell ist die Übermittlung per Transfer-Code auf Covid-Tests ausgelegt. Wie Sie ein Covid-Zertifikat nach einer Impfung erhalten erfahren Sie hier:
      case wallet_transfer_code_faq_questions_answer_2_key = "wallet_transfer_code_faq_questions_answer_2"
-    /// Text
+    /// Falls die Stelle, die den Covid-Test durchführt, die Übermittlung per Transfer-Code anbietet, werden Sie bereits bei der Anmeldung oder der Testentnahme nach einem Transfer-Code gefragt.\n\nDen Transfer-Code können Sie in der «COVID Certificate»-App erstellen. Tippen Sie dazu auf dem Startbildschirm auf «Hinzufügen» resp. auf das «Plus»-Symbol unten rechts. Danach tippen Sie auf «Transfer-Code erstellen».\n\nDie App zeigt Ihnen einen 9-stelligen Code an. Diesen können Sie entweder bei der Anmeldung in ein Formular eintragen oder direkt bei der Testentnahme angeben.
      case wallet_transfer_code_faq_questions_answer_3_key = "wallet_transfer_code_faq_questions_answer_3"
-    /// Text
+    /// Nein, ein Transfer-Code kann nur einmal verwendet werden. Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie bitte für jedes Zertifikat einen neuen Code.
      case wallet_transfer_code_faq_questions_answer_4_key = "wallet_transfer_code_faq_questions_answer_4"
+    /// Weitere Informationen
+     case wallet_transfer_code_faq_questions_linktext_2_key = "wallet_transfer_code_faq_questions_linktext_2"
+    /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/
+     case wallet_transfer_code_faq_questions_linkurl_2_key = "wallet_transfer_code_faq_questions_linkurl_2"
     /// Wer bietet die Übermittlung per Transfer-Code an?
      case wallet_transfer_code_faq_questions_question_1_key = "wallet_transfer_code_faq_questions_question_1"
-    /// Können Transfer–Codes nur für Covid-Tests genutzt werden?
+    /// Können Transfer-Codes auch zur Übermittlung von Impfzertifikaten verwendet werden?
      case wallet_transfer_code_faq_questions_question_2_key = "wallet_transfer_code_faq_questions_question_2"
     /// Wie funktioniert die Übermittlung per Transfer-Code?
      case wallet_transfer_code_faq_questions_question_3_key = "wallet_transfer_code_faq_questions_question_3"
     /// Kann ich den Transfer-Code mehrmals benutzen?
      case wallet_transfer_code_faq_questions_question_4_key = "wallet_transfer_code_faq_questions_question_4"
-    /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem negativen Covid-Test direkt in die App geliefert.
+    /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
      case wallet_transfer_code_faq_questions_subtitle_key = "wallet_transfer_code_faq_questions_subtitle"
     /// Covid-Zertifikate direkt in die App geliefert
      case wallet_transfer_code_faq_questions_title_key = "wallet_transfer_code_faq_questions_title"
-    /// Text
+    /// Für den Transfer wird Ihr Covid-Zertifikat verschlüsselt bereitgestellt. Der Transfer-Code stellt sicher, dass nur Ihre App das Covid-Zertifikat empfangen kann. Unmittelbar nach dem Transfer werden die Daten wieder vom Server gelöscht.
      case wallet_transfer_code_faq_works_answer_1_key = "wallet_transfer_code_faq_works_answer_1"
-    /// Text
+    /// Sobald das Zertifikat vom Labor oder Testcenter generiert wurde, steht es zum Transfer zur Verfügung. Stellen Sie sicher, dass Ihr Smartphone mit dem Internet verbunden ist, um Zertifikate empfangen zu können.\n\nSollte ihr Covid-Zertifikat dennoch nicht eintreffen, fragen Sie bei der Stelle nach, die den Test durchgeführt hat (Testcenter, Apotheke, Ärztin / Arzt).
      case wallet_transfer_code_faq_works_answer_2_key = "wallet_transfer_code_faq_works_answer_2"
-    /// Text
+    /// Bei einem positiven Antigen-Schnelltest erhalten Sie vom Labor kein Covid-Zertifikat. \n\nBei einem positiven PCR-Test erhalten Sie ein Covid-Zertifikat für Genesene. Es ist ab dem 11. Tag nach der Testentnahme gültig.
      case wallet_transfer_code_faq_works_answer_3_key = "wallet_transfer_code_faq_works_answer_3"
     /// Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist.
      case wallet_transfer_code_faq_works_intro_1_key = "wallet_transfer_code_faq_works_intro_1"
     /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
      case wallet_transfer_code_faq_works_intro_2_key = "wallet_transfer_code_faq_works_intro_2"
-    /// Nach 7 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor dieser abgebrochen wird.
+    /// Nach 7 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
      case wallet_transfer_code_faq_works_intro_3_key = "wallet_transfer_code_faq_works_intro_3"
     /// Wie sind meine Daten beim Transfer geschützt?
      case wallet_transfer_code_faq_works_question_1_key = "wallet_transfer_code_faq_works_question_1"
@@ -1074,37 +1078,41 @@ import Foundation
    static let wallet_transfer_code_expire_singular = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_expire_singular_key)
   /// 1 Tag
    static let wallet_transfer_code_expire_singular_bold = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_expire_singular_bold_key)
-  /// Text
+  /// Wenn Sie einen Covid-Test machen (PCR-Test oder Antigen-Schnelltest), kann der Transfer-Code zur schnellen Übermittlung von Covid-Zertifikaten zum Einsatz kommen.\n\nInformieren Sie sich bei Ihrem Testcenter, in der Apotheke oder bei Ihrem Arzt, ob die Übermittlung per Transfer-Code angeboten wird.
    static let wallet_transfer_code_faq_questions_answer_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_1_key)
-  /// Text
+  /// Aktuell ist die Übermittlung per Transfer-Code auf Covid-Tests ausgelegt. Wie Sie ein Covid-Zertifikat nach einer Impfung erhalten erfahren Sie hier:
    static let wallet_transfer_code_faq_questions_answer_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_2_key)
-  /// Text
+  /// Falls die Stelle, die den Covid-Test durchführt, die Übermittlung per Transfer-Code anbietet, werden Sie bereits bei der Anmeldung oder der Testentnahme nach einem Transfer-Code gefragt.\n\nDen Transfer-Code können Sie in der «COVID Certificate»-App erstellen. Tippen Sie dazu auf dem Startbildschirm auf «Hinzufügen» resp. auf das «Plus»-Symbol unten rechts. Danach tippen Sie auf «Transfer-Code erstellen».\n\nDie App zeigt Ihnen einen 9-stelligen Code an. Diesen können Sie entweder bei der Anmeldung in ein Formular eintragen oder direkt bei der Testentnahme angeben.
    static let wallet_transfer_code_faq_questions_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_3_key)
-  /// Text
+  /// Nein, ein Transfer-Code kann nur einmal verwendet werden. Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie bitte für jedes Zertifikat einen neuen Code.
    static let wallet_transfer_code_faq_questions_answer_4 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_4_key)
+  /// Weitere Informationen
+   static let wallet_transfer_code_faq_questions_linktext_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_linktext_2_key)
+  /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/
+   static let wallet_transfer_code_faq_questions_linkurl_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_linkurl_2_key)
   /// Wer bietet die Übermittlung per Transfer-Code an?
    static let wallet_transfer_code_faq_questions_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_1_key)
-  /// Können Transfer–Codes nur für Covid-Tests genutzt werden?
+  /// Können Transfer-Codes auch zur Übermittlung von Impfzertifikaten verwendet werden?
    static let wallet_transfer_code_faq_questions_question_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_2_key)
   /// Wie funktioniert die Übermittlung per Transfer-Code?
    static let wallet_transfer_code_faq_questions_question_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_3_key)
   /// Kann ich den Transfer-Code mehrmals benutzen?
    static let wallet_transfer_code_faq_questions_question_4 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_4_key)
-  /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem negativen Covid-Test direkt in die App geliefert.
+  /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
    static let wallet_transfer_code_faq_questions_subtitle = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_subtitle_key)
   /// Covid-Zertifikate direkt in die App geliefert
    static let wallet_transfer_code_faq_questions_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_title_key)
-  /// Text
+  /// Für den Transfer wird Ihr Covid-Zertifikat verschlüsselt bereitgestellt. Der Transfer-Code stellt sicher, dass nur Ihre App das Covid-Zertifikat empfangen kann. Unmittelbar nach dem Transfer werden die Daten wieder vom Server gelöscht.
    static let wallet_transfer_code_faq_works_answer_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_answer_1_key)
-  /// Text
+  /// Sobald das Zertifikat vom Labor oder Testcenter generiert wurde, steht es zum Transfer zur Verfügung. Stellen Sie sicher, dass Ihr Smartphone mit dem Internet verbunden ist, um Zertifikate empfangen zu können.\n\nSollte ihr Covid-Zertifikat dennoch nicht eintreffen, fragen Sie bei der Stelle nach, die den Test durchgeführt hat (Testcenter, Apotheke, Ärztin / Arzt).
    static let wallet_transfer_code_faq_works_answer_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_answer_2_key)
-  /// Text
+  /// Bei einem positiven Antigen-Schnelltest erhalten Sie vom Labor kein Covid-Zertifikat. \n\nBei einem positiven PCR-Test erhalten Sie ein Covid-Zertifikat für Genesene. Es ist ab dem 11. Tag nach der Testentnahme gültig.
    static let wallet_transfer_code_faq_works_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_answer_3_key)
   /// Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist.
    static let wallet_transfer_code_faq_works_intro_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_1_key)
   /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
    static let wallet_transfer_code_faq_works_intro_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_2_key)
-  /// Nach 7 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor dieser abgebrochen wird.
+  /// Nach 7 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
    static let wallet_transfer_code_faq_works_intro_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_3_key)
   /// Wie sind meine Daten beim Transfer geschützt?
    static let wallet_transfer_code_faq_works_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_1_key)
