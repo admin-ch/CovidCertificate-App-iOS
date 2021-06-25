@@ -12,10 +12,11 @@
 import Foundation
 
 public class InAppDelivery {
-    private let session = URLSession.certificatePinned
-    private var dataTask: URLSessionDataTask?
-    private(set) var lastResult: Result<[DecryptedCertificate], TransferError>?
+    static let shared = InAppDelivery()
 
+    private let session = URLSession.certificatePinned
+
+    private var registerDataTask: URLSessionDataTask?
     public func registerNewCode(callback: @escaping (Result<String, TransferError>) -> Void) {
         let payload = InAppDeliveryPayload()
         let code = Luhn.generateLuhnCode()
@@ -51,7 +52,7 @@ public class InAppDelivery {
 
         // do some requests
         let request = Endpoint.register(payload: payload).request()
-        dataTask = session.dataTask(with: request, completionHandler: { _, response, error in
+        registerDataTask = session.dataTask(with: request, completionHandler: { _, response, error in
             DispatchQueue.main.async {
                 guard let resp = response as? HTTPURLResponse
                 else {
@@ -66,109 +67,88 @@ public class InAppDelivery {
             }
         })
 
-        dataTask?.resume()
+        registerDataTask?.resume()
     }
 
-    public func tryDownloadCertificate(withCode code: String, callback: @escaping (Result<[DecryptedCertificate], TransferError>) -> Void) {
-        DispatchQueue.global().async {
-            let payload = InAppDeliveryPayload()
+    public func tryDownloadCertificate(withCode code: String) -> TransferCodeResult {
+        let payload = InAppDeliveryPayload()
 
-            switch self.getSignature(forAction: InAppDeliveryAction.Get, withCode: code) {
-            case .success(let (signaturePayload, signature)):
-                payload.signature = signature
-                payload.signaturePayload = signaturePayload
-            case let .failure(error):
-                self.lastResult = .failure(error)
-                callback(self.lastResult!)
-                return
-            }
-            payload.code = code
-
-            let request = Endpoint.certificate(payload: payload).request()
-            self.dataTask = self.session.dataTask(with: request, completionHandler: { data, response, error in
-                guard let _ = response as? HTTPURLResponse,
-                      let data = data
-                else {
-                    self.lastResult = .failure(.GET_CERTIFICATE_FAILED(error))
-                    callback(self.lastResult!)
-                    return
-                }
-
-                guard let certs = try? JSONDecoder().decode(InAppDeliveryCertificateBody.self, from: data) else {
-                    self.lastResult = .failure(.CANNOT_DECODE_RESPONSE)
-                    callback(self.lastResult!)
-                    return
-                }
-
-                var collectedCerts: [DecryptedCertificate] = []
-
-                if certs.covidCerts.count > 0 {
-                    // Load private key from keychain
-                    let privateKey: SecKey
-                    switch Crypto.loadKey(name: code) {
-                    case let .success(key): privateKey = key
-                    case let .failure(error):
-                        self.lastResult = .failure(error)
-                        callback(self.lastResult!)
-                        return
-                    }
-
-                    // Go through received covid certs and decrypt every one
-                    for cert in certs.covidCerts {
-                        let hcert: Data
-                        switch Crypto.decryptData(privateKey: privateKey, cipherText: cert.encryptedHcert) {
-                        case let .success(hc): hcert = hc
-                        case let .failure(error):
-                            callback(.failure(error))
-                            return
-                        }
-                        let pdf: Data
-                        switch Crypto.decryptData(privateKey: privateKey, cipherText: cert.encryptedPdf) {
-                        case let .success(pdfData): pdf = pdfData
-                        case let .failure(error):
-                            self.lastResult = .failure(error)
-                            callback(self.lastResult!)
-                            return
-                        }
-                        collectedCerts.append(DecryptedCertificate(hcert, pdf))
-                    }
-                }
-
-                self.lastResult = .success(collectedCerts)
-                callback(self.lastResult!)
-            })
-            self.dataTask?.resume()
+        switch getSignature(forAction: InAppDeliveryAction.Get, withCode: code) {
+        case .success(let (signaturePayload, signature)):
+            payload.signature = signature
+            payload.signaturePayload = signaturePayload
+        case let .failure(error):
+            return .failure(error)
         }
+        payload.code = code
+
+        let request = Endpoint.certificate(payload: payload).request()
+
+        let (data, response, error) = session.synchronousDataTask(with: request)
+
+        guard let _ = response as? HTTPURLResponse,
+              let data = data
+        else {
+            return .failure(.GET_CERTIFICATE_FAILED(error))
+        }
+
+        guard let certs = try? JSONDecoder().decode(InAppDeliveryCertificateBody.self, from: data) else {
+            return .failure(.CANNOT_DECODE_RESPONSE)
+        }
+
+        var collectedCerts: [DecryptedCertificate] = []
+
+        if certs.covidCerts.count > 0 {
+            // Load private key from keychain
+            let privateKey: SecKey
+            switch Crypto.loadKey(name: code) {
+            case let .success(key): privateKey = key
+            case let .failure(error):
+                return .failure(error)
+            }
+
+            // Go through received covid certs and decrypt every one
+            for cert in certs.covidCerts {
+                let hcert: Data
+                switch Crypto.decryptData(privateKey: privateKey, cipherText: cert.encryptedHcert) {
+                case let .success(hc): hcert = hc
+                case let .failure(error):
+                    return .failure(error)
+                }
+                let pdf: Data
+                switch Crypto.decryptData(privateKey: privateKey, cipherText: cert.encryptedPdf) {
+                case let .success(pdfData): pdf = pdfData
+                case let .failure(error):
+                    return .failure(error)
+                }
+                collectedCerts.append(DecryptedCertificate(hcert, pdf))
+            }
+        }
+
+        return .success(collectedCerts)
     }
 
-    public func tryDeleteCertificate(withCode code: String, callback: @escaping (Result<Bool, TransferError>) -> Void) {
-        DispatchQueue.global().async {
-            let payload = InAppDeliveryPayload()
+    public func tryDeleteCertificate(withCode code: String) -> Result<Bool, TransferError> {
+        let payload = InAppDeliveryPayload()
 
-            switch self.getSignature(forAction: InAppDeliveryAction.Get, withCode: code) {
-            case .success(let (signaturePayload, signature)):
-                payload.signature = signature
-                payload.signaturePayload = signaturePayload
-            case let .failure(error):
-                callback(.failure(error))
-                return
-            }
-            payload.code = code
-
-            let request = Endpoint.deleteCertificate(payload: payload).request()
-            self.dataTask = self.session.dataTask(with: request, completionHandler: { data, response, error in
-                DispatchQueue.main.async {
-                    guard let _ = response as? HTTPURLResponse,
-                          let _ = data
-                    else {
-                        callback(.failure(.DELETE_CERTIFICATE_FAILED(error)))
-                        return
-                    }
-                    callback(.success(true))
-                }
-            })
-            self.dataTask?.resume()
+        switch getSignature(forAction: InAppDeliveryAction.Get, withCode: code) {
+        case .success(let (signaturePayload, signature)):
+            payload.signature = signature
+            payload.signaturePayload = signaturePayload
+        case let .failure(error):
+            return .failure(error)
         }
+        payload.code = code
+
+        let request = Endpoint.deleteCertificate(payload: payload).request()
+        let (data, response, error) = session.synchronousDataTask(with: request)
+
+        guard let _ = response as? HTTPURLResponse,
+              let _ = data
+        else {
+            return .failure(.DELETE_CERTIFICATE_FAILED(error))
+        }
+        return .success(true)
     }
 
     func getSignature(forAction action: InAppDeliveryAction, withCode code: String) -> Result<(String, String), TransferError> {

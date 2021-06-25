@@ -11,7 +11,7 @@
 
 import Foundation
 
-typealias TransferCodeResult = Result<[DecryptedCertificate], TransferError>
+public typealias TransferCodeResult = Result<[DecryptedCertificate], TransferError>
 
 final class TransferManager {
     // MARK: - Singleton
@@ -21,20 +21,23 @@ final class TransferManager {
     private init() {
         NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { [weak self] _ in
             guard let strongSelf = self else { return }
-            for (code, downloader) in strongSelf.downloaders {
-                downloader.tryDownloadCertificate(withCode: code) { [weak strongSelf] result in
-                    guard let strongSelf = strongSelf else { return }
-                    strongSelf.updateCertificates(code: code, result: result)
-                    strongSelf.updateObservers(for: code, state: result)
-                }
+            DispatchQueue.global().async {
+                strongSelf.updateAllOpenCodes()
             }
         }
     }
 
     // MARK: - Properties
 
-    private var downloaders: [String: InAppDelivery] = [:]
-    private var deleters: [String: InAppDelivery] = [:]
+    private var cachedResult: [String: TransferCodeResult] = [:]
+
+    struct LastLoad: UBCodable {
+        let code: String
+        let lastLoad: Date
+    }
+
+    @UBUserDefault(key: "transfercode.cachedLastLoad", defaultValue: [])
+    private var cachedLastLoad: [LastLoad]
 
     // MARK: - State Observers
 
@@ -48,11 +51,6 @@ final class TransferManager {
     private func updateObservers(for qrString: String, state: TransferCodeResult) {
         guard let list = observers[qrString] else { return }
         let newList = list.filter { $0.object != nil }
-
-        guard !newList.isEmpty else {
-            downloaders[qrString] = nil
-            return
-        }
 
         DispatchQueue.main.async {
             newList.forEach { $0.block(state) }
@@ -69,45 +67,46 @@ final class TransferManager {
             observers[code] = [Observer(object: object, block: block)]
         }
 
-        if let v = downloaders[code] {
-            if let result = v.lastResult, !forceUpdate {
-                // Return last cached result
-                block(result)
-            } else {
-                v.tryDownloadCertificate(withCode: code) { [weak self] result in
-                    guard let strongSelf = self else { return }
-                    strongSelf.updateCertificates(code: code, result: result)
-                    strongSelf.updateObservers(for: code, state: result)
-                }
-            }
+        if let result = cachedResult[safe: code], !forceUpdate {
+            // Return last cached result
+            block(result)
         } else {
-            let v = InAppDelivery()
-            downloaders[code] = v
-
-            v.tryDownloadCertificate(withCode: code) { [weak self] result in
-                guard let strongSelf = self else { return }
-                strongSelf.updateCertificates(code: code, result: result)
-                strongSelf.updateObservers(for: code, state: result)
-            }
+            download(code: code)
         }
     }
 
-    func updateCertificates(code: String, result: TransferCodeResult) {
-        switch result {
-        case let .success(certificates):
-            guard certificates.count > 0 else { break }
+    func getLastLoad(code: String) -> Date? {
+        return cachedLastLoad.first(where: { $0.code == code })?.lastLoad
+    }
 
-            Self.updateCertificateStorage(code: code, certificates: certificates)
+    func download(code: String, result completion: ((TransferCodeResult) -> Void)? = nil) {
+        DispatchQueue.global().async {
+            let result = InAppDelivery.shared.tryDownloadCertificate(withCode: code)
+            self.cachedResult[code] = result
 
-            // certificates were inserted, can be deleted on backend (best effort)
-            deleters[code] = InAppDelivery()
-            deleters[code]?.tryDeleteCertificate(withCode: code, callback: { [weak self] _ in
-                guard let strongSelf = self else { return }
-                strongSelf.deleters[code] = nil
-            })
+            var lastLoadCacheCopy = self.cachedLastLoad.filter { $0.code != code }
+            lastLoadCacheCopy.append(LastLoad(code: code, lastLoad: .init()))
+            self.cachedLastLoad = lastLoadCacheCopy
 
-        case .failure:
-            break
+            switch result {
+            case let .success(certificates):
+                guard certificates.count > 0 else { break }
+
+                Self.updateCertificateStorage(code: code, certificates: certificates)
+
+                // certificates were inserted, can be deleted on backend (best effort)
+                _ = InAppDelivery.shared.tryDeleteCertificate(withCode: code)
+
+                // delete caches
+                self.cachedResult = self.cachedResult.filter { $0.key != code }
+                self.cachedLastLoad = self.cachedLastLoad.filter { $0.code != code }
+            case .failure:
+                break
+            }
+
+            self.updateObservers(for: code, state: result)
+
+            completion?(result)
         }
     }
 
@@ -125,22 +124,17 @@ final class TransferManager {
         CertificateStorage.shared.insertCertificates(certificates: certs)
     }
 
-    public func updateAllOpenCodes(completion: @escaping (_ downloadedCertificates: [String]) -> Void) {
+    @discardableResult
+    public func updateAllOpenCodes() -> [String] {
         var downloadedCertificates: [String] = []
 
         for code in CertificateStorage.shared.openTransferCodes {
             let semaphore = DispatchSemaphore(value: 0)
 
-            let delivery = InAppDelivery()
-            delivery.tryDownloadCertificate(withCode: code) { result in
+            download(code: code) { result in
                 switch result {
                 case let .success(certificates):
                     guard certificates.count > 0 else { break }
-                    Self.updateCertificateStorage(code: code, certificates: certificates)
-                    delivery.tryDeleteCertificate(withCode: code, callback: { [weak self] _ in
-                        guard let strongSelf = self else { return }
-                        strongSelf.deleters[code] = nil
-                    })
                     downloadedCertificates.append(code)
                 case .failure:
                     Logger.log("tryDownloadCertificate failed: \(result)")
@@ -152,6 +146,6 @@ final class TransferManager {
             _ = semaphore.wait(timeout: .distantFuture)
         }
 
-        completion(downloadedCertificates)
+        return downloadedCertificates
     }
 }

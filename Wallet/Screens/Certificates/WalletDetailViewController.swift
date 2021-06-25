@@ -80,6 +80,8 @@ class WalletDetailViewController: ViewController {
 
         loadingView.startLoading()
 
+        updateLastLoad()
+
         TransferManager.shared.addObserver(self, for: transferCode.transferCode, forceUpdate: forceUpdate) { [weak self] result in
             guard let strongSelf = self else { return }
 
@@ -92,7 +94,7 @@ class WalletDetailViewController: ViewController {
                     strongSelf.certificate.qrCode = certificate.first?.cert
                     strongSelf.certificateDetailVC.certificate = strongSelf.certificate
                 } else {
-                    strongSelf.transferCodeDetailVC.updateDate = Date()
+                    strongSelf.updateLastLoad()
                 }
 
             case let .failure(error):
@@ -104,6 +106,17 @@ class WalletDetailViewController: ViewController {
             strongSelf.update(animated: true)
 
             UIAccessibility.post(notification: .screenChanged, argument: nil)
+        }
+    }
+
+    private func updateLastLoad() {
+        guard certificate.type == .transferCode,
+              let transferCode = certificate.transferCode,
+              transferCode.state != .failed
+        else { return }
+
+        if let lastLoad = TransferManager.shared.getLastLoad(code: transferCode.transferCode) {
+            transferCodeDetailVC.updateDate = lastLoad
         }
     }
 

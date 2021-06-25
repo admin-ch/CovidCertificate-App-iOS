@@ -43,23 +43,23 @@ class PushHandler: UBPushHandler {
         #endif
 
         DispatchQueue.global().async {
-            TransferManager.shared.updateAllOpenCodes { downloadedCertificates in
-                if downloadedCertificates.count > 0 {
-                    LocalPush.shared.scheduleNotification(identifier: downloadedCertificates.joined())
-                }
+            let downloadedCertificates = TransferManager.shared.updateAllOpenCodes()
 
-                if CertificateStorage.shared.openTransferCodes.count == 0 {
-                    UBPushManager.shared.setActive(false)
-                }
+            if downloadedCertificates.count > 0 {
+                LocalPush.shared.scheduleNotification(identifier: downloadedCertificates.joined())
+            }
 
-                if let completionHandler = fetchCompletionHandler {
-                    completionHandler(.newData)
-                }
+            if CertificateStorage.shared.openTransferCodes.count == 0 {
+                UBPushManager.shared.setActive(false)
+            }
 
-                if self.backgroundTask != .invalid {
-                    UIApplication.shared.endBackgroundTask(self.backgroundTask)
-                    self.backgroundTask = .invalid
-                }
+            if let completionHandler = fetchCompletionHandler {
+                completionHandler(.newData)
+            }
+
+            if self.backgroundTask != .invalid {
+                UIApplication.shared.endBackgroundTask(self.backgroundTask)
+                self.backgroundTask = .invalid
             }
         }
     }
