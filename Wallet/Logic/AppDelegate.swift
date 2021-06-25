@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     internal var window: UIWindow?
     private var lastForegroundActivity: Date?
     private var blurView: UIVisualEffectView?
-    private var importHandler: ImportHandler?
+    private(set) var importHandler: ImportHandler?
 
     @UBUserDefault(key: "isFirstLaunch", defaultValue: true)
     var isFirstLaunch: Bool

@@ -246,12 +246,10 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
 
 class DocumentPickerDelegate: NSObject, UIDocumentPickerDelegate {
     func documentPicker(_: UIDocumentPickerViewController, didPickDocumentsAt url: [URL]) {
-        guard let delegate = UIApplication.shared.windows.first?.rootViewController as? NavigationController, let singleURL = url.first else {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+              let firstURL = url.first else {
             return
         }
-
-        let importHandler = ImportHandler(delegate: delegate)
-
-        _ = importHandler.handle(url: singleURL)
+        appDelegate.importHandler?.handle(url: firstURL)
     }
 }
