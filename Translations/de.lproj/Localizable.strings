@@ -514,8 +514,7 @@
 "wallet_transfer_code_faq_questions_title" = "Covid-Zertifikate direkt in die App geliefert";
 
 /*Wallet: Transfer Code FAQ Text*/
-/*Fuzzy*/
-"wallet_transfer_code_faq_questions_subtitle" = "Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem negativen Covid-Test direkt in die App geliefert.";
+"wallet_transfer_code_faq_questions_subtitle" = "Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.";
 
 /*Wallet: Transfer Code FAQ Frage 1*/
 /*Fuzzy*/
@@ -523,7 +522,7 @@
 
 /*Wallet: Transfer Code FAQ Frage 2*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_questions_question_2" = "Können Transfer–Codes nur für Covid-Tests genutzt werden?";
+"wallet_transfer_code_faq_questions_question_2" = "Können Transfer-Codes auch zur Übermittlung von Impfzertifikaten verwendet werden?";
 
 /*Wallet: Transfer Code FAQ Frage 3*/
 /*Fuzzy*/
@@ -535,19 +534,19 @@
 
 /*Wallet: Transfer Code FAQ Antwort 1*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_questions_answer_1" = "Text";
+"wallet_transfer_code_faq_questions_answer_1" = "Wenn Sie einen Covid-Test machen (PCR-Test oder Antigen-Schnelltest), kann der Transfer-Code zur schnellen Übermittlung von Covid-Zertifikaten zum Einsatz kommen.\n\nInformieren Sie sich bei Ihrem Testcenter, in der Apotheke oder bei Ihrem Arzt, ob die Übermittlung per Transfer-Code angeboten wird.";
 
 /*Wallet: Transfer Code FAQ Antwort 2*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_questions_answer_2" = "Text";
+"wallet_transfer_code_faq_questions_answer_2" = "Aktuell ist die Übermittlung per Transfer-Code auf Covid-Tests ausgelegt. Wie Sie ein Covid-Zertifikat nach einer Impfung erhalten erfahren Sie hier:";
 
 /*Wallet: Transfer Code FAQ Antwort 3*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_questions_answer_3" = "Text";
+"wallet_transfer_code_faq_questions_answer_3" = "Falls die Stelle, die den Covid-Test durchführt, die Übermittlung per Transfer-Code anbietet, werden Sie bereits bei der Anmeldung oder der Testentnahme nach einem Transfer-Code gefragt.\n\nDen Transfer-Code können Sie in der «COVID Certificate»-App erstellen. Tippen Sie dazu auf dem Startbildschirm auf «Hinzufügen» resp. auf das «Plus»-Symbol unten rechts. Danach tippen Sie auf «Transfer-Code erstellen».\n\nDie App zeigt Ihnen einen 9-stelligen Code an. Diesen können Sie entweder bei der Anmeldung in ein Formular eintragen oder direkt bei der Testentnahme angeben.";
 
 /*Wallet: Transfer Code FAQ Antwort 4*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_questions_answer_4" = "Text";
+"wallet_transfer_code_faq_questions_answer_4" = "Nein, ein Transfer-Code kann nur einmal verwendet werden. Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie bitte für jedes Zertifikat einen neuen Code.";
 
 /*Fuzzy*/
 "wallet_transfer_code_faq_works_title" = "So funktioniert der Transfer";
@@ -566,15 +565,15 @@
 
 /*Wallet: Transfer Code FAQ 2 Antwort 1*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_works_answer_1" = "Text";
+"wallet_transfer_code_faq_works_answer_1" = "Für den Transfer wird Ihr Covid-Zertifikat verschlüsselt bereitgestellt. Der Transfer-Code stellt sicher, dass nur Ihre App das Covid-Zertifikat empfangen kann. Unmittelbar nach dem Transfer werden die Daten wieder vom Server gelöscht.";
 
 /*Wallet: Transfer Code FAQ 2 Antwort 2*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_works_answer_2" = "Text";
+"wallet_transfer_code_faq_works_answer_2" = "Sobald das Zertifikat vom Labor oder Testcenter generiert wurde, steht es zum Transfer zur Verfügung. Stellen Sie sicher, dass Ihr Smartphone mit dem Internet verbunden ist, um Zertifikate empfangen zu können.\n\nSollte ihr Covid-Zertifikat dennoch nicht eintreffen, fragen Sie bei der Stelle nach, die den Test durchgeführt hat (Testcenter, Apotheke, Ärztin / Arzt).";
 
 /*Wallet: Transfer Code FAQ 2 Antwort 3*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_works_answer_3" = "Text";
+"wallet_transfer_code_faq_works_answer_3" = "Bei einem positiven Antigen-Schnelltest erhalten Sie vom Labor kein Covid-Zertifikat. \n\nBei einem positiven PCR-Test erhalten Sie ein Covid-Zertifikat für Genesene. Es ist ab dem 11. Tag nach der Testentnahme gültig.";
 
 /*Wallet: Transfer Code erstellt Titel*/
 "wallet_transfer_code_code_created_title" = "Ihr Transfer-Code wurde erstellt";
@@ -670,7 +669,7 @@
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_works_intro_3" = "Nach 7 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor dieser abgebrochen wird.";
+"wallet_transfer_code_faq_works_intro_3" = "Nach 7 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Mitteilungen erlauben";
@@ -773,3 +772,9 @@
 
 /*Label für das Erstellungsdatum eines Nachweises (mit Platzhalter für Datum und Uhrzeit)*/
 "wallet_certificate_evidence_creation_date" = "Nachweis erstellt am\n{DATE}";
+
+/*Fuzzy*/
+"wallet_transfer_code_faq_questions_linktext_2" = "Weitere Informationen";
+
+/*Fuzzy*/
+"wallet_transfer_code_faq_questions_linkurl_2" = "https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/";

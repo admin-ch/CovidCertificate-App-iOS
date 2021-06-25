@@ -510,53 +510,54 @@
 "wallet_transfer_code_onboarding_howto" = "Ecco come funziona";
 
 /*Wallet: Transfer Code: FAQ Titel*/
-"wallet_transfer_code_faq_questions_title" = "Covid-Zertifikate direkt in die App geliefert";
+"wallet_transfer_code_faq_questions_title" = "Ricevere i certificati COVID direttamente nell’app";
 
 /*Wallet: Transfer Code FAQ Text*/
-"wallet_transfer_code_faq_questions_subtitle" = "Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem negativen Covid-Test direkt in die App geliefert.";
+"wallet_transfer_code_faq_questions_subtitle" = "Con i codici di trasferimento i certificati COVID possono essere trasmessi in modo rapido e sicuro. Tramite questo canale puoi ricevere il certificato COVID direttamente nell’app, ad esempio dopo aver fatto un test COVID.";
 
 /*Wallet: Transfer Code FAQ Frage 1*/
-"wallet_transfer_code_faq_questions_question_1" = "Wer bietet die Übermittlung per Transfer-Code an?";
+"wallet_transfer_code_faq_questions_question_1" = "Chi offre la trasmissione mediante codice di trasferimento?";
 
 /*Wallet: Transfer Code FAQ Frage 2*/
-"wallet_transfer_code_faq_questions_question_2" = "Können Transfer–Codes nur für Covid-Tests genutzt werden?";
+"wallet_transfer_code_faq_questions_question_2" = "I codici di trasferimento possono essere impiegati anche per trasmettere i certificati di vaccinazione?";
 
 /*Wallet: Transfer Code FAQ Frage 3*/
-"wallet_transfer_code_faq_questions_question_3" = "Wie funktioniert die Übermittlung per Transfer-Code?";
+"wallet_transfer_code_faq_questions_question_3" = "Come funziona la trasmissione mediante codice di trasferimento?";
 
 /*Wallet: Transfer Code FAQ Frage 4*/
-"wallet_transfer_code_faq_questions_question_4" = "Kann ich den Transfer-Code mehrmals benutzen?";
+"wallet_transfer_code_faq_questions_question_4" = "Posso utilizzare lo stesso codice di trasferimento più volte?";
 
 /*Wallet: Transfer Code FAQ Antwort 1*/
-"wallet_transfer_code_faq_questions_answer_1" = "Text";
+"wallet_transfer_code_faq_questions_answer_1" = "Quando fai un test COVID (test PCR o test antigenico rapido), è possibile impiegare il codice di trasferimento per la trasmissione rapida dei certificati COVID.\n\nChiedi al centro di test, alla farmacia o al medico se offrono la trasmissione mediante codice di trasferimento.\n\n";
 
 /*Wallet: Transfer Code FAQ Antwort 2*/
-"wallet_transfer_code_faq_questions_answer_2" = "Text";
+/*Fuzzy*/
+"wallet_transfer_code_faq_questions_answer_2" = "Attualmente la trasmissione mediante codice di trasferimento funziona solo per i test COVID. Qui trovi maggiori informazioni su come ottenere un certificato COVID dopo una vaccinazione:";
 
 /*Wallet: Transfer Code FAQ Antwort 3*/
-"wallet_transfer_code_faq_questions_answer_3" = "Text";
+"wallet_transfer_code_faq_questions_answer_3" = "Se il servizio che effettua il test COVID offre la trasmissione mediante codice di trasferimento, te ne chiede uno già al momento della prenotazione o dell’esecuzione del test.\n\nPuoi creare il codice di trasferimento nell’app «COVID Certificate» toccando il pulsante «Aggiungi» nella schermata iniziale o il simbolo «Più» in basso a destra. Poi tocca «Crea codice di trasferimento».\n\nL’app visualizza un codice a 9 cifre, che puoi inserire nel modulo di prenotazione o fornire direttamente al momento dell’esecuzione del test.";
 
 /*Wallet: Transfer Code FAQ Antwort 4*/
-"wallet_transfer_code_faq_questions_answer_4" = "Text";
-"wallet_transfer_code_faq_works_title" = "So funktioniert der Transfer";
+"wallet_transfer_code_faq_questions_answer_4" = "No, un codice di trasferimento può essere utilizzato una volta sola. Se desideri ricevere più di un certificato, per esempio i certificati dei tuoi familiari, crea un nuovo codice per ciascun certificato.";
+"wallet_transfer_code_faq_works_title" = "Il trasferimento funziona così";
 
 /*Wallet: Tranfser Code FAQ 2 Frage 1*/
-"wallet_transfer_code_faq_works_question_1" = "Wie sind meine Daten beim Transfer geschützt?";
+"wallet_transfer_code_faq_works_question_1" = "Come sono protetti i miei dati durante il trasferimento?";
 
 /*Wallet: Tranfser Code FAQ 2 Frage 2*/
-"wallet_transfer_code_faq_works_question_2" = "Was kann ich tun, wenn das Zertifikat nicht ankommt?";
+"wallet_transfer_code_faq_works_question_2" = "Cosa posso fare se il certificato non arriva?";
 
 /*Wallet: Tranfser Code FAQ 2 Frage 3*/
-"wallet_transfer_code_faq_works_question_3" = "Was passiert bei einem positiven Testresultat?";
+"wallet_transfer_code_faq_works_question_3" = "Cosa accade in caso di risultato positivo del test?";
 
 /*Wallet: Transfer Code FAQ 2 Antwort 1*/
-"wallet_transfer_code_faq_works_answer_1" = "Text";
+"wallet_transfer_code_faq_works_answer_1" = "Il tuo certificato COVID è messo a disposizione per il trasferimento in forma criptata. Il codice di trasferimento assicura che soltanto la tua app sia in grado di riceverlo. I dati sono eliminati dal server immediatamente dopo il trasferimento.";
 
 /*Wallet: Transfer Code FAQ 2 Antwort 2*/
-"wallet_transfer_code_faq_works_answer_2" = "Text";
+"wallet_transfer_code_faq_works_answer_2" = "Non appena il certificato è stato generato dal laboratorio o dal centro di test, è disponibile per il trasferimento. Accertati che il tuo smartphone sia connesso a Internet per poter ricevere i certificati.\n\nSe comunque non dovessi ricevere il tuo certificato COVID, rivolgiti al servizio che ha effettuato il test (centro di test, farmacia, medico).";
 
 /*Wallet: Transfer Code FAQ 2 Antwort 3*/
-"wallet_transfer_code_faq_works_answer_3" = "Text";
+"wallet_transfer_code_faq_works_answer_3" = "In caso di test antigenico positivo, non ricevi alcun certificato di test dal laboratorio. \n\nIn caso di test PCR positivo, ricevi un certificato COVID per persone guarite, valido a partire dall’undicesimo giorno dopo l’esecuzione del test.";
 
 /*Wallet: Transfer Code erstellt Titel*/
 "wallet_transfer_code_code_created_title" = "Il tuo codice di trasferimento è stato creato";
@@ -643,13 +644,13 @@
 "wallet_homescreen_network_error" = "Impossibile determinare la validità";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-"wallet_transfer_code_faq_works_intro_1" = "Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist.";
+"wallet_transfer_code_faq_works_intro_1" = "L’app verifica periodicamente se è disponibile un certificato COVID per il tuo codice di trasferimento.";
 
 /*Wallet: Transfer Code So Funktionierts Text 2*/
-"wallet_transfer_code_faq_works_intro_2" = "Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.";
+"wallet_transfer_code_faq_works_intro_2" = "Non appena il certificato COVID è disponibile, viene visualizzato nell’app. Se hai attivato le notifiche, ne riceverai una dall’app.";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-"wallet_transfer_code_faq_works_intro_3" = "Nach 7 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor dieser abgebrochen wird.";
+"wallet_transfer_code_faq_works_intro_3" = "Il codice di trasferimento scade dopo 7 giorni. Poi l’app attende un eventuale trasferimento per altre 72 ore prima di considerare scaduto il codice.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Consenti notifiche";
@@ -729,10 +730,10 @@
 "verifier_faq_works_answer_7" = "In linea di principio, i certificati COVID possono essere verificati anche senza connessione Internet. A tale scopo, vengono scaricati regolarmente da un server centrale gli elenchi di verifica aggiornati. Questi elenchi salvati localmente non devono avere più di 48 ore. \n\nPer poter aggiornare gli elenchi di verifica, l’app deve essere aperta e collegata a Internet. L’aggiornamento avviene in modo immediato e automatico.";
 
 /*Button zum QR Code Scannen öffnen*/
-"wallet_homescreen_qr_code_scannen" = "Scansiona codice QR";
+"wallet_homescreen_qr_code_scannen" = "Inquadrare il codice QR";
 
 /*Button zum PDF importieren*/
-"wallet_homescreen_pdf_import" = "PDF importieren";
+"wallet_homescreen_pdf_import" = "Importa PDF";
 
 /*Wallet: Titel im Transfer Code screen bei deaktiveren Notifications*/
 "wallet_notification_disabled_titel" = "Suggerimento: Attiva notifiche";
@@ -748,3 +749,9 @@
 
 /*Label für das Erstellungsdatum eines Nachweises (mit Platzhalter für Datum und Uhrzeit)*/
 "wallet_certificate_evidence_creation_date" = "Documentazione emessa il\n{DATE}";
+
+/*Fuzzy*/
+"wallet_transfer_code_faq_questions_linktext_2" = "Ulteriori informazioni";
+
+/*Fuzzy*/
+"wallet_transfer_code_faq_questions_linkurl_2" = "https://ufsp-coronavirus.ch/certificato/come-si-ottiene-il-certificato-covid-e-come-si-impiega/";
