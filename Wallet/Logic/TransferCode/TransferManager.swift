@@ -21,6 +21,15 @@ final class TransferManager {
     private init() {
         NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: nil) { [weak self] _ in
             guard let strongSelf = self else { return }
+
+            let hasTransferCode = !CertificateStorage.shared.openTransferCodes.isEmpty
+            UBPushManager.shared.queryPushPermissions { enabled in
+                if enabled {
+                    // disable push when there are no transfer codes
+                    UBPushManager.shared.setActive(hasTransferCode)
+                }
+            }
+
             DispatchQueue.global().async {
                 strongSelf.updateAllOpenCodes()
             }
