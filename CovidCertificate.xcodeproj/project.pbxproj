@@ -255,6 +255,12 @@
 		F86A6A862637F944003CAC1B /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86A6A852637F944003CAC1B /* ReusableView.swift */; };
 		F87E96D7263AEA9100755AF1 /* OSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E96D6263AEA9100755AF1 /* OSLogger.swift */; };
 		F88D99DB2497938E0081790E /* UIImage+localizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */; };
+		F8E6C5622683808F00A9E112 /* DebugSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6C5612683808F00A9E112 /* DebugSwitchView.swift */; };
+		F8E6C5632683808F00A9E112 /* DebugSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6C5612683808F00A9E112 /* DebugSwitchView.swift */; };
+		F8E6C565268380AA00A9E112 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6C564268380AA00A9E112 /* DebugView.swift */; };
+		F8E6C566268380AA00A9E112 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6C564268380AA00A9E112 /* DebugView.swift */; };
+		F8E9496126836F2B0054374B /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9496026836F2B0054374B /* DebugViewController.swift */; };
+		F8E9496226836F2B0054374B /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9496026836F2B0054374B /* DebugViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -428,6 +434,9 @@
 		F87C369F258B6652008DCC81 /* ExposureNotification.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExposureNotification.framework; path = System/Library/Frameworks/ExposureNotification.framework; sourceTree = SDKROOT; };
 		F87E96D6263AEA9100755AF1 /* OSLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogger.swift; sourceTree = "<group>"; };
 		F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+localizedImage.swift"; sourceTree = "<group>"; };
+		F8E6C5612683808F00A9E112 /* DebugSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSwitchView.swift; sourceTree = "<group>"; };
+		F8E6C564268380AA00A9E112 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		F8E9496026836F2B0054374B /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -680,6 +689,7 @@
 		6EBD8D2A242CB7D500686D9F /* SharedUI */ = {
 			isa = PBXGroup;
 			children = (
+				F8E9495E26836F090054374B /* Screens */,
 				DCA3FFB224502D0F0003F5AD /* Views */,
 				24780B05242DFA1E003BB26C /* Helpers */,
 				24780B04242DF9ED003BB26C /* Controls */,
@@ -1007,6 +1017,24 @@
 				DCF9C3632656395A00E34481 /* config_wallet.json */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		F8E9495E26836F090054374B /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F8E9495F26836F1A0054374B /* Debug */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F8E9495F26836F1A0054374B /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				F8E9496026836F2B0054374B /* DebugViewController.swift */,
+				F8E6C5612683808F00A9E112 /* DebugSwitchView.swift */,
+				F8E6C564268380AA00A9E112 /* DebugView.swift */,
+			);
+			path = Debug;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1355,6 +1383,7 @@
 				DCBF64D926774E3300450D51 /* VerifierManager.swift in Sources */,
 				6E6B1A922649D17400DB4A38 /* Verifier.swift in Sources */,
 				6EC172EB26429E31002E27DB /* Button.swift in Sources */,
+				F8E6C566268380AA00A9E112 /* DebugView.swift in Sources */,
 				6EF166BD264D488A00426985 /* ScannerLightButton.swift in Sources */,
 				6EF166DE264E63A500426985 /* UIStateManager.swift in Sources */,
 				6EC172ED26429E31002E27DB /* UIColor+HEX.swift in Sources */,
@@ -1367,6 +1396,7 @@
 				6EC172F326429E31002E27DB /* UIDevice+ScreenType.swift in Sources */,
 				6EA5C37226444E8600EA066F /* VerifyCheckViewController.swift in Sources */,
 				6EC172F426429E31002E27DB /* StackScrollView.swift in Sources */,
+				F8E6C5632683808F00A9E112 /* DebugSwitchView.swift in Sources */,
 				6EC172F526429E31002E27DB /* ClickthroughStackView.swift in Sources */,
 				6E6B1A942649D88A00DB4A38 /* VerifyInfoView.swift in Sources */,
 				6EC172F726429E31002E27DB /* SimpleTextButton.swift in Sources */,
@@ -1381,6 +1411,7 @@
 				6EC1730026429E31002E27DB /* PhoneCallHelper.swift in Sources */,
 				6EA5C36E26444E5600EA066F /* VerifyViewController.swift in Sources */,
 				6EC173622642A1E8002E27DB /* VerifierUserStorage.swift in Sources */,
+				F8E9496226836F2B0054374B /* DebugViewController.swift in Sources */,
 				6EA5C36526442D5500EA066F /* UIImageView+CC.swift in Sources */,
 				6EA5C38426453D1400EA066F /* EuHealthCert+CC.swift in Sources */,
 				6EC1730126429E31002E27DB /* UICollection+CC.swift in Sources */,
@@ -1469,12 +1500,14 @@
 				8E81CC9D241FCC7D006F2437 /* ViewController.swift in Sources */,
 				DC8ABDF1264A64DD00FDE0E1 /* StaticContentViewController.swift in Sources */,
 				DC8ABDFF264AAA1B00FDE0E1 /* ExpandableViewBody.swift in Sources */,
+				F8E6C5622683808F00A9E112 /* DebugSwitchView.swift in Sources */,
 				DC702B0C243F6FAE0066C773 /* UBUserDefault.swift in Sources */,
 				6E8F52D9265BA94B00406430 /* CameraErrorView.swift in Sources */,
 				6EA5C38526453E0000EA066F /* EuHealthCert+CC.swift in Sources */,
 				6EF166D6264E5C3200426985 /* InfoBoxVisibilityManager.swift in Sources */,
 				6EA5C3602644133E00EA066F /* QRCodeNameView.swift in Sources */,
 				242D2276245D62D8005DAEA8 /* WalletUserStorage.swift in Sources */,
+				F8E6C565268380AA00A9E112 /* DebugView.swift in Sources */,
 				6EF166BC264D488A00426985 /* ScannerLightButton.swift in Sources */,
 				DC702B17243F70060066C773 /* UIView+CC.swift in Sources */,
 				DC8ABDFD264AA83D00FDE0E1 /* ExpandableViewHeader.swift in Sources */,
@@ -1488,6 +1521,7 @@
 				6EE81DEB245163C400FC7218 /* PhoneCallHelper.swift in Sources */,
 				F86A6A832637F93D003CAC1B /* UICollection+CC.swift in Sources */,
 				6EA5C35A2643CF0C00EA066F /* QRCodeUtils.swift in Sources */,
+				F8E9496126836F2B0054374B /* DebugViewController.swift in Sources */,
 				6E7C0D1E242CE02D0017C4F9 /* LabelType.swift in Sources */,
 				242D227D245D6581005DAEA8 /* Endpoint.swift in Sources */,
 				DC286A26242CE0B9001D5344 /* Environment.swift in Sources */,

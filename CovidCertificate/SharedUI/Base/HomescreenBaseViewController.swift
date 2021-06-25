@@ -58,6 +58,13 @@ class HomescreenBaseViewController: ViewController {
             make.centerX.equalToSuperview()
         }
 
+        #if DEBUG || RELEASE_DEV
+            let recognizer = UITapGestureRecognizer(target: self, action: #selector(openDebugSettings))
+            recognizer.numberOfTapsRequired = 2
+            logoView.addGestureRecognizer(recognizer)
+            logoView.isUserInteractionEnabled = true
+        #endif
+
         backgroundView.snp.makeConstraints { make in
             make.top.equalTo(self.logoView.snp.bottom).offset(10.0)
             make.left.right.bottom.equalToSuperview()
@@ -108,6 +115,12 @@ class HomescreenBaseViewController: ViewController {
 
         updateInfoBox(false)
     }
+
+    #if DEBUG || RELEASE_DEV
+        @objc func openDebugSettings() {
+            DebugViewController().presentInNavigationController(from: self)
+        }
+    #endif
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
