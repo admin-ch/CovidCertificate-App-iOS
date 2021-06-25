@@ -188,6 +188,12 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
     }
 
     private func setupViews() {
+        addSubviewController(onboardingViewController) { make in
+            make.top.equalTo(self.backgroundTopLayoutGuide)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide)
+        }
+
         view.addSubview(bottomView)
 
         bottomView.snp.makeConstraints { make in
@@ -199,12 +205,6 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
         loadingView.backgroundColor = UIColor.clear
 
         loadingView.snp.makeConstraints { make in
-            make.top.equalTo(self.backgroundTopLayoutGuide)
-            make.left.right.equalToSuperview()
-            make.bottom.equalTo(self.bottomView.snp.top)
-        }
-
-        addSubviewController(onboardingViewController) { make in
             make.top.equalTo(self.backgroundTopLayoutGuide)
             make.left.right.equalToSuperview()
             make.bottom.equalTo(self.bottomView.snp.top)
