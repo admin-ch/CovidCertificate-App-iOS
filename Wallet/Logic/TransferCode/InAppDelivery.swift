@@ -16,6 +16,8 @@ public class InAppDelivery {
 
     private let session = URLSession.certificatePinned
 
+    private init() {}
+
     private var registerDataTask: URLSessionDataTask?
     public func registerNewCode(callback: @escaping (Result<String, TransferError>) -> Void) {
         let payload = InAppDeliveryPayload()
