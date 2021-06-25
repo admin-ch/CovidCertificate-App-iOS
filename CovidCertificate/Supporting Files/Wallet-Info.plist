@@ -98,6 +98,8 @@
 	</array>
 	<key>UISupportsDocumentBrowser</key>
 	<false/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<false/>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 </dict>
