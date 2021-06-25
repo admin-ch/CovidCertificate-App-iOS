@@ -24,13 +24,13 @@ extension URLSession {
 
 class CertificateEvaluator: NSObject, URLSessionDelegate {
     typealias AuthenticationChallengeCompletion = (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
-    #if ENABLE_TESTING
+    #if DEBUG || RELEASE_DEV
         private var trustManager: UBServerTrustManager
     #else
         private let trustManager: UBServerTrustManager
     #endif
 
-    #if ENABLE_TESTING
+    #if DEBUG || RELEASE_DEV
         private let useCertificatePinningKey = "useCertificatePinning"
 
         @UBUserDefault(key: "useCertificatePinning", defaultValue: true)
@@ -49,20 +49,13 @@ class CertificateEvaluator: NSObject, URLSessionDelegate {
                 }
             }
         }
-
-    #elseif DEBUG
+    #else
         private static let useCertificatePinning = true
     #endif
 
     override init() {
-        #if ENABLE_TESTING
+        #if DEBUG || RELEASE_DEV
             if Self.useCertificatePinning {
-                trustManager = Self.getServerTrustManager()
-            } else {
-                trustManager = Self.getEmptyServerTrustManager()
-            }
-        #elseif DEBUG
-            if CertificateEvaluator.useCertificatePinning {
                 trustManager = Self.getServerTrustManager()
             } else {
                 trustManager = Self.getEmptyServerTrustManager()
