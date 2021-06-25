@@ -72,6 +72,7 @@ class HomescreenOnboardingViewController: ViewController {
         stackScrollView.addSpacerView(Padding.medium + Padding.small)
 
         stackScrollView.addArrangedView(homescreenButtons)
+        stackScrollView.addSpacerView(Padding.medium + 115)
 
         titleLabel.text = UBLocalized.wallet_certificate
         questionLabel.text = UBLocalized.wallet_homescreen_what_to_do
