@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import MobileCoreServices
 
 enum HomescreenState {
     case onboarding
@@ -37,6 +38,8 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
     let actionPopupView = WalletHomescreenActionPopupView()
 
     let pushPopupView = PushNotificationPopUpView()
+
+    let documentPickerDelegate = DocumentPickerDelegate()
 
     init() {
         super.init(color: .cc_blue)
@@ -97,18 +100,31 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
     // MARK: - Setup
 
     private func setupInteraction() {
-        onboardingViewController.addCertificateTouchUpCallback = { [weak self] in
+        onboardingViewController.addQRCertificateTouchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             let vc = WalletScannerViewController()
             vc.presentInNavigationController(from: strongSelf)
         }
 
-        actionPopupView.addCertificateTouchUpCallback = { [weak self] in
+        onboardingViewController.addPDFCertificateTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+
+            strongSelf.openDocumentFromPDF()
+        }
+
+        actionPopupView.addQRCertificateTouchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.actionPopupView.dismiss()
 
             let vc = WalletScannerViewController()
             vc.presentInNavigationController(from: strongSelf)
+        }
+
+        actionPopupView.addPDFCertificateTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.actionPopupView.dismiss()
+
+            strongSelf.openDocumentFromPDF()
         }
 
         onboardingViewController.addTransferCodeTouchUpCallback = { [weak self] in
@@ -216,5 +232,24 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
         pushPopupView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+
+    private func openDocumentFromPDF() {
+        let types: [String] = [kUTTypePDF as String]
+        let documentPicker = UIDocumentPickerViewController(documentTypes: types, in: .import)
+        documentPicker.allowsMultipleSelection = false
+        documentPicker.delegate = documentPickerDelegate
+        documentPicker.modalPresentationStyle = .formSheet
+        present(documentPicker, animated: true, completion: nil)
+    }
+}
+
+class DocumentPickerDelegate: NSObject, UIDocumentPickerDelegate {
+    func documentPicker(_: UIDocumentPickerViewController, didPickDocumentsAt url: [URL]) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+              let firstURL = url.first else {
+            return
+        }
+        appDelegate.importHandler?.handle(url: firstURL)
     }
 }

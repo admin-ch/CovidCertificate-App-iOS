@@ -24,6 +24,7 @@ class ImportHandler {
 
     // MARK: - Handle URL
 
+    @discardableResult
     public func handle(url: URL) -> Bool {
         let accessingSecurityScopedResource = url.startAccessingSecurityScopedResource()
 

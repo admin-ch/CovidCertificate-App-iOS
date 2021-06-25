@@ -14,7 +14,8 @@ import Foundation
 class HomescreenOnboardingViewController: ViewController {
     // MARK: - Touch Up Callback
 
-    public var addCertificateTouchUpCallback: (() -> Void)?
+    public var addQRCertificateTouchUpCallback: (() -> Void)?
+    public var addPDFCertificateTouchUpCallback: (() -> Void)?
     public var addTransferCodeTouchUpCallback: (() -> Void)?
 
     // MARK: - Subviews
@@ -31,9 +32,14 @@ class HomescreenOnboardingViewController: ViewController {
         super.viewDidLoad()
         setupViews()
 
-        homescreenButtons.addCertificateTouchUpCallback = { [weak self] in
+        homescreenButtons.addQRCertificateTouchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.addCertificateTouchUpCallback?()
+            strongSelf.addQRCertificateTouchUpCallback?()
+        }
+
+        homescreenButtons.addPDFCertificateTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.addPDFCertificateTouchUpCallback?()
         }
 
         homescreenButtons.addTransferCodeTouchUpCallback = { [weak self] in
