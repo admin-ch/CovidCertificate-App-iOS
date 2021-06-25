@@ -121,23 +121,23 @@ extension Endpoint {
         return Environment.current.configService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Accept": "application/json+jws"])
     }
 
-    static func register(payload: InAppDeliveryPayload, appversion av: String, osversion os: String, buildnr: String) -> Endpoint {
+    static func register(payload: InAppDeliveryPayload) -> Endpoint {
         let path = "covidcert/register"
-        return Environment.current.registerService.endpoint(path, method: .post, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Content-Type": "application/json"], body: payload)
+        return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json"], body: payload)
     }
 
-    static func certificate(payload: InAppDeliveryPayload, appversion av: String, osversion os: String, buildnr: String) -> Endpoint {
+    static func certificate(payload: InAppDeliveryPayload) -> Endpoint {
         let path = "covidcert"
-        return Environment.current.registerService.endpoint(path, method: .post, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Content-Type": "application/json", "Accept": "application/json"], body: payload)
+        return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json", "Accept": "application/json"], body: payload)
     }
 
-    static func deleteCertificate(payload: InAppDeliveryPayload, appversion av: String, osversion os: String, buildnr: String) -> Endpoint {
+    static func deleteCertificate(payload: InAppDeliveryPayload) -> Endpoint {
         let path = "covidcert/complete"
-        return Environment.current.registerService.endpoint(path, method: .post, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Content-Type": "application/json"], body: payload)
+        return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json"], body: payload)
     }
 
-    static func pushRegister(payload: PushRegistration, appversion av: String, osversion os: String, buildnr: String) -> Endpoint {
+    static func pushRegister(payload: PushRegistration) -> Endpoint {
         let path = "push/register"
-        return Environment.current.registerService.endpoint(path, method: .post, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Content-Type": "application/json"], body: payload)
+        return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json"], body: payload)
     }
 }

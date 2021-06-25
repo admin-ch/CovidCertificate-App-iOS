@@ -61,13 +61,13 @@ class WalletDetailViewController: ViewController {
     private func setupInteraction() {
         transferCodeDetailVC.refreshCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.startDownloadIfNeeded()
+            strongSelf.startDownloadIfNeeded(forceUpdate: true)
         }
     }
 
     // MARK: - Download
 
-    private func startDownloadIfNeeded() {
+    private func startDownloadIfNeeded(forceUpdate: Bool = false) {
         // only start if it's a not failed transfer-code
         guard certificate.type == .transferCode,
               let transferCode = certificate.transferCode,
@@ -80,7 +80,9 @@ class WalletDetailViewController: ViewController {
 
         loadingView.startLoading()
 
-        TransferManager.shared.addObserver(self, for: transferCode.transferCode) { [weak self] result in
+        updateLastLoad()
+
+        TransferManager.shared.addObserver(self, for: transferCode.transferCode, forceUpdate: forceUpdate) { [weak self] result in
             guard let strongSelf = self else { return }
 
             switch result {
@@ -92,7 +94,7 @@ class WalletDetailViewController: ViewController {
                     strongSelf.certificate.qrCode = certificate.first?.cert
                     strongSelf.certificateDetailVC.certificate = strongSelf.certificate
                 } else {
-                    strongSelf.transferCodeDetailVC.updateDate = Date()
+                    strongSelf.updateLastLoad()
                 }
 
             case let .failure(error):
@@ -104,6 +106,17 @@ class WalletDetailViewController: ViewController {
             strongSelf.update(animated: true)
 
             UIAccessibility.post(notification: .screenChanged, argument: nil)
+        }
+    }
+
+    private func updateLastLoad() {
+        guard certificate.type == .transferCode,
+              let transferCode = certificate.transferCode,
+              transferCode.state != .failed
+        else { return }
+
+        if let lastLoad = TransferManager.shared.getLastLoad(code: transferCode.transferCode) {
+            transferCodeDetailVC.updateDate = lastLoad
         }
     }
 

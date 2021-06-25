@@ -213,9 +213,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        UBPushManager.shared.pushHandler.handleDidReceiveResponse(userInfo) {
-            completionHandler(.newData)
-        }
+        UBPushManager.shared.pushHandler.handleDidReceiveResponse(userInfo, fetchCompletionHandler: completionHandler)
     }
 }
 

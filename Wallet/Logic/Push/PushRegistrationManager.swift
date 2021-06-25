@@ -24,7 +24,7 @@ class PushRegistrationManager: UBPushRegistrationManager {
         pushRegistration.pushType = pushType
         pushRegistration.registerId = Device.deviceID
 
-        return Endpoint.pushRegister(payload: pushRegistration, appversion: ConfigManager.appVersion, osversion: ConfigManager.osVersion, buildnr: ConfigManager.buildNumber).request()
+        return Endpoint.pushRegister(payload: pushRegistration).request()
     }
 }
 

@@ -15,15 +15,18 @@ import UIKit
 class PushHandler: UBPushHandler {
     override func showInAppPushDetails(for _: UBPushNotification) {}
 
-    override func showInAppPushAlert(withTitle _: String, proposedMessage _: String, notification _: UBPushNotification) {}
-
     private var backgroundTask = UIBackgroundTaskIdentifier.invalid
 
-    override func updateLocalData(withSilent isSilent: Bool, remoteNotification _: UBPushNotification) {
-        guard isSilent else { return }
+    override func updateLocalData(withSilent isSilent: Bool, remoteNotification _: UBPushNotification, fetchCompletionHandler: ((UIBackgroundFetchResult) -> Void)?) {
+        guard isSilent else {
+            if let completionHandler = fetchCompletionHandler {
+                completionHandler(.noData)
+            }
+            return
+        }
 
         if backgroundTask == .invalid {
-            backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+            backgroundTask = UIApplication.shared.beginBackgroundTask(withName: "PushHandler") { [weak self] in
                 guard let self = self else {
                     return
                 }
@@ -40,21 +43,23 @@ class PushHandler: UBPushHandler {
         #endif
 
         DispatchQueue.global().async {
-            TransferManager.updateAllOpenCodes { downloadedCertificates in
-                DispatchQueue.main.async {
-                    if downloadedCertificates.count > 0 {
-                        LocalPush.shared.scheduleNotification(identifier: downloadedCertificates.joined())
-                    }
+            let downloadedCertificates = TransferManager.shared.updateAllOpenCodes()
 
-                    if CertificateStorage.shared.openTransferCodes.count == 0 {
-                        UBPushManager.shared.setActive(false)
-                    }
+            if downloadedCertificates.count > 0 {
+                LocalPush.shared.scheduleNotification(identifier: downloadedCertificates.joined())
+            }
 
-                    if self.backgroundTask != .invalid {
-                        UIApplication.shared.endBackgroundTask(self.backgroundTask)
-                        self.backgroundTask = .invalid
-                    }
-                }
+            if CertificateStorage.shared.openTransferCodes.count == 0 {
+                UBPushManager.shared.setActive(false)
+            }
+
+            if let completionHandler = fetchCompletionHandler {
+                completionHandler(.newData)
+            }
+
+            if self.backgroundTask != .invalid {
+                UIApplication.shared.endBackgroundTask(self.backgroundTask)
+                self.backgroundTask = .invalid
             }
         }
     }

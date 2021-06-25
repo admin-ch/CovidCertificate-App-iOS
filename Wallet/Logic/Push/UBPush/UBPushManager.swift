@@ -60,6 +60,8 @@ open class UBPushManager: NSObject {
     override private init() {
         super.init()
 
+        UNUserNotificationCenter.current().delegate = self
+
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
@@ -71,7 +73,6 @@ open class UBPushManager: NSObject {
                                               pushRegistrationManager: UBPushRegistrationManager) {
         self.pushHandler = pushHandler
         self.pushRegistrationManager = pushRegistrationManager
-        self.pushRegistrationManager.sendPushRegistrationIfOutdated()
         self.pushHandler.handleLaunchOptions(launchOptions)
 
         if isActive {

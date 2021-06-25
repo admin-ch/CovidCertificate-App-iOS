@@ -35,7 +35,7 @@ class TransferCodeDetailViewController: ViewController {
 
     // MARK: - Variables
 
-    public var error: CryptoError? {
+    public var error: TransferError? {
         didSet { update() }
     }
 

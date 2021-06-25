@@ -24,7 +24,7 @@ class TransferCodeErrorRetryViewController: StackScrollViewController {
 
     public var retryCallback: (() -> Void)?
 
-    public var error: CryptoError? {
+    public var error: TransferError? {
         didSet { self.update() }
     }
 

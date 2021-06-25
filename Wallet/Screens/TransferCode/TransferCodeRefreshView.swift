@@ -19,7 +19,7 @@ class TransferCodeRefreshView: UIView {
 
     public let refreshButton = Button(image: UIImage(named: "ic-refresh"), accessibilityName: UBLocalized.accessibility_refresh_button)
 
-    public var error: CryptoError? {
+    public var error: TransferError? {
         didSet { update() }
     }
 

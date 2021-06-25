@@ -43,7 +43,7 @@ public enum Enclave {
             let access =
             SecAccessControlCreateWithFlags(
                 kCFAllocatorDefault,
-                kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly,
+                kSecAttrAccessibleAfterFirstUnlock,
                 [.privateKeyUsage],
                 &error
             )

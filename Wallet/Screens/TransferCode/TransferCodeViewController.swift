@@ -12,8 +12,6 @@
 import UIKit
 
 class TransferCodeViewController: ViewController {
-    private let inAppDelivery = InAppDelivery()
-
     private let infoVC = TransferCodeOnboardingViewController()
     private let nextStepsVC = TransferCodeNextStepsViewController()
     private let errorRetryVC = TransferCodeErrorRetryViewController()
@@ -73,7 +71,7 @@ class TransferCodeViewController: ViewController {
             self.nextStepsVC.view.alpha = 0.0
         }
 
-        inAppDelivery.registerNewCode { [weak self] result in
+        InAppDelivery.shared.registerNewCode { [weak self] result in
             guard let strongSelf = self else { return }
 
             switch result {
