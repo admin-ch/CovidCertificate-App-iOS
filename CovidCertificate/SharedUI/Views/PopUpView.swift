@@ -20,13 +20,16 @@ class PopupView: UIView {
 
     private var viewPoint: CGPoint = .zero
 
+    private let enableBackgroundDismiss: Bool
+
     // MARK: - API
 
     public var showCallback: ((Bool) -> Void)?
 
     // MARK: - Init
 
-    init() {
+    init(enableBackgroundDismiss: Bool = true) {
+        self.enableBackgroundDismiss = enableBackgroundDismiss
         super.init(frame: .zero)
         setup()
     }
@@ -99,7 +102,9 @@ class PopupView: UIView {
 
         addSubview(contentView)
 
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismiss))
-        backgroundView.addGestureRecognizer(tapGestureRecognizer)
+        if enableBackgroundDismiss {
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismiss))
+            backgroundView.addGestureRecognizer(tapGestureRecognizer)
+        }
     }
 }

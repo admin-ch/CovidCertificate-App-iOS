@@ -23,6 +23,10 @@ class PushNotificationPopUpView: PopupView {
 
     private var buttonView = UIView()
 
+    init() {
+        super.init(enableBackgroundDismiss: false)
+    }
+
     // MARK: - Setup
 
     override internal func setup() {
