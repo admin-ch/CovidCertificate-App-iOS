@@ -12,7 +12,6 @@
 import UIKit
 
 class TransferCodeViewController: ViewController {
-
     private let infoVC = TransferCodeOnboardingViewController()
     private let nextStepsVC = TransferCodeNextStepsViewController()
     private let errorRetryVC = TransferCodeErrorRetryViewController()
