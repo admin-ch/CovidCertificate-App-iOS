@@ -13,7 +13,7 @@ import Foundation
 
 class TransferCodeNotificationDisabledView: UIView {
     private let iconView = UIImageView(image: UIImage(named: "ic-push"))
-    private let titleLabel = Label(.title)
+    private let titleLabel = Label(.textBoldLarge, textColor: .cc_blue)
     private let textLabel = Label(.text)
     private let button = Button(title: UBLocalized.wallet_notification_disabled_button, style: .normal(.cc_blue))
 
@@ -63,7 +63,7 @@ class TransferCodeNotificationDisabledView: UIView {
             make.centerX.equalToSuperview()
             make.left.greaterThanOrEqualToSuperview().offset(Padding.medium)
             make.right.lessThanOrEqualToSuperview().offset(-Padding.medium)
-            make.top.equalTo(textLabel.snp.bottom).inset(-Padding.medium)
+            make.top.equalTo(textLabel.snp.bottom).inset(-Padding.large)
         }
     }
 }
