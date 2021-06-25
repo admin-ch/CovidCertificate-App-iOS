@@ -80,6 +80,9 @@ final class TransferManager {
     }
 
     func download(code: String, result completion: ((TransferCodeResult) -> Void)? = nil) {
+        #if DEBUG || RELEASE_DEV
+            LocalPush.shared.showDebugNotification(title: "Debug", body: "Transfermanager download for code: \(code) called at \(Date().description)")
+        #endif
         DispatchQueue.global().async {
             let result = InAppDelivery.shared.tryDownloadCertificate(withCode: code)
             self.cachedResult[code] = result
