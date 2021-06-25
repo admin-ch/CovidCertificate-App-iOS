@@ -146,6 +146,9 @@ class CertificateStateView: UIView {
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
 
+                    // Hide validity view if there is a signature error
+                    self.validityView.isHidden = errors.contains(.signature)
+
                     let codes = errorCodes.joined(separator: ", ")
                     if codes.count > 0 {
                         self.errorLabel.ub_setHidden(false)
@@ -204,6 +207,9 @@ class CertificateStateView: UIView {
                     }
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
+
+                    // Hide validity view if there is a signature error
+                    self.validityView.isHidden = errors.contains(.signature)
 
                     let codes = errorCodes.joined(separator: ", ")
                     if codes.count > 0 {
