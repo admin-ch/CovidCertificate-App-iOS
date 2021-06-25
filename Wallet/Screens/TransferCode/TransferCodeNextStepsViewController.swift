@@ -51,6 +51,14 @@ class TransferCodeNextStepsViewController: StackScrollViewController {
         doneButton.contentEdgeInsets = UIEdgeInsets(top: Padding.medium, left: 2 * Padding.large, bottom: Padding.medium, right: 2 * Padding.large)
         doneButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
+
+            // Set Pushmanager active if permission was already given
+            UBPushManager.shared.queryPushPermissions { enabled in
+                if enabled {
+                    UBPushManager.shared.setActive(true)
+                }
+            }
+
             strongSelf.dismiss(animated: true, completion: nil)
         }
 
