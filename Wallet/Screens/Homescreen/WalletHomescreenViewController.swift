@@ -58,9 +58,6 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             if !WalletUserStorage.shared.hasCompletedPushRegistration, hasTransferCode {
                 strongSelf.pushPopupView.presentFrom(view: strongSelf.view)
             }
-
-            // disable push when there are no transfer codes
-            UBPushManager.shared.setActive(hasTransferCode)
         }
 
         setupViews()

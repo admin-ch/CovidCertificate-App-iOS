@@ -93,8 +93,10 @@ class PushNotificationPopUpView: PopupView {
 
     private func registerForPush() {
         WalletUserStorage.shared.hasCompletedPushRegistration = true
-        UBPushManager.shared.requestPushPermissions { _ in
-            UBPushManager.shared.setActive(true)
+        UBPushManager.shared.requestPushPermissions { result in
+            if case UBPushManager.PermissionRequestResult.success = result {
+                UBPushManager.shared.setActive(true)
+            }
         }
     }
 }
