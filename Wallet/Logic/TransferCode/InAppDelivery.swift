@@ -133,7 +133,7 @@ public class InAppDelivery {
     public func tryDeleteCertificate(withCode code: String) -> Result<Bool, TransferError> {
         let payload = InAppDeliveryPayload()
 
-        switch getSignature(forAction: InAppDeliveryAction.Get, withCode: code) {
+        switch getSignature(forAction: InAppDeliveryAction.Delete, withCode: code) {
         case .success(let (signaturePayload, signature)):
             payload.signature = signature
             payload.signaturePayload = signaturePayload
