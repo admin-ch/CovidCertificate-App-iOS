@@ -2280,7 +2280,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/admin-ch/CovidCertificate-SDK-iOS";
 			requirement = {
-				branch = main;
+				branch = "feature/allow-to-disable-certificate-pinning";
 				kind = branch;
 			};
 		};

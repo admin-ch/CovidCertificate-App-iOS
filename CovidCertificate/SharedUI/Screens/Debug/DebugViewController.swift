@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
 import UIKit
 
 class DebugViewController: ViewController {
@@ -34,6 +35,7 @@ class DebugViewController: ViewController {
                                                       isOn: URLSession.evaluator.useCertificatePinning,
                                                       valueChanged: { newValue in
                                                           URLSession.evaluator.useCertificatePinning = newValue
+                                                          CovidCertificateSDK.setOptions(options: SDKOptions(certificatePinning: newValue))
                                                       }))
         #endif
     }

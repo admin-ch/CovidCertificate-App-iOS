@@ -41,8 +41,8 @@
         "package": "CovidCertificateSDK",
         "repositoryURL": "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
         "state": {
-          "branch": "main",
-          "revision": "080333d4369bf4034f314142cdcd3cfd979f526f",
+          "branch": "feature/allow-to-disable-certificate-pinning",
+          "revision": "22dc670db40c8db7b462fe49e3cbf21b58662618",
           "version": null
         }
       },
