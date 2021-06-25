@@ -71,8 +71,8 @@ class CertificateAddDetailView: UIView {
         let nameLabel = Label(.title, textAlignment: .center)
         let birthdayLabel = Label(.text, textAlignment: .center)
 
-        if let cert = certificate {
-            let c = CovidCertificateSDK.decode(encodedData: cert.qrCode)
+        if let qrCode = certificate?.qrCode {
+            let c = CovidCertificateSDK.decode(encodedData: qrCode)
 
             switch c {
             case let .success(holder):
@@ -90,7 +90,9 @@ class CertificateAddDetailView: UIView {
         stackScrollView.addSpacerView(2.0 * Padding.large)
 
         if let cert = certificate {
-            stackScrollView.addArrangedView(CertificateDetailView(certificate: cert, showEnglishLabelsIfNeeded: false))
+            let v = CertificateDetailView(showEnglishLabelsIfNeeded: false)
+            v.certificate = cert
+            stackScrollView.addArrangedView(v)
         }
 
         // adds enough padding to scroll further than linear gradient

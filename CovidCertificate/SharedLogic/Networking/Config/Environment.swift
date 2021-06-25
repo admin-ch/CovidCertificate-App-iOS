@@ -59,6 +59,17 @@ enum Environment {
         }
     }
 
+    var registerService: Backend {
+        switch self {
+        case .dev:
+            return Backend("https://covidcertificate-app-d.bit.admin.ch/app/delivery", version: "v1")
+        case .abnahme:
+            return Backend("https://covidcertificate-app-a.bit.admin.ch/app/delivery", version: "v1")
+        case .prod:
+            return Backend("https://covidcertificate-app.bit.admin.ch/app/delivery", version: "v1")
+        }
+    }
+
     var sdkEnvironment: SDKEnvironment {
         switch self {
         case .dev:
@@ -108,5 +119,25 @@ extension Endpoint {
             let path = "" // Not supported
         #endif
         return Environment.current.configService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Accept": "application/json+jws"])
+    }
+
+    static func register(payload: InAppDeliveryPayload) -> Endpoint {
+        let path = "covidcert/register"
+        return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json"], body: payload)
+    }
+
+    static func certificate(payload: InAppDeliveryPayload) -> Endpoint {
+        let path = "covidcert"
+        return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json", "Accept": "application/json"], body: payload)
+    }
+
+    static func deleteCertificate(payload: InAppDeliveryPayload) -> Endpoint {
+        let path = "covidcert/complete"
+        return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json"], body: payload)
+    }
+
+    static func pushRegister(payload: PushRegistration) -> Endpoint {
+        let path = "push/register"
+        return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json"], body: payload)
     }
 }

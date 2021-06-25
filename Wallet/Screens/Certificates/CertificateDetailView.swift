@@ -13,7 +13,13 @@ import CovidCertificateSDK
 import Foundation
 
 class CertificateDetailView: UIView {
-    private let certificate: UserCertificate
+    public var certificate: UserCertificate? {
+        didSet {
+            setup()
+            update(animated: true)
+        }
+    }
+
     private var holder: DGCHolder?
 
     private let stackView = UIStackView()
@@ -29,21 +35,9 @@ class CertificateDetailView: UIView {
 
     // MARK: - Init
 
-    init(certificate: UserCertificate, showEnglishLabelsIfNeeded: Bool) {
+    init(showEnglishLabelsIfNeeded: Bool) {
         showEnglishLabels = showEnglishLabelsIfNeeded && !UBLocalized.languageIsEnglish()
-        self.certificate = certificate
         super.init(frame: .zero)
-
-        let result = CovidCertificateSDK.decode(encodedData: self.certificate.qrCode)
-
-        switch result {
-        case let .success(holder):
-            self.holder = holder
-        case .failure:
-            break
-        }
-
-        setup()
     }
 
     @available(*, unavailable)
@@ -54,6 +48,20 @@ class CertificateDetailView: UIView {
     // MARK: - Setup
 
     private func setup() {
+        let result = CovidCertificateSDK.decode(encodedData: certificate?.qrCode ?? "")
+
+        switch result {
+        case let .success(holder):
+            self.holder = holder
+        case .failure:
+            break
+        }
+
+        for v in stackView.arrangedSubviews {
+            stackView.removeArrangedSubview(v)
+            v.removeFromSuperview()
+        }
+
         addSubview(stackView)
 
         stackView.axis = .vertical
@@ -75,7 +83,12 @@ class CertificateDetailView: UIView {
               vaccinations.count > 0 else { return }
 
         addDividerLine()
-        addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_vaccination_title_key))
+
+        if vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
+            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_vaccination_title_key))
+        } else {
+            addTitle(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_type_incomplete_vaccine_key))
+        }
 
         for vaccination in vaccinations {
             addDividerLine()
@@ -104,7 +117,7 @@ class CertificateDetailView: UIView {
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title_key), value: vaccination.certificateIssuer)
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier_key), value: vaccination.certificateIdentifier, addEnglishLabels: false)
 
-            addIssuedDate(dateString: holder?.displayIssuedAt)
+            addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: vaccination.doseNumber != vaccination.totalDoses)
         }
     }
 
@@ -138,7 +151,7 @@ class CertificateDetailView: UIView {
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title_key), value: pastInfection.certificateIssuer)
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier_key), value: pastInfection.certificateIdentifier, addEnglishLabels: false)
 
-            addIssuedDate(dateString: holder?.displayIssuedAt)
+            addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: false)
         }
     }
 
@@ -185,7 +198,7 @@ class CertificateDetailView: UIView {
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title_key), value: test.certificateIssuer)
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier_key), value: test.certificateIdentifier, addEnglishLabels: false)
 
-            addIssuedDate(dateString: holder?.displayIssuedAt)
+            addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: false)
         }
     }
 
@@ -270,10 +283,16 @@ class CertificateDetailView: UIView {
         stackView.addSpacerView(Padding.large)
     }
 
-    private func addIssuedDate(dateString: String?) {
+    private func addIssuedDate(dateString: String?, incomplete: Bool) {
         guard let d = dateString else { return }
 
-        let values = UBLocalized.translationWithEnglish(key: .wallet_certificate_date_key)
+        let values: (String, String)
+        if incomplete {
+            values = UBLocalized.translationWithEnglish(key: .wallet_certificate_evidence_creation_date_key)
+        } else {
+            values = UBLocalized.translationWithEnglish(key: .wallet_certificate_date_key)
+        }
+
         addValueItem(value: (values.0.replacingOccurrences(of: "{DATE}", with: d), values.1.replacingOccurrences(of: "{DATE}", with: d)), spacing: Padding.large)
     }
 

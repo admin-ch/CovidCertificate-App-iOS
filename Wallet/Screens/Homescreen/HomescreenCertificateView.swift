@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
 import Foundation
 
 class HomescreenCertificateView: UIView {
@@ -19,18 +20,29 @@ class HomescreenCertificateView: UIView {
     public static let inset: CGFloat = 6.0
 
     private let titleLabel = Label(.uppercaseBold, textColor: .cc_greyText, textAlignment: .center)
-
-    private let nameView = QRCodeNameView(qrCodeInset: Padding.large)
     private let contentView = UIView()
 
-    private let stateView = CertificateStateView()
+    private let qrCodeView: QRCodeView
+    private let transferView: TransferView
 
-    public let certificate: UserCertificate
+    public var certificate: UserCertificate? {
+        didSet {
+            qrCodeView.certificate = certificate
+            transferView.certificate = certificate
+            update(animated: true)
+        }
+    }
 
     public var state: VerificationState = .loading {
         didSet {
-            stateView.states = (state, .idle)
+            qrCodeView.state = state
             update(animated: true)
+        }
+    }
+
+    public var transferError: TransferError? {
+        didSet {
+            transferView.error = transferError
         }
     }
 
@@ -38,6 +50,8 @@ class HomescreenCertificateView: UIView {
 
     init(certificate: UserCertificate) {
         self.certificate = certificate
+        qrCodeView = QRCodeView(certificate: certificate)
+        transferView = TransferView(certificate: certificate)
         super.init(frame: .zero)
         setup()
 
@@ -71,11 +85,16 @@ class HomescreenCertificateView: UIView {
             make.top.left.right.equalToSuperview().inset(Padding.large)
         }
 
-        contentView.addSubview(nameView)
+        contentView.addSubview(qrCodeView)
+        qrCodeView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(self.titleLabel.snp.bottom)
+        }
 
-        nameView.snp.makeConstraints { make in
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(Padding.medium)
-            make.left.right.equalToSuperview().inset(Padding.large)
+        contentView.addSubview(transferView)
+        transferView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(self.titleLabel.snp.bottom)
         }
 
         let holeViews = [HoleView(radius: 10.0, shadowRadius: shadowRadius, shadowOpacity: shadowOpacity, left: true), HoleView(radius: 10.0, shadowRadius: shadowRadius, shadowOpacity: shadowOpacity, left: false)]
@@ -85,15 +104,6 @@ class HomescreenCertificateView: UIView {
                 make.centerX.equalTo(i == 0 ? self.contentView.snp.left : self.contentView.snp.right)
                 make.top.equalTo(self.contentView.snp.bottom).multipliedBy(0.618)
             }
-        }
-
-        titleLabel.text = UBLocalized.wallet_certificate
-        nameView.certificate = certificate
-
-        contentView.addSubview(stateView)
-        stateView.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium + Padding.small)
-            make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
         }
 
         // disable user interaction
@@ -118,10 +128,32 @@ class HomescreenCertificateView: UIView {
     }
 
     private func update(animated _: Bool) {
-        let isInvalid = state.isInvalid()
-        nameView.enabled = !isInvalid
+        guard let cert = certificate else { return }
 
-        accessibilityLabel = [titleLabel.text, nameView.accessibilityLabel, stateView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+        switch cert.type {
+        case .certificate:
+            qrCodeView.alpha = 1.0
+            transferView.alpha = 0.0
+            accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+
+            let c = CovidCertificateSDK.decode(encodedData: cert.qrCode ?? "")
+            switch c {
+            case let .success(holder):
+                let vaccinations = holder.healthCert.vaccinations ?? []
+                if vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
+                    titleLabel.text = UBLocalized.wallet_certificate
+                } else {
+                    titleLabel.text = UBLocalized.wallet_certificate_evidence_title
+                }
+            case .failure:
+                break
+            }
+        case .transferCode:
+            titleLabel.text = UBLocalized.wallet_transfer_code_card_title
+            qrCodeView.alpha = 0.0
+            transferView.alpha = 1.0
+            accessibilityLabel = [titleLabel.text, transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+        }
     }
 }
 
@@ -180,5 +212,152 @@ private class HoleView: UIView {
         }
         context!.endTransparencyLayer()
         context?.restoreGState()
+    }
+}
+
+private class TransferView: UIView {
+    // MARK: - Views
+
+    private let transferCodeView = TransferCodeStatusView()
+    public var certificate: UserCertificate? {
+        didSet { update(animated: true) }
+    }
+
+    private let nameView = Label(.title, textAlignment: .center)
+    private let failedImageView = UIImageView(image: UIImage(named: "illu-transfer-failed"))
+    private let animationView = TransferCodeAnimationView()
+
+    private var timer: Timer?
+    private var animationCounter: Int = 2
+
+    public var error: TransferError? {
+        didSet { transferCodeView.error = error }
+    }
+
+    // MARK: - Subviews
+
+    init(certificate: UserCertificate?) {
+        self.certificate = certificate
+        super.init(frame: .zero)
+        setup()
+
+        isAccessibilityElement = true
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setup() {
+        addSubview(nameView)
+        addSubview(transferCodeView)
+
+        let codeHasFailed = certificate?.transferCode?.state == .failed
+
+        if codeHasFailed {
+            addSubview(failedImageView)
+            failedImageView.snp.makeConstraints { make in
+                make.top.equalToSuperview().inset(40)
+                make.centerX.equalToSuperview()
+            }
+
+            failedImageView.contentMode = .scaleAspectFit
+
+            failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+            failedImageView.setContentHuggingPriority(.defaultLow, for: .vertical)
+            failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+            failedImageView.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        } else {
+            addSubview(animationView)
+            animationView.snp.makeConstraints { make in
+                make.top.left.right.equalToSuperview()
+            }
+        }
+
+        nameView.snp.makeConstraints { make in
+            if codeHasFailed {
+                make.top.equalTo(failedImageView.snp.bottom).offset(Padding.large)
+            } else {
+                make.top.equalTo(animationView.snp.bottom).offset(Padding.medium)
+            }
+            make.left.right.equalToSuperview().inset(Padding.large)
+        }
+
+        nameView.text = codeHasFailed ? UBLocalized.wallet_transfer_code_state_expired : UBLocalized.wallet_transfer_code_state_waiting
+
+        nameView.ub_setContentPriorityRequired()
+
+        transferCodeView.snp.makeConstraints { make in
+            make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium)
+            make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
+        }
+
+        transferCodeView.ub_setContentPriorityRequired()
+
+        update(animated: false)
+    }
+
+    public func update(animated _: Bool) {
+        transferCodeView.transferCode = certificate?.transferCode
+        accessibilityLabel = [nameView.text, transferCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+    }
+}
+
+private class QRCodeView: UIView {
+    // MARK: - Inset
+
+    private let titleLabel = Label(.uppercaseBold, textColor: .cc_greyText, textAlignment: .center)
+    private let nameView = QRCodeNameView(qrCodeInset: Padding.large)
+    private let stateView = CertificateStateView(showValidity: false)
+
+    public var certificate: UserCertificate?
+
+    public var state: VerificationState = .loading {
+        didSet {
+            stateView.states = (state, .idle)
+            update(animated: true)
+        }
+    }
+
+    // MARK: - Subviews
+
+    init(certificate: UserCertificate) {
+        self.certificate = certificate
+        super.init(frame: .zero)
+        setup()
+
+        isAccessibilityElement = true
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setup() {
+        addSubview(nameView)
+
+        nameView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(Padding.medium)
+            make.left.right.equalToSuperview().inset(Padding.large)
+        }
+
+        nameView.certificate = certificate
+        addSubview(stateView)
+        stateView.snp.makeConstraints { make in
+            make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium + Padding.small)
+            make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
+        }
+
+        update(animated: false)
+    }
+
+    public func update(animated _: Bool) {
+        let isInvalid = state.isInvalid()
+        nameView.enabled = !isInvalid
+        nameView.certificate = certificate
+
+        accessibilityLabel = [nameView.accessibilityLabel, stateView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
     }
 }

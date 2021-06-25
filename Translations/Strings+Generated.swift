@@ -108,6 +108,8 @@ import Foundation
      case verifier_faq_works_answer_1_key = "verifier_faq_works_answer_1"
     /// Beim Scannen werden drei Aspekte geprüft:\n– Enthält das Zertifikat eine gültige elektronische Signatur?\n– Ist das Zertifikat nicht widerrufen worden?\n– Entspricht das Zertifikat den Gültigkeitskriterien der Schweiz?\n\nWenn alle drei Aspekte positiv bewertet werden, wird das Covid-Zertifikat als gültig ausgewiesen.
      case verifier_faq_works_answer_2_key = "verifier_faq_works_answer_2"
+    /// Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:
+     case verifier_faq_works_answer_2_1_key = "verifier_faq_works_answer_2_1"
     /// Neben Pass oder ID werden auch andere Ausweisdokumente akzeptiert, die die Identität der betreffenden Person mit einem Foto belegen (z.B. Führerausweis). Das Covid-Zertifikat ist zwar fälschungssicher, mit der Überprüfung der Personalien wird aber erst sichergestellt, dass das vorgezeigte Zertifikat auch auf den Vorweisenden ausgestellt wurde.
      case verifier_faq_works_answer_3_key = "verifier_faq_works_answer_3"
     /// Ja, Covid-Zertifikate, die mit dem digitalen COVID-Zertifikat der EU kompatibel sind, können mit der COVID Certificate Check App gegen die Gültigkeitskriterien der Schweiz geprüft werden.
@@ -116,10 +118,18 @@ import Foundation
      case verifier_faq_works_answer_5_key = "verifier_faq_works_answer_5"
     /// Nein, beim Prüfvorgang werden keine Daten gespeichert - weder in der COVID Certificate Check App noch in einem zentralen System. Es ist somit nicht möglich nachzuvollziehen, welches Covid-Zertifikat von wem, wann und wo überprüft wurde.
      case verifier_faq_works_answer_6_key = "verifier_faq_works_answer_6"
+    /// Grundsätzlich können Covid-Zertifikate auch ohne eine Internetverbindung geprüft werden. Dazu werden regelmässig aktualisierte Prüflisten von einem zentralen Server heruntergeladen. Diese lokal gespeicherten Prüflisten dürfen nicht älter als 48h sein. \n\nUm die Prüflisten zu aktualisieren muss die App mit dem Internet verbunden sein und geöffnet werden. Die Aktualisierung erfolgt unmittelbar und automatisch.
+     case verifier_faq_works_answer_7_key = "verifier_faq_works_answer_7"
+    /// Weitere Informationen
+     case verifier_faq_works_linktext_2_1_key = "verifier_faq_works_linktext_2_1"
+    /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624
+     case verifier_faq_works_linkurl_2_1_key = "verifier_faq_works_linkurl_2_1"
     /// Wie können Covid-Zertifikate geprüft werden?
      case verifier_faq_works_question_1_key = "verifier_faq_works_question_1"
     /// Was wird genau geprüft?
      case verifier_faq_works_question_2_key = "verifier_faq_works_question_2"
+    /// Was sind die aktuellen Gültigkeitskriterien der Schweiz?
+     case verifier_faq_works_question_2_1_key = "verifier_faq_works_question_2_1"
     /// Welche Ausweisdokumente sind gültig? Weshalb müssen die Personalien überprüft werden?
      case verifier_faq_works_question_3_key = "verifier_faq_works_question_3"
     /// Können auch ausländische Zertifikate geprüft werden?
@@ -128,6 +138,8 @@ import Foundation
      case verifier_faq_works_question_5_key = "verifier_faq_works_question_5"
     /// Werden beim Prüfvorgang in der COVID Certificate Check App oder in einem zentralen System Daten gespeichert?
      case verifier_faq_works_question_6_key = "verifier_faq_works_question_6"
+    /// Können Zertifikate auch offline geprüft werden?
+     case verifier_faq_works_question_7_key = "verifier_faq_works_question_7"
     /// Mit der COVID Certificate Check App können QR-Codes auf Covid-Zertifikaten gescannt und die Zertifikate auf Echtheit und Gültigkeit überprüft werden.
      case verifier_faq_works_subtitle_key = "verifier_faq_works_subtitle"
     /// So werden Covid-Zertifikate geprüft
@@ -210,6 +222,10 @@ import Foundation
      case wallet_certificate_delete_confirm_text_key = "wallet_certificate_delete_confirm_text"
     /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
      case wallet_certificate_detail_note_key = "wallet_certificate_detail_note"
+    /// Nachweis erstellt am\n{DATE}
+     case wallet_certificate_evidence_creation_date_key = "wallet_certificate_evidence_creation_date"
+    /// Nachweis
+     case wallet_certificate_evidence_title_key = "wallet_certificate_evidence_title"
     /// UVCI
      case wallet_certificate_identifier_key = "wallet_certificate_identifier"
     /// Impfdosis
@@ -248,6 +264,8 @@ import Foundation
      case wallet_certificate_test_sample_date_title_key = "wallet_certificate_test_sample_date_title"
     /// Typ
      case wallet_certificate_test_type_key = "wallet_certificate_test_type"
+    /// Unvollständige Impfung
+     case wallet_certificate_type_incomplete_vaccine_key = "wallet_certificate_type_incomplete_vaccine"
     /// Land der Impfung
      case wallet_certificate_vaccination_country_title_key = "wallet_certificate_vaccination_country_title"
     /// Impfdatum
@@ -298,20 +316,28 @@ import Foundation
      case wallet_faq_questions_answer_1_key = "wallet_faq_questions_answer_1"
     /// Von Covid-19 genesene Personen können das Covid-Zertifikat über ein Online-Formular auf der Webseite des Kantons beantragen. Das Covid-Zertifikat wird anschliessend per Post zugeschickt.
      case wallet_faq_questions_answer_1_1_key = "wallet_faq_questions_answer_1_1"
-    /// Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.
+    /// Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass Sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.
      case wallet_faq_questions_answer_2_key = "wallet_faq_questions_answer_2"
+    /// Die Gültigkeitsdauer unterscheidet sich je nachdem, ob Sie eine Covid-19-Impfung, eine durchgemachte Erkrankung oder ein negatives Testergebnis haben. Aufgrund neuer wissenschaftlicher Erkenntnisse kann sich die Gültigkeitsdauer verändern. Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:
+     case wallet_faq_questions_answer_2_1_key = "wallet_faq_questions_answer_2_1"
     /// Ihre Daten werden nicht in einem zentralen System gespeichert, sondern nur lokal auf Ihrem Mobilgerät, respektive im QR-Code auf dem Covid-Zertifikat in Papierform.
      case wallet_faq_questions_answer_3_key = "wallet_faq_questions_answer_3"
     /// Der QR-Code auf dem Covid-Zertifikat enthält eine elektronische Signatur. Die Signatur ist ein wichtiges Sicherheitsmerkmal und macht das Covid-Zertifikat fälschungssicher. Das Covid-Zertifikat ist zudem nur in Kombination mit einem Ausweisdokument gültig.
      case wallet_faq_questions_answer_4_key = "wallet_faq_questions_answer_4"
     /// Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier deshalb sorgfältig auf. Bei Verlust müssen Sie das Covid-Zertifikat erneut bei der ausgebenden Stelle anfragen.
      case wallet_faq_questions_answer_5_key = "wallet_faq_questions_answer_5"
+    /// Weitere Informationen
+     case wallet_faq_questions_linktext_2_1_key = "wallet_faq_questions_linktext_2_1"
+    /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/#contents2
+     case wallet_faq_questions_linkurl_2_1_key = "wallet_faq_questions_linkurl_2_1"
     /// Wann und wo kann ich ein Covid-Zertifikat erhalten?
      case wallet_faq_questions_question_1_key = "wallet_faq_questions_question_1"
     /// Wie erhalte ich nach einer durchgemachten Covid-19-Erkrankung ein Covid-Zertifikat?
      case wallet_faq_questions_question_1_1_key = "wallet_faq_questions_question_1_1"
     /// Wie kann ich ein Covid-Zertifikat vorweisen?
      case wallet_faq_questions_question_2_key = "wallet_faq_questions_question_2"
+    /// Wie lange ist das Covid-Zertifikat gültig?
+     case wallet_faq_questions_question_2_1_key = "wallet_faq_questions_question_2_1"
     /// Wo sind meine Daten gespeichert?
      case wallet_faq_questions_question_3_key = "wallet_faq_questions_question_3"
     /// Wie werden Missbrauch und Fälschung verhindert?
@@ -328,6 +354,8 @@ import Foundation
      case wallet_faq_works_answer_2_key = "wallet_faq_works_answer_2"
     /// In der COVID Certificate App wird ausgewiesen, wann Ihr Covid-Zertifikat in der Schweiz ablaufen wird. Sie können in der Detail-Ansicht zudem per Knopfdruck überprüfen, ob Ihr Covid-Zertifikat aktuell gültig ist.
      case wallet_faq_works_answer_3_key = "wallet_faq_works_answer_3"
+    /// Sie können die App ohne eine Internetverbindung verwenden. Auch im Offline-Modus können Zertifikate vorgewiesen und von den Prüfern gescannt und verifiziert werden.\n\nUm in der «COVID Certificate»-App anzeigen zu können, ob ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht und bis wann Ihr Zertifikat gültig ist, muss die App jedoch regelmässig online sein.
+     case wallet_faq_works_answer_3_1_key = "wallet_faq_works_answer_3_1"
     /// Ihre persönlichen Daten werden in keinem zentralen System gespeichert, sondern befinden sich ausschliesslich bei Ihnen lokal auf dem Mobilgerät, respektive im QR-Code auf dem Covid-Zertifikat in Papierform.
      case wallet_faq_works_answer_4_key = "wallet_faq_works_answer_4"
     /// Der QR-Code enthält alle Informationen, die Sie auf Ihrem Covid-Zertifikat in Papierform im Klartext finden. Weiter befindet sich im QR-Code eine elektronische Signatur, mit der sich die Echtheit des Covid-Zertifikats überprüfen lässt. Dadurch wird das Covid-Zertifikat fälschungssicher.
@@ -340,6 +368,8 @@ import Foundation
      case wallet_faq_works_question_2_key = "wallet_faq_works_question_2"
     /// Wie sehe ich, ob mein Covid-Zertifikat gültig ist?
      case wallet_faq_works_question_3_key = "wallet_faq_works_question_3"
+    /// Kann ich die App auch offline verwenden?
+     case wallet_faq_works_question_3_1_key = "wallet_faq_works_question_3_1"
     /// Wie sind meine Daten geschützt?
      case wallet_faq_works_question_4_key = "wallet_faq_works_question_4"
     /// Welche Daten sind im QR-Code enthalten?
@@ -362,14 +392,26 @@ import Foundation
      case wallet_homescreen_network_error_key = "wallet_homescreen_network_error"
     /// Offline Modus
      case wallet_homescreen_offline_key = "wallet_homescreen_offline"
+    /// PDF importieren
+     case wallet_homescreen_pdf_import_key = "wallet_homescreen_pdf_import"
+    /// QR-Code scannen
+     case wallet_homescreen_qr_code_scannen_key = "wallet_homescreen_qr_code_scannen"
     /// Nächsten Schritt wählen
      case wallet_homescreen_what_to_do_key = "wallet_homescreen_what_to_do"
+    /// Aktivieren
+     case wallet_notification_disabled_button_key = "wallet_notification_disabled_button"
+    /// Tipp: Mitteilungen aktivieren
+     case wallet_notification_disabled_titel_key = "wallet_notification_disabled_titel"
     /// Weiter
      case wallet_notification_permission_button_key = "wallet_notification_permission_button"
     /// Die App kann Sie informieren, sobald das Zertifikat eingetroffen ist.  Erlauben Sie dazu der App, Ihnen Mitteilungen zu senden.
      case wallet_notification_permission_text_key = "wallet_notification_permission_text"
     /// Mitteilungen erlauben
      case wallet_notification_permission_title_key = "wallet_notification_permission_title"
+    /// Das Covid-Zertifikat ist eingetroffen
+     case wallet_notification_transfer_text_key = "wallet_notification_transfer_text"
+    /// Transfer erfolgreich
+     case wallet_notification_transfer_title_key = "wallet_notification_transfer_title"
     /// Um die aktuelle Gültigkeit anzeigen zu können, muss die App regelmässig online sein.
      case wallet_offline_description_key = "wallet_offline_description"
     /// Akzeptieren
@@ -524,7 +566,7 @@ import Foundation
      case wallet_transfer_code_onboarding_title_key = "wallet_transfer_code_onboarding_title"
     /// Transfer fehlgeschlagen
      case wallet_transfer_code_state_expired_key = "wallet_transfer_code_state_expired"
-    /// Mit diesem Transfer kann kein  Zertifikat mehr empfangen werden.
+    /// Mit diesem Transfer kann kein Zertifikat mehr empfangen werden.
      case wallet_transfer_code_state_no_certificate_key = "wallet_transfer_code_state_no_certificate"
     /// Zuletzt aktualisiert\n{DATE}
      case wallet_transfer_code_state_updated_key = "wallet_transfer_code_state_updated"
@@ -538,6 +580,8 @@ import Foundation
      case wallet_transfer_code_update_general_error_text_key = "wallet_transfer_code_update_general_error_text"
     /// Um den Transfer empfangen zu können, muss die App online sein.
      case wallet_transfer_code_update_no_internet_error_text_key = "wallet_transfer_code_update_no_internet_error_text"
+    /// Wollen Sie den Transfer-Code wirklich löschen?
+     case wallet_transfer_delete_confirm_text_key = "wallet_transfer_delete_confirm_text"
   }
 
   /// Zertifikat hinzufügen
@@ -638,6 +682,8 @@ import Foundation
    static let verifier_faq_works_answer_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_1_key)
   /// Beim Scannen werden drei Aspekte geprüft:\n– Enthält das Zertifikat eine gültige elektronische Signatur?\n– Ist das Zertifikat nicht widerrufen worden?\n– Entspricht das Zertifikat den Gültigkeitskriterien der Schweiz?\n\nWenn alle drei Aspekte positiv bewertet werden, wird das Covid-Zertifikat als gültig ausgewiesen.
    static let verifier_faq_works_answer_2 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_2_key)
+  /// Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:
+   static let verifier_faq_works_answer_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_2_1_key)
   /// Neben Pass oder ID werden auch andere Ausweisdokumente akzeptiert, die die Identität der betreffenden Person mit einem Foto belegen (z.B. Führerausweis). Das Covid-Zertifikat ist zwar fälschungssicher, mit der Überprüfung der Personalien wird aber erst sichergestellt, dass das vorgezeigte Zertifikat auch auf den Vorweisenden ausgestellt wurde.
    static let verifier_faq_works_answer_3 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_3_key)
   /// Ja, Covid-Zertifikate, die mit dem digitalen COVID-Zertifikat der EU kompatibel sind, können mit der COVID Certificate Check App gegen die Gültigkeitskriterien der Schweiz geprüft werden.
@@ -646,10 +692,18 @@ import Foundation
    static let verifier_faq_works_answer_5 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_5_key)
   /// Nein, beim Prüfvorgang werden keine Daten gespeichert - weder in der COVID Certificate Check App noch in einem zentralen System. Es ist somit nicht möglich nachzuvollziehen, welches Covid-Zertifikat von wem, wann und wo überprüft wurde.
    static let verifier_faq_works_answer_6 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_6_key)
+  /// Grundsätzlich können Covid-Zertifikate auch ohne eine Internetverbindung geprüft werden. Dazu werden regelmässig aktualisierte Prüflisten von einem zentralen Server heruntergeladen. Diese lokal gespeicherten Prüflisten dürfen nicht älter als 48h sein. \n\nUm die Prüflisten zu aktualisieren muss die App mit dem Internet verbunden sein und geöffnet werden. Die Aktualisierung erfolgt unmittelbar und automatisch.
+   static let verifier_faq_works_answer_7 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_7_key)
+  /// Weitere Informationen
+   static let verifier_faq_works_linktext_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linktext_2_1_key)
+  /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624
+   static let verifier_faq_works_linkurl_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linkurl_2_1_key)
   /// Wie können Covid-Zertifikate geprüft werden?
    static let verifier_faq_works_question_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_1_key)
   /// Was wird genau geprüft?
    static let verifier_faq_works_question_2 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_2_key)
+  /// Was sind die aktuellen Gültigkeitskriterien der Schweiz?
+   static let verifier_faq_works_question_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_2_1_key)
   /// Welche Ausweisdokumente sind gültig? Weshalb müssen die Personalien überprüft werden?
    static let verifier_faq_works_question_3 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_3_key)
   /// Können auch ausländische Zertifikate geprüft werden?
@@ -658,6 +712,8 @@ import Foundation
    static let verifier_faq_works_question_5 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_5_key)
   /// Werden beim Prüfvorgang in der COVID Certificate Check App oder in einem zentralen System Daten gespeichert?
    static let verifier_faq_works_question_6 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_6_key)
+  /// Können Zertifikate auch offline geprüft werden?
+   static let verifier_faq_works_question_7 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_7_key)
   /// Mit der COVID Certificate Check App können QR-Codes auf Covid-Zertifikaten gescannt und die Zertifikate auf Echtheit und Gültigkeit überprüft werden.
    static let verifier_faq_works_subtitle = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_subtitle_key)
   /// So werden Covid-Zertifikate geprüft
@@ -740,6 +796,10 @@ import Foundation
    static let wallet_certificate_delete_confirm_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_delete_confirm_text_key)
   /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
    static let wallet_certificate_detail_note = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_key)
+  /// Nachweis erstellt am\n{DATE}
+   static let wallet_certificate_evidence_creation_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_evidence_creation_date_key)
+  /// Nachweis
+   static let wallet_certificate_evidence_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_evidence_title_key)
   /// UVCI
    static let wallet_certificate_identifier = UBLocalized.tr(UBLocalizedKey.wallet_certificate_identifier_key)
   /// Impfdosis
@@ -778,6 +838,8 @@ import Foundation
    static let wallet_certificate_test_sample_date_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_sample_date_title_key)
   /// Typ
    static let wallet_certificate_test_type = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_type_key)
+  /// Unvollständige Impfung
+   static let wallet_certificate_type_incomplete_vaccine = UBLocalized.tr(UBLocalizedKey.wallet_certificate_type_incomplete_vaccine_key)
   /// Land der Impfung
    static let wallet_certificate_vaccination_country_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_vaccination_country_title_key)
   /// Impfdatum
@@ -828,20 +890,28 @@ import Foundation
    static let wallet_faq_questions_answer_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_1_key)
   /// Von Covid-19 genesene Personen können das Covid-Zertifikat über ein Online-Formular auf der Webseite des Kantons beantragen. Das Covid-Zertifikat wird anschliessend per Post zugeschickt.
    static let wallet_faq_questions_answer_1_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_1_1_key)
-  /// Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.
+  /// Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass Sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.
    static let wallet_faq_questions_answer_2 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_2_key)
+  /// Die Gültigkeitsdauer unterscheidet sich je nachdem, ob Sie eine Covid-19-Impfung, eine durchgemachte Erkrankung oder ein negatives Testergebnis haben. Aufgrund neuer wissenschaftlicher Erkenntnisse kann sich die Gültigkeitsdauer verändern. Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:
+   static let wallet_faq_questions_answer_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_2_1_key)
   /// Ihre Daten werden nicht in einem zentralen System gespeichert, sondern nur lokal auf Ihrem Mobilgerät, respektive im QR-Code auf dem Covid-Zertifikat in Papierform.
    static let wallet_faq_questions_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_3_key)
   /// Der QR-Code auf dem Covid-Zertifikat enthält eine elektronische Signatur. Die Signatur ist ein wichtiges Sicherheitsmerkmal und macht das Covid-Zertifikat fälschungssicher. Das Covid-Zertifikat ist zudem nur in Kombination mit einem Ausweisdokument gültig.
    static let wallet_faq_questions_answer_4 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_4_key)
   /// Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier deshalb sorgfältig auf. Bei Verlust müssen Sie das Covid-Zertifikat erneut bei der ausgebenden Stelle anfragen.
    static let wallet_faq_questions_answer_5 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_5_key)
+  /// Weitere Informationen
+   static let wallet_faq_questions_linktext_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_linktext_2_1_key)
+  /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/#contents2
+   static let wallet_faq_questions_linkurl_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_linkurl_2_1_key)
   /// Wann und wo kann ich ein Covid-Zertifikat erhalten?
    static let wallet_faq_questions_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_1_key)
   /// Wie erhalte ich nach einer durchgemachten Covid-19-Erkrankung ein Covid-Zertifikat?
    static let wallet_faq_questions_question_1_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_1_1_key)
   /// Wie kann ich ein Covid-Zertifikat vorweisen?
    static let wallet_faq_questions_question_2 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_2_key)
+  /// Wie lange ist das Covid-Zertifikat gültig?
+   static let wallet_faq_questions_question_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_2_1_key)
   /// Wo sind meine Daten gespeichert?
    static let wallet_faq_questions_question_3 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_3_key)
   /// Wie werden Missbrauch und Fälschung verhindert?
@@ -858,6 +928,8 @@ import Foundation
    static let wallet_faq_works_answer_2 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_2_key)
   /// In der COVID Certificate App wird ausgewiesen, wann Ihr Covid-Zertifikat in der Schweiz ablaufen wird. Sie können in der Detail-Ansicht zudem per Knopfdruck überprüfen, ob Ihr Covid-Zertifikat aktuell gültig ist.
    static let wallet_faq_works_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_3_key)
+  /// Sie können die App ohne eine Internetverbindung verwenden. Auch im Offline-Modus können Zertifikate vorgewiesen und von den Prüfern gescannt und verifiziert werden.\n\nUm in der «COVID Certificate»-App anzeigen zu können, ob ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht und bis wann Ihr Zertifikat gültig ist, muss die App jedoch regelmässig online sein.
+   static let wallet_faq_works_answer_3_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_3_1_key)
   /// Ihre persönlichen Daten werden in keinem zentralen System gespeichert, sondern befinden sich ausschliesslich bei Ihnen lokal auf dem Mobilgerät, respektive im QR-Code auf dem Covid-Zertifikat in Papierform.
    static let wallet_faq_works_answer_4 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_4_key)
   /// Der QR-Code enthält alle Informationen, die Sie auf Ihrem Covid-Zertifikat in Papierform im Klartext finden. Weiter befindet sich im QR-Code eine elektronische Signatur, mit der sich die Echtheit des Covid-Zertifikats überprüfen lässt. Dadurch wird das Covid-Zertifikat fälschungssicher.
@@ -870,6 +942,8 @@ import Foundation
    static let wallet_faq_works_question_2 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_2_key)
   /// Wie sehe ich, ob mein Covid-Zertifikat gültig ist?
    static let wallet_faq_works_question_3 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_3_key)
+  /// Kann ich die App auch offline verwenden?
+   static let wallet_faq_works_question_3_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_3_1_key)
   /// Wie sind meine Daten geschützt?
    static let wallet_faq_works_question_4 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_4_key)
   /// Welche Daten sind im QR-Code enthalten?
@@ -892,14 +966,26 @@ import Foundation
    static let wallet_homescreen_network_error = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_network_error_key)
   /// Offline Modus
    static let wallet_homescreen_offline = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_offline_key)
+  /// PDF importieren
+   static let wallet_homescreen_pdf_import = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_pdf_import_key)
+  /// QR-Code scannen
+   static let wallet_homescreen_qr_code_scannen = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_qr_code_scannen_key)
   /// Nächsten Schritt wählen
    static let wallet_homescreen_what_to_do = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_what_to_do_key)
+  /// Aktivieren
+   static let wallet_notification_disabled_button = UBLocalized.tr(UBLocalizedKey.wallet_notification_disabled_button_key)
+  /// Tipp: Mitteilungen aktivieren
+   static let wallet_notification_disabled_titel = UBLocalized.tr(UBLocalizedKey.wallet_notification_disabled_titel_key)
   /// Weiter
    static let wallet_notification_permission_button = UBLocalized.tr(UBLocalizedKey.wallet_notification_permission_button_key)
   /// Die App kann Sie informieren, sobald das Zertifikat eingetroffen ist.  Erlauben Sie dazu der App, Ihnen Mitteilungen zu senden.
    static let wallet_notification_permission_text = UBLocalized.tr(UBLocalizedKey.wallet_notification_permission_text_key)
   /// Mitteilungen erlauben
    static let wallet_notification_permission_title = UBLocalized.tr(UBLocalizedKey.wallet_notification_permission_title_key)
+  /// Das Covid-Zertifikat ist eingetroffen
+   static let wallet_notification_transfer_text = UBLocalized.tr(UBLocalizedKey.wallet_notification_transfer_text_key)
+  /// Transfer erfolgreich
+   static let wallet_notification_transfer_title = UBLocalized.tr(UBLocalizedKey.wallet_notification_transfer_title_key)
   /// Um die aktuelle Gültigkeit anzeigen zu können, muss die App regelmässig online sein.
    static let wallet_offline_description = UBLocalized.tr(UBLocalizedKey.wallet_offline_description_key)
   /// Akzeptieren
@@ -1054,7 +1140,7 @@ import Foundation
    static let wallet_transfer_code_onboarding_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_title_key)
   /// Transfer fehlgeschlagen
    static let wallet_transfer_code_state_expired = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_expired_key)
-  /// Mit diesem Transfer kann kein  Zertifikat mehr empfangen werden.
+  /// Mit diesem Transfer kann kein Zertifikat mehr empfangen werden.
    static let wallet_transfer_code_state_no_certificate = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_no_certificate_key)
   /// Zuletzt aktualisiert\n{DATE}
    static let wallet_transfer_code_state_updated = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_updated_key)
@@ -1068,6 +1154,8 @@ import Foundation
    static let wallet_transfer_code_update_general_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_update_general_error_text_key)
   /// Um den Transfer empfangen zu können, muss die App online sein.
    static let wallet_transfer_code_update_no_internet_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_update_no_internet_error_text_key)
+  /// Wollen Sie den Transfer-Code wirklich löschen?
+   static let wallet_transfer_delete_confirm_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_delete_confirm_text_key)
 }
 // swiftlint:enable function_parameter_count identifier_name line_length type_body_length
 

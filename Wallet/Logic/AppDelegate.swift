@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     internal var window: UIWindow?
     private var lastForegroundActivity: Date?
     private var blurView: UIVisualEffectView?
-    private var importHandler: ImportHandler?
+    private(set) var importHandler: ImportHandler?
 
     @UBUserDefault(key: "isFirstLaunch", defaultValue: true)
     var isFirstLaunch: Bool
@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var navigationController = NavigationController(rootViewController: WalletHomescreenViewController())
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // migrates certificates from keychain to secure storage
+        Migration.migrateToSecureStorage()
+
         // Pre-populate isFirstLaunch for users which already installed the app before we introduced this flag
         if WalletUserStorage.shared.hasCompletedOnboarding {
             isFirstLaunch = false
@@ -33,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Reset keychain on first launch
         if isFirstLaunch {
+            CertificateStorage.shared.removeAll()
             Keychain().deleteAll()
             isFirstLaunch = false
         }
@@ -55,6 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL {
             linkHandler.handle(url: url)
         }
+
+        // Setup push manager
+        setupPushManager(launchOptions: launchOptions)
 
         return true
     }
@@ -133,6 +140,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_: UIApplication) {
         removeBlurView()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -191,6 +199,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.addSubview(bv)
 
         blurView = bv
+    }
+
+    // MARK: - Push
+
+    func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        UBPushManager.shared.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
+    }
+
+    func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        UBPushManager.shared.didFailToRegisterForRemoteNotifications(with: error)
+    }
+
+    func setupPushManager(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        UBPushManager.shared.didFinishLaunchingWithOptions(launchOptions, pushHandler: PushHandler(), pushRegistrationManager: PushRegistrationManager())
+    }
+
+    func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        UBPushManager.shared.pushHandler.handleDidReceiveResponse(userInfo, fetchCompletionHandler: completionHandler)
     }
 }
 

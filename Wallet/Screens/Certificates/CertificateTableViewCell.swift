@@ -50,7 +50,8 @@ class CertificateTableViewCell: UITableViewCell {
 
         qrCodeStateImageView.ub_setContentPriorityRequired()
         qrCodeStateImageView.snp.makeConstraints { make in
-            make.top.left.equalToSuperview().inset(2.0 * Padding.small)
+            make.top.equalToSuperview().inset(2.0 * Padding.small)
+            make.left.equalToSuperview()
             make.bottom.lessThanOrEqualToSuperview().inset(2.0 * Padding.small)
         }
 
@@ -102,20 +103,20 @@ class CertificateTableViewCell: UITableViewCell {
     private func update() {
         updateState(animated: false)
 
-        guard let cert = certificate else {
+        guard let qrCode = certificate?.qrCode else {
             nameLabel.text = nil
             qrCodeStateImageView.image = nil
             return
         }
 
-        let c = CovidCertificateSDK.decode(encodedData: cert.qrCode)
+        let c = CovidCertificateSDK.decode(encodedData: qrCode)
 
         switch c {
         case let .success(holder):
             nameLabel.text = holder.healthCert.displayFullName
             stateLabel.type = holder.healthCert.certType
 
-            VerifierManager.shared.addObserver(self, for: cert.qrCode) { [weak self] state in
+            VerifierManager.shared.addObserver(self, for: qrCode) { [weak self] state in
                 guard let strongSelf = self else { return }
                 strongSelf.state = state
             }
@@ -205,8 +206,6 @@ private class StateLabel: UIView {
     init() {
         super.init(frame: .zero)
         setup()
-
-        isAccessibilityElement = true
     }
 
     @available(*, unavailable)
