@@ -50,7 +50,7 @@ class HomescreenBottomView: UIView {
         }
 
         faqRoundView.layer.cornerRadius = r
-        faqRoundView.backgroundColor = UIColor(ub_hexString: "#273277")?.withAlphaComponent(0.9)
+        faqRoundView.backgroundColor = UIColor(ub_hexString: "#203176")?.withAlphaComponent(0.9)
 
         addSubview(stackView)
 
