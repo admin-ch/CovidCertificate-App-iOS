@@ -18,7 +18,8 @@ class WalletHomescreenActionPopupView: PopupView {
 
     // MARK: - API
 
-    public var addCertificateTouchUpCallback: (() -> Void)?
+    public var addQRCertificateTouchUpCallback: (() -> Void)?
+    public var addPDFCertificateTouchUpCallback: (() -> Void)?
     public var addTransferCodeTouchUpCallback: (() -> Void)?
 
     // MARK: - Setup
@@ -37,9 +38,14 @@ class WalletHomescreenActionPopupView: PopupView {
             make.edges.equalToSuperview()
         }
 
-        actionView.addCertificateTouchUpCallback = { [weak self] in
+        actionView.addQRCertificateTouchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.addCertificateTouchUpCallback?()
+            strongSelf.addQRCertificateTouchUpCallback?()
+        }
+
+        actionView.addPDFCertificateTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.addPDFCertificateTouchUpCallback?()
         }
 
         actionView.addTransferCodeTouchUpCallback = { [weak self] in
