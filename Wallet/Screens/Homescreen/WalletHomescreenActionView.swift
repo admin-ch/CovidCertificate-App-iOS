@@ -87,7 +87,7 @@ class AddCertificateView: UIView {
 
     // MARK: - Init
 
-    override init(frame _: CGRect) {
+    init() {
         super.init(frame: .zero)
         setup()
         setupInteraction()
