@@ -86,10 +86,10 @@ public class InAppDelivery {
 
         let request = Endpoint.certificate(payload: payload).request()
 
-        let (data, response, error) = session.synchronousDataTask(with: request)
+        let (optData, response, error) = session.synchronousDataTask(with: request)
 
         guard let _ = response as? HTTPURLResponse,
-              let data = data
+              let data = optData
         else {
             return .failure(.GET_CERTIFICATE_FAILED(error))
         }
@@ -143,10 +143,10 @@ public class InAppDelivery {
         payload.code = code
 
         let request = Endpoint.deleteCertificate(payload: payload).request()
-        let (data, response, error) = session.synchronousDataTask(with: request)
+        let (optData, response, error) = session.synchronousDataTask(with: request)
 
         guard let _ = response as? HTTPURLResponse,
-              let _ = data
+              let _ = optData
         else {
             return .failure(.DELETE_CERTIFICATE_FAILED(error))
         }
