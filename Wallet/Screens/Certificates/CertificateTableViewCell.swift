@@ -109,7 +109,7 @@ class CertificateTableViewCell: UITableViewCell {
             return
         }
 
-        let c = CovidCertificateSDK.decode(encodedData: qrCode)
+        let c = CovidCertificateSDK.Wallet.decode(encodedData: qrCode)
 
         switch c {
         case let .success(holder):

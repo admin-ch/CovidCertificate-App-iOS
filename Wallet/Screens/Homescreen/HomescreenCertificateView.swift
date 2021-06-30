@@ -136,7 +136,7 @@ class HomescreenCertificateView: UIView {
             transferView.alpha = 0.0
             accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
 
-            let c = CovidCertificateSDK.decode(encodedData: cert.qrCode ?? "")
+            let c = CovidCertificateSDK.Wallet.decode(encodedData: cert.qrCode ?? "")
             switch c {
             case let .success(holder):
                 let vaccinations = holder.healthCert.vaccinations ?? []

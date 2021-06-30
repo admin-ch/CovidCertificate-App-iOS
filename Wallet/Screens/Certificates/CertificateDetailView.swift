@@ -48,7 +48,7 @@ class CertificateDetailView: UIView {
     // MARK: - Setup
 
     private func setup() {
-        let result = CovidCertificateSDK.decode(encodedData: certificate?.qrCode ?? "")
+        let result = CovidCertificateSDK.Wallet.decode(encodedData: certificate?.qrCode ?? "")
 
         switch result {
         case let .success(holder):

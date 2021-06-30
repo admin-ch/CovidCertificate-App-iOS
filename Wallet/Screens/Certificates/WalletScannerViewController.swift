@@ -254,7 +254,7 @@ extension WalletScannerViewController: QRScannerViewDelegate {
 
     func qrScanningSucceededWithCode(_ str: String?) {
         if let s = str {
-            let result = CovidCertificateSDK.decode(encodedData: s)
+            let result = CovidCertificateSDK.Wallet.decode(encodedData: s)
 
             switch result {
             case .success:
