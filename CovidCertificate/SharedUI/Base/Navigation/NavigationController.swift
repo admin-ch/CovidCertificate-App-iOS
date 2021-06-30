@@ -58,5 +58,9 @@ class NavigationController: UINavigationController {
         if #available(iOS 15.0, *) {
             navigationBar.backgroundColor = .white
         }
+
+        let image = UIImage(named: "ic-back")!.withRenderingMode(.alwaysOriginal)
+        navigationBar.backIndicatorImage = image
+        navigationBar.backIndicatorTransitionMaskImage = image
     }
 }
