@@ -65,5 +65,6 @@ class TransferCodeUpdateView: UIView {
         let text = UBLocalized.wallet_transfer_code_state_updated
         let attributed = text.replacingOccurrences(of: "{DATE}", with: date).formattingOccurrenceBold(date)
         textLabel.attributedText = attributed
+        textLabel.accessibilityLabel = text.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_accessibilityDateString(dateString: date) ?? date)
     }
 }
