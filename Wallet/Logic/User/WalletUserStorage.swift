@@ -85,6 +85,20 @@ class CertificateStorage {
         }
     }
 
+    @discardableResult
+    func updateCertificate(with qrCode: String, lightCertififcate: LightCertificate?) -> UserCertificate? {
+        var newModel: UserCertificate?
+        userCertificates = userCertificates.map { uc in
+            if let qr = uc.qrCode, qr == qrCode {
+                let model = UserCertificate(qrCode: uc.qrCode, transferCode: uc.transferCode, lightCertificate: lightCertififcate)
+                newModel = model
+                return model
+            }
+            return uc
+        }
+        return newModel
+    }
+
     func removeAll() {
         userCertificates = []
     }
