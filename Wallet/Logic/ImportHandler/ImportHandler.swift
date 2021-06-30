@@ -73,7 +73,7 @@ class ImportHandler {
     }
 
     public func handleMessage(message: String) {
-        let result = CovidCertificateSDK.decode(encodedData: message)
+        let result = CovidCertificateSDK.Wallet.decode(encodedData: message)
 
         switch result {
         case .success:

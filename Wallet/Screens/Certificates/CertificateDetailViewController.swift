@@ -69,7 +69,7 @@ class CertificateDetailViewController: ViewController {
 
         title = UBLocalized.wallet_certificate.uppercased()
 
-        let c = CovidCertificateSDK.decode(encodedData: certificate.qrCode ?? "")
+        let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate.qrCode ?? "")
         switch c {
         case let .success(holder):
             let vaccinations = holder.healthCert.vaccinations ?? []
