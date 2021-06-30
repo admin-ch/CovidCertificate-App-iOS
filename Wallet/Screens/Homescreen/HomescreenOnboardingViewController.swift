@@ -76,5 +76,6 @@ class HomescreenOnboardingViewController: ViewController {
 
         titleLabel.text = UBLocalized.wallet_certificate
         questionLabel.text = UBLocalized.wallet_homescreen_what_to_do
+        questionLabel.accessibilityTraits = .header
     }
 }

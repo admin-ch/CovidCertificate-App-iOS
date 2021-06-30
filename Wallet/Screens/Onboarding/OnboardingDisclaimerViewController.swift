@@ -27,6 +27,7 @@ class OnboardingDisclaimerViewController: StaticContentViewController {
             let url = Environment.current.privacyURL
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+        button.accessibilityTraits = .link
 
         let v = UIView()
         v.addSubview(button)

@@ -234,7 +234,11 @@ class CertificateStateView: UIView {
                 }
             }
 
-            self.accessibilityLabel = self.textLabel.attributedText?.string
+            if self.hasValidityView {
+                self.accessibilityLabel = [self.textLabel.attributedText?.string, self.validityView.validityTitleLabel.text, self.validityView.untilTitleLabel.text, DateFormatter.ub_accessibilityDateString(dateString: self.validityView.untilText)].compactMap { $0 }.joined(separator: ", ")
+            } else {
+                self.accessibilityLabel = self.textLabel.attributedText?.string
+            }
         }
 
         if animated {

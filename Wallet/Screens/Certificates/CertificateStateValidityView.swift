@@ -14,8 +14,8 @@ import UIKit
 class CertificateStateValidityView: UIView {
     // MARK: - Validity
 
-    private let validityTitleLabel = Label(.text, numberOfLines: 2)
-    private let untilTitleLabel = Label(.text, textAlignment: .right)
+    let validityTitleLabel = Label(.text, numberOfLines: 2)
+    let untilTitleLabel = Label(.text, textAlignment: .right)
     private let untilTextLabel = Label(.textBold, textAlignment: .right)
     private let validityView = UIView()
 

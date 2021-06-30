@@ -105,6 +105,7 @@ class AddCertificateView: UIView {
         ub_addShadow(radius: 10.0, opacity: 0.2, xOffset: 0.0, yOffset: 0.0)
 
         topLabel.text = UBLocalized.wallet_homescreen_add_title
+        topLabel.accessibilityTraits = .header
         textLabel.text = UBLocalized.wallet_homescreen_add_certificate_description
 
         let lr = Padding.small + Padding.medium
