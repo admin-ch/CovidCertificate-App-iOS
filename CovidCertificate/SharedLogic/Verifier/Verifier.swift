@@ -14,6 +14,7 @@ import Foundation
 
 enum VerificationError: Equatable, Comparable {
     case signature
+    case typeInvalid
     case revocation
     case expired(Date)
     case notYetValid(Date)
@@ -23,7 +24,7 @@ enum VerificationError: Equatable, Comparable {
 
 enum RetryError: Equatable {
     case network
-    case flightMode
+    case noInternetConnection
     case unknown
 }
 
@@ -89,6 +90,23 @@ enum VerificationState: Equatable {
             return []
         }
     }
+
+    // get errors: (signature, revocation, nationalRuleError)
+    // always show up to first error ->
+    // (nil, error, error) --> show signature ok, show revocation error
+    // (nil, nil, error) --> show signature ok, revocation ok, show national error
+    public func getVerifierErrorState() -> (VerificationError?, VerificationError?, VerificationError?)? {
+        switch self {
+        case let .invalid(errors, _, _):
+            let signatureError = errors.filter { $0 == .signature || $0 == .typeInvalid }.first
+            let revocationError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 == .revocation }.first
+            let nationalError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 != .revocation }.first
+
+            return (signatureError, revocationError, nationalError)
+        default:
+            return nil
+        }
+    }
 }
 
 class Verifier: NSObject {
@@ -103,7 +121,7 @@ class Verifier: NSObject {
     }
 
     init(qrString: String) {
-        let result = CovidCertificateSDK.decode(encodedData: qrString)
+        let result = CovidCertificateSDK.Wallet.decode(encodedData: qrString)
 
         switch result {
         case let .success(holder):
@@ -117,10 +135,10 @@ class Verifier: NSObject {
 
     // MARK: - Start
 
-    public func start(stateUpdate: @escaping ((VerificationState) -> Void)) {
+    public func start(forceUpdate: Bool = false, stateUpdate: @escaping ((VerificationState) -> Void)) {
         self.stateUpdate = stateUpdate
 
-        guard holder != nil else {
+        guard let holder = holder else {
             // should never happen
             self.stateUpdate?(.invalid([.unknown], ["V|HN"], nil))
             return
@@ -130,17 +148,12 @@ class Verifier: NSObject {
             self.stateUpdate?(.loading)
         }
 
-        let group = DispatchGroup()
+        CovidCertificateSDK.Wallet.check(cose: holder, forceUpdate: forceUpdate) { [weak self] results in
+            guard let self = self else { return }
+            let checkSignatureState = self.handleSignatureResult(results.signature)
+            let checkRevocationState = self.handleRevocationResult(results.revocationStatus)
+            let checkNationalRulesState = self.handleNationalRulesResult(results.nationalRules)
 
-        var checkSignatureState: VerificationState = .loading
-        var checkRevocationState: VerificationState = .loading
-        var checkNationalRulesState: VerificationState = .loading
-
-        checkSignature(group: group) { state in checkSignatureState = state }
-        checkRevocationStatus(group: group) { state in checkRevocationState = state }
-        checkNationalRules(group: group) { state in checkNationalRulesState = state }
-
-        group.notify(queue: .main) {
             let states = [checkSignatureState, checkRevocationState, checkNationalRulesState]
 
             var errors = states.compactMap { $0.verificationErrors() }.flatMap { $0 }
@@ -162,115 +175,117 @@ class Verifier: NSObject {
         }
     }
 
-    public func restart() {
+    public func restart(forceUpdate: Bool = false) {
         guard let su = stateUpdate else { return }
-        start(stateUpdate: su)
+        start(forceUpdate: forceUpdate, stateUpdate: su)
     }
 
     // MARK: - Signature
 
-    private func checkSignature(group: DispatchGroup, callback: @escaping (VerificationState) -> Void) {
-        guard let holder = self.holder else { return }
-
-        group.enter()
-
-        CovidCertificateSDK.checkSignature(cose: holder) { result in
-            switch result {
-            case let .success(result):
-                if result.isValid {
-                    callback(.success(nil))
-                } else {
-                    // !: checked
-                    let errorCodes = result.error != nil ? [result.error!.errorCode] : []
-                    callback(.invalid([.signature], errorCodes, nil))
-                }
-
-            case let .failure(err):
-                switch err {
-                case .TRUST_SERVICE_ERROR:
-                    // retry possible
-                    callback(.retry(.network, [err.errorCode]))
-                default:
-                    // error
-                    callback(.invalid([.signature], [err.errorCode], nil))
-                }
+    private func handleSignatureResult(_ result: Result<ValidationResult, ValidationError>) -> VerificationState {
+        switch result {
+        case let .success(result):
+            if result.isValid {
+                return .success(nil)
+            } else {
+                // !: checked
+                let errorCodes = result.error != nil ? [result.error!.errorCode] : []
+                return .invalid([.signature], errorCodes, nil)
             }
 
-            group.leave()
+        case let .failure(err):
+            switch err {
+            case .NETWORK_NO_INTERNET_CONNECTION:
+                // retry possible
+                return .retry(.noInternetConnection, [err.errorCode])
+            case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
+                return .retry(.network, [err.errorCode])
+            case .SIGNATURE_TYPE_INVALID:
+                return .invalid([.typeInvalid], [err.errorCode], nil)
+            default:
+                // error
+                return .invalid([.signature], [err.errorCode], nil)
+            }
         }
     }
 
-    private func checkRevocationStatus(group: DispatchGroup, callback: @escaping (VerificationState) -> Void) {
-        guard let holder = self.holder else { return }
-
-        group.enter()
-
-        CovidCertificateSDK.checkRevocationStatus(dgc: holder.healthCert) { result in
-            switch result {
-            case let .success(result):
-                if result.isValid {
-                    callback(.success(nil))
-                } else {
-                    // !: checked
-                    let errorCodes = result.error != nil ? [result.error!.errorCode] : []
-                    callback(.invalid([.revocation], errorCodes, nil))
-                }
-
-            case let .failure(err):
-                switch err {
-                case .TRUST_SERVICE_ERROR:
-                    callback(.retry(.network, [err.errorCode]))
-                default:
-                    callback(.invalid([.revocation], [err.errorCode], nil))
-                }
+    private func handleRevocationResult(_ result: Result<ValidationResult, ValidationError>) -> VerificationState {
+        switch result {
+        case let .success(result):
+            if result.isValid {
+                return .success(nil)
+            } else {
+                // !: checked
+                let errorCodes = result.error != nil ? [result.error!.errorCode] : []
+                return .invalid([.revocation], errorCodes, nil)
             }
 
-            group.leave()
+        case let .failure(err):
+            switch err {
+            case .NETWORK_NO_INTERNET_CONNECTION:
+                // retry possible
+                return .retry(.noInternetConnection, [err.errorCode])
+            case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
+                return .retry(.network, [err.errorCode])
+            default:
+                return .invalid([.revocation], [err.errorCode], nil)
+            }
         }
     }
 
-    private func checkNationalRules(group: DispatchGroup, callback: @escaping (VerificationState) -> Void) {
-        guard let holder = self.holder else { return }
+    private func handleNationalRulesResult(_ result: Result<VerificationResult, NationalRulesError>) -> VerificationState {
+        guard let holder = holder else {
+            assertionFailure()
+            return .invalid([.unknown], ["V|HN"], nil)
+        }
+        switch result {
+        case let .success(result):
+            var validUntil: String?
 
-        group.enter()
-
-        CovidCertificateSDK.checkNationalRules(dgc: holder.healthCert) { result in
-            switch result {
-            case let .success(result):
-                var validUntil: String?
-
-                // get expired date string
-                if let date = result.validUntil {
-                    switch holder.healthCert.certType {
-                    case .test:
-                        validUntil = DateFormatter.ub_dayTimeString(from: date)
-                    case .recovery:
-                        validUntil = DateFormatter.ub_dayString(from: date)
-                    case .vaccination:
-                        validUntil = DateFormatter.ub_dayString(from: date)
-                    case .none:
-                        break
-                    }
+            // get expired date string
+            if let date = result.validUntil {
+                switch holder.healthCert.certType {
+                case .test:
+                    validUntil = DateFormatter.ub_dayTimeString(from: date)
+                case .recovery:
+                    validUntil = DateFormatter.ub_dayString(from: date)
+                case .vaccination:
+                    validUntil = DateFormatter.ub_dayString(from: date)
+                case .none:
+                    break
                 }
-
-                // check for validity
-                if result.isValid {
-                    callback(.success(validUntil))
-                } else if let dateError = result.dateError {
-                    switch dateError {
-                    case .NOT_YET_VALID:
-                        callback(.invalid([.notYetValid(result.validFrom ?? Date())], [], validUntil))
-                    case .EXPIRED:
-                        callback(.invalid([.expired(result.validUntil ?? Date())], [], validUntil))
-                    }
-                } else {
-                    callback(.invalid([.otherNationalRules], [], validUntil))
-                }
-            case let .failure(err):
-                callback(.invalid([.otherNationalRules], [err.errorCode], nil))
             }
 
-            group.leave()
+            // check for validity
+            if result.isValid {
+                return .success(validUntil)
+            } else if let dateError = result.dateError {
+                switch dateError {
+                case .NOT_YET_VALID:
+                    return .invalid([.notYetValid(result.validFrom ?? Date())], [], validUntil)
+                case .EXPIRED:
+                    return .invalid([.expired(result.validUntil ?? Date())], [], validUntil)
+                }
+            } else {
+                return .invalid([.otherNationalRules], [], validUntil)
+            }
+        case let .failure(err):
+            switch err {
+            case .NETWORK_NO_INTERNET_CONNECTION:
+                // retry possible
+                return .retry(.noInternetConnection, [err.errorCode])
+            case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
+                // retry possible
+                return .retry(.network, [err.errorCode])
+            default:
+                // do not show the explicit error code on the verifier app, s.t.
+                // no information is shown about the checked user (e.g. certificate type)
+                #if WALLET
+                    return .invalid([.otherNationalRules], [err.errorCode], nil)
+                #elseif VERIFIER
+                    return .invalid([.otherNationalRules], [], nil)
+                #endif
+            }
         }
     }
 }

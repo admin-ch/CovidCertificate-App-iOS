@@ -24,13 +24,13 @@ extension URLSession {
 
 class CertificateEvaluator: NSObject, URLSessionDelegate {
     typealias AuthenticationChallengeCompletion = (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
-    #if ENABLE_TESTING
+    #if DEBUG || RELEASE_DEV
         private var trustManager: UBServerTrustManager
     #else
         private let trustManager: UBServerTrustManager
     #endif
 
-    #if ENABLE_TESTING
+    #if DEBUG || RELEASE_DEV
         private let useCertificatePinningKey = "useCertificatePinning"
 
         @UBUserDefault(key: "useCertificatePinning", defaultValue: true)
@@ -49,20 +49,13 @@ class CertificateEvaluator: NSObject, URLSessionDelegate {
                 }
             }
         }
-
-    #elseif DEBUG
+    #else
         private static let useCertificatePinning = true
     #endif
 
     override init() {
-        #if ENABLE_TESTING
+        #if DEBUG || RELEASE_DEV
             if Self.useCertificatePinning {
-                trustManager = Self.getServerTrustManager()
-            } else {
-                trustManager = Self.getEmptyServerTrustManager()
-            }
-        #elseif DEBUG
-            if CertificateEvaluator.useCertificatePinning {
                 trustManager = Self.getServerTrustManager()
             } else {
                 trustManager = Self.getEmptyServerTrustManager()
@@ -86,7 +79,10 @@ class CertificateEvaluator: NSObject, URLSessionDelegate {
         // all these hosts have a seperate certificate
         let hosts = ["www.cc-d.bit.admin.ch",
                      "www.cc-a.bit.admin.ch",
-                     "www.cc.bit.admin.ch"]
+                     "www.cc.bit.admin.ch",
+                     "covidcertificate-app-d.bit.admin.ch",
+                     "covidcertificate-app-a.bit.admin.ch",
+                     "covidcertificate-app.bit.admin.ch"]
         for host in hosts {
             if let certificate = bundle.getCertificate(with: host) {
                 // since we currently pin the Amazon Global CA we never want to accept self signed certificates in the trust-store
@@ -146,8 +142,7 @@ extension Bundle {
     func getCertificate(with name: String, fileExtension: String = "der") -> SecCertificate? {
         if let certificateURL = url(forResource: name, withExtension: fileExtension),
            let certificateData = try? Data(contentsOf: certificateURL),
-           let certificate = SecCertificateCreateWithData(nil, certificateData as CFData)
-        {
+           let certificate = SecCertificateCreateWithData(nil, certificateData as CFData) {
             return certificate
         }
         return nil

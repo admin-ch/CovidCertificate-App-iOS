@@ -18,13 +18,79 @@ class WalletUserStorage {
             ConfigManager().startConfigRequest(window: UIApplication.shared.keyWindow?.window)
         }
     }
+
+    @UBUserDefault(key: "wallet.user.hasCompletedSecureStorageMigration", defaultValue: false)
+    var hasCompletedSecureStorageMigration: Bool
+
+    @UBUserDefault(key: "wallet.user.hasCompletedPushRegistration", defaultValue: false)
+    var hasCompletedPushRegistration: Bool
 }
 
 class CertificateStorage {
+    // MARK: - Shared
+
+    private lazy var certificates: [UserCertificate] = self.secureStorage.loadSynchronously() ?? []
+    private lazy var secureStorage = SecureStorage<[UserCertificate]>(name: "wallet.user.certificates")
+
     static let shared = CertificateStorage()
 
-    @KeychainPersisted(key: "wallet.user.certificates", defaultValue: [])
+    // MARK: - Certificates API
+
     var userCertificates: [UserCertificate] {
-        didSet { UIStateManager.shared.refresh() }
+        set {
+            certificates = newValue
+            _ = secureStorage.saveSynchronously(certificates)
+            UIStateManager.shared.stateChanged()
+        }
+
+        get {
+            certificates
+        }
     }
+
+    var openTransferCodes: [String] {
+        return certificates.filter { cert in
+            // only not-downloaded codes
+            guard cert.qrCode == nil else { return false }
+            // transfer code needs to be there
+            guard let tc = cert.transferCode else { return false }
+            // transfer code should not be in failed state
+            guard tc.state != .failed else { return false }
+            // everything ok
+            return true
+        }.compactMap { $0.transferCode?.transferCode }
+    }
+
+    func insertCertificate(userCertificate: UserCertificate) {
+        insertCertificates(certificates: [userCertificate])
+    }
+
+    func insertCertificates(certificates: [UserCertificate]) {
+        // add all certificates at the front of the list
+        // that are not already added
+        let toBeAdded = certificates.filter { uc in !userCertificates.contains(uc) }
+
+        if toBeAdded.count > 0 {
+            userCertificates = toBeAdded + userCertificates
+        }
+    }
+
+    func updateCertificate(with transferCode: String, qrCode: String?) {
+        userCertificates = userCertificates.map { uc in
+            if let t = uc.transferCode?.transferCode, t == transferCode {
+                return UserCertificate(qrCode: qrCode, transferCode: uc.transferCode)
+            }
+
+            return uc
+        }
+    }
+
+    func removeAll() {
+        userCertificates = []
+    }
+
+    // MARK: - Migration
+
+    @KeychainPersisted(key: "wallet.user.certificates", defaultValue: [])
+    var keyChainUserCertificates: [UserCertificate]
 }

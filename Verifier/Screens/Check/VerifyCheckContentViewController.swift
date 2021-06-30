@@ -19,6 +19,8 @@ class VerifyCheckContentViewController: ViewController {
     private let loadingView = VerifyLoadingView()
     private let statusView = VerifyStatusView()
     private let infoView = VerifyInfoView()
+    private let infoErrorView1 = VerifyInfoView()
+    private let infoErrorView2 = VerifyInfoView()
     private let errorLabel = Label(.smallErrorLight, textAlignment: .right)
 
     private let holderView = VerifyNameBirthdayView()
@@ -45,6 +47,7 @@ class VerifyCheckContentViewController: ViewController {
         setupView()
         setupButton()
         setupStateViews()
+        setupInfoBoxes()
 
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction(_:)))
         view.addGestureRecognizer(panGestureRecognizer)
@@ -120,10 +123,14 @@ class VerifyCheckContentViewController: ViewController {
         }
 
         stackScrollView.addArrangedView(loadingView)
+        stackScrollView.addArrangedView(infoErrorView1)
+        stackScrollView.addArrangedView(infoErrorView2)
         stackScrollView.addArrangedView(statusView)
         stackScrollView.addArrangedView(infoView)
         stackScrollView.addArrangedView(errorLabel)
 
+        infoErrorView1.ub_setHidden(true)
+        infoErrorView2.ub_setHidden(true)
         statusView.ub_setHidden(true)
         infoView.ub_setHidden(true)
         errorLabel.ub_setHidden(true)
@@ -141,6 +148,12 @@ class VerifyCheckContentViewController: ViewController {
             guard let strongSelf = self else { return }
             strongSelf.retryButtonCallback?()
         }
+    }
+
+    private func setupInfoBoxes() {
+        infoErrorView1.set(text: UBLocalized.verifier_verify_success_info_for_certificate_valid, backgroundColor: .cc_greyish, icon: UIImage(named: "ic-privacy-gray"), showReloadButton: false)
+
+        infoErrorView2.set(text: UBLocalized.verifier_verify_success_info_for_blacklist, backgroundColor: .cc_greyish, icon: UIImage(named: "ic-check-gray"), showReloadButton: false)
     }
 
     private func setupButton() {
@@ -175,16 +188,17 @@ class VerifyCheckContentViewController: ViewController {
         case .loading:
             loadingView.rotate()
         case .success:
-            statusView.set(text: UBLocalized.verifier_verify_success_title, backgroundColor: .cc_greenish, icon: UIImage(named: "ic-check"))
+            statusView.set(text: UBLocalized.verifier_verify_success_title.bold(), backgroundColor: .cc_greenish, icon: UIImage(named: "ic-check"))
             infoView.set(text: UBLocalized.verifier_verify_success_info, backgroundColor: .cc_blueish, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_blue), showReloadButton: false)
         case let .invalid(errors, errorCodes, _):
             let color: UIColor = .cc_redish
-            statusView.set(text: UBLocalized.verifier_verify_error_title, backgroundColor: color, icon: UIImage(named: "ic-info-alert-red"))
 
-            // !: count is checked
-            let text = errors.count == 1 ? errors.first!.displayName() : errors.map { "• " + $0.displayName() }.joined(separator: "\n")
+            let (signatureError, revocationError, nationalError) = state?.getVerifierErrorState() ?? (nil, nil, nil)
 
-            infoView.set(text: text, backgroundColor: color, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_red), showReloadButton: false)
+            // errors can never be empty in invalid state, therefore one optional will always safely unwrap
+            let text: NSAttributedString = signatureError?.displayName() ?? revocationError?.displayName() ?? nationalError?.displayName() ?? errors.first?.displayName() ?? NSAttributedString(string: "")
+
+            statusView.set(text: text, backgroundColor: color, icon: UIImage(named: "ic-info-alert-red"))
 
             let codes = errorCodes.joined(separator: ", ")
             if codes.count > 0 {
@@ -193,8 +207,10 @@ class VerifyCheckContentViewController: ViewController {
 
         case let .retry(error, errorCodes):
             let color: UIColor = .cc_orangish
-            statusView.set(text: UBLocalized.verifier_verify_error_list_title, backgroundColor: color, icon: UIImage(named: "ic-error-orange"))
-            infoView.set(text: error.displayName(), backgroundColor: color, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange), showReloadButton: true)
+            let imageName = error == .noInternetConnection ? "ic-nocon" : "ic-error-orange"
+
+            statusView.set(text: NSAttributedString(string: error.displayTitle()), backgroundColor: color, icon: UIImage(named: imageName))
+            infoView.set(text: error.displayText(), backgroundColor: color, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange), showReloadButton: true)
 
             let codes = errorCodes.joined(separator: ", ")
             if codes.count > 0 {
@@ -211,44 +227,45 @@ class VerifyCheckContentViewController: ViewController {
             case .loading:
                 self.loadingView.rotate()
 
-                self.loadingView.alpha = 1.0
-                self.statusView.alpha = 0.0
-                self.infoView.alpha = 0.0
                 self.loadingView.ub_setHidden(false)
                 self.statusView.ub_setHidden(true)
                 self.infoView.ub_setHidden(true)
                 self.errorLabel.ub_setHidden(true)
+                self.infoErrorView1.ub_setHidden(true)
+                self.infoErrorView2.ub_setHidden(true)
             case .success:
                 self.loadingView.stopRotation()
 
-                self.loadingView.alpha = 0.0
-                self.statusView.alpha = 1.0
-                self.infoView.alpha = 1.0
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
                 self.infoView.ub_setHidden(false)
                 self.errorLabel.ub_setHidden(true)
+                self.infoErrorView1.ub_setHidden(true)
+                self.infoErrorView2.ub_setHidden(true)
 
             case .invalid:
+
+                let (signatureError, revocationError, _) = self.state?.getVerifierErrorState() ?? (nil, nil, nil)
+
+                let showInfo1 = signatureError == nil
+                let showInfo2 = showInfo1 && revocationError == nil
                 self.loadingView.stopRotation()
 
-                self.loadingView.alpha = 0.0
-                self.statusView.alpha = 1.0
-                self.infoView.alpha = 1.0
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
-                self.infoView.ub_setHidden(false)
+                self.infoView.ub_setHidden(true)
+                self.infoErrorView1.ub_setHidden(!showInfo1)
+                self.infoErrorView2.ub_setHidden(!showInfo2)
                 self.errorLabel.ub_setHidden(false)
 
             case .retry:
                 self.loadingView.stopRotation()
 
-                self.loadingView.alpha = 0.0
-                self.statusView.alpha = 1.0
-                self.infoView.alpha = 1.0
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
                 self.infoView.ub_setHidden(false)
+                self.infoErrorView1.ub_setHidden(true)
+                self.infoErrorView2.ub_setHidden(true)
                 self.errorLabel.ub_setHidden(false)
             default:
                 break

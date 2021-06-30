@@ -44,7 +44,15 @@ class CertificateAddDetailViewController: ViewController {
     private let addOkButton = Button(title: UBLocalized.wallet_add_certificate_button)
     private let scanAgainButton = SimpleTextButton(title: UBLocalized.wallet_scan_again, color: .cc_blue)
 
+    let showScanAgainButton: Bool
+
     // MARK: - View
+
+    init(showScanAgainButton: Bool = true) {
+        self.showScanAgainButton = showScanAgainButton
+        super.init()
+        title = UBLocalized.wallet_add_certificate.uppercased()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,26 +92,38 @@ class CertificateAddDetailViewController: ViewController {
         }
 
         bottomView.addSubview(addOkButton)
-        bottomView.addSubview(scanAgainButton)
 
         addOkButton.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(Padding.medium + Padding.large)
             make.centerX.equalToSuperview()
             make.left.greaterThanOrEqualToSuperview().offset(Padding.large)
             make.right.lessThanOrEqualToSuperview().offset(-Padding.large)
+
+            if !self.showScanAgainButton {
+                let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0.0
+                if bottomPadding > 0 {
+                    make.bottom.equalTo(self.view.snp.bottomMargin).inset(Padding.medium)
+                } else {
+                    make.bottom.equalToSuperview().inset(Padding.large)
+                }
+            }
         }
 
-        scanAgainButton.snp.makeConstraints { make in
-            make.top.equalTo(addOkButton.snp.bottom).offset(Padding.medium + Padding.large)
-            make.centerX.equalToSuperview()
-            make.left.greaterThanOrEqualToSuperview().offset(Padding.large)
-            make.right.lessThanOrEqualToSuperview().offset(-Padding.large)
+        if showScanAgainButton {
+            bottomView.addSubview(scanAgainButton)
 
-            let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0.0
-            if bottomPadding > 0 {
-                make.bottom.equalTo(self.view.snp.bottomMargin).inset(Padding.medium)
-            } else {
-                make.bottom.equalToSuperview().inset(Padding.large)
+            scanAgainButton.snp.makeConstraints { make in
+                make.top.equalTo(addOkButton.snp.bottom).offset(Padding.medium + Padding.large)
+                make.centerX.equalToSuperview()
+                make.left.greaterThanOrEqualToSuperview().offset(Padding.large)
+                make.right.lessThanOrEqualToSuperview().offset(-Padding.large)
+
+                let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0.0
+                if bottomPadding > 0 {
+                    make.bottom.equalTo(self.view.snp.bottomMargin).inset(Padding.medium)
+                } else {
+                    make.bottom.equalToSuperview().inset(Padding.large)
+                }
             }
         }
     }

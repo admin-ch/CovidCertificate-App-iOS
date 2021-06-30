@@ -8,6 +8,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
 import UIKit
 
 struct LocalizedValue<T: Codable>: Codable {
@@ -43,17 +44,19 @@ struct InfoBox: UBCodable, Equatable {
     let isDismissible: Bool?
 }
 
-class ConfigResponseBody: UBCodable {
+class ConfigResponseBody: UBCodable, JWTExtension {
     let forceUpdate: Bool
     let infoBox: LocalizedValue<InfoBox>?
     let questions: LocalizedValue<FAQEntriesContainer>?
     let works: LocalizedValue<FAQEntriesContainer>
+    let transferQuestions: LocalizedValue<FAQEntriesContainer>?
+    let transferWorks: LocalizedValue<FAQEntriesContainer>?
 
     class FAQEntriesContainer: UBCodable {
         let faqTitle: String
-        let faqSubTitle: String
-        let faqIconIos: String
-
+        let faqSubTitle: String?
+        let faqIconIos: String?
+        let faqIntroSections: [FAQIntroEntry]?
         let faqEntries: [FAQEntry]
     }
 
@@ -64,6 +67,11 @@ class ConfigResponseBody: UBCodable {
         let linkTitle: String?
         let linkUrl: URL?
     }
+
+    class FAQIntroEntry: UBCodable {
+        let text: String
+        let iconIos: String?
+    }
 }
 
 extension ConfigResponseBody {
@@ -71,8 +79,7 @@ extension ConfigResponseBody {
         var models = [StaticContentViewModel]()
         if let imageString1 = questions?.value?.faqIconIos,
            let title1 = questions?.value?.faqTitle,
-           let subtitle1 = questions?.value?.faqSubTitle
-        {
+           let subtitle1 = questions?.value?.faqSubTitle {
             models.append(StaticContentViewModel(heading: nil,
                                                  foregroundImage: UIImage(named: imageString1),
                                                  title: title1,
@@ -82,8 +89,7 @@ extension ConfigResponseBody {
 
         if let imageString2 = works.value?.faqIconIos,
            let title2 = works.value?.faqTitle,
-           let subtitle2 = works.value?.faqSubTitle
-        {
+           let subtitle2 = works.value?.faqSubTitle {
             models.append(StaticContentViewModel(heading: nil,
                                                  foregroundImage: UIImage(named: imageString2),
                                                  title: title2,
@@ -92,5 +98,25 @@ extension ConfigResponseBody {
         }
 
         return models
+    }
+
+    var transferQuestionsViewModels: [StaticContentViewModel] {
+        return [
+            StaticContentViewModel(foregroundImage: UIImage(named: transferQuestions?.value?.faqIconIos ?? ""),
+                                   title: transferQuestions?.value?.faqTitle ?? "",
+                                   alignment: .left,
+                                   textGroups: [(nil, transferQuestions?.value?.faqSubTitle ?? "")],
+                                   expandableTextGroups: transferQuestions?.value?.faqEntries.compactMap { ($0.title, $0.text, $0.linkTitle, $0.linkUrl) } ?? []),
+        ]
+    }
+
+    var transferWorksViewModels: [StaticContentViewModel] {
+        return [
+            StaticContentViewModel(foregroundImage: UIImage(named: transferWorks?.value?.faqIconIos ?? ""),
+                                   title: transferWorks?.value?.faqTitle ?? "",
+                                   alignment: .left,
+                                   textGroups: transferWorks?.value?.faqIntroSections?.map { (UIImage(named: $0.iconIos ?? ""), $0.text) } ?? [],
+                                   expandableTextGroups: transferWorks?.value?.faqEntries.compactMap { ($0.title, $0.text, $0.linkTitle, $0.linkUrl) } ?? []),
+        ]
     }
 }

@@ -60,7 +60,7 @@
 "verifier_verify_success_title" = "Vérification réussie";
 
 /*Info Text bei erfolgreicher Prüfung*/
-"verifier_verify_success_info" = "Valable uniquement avec \nune pièce d’identité";
+"verifier_verify_success_info" = "Valable uniquement avec \nune pièce d'identité";
 
 /*Prüfung loading text*/
 "verifier_verify_loading_text" = "Vérification en cours";
@@ -72,10 +72,10 @@
 "verifier_verify_error_info_for_national_rules" = "Ne remplit pas les critères de validité de la Suisse";
 
 /*Fehler Infotext bei Prüfung (Zertifikat Fehler)*/
-"verifier_verify_error_info_for_certificate_invalid" = "Le certificat n'a pas de signature valide";
+"verifier_verify_error_info_for_certificate_invalid" = "Le certificat COVID n'a pas de signature valide";
 
 /*Fehler Infotext bei Prüfung (Blacklist)*/
-"verifier_verify_error_info_for_blacklist" = "Le certificat a été révoqué";
+"verifier_verify_error_info_for_blacklist" = "Le certificat COVID a été révoqué";
 
 /*Fehler bei der geladen Liste*/
 "verifier_verify_error_list_title" = "La vérification a échoué";
@@ -123,7 +123,7 @@
 "wallet_onboarding_privacy_title" = "Vos données restent \ndans l'application";
 
 /*Text im Onboardingscreen "Datenschutz"*/
-"wallet_onboarding_privacy_text" = "Les certifications sont uniquement stockés localement sur votre téléphone. Les données ne sont pas enregistrées dans un système central.";
+"wallet_onboarding_privacy_text" = "Les certificats sont uniquement stockés localement sur votre téléphone. Les données ne sont pas enregistrées dans un système central.";
 
 /*Titel im Onboardingscreen "Vorteile, Vorweisen"*/
 "wallet_onboarding_show_title" = "Présenter facilement vos certificats";
@@ -154,7 +154,7 @@
 "wallet_scanner_howitworks_text1" = "Pour ajouter un certificat COVID dans l'application, vous avez besoin de l'original en papier ou en PDF.";
 
 /*Textblock 2 im "So funktionierts" Screen beim Scannen*/
-"wallet_scanner_howitworks_text2" = "Cliquez sur \"Ajouter\" dans l'application pour ajouter un nouveau certification dans l'application.";
+"wallet_scanner_howitworks_text2" = "Cliquez sur \"Ajouter\" dans l'application pour ajouter un nouveau certificat dans l'application.";
 
 /*Textblock 3 im "So funktionierts" Screen beim Scannen*/
 "wallet_scanner_howitworks_text3" = "Maintenez l'appareil photo du téléphone sur le code QR du certificat original pour le scanner.";
@@ -211,13 +211,13 @@
 "wallet_faq_questions_answer_1" = "Vous pouvez obtenir le certificat COVID si vous êtes entièrement vacciné contre le COVID-19, si vous avez guéri de la maladie ou si vous présentez un résultat de test négatif. En général, le certificat est délivré sur demande, par les professionnels de la santé présents sur le site.";
 
 /*Antwort 2 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_2" = "Vous pouvez présenter votre certificat COVID sur papier ou au moyen de l'app de stockage créée à cet effet. Vous êtes libre de choisir l'une ou l'autre solution.\n\nDans tous les cas, vous devez aussi présenter un document d'identité (carte d'identité ou passeport).";
+"wallet_faq_questions_answer_2" = "Vous pouvez présenter votre certificat COVID sur papier ou au moyen de l'app de stockage créée à cet effet. Vous êtes libre de choisir l'une ou l'autre solution.\n\nDans tous les cas, vous devez aussi présenter une pièce d'identité sur demande.";
 
 /*Antwort 3 im FAQ-Screen der Wallet App*/
 "wallet_faq_questions_answer_3" = "Vos données ne sont pas stockées dans un système central, mais elles sont sauvegardées localement, sur votre appareil mobile ou dans le code QR figurant sur le certificat papier.";
 
 /*Antwort 4 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_4" = "Le code QR figurant sur le certificat COVID contient une signature électronique. Celle-ci est une caractéristique de sécurité importante qui rend le certificat infalsifiable. En outre, le certificat COVID n'est valable que sur présentation d'un document d'identité (carte d'identité ou passeport).";
+"wallet_faq_questions_answer_4" = "Le code QR figurant sur le certificat COVID contient une signature électronique. Celle-ci est une caractéristique de sécurité importante qui rend le certificat infalsifiable. En outre, le certificat COVID n'est valable que sur présentation d'une pièce d'identité.";
 
 /*Antwort 5 im FAQ-Screen der Wallet App*/
 "wallet_faq_questions_answer_5" = "Votre certificat COVID n'est pas stocké dans un système central. Vous en êtes le seul détenteur. Veuillez donc conserver soigneusement le document papier. En cas de perte, vous devrez demander au service émetteur de vous délivrer un nouveau certificat.";
@@ -226,7 +226,7 @@
 "wallet_faq_works_answer_1" = "Pour ajouter un certificat COVID à l'app, vous avez besoin du certificat original qui vous a été délivré sur papier ou par voie électronique, au format PDF. Au moyen de l'app, vous pouvez scanner le code QR figurant sur ce document. Ensuite, le certificat COVID apparaît directement dans l'app.";
 
 /*Antwort 7 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_answer_2" = "Oui. Vous pouvez par exemple stocker dans l'app les certificats COVID de tous les membres de votre famille. À noter également dans ce cas qu'un certificat COVID n'est valable que sur présentation d'un document d'identité (carte d'identité ou passeport).";
+"wallet_faq_works_answer_2" = "Oui. Vous pouvez par exemple stocker dans l'app les certificats COVID de tous les membres de votre famille. À noter également dans ce cas qu'un certificat COVID n'est valable que si son détenteur présente une pièce d'identité.";
 
 /*Antwort 8 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_3" = "L'app contient la date d'expiration de votre certificat COVID en Suisse. En pressant le bouton prévu à cet effet, vous pouvez en outre vérifier dans la vue détaillée si votre certificat COVID est encore valable.";
@@ -238,7 +238,7 @@
 "wallet_faq_works_answer_5" = "Le code QR contient toutes les informations qui apparaissent en clair sur le certificat papier. En outre, il renferme une signature électronique qui permet de vérifier l'authenticité du certificat COVID. Par conséquent, le certificat COVID est infalsifiable.";
 
 /*Antwort 11 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_answer_6" = "Vous pouvez récupérer facilement votre certificat COVID. À cet effet, il vous suffit de scanner de nouveau le code QR figurant sur le certificat original, établi sur papier ou au format PDF.";
+"wallet_faq_works_answer_6" = "Vous pouvez réenregistrer facilement votre certificat COVID sur votre appareil mobile. Il vous suffit de télécharger de nouveau l'app, puis de scanner le code QR figurant sur le certificat original, établi sur papier ou au format PDF.";
 
 /*Titel 2 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_title" = "Comment l'app \nfonctionne-t-elle?";
@@ -316,10 +316,10 @@
 "unknown_error" = "Une erreur inconnue est survenue.";
 
 /*Verifier: Die Gültigkeit des Zertifikat ist abgelaufen*/
-"verifier_verifiy_error_expired" = "Ne remplit pas les critères de validité de la Suisse: La durée de validité du certificat a expiré.";
+"verifier_verifiy_error_expired" = "Ne remplit pas les critères de validité de la Suisse.\n\nLa durée de validité du certificat a expiré.";
 
 /*Verifier: Zertifikat ist erst gültig ab {DATE}*/
-"verifier_verifiy_error_notyetvalid" = "Ne remplit pas les critères de validité de la Suisse: Le certificat n'est pas encore valable.";
+"verifier_verifiy_error_notyetvalid" = "Ne remplit pas les critères de validité de la Suisse.\n\nLe certificat n'est pas encore valable.";
 
 /*Verifier: Ein Netzwerkfehler ist aufgetreten.*/
 "verifier_retry_network_error" = "Une erreur de réseau est survenue.";
@@ -372,15 +372,12 @@
 /*Button Schliessen*/
 "close_button" = "Fermer";
 "wallet_certificate_impfdosis_title" = "Dose";
-"target_disease_name" = "Covid-19";
+"target_disease_name" = "COVID-19";
 "wallet_certificate_target_disease_title" = "Maladie ou agent pathogène";
-"wallet_certificate_impfstoff_title" = "Type de vaccin";
 "wallet_certificate_impfstoff_product_name_title" = "Produit";
 "wallet_certificate_impfstoff_holder" = "Fabricant";
 "wallet_certificate_vaccination_date_title" = "Date de vaccination";
 "wallet_certificate_vaccination_country_title" = "Pays de vaccination";
-
-/*Prüfen mit PDF Translation*/
 "wallet_certificate_vaccination_issuer_title" = "Délivré par";
 "covid_certificate_recovery_title" = "Guérison";
 "wallet_certificate_recovery_first_positiv_result" = "Date du premier résultat positif";
@@ -389,8 +386,8 @@
 "wallet_certificate_test_land" = "Pays de test";
 "covid_certificate_test_title" = "Test";
 "wallet_certificate_test_result_title" = "Résultat";
-"wallet_certificate_test_result_negativ" = "NÉGATIF";
-"wallet_certificate_test_result_positiv" = "POSITIF";
+"wallet_certificate_test_result_negativ" = "Non détecté (Négatif)";
+"wallet_certificate_test_result_positiv" = "Positif";
 "wallet_certificate_test_type" = "Type";
 "wallet_certificate_test_name" = "Nom";
 "wallet_certificate_test_holder" = "Fabricant";
@@ -440,7 +437,7 @@
 "verifier_faq_works_question_1" = "Comment contrôler un certificat COVID?";
 
 /*Antwort 1 im FAQ der Verifier App*/
-"verifier_faq_works_answer_1" = "Pour contrôler un certificat COVID, il vous suffit de scanner le code QR figurant sur le document papier ou dans l'app.";
+"verifier_faq_works_answer_1" = "Pour contrôler un certificat COVID, il vous suffit de scanner le code QR figurant sur le document papier ou dans l'app «COVID Certificate» au moyen de l'app de contrôle prévue à cet effet.";
 
 /*Frage 2 im FAQ der Verifier App*/
 "verifier_faq_works_question_2" = "Sur quoi porte le contrôle au juste?";
@@ -449,10 +446,10 @@
 "verifier_faq_works_answer_2" = "Le scan du code QR permet de répondre aux trois questions suivantes:\n– Le certificat contient-il une signature électronique valable?\n– Le certificat a-t-il été révoqué?\n– Le certificat remplit-il les critères de validité fixés par la Suisse?\n\nSi vous pouvez répondre oui à la 1re et à la 3e question et non à la 2e, la validité du certificat COVID est attestée.";
 
 /*Frage 3 im FAQ der Verifier App*/
-"verifier_faq_works_question_3" = "Quels documents d'identité sont valables? Pourquoi faut-il vérifier les données personnelles?";
+"verifier_faq_works_question_3" = "Quelles pièces d'identité sont valables? Pourquoi faut-il vérifier les données personnelles?";
 
 /*Antwort 3 im FAQ der Verifier App*/
-"verifier_faq_works_answer_3" = "Les documents d'identité réputés valables sont le passeport ou la carte d'identité. Le certificat COVID est certes infalsifiable, mais le contrôle des données personnelles est le seul moyen de vérifier que le certificat a été établi au nom de la personne qui le présente.";
+"verifier_faq_works_answer_3" = "Outre le passeport et la carte d'identité, les pièces d'identité réputées valables sont celles qui attestent l'identité de la personne concernée au moyen d'une photo (par ex. permis de conduire). Le certificat COVID est certes infalsifiable, mais le contrôle des données personnelles est le seul moyen de vérifier que le certificat a été établi au nom de la personne qui le présente.";
 
 /*Frage 4 im FAQ der Verifier App*/
 "verifier_faq_works_question_4" = "Peut-on aussi contrôler des certificats étrangers?";
@@ -479,9 +476,282 @@
 "wallet_onboarding_external_privacy_button" = "Déclaration de confidentialité & condition d'utilisation";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "La présente attestation ne constitue pas un document de voyage.\n\nLes connaissances scientifiques sur la vaccination contre le COVID-19, les tests et le rétablissement après une infection évoluent en permanence, y compris en ce qui concerne les nouveaux variants préoccupants du virus.\n\nAvant de partir en voyage, veuillez vérifier les mesures sanitaires applicables à votre destination et les restrictions associées.";
+"wallet_certificate_detail_note" = "Le présent certificat n'est pas un document de voyage. \n\nLes preuves scientifiques relatives à la vaccination, aux tests et au rétablissement liés à la COVID-19 continuent d'évoluer, notamment en ce qui concerne de nouveaux variants préoccupants du virus. \n\nAvant de voyager, veuillez vérifier les mesures de santé publique applicables et les restrictions connexes applicables sur le lieu de destination.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/fr/home/documentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/fr/home/documentation/covid-certificate-check-app.html";
 
 /*Verifier: Titel in der App (z.B. Impressum)*/
 "verifier_app_title" = "COVID Certificate Check";
+"wallet_faq_questions_question_1_1" = "Comment puis-je obtenir un certificat COVID après avoir guéri?";
+"wallet_faq_questions_answer_1_1" = "Les personnes qui ont guéri du COVID-19 peuvent demander un certificat COVID en remplissant le formulaire en ligne disponible sur le site Internet de leur canton de domicile. Elles recevront ensuite le certificat COVID par la poste.";
+
+/*Wallet: Homescreen Was wollen sie machen?*/
+"wallet_homescreen_what_to_do" = "Passer à l’étape suivante";
+
+/*Wallet: Homescreen Titel Zertifikat hinzufügen*/
+"wallet_homescreen_add_title" = "Ajouter le certificat";
+
+/*Wallet: Homescreen Zertifikat Description Text*/
+"wallet_homescreen_add_certificate_description" = "Vous disposez d’un certificat COVID sur papier ou au format PDF et souhaitez l’ajouter à l’application.";
+
+/*Wallet: Homescreen Transfer-Code erstellen*/
+"wallet_homescreen_add_transfer_code" = "Créer un code transfert";
+
+/*Wallet: Transfer Codes Titel*/
+"wallet_transfer_code_onboarding_title" = "Codes transfert";
+
+/*Wallet: Transfer Code Text*/
+"wallet_transfer_code_onboarding_text" = "Vous pouvez utiliser votre code transfert, p. ex. lors d’un test, pour recevoir le certificat COVID directement dans votre application.";
+
+/*Wallet: Transfer Code Onboarding Button*/
+"wallet_transfer_code_onboarding_button" = "Créer un code";
+
+/*Wallet: Transfer Code Onboarding So funktioniert's*/
+"wallet_transfer_code_onboarding_howto" = "Comment ça fonctionne";
+
+/*Wallet: Transfer Code: FAQ Titel*/
+"wallet_transfer_code_faq_questions_title" = "Comment obtenir le certificat COVID directement dans l’application ?";
+
+/*Wallet: Transfer Code FAQ Text*/
+"wallet_transfer_code_faq_questions_subtitle" = "Les codes de transfert permettent de transmettre les certificats COVID rapidement et en toute sécurité. De cette façon, vous recevez votre certificat (p. ex. après un test) directement dans l’application.";
+
+/*Wallet: Transfer Code FAQ Frage 1*/
+"wallet_transfer_code_faq_questions_question_1" = "Qui propose la transmission du certificat COVID par code de transfert ?";
+
+/*Wallet: Transfer Code FAQ Frage 2*/
+"wallet_transfer_code_faq_questions_question_2" = "Les codes de transfert peuvent-ils aussi être utilisés pour la transmission de certificats de vaccination ?";
+
+/*Wallet: Transfer Code FAQ Frage 3*/
+"wallet_transfer_code_faq_questions_question_3" = "Comment fonctionne la transmission du certificat par code de transfert ?";
+
+/*Wallet: Transfer Code FAQ Frage 4*/
+"wallet_transfer_code_faq_questions_question_4" = "Puis-je utiliser plusieurs fois le même code de transfert ?";
+
+/*Wallet: Transfer Code FAQ Antwort 1*/
+"wallet_transfer_code_faq_questions_answer_1" = "Si vous effectuez un test COVID (test PCR ou test rapide antigénique), le code de transfert peut être utilisé pour transmettre rapidement le certificat COVID.\n\nRenseignez-vous auprès de votre centre de test, de votre pharmacie ou de votre médecin pour savoir si cette option est proposée.";
+
+/*Wallet: Transfer Code FAQ Antwort 2*/
+/*Fuzzy*/
+"wallet_transfer_code_faq_questions_answer_2" = "Actuellement, la transmission du certificat par code de transfert est réservée aux tests COVID. Pour savoir comment obtenir un certificat COVID après une vaccination, cliquez ici :";
+
+/*Wallet: Transfer Code FAQ Antwort 3*/
+"wallet_transfer_code_faq_questions_answer_3" = "Si le centre de test propose de transmettre le certificat par code de transfert, un code vous sera demandé au moment de l’inscription ou du test.\n\nVous pouvez créer le code de transfert dans l’application « COVID Certificate » : appuyez sur « Ajouter » sur l’écran d’accueil ou sur le symbole « Plus » en bas à droite, puis sur « Créer un code de transfert ».\n\nL’application vous montre un code à 9 caractères, que vous pouvez soit inscrire dans un formulaire lors de l’inscription, soit transmettre directement lors du test.";
+
+/*Wallet: Transfer Code FAQ Antwort 4*/
+"wallet_transfer_code_faq_questions_answer_4" = "Non, un code de transfert ne peut être utilisé qu’une seule fois. Si vous souhaitez obtenir plusieurs certificats (p. ex. pour vos proches), veuillez créer un nouveau code pour chaque certificat.";
+"wallet_transfer_code_faq_works_title" = "Comment fonctionne le transfert ?";
+
+/*Wallet: Tranfser Code FAQ 2 Frage 1*/
+"wallet_transfer_code_faq_works_question_1" = "Comment mes données sont-elles sécurisées lors du transfert ?";
+
+/*Wallet: Tranfser Code FAQ 2 Frage 2*/
+"wallet_transfer_code_faq_works_question_2" = "Que faire si mon certificat n’arrive pas dans l’application ?";
+
+/*Wallet: Tranfser Code FAQ 2 Frage 3*/
+"wallet_transfer_code_faq_works_question_3" = "Que se passe-t-il en cas de test positif ?";
+
+/*Wallet: Transfer Code FAQ 2 Antwort 1*/
+"wallet_transfer_code_faq_works_answer_1" = "Pour le transfert, votre certificat COVID est fourni sous forme cryptée. Le code de transfert garantit que seule votre application peut recevoir le certificat. Les données sont supprimées du serveur immédiatement après le transfert.";
+
+/*Wallet: Transfer Code FAQ 2 Antwort 2*/
+"wallet_transfer_code_faq_works_answer_2" = "Dès que le certificat a été généré par le laboratoire ou le centre de test, il est disponible pour le transfert. Vérifiez que votre smartphone est connecté à Internet pour recevoir des certificats.\n\nSi malgré tout vous ne recevez pas votre certificat, adressez-vous au lieu où vous avez effectué le test (centre, pharmacie, cabinet médical).";
+
+/*Wallet: Transfer Code FAQ 2 Antwort 3*/
+"wallet_transfer_code_faq_works_answer_3" = "En cas de test rapide antigénique positif, vous ne recevrez pas de certificat COVID du laboratoire.\n\nEn cas de test PCR positif, vous recevrez un certificat COVID pour personnes guéries, valable à partir du 11e jour suivant le test.";
+
+/*Wallet: Transfer Code erstellt Titel*/
+"wallet_transfer_code_code_created_title" = "Votre code transfert a été créé.";
+
+/*Wallet: Transfer-Code*/
+"wallet_transfer_code_title" = "Codes transfert";
+
+/*Wallet: Transfer Code Erstelltm am {DATE}*/
+"wallet_transfer_code_createdat" = "Créé le {DATE}";
+
+/*Wallet: Transfer Code Nächste Schritte*/
+"wallet_transfer_code_next_steps" = "Étapes suivantes";
+
+/*Wallet: Transfer Code Nächste Schritte 1*/
+"wallet_transfer_code_next_steps1" = "Remettez votre code à la personne prélevant l’échantillon à la pharmacie, au centre de test ou au cabinet médical.";
+
+/*Wallet: Transfer Code Nächste Schritte 2*/
+"wallet_transfer_code_next_steps2" = "Si vous souhaitez recevoir plusieurs certificats, p. ex. pour d’autres membres de votre famille, créez un nouveau code pour chaque certificat.";
+
+/*Wallet: Transfer Code Fertig Button*/
+"wallet_transfer_code_done_button" = "Fin";
+
+/*Wallet: Transfer Code Card Titel*/
+"wallet_transfer_code_card_title" = "Transfert";
+
+/*Wallet: Transfer Code Staus Warten auf Transfer*/
+"wallet_transfer_code_state_waiting" = "Attendre le transfert";
+
+/*Wallet: Transfer Code Ablauf in 1 Tag*/
+"wallet_transfer_code_expire_singular" = "Valable encore un jour";
+
+/*Wallet: Transfer Code: Läuft ab in {DAYS} Tagen*/
+"wallet_transfer_code_expire_plural" = "Valable encore {DAYS} jours";
+
+/*Wallet: Transfer Code Status Abgelaufen*/
+"wallet_transfer_code_state_expired" = "Échec du transfert";
+
+/*Wallet: Transfer Code Alter Code Titel*/
+"wallet_transfer_code_old_code" = "Code expiré";
+
+/*Wallet: Transfer Code State Zuletzt aktualisiert {DATE}*/
+"wallet_transfer_code_state_updated" = "Dernière mise à jour le \n{DATE}";
+
+/*Wallet: Transfer Code Kein Zertifikat mehr*/
+"wallet_transfer_code_state_no_certificate" = "Ce code transfert ne permet plus de recevoir de certificat.";
+
+/*Wallet: Fehler Format des Zertifikat ungültig*/
+"wallet_error_invalid_format" = "Format de certificat \nnon valide";
+
+/*Wallet: Fehler Format des Zertifikat ungültig Fett*/
+"wallet_error_invalid_format_bold" = "non valide";
+
+/*Verifier: Error Ungültiges Format*/
+"verifier_error_invalid_format" = "Le format du certificat COVID n’est pas valide.";
+
+/*Homescreen Zertifikat: Offline Modus Text*/
+"wallet_homescreen_offline" = "Mode hors ligne";
+
+/*Wallet: Detail Offline Text*/
+"wallet_offline_description" = "Pour pouvoir afficher la validité actuelle, l’application requiert une connexion Internet régulière.";
+
+/*Wallet: Retry Titel Offline*/
+"wallet_detail_offline_retry_title" = "Vérification impossible en mode hors ligne";
+
+/*Wallet: Detail Netzwerkfehler Titel*/
+"wallet_detail_network_error_title" = "Vérification impossible pour le moment";
+
+/*Wallet: Detail Netzwerkfehler Text*/
+"wallet_detail_network_error_text" = "Veuillez réessayer plus tard.";
+
+/*Verifier: Titel Fehler wenn kein Internet*/
+"verifier_offline_error_title" = "Vérification impossible en mode hors ligne";
+
+/*Verifier: Fehlertext wenn Offline bei Verifikation*/
+"verifier_offline_error_text" = "Une connexion Internet est requise pour actualiser les listes de vérification.";
+
+/*Verifier: Fehler Titel bei Netzwerkfehler*/
+"verifier_network_error_title" = "La vérification a échoué";
+
+/*Verifier: Fehler Text bei Netzwerkfehler*/
+"verifier_network_error_text" = "Une erreur inattendue est survenue";
+
+/*Wallet: Text auf Zertifikat auf Homescreen bei Netzwerkfehler*/
+"wallet_homescreen_network_error" = "La validité n’a pas pu être vérifiée";
+
+/*Wallet: Transfer Code So Funktionierts Text 1*/
+"wallet_transfer_code_faq_works_intro_1" = "L’application vérifie régulièrement si un certificat COVID est disponible pour votre code de transfert.";
+
+/*Wallet: Transfer Code So Funktionierts Text 2*/
+"wallet_transfer_code_faq_works_intro_2" = "Dès que le certificat COVID est disponible, il apparaît dans l’application. Si vous avez activé les notifications, vous recevrez un message de l’application.";
+
+/*Wallet: Transfer Code So Funktionierts Text 1*/
+"wallet_transfer_code_faq_works_intro_3" = "Le code de transfert expire après 7 jours. Une fois ce délai passé, l’application attend tout autre transfert pendant 72 h. Ensuite, le code de transfert n’est plus valable.";
+
+/*Wallet: Titel im Custom-Popup Notification Permission*/
+"wallet_notification_permission_title" = "Autoriser les messages";
+
+/*Wallet: Text im Custom-Popup Notification Permission*/
+"wallet_notification_permission_text" = "L’application peut vous informer de l’émission du certificat. Pour cela, autorisez votre application à vous envoyer des messages.";
+
+/*Wallet: Button im Custom-Popup Notification Permission*/
+"wallet_notification_permission_button" = "Suite";
+
+/*Externe URL im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_external_link" = "https://ofsp-coronavirus.ch/certificat/comment-obtenir-le-certificat-covid-et-comment-men-servir/";
+
+/*Label der externen URL im "So funktionierts" Screen beim Scannen*/
+"wallet_scanner_howitworks_external_link_title" = "Informations supplémentaires";
+
+/*Buttontitel im Screen, wo ein Code erstellt werden kann*/
+"wallet_transfer_code_create_code_button" = "Créer un code";
+
+/*Wallet: Transfer Code Ablauf in 1 Tag (fetter Teil)*/
+"wallet_transfer_code_expire_singular_bold" = "un jour";
+
+/*Wallet: Transfer Code: Läuft in {DAYS} Tagen ab (fetter Teil)*/
+"wallet_transfer_code_expire_plural_bold" = "{DAYS} jours";
+
+/*Infotext bei erfolgreicher Prüfung (Blacklist)*/
+"verifier_verify_success_info_for_blacklist" = "Ne pas révoquer";
+
+/*Infotext bei erfolgreicher Prüfung (Zertifikat)*/
+"verifier_verify_success_info_for_certificate_valid" = "Signature valide";
+
+/*Teil der Fehlermeldung bei noch nicht/nicht mehr gültigem Zertifikat, der Bold sein sollte (ref. verifier_verifiy_error_expired und _notyetvalid)*/
+"verifier_verify_error_validity_range_bold" = "Ne remplit pas les critères de validité de la Suisse.";
+
+/*Wallet: Transfer Code Fehler Titel*/
+"wallet_transfer_code_error_title" = "Le code transfert n’a pas pu être créé";
+
+/*Wallet: Erstellen Fehler Titel*/
+"wallet_transfer_code_no_internet_title" = "Pas de connexion Internet";
+
+/*Wallet: Erstellen anderer Fehler Titel*/
+"wallet_transfer_code_generate_error_title" = "Une erreur inattendue est survenue.";
+
+/*Wallet: Aktualisierung Transfer Code Fehler Titel*/
+"wallet_transfer_code_update_error_title" = "Pas de mise à jour possible pour l’instant";
+
+/*Wallet: Transfer Code Update Fehler Text*/
+"wallet_transfer_code_update_no_internet_error_text" = "Pour recevoir le transfert, l'application doit être en ligne.";
+
+/*Wallet Transfer Code Update Fehler Text*/
+"wallet_transfer_code_update_general_error_text" = "Une erreur inattendue est survenue. Veuillez réessayer plus tard.";
+
+/*Wallet: Transfer Code Fehlertext bei Generieren*/
+"wallet_transfer_code_generate_error_text" = "Veuillez réessayer plus tard.";
+
+/*Wallet: Transfer Code Fehlertext bei Generieren ohne Internet*/
+"wallet_transfer_code_generate_no_internet_error_text" = "Pour créer un code transfert, l’application doit être en ligne.";
+
+/*Wallet: Accessibility Name für Refresh Button*/
+"accessibility_refresh_button" = "Mettre à jour";
+
+/*Fuzzy*/
+"wallet_transfer_delete_confirm_text" = "Voulez-vous vraiment supprimer le transfer ?";
+"wallet_notification_transfer_title" = "Transfert réussi";
+"wallet_notification_transfer_text" = "Le certificat COVID est arrivé";
+"wallet_faq_questions_question_2_1" = "Quelle est la durée de validité du certificat COVID ?";
+"wallet_faq_questions_answer_2_1" = "La durée de validité varie selon que votre certificat COVID consigne une vaccination, une guérison ou un résultat de test négatif. Elle peut changer en fonction de l’évolution des connaissances scientifiques. Vous trouverez des informations sur la durée de validité actuelle du certificat COVID à l’adresse suivante :";
+"wallet_faq_questions_linktext_2_1" = "Informations supplémentaires";
+"wallet_faq_questions_linkurl_2_1" = "https://ofsp-coronavirus.ch/certificat/comment-obtenir-le-certificat-covid-et-comment-men-servir/#contents2";
+"wallet_faq_works_question_3_1" = "Puis-je également utiliser l’application hors ligne ?";
+"wallet_faq_works_answer_3_1" = "Oui, vous pouvez utiliser l’application sans connexion Internet. Les certificats peuvent aussi être présentés, scannés et vérifiés en mode hors ligne.\n\nToutefois, pour pouvoir afficher dans l’application «COVID Certificate» si votre certificat répond aux critères de validité de la Suisse et pour présenter sa durée de validité, l’application requiert une connexion Internet régulière.";
+"verifier_faq_works_question_2_1" = "Quels sont les critères de validité actuels de la Suisse ?";
+"verifier_faq_works_answer_2_1" = "Vous trouverez des informations sur la durée de validité actuelle du certificat COVID à l’adresse suivante :";
+"verifier_faq_works_linktext_2_1" = "Informations supplémentaires";
+"verifier_faq_works_linkurl_2_1" = "https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624";
+"verifier_faq_works_question_7" = "La vérification des certificats est-elle possible hors ligne ?";
+"verifier_faq_works_answer_7" = "En principe, il est aussi possible de vérifier les certificats COVID sans connexion Internet. À cette fin, des listes de contrôle régulièrement mises à jour sont téléchargées à partir d’un serveur central. Elles sont enregistrées localement et ne doivent pas remonter à plus de 48 h.\n\nPour actualiser les listes de contrôle, l’application doit être ouverte et connectée à Internet. La mise à jour s’effectue immédiatement et automatiquement.";
+
+/*Button zum QR Code Scannen öffnen*/
+"wallet_homescreen_qr_code_scannen" = "Scanner le code QR";
+
+/*Button zum PDF importieren*/
+"wallet_homescreen_pdf_import" = "Importer le PDF";
+
+/*Wallet: Titel im Transfer Code screen bei deaktiveren Notifications*/
+"wallet_notification_disabled_titel" = "Astuce: Activer les messages";
+
+/*Wallet: Button im Transfer Code screen bei deaktiveren Notifications der die Einstellungen öffnet*/
+"wallet_notification_disabled_button" = "Activer";
+
+/*Titel für einen "Nachweis" (e.g. unvollständige Impfung)*/
+"wallet_certificate_evidence_title" = "Justificatif";
+
+/*Typenbezeichnung für eine unvollständige Impfung*/
+"wallet_certificate_type_incomplete_vaccine" = "Vaccination incomplète";
+
+/*Label für das Erstellungsdatum eines Nachweises (mit Platzhalter für Datum und Uhrzeit)*/
+"wallet_certificate_evidence_creation_date" = "Justificatif établi le\n{DATE}";
+
+/*Fuzzy*/
+"wallet_transfer_code_faq_questions_linktext_2" = "Informations supplémentaires";
+
+/*Fuzzy*/
+"wallet_transfer_code_faq_questions_linkurl_2" = "https://ofsp-coronavirus.ch/certificat/comment-obtenir-le-certificat-covid-et-comment-men-servir/";

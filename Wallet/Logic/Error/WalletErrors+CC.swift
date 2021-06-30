@@ -28,6 +28,9 @@ extension VerificationError {
         case let .notYetValid(date):
             let dayDate = DateFormatter.ub_dayString(from: date)
             return UBLocalized.wallet_error_valid_from.replacingOccurrences(of: "{DATE}", with: dayDate).formattingOccurrenceBold(dayDate)
+        case .typeInvalid:
+            let bold = UBLocalized.wallet_error_invalid_format_bold
+            return UBLocalized.wallet_error_invalid_format.formattingOccurrenceBold(bold)
         case .unknown:
             return UBLocalized.unknown_error.formattingOccurrenceBold("")
         }
@@ -35,7 +38,7 @@ extension VerificationError {
 
     func icon(with color: UIColor? = nil) -> UIImage? {
         switch self {
-        case .signature: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
+        case .signature, .typeInvalid: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .revocation: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .otherNationalRules: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .expired:
@@ -56,6 +59,40 @@ extension VerificationError {
             } else {
                 return UIImage(named: "ic-invalid")
             }
+        }
+    }
+}
+
+extension RetryError {
+    func displayTitle(isReload: Bool, isHomescreen: Bool) -> NSAttributedString {
+        switch self {
+        case .noInternetConnection:
+            return isReload ? UBLocalized.wallet_detail_offline_retry_title.bold() : UBLocalized.wallet_homescreen_offline.bold()
+        case .network, .unknown:
+            return isHomescreen ? UBLocalized.wallet_homescreen_network_error.formattingOccurrenceBold("") : UBLocalized.wallet_detail_network_error_title.formattingOccurrenceBold("")
+        }
+    }
+
+    func displayText(isReload: Bool) -> String {
+        return isReload ? UBLocalized.wallet_detail_network_error_text : UBLocalized.wallet_offline_description
+    }
+
+    func icon(with color: UIColor? = nil) -> UIImage? {
+        switch self {
+        case .noInternetConnection:
+            var image = UIImage(named: "ic-offline")
+            if let c = color {
+                image = image?.ub_image(with: c)
+            }
+
+            return image
+        case .network, .unknown:
+            var image = UIImage(named: "ic-error")
+            if let c = color {
+                image = image?.ub_image(with: c)
+            }
+
+            return image
         }
     }
 }

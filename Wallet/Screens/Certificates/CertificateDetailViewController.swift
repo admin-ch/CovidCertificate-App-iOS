@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
 import Foundation
 
 enum TemporaryVerifierState: Equatable {
@@ -16,28 +17,23 @@ enum TemporaryVerifierState: Equatable {
     case verifying
     case success(String?)
     case failure
-    case retry
+    case retry(RetryError, [String])
 }
 
 class CertificateDetailViewController: ViewController {
-    private let certificate: UserCertificate
-
     private let stackScrollView = StackScrollView()
     private let qrCodeNameView = QRCodeNameView()
 
-    private lazy var stateView = CertificateStateView(certificate: certificate)
-    private lazy var detailView = CertificateDetailView(certificate: certificate)
-    private var verifier: Verifier?
+    private lazy var stateView = CertificateStateView(isHomescreen: false, showValidity: true)
+    private lazy var detailView = CertificateDetailView(showEnglishLabelsIfNeeded: true)
 
     private let removeButton = Button(title: UBLocalized.delete_button, style: .normal(.cc_bund))
 
-    private let verifyButton = Button(image: UIImage(named: "ic-load")?.withRenderingMode(.alwaysTemplate), accessibilityName: "")
+    private let verifyButton = Button(image: UIImage(named: "ic-load")?.withRenderingMode(.alwaysTemplate), accessibilityName: UBLocalized.accessibility_refresh_button)
 
     private lazy var qrCodeStateView = CertificateQRCodeStateView(initialState: temporaryVerifierState)
 
     private let brightnessQRScanning = BrightnessQRScanning()
-
-    public var deinitCallback: (() -> Void)?
 
     private var state: VerificationState = .loading {
         didSet {
@@ -63,11 +59,26 @@ class CertificateDetailViewController: ViewController {
         }
     }
 
+    public var certificate: UserCertificate? {
+        didSet { updateCertificate() }
+    }
+
     init(certificate: UserCertificate) {
         self.certificate = certificate
         super.init()
 
         title = UBLocalized.wallet_certificate.uppercased()
+
+        let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate.qrCode ?? "")
+        switch c {
+        case let .success(holder):
+            let vaccinations = holder.healthCert.vaccinations ?? []
+            if !vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
+                title = UBLocalized.wallet_certificate_evidence_title.uppercased()
+            }
+        case .failure:
+            break
+        }
     }
 
     // MARK: - View
@@ -76,6 +87,7 @@ class CertificateDetailViewController: ViewController {
         super.viewDidLoad()
         setup()
         setupInteraction()
+        updateCertificate()
 
         addDismissButton()
 
@@ -112,8 +124,6 @@ class CertificateDetailViewController: ViewController {
 
         stackScrollView.addSpacerView(Padding.large)
         stackScrollView.addArrangedView(qrCodeNameView)
-
-        qrCodeNameView.certificate = certificate
 
         view.addSubview(qrCodeStateView)
         qrCodeStateView.snp.makeConstraints { make in
@@ -165,6 +175,12 @@ class CertificateDetailViewController: ViewController {
         }
     }
 
+    private func updateCertificate() {
+        detailView.certificate = certificate
+        qrCodeNameView.certificate = certificate
+        startCheck()
+    }
+
     // MARK: - Check
 
     private func startTemporaryCheck() {
@@ -175,26 +191,29 @@ class CertificateDetailViewController: ViewController {
             self.qrCodeStateView.state = self.temporaryVerifierState
         }
 
-        verifier = Verifier(qrString: certificate.qrCode)
-        verifier?.start(stateUpdate: { [weak self] state in
+        guard let qrCode = certificate?.qrCode else { return }
+
+        VerifierManager.shared.addObserver(self, for: qrCode, forceUpdate: true) { [weak self] state in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 guard let strongSelf = self else { return }
                 switch state {
                 case .loading: strongSelf.temporaryVerifierState = .verifying
                 case let .success(validUntil): strongSelf.temporaryVerifierState = .success(validUntil)
                 case .invalid: strongSelf.temporaryVerifierState = .failure
-                case .retry: strongSelf.temporaryVerifierState = .retry
+                case let .retry(error, errorCodes): strongSelf.temporaryVerifierState = .retry(error, errorCodes)
                 }
 
                 strongSelf.state = state
             }
-        })
+        }
     }
 
     private func startCheck() {
+        guard let qrCode = certificate?.qrCode else { return }
+
         state = .loading
-        verifier = Verifier(qrString: certificate.qrCode)
-        verifier?.start { [weak self] state in
+
+        VerifierManager.shared.addObserver(self, for: qrCode) { [weak self] state in
             guard let strongSelf = self else { return }
             strongSelf.qrCodeStateView.alpha = 0
             strongSelf.verifyButton.alpha = 1
@@ -220,7 +239,6 @@ class CertificateDetailViewController: ViewController {
     }
 
     deinit {
-        self.deinitCallback?()
         NotificationCenter.default.removeObserver(self)
     }
 }

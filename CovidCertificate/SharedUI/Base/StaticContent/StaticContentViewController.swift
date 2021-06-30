@@ -26,6 +26,10 @@ class StaticContentViewController: OnboardingContentViewController {
     }
 
     internal func setupViews(addBottomSpacer: Bool = true) {
+        Self.setupViews(models: models, stackView: stackScrollView.stackView, addBottomSpacer: addBottomSpacer)
+    }
+
+    static func setupViews(models: [StaticContentViewModel], stackView: UIStackView, addBottomSpacer: Bool = true, showAllViews: Bool = false) {
         for model in models {
             if model.heading != nil {
                 let headingLabel = Label(.uppercaseBold)
@@ -37,11 +41,12 @@ class StaticContentViewController: OnboardingContentViewController {
                     make.left.right.equalToSuperview().inset(Padding.medium)
                     make.top.bottom.equalToSuperview()
                 }
-                addArrangedView(headingContainer, spacing: Padding.large)
+
+                Self.addArrangedView(headingContainer, spacing: Padding.large, stackView: stackView)
             }
 
             if let img = model.foregroundImage {
-                addArrangedView(UIImageView(image: img), spacing: 20)
+                Self.addArrangedView(UIImageView(image: img), spacing: 20, stackView: stackView)
             }
 
             let titleLabel = Label(.title, textAlignment: model.alignment)
@@ -52,23 +57,23 @@ class StaticContentViewController: OnboardingContentViewController {
                 make.leading.trailing.equalToSuperview().inset(2 * Padding.medium)
                 make.top.bottom.equalToSuperview()
             }
-            addArrangedView(titleContainer, spacing: Padding.medium)
+            Self.addArrangedView(titleContainer, spacing: Padding.medium, stackView: stackView)
             titleContainer.snp.makeConstraints { make in
-                make.leading.trailing.equalTo(self.stackScrollView.stackView)
+                make.leading.trailing.equalTo(stackView)
             }
 
             for (icon, text) in model.textGroups {
                 let v = OnboardingInfoView(icon: icon, text: text, alignment: model.alignment)
-                addArrangedView(v)
+                Self.addArrangedView(v, stackView: stackView)
                 v.snp.makeConstraints { make in
-                    make.leading.trailing.equalTo(self.stackScrollView.stackView)
+                    make.leading.trailing.equalTo(stackView)
                 }
             }
 
             if !model.expandableTextGroups.isEmpty {
-                stackScrollView.addSpacerView(2 * Padding.medium)
+                stackView.addSpacerView(2.0 * Padding.medium)
                 for (title, text, linkTitle, linkUrl) in model.expandableTextGroups {
-                    addExpandableBox((title, text, linkTitle, linkUrl))
+                    Self.addExpandableBox((title, text, linkTitle, linkUrl), stackView: stackView)
                 }
             }
 
@@ -77,10 +82,14 @@ class StaticContentViewController: OnboardingContentViewController {
                 bottomSpacer.snp.makeConstraints { make in
                     make.height.equalTo(40)
                 }
-                addArrangedView(bottomSpacer)
+                Self.addArrangedView(bottomSpacer, stackView: stackView)
             } else if model != models.last {
-                stackScrollView.addSpacerView(Padding.large)
+                stackView.addSpacerView(Padding.large)
             }
+        }
+
+        if showAllViews {
+            Self.showAllViews(stackView: stackView)
         }
     }
 }

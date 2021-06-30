@@ -32,19 +32,31 @@ import Foundation
   {% endfor %}
 {% endfilter %}{% endmacro %}
 {% macro recursiveBlock table item %}
+   enum {{enumName}}Key : String {
+    {% for string in item.strings %}
+    {% if not param.noComments %}
+    /// {{string.translation}}
+    {% endif %}
+    {{accessModifier}} case {{string.key}}_key = "{{string.key}}"
+    {% endfor %}
+    {% for child in item.children %}
+    {% call recursiveBlock table child %}
+    {% endfor %}
+  }
+
   {% for string in item.strings %}
   {% if not param.noComments %}
   /// {{string.translation}}
   {% endif %}
   {% if string.types %}
   {{accessModifier}} static func {{string.key}}({% call parametersBlock string.types %}) -> String {
-    return {{enumName}}.tr("{{table}}", "{{string.key}}", {% call argumentsBlock string.types %})
+    return {{enumName}}.tr({{enumName}}Key.{{string.key}}_key, {% call argumentsBlock string.types %})
   }
   {% elif param.lookupFunction %}
   {# custom localization function is mostly used for in-app lang selection, so we want the loc to be recomputed at each call for those (hence the computed var) #}
-  {{accessModifier}} static var {{string.key}}: String { return {{enumName}}.tr("{{table}}", "{{string.key}}") }
+  {{accessModifier}} static var {{string.key}}: String { return {{enumName}}.tr({{enumName}}Key.{{string.key}}_key) }
   {% else %}
-  {{accessModifier}} static let {{string.key}} = {{enumName}}.tr("{{table}}", "{{string.key}}")
+  {{accessModifier}} static let {{string.key}} = {{enumName}}.tr({{enumName}}Key.{{string.key}}_key)
   {% endif %}
   {% endfor %}
   {% for child in item.children %}
@@ -69,15 +81,28 @@ import Foundation
 // MARK: - Implementation Details
 
 extension {{enumName}} {
-  private static func tr(_ table: String, _ key: String, _ args: CVarArg...) -> String {
+  private static func tr(_ key: {{enumName}}Key, _ table: String = "{{param.tableName}}", _ args: CVarArg...) -> String {
     {% if param.lookupFunction %}
     let format = {{ param.lookupFunction }}(key, table)
     {% else %}
-    let format = {{param.bundle|default:"BundleToken.bundle"}}.localizedString(forKey: key, value: nil, table: table)
+    let format = {{param.bundle|default:"BundleToken.bundle"}}.localizedString(forKey: key.rawValue, value: nil, table: table)
     {% endif %}
     return String(format: format, locale: Locale.current, arguments: args)
   }
 }
+
+extension {{enumName}} {
+  public static func translate(_ key: {{enumName}}Key, languageKey: String? = nil, table: String = "{{param.tableName}}", _ args: CVarArg...) -> String {
+    guard let languageKey = languageKey else {
+      return tr(key, table, args)
+    }
+
+    guard let bundlePath = BundleToken.bundle.path(forResource: languageKey, ofType: "lproj"), let bundle = Bundle(path: bundlePath)
+    else { return "" }
+    return String(format: NSLocalizedString(key.rawValue, bundle: bundle, value: "", comment: ""), locale: Locale.current, arguments: args)
+  }
+}
+
 {% if not param.bundle and not param.lookupFunction %}
 
 // swiftlint:disable convenience_type
@@ -95,4 +120,3 @@ private final class BundleToken {
 {% else %}
 // No string found
 {% endif %}
-

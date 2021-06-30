@@ -29,6 +29,7 @@ class ExternalLinkButton: UBButton {
         titleLabel?.font = LabelType.textBold.font
 
         setImage(UIImage(named: "ic-link-external"), for: .normal)
+        imageView?.contentMode = .scaleAspectFit
 
         imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: Padding.small)
         titleEdgeInsets = UIEdgeInsets(top: 0.0, left: Padding.small, bottom: 0.0, right: 0.0)

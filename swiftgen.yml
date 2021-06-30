@@ -6,3 +6,4 @@ strings:
        output: Translations/Strings+Generated.swift
        params:
           enumName: UBLocalized
+          tableName: Localizable

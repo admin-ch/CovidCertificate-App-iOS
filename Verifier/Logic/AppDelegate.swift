@@ -15,6 +15,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     internal var window: UIWindow?
     private var lastForegroundActivity: Date?
+    private var blurView: UIVisualEffectView?
 
     @UBUserDefault(key: "isFirstLaunch", defaultValue: true)
     var isFirstLaunch: Bool
@@ -39,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // isFirstLaunch still works)
         VerifierUserStorage.shared.hasCompletedOnboarding = true
 
-        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment)
+        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
 
         // defer window initialization if app was launched in
         // background because of location change
@@ -51,8 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let launchOptions = launchOptions,
            let activityType = launchOptions[UIApplication.LaunchOptionsKey.userActivityType] as? String,
            activityType == NSUserActivityTypeBrowsingWeb,
-           let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL
-        {
+           let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL {
             linkHandler.handle(url: url)
         }
 
@@ -106,11 +106,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    func applicationDidBecomeActive(_: UIApplication) {}
-
     private func willAppearAfterColdstart(_: UIApplication, coldStart _: Bool, backgroundTime _: TimeInterval) {
         // Logic for coldstart / background
         startForceUpdateCheck()
+
+        CovidCertificateSDK.restartTrustListUpdate(completionHandler: {
+            UIStateManager.shared.stateChanged(forceRefresh: true)
+        }, updateTimeInterval: TimeInterval(60 * 60))
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -119,6 +121,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // App should not have badges
         // Reset to 0 to ensure a unexpected badge doesn't stay forever
         application.applicationIconBadgeNumber = 0
+
+        addBlurView()
+
+        // Close all views that are currently shown, such that people can start to scan directly when opening the app the next time.
+        window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
+
+    func applicationDidBecomeActive(_: UIApplication) {
+        removeBlurView()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -154,5 +165,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UIPageControl.appearance().pageIndicatorTintColor = .cc_grey
         UIPageControl.appearance().currentPageIndicatorTintColor = .cc_black
+    }
+
+    // MARK: - Hide information on app switcher
+
+    private func removeBlurView() {
+        UIView.animate(withDuration: 0.15) {
+            self.blurView?.effect = nil
+            self.blurView?.alpha = 0.0
+        } completion: { _ in
+            self.blurView?.removeFromSuperview()
+            self.blurView = nil
+        }
+    }
+
+    private func addBlurView() {
+        blurView?.removeFromSuperview()
+
+        let bv = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        bv.frame = window?.frame ?? .zero
+        bv.isUserInteractionEnabled = false
+        window?.addSubview(bv)
+
+        blurView = bv
     }
 }

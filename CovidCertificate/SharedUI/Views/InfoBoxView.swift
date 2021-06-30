@@ -11,12 +11,9 @@
 
 import Foundation
 
-class InfoBoxView: UIView {
+class InfoBoxView: PopupView {
     // MARK: - Subviews
 
-    private let backgroundView = UIView()
-
-    private let contentView = UIView()
     private let stackView = UIStackView()
 
     private let titleLabel = Label(.title, textAlignment: .center)
@@ -27,72 +24,16 @@ class InfoBoxView: UIView {
     private var buttonView = UIView()
     private var closeButtonView = UIView()
 
-    private var viewPoint: CGPoint = .zero
-
     // MARK: - API
-
-    public var showCallback: ((Bool) -> Void)?
 
     public var infoBox: InfoBox? {
         didSet { update() }
     }
 
-    // MARK: - Init
+    // MARK: - Dismiss
 
-    init() {
-        super.init(frame: .zero)
-        setup()
-    }
-
-    @available(*, unavailable)
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    // MARK: - Animation
-
-    public func presentFrom(view: UIView) {
-        showCallback?(true)
-
-        isUserInteractionEnabled = true
-
-        UIView.animate(withDuration: 0.25) {
-            self.backgroundView.alpha = 1.0
-        }
-
-        viewPoint = convert(view.center, to: superview)
-        let p2 = convert(contentView.center, to: superview)
-
-        contentView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01).concatenating(CGAffineTransform(translationX: viewPoint.x - p2.x, y: viewPoint.y - p2.y))
-
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {
-            self.contentView.transform = .identity
-            self.contentView.alpha = 1.0
-        }, completion: { _ in })
-    }
-
-    public func dismiss() {
-        if viewPoint == .zero {
-            return
-        }
-
-        showCallback?(false)
-
-        isUserInteractionEnabled = false
-
-        UIView.animate(withDuration: 0.25) {
-            self.backgroundView.alpha = 0.0
-        }
-
-        let p2 = convert(contentView.center, to: superview)
-        contentView.transform = .identity
-
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {
-            self.contentView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01).concatenating(CGAffineTransform(translationX: self.viewPoint.x - p2.x, y: self.viewPoint.y - p2.y))
-            self.contentView.alpha = 0.0
-
-        }, completion: { _ in
-        })
+    override public func dismiss() {
+        super.dismiss()
 
         if let id = infoBox?.infoId {
             var ids = InfoBoxVisibilityManager.shared.dismissedInfoBoxIds
@@ -103,14 +44,9 @@ class InfoBoxView: UIView {
 
     // MARK: - Setup
 
-    private func setup() {
-        addSubview(backgroundView)
+    override internal func setup() {
+        super.setup()
 
-        backgroundView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-
-        backgroundView.backgroundColor = UIColor.cc_black.withAlphaComponent(0.54)
         contentView.backgroundColor = .cc_white
         contentView.layer.cornerRadius = 20.0
 
@@ -119,8 +55,8 @@ class InfoBoxView: UIView {
         contentView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Padding.large)
             make.centerY.equalToSuperview()
-            make.top.greaterThanOrEqualToSuperview().inset(3.0 * Padding.large)
-            make.bottom.lessThanOrEqualToSuperview().inset(3.0 * Padding.large)
+            make.top.greaterThanOrEqualToSuperview().inset(2.0 * Padding.large)
+            make.bottom.lessThanOrEqualToSuperview().inset(2.0 * Padding.large)
         }
 
         contentView.addSubview(stackView)
@@ -158,10 +94,6 @@ class InfoBoxView: UIView {
             guard let strongSelf = self else { return }
             strongSelf.dismiss()
         }
-
-        backgroundView.alpha = 0.0
-        contentView.alpha = 0.0
-        isUserInteractionEnabled = false
 
         button.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }

@@ -21,20 +21,23 @@ class CertificateStateView: UIView {
     private let loadingView = UIActivityIndicatorView(style: .gray)
     private let textLabel = Label(.text, textAlignment: .center)
 
+    private let validityErrorStackView = UIStackView()
     private let validityView = CertificateStateValidityView()
-    private let certificate: UserCertificate?
-    private var hasValidityView: Bool {
-        certificate != nil
-    }
+    private let errorLabel = Label(.smallErrorLight, textAlignment: .center)
+
+    private let hasValidityView: Bool
 
     var states: (state: VerificationState, temporaryVerifierState: TemporaryVerifierState) = (.loading, .idle) {
         didSet { update(animated: true) }
     }
 
+    private let isHomescreen: Bool
+
     // MARK: - Init
 
-    init(certificate: UserCertificate? = nil) {
-        self.certificate = certificate
+    init(isHomescreen: Bool = true, showValidity: Bool) {
+        self.isHomescreen = isHomescreen
+        hasValidityView = showValidity
 
         super.init(frame: .zero)
 
@@ -89,12 +92,19 @@ class CertificateStateView: UIView {
         }
 
         if hasValidityView {
-            addSubview(validityView)
-            validityView.snp.makeConstraints { make in
+            validityErrorStackView.axis = .vertical
+            validityErrorStackView.spacing = 2.0 * Padding.small
+
+            addSubview(validityErrorStackView)
+            validityErrorStackView.snp.makeConstraints { make in
                 make.leading.trailing.equalToSuperview()
                 make.top.equalTo(backgroundView.snp.bottom).offset(Padding.small)
                 make.bottom.equalToSuperview()
             }
+
+            validityErrorStackView.addArrangedSubview(validityView)
+            validityErrorStackView.addArrangedSubview(errorLabel)
+
             validityView.backgroundColor = .cc_greyBackground
         }
     }
@@ -115,6 +125,10 @@ class CertificateStateView: UIView {
 
         // switch animatable states
         let actions = {
+            self.validityView.isOfflineMode = false
+            self.errorLabel.ub_setHidden(true)
+            self.validityErrorStackView.ub_setHidden(false)
+
             switch self.states.temporaryVerifierState {
             case let .success(validUntil):
                 self.imageView.image = UIImage(named: "ic-check-filled")
@@ -124,34 +138,55 @@ class CertificateStateView: UIView {
                 self.validityView.textColor = .cc_black
                 self.validityView.untilText = validUntil
             case .failure:
-                if case let .invalid(errors, _, validUntil) = self.states.state {
+                if case let .invalid(errors, errorCodes, validUntil) = self.states.state {
                     self.imageView.image = errors.first?.icon(with: .cc_red)
                     self.textLabel.attributedText = errors.first?.displayName()
                     self.backgroundView.backgroundColor = .cc_redish
                     self.validityView.backgroundColor = .cc_redish
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
+
+                    // Hide validity view if there is a signature error
+                    self.validityView.isHidden = errors.contains(.signature)
+
+                    let codes = errorCodes.joined(separator: ", ")
+                    if codes.count > 0 {
+                        self.errorLabel.ub_setHidden(false)
+                        self.errorLabel.text = codes
+                    }
                 }
-            case .retry:
-                self.imageView.image = UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange)
-                self.textLabel.attributedText = UBLocalized.verifier_verify_error_list_title.bold()
+            case let .retry(error, errorCodes):
+                self.imageView.image = error.icon(with: .cc_orange)
+                self.textLabel.attributedText = error.displayTitle(isReload: true, isHomescreen: self.isHomescreen)
                 self.backgroundView.backgroundColor = .cc_orangish
                 self.validityView.backgroundColor = .cc_orangish
-                self.validityView.textColor = .cc_grey
+                self.validityView.offlineText = error.displayText(isReload: true)
+                self.validityView.isOfflineMode = true
+
+                let codes = errorCodes.joined(separator: ", ")
+                if codes.count > 0 {
+                    self.errorLabel.ub_setHidden(false)
+                    self.errorLabel.text = codes
+                }
+
             case .verifying:
                 self.imageView.image = nil
                 self.textLabel.attributedText = NSAttributedString(string: UBLocalized.wallet_certificate_verifying)
                 self.backgroundView.backgroundColor = .cc_greyish
                 self.validityView.backgroundColor = .cc_greyish
                 self.validityView.textColor = .cc_grey
+                self.validityErrorStackView.ub_setHidden(true)
+
             case .idle:
                 switch self.states.state {
                 case .loading:
                     self.imageView.image = nil
-                    self.textLabel.text = nil
+                    self.textLabel.attributedText = NSAttributedString(string: UBLocalized.wallet_certificate_verifying)
                     self.backgroundView.backgroundColor = .cc_greyish
                     self.validityView.backgroundColor = .cc_greyish
                     self.validityView.textColor = .cc_grey
+                    self.validityErrorStackView.ub_setHidden(true)
+
                 case let .success(validUntil):
                     self.imageView.image = UIImage(named: "ic-info-filled")
                     self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
@@ -160,17 +195,42 @@ class CertificateStateView: UIView {
                     self.validityView.textColor = .cc_black
                     self.validityView.untilText = validUntil
 
-                case let .invalid(errors, _, validUntil):
+                case let .invalid(errors, errorCodes, validUntil):
                     self.imageView.image = errors.first?.icon()
                     self.textLabel.attributedText = errors.first?.displayName()
-                    self.backgroundView.backgroundColor = .cc_greyish
-                    self.validityView.backgroundColor = .cc_greyish
+                    if let e = errors.first, case .expired = e {
+                        self.backgroundView.backgroundColor = .cc_blueish
+                        self.validityView.backgroundColor = .cc_blueish
+                    } else {
+                        self.backgroundView.backgroundColor = .cc_greyish
+                        self.validityView.backgroundColor = .cc_greyish
+                    }
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
-                case .retry:
-                    // TODO: fix retry state
-                    self.imageView.image = nil
-                    self.textLabel.text = nil
+
+                    // Hide validity view if there is a signature error
+                    self.validityView.isHidden = errors.contains(.signature)
+
+                    let codes = errorCodes.joined(separator: ", ")
+                    if codes.count > 0 {
+                        self.errorLabel.ub_setHidden(false)
+                        self.errorLabel.text = codes
+                    }
+
+                case let .retry(error, errorCodes):
+                    self.imageView.image = error.icon(with: nil)
+                    self.textLabel.attributedText = error.displayTitle(isReload: false, isHomescreen: self.isHomescreen)
+                    self.backgroundView.backgroundColor = .cc_greyish
+                    self.validityView.backgroundColor = .cc_greyish
+                    self.validityView.textColor = .cc_text
+                    self.validityView.offlineText = error.displayText(isReload: false)
+                    self.validityView.isOfflineMode = true
+
+                    let codes = errorCodes.joined(separator: ", ")
+                    if codes.count > 0 {
+                        self.errorLabel.ub_setHidden(false)
+                        self.errorLabel.text = codes
+                    }
                 }
             }
 

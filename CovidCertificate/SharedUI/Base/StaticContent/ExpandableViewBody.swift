@@ -33,8 +33,7 @@ class ExpandableViewBody: UIView {
 
     func stringForContent(content: DisclaimerContent, language: String) -> String? {
         if let path = Bundle.main.path(forResource: content.fileName(for: language), ofType: "html"),
-           let html = try? String(contentsOfFile: path)
-        {
+           let html = try? String(contentsOfFile: path) {
             return html
         }
         return nil

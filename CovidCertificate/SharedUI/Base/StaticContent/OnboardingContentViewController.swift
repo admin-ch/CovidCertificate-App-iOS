@@ -37,7 +37,11 @@ class OnboardingContentViewController: ViewController {
         stackScrollView.addSpacerView(Padding.large)
     }
 
-    internal func addArrangedView(_ view: UIView, spacing: CGFloat? = nil, index: Int? = nil, insets: UIEdgeInsets = .zero) {
+    func addArrangedView(_ view: UIView, spacing: CGFloat? = nil, index: Int? = nil, insets: UIEdgeInsets = .zero) {
+        Self.addArrangedView(view, spacing: spacing, index: index, insets: insets, stackView: stackScrollView.stackView)
+    }
+
+    public static func addArrangedView(_ view: UIView, spacing: CGFloat? = nil, index: Int? = nil, insets: UIEdgeInsets = .zero, stackView: UIStackView) {
         let wrapperView = UIView()
         wrapperView.ub_setContentPriorityRequired()
         wrapperView.addSubview(view)
@@ -48,28 +52,32 @@ class OnboardingContentViewController: ViewController {
         view.alpha = 0
 
         if let idx = index {
-            stackScrollView.stackView.insertArrangedSubview(wrapperView, at: idx)
+            stackView.insertArrangedSubview(wrapperView, at: idx)
         } else {
-            stackScrollView.stackView.addArrangedSubview(wrapperView)
+            stackView.addArrangedSubview(wrapperView)
         }
         if let s = spacing {
-            stackScrollView.stackView.setCustomSpacing(s, after: wrapperView)
+            stackView.setCustomSpacing(s, after: wrapperView)
         }
+    }
+
+    public static func addExpandableBox(_ box: (title: String, text: String, linkTitle: String?, linkUrl: URL?), stackView: UIStackView) {
+        Self.addExpandableBox(header: ExpandableViewHeader(title: box.title), body: ExpandableViewBody(content: box.text, linkTitle: box.linkTitle, linkUrl: box.linkUrl), stackView: stackView)
     }
 
     internal func addExpandableBox(_ box: (title: String, text: String, linkTitle: String?, linkUrl: URL?)) {
-        addExpandableBox(header: ExpandableViewHeader(title: box.title), body: ExpandableViewBody(content: box.text, linkTitle: box.linkTitle, linkUrl: box.linkUrl))
+        Self.addExpandableBox(header: ExpandableViewHeader(title: box.title), body: ExpandableViewBody(content: box.text, linkTitle: box.linkTitle, linkUrl: box.linkUrl), stackView: stackScrollView.stackView)
     }
 
-    internal func addExpandableBox(header: ExpandableViewHeader, body: ExpandableViewBody) {
-        addArrangedView(header)
+    internal static func addExpandableBox(header: ExpandableViewHeader, body: ExpandableViewBody, stackView: UIStackView) {
+        Self.addArrangedView(header, stackView: stackView)
         header.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(self.stackScrollView.stackView).inset(Padding.medium)
+            make.leading.trailing.equalTo(stackView).inset(Padding.medium)
         }
 
-        addArrangedView(body)
+        Self.addArrangedView(body, stackView: stackView)
         body.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(self.stackScrollView.stackView).inset(Padding.medium)
+            make.leading.trailing.equalTo(stackView).inset(Padding.medium)
         }
         body.alpha = 0
         body.superview?.ub_setHidden(true)
@@ -80,7 +88,7 @@ class OnboardingContentViewController: ViewController {
             UIAccessibility.post(notification: .screenChanged, argument: expanded ? body : header)
         }
 
-        stackScrollView.addSpacerView(Padding.medium)
+        stackView.addSpacerView(Padding.medium)
     }
 
     func fadeAnimation(fromFactor: CGFloat, toFactor: CGFloat, delay: TimeInterval, completion: ((Bool) -> Void)?) {
@@ -116,6 +124,25 @@ class OnboardingContentViewController: ViewController {
         } else {
             view.transform = CGAffineTransform(translationX: defaultAnimationOffset * factor, y: 0)
             view.alpha = (1.0 - abs(factor))
+        }
+    }
+
+    static func showAllViews(stackView: UIStackView) {
+        for wrapperView in stackView.arrangedSubviews {
+            if wrapperView.subviews.isEmpty {
+                // If the view has no subviews, it has not been added with addArrangedView() (probably a spacer view)
+                // and will be ignored for the animation
+                continue
+            }
+
+            let v = wrapperView.subviews[0]
+
+            // this is needed since the last swipe animation could still be running
+            // if we removeAllAnimations UIView.animate will call the completionhandler
+            // with finished = false
+            v.layer.removeAllAnimations()
+            v.alpha = 1.0
+            v.transform = .identity
         }
     }
 }

@@ -11,6 +11,20 @@
 
 import Foundation
 
+enum CertificateType {
+    case certificate
+    case transferCode
+}
+
 struct UserCertificate: Codable, Equatable {
-    let qrCode: String
+    var qrCode: String?
+    let transferCode: UserTransferCode?
+
+    var type: CertificateType {
+        if qrCode == nil {
+            return .transferCode
+        }
+
+        return .certificate
+    }
 }

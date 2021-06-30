@@ -59,6 +59,17 @@ enum Environment {
         }
     }
 
+    var registerService: Backend {
+        switch self {
+        case .dev:
+            return Backend("https://covidcertificate-app-d.bit.admin.ch/app/delivery", version: "v1")
+        case .abnahme:
+            return Backend("https://covidcertificate-app-a.bit.admin.ch/app/delivery", version: "v1")
+        case .prod:
+            return Backend("https://covidcertificate-app.bit.admin.ch/app/delivery", version: "v1")
+        }
+    }
+
     var sdkEnvironment: SDKEnvironment {
         switch self {
         case .dev:
@@ -68,6 +79,30 @@ enum Environment {
         case .prod:
             return SDKEnvironment.prod
         }
+    }
+
+    var appToken: String {
+        // These app tokens are reserved for the official COVID Certificate and COVID Certificate Check app.
+        // If you intend to integrate the CovidCertificate-SDK into your app, please get in touch with BIT/BAG to get a token assigned.
+        #if VERIFIER
+            switch self {
+            case .dev:
+                return "7f64903d-4420-4cc3-ac90-c14306b5e556"
+            case .abnahme:
+                return "f731fd3b-cb55-4cfd-9c46-fb3a927ffcd8"
+            case .prod:
+                return "25958ed0-7790-4846-9341-7c7ef87ec389"
+            }
+        #elseif WALLET
+            switch self {
+            case .dev:
+                return "c838a4c4-39e5-4bbb-8e75-e4382df2edfe"
+            case .abnahme:
+                return "e9802c49-4f2b-49cc-a645-24c206366455"
+            case .prod:
+                return "0795dc8b-d8d0-4313-abf2-510b12d50939"
+            }
+        #endif
     }
 }
 
@@ -83,6 +118,26 @@ extension Endpoint {
         #else
             let path = "" // Not supported
         #endif
-        return Environment.current.configService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr])
+        return Environment.current.configService.endpoint(path, queryParameters: ["appversion": av, "osversion": os, "buildnr": buildnr], headers: ["Accept": "application/json+jws"])
+    }
+
+    static func register(payload: InAppDeliveryPayload) -> Endpoint {
+        let path = "covidcert/register"
+        return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json"], body: payload)
+    }
+
+    static func certificate(payload: InAppDeliveryPayload) -> Endpoint {
+        let path = "covidcert"
+        return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json", "Accept": "application/json"], body: payload)
+    }
+
+    static func deleteCertificate(payload: InAppDeliveryPayload) -> Endpoint {
+        let path = "covidcert/complete"
+        return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json"], body: payload)
+    }
+
+    static func pushRegister(payload: PushRegistration) -> Endpoint {
+        let path = "push/register"
+        return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json"], body: payload)
     }
 }

@@ -21,7 +21,6 @@ class HomescreenCertificatesViewController: ViewController {
     private let stackScrollView = StackScrollView(axis: .horizontal, spacing: 0)
     private let pageControl = UIPageControl()
     private var certificateViews: [HomescreenCertificateView] = []
-    private var certificateViewVerifiers: [Verifier] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,15 +103,26 @@ class HomescreenCertificatesViewController: ViewController {
     }
 
     private func startChecks() {
-        certificateViewVerifiers = []
-
         for i in certificateViews {
-            let v = Verifier(qrString: i.certificate.qrCode)
-            v.start { [weak i] state in
-                i?.state = state
-            }
+            if let qrCode = i.certificate?.qrCode {
+                VerifierManager.shared.addObserver(self, for: qrCode) { [weak i] state in
+                    i?.state = state
+                }
+            } else if let transferCode = i.certificate?.transferCode {
+                // only start when not already failed
+                guard transferCode.state != .failed else { return }
 
-            certificateViewVerifiers.append(v)
+                TransferManager.shared.addObserver(self, for: transferCode.transferCode) { [weak i] result in
+                    guard let strongI = i else { return }
+                    switch result {
+                    case .success:
+                        // TransferManager adds all the certificates
+                        strongI.transferError = nil
+                    case let .failure(error):
+                        strongI.transferError = error
+                    }
+                }
+            }
         }
     }
 }

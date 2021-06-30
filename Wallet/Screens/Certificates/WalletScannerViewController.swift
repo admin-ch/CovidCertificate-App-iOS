@@ -48,7 +48,6 @@ class WalletScannerViewController: ViewController {
         setupInteraction()
 
         addDismissButton()
-        startScanning()
 
         NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
             guard let strongSelf = self else { return }
@@ -59,6 +58,11 @@ class WalletScannerViewController: ViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         stopScanning()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        startScanning()
     }
 
     private func setup() {
@@ -149,10 +153,7 @@ class WalletScannerViewController: ViewController {
         detailViewController.addOrOkCertificateTouchUpCallback = { [weak self] certificate in
             guard let strongSelf = self, let c = certificate else { return }
 
-            if !CertificateStorage.shared.userCertificates.contains(c) {
-                CertificateStorage.shared.userCertificates.insert(c, at: 0)
-            }
-
+            CertificateStorage.shared.insertCertificate(userCertificate: c)
             strongSelf.dismiss(animated: true, completion: nil)
         }
 
@@ -253,7 +254,7 @@ extension WalletScannerViewController: QRScannerViewDelegate {
 
     func qrScanningSucceededWithCode(_ str: String?) {
         if let s = str {
-            let result = CovidCertificateSDK.decode(encodedData: s)
+            let result = CovidCertificateSDK.Wallet.decode(encodedData: s)
 
             switch result {
             case .success:
@@ -262,7 +263,7 @@ extension WalletScannerViewController: QRScannerViewDelegate {
 
                 qrView?.stopScanning()
 
-                let cert = UserCertificate(qrCode: s)
+                let cert = UserCertificate(qrCode: s, transferCode: nil)
                 detailViewController.certificate = cert
                 showDetail()
 

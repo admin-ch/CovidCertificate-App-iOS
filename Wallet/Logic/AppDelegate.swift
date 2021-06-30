@@ -15,15 +15,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     internal var window: UIWindow?
     private var lastForegroundActivity: Date?
+    private var blurView: UIVisualEffectView?
+    private(set) var importHandler: ImportHandler?
 
     @UBUserDefault(key: "isFirstLaunch", defaultValue: true)
     var isFirstLaunch: Bool
 
-    let linkHandler = LinkHandler()
+    private let linkHandler = LinkHandler()
 
     lazy var navigationController = NavigationController(rootViewController: WalletHomescreenViewController())
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // migrates certificates from keychain to secure storage
+        Migration.migrateToSecureStorage()
+
         // Pre-populate isFirstLaunch for users which already installed the app before we introduced this flag
         if WalletUserStorage.shared.hasCompletedOnboarding {
             isFirstLaunch = false
@@ -31,11 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Reset keychain on first launch
         if isFirstLaunch {
+            CertificateStorage.shared.removeAll()
             Keychain().deleteAll()
             isFirstLaunch = false
         }
 
-        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment)
+        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
+        #if DEBUG || RELEASE_DEV
+            CovidCertificateSDK.setOptions(options: SDKOptions(certificatePinning: URLSession.evaluator.useCertificatePinning))
+        #endif
 
         // defer window initialization if app was launched in
         // background because of location change
@@ -47,10 +56,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let launchOptions = launchOptions,
            let activityType = launchOptions[UIApplication.LaunchOptionsKey.userActivityType] as? String,
            activityType == NSUserActivityTypeBrowsingWeb,
-           let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL
-        {
+           let url = launchOptions[UIApplication.LaunchOptionsKey.url] as? URL {
             linkHandler.handle(url: url)
         }
+
+        // Setup push manager
+        setupPushManager(launchOptions: launchOptions)
 
         return true
     }
@@ -100,13 +111,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             onboardingViewController.modalPresentationStyle = .fullScreen
             window?.rootViewController?.present(onboardingViewController, animated: false)
         }
-    }
 
-    func applicationDidBecomeActive(_: UIApplication) {}
+        setupImportHandler()
+    }
 
     private func willAppearAfterColdstart(_: UIApplication, coldStart _: Bool, backgroundTime _: TimeInterval) {
         // Logic for coldstart / background
-        startConfigRequest()
+        if WalletUserStorage.shared.hasCompletedOnboarding {
+            // Refresh config
+            startConfigRequest()
+
+            // Refresh trust list (public keys, revocation list, business rules,...)
+            CovidCertificateSDK.restartTrustListUpdate(completionHandler: {
+                UIStateManager.shared.stateChanged(forceRefresh: true)
+            }, updateTimeInterval: TimeInterval(60 * 60))
+        }
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -115,6 +134,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // App should not have badges
         // Reset to 0 to ensure a unexpected badge doesn't stay forever
         application.applicationIconBadgeNumber = 0
+
+        addBlurView()
+    }
+
+    func applicationDidBecomeActive(_: UIApplication) {
+        removeBlurView()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -134,9 +160,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Force update
 
     private func startConfigRequest() {
-        if WalletUserStorage.shared.hasCompletedOnboarding {
-            ConfigManager().startConfigRequest(window: window)
-        }
+        ConfigManager().startConfigRequest(window: window)
     }
 
     // MARK: - Appearance
@@ -152,5 +176,64 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UIPageControl.appearance().pageIndicatorTintColor = .cc_black
         UIPageControl.appearance().currentPageIndicatorTintColor = .cc_white
+    }
+
+    // MARK: - Hide information on app switcher
+
+    private func removeBlurView() {
+        UIView.animate(withDuration: 0.15) {
+            self.blurView?.effect = nil
+            self.blurView?.alpha = 0.0
+        } completion: { _ in
+            self.blurView?.removeFromSuperview()
+            self.blurView = nil
+        }
+    }
+
+    private func addBlurView() {
+        blurView?.removeFromSuperview()
+
+        let bv = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        bv.frame = window?.frame ?? .zero
+        bv.isUserInteractionEnabled = false
+        window?.addSubview(bv)
+
+        blurView = bv
+    }
+
+    // MARK: - Push
+
+    func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        UBPushManager.shared.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
+    }
+
+    func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        UBPushManager.shared.didFailToRegisterForRemoteNotifications(with: error)
+    }
+
+    func setupPushManager(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        UBPushManager.shared.didFinishLaunchingWithOptions(launchOptions, pushHandler: PushHandler(), pushRegistrationManager: PushRegistrationManager())
+    }
+
+    func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        UBPushManager.shared.pushHandler.handleDidReceiveResponse(userInfo, fetchCompletionHandler: completionHandler)
+    }
+}
+
+extension AppDelegate {
+    private func setupImportHandler() {
+        guard let delegate = window?.rootViewController as? NavigationController else {
+            return
+        }
+
+        importHandler = ImportHandler(delegate: delegate)
+    }
+
+    func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        guard WalletUserStorage.shared.hasCompletedOnboarding,
+              let importHandler = importHandler else {
+            return false
+        }
+        return importHandler.handle(url: url)
     }
 }

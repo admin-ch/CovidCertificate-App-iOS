@@ -34,6 +34,7 @@ public extension UIView {
     func ub_setHidden(_ hidden: Bool) {
         if isHidden != hidden {
             isHidden = hidden
+            alpha = hidden ? 0.0 : 1.0
         }
     }
 }

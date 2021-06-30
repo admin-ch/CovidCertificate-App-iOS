@@ -27,7 +27,6 @@ class CertificateTableViewCell: UITableViewCell {
 
     private let stateLabel = StateLabel()
 
-    private var verifier: Verifier?
     private var state: VerificationState = .loading {
         didSet { self.updateState(animated: true) }
     }
@@ -51,7 +50,8 @@ class CertificateTableViewCell: UITableViewCell {
 
         qrCodeStateImageView.ub_setContentPriorityRequired()
         qrCodeStateImageView.snp.makeConstraints { make in
-            make.top.left.equalToSuperview().inset(2.0 * Padding.small)
+            make.top.equalToSuperview().inset(2.0 * Padding.small)
+            make.left.equalToSuperview()
             make.bottom.lessThanOrEqualToSuperview().inset(2.0 * Padding.small)
         }
 
@@ -103,28 +103,26 @@ class CertificateTableViewCell: UITableViewCell {
     private func update() {
         updateState(animated: false)
 
-        guard let cert = certificate else {
+        guard let qrCode = certificate?.qrCode else {
             nameLabel.text = nil
             qrCodeStateImageView.image = nil
             return
         }
 
-        let c = CovidCertificateSDK.decode(encodedData: cert.qrCode)
+        let c = CovidCertificateSDK.Wallet.decode(encodedData: qrCode)
 
         switch c {
         case let .success(holder):
             nameLabel.text = holder.healthCert.displayFullName
             stateLabel.type = holder.healthCert.certType
 
-            verifier = Verifier(holder: holder)
-
-            verifier?.start(stateUpdate: { [weak self] state in
+            VerifierManager.shared.addObserver(self, for: qrCode) { [weak self] state in
                 guard let strongSelf = self else { return }
                 strongSelf.state = state
-            })
+            }
 
         case .failure:
-            verifier = nil
+            break
         }
 
         accessibilityLabel = [nameLabel.accessibilityLabel, stateLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
@@ -142,20 +140,30 @@ class CertificateTableViewCell: UITableViewCell {
             let normal = UIImage(named: "ic-qrcode-small")
             let notYetValid = UIImage(named: "ic-qrcode-small-temporary")
             let invalid = UIImage(named: "ic-qrcode-small-invalid")
+            let expired = UIImage(named: "ic-qrcode-small-expired")
             let load = UIImage(named: "ic-qrcode-small-load")
+            let networkError = UIImage(named: "ic-qrcode-small-network-error")
+            let noInternetError = UIImage(named: "ic-qrcode-small-nointernet-error")
 
             switch self.state {
             case .loading:
                 self.qrCodeStateImageView.image = load
-            case .success, .retry:
+            case .success:
                 self.qrCodeStateImageView.image = normal
+            case let .retry(err, _):
+                switch err {
+                case .network, .unknown:
+                    self.qrCodeStateImageView.image = networkError
+                case .noInternetConnection:
+                    self.qrCodeStateImageView.image = noInternetError
+                }
             case let .invalid(errors, _, _):
                 if let e = errors.first {
                     switch e {
-                    case .signature, .revocation, .otherNationalRules, .unknown:
+                    case .signature, .revocation, .otherNationalRules, .unknown, .typeInvalid:
                         self.qrCodeStateImageView.image = invalid
                     case .expired:
-                        self.qrCodeStateImageView.image = invalid
+                        self.qrCodeStateImageView.image = expired
                     case .notYetValid:
                         self.qrCodeStateImageView.image = notYetValid
                     }
@@ -198,8 +206,6 @@ private class StateLabel: UIView {
     init() {
         super.init(frame: .zero)
         setup()
-
-        isAccessibilityElement = true
     }
 
     @available(*, unavailable)
