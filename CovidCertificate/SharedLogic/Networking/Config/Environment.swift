@@ -70,6 +70,18 @@ enum Environment {
         }
     }
 
+    var transformationService: Backend {
+        return Backend("https://sa4sz7kf56.execute-api.eu-central-1.amazonaws.com/default/test-rust", version: nil)
+        /* switch self {
+         case .dev:
+             return Backend("https://covidcertificate-app-d.bit.admin.ch/app/delivery", version: "v1")
+         case .abnahme:
+             return Backend("https://covidcertificate-app-a.bit.admin.ch/app/delivery", version: "v1")
+         case .prod:
+             return Backend("https://covidcertificate-app.bit.admin.ch/app/delivery", version: "v1")
+         } */
+    }
+
     var sdkEnvironment: SDKEnvironment {
         switch self {
         case .dev:
@@ -139,5 +151,16 @@ extension Endpoint {
     static func pushRegister(payload: PushRegistration) -> Endpoint {
         let path = "push/register"
         return Environment.current.registerService.endpoint(path, method: .post, headers: ["Content-Type": "application/json"], body: payload)
+    }
+
+    // Transformation
+    static func lightCertificate(payload: TransformationRequestPayload) -> Endpoint {
+        let path = "" // transform/certificateLight"
+        return Environment.current.transformationService.endpoint(path, method: .post, headers: ["Content-Type": "application/json", "Accept": "application/json"], body: payload)
+    }
+
+    static func pdf(payload: TransformationRequestPayload) -> Endpoint {
+        let path = "" // transform/pdf"
+        return Environment.current.transformationService.endpoint(path, method: .post, headers: ["Content-Type": "application/json", "Accept": "application/json"], body: payload)
     }
 }
