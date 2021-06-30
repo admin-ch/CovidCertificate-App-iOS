@@ -78,4 +78,11 @@ struct StaticContentViewModel: Equatable {
                                                                 (UIImage(named: "ic-two"), UBLocalized.wallet_scanner_howitworks_text3),
                                                                 (UIImage(named: "ic-three"), UBLocalized.wallet_scanner_howitworks_text4)],
                                                    expandableTextGroups: [(UBLocalized.wallet_scanner_howitworks_question1, UBLocalized.wallet_scanner_howitworks_answer1, UBLocalized.wallet_scanner_howitworks_external_link_title, URL(string: UBLocalized.wallet_scanner_howitworks_external_link))])
+
+    static let certificateLight = StaticContentViewModel(title: UBLocalized.wallet_certificate_light_detail_summary_title,
+                                                         alignment: .center,
+                                                         textGroups: [(UIImage(named: "ic-bund-small"), UBLocalized.wallet_scanner_howitworks_text1),
+                                                                      (UIImage(named: "ic-one"), UBLocalized.wallet_scanner_howitworks_text2),
+                                                                      (UIImage(named: "ic-two"), UBLocalized.wallet_scanner_howitworks_text3),
+                                                                      (UIImage(named: "ic-three"), UBLocalized.wallet_scanner_howitworks_text4)])
 }

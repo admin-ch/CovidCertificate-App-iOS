@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
 import Foundation
 
 extension VerificationError {

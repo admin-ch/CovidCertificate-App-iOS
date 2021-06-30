@@ -35,6 +35,12 @@ class CertificateDetailViewController: ViewController {
 
     private let brightnessQRScanning = BrightnessQRScanning()
 
+    private let certificateLightRow = IconImageRowView(icon: UIImage(named: "ic-qr-certificate-light")!,
+                                                       text: UBLocalized.wallet_certificate_detail_certificate_light_button)
+
+    private let exportRow = IconImageRowView(icon: UIImage(named: "ic-pdf")!,
+                                             text: UBLocalized.wallet_certificate_detail_export_button)
+
     private var state: VerificationState = .loading {
         didSet {
             update()
@@ -112,9 +118,8 @@ class CertificateDetailViewController: ViewController {
     // MARK: - Setup
 
     private func setup() {
-        stackScrollView.stackView.isLayoutMarginsRelativeArrangement = true
         let p = Padding.large + Padding.medium
-        stackScrollView.stackView.layoutMargins = UIEdgeInsets(top: 0.0, left: p, bottom: 0.0, right: p)
+        let padding = UIEdgeInsets(top: 0.0, left: p, bottom: 0.0, right: p)
 
         view.addSubview(stackScrollView)
 
@@ -123,7 +128,7 @@ class CertificateDetailViewController: ViewController {
         }
 
         stackScrollView.addSpacerView(Padding.large)
-        stackScrollView.addArrangedView(qrCodeNameView)
+        stackScrollView.addArrangedView(qrCodeNameView, inset: padding)
 
         view.addSubview(qrCodeStateView)
         qrCodeStateView.snp.makeConstraints { make in
@@ -132,18 +137,34 @@ class CertificateDetailViewController: ViewController {
         qrCodeStateView.alpha = 0
 
         stackScrollView.addSpacerView(2.0 * Padding.large)
-        stackScrollView.addArrangedView(stateView)
+        stackScrollView.addArrangedView(stateView, inset: padding)
 
         stackScrollView.addSpacerView(2.0 * Padding.large)
-        stackScrollView.addArrangedView(detailView)
+        stackScrollView.addArrangedView(detailView, inset: padding)
 
         stackScrollView.addSpacerView(2.0 * Padding.large + 2.0 * Padding.small)
-        stackScrollView.addArrangedView(CertificateNoteView())
+        stackScrollView.addArrangedView(CertificateNoteView(), inset: padding)
 
-        stackScrollView.addSpacerView(3.0 * Padding.large + Padding.medium)
+        stackScrollView.addSpacerView(2.0 * Padding.large + 2.0 * Padding.small)
+        stackScrollView.addSpacerView(2.0, color: .cc_blueish)
+        stackScrollView.addArrangedView(certificateLightRow)
+        stackScrollView.addSpacerView(2.0, color: .cc_blueish)
+        stackScrollView.addArrangedView(exportRow)
+        stackScrollView.addSpacerView(2.0, color: .cc_blueish)
+
+        let spacer = stackScrollView.addSpacerView(3.0 * Padding.large + Padding.medium)
         stackScrollView.addArrangedViewCentered(removeButton)
 
         stackScrollView.addSpacerView(5.0 * Padding.large)
+
+        let bottomBackgroundView = UIView()
+        bottomBackgroundView.backgroundColor = .cc_blueish
+        view.insertSubview(bottomBackgroundView, belowSubview: stackScrollView)
+        bottomBackgroundView.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalToSuperview().multipliedBy(3)
+            make.top.equalTo(spacer.snp.top)
+        }
 
         verifyButton.backgroundColor = .cc_blue
         verifyButton.tintColor = .cc_white
@@ -172,6 +193,17 @@ class CertificateDetailViewController: ViewController {
         removeButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.removeCertificate()
+        }
+
+        certificateLightRow.touchUpCallback = { [weak self] in
+            guard let strongSelf = self,
+                  let certificate = strongSelf.certificate else { return }
+            strongSelf.navigationController?.pushViewController(CertificateLightCreationViewController(certificate: certificate), animated: true)
+        }
+
+        exportRow.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.navigationController?.pushViewController(CertificateExportDetailViewController(), animated: true)
         }
     }
 

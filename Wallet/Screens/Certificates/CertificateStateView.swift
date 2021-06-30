@@ -32,11 +32,13 @@ class CertificateStateView: UIView {
     }
 
     private let isHomescreen: Bool
+    private let isLightCertificate: Bool
 
     // MARK: - Init
 
-    init(isHomescreen: Bool = true, showValidity: Bool) {
+    init(isHomescreen: Bool = true, showValidity: Bool, isLightCertificate: Bool = false) {
         self.isHomescreen = isHomescreen
+        self.isLightCertificate = isLightCertificate
         hasValidityView = showValidity
 
         super.init(frame: .zero)
@@ -189,7 +191,11 @@ class CertificateStateView: UIView {
 
                 case let .success(validUntil):
                     self.imageView.image = UIImage(named: "ic-info-filled")
-                    self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
+                    if self.isLightCertificate {
+                        self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_certificate_light_info)
+                    } else {
+                        self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
+                    }
                     self.backgroundView.backgroundColor = .cc_blueish
                     self.validityView.backgroundColor = .cc_blueish
                     self.validityView.textColor = .cc_black

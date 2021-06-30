@@ -26,16 +26,19 @@ class QRCodeNameView: UIView {
     // MARK: - Subviews
 
     private let imageView = UIImageView()
+    private lazy var certificateTimer = CertificateLightExpirationTimer()
     private let nameView = Label(.title, textAlignment: .center)
     private let birthdayLabelView = Label(.text, textAlignment: .center)
 
     private let qrCodeInset: CGFloat
+    private let isLightCertificate: Bool
     let qrCodeLayoutGuide = UILayoutGuide()
 
     // MARK: - Init
 
-    init(qrCodeInset: CGFloat = 0) {
+    init(qrCodeInset: CGFloat = 0, isLightCertificate: Bool = false) {
         self.qrCodeInset = qrCodeInset
+        self.isLightCertificate = isLightCertificate
         super.init(frame: .zero)
         setup()
 
@@ -51,6 +54,9 @@ class QRCodeNameView: UIView {
 
     private func setup() {
         addSubview(imageView)
+        if isLightCertificate {
+            addSubview(certificateTimer)
+        }
         addSubview(nameView)
         addSubview(birthdayLabelView)
 
@@ -67,8 +73,19 @@ class QRCodeNameView: UIView {
             make.edges.equalTo(imageView)
         }
 
+        if isLightCertificate {
+            certificateTimer.snp.makeConstraints { make in
+                make.top.equalTo(self.imageView.snp.bottom).offset(Padding.medium)
+                make.centerX.equalToSuperview()
+            }
+        }
+
         nameView.snp.makeConstraints { make in
-            make.top.equalTo(self.imageView.snp.bottom).offset(Padding.medium)
+            if isLightCertificate {
+                make.top.equalTo(self.certificateTimer.snp.bottom).offset(Padding.medium)
+            } else {
+                make.top.equalTo(self.imageView.snp.bottom).offset(Padding.medium)
+            }
             make.leading.trailing.equalToSuperview().inset(self.qrCodeInset)
         }
 
@@ -85,7 +102,11 @@ class QRCodeNameView: UIView {
     // MARK: - Update
 
     private func update() {
-        guard let qrCode = certificate?.qrCode else { return }
+        guard let qrCode = isLightCertificate ? certificate?.lightCertificate?.certificate : certificate?.qrCode else { return }
+
+        if isLightCertificate {
+            certificateTimer.certificate = certificate?.lightCertificate
+        }
 
         let c = CovidCertificateSDK.Wallet.decode(encodedData: qrCode)
 
@@ -97,7 +118,12 @@ class QRCodeNameView: UIView {
             break
         }
 
-        imageView.setQrCode(qrCode)
+        if isLightCertificate,
+           let image = certificate?.lightCertificate {
+            imageView.image = image.qrCodeImage
+        } else {
+            imageView.setQrCode(qrCode)
+        }
 
         accessibilityLabel = [nameView.text, birthdayLabelView.text].compactMap { $0 }.joined(separator: ", ")
     }
