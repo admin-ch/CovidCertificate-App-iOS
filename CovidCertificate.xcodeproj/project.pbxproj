@@ -31,7 +31,6 @@
 		24780B34242FDF4C003BB26C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24780B33242FDF4C003BB26C /* Launch Screen.storyboard */; };
 		24780B5B2431B5A9003BB26C /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24780B562431B5A9003BB26C /* DateFormatter.swift */; };
 		2485F4782456185100C3D8C3 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F4772456185000C3D8C3 /* DebugLog.swift */; };
-		2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F47F2459631A00C3D8C3 /* NetworkError.swift */; };
 		273324662679D117002D0ED2 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273324652679D117002D0ED2 /* Crypto.swift */; };
 		273324682679D429002D0ED2 /* InAppDeliveryPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273324672679D429002D0ED2 /* InAppDeliveryPayload.swift */; };
 		2733246A2679DC8D002D0ED2 /* Luhn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273324692679DC8D002D0ED2 /* Luhn.swift */; };
@@ -179,7 +178,6 @@
 		6EC1732226429E31002E27DB /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24780B562431B5A9003BB26C /* DateFormatter.swift */; };
 		6EC1732426429E31002E27DB /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089EB2493695200A66CD1 /* Keychain.swift */; };
 		6EC1732526429E31002E27DB /* NSMutableAttributedString+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8454AA2263983B8005CF491 /* NSMutableAttributedString+CC.swift */; };
-		6EC1732626429E31002E27DB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F47F2459631A00C3D8C3 /* NetworkError.swift */; };
 		6EC1732926429E31002E27DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6EC172E226429E31002E27DB /* SnapKit */; };
 		6EC1732B26429E31002E27DB /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D27242D04280017C4F9 /* Inter-SemiBold.ttf */; };
 		6EC1732C26429E31002E27DB /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D28242D04280017C4F9 /* Inter-Bold.ttf */; };
@@ -305,22 +303,43 @@
 		F86A6A862637F944003CAC1B /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86A6A852637F944003CAC1B /* ReusableView.swift */; };
 		F87E96D7263AEA9100755AF1 /* OSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E96D6263AEA9100755AF1 /* OSLogger.swift */; };
 		F88D99DB2497938E0081790E /* UIImage+localizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */; };
-		F8E6C5622683808F00A9E112 /* DebugSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6C5612683808F00A9E112 /* DebugSwitchView.swift */; };
-		F8E6C5632683808F00A9E112 /* DebugSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6C5612683808F00A9E112 /* DebugSwitchView.swift */; };
-		F8E6C565268380AA00A9E112 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6C564268380AA00A9E112 /* DebugView.swift */; };
-		F8E6C566268380AA00A9E112 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6C564268380AA00A9E112 /* DebugView.swift */; };
-		F8E9496126836F2B0054374B /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9496026836F2B0054374B /* DebugViewController.swift */; };
-		F8E9496226836F2B0054374B /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9496026836F2B0054374B /* DebugViewController.swift */; };
+		F88DA6B3268C786D001DB072 /* Error+NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6B2268C786D001DB072 /* Error+NetworkError.swift */; };
+		F88DA6B4268C786D001DB072 /* Error+NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6B2268C786D001DB072 /* Error+NetworkError.swift */; };
+		F88DA6B7268C789A001DB072 /* CertificateLightCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6B6268C789A001DB072 /* CertificateLightCreationViewController.swift */; };
+		F88DA6B8268C789A001DB072 /* CertificateLightCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6B6268C789A001DB072 /* CertificateLightCreationViewController.swift */; };
+		F88DA6BB268C78F5001DB072 /* CertificateExportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6BA268C78F5001DB072 /* CertificateExportDetailViewController.swift */; };
+		F88DA6BC268C78F5001DB072 /* CertificateExportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6BA268C78F5001DB072 /* CertificateExportDetailViewController.swift */; };
+		F88DA6BE268C9282001DB072 /* CertificateLightSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6BD268C9282001DB072 /* CertificateLightSummaryView.swift */; };
+		F88DA6BF268C9282001DB072 /* CertificateLightSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6BD268C9282001DB072 /* CertificateLightSummaryView.swift */; };
+		F88DA6C1268CA60A001DB072 /* TransformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C0268CA60A001DB072 /* TransformationManager.swift */; };
+		F88DA6C2268CA60A001DB072 /* TransformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C0268CA60A001DB072 /* TransformationManager.swift */; };
+		F88DA6C4268CA82D001DB072 /* NetworkErrorRetryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C3268CA82D001DB072 /* NetworkErrorRetryViewController.swift */; };
+		F88DA6C5268CA82D001DB072 /* NetworkErrorRetryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C3268CA82D001DB072 /* NetworkErrorRetryViewController.swift */; };
+		F88DA6C8268CA8B2001DB072 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C7268CA8B2001DB072 /* ErrorView.swift */; };
+		F88DA6C9268CA8B2001DB072 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C7268CA8B2001DB072 /* ErrorView.swift */; };
+		F88DA6CB268CAD2A001DB072 /* CertificateLightCreationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6CA268CAD2A001DB072 /* CertificateLightCreationError.swift */; };
+		F88DA6CD268CB1F4001DB072 /* CertificateLightDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6CC268CB1F4001DB072 /* CertificateLightDetailViewController.swift */; };
+		F88DA6D0268CC3AB001DB072 /* CertificateLightExpirationTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6CF268CC3AB001DB072 /* CertificateLightExpirationTimer.swift */; };
+		F88DA6D3268CC9CE001DB072 /* TimeInterval+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6D2268CC9CE001DB072 /* TimeInterval+CC.swift */; };
 		F8944F8326834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8944F8226834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift */; };
 		F8A259512684A07A0087D86E /* TransferCodeNotificationDisabledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A259502684A07A0087D86E /* TransferCodeNotificationDisabledView.swift */; };
 		F8A259522684BB9A0087D86E /* covidcertificate-app.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C578268480D100A9E112 /* covidcertificate-app.bit.admin.ch.der */; };
 		F8A259532684BB9D0087D86E /* covidcertificate-app-d.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C579268480D100A9E112 /* covidcertificate-app-d.bit.admin.ch.der */; };
 		F8A259542684BBA00087D86E /* covidcertificate-app-a.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C577268480D100A9E112 /* covidcertificate-app-a.bit.admin.ch.der */; };
+		F8D5B155268B659C00C39836 /* TransformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B154268B659C00C39836 /* TransformationService.swift */; };
+		F8D5B157268B66A500C39836 /* TransformationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B156268B66A500C39836 /* TransformationPayload.swift */; };
+		F8D5B159268C400B00C39836 /* IconImageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B158268C400B00C39836 /* IconImageRowView.swift */; };
+		F8E6C5622683808F00A9E112 /* DebugSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6C5612683808F00A9E112 /* DebugSwitchView.swift */; };
+		F8E6C5632683808F00A9E112 /* DebugSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6C5612683808F00A9E112 /* DebugSwitchView.swift */; };
+		F8E6C565268380AA00A9E112 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6C564268380AA00A9E112 /* DebugView.swift */; };
+		F8E6C566268380AA00A9E112 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E6C564268380AA00A9E112 /* DebugView.swift */; };
 		F8E6C56826845DE600A9E112 /* FiraCode-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */; };
 		F8E6C56926845EF200A9E112 /* FiraCode-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */; };
 		F8E6C57A268480D200A9E112 /* covidcertificate-app-a.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C577268480D100A9E112 /* covidcertificate-app-a.bit.admin.ch.der */; };
 		F8E6C57C268480D200A9E112 /* covidcertificate-app.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C578268480D100A9E112 /* covidcertificate-app.bit.admin.ch.der */; };
 		F8E6C57E268480D200A9E112 /* covidcertificate-app-d.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C579268480D100A9E112 /* covidcertificate-app-d.bit.admin.ch.der */; };
+		F8E9496126836F2B0054374B /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9496026836F2B0054374B /* DebugViewController.swift */; };
+		F8E9496226836F2B0054374B /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9496026836F2B0054374B /* DebugViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -346,7 +365,6 @@
 		24780B33242FDF4C003BB26C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		24780B562431B5A9003BB26C /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		2485F4772456185000C3D8C3 /* DebugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLog.swift; sourceTree = "<group>"; };
-		2485F47F2459631A00C3D8C3 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		273324652679D117002D0ED2 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		273324672679D429002D0ED2 /* InAppDeliveryPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppDeliveryPayload.swift; sourceTree = "<group>"; };
 		273324692679DC8D002D0ED2 /* Luhn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Luhn.swift; sourceTree = "<group>"; };
@@ -537,15 +555,29 @@
 		F87C369F258B6652008DCC81 /* ExposureNotification.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExposureNotification.framework; path = System/Library/Frameworks/ExposureNotification.framework; sourceTree = SDKROOT; };
 		F87E96D6263AEA9100755AF1 /* OSLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogger.swift; sourceTree = "<group>"; };
 		F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+localizedImage.swift"; sourceTree = "<group>"; };
-		F8E6C5612683808F00A9E112 /* DebugSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSwitchView.swift; sourceTree = "<group>"; };
-		F8E6C564268380AA00A9E112 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
-		F8E9496026836F2B0054374B /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
+		F88DA6B2268C786D001DB072 /* Error+NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+NetworkError.swift"; sourceTree = "<group>"; };
+		F88DA6B6268C789A001DB072 /* CertificateLightCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateLightCreationViewController.swift; sourceTree = "<group>"; };
+		F88DA6BA268C78F5001DB072 /* CertificateExportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateExportDetailViewController.swift; sourceTree = "<group>"; };
+		F88DA6BD268C9282001DB072 /* CertificateLightSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateLightSummaryView.swift; sourceTree = "<group>"; };
+		F88DA6C0268CA60A001DB072 /* TransformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationManager.swift; sourceTree = "<group>"; };
+		F88DA6C3268CA82D001DB072 /* NetworkErrorRetryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkErrorRetryViewController.swift; sourceTree = "<group>"; };
+		F88DA6C7268CA8B2001DB072 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		F88DA6CA268CAD2A001DB072 /* CertificateLightCreationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateLightCreationError.swift; sourceTree = "<group>"; };
+		F88DA6CC268CB1F4001DB072 /* CertificateLightDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateLightDetailViewController.swift; sourceTree = "<group>"; };
+		F88DA6CF268CC3AB001DB072 /* CertificateLightExpirationTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateLightExpirationTimer.swift; sourceTree = "<group>"; };
+		F88DA6D2268CC9CE001DB072 /* TimeInterval+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+CC.swift"; sourceTree = "<group>"; };
 		F8944F8226834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeFailedExplanatoryView.swift; sourceTree = "<group>"; };
 		F8A259502684A07A0087D86E /* TransferCodeNotificationDisabledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCodeNotificationDisabledView.swift; sourceTree = "<group>"; };
+		F8D5B154268B659C00C39836 /* TransformationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationService.swift; sourceTree = "<group>"; };
+		F8D5B156268B66A500C39836 /* TransformationPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationPayload.swift; sourceTree = "<group>"; };
+		F8D5B158268C400B00C39836 /* IconImageRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageRowView.swift; sourceTree = "<group>"; };
+		F8E6C5612683808F00A9E112 /* DebugSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSwitchView.swift; sourceTree = "<group>"; };
+		F8E6C564268380AA00A9E112 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		F8E6C56726845DE600A9E112 /* FiraCode-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraCode-Bold.ttf"; sourceTree = "<group>"; };
 		F8E6C577268480D100A9E112 /* covidcertificate-app-a.bit.admin.ch.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "covidcertificate-app-a.bit.admin.ch.der"; sourceTree = "<group>"; };
 		F8E6C578268480D100A9E112 /* covidcertificate-app.bit.admin.ch.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "covidcertificate-app.bit.admin.ch.der"; sourceTree = "<group>"; };
 		F8E6C579268480D100A9E112 /* covidcertificate-app-d.bit.admin.ch.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "covidcertificate-app-d.bit.admin.ch.der"; sourceTree = "<group>"; };
+		F8E9496026836F2B0054374B /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -582,7 +614,6 @@
 			children = (
 				242D227A245D6557005DAEA8 /* Backend.swift */,
 				242D227C245D6581005DAEA8 /* Endpoint.swift */,
-				2485F47F2459631A00C3D8C3 /* NetworkError.swift */,
 				2462BA1824520A480046906D /* Endpoint+Request.swift */,
 				F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */,
 				F8130CDB2685B46200A29326 /* URLSession+synchron.swift */,
@@ -595,6 +626,7 @@
 			isa = PBXGroup;
 			children = (
 				6EC172BA2640769D002E27DB /* LinkHandler.swift */,
+				F88DA6B2268C786D001DB072 /* Error+NetworkError.swift */,
 				24780B562431B5A9003BB26C /* DateFormatter.swift */,
 				6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */,
 				8EB23D77245AF2C30073E83A /* RandomGenerators.swift */,
@@ -606,6 +638,7 @@
 				6EA5C38326453D1400EA066F /* EuHealthCert+CC.swift */,
 				6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */,
 				F8130CDE2685B99F00A29326 /* Collection+Safe.swift */,
+				F88DA6D2268CC9CE001DB072 /* TimeInterval+CC.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -888,6 +921,8 @@
 		6EC172C326407F0E002E27DB /* Certificates */ = {
 			isa = PBXGroup;
 			children = (
+				F88DA6B9268C78E5001DB072 /* Export */,
+				F88DA6B5268C7885001DB072 /* CertificateLight */,
 				6E173925267B322C00813D30 /* WalletDetailViewController.swift */,
 				6EC172C426407F1A002E27DB /* WalletScannerViewController.swift */,
 				6EF28CFC26370538001C1565 /* WalletQRScannerOverlay.swift */,
@@ -938,6 +973,7 @@
 		6EC1735B2642A0D5002E27DB /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				F8D5B153268B658900C39836 /* Transformation */,
 				6ED9160A2681B171006D9E7C /* Push */,
 				273324642679D103002D0ED2 /* TransferCode */,
 				6E361223267239A4008C0C86 /* ImportHandler */,
@@ -1184,12 +1220,15 @@
 		DCA3FFB224502D0F0003F5AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F88DA6C6268CA890001DB072 /* Error */,
 				6EF28CFB26370538001C1565 /* QRScanner */,
 				6EC172D826419D33002E27DB /* RoundBackgroundView.swift */,
 				6EA5C35F2644133E00EA066F /* QRCodeNameView.swift */,
+				F88DA6CF268CC3AB001DB072 /* CertificateLightExpirationTimer.swift */,
 				DC445D322645828E007DC8F2 /* QRScanErrorView.swift */,
 				6E0281F126550E1100582904 /* InfoBoxView.swift */,
 				6E87E383266971E5000C5517 /* PopUpView.swift */,
+				F8D5B158268C400B00C39836 /* IconImageRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1215,6 +1254,44 @@
 				DCF9C3632656395A00E34481 /* config_wallet.json */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		F88DA6B5268C7885001DB072 /* CertificateLight */ = {
+			isa = PBXGroup;
+			children = (
+				F88DA6B6268C789A001DB072 /* CertificateLightCreationViewController.swift */,
+				F88DA6BD268C9282001DB072 /* CertificateLightSummaryView.swift */,
+				F88DA6CC268CB1F4001DB072 /* CertificateLightDetailViewController.swift */,
+			);
+			path = CertificateLight;
+			sourceTree = "<group>";
+		};
+		F88DA6B9268C78E5001DB072 /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				F88DA6BA268C78F5001DB072 /* CertificateExportDetailViewController.swift */,
+			);
+			path = Export;
+			sourceTree = "<group>";
+		};
+		F88DA6C6268CA890001DB072 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				F88DA6C7268CA8B2001DB072 /* ErrorView.swift */,
+				F88DA6C3268CA82D001DB072 /* NetworkErrorRetryViewController.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		F8D5B153268B658900C39836 /* Transformation */ = {
+			isa = PBXGroup;
+			children = (
+				F8D5B154268B659C00C39836 /* TransformationService.swift */,
+				F88DA6C0268CA60A001DB072 /* TransformationManager.swift */,
+				F88DA6CA268CAD2A001DB072 /* CertificateLightCreationError.swift */,
+				F8D5B156268B66A500C39836 /* TransformationPayload.swift */,
+			);
+			path = Transformation;
 			sourceTree = "<group>";
 		};
 		F8E9495E26836F090054374B /* Screens */ = {
@@ -1593,6 +1670,7 @@
 				6EC172EB26429E31002E27DB /* Button.swift in Sources */,
 				F8E6C566268380AA00A9E112 /* DebugView.swift in Sources */,
 				6EF166BD264D488A00426985 /* ScannerLightButton.swift in Sources */,
+				F88DA6C2268CA60A001DB072 /* TransformationManager.swift in Sources */,
 				F8130CDD2685B46200A29326 /* URLSession+synchron.swift in Sources */,
 				6EF166DE264E63A500426985 /* UIStateManager.swift in Sources */,
 				6EC172ED26429E31002E27DB /* UIColor+HEX.swift in Sources */,
@@ -1603,9 +1681,11 @@
 				6E0281F62655280500582904 /* InfoBoxButton.swift in Sources */,
 				6EF166B7264C52BD00426985 /* QRScanErrorView.swift in Sources */,
 				6EC172F226429E31002E27DB /* UIScrollView+UBKeyboardObserver.m in Sources */,
+				F88DA6C9268CA8B2001DB072 /* ErrorView.swift in Sources */,
 				6EC172F326429E31002E27DB /* UIDevice+ScreenType.swift in Sources */,
 				6EA5C37226444E8600EA066F /* VerifyCheckViewController.swift in Sources */,
 				6EC172F426429E31002E27DB /* StackScrollView.swift in Sources */,
+				F88DA6B4268C786D001DB072 /* Error+NetworkError.swift in Sources */,
 				F8E6C5632683808F00A9E112 /* DebugSwitchView.swift in Sources */,
 				6EC172F526429E31002E27DB /* ClickthroughStackView.swift in Sources */,
 				6E6B1A942649D88A00DB4A38 /* VerifyInfoView.swift in Sources */,
@@ -1616,6 +1696,7 @@
 				6EC172FD26429E31002E27DB /* UIImage+UBHelpers.m in Sources */,
 				6E0281F326550E1100582904 /* InfoBoxView.swift in Sources */,
 				6EC172FE26429E31002E27DB /* OSLogger.swift in Sources */,
+				F88DA6B8268C789A001DB072 /* CertificateLightCreationViewController.swift in Sources */,
 				6EC172FF26429E31002E27DB /* NavigationController.swift in Sources */,
 				DCF9C35726562E5C00E34481 /* ExpandableViewHeader.swift in Sources */,
 				6EC1730026429E31002E27DB /* PhoneCallHelper.swift in Sources */,
@@ -1625,6 +1706,7 @@
 				F8E9496226836F2B0054374B /* DebugViewController.swift in Sources */,
 				6EA5C36526442D5500EA066F /* UIImageView+CC.swift in Sources */,
 				6EA5C38426453D1400EA066F /* EuHealthCert+CC.swift in Sources */,
+				F88DA6C5268CA82D001DB072 /* NetworkErrorRetryViewController.swift in Sources */,
 				6EC1730126429E31002E27DB /* UICollection+CC.swift in Sources */,
 				6EF166D5264E5C3200426985 /* ConfigResponseBody.swift in Sources */,
 				DCF9C35626562E3F00E34481 /* OnboardingContentViewController.swift in Sources */,
@@ -1651,6 +1733,7 @@
 				6EC1731526429E31002E27DB /* LayoutConstants.swift in Sources */,
 				6EC1731626429E31002E27DB /* KeychainPersisted.swift in Sources */,
 				6E8F52DA265BA94B00406430 /* CameraErrorView.swift in Sources */,
+				F88DA6BF268C9282001DB072 /* CertificateLightSummaryView.swift in Sources */,
 				6EA5C3642644298E00EA066F /* VerifierHomescreenInfoView.swift in Sources */,
 				6EA5C36626442EBD00EA066F /* QRCodeUtils.swift in Sources */,
 				6E603604267879D500EB57E7 /* PopUpView.swift in Sources */,
@@ -1668,6 +1751,7 @@
 				6EC1732026429E31002E27DB /* RoundBackgroundView.swift in Sources */,
 				6E8F52ED265EC33F00406430 /* CertificateNoteView.swift in Sources */,
 				6EC1732126429E31002E27DB /* UIColor+CC.swift in Sources */,
+				F88DA6BC268C78F5001DB072 /* CertificateExportDetailViewController.swift in Sources */,
 				6EC1732226429E31002E27DB /* DateFormatter.swift in Sources */,
 				6EF166DD264E638200426985 /* CertificateState.swift in Sources */,
 				6EA5C36C2644310D00EA066F /* VerifierImprintViewController.swift in Sources */,
@@ -1677,7 +1761,6 @@
 				6EC1735F2642A1B4002E27DB /* VerifierHomescreenViewController.swift in Sources */,
 				6EC1732526429E31002E27DB /* NSMutableAttributedString+CC.swift in Sources */,
 				DC8AC73E265291C1005A2543 /* Strings+Generated.swift in Sources */,
-				6EC1732626429E31002E27DB /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1694,9 +1777,11 @@
 				F8130CDF2685B99F00A29326 /* Collection+Safe.swift in Sources */,
 				AAF73668242F3D030051E34A /* UIStackView+CC.swift in Sources */,
 				6E8FC0FB24518BF2002AB1E5 /* UBKeyboardObserver.m in Sources */,
+				F88DA6B7268C789A001DB072 /* CertificateLightCreationViewController.swift in Sources */,
 				6E7C0D22242CE2100017C4F9 /* Button.swift in Sources */,
 				DC702AFF243F6ED90066C773 /* UIColor+HEX.swift in Sources */,
 				6EA5C35E2643FFFC00EA066F /* CertificateDetailViewController.swift in Sources */,
+				F88DA6BB268C78F5001DB072 /* CertificateExportDetailViewController.swift in Sources */,
 				2733246A2679DC8D002D0ED2 /* Luhn.swift in Sources */,
 				DC8AC74926541723005A2543 /* CertificateStateValidityView.swift in Sources */,
 				6EF28CFE26370538001C1565 /* WalletQRScannerOverlay.swift in Sources */,
@@ -1704,8 +1789,10 @@
 				6E5A0F25264336B4004718B4 /* UIStateLogic.swift in Sources */,
 				DC8F1EDA267C6F8200F44FF7 /* TransferCodeTableViewCell.swift in Sources */,
 				6EF166D4264E5C3200426985 /* ConfigResponseBody.swift in Sources */,
+				F88DA6D3268CC9CE001DB072 /* TimeInterval+CC.swift in Sources */,
 				6EC172C526407F1A002E27DB /* WalletScannerViewController.swift in Sources */,
 				6EEAFBED267B4F3300807C16 /* TransferCodeRefreshView.swift in Sources */,
+				F88DA6BE268C9282001DB072 /* CertificateLightSummaryView.swift in Sources */,
 				6EBF9C77267C807B00E86B45 /* Enclave.swift in Sources */,
 				6E5A0F2026432148004718B4 /* HomescreenBottomView.swift in Sources */,
 				DC8ABDEB264A5C5600FDE0E1 /* OnboardingBaseViewController.swift in Sources */,
@@ -1716,6 +1803,7 @@
 				6E7C0D37242E02600017C4F9 /* StackScrollView.swift in Sources */,
 				DCA3FFB824504B190003F5AD /* ClickthroughStackView.swift in Sources */,
 				6E5A0F26264336B4004718B4 /* UIStateManager.swift in Sources */,
+				F8D5B159268C400B00C39836 /* IconImageRowView.swift in Sources */,
 				DC8ABDF5264A65C100FDE0E1 /* OnboardingInfoView.swift in Sources */,
 				6EF166D2264E5C3200426985 /* ConfigManager.swift in Sources */,
 				6EC172D526416FF1002E27DB /* HomescreenOnboardingViewController.swift in Sources */,
@@ -1726,14 +1814,17 @@
 				6EBF9C7A267C809700E86B45 /* Migration.swift in Sources */,
 				8E81CC9D241FCC7D006F2437 /* ViewController.swift in Sources */,
 				6ED9161F2681B171006D9E7C /* UBPushRegistrationManager.swift in Sources */,
+				F88DA6B3268C786D001DB072 /* Error+NetworkError.swift in Sources */,
 				6E173924267B31BB00813D30 /* TransferCodeErrorRetryViewController.swift in Sources */,
 				DC8ABDF1264A64DD00FDE0E1 /* StaticContentViewController.swift in Sources */,
 				F20E4F31268208DB00D14609 /* PushNotificationPopupView.swift in Sources */,
 				6E17392A267B382900813D30 /* TransferCodeAnimationView.swift in Sources */,
 				DC8ABDFF264AAA1B00FDE0E1 /* ExpandableViewBody.swift in Sources */,
 				F8E6C5622683808F00A9E112 /* DebugSwitchView.swift in Sources */,
+				F88DA6C4268CA82D001DB072 /* NetworkErrorRetryViewController.swift in Sources */,
 				DC702B0C243F6FAE0066C773 /* UBUserDefault.swift in Sources */,
 				6E8F52D9265BA94B00406430 /* CameraErrorView.swift in Sources */,
+				F88DA6D0268CC3AB001DB072 /* CertificateLightExpirationTimer.swift in Sources */,
 				DCBF64E82679B92C00450D51 /* StackScrollViewController.swift in Sources */,
 				6EA5C38526453E0000EA066F /* EuHealthCert+CC.swift in Sources */,
 				6EF166D6264E5C3200426985 /* InfoBoxVisibilityManager.swift in Sources */,
@@ -1744,6 +1835,7 @@
 				F8E6C565268380AA00A9E112 /* DebugView.swift in Sources */,
 				6EF166BC264D488A00426985 /* ScannerLightButton.swift in Sources */,
 				6ED9161C2681B171006D9E7C /* UBPushLocalStorage.swift in Sources */,
+				F8D5B157268B66A500C39836 /* TransformationPayload.swift in Sources */,
 				DC702B17243F70060066C773 /* UIView+CC.swift in Sources */,
 				DC8ABDFD264AA83D00FDE0E1 /* ExpandableViewHeader.swift in Sources */,
 				273324662679D117002D0ED2 /* Crypto.swift in Sources */,
@@ -1771,10 +1863,12 @@
 				6E0281FE265660E500582904 /* CertificateDetailView.swift in Sources */,
 				6E17391C267B193800813D30 /* TransferCodeErrorView.swift in Sources */,
 				6E0281FC26565AD200582904 /* BrightnessQRScanning.swift in Sources */,
+				F88DA6C1268CA60A001DB072 /* TransformationManager.swift in Sources */,
 				6EA5C35C2643E8DD00EA066F /* CertificateTableViewCell.swift in Sources */,
 				242D227B245D6557005DAEA8 /* Backend.swift in Sources */,
 				6EBF9C78267C807B00E86B45 /* SecureStorage.swift in Sources */,
 				6E17391E267B204700813D30 /* LoadingView.swift in Sources */,
+				F8D5B155268B659C00C39836 /* TransformationService.swift in Sources */,
 				DC8ABDED264A62A800FDE0E1 /* OnboardingContentViewController.swift in Sources */,
 				8EB23D78245AF2C30073E83A /* RandomGenerators.swift in Sources */,
 				6E7C0D43242E44D80017C4F9 /* WebViewController.swift in Sources */,
@@ -1791,12 +1885,14 @@
 				6E603601267878ED00EB57E7 /* TransferCodeOnboardingViewController.swift in Sources */,
 				6E87E384266971E5000C5517 /* PopUpView.swift in Sources */,
 				6EC172D726416FF7002E27DB /* HomescreenCertificatesViewController.swift in Sources */,
+				F88DA6C8268CA8B2001DB072 /* ErrorView.swift in Sources */,
 				F80E735A245AD7B400C934B8 /* URLSession+pinning.swift in Sources */,
 				F88D99DB2497938E0081790E /* UIImage+localizedImage.swift in Sources */,
 				6EC172C726407F2C002E27DB /* CertificateListViewController.swift in Sources */,
 				DC8ABDF3264A652800FDE0E1 /* StaticContentViewModel.swift in Sources */,
 				6E0281F52655280500582904 /* InfoBoxButton.swift in Sources */,
 				6E5A0F29264336CA004718B4 /* CertificateState.swift in Sources */,
+				F88DA6CD268CB1F4001DB072 /* CertificateLightDetailViewController.swift in Sources */,
 				6EDE754D2667DB6900A2656F /* UBLocalized+CC.swift in Sources */,
 				F85ED9A32499EF93007EBC49 /* Bundle+BuildInfo.swift in Sources */,
 				F86A6A862637F944003CAC1B /* ReusableView.swift in Sources */,
@@ -1805,6 +1901,7 @@
 				6E0281FA26565A8100582904 /* ScreenBrightness.swift in Sources */,
 				6ED9161D2681B171006D9E7C /* UBPushManager.swift in Sources */,
 				F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */,
+				F88DA6CB268CAD2A001DB072 /* CertificateLightCreationError.swift in Sources */,
 				F8A259512684A07A0087D86E /* TransferCodeNotificationDisabledView.swift in Sources */,
 				6E70145C265421940097BBC8 /* CertificateAlreadyAddedView.swift in Sources */,
 				6ED916302681D932006D9E7C /* LocalPush.swift in Sources */,
@@ -1829,7 +1926,6 @@
 				DCBF64E62678D8AE00450D51 /* TransferCodeViewController.swift in Sources */,
 				F8454AA3263983B8005CF491 /* NSMutableAttributedString+CC.swift in Sources */,
 				6EF166AF264BB18800426985 /* Verifier.swift in Sources */,
-				2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */,
 				6E87E382266950D1000C5517 /* WalletHomescreenActionView.swift in Sources */,
 				6EC172BF26407EBF002E27DB /* WalletHomescreenViewController.swift in Sources */,
 			);
@@ -2542,7 +2638,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/admin-ch/CovidCertificate-SDK-iOS";
 			requirement = {
-				branch = main;
+				branch = "feature/cert-light";
 				kind = branch;
 			};
 		};
