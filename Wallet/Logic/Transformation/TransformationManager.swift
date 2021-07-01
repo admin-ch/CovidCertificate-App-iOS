@@ -14,7 +14,7 @@ import Foundation
 
 enum TransformationManager {
     static func getLightCertificate(certificate: UserCertificate,
-                                    completionHandler: @escaping (Result<UserCertificate, CertificateLightCreationError>) -> Void) {
+                                    completionHandler: @escaping (Result<UserCertificate, TransformationError>) -> Void) {
         guard let qrCode = certificate.qrCode else {
             assertionFailure()
             return

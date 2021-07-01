@@ -73,4 +73,15 @@ class IconImageRowView: UIControl {
             setHighlighted(highlighted)
         }
     }
+
+    override var isEnabled: Bool {
+        get { super.isEnabled }
+
+        set(enabled) {
+            super.isEnabled = enabled
+            arrowView.image = arrowView.image?.ub_image(with: enabled ? .cc_blue : .cc_grey)
+            iconView.image = iconView.image?.ub_image(with: enabled ? .cc_blue : .cc_grey)
+            label.textColor = enabled ? .cc_blue : .cc_grey
+        }
+    }
 }

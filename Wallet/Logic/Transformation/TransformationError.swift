@@ -12,12 +12,12 @@
 import CovidCertificateSDK
 import Foundation
 
-enum CertificateLightCreationError: Error {
+enum TransformationError: Error {
     case networkError(NetworkError)
     case certificateInvalid
 }
 
-extension CertificateLightCreationError: ErrorViewError {
+extension TransformationError: ErrorViewError {
     func icon(color: UIColor?) -> UIImage? {
         switch self {
         case .networkError(.NETWORK_NO_INTERNET_CONNECTION):

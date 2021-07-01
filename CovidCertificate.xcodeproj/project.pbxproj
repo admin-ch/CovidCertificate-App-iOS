@@ -308,7 +308,6 @@
 		F88DA6B4268C786D001DB072 /* Error+NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6B2268C786D001DB072 /* Error+NetworkError.swift */; };
 		F88DA6B7268C789A001DB072 /* CertificateLightCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6B6268C789A001DB072 /* CertificateLightCreationViewController.swift */; };
 		F88DA6BB268C78F5001DB072 /* CertificateExportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6BA268C78F5001DB072 /* CertificateExportDetailViewController.swift */; };
-		F88DA6BC268C78F5001DB072 /* CertificateExportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6BA268C78F5001DB072 /* CertificateExportDetailViewController.swift */; };
 		F88DA6BE268C9282001DB072 /* CertificateLightSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6BD268C9282001DB072 /* CertificateLightSummaryView.swift */; };
 		F88DA6BF268C9282001DB072 /* CertificateLightSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6BD268C9282001DB072 /* CertificateLightSummaryView.swift */; };
 		F88DA6C1268CA60A001DB072 /* TransformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C0268CA60A001DB072 /* TransformationManager.swift */; };
@@ -316,7 +315,7 @@
 		F88DA6C5268CA82D001DB072 /* NetworkErrorRetryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C3268CA82D001DB072 /* NetworkErrorRetryViewController.swift */; };
 		F88DA6C8268CA8B2001DB072 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C7268CA8B2001DB072 /* ErrorView.swift */; };
 		F88DA6C9268CA8B2001DB072 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C7268CA8B2001DB072 /* ErrorView.swift */; };
-		F88DA6CB268CAD2A001DB072 /* CertificateLightCreationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6CA268CAD2A001DB072 /* CertificateLightCreationError.swift */; };
+		F88DA6CB268CAD2A001DB072 /* TransformationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6CA268CAD2A001DB072 /* TransformationError.swift */; };
 		F88DA6CD268CB1F4001DB072 /* CertificateLightDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6CC268CB1F4001DB072 /* CertificateLightDetailViewController.swift */; };
 		F88DA6D0268CC3AB001DB072 /* CertificateLightExpirationTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6CF268CC3AB001DB072 /* CertificateLightExpirationTimer.swift */; };
 		F88DA6D3268CC9CE001DB072 /* TimeInterval+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6D2268CC9CE001DB072 /* TimeInterval+CC.swift */; };
@@ -325,6 +324,7 @@
 		F8A259522684BB9A0087D86E /* covidcertificate-app.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C578268480D100A9E112 /* covidcertificate-app.bit.admin.ch.der */; };
 		F8A259532684BB9D0087D86E /* covidcertificate-app-d.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C579268480D100A9E112 /* covidcertificate-app-d.bit.admin.ch.der */; };
 		F8A259542684BBA00087D86E /* covidcertificate-app-a.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C577268480D100A9E112 /* covidcertificate-app-a.bit.admin.ch.der */; };
+		F8C1E259268DDF4D007A306E /* CertificateExportSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1E258268DDF4D007A306E /* CertificateExportSummaryView.swift */; };
 		F8D5B155268B659C00C39836 /* TransformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B154268B659C00C39836 /* TransformationService.swift */; };
 		F8D5B157268B66A500C39836 /* TransformationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B156268B66A500C39836 /* TransformationPayload.swift */; };
 		F8D5B159268C400B00C39836 /* IconImageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B158268C400B00C39836 /* IconImageRowView.swift */; };
@@ -561,12 +561,13 @@
 		F88DA6C0268CA60A001DB072 /* TransformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationManager.swift; sourceTree = "<group>"; };
 		F88DA6C3268CA82D001DB072 /* NetworkErrorRetryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkErrorRetryViewController.swift; sourceTree = "<group>"; };
 		F88DA6C7268CA8B2001DB072 /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		F88DA6CA268CAD2A001DB072 /* CertificateLightCreationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateLightCreationError.swift; sourceTree = "<group>"; };
+		F88DA6CA268CAD2A001DB072 /* TransformationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationError.swift; sourceTree = "<group>"; };
 		F88DA6CC268CB1F4001DB072 /* CertificateLightDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateLightDetailViewController.swift; sourceTree = "<group>"; };
 		F88DA6CF268CC3AB001DB072 /* CertificateLightExpirationTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateLightExpirationTimer.swift; sourceTree = "<group>"; };
 		F88DA6D2268CC9CE001DB072 /* TimeInterval+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+CC.swift"; sourceTree = "<group>"; };
 		F8944F8226834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeFailedExplanatoryView.swift; sourceTree = "<group>"; };
 		F8A259502684A07A0087D86E /* TransferCodeNotificationDisabledView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCodeNotificationDisabledView.swift; sourceTree = "<group>"; };
+		F8C1E258268DDF4D007A306E /* CertificateExportSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateExportSummaryView.swift; sourceTree = "<group>"; };
 		F8D5B154268B659C00C39836 /* TransformationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationService.swift; sourceTree = "<group>"; };
 		F8D5B156268B66A500C39836 /* TransformationPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationPayload.swift; sourceTree = "<group>"; };
 		F8D5B158268C400B00C39836 /* IconImageRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageRowView.swift; sourceTree = "<group>"; };
@@ -1269,6 +1270,7 @@
 			isa = PBXGroup;
 			children = (
 				F88DA6BA268C78F5001DB072 /* CertificateExportDetailViewController.swift */,
+				F8C1E258268DDF4D007A306E /* CertificateExportSummaryView.swift */,
 			);
 			path = Export;
 			sourceTree = "<group>";
@@ -1287,7 +1289,7 @@
 			children = (
 				F8D5B154268B659C00C39836 /* TransformationService.swift */,
 				F88DA6C0268CA60A001DB072 /* TransformationManager.swift */,
-				F88DA6CA268CAD2A001DB072 /* CertificateLightCreationError.swift */,
+				F88DA6CA268CAD2A001DB072 /* TransformationError.swift */,
 				F8D5B156268B66A500C39836 /* TransformationPayload.swift */,
 			);
 			path = Transformation;
@@ -1749,7 +1751,6 @@
 				6EC1732026429E31002E27DB /* RoundBackgroundView.swift in Sources */,
 				6E8F52ED265EC33F00406430 /* CertificateNoteView.swift in Sources */,
 				6EC1732126429E31002E27DB /* UIColor+CC.swift in Sources */,
-				F88DA6BC268C78F5001DB072 /* CertificateExportDetailViewController.swift in Sources */,
 				6EC1732226429E31002E27DB /* DateFormatter.swift in Sources */,
 				6EF166DD264E638200426985 /* CertificateState.swift in Sources */,
 				6EA5C36C2644310D00EA066F /* VerifierImprintViewController.swift in Sources */,
@@ -1832,6 +1833,7 @@
 				242D2276245D62D8005DAEA8 /* WalletUserStorage.swift in Sources */,
 				F8E6C565268380AA00A9E112 /* DebugView.swift in Sources */,
 				6EF166BC264D488A00426985 /* ScannerLightButton.swift in Sources */,
+				F8C1E259268DDF4D007A306E /* CertificateExportSummaryView.swift in Sources */,
 				6ED9161C2681B171006D9E7C /* UBPushLocalStorage.swift in Sources */,
 				F8D5B157268B66A500C39836 /* TransformationPayload.swift in Sources */,
 				DC702B17243F70060066C773 /* UIView+CC.swift in Sources */,
@@ -1899,7 +1901,7 @@
 				6E0281FA26565A8100582904 /* ScreenBrightness.swift in Sources */,
 				6ED9161D2681B171006D9E7C /* UBPushManager.swift in Sources */,
 				F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */,
-				F88DA6CB268CAD2A001DB072 /* CertificateLightCreationError.swift in Sources */,
+				F88DA6CB268CAD2A001DB072 /* TransformationError.swift in Sources */,
 				F8A259512684A07A0087D86E /* TransferCodeNotificationDisabledView.swift in Sources */,
 				6E70145C265421940097BBC8 /* CertificateAlreadyAddedView.swift in Sources */,
 				6ED916302681D932006D9E7C /* LocalPush.swift in Sources */,

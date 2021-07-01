@@ -160,7 +160,7 @@ extension Endpoint {
     }
 
     static func pdf(payload: TransformationRequestPayload) -> Endpoint {
-        let path = "" // transform/pdf"
+        let path = "transform/pdf"
         return Environment.current.transformationService.endpoint(path, method: .post, headers: ["Content-Type": "application/json", "Accept": "application/json"], body: payload)
     }
 }

@@ -53,6 +53,8 @@ class CertificateLightSummaryView: UIView {
 
         stackView.addArrangedView(title)
 
+        stackView.addSpacerView(Padding.large)
+
         stackView.addArrangedView(
             OnboardingInfoView(icon: UIImage(named: "ic-bund-small"),
                                text: UBLocalized.wallet_certificate_light_detail_summary_1,
@@ -88,8 +90,10 @@ class CertificateLightSummaryView: UIView {
                                leftRightInset: Padding.medium)
         )
 
+        stackView.addSpacerView(Padding.large)
+
         stackView.addArrangedViewCentered(activateButton)
 
-        stackView.addSpacerView(Padding.large)
+        stackView.addSpacerView(Padding.large * 2.0)
     }
 }

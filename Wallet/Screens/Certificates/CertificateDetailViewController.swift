@@ -202,8 +202,14 @@ class CertificateDetailViewController: ViewController {
         }
 
         exportRow.touchUpCallback = { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.navigationController?.pushViewController(CertificateExportDetailViewController(), animated: true)
+            guard let strongSelf = self,
+                  let certificate = strongSelf.certificate else { return }
+            let vc = CertificateExportDetailViewController(certificate: certificate)
+            vc.sharePDFCallback = { [weak self] pdf in
+                guard let self = self else { return }
+                self.sharePDF(pdf)
+            }
+            strongSelf.navigationController?.pushViewController(vc, animated: true)
         }
     }
 
@@ -211,6 +217,13 @@ class CertificateDetailViewController: ViewController {
         detailView.certificate = certificate
         qrCodeNameView.certificate = certificate
         startCheck()
+    }
+
+    private func sharePDF(_ pdf: Data) {
+        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [pdf], applicationActivities: nil)
+        activityViewController.title = UBLocalized.covid_certificate_title
+        activityViewController.popoverPresentationController?.sourceView = view
+        present(activityViewController, animated: true, completion: nil)
     }
 
     // MARK: - Check
@@ -268,6 +281,8 @@ class CertificateDetailViewController: ViewController {
         stateView.states = (state, temporaryVerifierState)
         detailView.states = (state, temporaryVerifierState)
         qrCodeNameView.enabled = temporaryVerifierState != .idle || !state.isInvalid()
+        exportRow.isEnabled = !state.isInvalid()
+        certificateLightRow.isEnabled = !state.isInvalid()
     }
 
     deinit {
