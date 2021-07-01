@@ -75,10 +75,10 @@ class CertificateLightCreationViewController: StackScrollViewController {
     }
 
     func getLightCertitifate() {
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.25, delay: 0, options: .beginFromCurrentState, animations: {
+            self.loadingView.startLoading()
             self.errorRetryVC.view.alpha = 0.0
-        }
-        loadingView.startLoading()
+        }, completion: nil)
         TransformationManager.getLightCertificate(certificate: certificate) { [weak self] result in
             guard let self = self else { return }
             switch result {
