@@ -181,6 +181,7 @@ class HomescreenCertificateView: UIView {
             titleLabel.text = UBLocalized.wallet_transfer_code_card_title
             qrCodeView.alpha = 0.0
             transferView.alpha = 1.0
+            lightQrCodeView.alpha = 0.0
             accessibilityLabel = [titleLabel.text, transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
         }
     }

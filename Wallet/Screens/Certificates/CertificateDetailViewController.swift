@@ -33,8 +33,6 @@ class CertificateDetailViewController: ViewController {
 
     private lazy var qrCodeStateView = CertificateQRCodeStateView(initialState: temporaryVerifierState)
 
-    private let brightnessQRScanning = BrightnessQRScanning()
-
     private let certificateLightRow = IconImageRowView(icon: UIImage(named: "ic-qr-certificate-light")!,
                                                        text: UBLocalized.wallet_certificate_detail_certificate_light_button)
 
@@ -103,16 +101,6 @@ class CertificateDetailViewController: ViewController {
             guard let strongSelf = self else { return }
             strongSelf.startCheck()
         }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        brightnessQRScanning.isEnabled = true
-    }
-
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        brightnessQRScanning.isEnabled = false
     }
 
     // MARK: - Setup

@@ -17,6 +17,8 @@ class WalletDetailViewController: ViewController {
     private let transferCodeDetailVC: TransferCodeDetailViewController
     private let loadingView = LoadingView()
 
+    private let brightnessQRScanning = BrightnessQRScanning()
+
     private var certificate: UserCertificate
 
     // MARK: - Init
@@ -47,8 +49,22 @@ class WalletDetailViewController: ViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         addDismissButton()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        switch certificate.type {
+        case .lightCertificate, .certificate:
+            brightnessQRScanning.isEnabled = true
+        default:
+            break
+        }
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        brightnessQRScanning.isEnabled = false
     }
 
     // MARK: - Setup
@@ -143,16 +159,19 @@ class WalletDetailViewController: ViewController {
                 self.certificateDetailVC.view.alpha = 0.0
                 self.transferCodeDetailVC.view.alpha = 0.0
                 self.lightCertificateDetailVC.view.alpha = 1.0
+                self.brightnessQRScanning.isEnabled = true
             case .certificate:
                 self.title = self.certificateDetailVC.title
                 self.certificateDetailVC.view.alpha = 1.0
                 self.transferCodeDetailVC.view.alpha = 0.0
                 self.lightCertificateDetailVC.view.alpha = 0.0
+                self.brightnessQRScanning.isEnabled = true
             case .transferCode:
                 self.title = self.transferCodeDetailVC.title
                 self.certificateDetailVC.view.alpha = 0.0
                 self.lightCertificateDetailVC.view.alpha = 0.0
                 self.transferCodeDetailVC.view.alpha = 1.0
+                self.brightnessQRScanning.isEnabled = false
             }
         }
 
