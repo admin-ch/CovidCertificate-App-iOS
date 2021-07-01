@@ -158,7 +158,7 @@ import Foundation
      case verifier_homescreen_support_button_key = "verifier_homescreen_support_button"
     /// Check
      case verifier_homescreen_title_key = "verifier_homescreen_title"
-    /// Ein unerwarteter Fehler ist aufgetreten
+    /// Ein unerwarteter Fehler ist aufgetreten.
      case verifier_network_error_text_key = "verifier_network_error_text"
     /// Prüfung fehlgeschlagen
      case verifier_network_error_title_key = "verifier_network_error_title"
@@ -237,9 +237,23 @@ import Foundation
     /// Exportieren
      case wallet_certificate_export_button_key = "wallet_certificate_export_button"
     /// PDF konnte nicht\nerstellt werden
-     case wallet_certificate_export_error_title_key = "wallet_certificate_export_error_title"
+     case wallet_certificate_export_detail_error_title_key = "wallet_certificate_export_detail_error_title"
+    /// Exportieren
+     case wallet_certificate_export_detail_export_button_key = "wallet_certificate_export_detail_export_button"
+    /// Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.
+     case wallet_certificate_export_detail_general_error_text_key = "wallet_certificate_export_detail_general_error_text"
+    /// Ein unerwarteter Fehler ist aufgetreten.
+     case wallet_certificate_export_detail_general_error_title_key = "wallet_certificate_export_detail_general_error_title"
     /// Um das PDF erstellen zu können, muss die App online sein.
-     case wallet_certificate_export_network_error_key = "wallet_certificate_export_network_error"
+     case wallet_certificate_export_detail_network_error_text_key = "wallet_certificate_export_detail_network_error_text"
+    /// Keine Verbindung zum Internet
+     case wallet_certificate_export_detail_network_error_title_key = "wallet_certificate_export_detail_network_error_title"
+    /// Aus den Daten Ihres Covid-Zertifikats wird ein PDF erstellt, das Sie drucken oder teilen können.
+     case wallet_certificate_export_detail_summary_1_key = "wallet_certificate_export_detail_summary_1"
+    /// Die Erstellung des PDF-Dokuments erfolgt online.
+     case wallet_certificate_export_detail_summary_2_key = "wallet_certificate_export_detail_summary_2"
+    /// Covid-Zertifikat exportieren
+     case wallet_certificate_export_detail_title_key = "wallet_certificate_export_detail_title"
     /// Aus den Daten Ihres Covid-Zertifikats wird ein PDF erstellt, das Sie drucken oder teilen können.
      case wallet_certificate_export_summary_1_key = "wallet_certificate_export_summary_1"
     /// Die Erstellung des PDF-Dokuments erfolgt online.
@@ -280,8 +294,12 @@ import Foundation
      case wallet_certificate_light_detail_summary_5_key = "wallet_certificate_light_detail_summary_5"
     /// Zertifikat Light
      case wallet_certificate_light_detail_summary_title_key = "wallet_certificate_light_detail_summary_title"
-    /// Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.\n\nWährend das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 48 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
-     case wallet_certificate_light_detail_text_key = "wallet_certificate_light_detail_text"
+    /// Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.
+     case wallet_certificate_light_detail_text_1_key = "wallet_certificate_light_detail_text_1"
+    /// Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 48 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
+     case wallet_certificate_light_detail_text_2_key = "wallet_certificate_light_detail_text_2"
+    /// nur muss keine
+     case wallet_certificate_light_detail_text_2_bold_key = "wallet_certificate_light_detail_text_2_bold"
     /// Was ist ein \nZertifikat Light?
      case wallet_certificate_light_detail_title_key = "wallet_certificate_light_detail_title"
     /// Zertifikat Light
@@ -788,7 +806,7 @@ import Foundation
    static let verifier_homescreen_support_button = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_support_button_key)
   /// Check
    static let verifier_homescreen_title = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_title_key)
-  /// Ein unerwarteter Fehler ist aufgetreten
+  /// Ein unerwarteter Fehler ist aufgetreten.
    static let verifier_network_error_text = UBLocalized.tr(UBLocalizedKey.verifier_network_error_text_key)
   /// Prüfung fehlgeschlagen
    static let verifier_network_error_title = UBLocalized.tr(UBLocalizedKey.verifier_network_error_title_key)
@@ -867,9 +885,23 @@ import Foundation
   /// Exportieren
    static let wallet_certificate_export_button = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_button_key)
   /// PDF konnte nicht\nerstellt werden
-   static let wallet_certificate_export_error_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_error_title_key)
+   static let wallet_certificate_export_detail_error_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_error_title_key)
+  /// Exportieren
+   static let wallet_certificate_export_detail_export_button = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_export_button_key)
+  /// Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.
+   static let wallet_certificate_export_detail_general_error_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_general_error_text_key)
+  /// Ein unerwarteter Fehler ist aufgetreten.
+   static let wallet_certificate_export_detail_general_error_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_general_error_title_key)
   /// Um das PDF erstellen zu können, muss die App online sein.
-   static let wallet_certificate_export_network_error = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_network_error_key)
+   static let wallet_certificate_export_detail_network_error_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_network_error_text_key)
+  /// Keine Verbindung zum Internet
+   static let wallet_certificate_export_detail_network_error_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_network_error_title_key)
+  /// Aus den Daten Ihres Covid-Zertifikats wird ein PDF erstellt, das Sie drucken oder teilen können.
+   static let wallet_certificate_export_detail_summary_1 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_summary_1_key)
+  /// Die Erstellung des PDF-Dokuments erfolgt online.
+   static let wallet_certificate_export_detail_summary_2 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_summary_2_key)
+  /// Covid-Zertifikat exportieren
+   static let wallet_certificate_export_detail_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_title_key)
   /// Aus den Daten Ihres Covid-Zertifikats wird ein PDF erstellt, das Sie drucken oder teilen können.
    static let wallet_certificate_export_summary_1 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_summary_1_key)
   /// Die Erstellung des PDF-Dokuments erfolgt online.
@@ -910,8 +942,12 @@ import Foundation
    static let wallet_certificate_light_detail_summary_5 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_5_key)
   /// Zertifikat Light
    static let wallet_certificate_light_detail_summary_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_title_key)
-  /// Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.\n\nWährend das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 48 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
-   static let wallet_certificate_light_detail_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_key)
+  /// Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.
+   static let wallet_certificate_light_detail_text_1 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_1_key)
+  /// Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 48 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
+   static let wallet_certificate_light_detail_text_2 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_2_key)
+  /// nur muss keine
+   static let wallet_certificate_light_detail_text_2_bold = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_2_bold_key)
   /// Was ist ein \nZertifikat Light?
    static let wallet_certificate_light_detail_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_title_key)
   /// Zertifikat Light

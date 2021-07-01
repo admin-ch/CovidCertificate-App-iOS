@@ -51,7 +51,10 @@ class CertificateLightCreationViewController: StackScrollViewController {
                         insets: UIEdgeInsets(top: 0, left: p, bottom: 0, right: p))
 
         let text = Label(.text)
-        text.text = UBLocalized.wallet_certificate_light_detail_text
+        let attributedString = NSMutableAttributedString(string: UBLocalized.wallet_certificate_light_detail_text_1 + "\n\n")
+        attributedString.append(UBLocalized.wallet_certificate_light_detail_text_2.formattingOccurrencesBold(UBLocalized.wallet_certificate_light_detail_text_2_bold))
+        text.attributedText = attributedString
+
         addArrangedView(text,
                         insets: UIEdgeInsets(top: Padding.large, left: p, bottom: 0, right: p))
 

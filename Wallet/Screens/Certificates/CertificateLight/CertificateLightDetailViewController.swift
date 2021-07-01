@@ -61,5 +61,11 @@ class CertificateLightDetailViewController: StackScrollViewController {
                   let newModel = CertificateStorage.shared.updateCertificate(with: qrCode, lightCertififcate: nil) else { return }
             self.didDisableLightCertificate?(newModel)
         }
+        qrCodeNameView.didExpireCallback = { [weak self] in
+            guard let self = self,
+                  let qrCode = self.certificate.qrCode,
+                  let newModel = CertificateStorage.shared.updateCertificate(with: qrCode, lightCertififcate: nil) else { return }
+            self.didDisableLightCertificate?(newModel)
+        }
     }
 }

@@ -139,7 +139,7 @@ class WalletDetailViewController: ViewController {
         let actions = {
             switch self.certificate.type {
             case .lightCertificate:
-                self.title = self.certificateDetailVC.title
+                self.title = self.lightCertificateDetailVC.title
                 self.certificateDetailVC.view.alpha = 0.0
                 self.transferCodeDetailVC.view.alpha = 0.0
                 self.lightCertificateDetailVC.view.alpha = 1.0

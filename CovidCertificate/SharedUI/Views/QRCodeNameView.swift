@@ -34,6 +34,8 @@ class QRCodeNameView: UIView {
     private let isLightCertificate: Bool
     let qrCodeLayoutGuide = UILayoutGuide()
 
+    var didExpireCallback: (() -> Void)?
+
     // MARK: - Init
 
     init(qrCodeInset: CGFloat = 0, isLightCertificate: Bool = false) {
@@ -77,6 +79,9 @@ class QRCodeNameView: UIView {
             certificateTimer.snp.makeConstraints { make in
                 make.top.equalTo(self.imageView.snp.bottom).offset(Padding.medium)
                 make.centerX.equalToSuperview()
+            }
+            certificateTimer.didExpireCallback = { [weak self] in
+                self?.didExpireCallback?()
             }
         }
 

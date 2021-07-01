@@ -19,6 +19,17 @@ extension String {
         "de"
     }
 
+    func formattingOccurrencesBold(_ occurrences: String) -> NSMutableAttributedString {
+        let attributedText = NSMutableAttributedString(string: self)
+        for occurrence in occurrences.split(separator: " ") {
+            let range = (self as NSString).range(of: String(occurrence))
+            attributedText.addAttributes([
+                .font: LabelType.textBold.font,
+            ], range: range)
+        }
+        return attributedText
+    }
+
     func formattingOccurrenceBold(_ occurrence: String) -> NSMutableAttributedString {
         let range = (self as NSString).range(of: occurrence)
         let attributedText = NSMutableAttributedString(string: self)

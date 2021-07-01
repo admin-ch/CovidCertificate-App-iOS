@@ -13,11 +13,13 @@ import CovidCertificateSDK
 import UIKit
 
 class CertificateLightExpirationTimer: UIView {
-    private let timerLabel = Label(.textBold, textColor: .cc_blue, textAlignment: .center)
+    private let timerLabel = Label(.monospacedBold, textColor: .cc_blue, textAlignment: .center)
 
     private var expiration: Date?
 
     private var timer: Timer?
+
+    var didExpireCallback: (() -> Void)?
 
     var certificate: LightCertificate? {
         didSet {
@@ -64,9 +66,11 @@ class CertificateLightExpirationTimer: UIView {
     }
 
     func updateLabel() {
-        guard let date = expiration else {
+        guard let date = expiration,
+              date.timeIntervalSinceNow >= 0 else {
             timer?.invalidate()
             timer = nil
+            didExpireCallback?()
             return
         }
         let timeInterval = max(date.timeIntervalSinceNow, 0.0)
