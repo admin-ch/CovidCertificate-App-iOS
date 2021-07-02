@@ -27,7 +27,7 @@ class QRCodeNameView: UIView {
 
     private let imageView = UIImageView()
     private lazy var certificateTimer = CertificateLightExpirationTimer()
-    private let nameView = Label(.title, textAlignment: .center)
+    private let nameView = Label(.title, numberOfLines: 3, textAlignment: .center)
     private let birthdayLabelView = Label(.text, textAlignment: .center)
 
     private let qrCodeInset: CGFloat
