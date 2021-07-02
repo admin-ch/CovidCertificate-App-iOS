@@ -53,6 +53,8 @@ class CertificateLightDetailViewController: StackScrollViewController {
         stackScrollView.addSpacerView(Padding.large * 2)
 
         addArrangedView(summary, insets: UIEdgeInsets(top: 0, left: Padding.large, bottom: 0, right: Padding.large))
+
+        stackScrollView.addSpacerView(Padding.large)
     }
 
     func setupInteraction() {
