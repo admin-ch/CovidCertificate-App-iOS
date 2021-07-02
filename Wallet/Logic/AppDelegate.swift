@@ -117,7 +117,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func completedOnboarding() {
-        window?.rootViewController = navigationController
+        guard let window = window else { return }
+
+        let transition = CATransition()
+        transition.type = .push
+        transition.subtype = .fromRight
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        window.layer.add(transition, forKey: kCATransition)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
     }
 
     private func willAppearAfterColdstart(_: UIApplication, coldStart _: Bool, backgroundTime _: TimeInterval) {
