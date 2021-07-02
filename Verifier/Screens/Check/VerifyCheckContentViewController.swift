@@ -35,7 +35,7 @@ class VerifyCheckContentViewController: ViewController {
         didSet { update(true) }
     }
 
-    public var holder: DGCHolder? {
+    public var holder: CertificateHolder? {
         didSet { update(true) }
     }
 
@@ -334,7 +334,7 @@ class VerifyNameBirthdayView: UIView {
 
     // MARK: - Holder
 
-    public var holder: DGCHolder? {
+    public var holder: CertificateHolder? {
         didSet {
             nameView.titleLabel.text = holder?.healthCert.displayName
             lastNameView.titleLabel.text = holder?.healthCert.displayLastName

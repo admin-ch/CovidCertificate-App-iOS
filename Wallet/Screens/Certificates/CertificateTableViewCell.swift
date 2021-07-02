@@ -113,8 +113,12 @@ class CertificateTableViewCell: UITableViewCell {
 
         switch c {
         case let .success(holder):
-            nameLabel.text = holder.healthCert.displayFullName
-            stateLabel.type = holder.healthCert.certType
+            nameLabel.text = holder.certificate.displayFullName
+            if let certificate = holder.certificate as? DCCCert {
+                stateLabel.type = certificate.immunisationType
+            } else {
+                stateLabel.type = nil
+            }
 
             VerifierManager.shared.addObserver(self, for: qrCode) { [weak self] state in
                 guard let strongSelf = self else { return }
@@ -193,7 +197,7 @@ private class StateLabel: UIView {
 
     // MARK: - Properties
 
-    public var type: CertType? {
+    public var type: ImmunisationType? {
         didSet { update() }
     }
 

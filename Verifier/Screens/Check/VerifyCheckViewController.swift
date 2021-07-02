@@ -28,7 +28,7 @@ class VerifyCheckViewController: ViewController {
 
     // MARK: - Start Check
 
-    public var holder: DGCHolder? {
+    public var holder: CertificateHolder? {
         didSet {
             checkContentViewController.holder = holder
             startCheck()

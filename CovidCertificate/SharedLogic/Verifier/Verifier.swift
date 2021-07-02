@@ -110,12 +110,12 @@ enum VerificationState: Equatable {
 }
 
 class Verifier: NSObject {
-    private let holder: DGCHolder?
+    private let holder: CertificateHolder?
     private var stateUpdate: ((VerificationState) -> Void)?
 
     // MARK: - Init
 
-    init(holder: DGCHolder) {
+    init(holder: CertificateHolder) {
         self.holder = holder
         super.init()
     }
@@ -148,7 +148,7 @@ class Verifier: NSObject {
             self.stateUpdate?(.loading)
         }
 
-        CovidCertificateSDK.Wallet.check(cose: holder, forceUpdate: forceUpdate) { [weak self] results in
+        CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: forceUpdate) { [weak self] results in
             guard let self = self else { return }
             let checkSignatureState = self.handleSignatureResult(results.signature)
             let checkRevocationState = self.handleRevocationResult(results.revocationStatus)
@@ -244,7 +244,7 @@ class Verifier: NSObject {
 
             // get expired date string
             if let date = result.validUntil {
-                switch holder.healthCert.certType {
+                switch (holder.certificate as? DCCCert)?.immunisationType {
                 case .test:
                     validUntil = DateFormatter.ub_dayTimeString(from: date)
                 case .recovery:

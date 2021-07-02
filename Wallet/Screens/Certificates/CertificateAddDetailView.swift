@@ -75,8 +75,8 @@ class CertificateAddDetailView: UIView {
             let c = CovidCertificateSDK.Wallet.decode(encodedData: qrCode)
             switch c {
             case let .success(holder):
-                nameLabel.text = holder.healthCert.displayFullName
-                birthdayLabel.text = holder.healthCert.displayBirthDate
+                nameLabel.text = holder.certificate.displayFullName
+                birthdayLabel.text = holder.certificate.displayBirthDate
             case .failure:
                 break
             }

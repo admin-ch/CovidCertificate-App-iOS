@@ -72,7 +72,8 @@ class CertificateDetailViewController: ViewController {
         let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate.qrCode ?? "")
         switch c {
         case let .success(holder):
-            let vaccinations = holder.healthCert.vaccinations ?? []
+            guard let certificate = holder.certificate as? DCCCert else { break }
+            let vaccinations = certificate.vaccinations ?? []
             if !vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
                 title = UBLocalized.wallet_certificate_evidence_title.uppercased()
             }

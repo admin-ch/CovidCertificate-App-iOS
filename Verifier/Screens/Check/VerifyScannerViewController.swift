@@ -15,7 +15,7 @@ import Foundation
 class VerifyScannerViewController: ViewController {
     // MARK: - Public Callbacks
 
-    public var scanningSucceededCallback: ((DGCHolder) -> Void)?
+    public var scanningSucceededCallback: ((CertificateHolder) -> Void)?
     public var dismissTouchUpCallback: (() -> Void)?
 
     private var timer: Timer?
