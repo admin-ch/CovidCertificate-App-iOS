@@ -63,6 +63,34 @@ public extension CovidCertificate {
     }
 }
 
+public extension VerifierCertificateHolder {
+    var displayFullName: String? {
+        return [person.familyName, person.givenName].compactMap { $0 }.joined(separator: " ")
+    }
+
+    var displayBirthDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let date = dateFormatter.date(from: dateOfBirth) {
+            return DateFormatter.ub_dayString(from: date)
+        }
+
+        return dateOfBirth
+    }
+
+    var displayLastName: String? {
+        return person.familyName
+    }
+
+    var displayName: String? {
+        return person.givenName
+    }
+
+    var displayMonospacedName: String? {
+        return [person.standardizedFamilyName, person.standardizedGivenName].compactMap { $0 }.joined(separator: "<<")
+    }
+}
+
 extension Vaccination {
     var getNumberOverTotalDose: String {
         return "\(doseNumber)/\(totalDoses)"
