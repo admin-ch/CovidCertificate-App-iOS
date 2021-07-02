@@ -91,6 +91,7 @@ class CertificateAddDetailView: UIView {
         if let cert = certificate {
             let v = CertificateDetailView(showEnglishLabelsIfNeeded: false)
             v.certificate = cert
+            v.states = (.success(nil), .idle)
             stackScrollView.addArrangedView(v)
         }
 
