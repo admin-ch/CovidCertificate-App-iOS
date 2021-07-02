@@ -99,20 +99,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setupWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKey()
-        window?.rootViewController = navigationController
 
         setupAppearance()
-
-        window?.makeKeyAndVisible()
 
         if !WalletUserStorage.shared.hasCompletedOnboarding {
             // show onboarding
             let onboardingViewController = OnboardingViewController()
             onboardingViewController.modalPresentationStyle = .fullScreen
-            window?.rootViewController?.present(onboardingViewController, animated: false)
+            window?.rootViewController = onboardingViewController
+        } else {
+            window?.rootViewController = navigationController
         }
 
+        window?.makeKeyAndVisible()
+
         setupImportHandler()
+    }
+
+    func completedOnboarding() {
+        window?.rootViewController = navigationController
     }
 
     private func willAppearAfterColdstart(_: UIApplication, coldStart _: Bool, backgroundTime _: TimeInterval) {
