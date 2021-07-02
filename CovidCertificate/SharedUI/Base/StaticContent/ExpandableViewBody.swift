@@ -69,6 +69,7 @@ class ExpandableViewBody: UIView {
             addSubview(textLabel)
 
             let button = ExternalLinkButton(title: title)
+            button.accessibilityTraits = .link
             addSubview(button)
 
             textLabel.snp.makeConstraints { make in

@@ -66,6 +66,7 @@ class HomescreenOnboardingViewController: ViewController {
         stackScrollView.addSpacerView(Padding.large)
 
         stackScrollView.addArrangedView(titleLabel)
+        titleLabel.accessibilityTraits = [.header]
         stackScrollView.addSpacerView(Padding.large + Padding.medium)
 
         stackScrollView.addArrangedView(questionLabel)
@@ -76,6 +77,6 @@ class HomescreenOnboardingViewController: ViewController {
 
         titleLabel.text = UBLocalized.wallet_certificate
         questionLabel.text = UBLocalized.wallet_homescreen_what_to_do
-        questionLabel.accessibilityTraits = .header
+        questionLabel.accessibilityTraits = [.header]
     }
 }

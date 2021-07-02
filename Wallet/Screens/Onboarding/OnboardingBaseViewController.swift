@@ -135,8 +135,6 @@ class OnboardingBaseViewController: ViewController {
         vcToShow.view.setNeedsLayout()
         vcToShow.view.layoutIfNeeded()
 
-        UIAccessibility.post(notification: .screenChanged, argument: vcToShow.stackScrollView)
-
         if animated {
             vcToShow.fadeAnimation(fromFactor: forward ? 1 : -1, toFactor: 0, delay: 0.2, completion: { completed in if completed {
                 self.continueButton.isUserInteractionEnabled = true
@@ -172,6 +170,8 @@ class OnboardingBaseViewController: ViewController {
         vcToShow.view.layoutIfNeeded()
 
         currentStep = step
+
+        UIAccessibility.post(notification: .layoutChanged, argument: vcToShow.stackScrollView)
     }
 
     private func showContinueButton() {

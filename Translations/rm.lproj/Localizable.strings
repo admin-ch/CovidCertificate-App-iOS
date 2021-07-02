@@ -766,9 +766,6 @@
 /*Wallet: Zertifikat Light Title*/
 "wallet_certificate_light_detail_title" = "Was ist ein \nZertifikat Light?";
 
-/*Wallet: Zertifikat Light Erklärungstext*/
-"wallet_certificate_light_detail_text" = "Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.\n\nWährend das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 48 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.";
-
 /*Wallet: Zertifikat Light Summary Titel*/
 "wallet_certificate_light_detail_summary_title" = "Zertifikat Light";
 
@@ -796,8 +793,8 @@
 /*Wallet: Zertifikat Light Aktivation Error*/
 "wallet_certificate_light_detail_activation_error" = "Zertifikat Light\nkonnte nicht aktiviert werden";
 
-/*Wallet: Zertifikat Light Aktivation Netzwerk Fehler*/
-"wallet_certificate_light_detail_activation_network_error" = "Um das Zertifikat Light aktivieren zu können, muss die App online sein.";
+/*Wallet: Zertifikat Light Aktivation Netzwerk Fehler Titel*/
+"wallet_certificate_light_detail_activation_network_error_text" = "Um das Zertifikat Light aktivieren zu können, muss die App online sein.";
 
 /*Info Text bei erfolgreicher Prüfung einers Zertifikate Light*/
 "verifier_verify_success_certificate_light_info" = "Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig";
@@ -815,8 +812,56 @@
 "wallet_certificate_export_button" = "Exportieren";
 
 /*Wallet: Zertifikat Export Error Title*/
-"wallet_certificate_export_error_title" = "PDF konnte nicht\nerstellt werden";
+"wallet_certificate_export_detail_error_title" = "PDF konnte nicht\nerstellt werden";
 
 /*Wallet: Zertifikat Export Netzwerk Error*/
-"wallet_certificate_export_network_error" = "Um das PDF erstellen zu können, muss die App online sein.";
+"wallet_certificate_export_detail_network_error_text" = "Um das PDF erstellen zu können, muss die App online sein.";
 "accessibility_qr_code" = "code QR";
+
+/*Wallet: Zertifikat Light Aktivation Netzwerk Fehler Title*/
+"wallet_certificate_light_detail_activation_network_error_title" = "Keine Verbindung zum Internet";
+
+/*Wallet: Zertifikat Light Aktivation General Fehler Text*/
+"wallet_certificate_light_detail_activation_general_error_text" = "Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.";
+
+/*Wallet: Zertifikat Light Aktivation General Fehler Titel*/
+"wallet_certificate_light_detail_activation_general_error_title" = "Ein unerwarteter Fehler ist aufgetreten.";
+
+/*Wallet: Zertifikat Light Titel*/
+"wallet_certificate_light_title" = "Zertifikat Light";
+
+/*Wallet: Zertifikat Exportieren Detail Title*/
+"wallet_certificate_export_detail_title" = "Covid-Zertifikat exportieren";
+
+/*Wallet: Zertifikat Exportieren Summary 1*/
+"wallet_certificate_export_detail_summary_1" = "Aus den Daten Ihres Covid-Zertifikats wird ein PDF erstellt, das Sie drucken oder teilen können.";
+
+/*Wallet: Zertifikat Exportieren Summary 2*/
+"wallet_certificate_export_detail_summary_2" = "Die Erstellung des PDF-Dokuments erfolgt online.";
+
+/*Wallet: Zertifikat Exportieren Datail Export Button*/
+"wallet_certificate_export_detail_export_button" = "Exportieren";
+
+/*Wallet: Zertifikat Exportieren Datail Netzwerk Fehler*/
+"wallet_certificate_export_detail_network_error_title" = "Keine Verbindung zum Internet";
+
+/*Wallet: Zertifikat Exportieren Datail General Fehler*/
+"wallet_certificate_export_detail_general_error_title" = "Ein unerwarteter Fehler ist aufgetreten.";
+
+/*Wallet: Zertifikat Exportieren Datail General Fehler Text*/
+"wallet_certificate_export_detail_general_error_text" = "Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.";
+
+/*Wallet: Zertifikat Light Erklärungstext 1*/
+"wallet_certificate_light_detail_text_1" = "Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.";
+
+/*Wallet: Zertifikat Light Erklärungstext 2*/
+"wallet_certificate_light_detail_text_2" = "Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 48 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.";
+
+/*Wallet: Zertifikat Light Erklärungstext Bold*/
+"wallet_certificate_light_detail_text_2_bold" = "nur muss keine";
+
+/*VoiceOver reads this when the expandable box is reduced*/
+"accessibility_expandable_box_reduced_state" = "reduziert";
+
+/*VoiceOver reads this when the expandable box is expanded*/
+"accessibility_expandable_box_expanded_state" = "erweitert";

@@ -234,10 +234,12 @@ class CertificateStateView: UIView {
                 }
             }
 
+            let accText = String(with: self.textLabel.attributedText?.string.filter { $0 != "\n" } ?? self.textLabel.attributedText?.string ?? "")
             if self.hasValidityView {
-                self.accessibilityLabel = [self.textLabel.attributedText?.string, self.validityView.validityTitleLabel.text, self.validityView.untilTitleLabel.text, DateFormatter.ub_accessibilityDateString(dateString: self.validityView.untilText)].compactMap { $0 }.joined(separator: ", ")
+                let accValidText = String(with: self.validityView.validityTitleLabel.text?.filter { $0 != "\n" } ?? self.validityView.validityTitleLabel.text?.string ?? "")
+                self.accessibilityLabel = [accText, accValidText, self.validityView.untilTitleLabel.text, DateFormatter.ub_accessibilityDateString(dateString: self.validityView.untilText)].compactMap { $0 }.joined(separator: ", ")
             } else {
-                self.accessibilityLabel = self.textLabel.attributedText?.string
+                self.accessibilityLabel = accText
             }
         }
 
