@@ -52,6 +52,11 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     let transferQuestions: LocalizedValue<FAQEntriesContainer>?
     let transferWorks: LocalizedValue<FAQEntriesContainer>?
 
+    #if WALLET
+        var lightCertificateActive = false
+        var pdfGenerationActive = false
+    #endif
+
     class FAQEntriesContainer: UBCodable {
         let faqTitle: String
         let faqSubTitle: String?

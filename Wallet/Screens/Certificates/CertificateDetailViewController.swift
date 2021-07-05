@@ -36,10 +36,8 @@ class CertificateDetailViewController: ViewController {
     private let certificateLightRow = IconImageRowView(icon: UIImage(named: "ic-qr-certificate-light")!,
                                                        text: UBLocalized.wallet_certificate_detail_certificate_light_button)
 
-    #if CERTIFICATE_EXPORT
-        private let exportRow = IconImageRowView(icon: UIImage(named: "ic-pdf")!,
-                                                 text: UBLocalized.wallet_certificate_detail_export_button)
-    #endif
+    private let exportRow = IconImageRowView(icon: UIImage(named: "ic-pdf")!,
+                                             text: UBLocalized.wallet_certificate_detail_export_button)
 
     private var state: VerificationState = .loading {
         didSet {
@@ -138,12 +136,16 @@ class CertificateDetailViewController: ViewController {
 
         stackScrollView.addSpacerView(2.0 * Padding.large + 2.0 * Padding.small)
         stackScrollView.addSpacerView(2.0, color: .cc_blueish)
-        stackScrollView.addArrangedView(certificateLightRow)
-        stackScrollView.addSpacerView(2.0, color: .cc_blueish)
-        #if CERTIFICATE_EXPORT
+
+        if ConfigManager.currentConfig?.lightCertificateActive ?? false {
+            stackScrollView.addArrangedView(certificateLightRow)
+            stackScrollView.addSpacerView(2.0, color: .cc_blueish)
+        }
+
+        if ConfigManager.currentConfig?.pdfGenerationActive ?? false {
             stackScrollView.addArrangedView(exportRow)
             stackScrollView.addSpacerView(2.0, color: .cc_blueish)
-        #endif
+        }
 
         let spacer = stackScrollView.addSpacerView(3.0 * Padding.large + Padding.medium)
         stackScrollView.addArrangedViewCentered(removeButton)
@@ -194,18 +196,16 @@ class CertificateDetailViewController: ViewController {
             strongSelf.navigationController?.pushViewController(CertificateLightCreationViewController(certificate: certificate), animated: true)
         }
 
-        #if CERTIFICATE_EXPORT
-            exportRow.touchUpCallback = { [weak self] in
-                guard let strongSelf = self,
-                      let certificate = strongSelf.certificate else { return }
-                let vc = CertificateExportDetailViewController(certificate: certificate)
-                vc.sharePDFCallback = { [weak self] pdf in
-                    guard let self = self else { return }
-                    self.sharePDF(pdf)
-                }
-                strongSelf.navigationController?.pushViewController(vc, animated: true)
+        exportRow.touchUpCallback = { [weak self] in
+            guard let strongSelf = self,
+                  let certificate = strongSelf.certificate else { return }
+            let vc = CertificateExportDetailViewController(certificate: certificate)
+            vc.sharePDFCallback = { [weak self] pdf in
+                guard let self = self else { return }
+                self.sharePDF(pdf)
             }
-        #endif
+            strongSelf.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
     private func updateCertificate() {
@@ -277,9 +277,8 @@ class CertificateDetailViewController: ViewController {
         stateView.states = (state, temporaryVerifierState)
         detailView.states = (state, temporaryVerifierState)
         qrCodeNameView.enabled = temporaryVerifierState != .idle || !state.isInvalid()
-        #if CERTIFICATE_EXPORT
-            exportRow.isEnabled = !state.isInvalid()
-        #endif
+        exportRow.isEnabled = !state.isInvalid()
+
         certificateLightRow.isEnabled = !state.isInvalid()
     }
 

@@ -32,7 +32,15 @@ class CertificateLightExpirationTimer: UIView {
 
             switch CovidCertificateSDK.Wallet.decode(encodedData: certificate.certificate) {
             case let .success(holder):
-                expiration = holder.expiresAt
+                CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: false) { [weak self] results in
+                    guard let self = self else { return }
+                    switch results.nationalRules {
+                    case let .success(validationResult):
+                        self.expiration = validationResult.validUntil
+                    default:
+                        self.expiration = nil
+                    }
+                }
             default:
                 expiration = nil
             }
