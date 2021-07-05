@@ -38,6 +38,8 @@ enum RetryError: Equatable {
 
 enum VerificationState: Equatable {
     case loading
+    // verification was skipped
+    case skipped
     // validity as formatted date as String
     case success(String?)
     // sorted errors, error codes, validity as formatted date as String
@@ -217,7 +219,8 @@ class Verifier: NSObject {
         }
     }
 
-    private func handleRevocationResult(_ result: Result<ValidationResult, ValidationError>) -> VerificationState {
+    private func handleRevocationResult(_ result: Result<ValidationResult, ValidationError>?) -> VerificationState {
+        guard let result = result else { return .skipped }
         switch result {
         case let .success(result):
             if result.isValid {

@@ -187,7 +187,7 @@ class VerifyCheckContentViewController: ViewController {
         switch state {
         case .loading:
             loadingView.rotate()
-        case .success:
+        case .success, .skipped:
             statusView.set(text: UBLocalized.verifier_verify_success_title.bold(), backgroundColor: .cc_greenish, icon: UIImage(named: "ic-check"))
             infoView.set(text: UBLocalized.verifier_verify_success_info, backgroundColor: .cc_blueish, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_blue), showReloadButton: false)
         case let .invalid(errors, errorCodes, _):

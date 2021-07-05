@@ -332,6 +332,8 @@ class CertificateDetailView: UIView {
                 switch self.states.state {
                 case .loading:
                     self.applyLoadingState()
+                case .skipped:
+                    self.applySuccessState()
                 case .success:
                     self.applySuccessState()
                 case .invalid:

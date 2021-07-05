@@ -152,7 +152,7 @@ class CertificateTableViewCell: UITableViewCell {
             switch self.state {
             case .loading:
                 self.qrCodeStateImageView.image = load
-            case .success:
+            case .success, .skipped:
                 self.qrCodeStateImageView.image = normal
             case let .retry(err, _):
                 switch err {
