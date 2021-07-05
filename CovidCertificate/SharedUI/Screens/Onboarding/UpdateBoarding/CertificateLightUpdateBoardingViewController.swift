@@ -11,23 +11,23 @@
 
 import UIKit
 
-class OnboardingViewController: OnboardingBaseViewController {
-    private let step1VC = StaticContentViewController(models: [.theApp])
-    private let step2VC = StaticContentViewController(models: [.store])
-    private let step3VC = StaticContentViewController(models: [.show])
-    private let step4VC = OnboardingDisclaimerViewController(model: .privacy)
+class CertificateLightUpdateBoardingViewController: OnboardingBaseViewController {
+    private let step1VC = OnboardingDisclaimerViewController(model: .certificateLightUpdateBoarding)
 
     override internal var stepViewControllers: [OnboardingContentViewController] {
-        [step1VC, step2VC, step3VC, step4VC]
+        [step1VC]
     }
 
     override internal var finalStepIndex: Int {
-        return 3
+        return 0
     }
 
     override public func completedOnboarding() {
-        WalletUserStorage.shared.hasCompletedOnboarding = true
-        WalletUserStorage.shared.hasCompletedLightCertificateUpdateBoarding = true
+        #if Wallet
+            WalletUserStorage.shared.hasCompletedLightCertificateUpdateBoarding = true
+        #elseif VERIFIER
+            VerifierUserStorage.shared.hasCompletedLightCertificateUpdateBoarding = true
+        #endif
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.completedOnboarding()
         }

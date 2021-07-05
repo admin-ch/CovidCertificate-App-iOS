@@ -14,8 +14,8 @@ import UIKit
 class OnboardingDisclaimerViewController: StaticContentViewController {
     // MARK: - Init
 
-    init() {
-        super.init(models: [.privacy])
+    init(model: StaticContentViewModel) {
+        super.init(models: [model])
         continueButtonText = UBLocalized.wallet_onboarding_accept_button
     }
 

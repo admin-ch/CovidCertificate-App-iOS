@@ -288,6 +288,10 @@
 		DCF9C3652656395A00E34481 /* config_check.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF9C3622656395A00E34481 /* config_check.json */; };
 		DCF9C3662656395A00E34481 /* config_wallet.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF9C3632656395A00E34481 /* config_wallet.json */; };
 		F20E4F31268208DB00D14609 /* PushNotificationPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */; };
+		F809AF322693B21D00D16EED /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDEA264A5C5600FDE0E1 /* OnboardingBaseViewController.swift */; };
+		F809AF342693B25700D16EED /* OnboardingDisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDFA264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift */; };
+		F809AF362693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */; };
+		F809AF372693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */; };
 		F80CB027268CD154004A12D1 /* TransformationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B156268B66A500C39836 /* TransformationPayload.swift */; };
 		F80E735A245AD7B400C934B8 /* URLSession+pinning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */; };
 		F80E7376245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */; };
@@ -540,6 +544,7 @@
 		DCF9C3622656395A00E34481 /* config_check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config_check.json; sourceTree = "<group>"; };
 		DCF9C3632656395A00E34481 /* config_wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config_wallet.json; sourceTree = "<group>"; };
 		F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationPopupView.swift; sourceTree = "<group>"; };
+		F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificateLightUpdateBoardingViewController.swift; sourceTree = "<group>"; };
 		F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+pinning.swift"; sourceTree = "<group>"; };
 		F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBPinnedCertificatesTrustEvaluator.swift; sourceTree = "<group>"; };
 		F8130CDB2685B46200A29326 /* URLSession+synchron.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+synchron.swift"; sourceTree = "<group>"; };
@@ -1173,9 +1178,7 @@
 		DC8ABDE9264A5C4500FDE0E1 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				DC8ABDEA264A5C5600FDE0E1 /* OnboardingBaseViewController.swift */,
 				DC8ABDEE264A643000FDE0E1 /* OnboardingViewController.swift */,
-				DC8ABDFA264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1256,6 +1259,24 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		F809AF2D2693AE0700D16EED /* UpdateBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */,
+			);
+			path = UpdateBoarding;
+			sourceTree = "<group>";
+		};
+		F809AF332693B23700D16EED /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DC8ABDEA264A5C5600FDE0E1 /* OnboardingBaseViewController.swift */,
+				F809AF2D2693AE0700D16EED /* UpdateBoarding */,
+				DC8ABDFA264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		F88DA6B5268C7885001DB072 /* CertificateLight */ = {
 			isa = PBXGroup;
 			children = (
@@ -1298,6 +1319,7 @@
 		F8E9495E26836F090054374B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F809AF332693B23700D16EED /* Onboarding */,
 				F8E9495F26836F1A0054374B /* Debug */,
 			);
 			path = Screens;
@@ -1666,6 +1688,7 @@
 				F8130CE02685B99F00A29326 /* Collection+Safe.swift in Sources */,
 				DCF9C35926562E7F00E34481 /* OnboardingInfoView.swift in Sources */,
 				6EF166DB264E636800426985 /* UIStateLogic.swift in Sources */,
+				F809AF322693B21D00D16EED /* OnboardingBaseViewController.swift in Sources */,
 				DCBF64D926774E3300450D51 /* VerifierManager.swift in Sources */,
 				6E6B1A922649D17400DB4A38 /* Verifier.swift in Sources */,
 				6EC172EB26429E31002E27DB /* Button.swift in Sources */,
@@ -1696,6 +1719,7 @@
 				6EC172FD26429E31002E27DB /* UIImage+UBHelpers.m in Sources */,
 				6E0281F326550E1100582904 /* InfoBoxView.swift in Sources */,
 				6EC172FE26429E31002E27DB /* OSLogger.swift in Sources */,
+				F809AF372693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */,
 				6EC172FF26429E31002E27DB /* NavigationController.swift in Sources */,
 				DCF9C35726562E5C00E34481 /* ExpandableViewHeader.swift in Sources */,
 				6EC1730026429E31002E27DB /* PhoneCallHelper.swift in Sources */,
@@ -1725,6 +1749,7 @@
 				6ED916352681E7F7006D9E7C /* PushRegistration.swift in Sources */,
 				6EC1730D26429E31002E27DB /* NSQRScanningView.swift in Sources */,
 				6EC1730E26429E31002E27DB /* HomescreenBaseViewController.swift in Sources */,
+				F809AF342693B25700D16EED /* OnboardingDisclaimerViewController.swift in Sources */,
 				DCF9C35526562E2300E34481 /* BasicStaticContentViewController.swift in Sources */,
 				6EC1731026429E31002E27DB /* URLSession+pinning.swift in Sources */,
 				6EC1731126429E31002E27DB /* UIImage+localizedImage.swift in Sources */,
@@ -1801,6 +1826,7 @@
 				DCBF64DD267883CC00450D51 /* TransferCodeLabel.swift in Sources */,
 				6E7C0D37242E02600017C4F9 /* StackScrollView.swift in Sources */,
 				DCA3FFB824504B190003F5AD /* ClickthroughStackView.swift in Sources */,
+				F809AF362693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */,
 				6E5A0F26264336B4004718B4 /* UIStateManager.swift in Sources */,
 				F8D5B159268C400B00C39836 /* IconImageRowView.swift in Sources */,
 				DC8ABDF5264A65C100FDE0E1 /* OnboardingInfoView.swift in Sources */,

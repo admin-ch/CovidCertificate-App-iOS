@@ -79,6 +79,20 @@ struct StaticContentViewModel: Equatable {
                                                                 (UIImage(named: "ic-three"), UBLocalized.wallet_scanner_howitworks_text4)],
                                                    expandableTextGroups: [(UBLocalized.wallet_scanner_howitworks_question1, UBLocalized.wallet_scanner_howitworks_answer1, UBLocalized.wallet_scanner_howitworks_external_link_title, URL(string: UBLocalized.wallet_scanner_howitworks_external_link))])
 
+    #if WALLET
+        static let certificateLightUpdateBoarding = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
+                                                                           foregroundImage: UIImage(named: "ic-how-it-works-image"),
+                                                                           title: UBLocalized.wallet_update_boarding_certificate_light_title,
+                                                                           alignment: .center,
+                                                                           textGroups: [(nil, UBLocalized.wallet_update_boarding_certificate_light_text)])
+    #elseif VERIFIER
+        static let certificateLightUpdateBoarding = StaticContentViewModel(heading: UBLocalized.verifier_update_boarding_header,
+                                                                           foregroundImage: UIImage(named: "illu-update-light"),
+                                                                           title: UBLocalized.verifier_update_boarding_certificate_light_title,
+                                                                           alignment: .center,
+                                                                           textGroups: [(nil, UBLocalized.verifier_update_boarding_certificate_light_text)])
+    #endif
+
     static let certificateLight = StaticContentViewModel(title: UBLocalized.wallet_certificate_light_detail_summary_title,
                                                          alignment: .center,
                                                          textGroups: [(UIImage(named: "ic-bund-small"), UBLocalized.wallet_scanner_howitworks_text1),

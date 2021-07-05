@@ -16,4 +16,7 @@ class VerifierUserStorage {
 
     @UBUserDefault(key: "verifier.user.hasCompletedOnboarding", defaultValue: false)
     var hasCompletedOnboarding: Bool
+
+    @UBUserDefault(key: "wallet.user.hasCompletedLightCertificateUpdateBoarding", defaultValue: false)
+    var hasCompletedLightCertificateUpdateBoarding: Bool
 }

@@ -109,6 +109,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let onboardingViewController = OnboardingViewController()
             onboardingViewController.modalPresentationStyle = .fullScreen
             window?.rootViewController = onboardingViewController
+        } else if !WalletUserStorage.shared.hasCompletedLightCertificateUpdateBoarding {
+            let onboardingViewController = CertificateLightUpdateBoardingViewController()
+            onboardingViewController.modalPresentationStyle = .fullScreen
+            window?.rootViewController = onboardingViewController
         } else {
             window?.rootViewController = navigationController
         }
