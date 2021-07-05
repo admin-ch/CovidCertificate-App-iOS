@@ -85,9 +85,11 @@ class WebViewController: ViewController {
             #if VERIFIER
                 string = string.replacingOccurrences(of: "{APP_NAME}", with: UBLocalized.verifier_app_title)
                 string = string.replacingOccurrences(of: "{LAW_LINK}", with: UBLocalized.verifier_terms_privacy_link)
+                string = string.replacingOccurrences(of: "{PARAM_APP_IDENTIFIER}", with: "covidCheck")
             #elseif WALLET
                 string = string.replacingOccurrences(of: "{APP_NAME}", with: UBLocalized.wallet_onboarding_app_title)
                 string = string.replacingOccurrences(of: "{LAW_LINK}", with: UBLocalized.wallet_terms_privacy_link)
+                string = string.replacingOccurrences(of: "{PARAM_APP_IDENTIFIER}", with: "covidCert")
             #endif
 
             webView.loadHTMLString(string, baseURL: url.deletingLastPathComponent())
