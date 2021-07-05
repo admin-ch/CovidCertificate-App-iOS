@@ -68,12 +68,12 @@ enum TransformationService {
                 return
             }
 
-            guard let response = try? JSONDecoder().decode(TransformationPdfResponsePayload.self, from: data) else {
+            guard let pdfResponse = try? JSONDecoder().decode(TransformationPdfResponsePayload.self, from: data) else {
                 completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR)))
                 return
             }
 
-            completionHandler(.success(response.pdf))
+            completionHandler(.success(pdfResponse.pdf))
         }.resume()
     }
 }
