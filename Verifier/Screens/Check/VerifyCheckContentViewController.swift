@@ -35,7 +35,7 @@ class VerifyCheckContentViewController: ViewController {
         didSet { update(true) }
     }
 
-    public var holder: DGCHolder? {
+    public var holder: VerifierCertificateHolder? {
         didSet { update(true) }
     }
 
@@ -187,7 +187,7 @@ class VerifyCheckContentViewController: ViewController {
         switch state {
         case .loading:
             loadingView.rotate()
-        case .success:
+        case .success, .skipped:
             statusView.set(text: UBLocalized.verifier_verify_success_title.bold(), backgroundColor: .cc_greenish, icon: UIImage(named: "ic-check"))
             infoView.set(text: UBLocalized.verifier_verify_success_info, backgroundColor: .cc_blueish, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_blue), showReloadButton: false)
         case let .invalid(errors, errorCodes, _):
@@ -334,12 +334,12 @@ class VerifyNameBirthdayView: UIView {
 
     // MARK: - Holder
 
-    public var holder: DGCHolder? {
+    public var holder: VerifierCertificateHolder? {
         didSet {
-            nameView.titleLabel.text = holder?.healthCert.displayName
-            lastNameView.titleLabel.text = holder?.healthCert.displayLastName
-            birthdayView.titleLabel.text = holder?.healthCert.displayBirthDate
-            monoLabel.text = holder?.healthCert.displayMonospacedName
+            nameView.titleLabel.text = holder?.displayName
+            lastNameView.titleLabel.text = holder?.displayLastName
+            birthdayView.titleLabel.text = holder?.displayBirthDate
+            monoLabel.text = holder?.displayMonospacedName
         }
     }
 

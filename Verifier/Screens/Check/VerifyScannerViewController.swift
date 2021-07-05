@@ -15,7 +15,7 @@ import Foundation
 class VerifyScannerViewController: ViewController {
     // MARK: - Public Callbacks
 
-    public var scanningSucceededCallback: ((DGCHolder) -> Void)?
+    public var scanningSucceededCallback: ((HolderModel) -> Void)?
     public var dismissTouchUpCallback: (() -> Void)?
 
     private var timer: Timer?
@@ -188,7 +188,7 @@ extension VerifyScannerViewController: QRScannerViewDelegate {
 
     func qrScanningSucceededWithCode(_ str: String?) {
         if let s = str {
-            let result = CovidCertificateSDK.Wallet.decode(encodedData: s)
+            let result = CovidCertificateSDK.Verifier.decode(encodedData: s)
 
             switch result {
             case let .success(holder):

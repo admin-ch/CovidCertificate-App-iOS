@@ -20,7 +20,7 @@ class CertificateDetailView: UIView {
         }
     }
 
-    private var holder: DGCHolder?
+    private var holder: CertificateHolder?
 
     private let stackView = UIStackView()
 
@@ -79,7 +79,7 @@ class CertificateDetailView: UIView {
     }
 
     private func addVaccinationEntries() {
-        guard let vaccinations = holder?.healthCert.vaccinations,
+        guard let vaccinations = (holder?.certificate as? DCCCert)?.vaccinations,
               vaccinations.count > 0 else { return }
 
         addDividerLine()
@@ -122,7 +122,7 @@ class CertificateDetailView: UIView {
     }
 
     private func addRecoveryEntries() {
-        guard let pastInfections = holder?.healthCert.pastInfections,
+        guard let pastInfections = (holder?.certificate as? DCCCert)?.pastInfections,
               pastInfections.count > 0
         else { return }
 
@@ -156,7 +156,7 @@ class CertificateDetailView: UIView {
     }
 
     private func addTestEntries() {
-        guard let tests = holder?.healthCert.tests,
+        guard let tests = (holder?.certificate as? DCCCert)?.tests,
               tests.count > 0
         else { return }
 
@@ -332,6 +332,8 @@ class CertificateDetailView: UIView {
                 switch self.states.state {
                 case .loading:
                     self.applyLoadingState()
+                case .skipped:
+                    self.applySuccessState()
                 case .success:
                     self.applySuccessState()
                 case .invalid:

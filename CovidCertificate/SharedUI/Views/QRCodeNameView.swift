@@ -117,8 +117,8 @@ class QRCodeNameView: UIView {
 
         switch c {
         case let .success(holder):
-            nameView.text = holder.healthCert.displayFullName
-            birthdayLabelView.text = holder.healthCert.displayBirthDate
+            nameView.text = holder.certificate.displayFullName
+            birthdayLabelView.text = holder.certificate.displayBirthDate
         case .failure:
             break
         }

@@ -12,6 +12,14 @@
 import CovidCertificateSDK
 import Foundation
 
+#if WALLET
+    typealias HolderModel = CertificateHolder
+    typealias SDKNamespace = CovidCertificateSDK.Wallet
+#elseif VERIFIER
+    typealias HolderModel = VerifierCertificateHolder
+    typealias SDKNamespace = CovidCertificateSDK.Verifier
+#endif
+
 enum VerificationError: Equatable, Comparable {
     case signature
     case typeInvalid
@@ -30,6 +38,8 @@ enum RetryError: Equatable {
 
 enum VerificationState: Equatable {
     case loading
+    // verification was skipped
+    case skipped
     // validity as formatted date as String
     case success(String?)
     // sorted errors, error codes, validity as formatted date as String
@@ -110,18 +120,18 @@ enum VerificationState: Equatable {
 }
 
 class Verifier: NSObject {
-    private let holder: DGCHolder?
+    private let holder: HolderModel?
     private var stateUpdate: ((VerificationState) -> Void)?
 
     // MARK: - Init
 
-    init(holder: DGCHolder) {
+    init(holder: HolderModel) {
         self.holder = holder
         super.init()
     }
 
     init(qrString: String) {
-        let result = CovidCertificateSDK.Wallet.decode(encodedData: qrString)
+        let result = SDKNamespace.decode(encodedData: qrString)
 
         switch result {
         case let .success(holder):
@@ -148,7 +158,7 @@ class Verifier: NSObject {
             self.stateUpdate?(.loading)
         }
 
-        CovidCertificateSDK.Wallet.check(cose: holder, forceUpdate: forceUpdate) { [weak self] results in
+        SDKNamespace.check(holder: holder, forceUpdate: forceUpdate) { [weak self] results in
             guard let self = self else { return }
             let checkSignatureState = self.handleSignatureResult(results.signature)
             let checkRevocationState = self.handleRevocationResult(results.revocationStatus)
@@ -209,7 +219,8 @@ class Verifier: NSObject {
         }
     }
 
-    private func handleRevocationResult(_ result: Result<ValidationResult, ValidationError>) -> VerificationState {
+    private func handleRevocationResult(_ result: Result<ValidationResult, ValidationError>?) -> VerificationState {
+        guard let result = result else { return .skipped }
         switch result {
         case let .success(result):
             if result.isValid {
@@ -244,16 +255,18 @@ class Verifier: NSObject {
 
             // get expired date string
             if let date = result.validUntil {
-                switch holder.healthCert.certType {
-                case .test:
-                    validUntil = DateFormatter.ub_dayTimeString(from: date)
-                case .recovery:
-                    validUntil = DateFormatter.ub_dayString(from: date)
-                case .vaccination:
-                    validUntil = DateFormatter.ub_dayString(from: date)
-                case .none:
-                    break
-                }
+                #if WALLET
+                    switch (holder.certificate as? DCCCert)?.immunisationType {
+                    case .test:
+                        validUntil = DateFormatter.ub_dayTimeString(from: date)
+                    case .recovery:
+                        validUntil = DateFormatter.ub_dayString(from: date)
+                    case .vaccination:
+                        validUntil = DateFormatter.ub_dayString(from: date)
+                    case .none:
+                        break
+                    }
+                #endif
             }
 
             // check for validity

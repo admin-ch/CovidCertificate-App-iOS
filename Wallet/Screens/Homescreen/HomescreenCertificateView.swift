@@ -167,7 +167,8 @@ class HomescreenCertificateView: UIView {
             let c = CovidCertificateSDK.Wallet.decode(encodedData: cert.qrCode ?? "")
             switch c {
             case let .success(holder):
-                let vaccinations = holder.healthCert.vaccinations ?? []
+                guard let certificate = holder.certificate as? DCCCert else { break }
+                let vaccinations = certificate.vaccinations ?? []
                 if vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
                     titleLabel.text = UBLocalized.wallet_certificate
                 } else {
