@@ -76,12 +76,12 @@ enum TransformationService {
             }
             """
 
-            guard let pdf = try? JSONDecoder().decode(TransformationPdfResponsePayload.self, from: mock.data(using: .utf8)!) else {
+            guard let response = try? JSONDecoder().decode(TransformationPdfResponsePayload.self, from: mock.data(using: .utf8)!) else {
                 completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR)))
                 return
             }
 
-            completionHandler(.success(pdf.pdf))
+            completionHandler(.success(response.pdf))
         }.resume()
     }
 }

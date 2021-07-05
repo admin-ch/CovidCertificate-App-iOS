@@ -17,7 +17,7 @@ class CertificateExportDetailViewController: StackScrollViewController {
     private let summary = CertificateExportSummaryView()
     private let certificate: UserCertificate
 
-    var sharePDFCallback: ((Data) -> Void)?
+    var sharePDFCallback: ((UserCertificate) -> Void)?
 
     init(certificate: UserCertificate) {
         self.certificate = certificate
@@ -67,30 +67,27 @@ class CertificateExportDetailViewController: StackScrollViewController {
     }
 
     func getPDF() {
-        guard let qrCode = certificate.qrCode else { return }
         UIView.animate(withDuration: 0.25, delay: 0, options: .beginFromCurrentState, animations: {
             self.loadingView.startLoading()
             self.errorRetryVC.view.alpha = 0.0
         }, completion: nil)
-        TransformationService.getPdf(qrCode: qrCode) { [weak self] result in
+        TransformationManager.getPDF(certificate: certificate) { [weak self] result in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(pdf):
-                    self.loadingView.stopLoading()
-                    self.navigationController?.popViewController(animated: true) { [weak self] in
-                        guard let self = self else { return }
-                        self.sharePDFCallback?(pdf)
-                    }
+            switch result {
+            case let .success(certificate):
+                self.loadingView.stopLoading()
+                self.navigationController?.popViewController(animated: true) { [weak self] in
+                    guard let self = self else { return }
+                    self.sharePDFCallback?(certificate)
+                }
 
-                case let .failure(error):
-                    self.errorRetryVC.error = error
+            case let .failure(error):
+                self.errorRetryVC.error = error
 
-                    self.loadingView.stopLoading()
+                self.loadingView.stopLoading()
 
-                    UIView.animate(withDuration: 0.25) {
-                        self.errorRetryVC.view.alpha = 1.0
-                    }
+                UIView.animate(withDuration: 0.25) {
+                    self.errorRetryVC.view.alpha = 1.0
                 }
             }
         }

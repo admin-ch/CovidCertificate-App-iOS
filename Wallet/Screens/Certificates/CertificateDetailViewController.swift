@@ -199,9 +199,17 @@ class CertificateDetailViewController: ViewController {
         exportRow.touchUpCallback = { [weak self] in
             guard let strongSelf = self,
                   let certificate = strongSelf.certificate else { return }
+
+            if let pdf = certificate.pdf {
+                self?.sharePDF(pdf)
+                return
+            }
+
             let vc = CertificateExportDetailViewController(certificate: certificate)
-            vc.sharePDFCallback = { [weak self] pdf in
+            vc.sharePDFCallback = { [weak self] certificate in
                 guard let self = self else { return }
+                self.certificate = certificate
+                guard let pdf = certificate.pdf else { return }
                 self.sharePDF(pdf)
             }
             strongSelf.navigationController?.pushViewController(vc, animated: true)
@@ -215,9 +223,15 @@ class CertificateDetailViewController: ViewController {
     }
 
     private func sharePDF(_ pdf: Data) {
-        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [pdf], applicationActivities: nil)
+        let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent("\(UBLocalized.covid_certificate_title).pdf")
+        try? pdf.write(to: fileURL)
+
+        let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
         activityViewController.title = UBLocalized.covid_certificate_title
         activityViewController.popoverPresentationController?.sourceView = view
+        activityViewController.completionWithItemsHandler = { _, _, _, _ in
+            try? FileManager.default.removeItem(at: fileURL)
+        }
         present(activityViewController, animated: true, completion: nil)
     }
 

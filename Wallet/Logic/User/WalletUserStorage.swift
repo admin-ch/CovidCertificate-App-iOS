@@ -77,10 +77,10 @@ class CertificateStorage {
         }
     }
 
-    func updateCertificate(with transferCode: String, qrCode: String?) {
+    func updateCertificate(with transferCode: String, qrCode: String?, pdf: Data?) {
         userCertificates = userCertificates.map { uc in
             if let t = uc.transferCode?.transferCode, t == transferCode {
-                return UserCertificate(qrCode: qrCode, transferCode: uc.transferCode)
+                return UserCertificate(qrCode: qrCode, transferCode: uc.transferCode, pdf: pdf)
             }
 
             return uc
@@ -92,7 +92,21 @@ class CertificateStorage {
         var newModel: UserCertificate?
         userCertificates = userCertificates.map { uc in
             if let qr = uc.qrCode, qr == qrCode {
-                let model = UserCertificate(qrCode: uc.qrCode, transferCode: uc.transferCode, lightCertificate: lightCertififcate)
+                let model = UserCertificate(qrCode: uc.qrCode, transferCode: uc.transferCode, lightCertificate: lightCertififcate, pdf: uc.pdf)
+                newModel = model
+                return model
+            }
+            return uc
+        }
+        return newModel
+    }
+
+    @discardableResult
+    func updateCertificate(with qrCode: String, pdf: Data?) -> UserCertificate? {
+        var newModel: UserCertificate?
+        userCertificates = userCertificates.map { uc in
+            if let qr = uc.qrCode, qr == qrCode {
+                let model = UserCertificate(qrCode: uc.qrCode, transferCode: uc.transferCode, lightCertificate: uc.lightCertificate, pdf: pdf)
                 newModel = model
                 return model
             }
@@ -130,7 +144,10 @@ class CertificateStorage {
                 if isValid {
                     return userCertificate
                 } else {
-                    return UserCertificate(qrCode: userCertificate.qrCode, transferCode: userCertificate.transferCode, lightCertificate: nil)
+                    return UserCertificate(qrCode: userCertificate.qrCode,
+                                           transferCode: userCertificate.transferCode,
+                                           lightCertificate: nil,
+                                           pdf: userCertificate.pdf)
                 }
             }
             completionHandler?()

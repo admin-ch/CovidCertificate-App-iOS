@@ -117,9 +117,10 @@ public class InAppDelivery {
                 case let .failure(error):
                     return .failure(error)
                 }
-                let pdf: Data
+                let pdf: Data?
                 switch Crypto.decryptData(privateKey: privateKey, cipherText: cert.encryptedPdf) {
-                case let .success(pdfData): pdf = pdfData
+                case let .success(pdfData):
+                    pdf = Data(base64Encoded: pdfData)
                 case let .failure(error):
                     return .failure(error)
                 }

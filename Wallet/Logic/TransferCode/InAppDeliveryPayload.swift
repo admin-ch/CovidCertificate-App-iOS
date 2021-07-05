@@ -33,10 +33,10 @@ public class EncryptedCertificates: Codable {
 }
 
 public class DecryptedCertificate {
-    var pdf: Data
+    var pdf: Data?
     var cert: String?
 
-    init(_ cert: Data, _ pdf: Data) {
+    init(_ cert: Data, _ pdf: Data?) {
         self.pdf = pdf
         self.cert = String(data: cert, encoding: .utf8)
     }

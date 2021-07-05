@@ -131,7 +131,7 @@ final class TransferManager {
 
         // update card of transfer-code to have a certificate
         if let first = certificates.first {
-            CertificateStorage.shared.updateCertificate(with: code, qrCode: first.cert)
+            CertificateStorage.shared.updateCertificate(with: code, qrCode: first.cert, pdf: first.pdf)
         }
 
         // add all additional codes

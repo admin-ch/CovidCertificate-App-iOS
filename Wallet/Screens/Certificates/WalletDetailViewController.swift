@@ -122,6 +122,7 @@ class WalletDetailViewController: ViewController {
                 // update date
                 if certificate.count > 0 {
                     strongSelf.certificate.qrCode = certificate.first?.cert
+                    strongSelf.certificate.pdf = certificate.first?.pdf
                     strongSelf.certificateDetailVC.certificate = strongSelf.certificate
                 } else {
                     strongSelf.updateLastLoad()

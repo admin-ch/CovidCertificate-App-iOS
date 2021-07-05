@@ -38,4 +38,30 @@ enum TransformationManager {
             }
         }
     }
+
+    static func getPDF(certificate: UserCertificate,
+                       completionHandler: @escaping (Result<UserCertificate, TransformationError>) -> Void) {
+        guard let qrCode = certificate.qrCode else {
+            assertionFailure()
+            return
+        }
+        TransformationService.getPdf(qrCode: qrCode) { result in
+            switch result {
+            case let .success(pdf):
+                guard let model = CertificateStorage.shared.updateCertificate(with: qrCode, pdf: pdf) else {
+                    DispatchQueue.main.async {
+                        completionHandler(.failure(.certificateInvalid))
+                    }
+                    return
+                }
+                DispatchQueue.main.async {
+                    completionHandler(.success(model))
+                }
+            case let .failure(error):
+                DispatchQueue.main.async {
+                    completionHandler(.failure(error))
+                }
+            }
+        }
+    }
 }
