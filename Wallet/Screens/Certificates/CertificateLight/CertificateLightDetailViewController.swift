@@ -50,6 +50,9 @@ class CertificateLightDetailViewController: StackScrollViewController {
         stackScrollView.addSpacerView(Padding.large)
 
         addArrangedView(verificationStateView, insets: padding)
+        verificationStateView.snp.makeConstraints { make in
+            make.width.equalTo(qrCodeNameView.qrCodeLayoutGuide)
+        }
         stackScrollView.addSpacerView(Padding.large * 2)
 
         addArrangedView(summary, insets: UIEdgeInsets(top: 0, left: Padding.large, bottom: 0, right: Padding.large))

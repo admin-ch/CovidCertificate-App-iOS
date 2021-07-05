@@ -46,7 +46,7 @@ class CertificateLightSummaryView: UIView {
             make.edges.equalToSuperview()
         }
 
-        let title = Label(.textBold, textAlignment: .center)
+        let title = Label(.textBoldLarge, textAlignment: .center)
         title.text = UBLocalized.wallet_certificate_light_detail_summary_title
 
         stackView.addSpacerView(Padding.large)

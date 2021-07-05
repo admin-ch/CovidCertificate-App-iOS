@@ -37,6 +37,14 @@ class CertificateLightExpirationTimer: UIView {
                     switch results.nationalRules {
                     case let .success(validationResult):
                         self.expiration = validationResult.validUntil
+
+                        guard self.expiration != nil else { return }
+
+                        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+                            guard let self = self else { return }
+                            self.updateLabel()
+                        }
+                        self.updateLabel()
                     default:
                         self.expiration = nil
                     }
@@ -44,14 +52,6 @@ class CertificateLightExpirationTimer: UIView {
             default:
                 expiration = nil
             }
-
-            guard expiration != nil else { return }
-
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-                guard let self = self else { return }
-                self.updateLabel()
-            }
-            updateLabel()
         }
     }
 
