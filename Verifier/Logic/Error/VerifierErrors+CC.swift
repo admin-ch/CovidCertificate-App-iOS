@@ -22,6 +22,8 @@ extension VerificationError {
             return UBLocalized.verifier_verify_error_info_for_national_rules.bold()
         case .expired:
             return UBLocalized.verifier_verifiy_error_expired.formattingOccurrenceBold(UBLocalized.verifier_verify_error_validity_range_bold)
+        case .signatureExpired:
+            return UBLocalized.verifier_certificate_light_error_expired.bold()
         case .notYetValid:
             return UBLocalized.verifier_verifiy_error_notyetvalid.formattingOccurrenceBold(UBLocalized.verifier_verify_error_validity_range_bold)
         case .typeInvalid:

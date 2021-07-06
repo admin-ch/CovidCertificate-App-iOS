@@ -102,6 +102,8 @@ import Foundation
      case verifier_app_title_key = "verifier_app_title"
     /// http://itunes.apple.com/app/id1565917510
      case verifier_apple_app_store_url_key = "verifier_apple_app_store_url"
+    /// Gültigkeit des Zertifikats\nabgelaufen
+     case verifier_certificate_light_error_expired_key = "verifier_certificate_light_error_expired"
     /// Geburtsdatum
      case verifier_covid_certificate_birthdate_key = "verifier_covid_certificate_birthdate"
     /// Nachname
@@ -766,6 +768,8 @@ import Foundation
    static let verifier_app_title = UBLocalized.tr(UBLocalizedKey.verifier_app_title_key)
   /// http://itunes.apple.com/app/id1565917510
    static let verifier_apple_app_store_url = UBLocalized.tr(UBLocalizedKey.verifier_apple_app_store_url_key)
+  /// Gültigkeit des Zertifikats\nabgelaufen
+   static let verifier_certificate_light_error_expired = UBLocalized.tr(UBLocalizedKey.verifier_certificate_light_error_expired_key)
   /// Geburtsdatum
    static let verifier_covid_certificate_birthdate = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_birthdate_key)
   /// Nachname

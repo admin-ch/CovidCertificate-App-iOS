@@ -23,7 +23,7 @@ class CertificateLightUpdateBoardingViewController: OnboardingBaseViewController
     }
 
     override public func completedOnboarding() {
-        #if Wallet
+        #if WALLET
             WalletUserStorage.shared.hasCompletedLightCertificateUpdateBoarding = true
         #elseif VERIFIER
             VerifierUserStorage.shared.hasCompletedLightCertificateUpdateBoarding = true
