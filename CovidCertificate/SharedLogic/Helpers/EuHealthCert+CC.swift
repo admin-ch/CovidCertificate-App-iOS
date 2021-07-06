@@ -35,35 +35,13 @@ public extension CertificateHolder {
     }
 }
 
-public extension CovidCertificate {
-    var displayFullName: String? {
-        return [person.familyName, person.givenName].compactMap { $0 }.joined(separator: " ")
-    }
+#if WALLET
+    fileprivate typealias ExtensionModel = CovidCertificate
+#elseif VERIFIER
+    fileprivate typealias ExtensionModel = VerifierCertificateHolder
+#endif
 
-    var displayBirthDate: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        if let date = dateFormatter.date(from: dateOfBirth) {
-            return DateFormatter.ub_dayString(from: date)
-        }
-
-        return dateOfBirth
-    }
-
-    var displayLastName: String? {
-        return person.familyName
-    }
-
-    var displayName: String? {
-        return person.givenName
-    }
-
-    var displayMonospacedName: String? {
-        return [person.standardizedFamilyName, person.standardizedGivenName].compactMap { $0 }.joined(separator: "<<")
-    }
-}
-
-public extension VerifierCertificateHolder {
+public extension ExtensionModel {
     var displayFullName: String? {
         return [person.familyName, person.givenName].compactMap { $0 }.joined(separator: " ")
     }
