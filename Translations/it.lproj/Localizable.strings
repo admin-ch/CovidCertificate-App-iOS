@@ -758,58 +758,58 @@
 "wallet_transfer_code_faq_questions_linkurl_2" = "https://ufsp-coronavirus.ch/certificato/come-si-ottiene-il-certificato-covid-e-come-si-impiega/";
 
 /*Wallet: Zertifikat Light Button im Zertifikat Detail*/
-"wallet_certificate_detail_certificate_light_button" = "Zertifikat Light";
+"wallet_certificate_detail_certificate_light_button" = "Certificato light";
 
 /*Wallet: Export Button im Zertifikat Detail*/
-"wallet_certificate_detail_export_button" = "Exportieren";
+"wallet_certificate_detail_export_button" = "Esporta";
 
 /*Wallet: Zertifikat Light Title*/
-"wallet_certificate_light_detail_title" = "Was ist ein \nZertifikat Light?";
+"wallet_certificate_light_detail_title" = "Che cos'è un certificato light?";
 
 /*Wallet: Zertifikat Light Summary Titel*/
-"wallet_certificate_light_detail_summary_title" = "Zertifikat Light";
+"wallet_certificate_light_detail_summary_title" = "Certificato light";
 
 /*Wallet: Zertifikat Light Summary Punkt 1*/
-"wallet_certificate_light_detail_summary_1" = "Kann nur innerhalb der Schweiz verwendet werden";
+"wallet_certificate_light_detail_summary_1" = "Può essere utilizzato solamente in Svizzera";
 
 /*Wallet: Zertifikat Light Summary Punkt 2*/
-"wallet_certificate_light_detail_summary_2" = "Enthält nur Namen, Vornamen, Geburtsdatum und eine elektronische Signatur";
+"wallet_certificate_light_detail_summary_2" = "Contiene solamente cognome, nome, data di nascita e una firma elettronica";
 
 /*Wallet: Zertifikat Light Summary Punkt 3*/
-"wallet_certificate_light_detail_summary_3" = "Gültig für max. 48 Stunden";
+"wallet_certificate_light_detail_summary_3" = "Valido per 48 ore al massimo";
 
 /*Wallet: Zertifikat Light Summary Punkt 4*/
-"wallet_certificate_light_detail_summary_4" = "Die Konvertierung des Covid-Zertifikats in ein Zertifikat Light erfolgt online.";
+"wallet_certificate_light_detail_summary_4" = "La conversione del certificato COVID in certificato light avviene online.";
 
 /*Wallet: Zertifikat Light Summary Punkt 5*/
-"wallet_certificate_light_detail_summary_5" = "Sie können das Zertifikat Light jederzeit deaktivieren, um wieder zum normalen Covid-Zertifikat zu wechseln.";
+"wallet_certificate_light_detail_summary_5" = "Puoi disattivare il certificato light in qualsiasi momento per tornare al certificato COVID normale.";
 
 /*Wallet: Zertifikat Light Aktivieren Button*/
-"wallet_certificate_light_detail_deactivate_button" = "Deaktivieren";
+"wallet_certificate_light_detail_deactivate_button" = "Disattiva";
 
 /*Wallet: Zertifikat Light Deaktivieren Button*/
-"wallet_certificate_light_detail_activate_button" = "Aktivieren";
+"wallet_certificate_light_detail_activate_button" = "Attiva";
 
 /*Wallet: Zertifikat Light Aktivation Error*/
-"wallet_certificate_light_detail_activation_error" = "Zertifikat Light\nkonnte nicht aktiviert werden";
+"wallet_certificate_light_detail_activation_error" = "Non è stato possibile attivare il certificato light";
 
 /*Wallet: Zertifikat Light Aktivation Netzwerk Fehler Titel*/
-"wallet_certificate_light_detail_activation_network_error_text" = "Um das Zertifikat Light aktivieren zu können, muss die App online sein.";
+"wallet_certificate_light_detail_activation_network_error_text" = "Per poter attivare il certificato light, l'app deve essere online.";
 
 /*Info Text bei erfolgreicher Prüfung einers Zertifikate Light*/
-"verifier_verify_success_certificate_light_info" = "Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig";
+"verifier_verify_success_certificate_light_info" = "Valido solo in Svizzera\ncon un documento di legittimazione";
 
 /*Wallet: Zertifikat Export Title*/
-"wallet_certificate_export_title" = "Covid-Zertifikat exportieren";
+"wallet_certificate_export_title" = "Esporta il certificato COVID";
 
 /*Wallet: Zertifikat Export Erklärung Punkt 1*/
-"wallet_certificate_export_summary_1" = "Aus den Daten Ihres Covid-Zertifikats wird ein PDF erstellt, das Sie drucken oder teilen können.";
+"wallet_certificate_export_summary_1" = "Dai dati del tuo certificato COVID viene creato un PDF, che puoi stampare o condividere.";
 
 /*Wallet: Zertifikat Export Erklärung Punkt 2*/
-"wallet_certificate_export_summary_2" = "Die Erstellung des PDF-Dokuments erfolgt online.";
+"wallet_certificate_export_summary_2" = "Il documento PDF viene creato online.";
 
 /*Wallet: Zertifikat Export Button*/
-"wallet_certificate_export_button" = "Exportieren";
+"wallet_certificate_export_button" = "Esporta";
 
 /*Wallet: Zertifikat Export Error Title*/
 "wallet_certificate_export_detail_error_title" = "PDF konnte nicht\nerstellt werden";
@@ -819,16 +819,16 @@
 "accessibility_qr_code" = "codice QR";
 
 /*Wallet: Zertifikat Light Aktivation Netzwerk Fehler Title*/
-"wallet_certificate_light_detail_activation_network_error_title" = "Keine Verbindung zum Internet";
+"wallet_certificate_light_detail_activation_network_error_title" = "Nessuna connessione a Internet";
 
 /*Wallet: Zertifikat Light Aktivation General Fehler Text*/
-"wallet_certificate_light_detail_activation_general_error_text" = "Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.";
+"wallet_certificate_light_detail_activation_general_error_text" = "Si è verificato un errore imprevisto.";
 
 /*Wallet: Zertifikat Light Aktivation General Fehler Titel*/
 "wallet_certificate_light_detail_activation_general_error_title" = "Ein unerwarteter Fehler ist aufgetreten.";
 
 /*Wallet: Zertifikat Light Titel*/
-"wallet_certificate_light_title" = "Zertifikat Light";
+"wallet_certificate_light_title" = "Certificato light";
 
 /*Wallet: Zertifikat Exportieren Detail Title*/
 "wallet_certificate_export_detail_title" = "Covid-Zertifikat exportieren";
@@ -852,10 +852,10 @@
 "wallet_certificate_export_detail_general_error_text" = "Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.";
 
 /*Wallet: Zertifikat Light Erklärungstext 1*/
-"wallet_certificate_light_detail_text_1" = "Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.";
+"wallet_certificate_light_detail_text_1" = "Quando attivi il certificato light, dai dati del tuo certificato COVID viene creato un nuovo codice QR, il quale non contiene dati sanitari.";
 
 /*Wallet: Zertifikat Light Erklärungstext 2*/
-"wallet_certificate_light_detail_text_2" = "Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 48 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.";
+"wallet_certificate_light_detail_text_2" = "Se valido, il certificato COVID normale può essere utilizzato senza limitazioni sia in Svizzera sia nell'UE/AELS, mentre il certificato light può essere utilizzato solamente in Svizzera. Per motivi legati alla protezione dei dati, il certificato light deve essere riattivato dopo 48 ore. Rispetto al certificato COVID normale non implica alcun diritto supplementare.";
 
 /*Wallet: Zertifikat Light Erklärungstext Bold*/
 "wallet_certificate_light_detail_text_2_bold" = "nur muss keine";
@@ -873,7 +873,7 @@
 "wallet_update_boarding_certificate_light_title" = "Zertifikat Light";
 
 /*Text im Zertifikat Light-Screen*/
-"wallet_update_boarding_certificate_light_text" = "Mit diesem Update können Sie in der App eine Zertifikatskopie ohne Gesundheitsdaten für die Verwendung in der Schweiz generieren lassen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.";
+"wallet_update_boarding_certificate_light_text" = "Con questo aggiornamento puoi far generare una copia del certificato senza dati sanitari per l'utilizzo in Svizzera. A tale scopo sono state aggiornate le condizioni d'uso e l'informativa sulla protezione dei dati, che sono considerate valide se si continua a utilizzare l'app. ";
 
 /*Header im Update Boarding-Screen*/
 "verifier_update_boarding_header" = "Update";
@@ -882,7 +882,10 @@
 "verifier_update_boarding_certificate_light_title" = "Zertifikat Light";
 
 /*Text im Zertifikat Light-Screen*/
-"verifier_update_boarding_certificate_light_text" = "Mit diesem Update können Sie in der App auch die Zertifikatskopie ohne Gesundheitsdaten prüfen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.";
+"verifier_update_boarding_certificate_light_text" = "Con questo aggiornamento, nell'app puoi verificare anche la copia del certificato senza dati sanitari. A tale scopo sono state aggiornate le condizioni d'uso e l'informativa sulla protezione dei dati, che sono considerate valide se si continua a utilizzare l'app.";
 
 /*Verifier: Die Gültigkeit eines Certificate Light ist abgelaufen*/
 "verifier_certificate_light_error_expired" = "La validità del certificato \nè scaduta";
+
+/*Wallet: Badge für Light-Zertifikate in Liste Zertifikate*/
+"wallet_certificate_list_light_certificate_badge" = "Light";

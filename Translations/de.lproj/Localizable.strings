@@ -913,3 +913,7 @@
 
 /*Verifier: Die Gültigkeit eines Certificate Light ist abgelaufen*/
 "verifier_certificate_light_error_expired" = "Gültigkeit des Zertifikats\nabgelaufen";
+
+/*Wallet: Badge für Light-Zertifikate in Liste Zertifikate*/
+/*Fuzzy*/
+"wallet_certificate_list_light_certificate_badge" = "Light";

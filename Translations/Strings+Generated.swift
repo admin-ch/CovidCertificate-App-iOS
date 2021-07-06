@@ -316,6 +316,8 @@ import Foundation
      case wallet_certificate_light_detail_title_key = "wallet_certificate_light_detail_title"
     /// Zertifikat Light
      case wallet_certificate_light_title_key = "wallet_certificate_light_title"
+    /// Light
+     case wallet_certificate_list_light_certificate_badge_key = "wallet_certificate_list_light_certificate_badge"
     /// Zertifikate
      case wallet_certificate_list_title_key = "wallet_certificate_list_title"
     /// Datum des ersten positiven Resultats
@@ -982,6 +984,8 @@ import Foundation
    static let wallet_certificate_light_detail_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_title_key)
   /// Zertifikat Light
    static let wallet_certificate_light_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_title_key)
+  /// Light
+   static let wallet_certificate_list_light_certificate_badge = UBLocalized.tr(UBLocalizedKey.wallet_certificate_list_light_certificate_badge_key)
   /// Zertifikate
    static let wallet_certificate_list_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_list_title_key)
   /// Datum des ersten positiven Resultats
