@@ -119,7 +119,9 @@ class QRCodeNameView: UIView {
         case let .success(holder):
             nameView.text = holder.certificate.displayFullName
             birthdayLabelView.text = holder.certificate.displayBirthDate
+
             birthdayLabelView.accessibilityLabel = DateFormatter.ub_accessibilityDateString(dateString: holder.certificate.displayBirthDate) ?? birthdayLabelView.text
+
         case .failure:
             break
         }
