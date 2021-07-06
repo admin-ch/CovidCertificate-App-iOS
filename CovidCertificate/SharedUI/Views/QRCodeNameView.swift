@@ -93,12 +93,15 @@ class QRCodeNameView: UIView {
         case let .success(holder):
             nameView.text = holder.certificate.displayFullName
             birthdayLabelView.text = holder.certificate.displayBirthDate
+
+            birthdayLabelView.accessibilityLabel = DateFormatter.ub_accessibilityDateString(dateString: holder.certificate.displayBirthDate) ?? birthdayLabelView.text
+
         case .failure:
             break
         }
 
         imageView.setQrCode(qrCode)
 
-        accessibilityLabel = [nameView.text, birthdayLabelView.text].compactMap { $0 }.joined(separator: ", ")
+        accessibilityLabel = [UBLocalized.accessibility_qr_code, nameView.text, birthdayLabelView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
     }
 }

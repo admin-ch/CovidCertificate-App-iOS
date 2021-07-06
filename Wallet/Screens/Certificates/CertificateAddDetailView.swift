@@ -77,6 +77,7 @@ class CertificateAddDetailView: UIView {
             case let .success(holder):
                 nameLabel.text = holder.certificate.displayFullName
                 birthdayLabel.text = holder.certificate.displayBirthDate
+                birthdayLabel.accessibilityLabel = DateFormatter.ub_accessibilityDateString(dateString: holder.certificate.displayBirthDate) ?? birthdayLabel.text
             case .failure:
                 break
             }

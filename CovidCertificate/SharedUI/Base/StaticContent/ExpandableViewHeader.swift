@@ -12,7 +12,7 @@
 import UIKit
 
 class ExpandableViewHeader: UBButton {
-    private let headerLabel = Label(.textBoldLarge, textColor: .cc_blue)
+    let headerLabel = Label(.textBoldLarge, textColor: .cc_blue)
 
     private let arrowImageview = UIImageView(image: UIImage(named: "ic-arrow-expand"))
 
@@ -73,7 +73,11 @@ class ExpandableViewHeader: UBButton {
             })
         }
 
-        accessibilityLabel = headerLabel.text
+        if let text = headerLabel.text {
+            accessibilityLabel = text + ", " + UBLocalized.accessibility_expandable_box_reduced_state
+        } else {
+            accessibilityLabel = headerLabel.text
+        }
         accessibilityTraits = [.button, .header]
     }
 }
