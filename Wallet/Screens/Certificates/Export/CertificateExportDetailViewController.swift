@@ -76,8 +76,7 @@ class CertificateExportDetailViewController: StackScrollViewController {
             switch result {
             case let .success(certificate):
                 self.loadingView.stopLoading()
-                self.navigationController?.popViewController(animated: true) { [weak self] in
-                    guard let self = self else { return }
+                self.navigationController?.popViewController(animated: true) {
                     self.sharePDFCallback?(certificate)
                 }
 
