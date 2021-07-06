@@ -2664,7 +2664,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/admin-ch/CovidCertificate-SDK-iOS";
 			requirement = {
-				branch = "feature/light-certificate";
+				branch = main;
 				kind = branch;
 			};
 		};
