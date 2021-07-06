@@ -186,6 +186,13 @@ class CertificateStateView: UIView {
                     self.validityView.backgroundColor = .cc_greyish
                     self.validityView.textColor = .cc_grey
                     self.validityErrorStackView.ub_setHidden(true)
+                case .skipped:
+                    self.imageView.image = UIImage(named: "ic-info-filled")
+                    self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
+                    self.backgroundView.backgroundColor = .cc_blueish
+                    self.validityView.backgroundColor = .cc_blueish
+                    self.validityView.textColor = .cc_black
+                    self.validityView.untilText = nil
 
                 case let .success(validUntil):
                     self.imageView.image = UIImage(named: "ic-info-filled")

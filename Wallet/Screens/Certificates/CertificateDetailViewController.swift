@@ -72,7 +72,8 @@ class CertificateDetailViewController: ViewController {
         let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate.qrCode ?? "")
         switch c {
         case let .success(holder):
-            let vaccinations = holder.healthCert.vaccinations ?? []
+            guard let certificate = holder.certificate as? DCCCert else { break }
+            let vaccinations = certificate.vaccinations ?? []
             if !vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
                 title = UBLocalized.wallet_certificate_evidence_title.uppercased()
             }
@@ -198,6 +199,7 @@ class CertificateDetailViewController: ViewController {
                 guard let strongSelf = self else { return }
                 switch state {
                 case .loading: strongSelf.temporaryVerifierState = .verifying
+                case .skipped: strongSelf.temporaryVerifierState = .idle
                 case let .success(validUntil): strongSelf.temporaryVerifierState = .success(validUntil)
                 case .invalid: strongSelf.temporaryVerifierState = .failure
                 case let .retry(error, errorCodes): strongSelf.temporaryVerifierState = .retry(error, errorCodes)

@@ -28,7 +28,7 @@ class VerifyCheckViewController: ViewController {
 
     // MARK: - Start Check
 
-    public var holder: DGCHolder? {
+    public var holder: VerifierCertificateHolder? {
         didSet {
             checkContentViewController.holder = holder
             startCheck()
@@ -157,7 +157,7 @@ class VerifyCheckViewController: ViewController {
                 self.imageView.image = UIImage(named: "ic-header-load")
                 self.imageView.rotate(time: 1.0)
                 self.backgroundView.backgroundColor = .cc_grey
-            case .success:
+            case .success, .skipped:
                 self.imageView.layer.removeAllAnimations()
                 self.imageView.image = UIImage(named: "ic-header-valid")
                 self.backgroundView.backgroundColor = .cc_green

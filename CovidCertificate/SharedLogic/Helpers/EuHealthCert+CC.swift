@@ -12,7 +12,7 @@
 import CovidCertificateSDK
 import Foundation
 
-public extension CertType {
+public extension ImmunisationType {
     var displayName: String {
         switch self {
         case .recovery:
@@ -25,7 +25,7 @@ public extension CertType {
     }
 }
 
-public extension DGCHolder {
+public extension CertificateHolder {
     var displayIssuedAt: String? {
         if let i = issuedAt {
             return DateFormatter.ub_dayTimeString(from: i)
@@ -35,7 +35,13 @@ public extension DGCHolder {
     }
 }
 
-public extension EuHealthCert {
+#if WALLET
+    fileprivate typealias ExtensionModel = CovidCertificate
+#elseif VERIFIER
+    fileprivate typealias ExtensionModel = VerifierCertificateHolder
+#endif
+
+public extension ExtensionModel {
     var displayFullName: String? {
         return [person.familyName, person.givenName].compactMap { $0 }.joined(separator: " ")
     }
