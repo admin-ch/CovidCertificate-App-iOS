@@ -318,7 +318,7 @@ class VerifyNameBirthdayView: UIView {
         }
 
         override var accessibilityLabel: String? {
-            get { return [titleLabel.accessibilityLabel, descriptionLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ") }
+            get { return [descriptionLabel.accessibilityLabel, titleLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ") }
             set { super.accessibilityLabel = newValue }
         }
     }

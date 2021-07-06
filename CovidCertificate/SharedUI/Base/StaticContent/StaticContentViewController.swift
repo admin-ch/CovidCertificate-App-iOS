@@ -22,6 +22,8 @@ class StaticContentViewController: OnboardingContentViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        UIAccessibility.post(notification: .screenChanged, argument: navigationController?.navigationBar)
+
         setupViews()
     }
 
@@ -34,7 +36,7 @@ class StaticContentViewController: OnboardingContentViewController {
             if model.heading != nil {
                 let headingLabel = Label(.uppercaseBold)
                 headingLabel.text = model.heading
-                headingLabel.accessibilityTraits = [.header]
+                headingLabel.accessibilityTraits = [.header, .tabBar]
                 let headingContainer = UIView()
                 headingContainer.addSubview(headingLabel)
                 headingLabel.snp.makeConstraints { make in
@@ -51,6 +53,7 @@ class StaticContentViewController: OnboardingContentViewController {
 
             let titleLabel = Label(.title, textAlignment: model.alignment)
             titleLabel.text = model.title
+            titleLabel.accessibilityTraits = .header
             let titleContainer = UIView()
             titleContainer.addSubview(titleLabel)
             titleLabel.snp.makeConstraints { make in

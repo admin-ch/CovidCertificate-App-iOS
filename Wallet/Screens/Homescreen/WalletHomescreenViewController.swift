@@ -57,6 +57,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             let hasTransferCode = s.certificateState.certificates.contains(where: { $0.type == .transferCode })
             if !WalletUserStorage.shared.hasCompletedPushRegistration, hasTransferCode {
                 strongSelf.pushPopupView.presentFrom(view: strongSelf.view)
+                strongSelf.accessibilityElements = [strongSelf.pushPopupView]
             }
         }
 

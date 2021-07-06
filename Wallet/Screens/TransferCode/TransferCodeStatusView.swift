@@ -113,7 +113,9 @@ class TransferCodeStatusView: UIView {
     private func update() {
         guard let code = transferCode else { return }
 
-        createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: code.created))
+        let dateString = DateFormatter.ub_dayTimeString(from: code.created)
+        createdAtLabel.text = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: dateString)
+        createdAtLabel.accessibilityLabel = UBLocalized.wallet_transfer_code_createdat.replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_accessibilityDateString(dateString: dateString) ?? dateString)
 
         if isNewlyCreated {
             imageView.image = UIImage(named: "ic-check-mark")
@@ -124,7 +126,7 @@ class TransferCodeStatusView: UIView {
             codeLabel.code = code.transferCode
             expiredLabel.ub_setHidden(true)
 
-            accessibilityLabel = [titleLabel.text, codeLabel.accessibilityLabel, createdAtLabel.text].compactMap { $0 }.joined(separator: ", ")
+            accessibilityLabel = [titleLabel.text, codeLabel.accessibilityLabel, createdAtLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
         } else {
             if let img = error?.cornerIcon {
                 // alpha handling is done afterwards
@@ -147,7 +149,7 @@ class TransferCodeStatusView: UIView {
                 backgroundColor = .cc_blueish
                 codeLabel.code = code.transferCode
 
-                accessibilityLabel = [validLabel.text, codeLabel.accessibilityLabel, createdAtLabel.text].compactMap { $0 }.joined(separator: ", ")
+                accessibilityLabel = [validLabel.text, codeLabel.accessibilityLabel, createdAtLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
 
             case .expired, .failed:
                 backgroundColor = code.state == .expired ? .cc_blueish : .cc_redish
@@ -161,7 +163,7 @@ class TransferCodeStatusView: UIView {
                 expiredLabel.text = UBLocalized.wallet_transfer_code_old_code
                 expiredLabel.textColor = code.state == .expired ? .cc_blue : .cc_red
 
-                accessibilityLabel = [expiredLabel.text, codeLabel.accessibilityLabel, createdAtLabel.text].compactMap { $0 }.joined(separator: ", ")
+                accessibilityLabel = [expiredLabel.text, codeLabel.accessibilityLabel, createdAtLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
 
                 if code.state == .failed {
                     errorCorner.image = nil

@@ -50,6 +50,12 @@ class WalletQRScannerFullOverlayView: UIView {
         } else {
             actions()
         }
+
+        let newAccLabel = error != nil ? [errorView.errorLabel.text, errorLabel.text].compactMap { $0 }.joined(separator: ", ") : UBLocalized.wallet_homescreen_qr_code_scannen
+        if accessibilityLabel != newAccLabel {
+            accessibilityLabel = newAccLabel
+            UIAccessibility.post(notification: .layoutChanged, argument: self)
+        }
     }
 
     private func setup() {

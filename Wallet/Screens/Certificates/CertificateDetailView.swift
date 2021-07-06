@@ -106,7 +106,7 @@ class CertificateDetailView: UIView {
 
             addDividerLine()
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_date_title_key), value: vaccination.displayDateOfVaccination)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_date_title_key), value: vaccination.displayDateOfVaccination, accLabel: DateFormatter.ub_accessibilityDateString(dateString: vaccination.displayDateOfVaccination))
             if showEnglishLabels, let displayCountryEnglish = vaccination.displayCountryEnglish {
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_country_title_key), value: vaccination.displayCountry + " / " + displayCountryEnglish)
             } else {
@@ -136,7 +136,7 @@ class CertificateDetailView: UIView {
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_target_disease_title_key), value: UBLocalized.target_disease_name)
             }
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_recovery_first_positiv_result_key), value: pastInfection.displayFirstPositiveTest)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_recovery_first_positiv_result_key), value: pastInfection.displayFirstPositiveTest, accLabel: DateFormatter.ub_accessibilityDateString(dateString: pastInfection.displayFirstPositiveTest))
 
             addDividerLine()
 
@@ -185,8 +185,8 @@ class CertificateDetailView: UIView {
 
             addDividerLine()
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_sample_date_title_key), value: test.displaySampleDateTime)
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_date_title_key), value: test.displayResultDateTime)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_sample_date_title_key), value: test.displaySampleDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displaySampleDateTime))
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_date_title_key), value: test.displayResultDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displayResultDateTime))
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_done_by_key), value: test.testCenter)
             if showEnglishLabels, let displayCountryEnglish = test.displayCountryEnglish {
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_country_title_key), value: test.displayCountry + " / " + displayCountryEnglish)
@@ -219,18 +219,20 @@ class CertificateDetailView: UIView {
         englishLabels.append(englishLabel)
     }
 
-    private func addValueItem(title: (String, String), value: String?, addEnglishLabels: Bool = true) {
+    private func addValueItem(title: (String, String), value: String?, addEnglishLabels: Bool = true, accLabel: String? = nil) {
         guard let v = value else { return }
 
         let sv = UIStackView()
         sv.axis = .vertical
         sv.isAccessibilityElement = true
 
+        let accText = accLabel ?? v
+
         // we add what the screen shows to accessibility
         if UBLocalized.languageIsEnglish() || !addEnglishLabels {
-            sv.accessibilityLabel = [title.0, v].joined(separator: ", ")
+            sv.accessibilityLabel = [title.0, accText].joined(separator: ", ")
         } else {
-            sv.accessibilityLabel = [title.0, title.1, v].joined(separator: ", ")
+            sv.accessibilityLabel = [title.0, title.1, accText].joined(separator: ", ")
         }
 
         let titleLabel = Label(.textBold)
@@ -256,12 +258,13 @@ class CertificateDetailView: UIView {
         labels.append(textLabel)
     }
 
-    private func addValueItem(value: (String?, String?), spacing: CGFloat = 0.0) {
+    private func addValueItem(value: (String?, String?), spacing: CGFloat = 0.0, accLabel: (String?, String?) = (nil, nil)) {
         guard let v = value.0, let vEnglish = value.1
         else { return }
 
         let textLabel = Label(.text)
         textLabel.text = v
+        textLabel.accessibilityLabel = accLabel.0 ?? v
         stackView.addArrangedView(textLabel)
 
         if spacing > 0.0 {
@@ -270,6 +273,7 @@ class CertificateDetailView: UIView {
 
         let englishLabel = Label(.text, textColor: .cc_grey)
         englishLabel.text = vEnglish
+        textLabel.accessibilityLabel = accLabel.1 ?? vEnglish
         stackView.addArrangedView(englishLabel)
 
         stackView.addSpacerView(Padding.large)
@@ -293,7 +297,12 @@ class CertificateDetailView: UIView {
             values = UBLocalized.translationWithEnglish(key: .wallet_certificate_date_key)
         }
 
-        addValueItem(value: (values.0.replacingOccurrences(of: "{DATE}", with: d), values.1.replacingOccurrences(of: "{DATE}", with: d)), spacing: Padding.large)
+        if let accD = DateFormatter.ub_accessibilityDateString(dateString: d) {
+            let accLabel = (values.0.replacingOccurrences(of: "{DATE}", with: accD), values.1.replacingOccurrences(of: "{DATE}", with: accD))
+            addValueItem(value: (values.0.replacingOccurrences(of: "{DATE}", with: d), values.1.replacingOccurrences(of: "{DATE}", with: d)), spacing: Padding.large, accLabel: accLabel)
+        } else {
+            addValueItem(value: (values.0.replacingOccurrences(of: "{DATE}", with: d), values.1.replacingOccurrences(of: "{DATE}", with: d)), spacing: Padding.large)
+        }
     }
 
     // MARK: - Update
