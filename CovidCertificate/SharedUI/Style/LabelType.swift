@@ -42,6 +42,7 @@ public enum LabelType: UBLabelType {
     case smallError
     case smallErrorLight
     case monospaced
+    case monospacedBold
     case codeBold
 
     public var font: UIFont {
@@ -87,6 +88,8 @@ public enum LabelType: UBLabelType {
             return UIFont(name: "PTMono-Regular", size: bfs)!
         case .codeBold:
             return UIFont(name: "FiraCode-Bold", size: bfs + 10)!
+        case .monospacedBold:
+            return Self.monospacedDigitFont(fontName: boldFontName, size: bfs)
         }
     }
 
@@ -128,6 +131,8 @@ public enum LabelType: UBLabelType {
             return 22.0 / 16.0
         case .codeBold:
             return 26.0 / 28.0
+        case .monospacedBold:
+            return 22.0 / 16.0
         }
     }
 

@@ -25,6 +25,7 @@ enum VerificationError: Equatable, Comparable {
     case typeInvalid
     case revocation
     case expired(Date)
+    case signatureExpired
     case notYetValid(Date)
     case otherNationalRules
     case unknown
@@ -212,6 +213,8 @@ class Verifier: NSObject {
                 return .retry(.network, [err.errorCode])
             case .SIGNATURE_TYPE_INVALID:
                 return .invalid([.typeInvalid], [err.errorCode], nil)
+            case .CWT_EXPIRED:
+                return .invalid([.signatureExpired], [err.errorCode], nil)
             default:
                 // error
                 return .invalid([.signature], [err.errorCode], nil)

@@ -15,7 +15,7 @@ class OnboardingViewController: OnboardingBaseViewController {
     private let step1VC = StaticContentViewController(models: [.theApp])
     private let step2VC = StaticContentViewController(models: [.store])
     private let step3VC = StaticContentViewController(models: [.show])
-    private let step4VC = OnboardingDisclaimerViewController()
+    private let step4VC = OnboardingDisclaimerViewController(model: .privacy)
 
     override internal var stepViewControllers: [OnboardingContentViewController] {
         [step1VC, step2VC, step3VC, step4VC]
@@ -27,6 +27,7 @@ class OnboardingViewController: OnboardingBaseViewController {
 
     override public func completedOnboarding() {
         WalletUserStorage.shared.hasCompletedOnboarding = true
+        WalletUserStorage.shared.hasCompletedLightCertificateUpdateBoarding = true
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.completedOnboarding()
         }

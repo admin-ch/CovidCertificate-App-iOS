@@ -103,7 +103,7 @@ class CertificateTableViewCell: UITableViewCell {
     private func update() {
         updateState(animated: false)
 
-        guard let qrCode = certificate?.qrCode else {
+        guard let qrCode = certificate?.lightCertificate?.certificate ?? certificate?.qrCode else {
             nameLabel.text = nil
             qrCodeStateImageView.image = nil
             return
@@ -115,9 +115,9 @@ class CertificateTableViewCell: UITableViewCell {
         case let .success(holder):
             nameLabel.text = holder.certificate.displayFullName
             if let certificate = holder.certificate as? DCCCert {
-                stateLabel.type = certificate.immunisationType
-            } else {
-                stateLabel.type = nil
+                stateLabel.type = .dccc(certificate.immunisationType)
+            } else if holder.certificate.type == .lightCert {
+                stateLabel.type = .light
             }
 
             VerifierManager.shared.addObserver(self, for: qrCode) { [weak self] state in
@@ -166,7 +166,7 @@ class CertificateTableViewCell: UITableViewCell {
                     switch e {
                     case .signature, .revocation, .otherNationalRules, .unknown, .typeInvalid:
                         self.qrCodeStateImageView.image = invalid
-                    case .expired:
+                    case .expired, .signatureExpired:
                         self.qrCodeStateImageView.image = expired
                     case .notYetValid:
                         self.qrCodeStateImageView.image = notYetValid
@@ -197,7 +197,12 @@ private class StateLabel: UIView {
 
     // MARK: - Properties
 
-    public var type: ImmunisationType? {
+    enum CertType {
+        case dccc(ImmunisationType?)
+        case light
+    }
+
+    public var type: CertType? {
         didSet { update() }
     }
 
@@ -232,25 +237,42 @@ private class StateLabel: UIView {
     }
 
     private func update() {
-        label.text = type?.displayName
-        accessibilityLabel = type?.displayName
+        switch type {
+        case let .dccc(immunisationType):
+            label.text = immunisationType?.displayName
+            accessibilityLabel = immunisationType?.displayName
 
-        if enabled {
-            if let r = type {
-                switch r {
-                case .recovery, .vaccination:
-                    backgroundColor = .cc_blue
-                    label.textColor = .cc_white
-                case .test:
-                    backgroundColor = .cc_blueish
-                    label.textColor = .cc_blue
+            if enabled {
+                if let r = immunisationType {
+                    switch r {
+                    case .recovery, .vaccination:
+                        backgroundColor = .cc_blue
+                        label.textColor = .cc_white
+                    case .test:
+                        backgroundColor = .cc_blueish
+                        label.textColor = .cc_blue
+                    }
+                } else {
+                    backgroundColor = .clear
                 }
             } else {
-                backgroundColor = .clear
+                backgroundColor = .cc_greyBackground
+                label.textColor = .cc_greyText
             }
-        } else {
-            backgroundColor = .cc_greyBackground
-            label.textColor = .cc_greyText
+        case .light:
+            label.text = UBLocalized.wallet_certificate_list_light_certificate_badge
+            accessibilityLabel = UBLocalized.wallet_certificate_list_light_certificate_badge
+            if enabled {
+                backgroundColor = .cc_blueish
+                label.textColor = .cc_blue
+            } else {
+                backgroundColor = .cc_greyBackground
+                label.textColor = .cc_greyText
+            }
+        case .none:
+            label.text = nil
+            accessibilityLabel = nil
+            backgroundColor = .clear
         }
     }
 

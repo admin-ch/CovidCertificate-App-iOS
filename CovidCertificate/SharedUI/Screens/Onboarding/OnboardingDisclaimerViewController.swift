@@ -14,8 +14,8 @@ import UIKit
 class OnboardingDisclaimerViewController: StaticContentViewController {
     // MARK: - Init
 
-    init() {
-        super.init(models: [.privacy])
+    init(model: StaticContentViewModel) {
+        super.init(models: [model])
         continueButtonText = UBLocalized.wallet_onboarding_accept_button
     }
 
@@ -29,27 +29,10 @@ class OnboardingDisclaimerViewController: StaticContentViewController {
         }
         button.accessibilityTraits = .link
 
-        let v = UIView()
-        v.addSubview(button)
+        stackScrollView.addSpacerView(Padding.large + Padding.small)
 
-        button.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(Padding.large + Padding.medium)
-            make.bottom.equalToSuperview()
-            make.left.equalToSuperview().offset(70.0)
-            make.right.lessThanOrEqualToSuperview().inset(Padding.medium)
-        }
+        stackScrollView.addArrangedViewCentered(button, offset: Padding.large * 2)
 
-        addArrangedView(v)
-
-        v.snp.makeConstraints { make in
-            make.width.equalTo(self.view)
-            make.left.right.equalToSuperview()
-        }
-
-        let bottomSpacer = UIView()
-        bottomSpacer.snp.makeConstraints { make in
-            make.height.equalTo(40)
-        }
-        addArrangedView(bottomSpacer)
+        stackScrollView.addSpacerView(40)
     }
 }

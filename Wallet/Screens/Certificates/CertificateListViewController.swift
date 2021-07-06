@@ -121,6 +121,8 @@ extension CertificateListViewController: UITableViewDataSource {
         let cert = certificates[indexPath.row]
 
         switch cert.type {
+        case .lightCertificate:
+            fallthrough
         case .certificate:
             let cell = tableView.dequeueReusableCell(withIdentifier: CertificateListViewController.certificateReuseIdentifier, for: indexPath) as! CertificateTableViewCell
             cell.certificate = certificates[indexPath.row]

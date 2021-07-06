@@ -1,3 +1,4 @@
+//
 /*
  * Copyright (c) 2021 Ubique Innovation AG <https://www.ubique.ch>
  *
@@ -10,10 +11,15 @@
 
 import Foundation
 
-enum NetworkError: Error {
-    case networkError
-    case statusError(code: Int)
-    case parseError
-    case jwtError(error: Error)
-    case unexpected(error: Error)
+struct TransformationRequestPayload: Codable {
+    let hcert: String
+}
+
+struct TransformationLightCertificateResponsePayload: Codable {
+    let payload: String
+    let qrcode: Data
+}
+
+struct TransformationPdfResponsePayload: Codable {
+    let pdf: Data
 }

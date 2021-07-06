@@ -39,6 +39,20 @@ extension UIStackView {
         }
     }
 
+    func addArrangedViewCentered(_ view: UIView) {
+        let v = UIView()
+        v.addSubview(view)
+
+        view.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.left.greaterThanOrEqualToSuperview().offset(Padding.medium)
+            make.right.lessThanOrEqualToSuperview().offset(-Padding.medium)
+        }
+
+        addArrangedView(v)
+    }
+
     func addSpacerView(_ size: CGFloat, color: UIColor? = nil, insets: UIEdgeInsets? = nil) {
         let extraSpacer = UIView()
         extraSpacer.backgroundColor = color

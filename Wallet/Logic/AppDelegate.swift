@@ -46,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             CovidCertificateSDK.setOptions(options: SDKOptions(certificatePinning: URLSession.evaluator.useCertificatePinning))
         #endif
 
+        CertificateStorage.shared.discardExpiredLightCertificates()
+
         // defer window initialization if app was launched in
         // background because of location change
         if shouldSetupWindow(application: application, launchOptions: launchOptions) {
@@ -105,6 +107,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !WalletUserStorage.shared.hasCompletedOnboarding {
             // show onboarding
             let onboardingViewController = OnboardingViewController()
+            onboardingViewController.modalPresentationStyle = .fullScreen
+            window?.rootViewController = onboardingViewController
+        } else if !WalletUserStorage.shared.hasCompletedLightCertificateUpdateBoarding {
+            let onboardingViewController = CertificateLightUpdateBoardingViewController()
             onboardingViewController.modalPresentationStyle = .fullScreen
             window?.rootViewController = onboardingViewController
         } else {

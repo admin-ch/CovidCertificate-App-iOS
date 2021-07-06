@@ -58,5 +58,23 @@ class NavigationController: UINavigationController {
         if #available(iOS 15.0, *) {
             navigationBar.backgroundColor = .white
         }
+
+        let image = UIImage(named: "ic-back")!.withRenderingMode(.alwaysOriginal)
+        navigationBar.backIndicatorImage = image
+        navigationBar.backIndicatorTransitionMaskImage = image
+    }
+}
+
+extension UINavigationController {
+    func popViewController(animated: Bool, completion: @escaping () -> Void) {
+        popViewController(animated: animated)
+
+        if let coordinator = transitionCoordinator, animated {
+            coordinator.animate(alongsideTransition: nil) { _ in
+                completion()
+            }
+        } else {
+            completion()
+        }
     }
 }

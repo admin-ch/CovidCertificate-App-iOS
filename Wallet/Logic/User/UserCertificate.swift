@@ -13,18 +13,35 @@ import Foundation
 
 enum CertificateType {
     case certificate
+    case lightCertificate
     case transferCode
+}
+
+struct LightCertificate: Codable, Equatable {
+    let certificate: String
+    let qrCode: Data
 }
 
 struct UserCertificate: Codable, Equatable {
     var qrCode: String?
     let transferCode: UserTransferCode?
+    var lightCertificate: LightCertificate?
+    var pdf: Data?
 
     var type: CertificateType {
+        if lightCertificate != nil {
+            return .lightCertificate
+        }
         if qrCode == nil {
             return .transferCode
         }
 
         return .certificate
+    }
+}
+
+extension LightCertificate {
+    var qrCodeImage: UIImage? {
+        return UIImage(data: qrCode)
     }
 }

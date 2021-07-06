@@ -8,6 +8,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
+
 // simple user storage only for User Default values
 class WalletUserStorage {
     static let shared = WalletUserStorage()
@@ -18,6 +20,9 @@ class WalletUserStorage {
             ConfigManager().startConfigRequest(window: UIApplication.shared.keyWindow?.window)
         }
     }
+
+    @UBUserDefault(key: "wallet.user.hasCompletedLightCertificateUpdateBoarding", defaultValue: false)
+    var hasCompletedLightCertificateUpdateBoarding: Bool
 
     @UBUserDefault(key: "wallet.user.hasCompletedSecureStorageMigration", defaultValue: false)
     var hasCompletedSecureStorageMigration: Bool
@@ -75,13 +80,80 @@ class CertificateStorage {
         }
     }
 
-    func updateCertificate(with transferCode: String, qrCode: String?) {
+    func updateCertificate(with transferCode: String, qrCode: String?, pdf: Data?) {
         userCertificates = userCertificates.map { uc in
             if let t = uc.transferCode?.transferCode, t == transferCode {
-                return UserCertificate(qrCode: qrCode, transferCode: uc.transferCode)
+                return UserCertificate(qrCode: qrCode, transferCode: uc.transferCode, pdf: pdf)
             }
 
             return uc
+        }
+    }
+
+    @discardableResult
+    func updateCertificate(with qrCode: String, lightCertififcate: LightCertificate?) -> UserCertificate? {
+        var newModel: UserCertificate?
+        userCertificates = userCertificates.map { uc in
+            if let qr = uc.qrCode, qr == qrCode {
+                let model = UserCertificate(qrCode: uc.qrCode, transferCode: uc.transferCode, lightCertificate: lightCertififcate, pdf: uc.pdf)
+                newModel = model
+                return model
+            }
+            return uc
+        }
+        return newModel
+    }
+
+    @discardableResult
+    func updateCertificate(with qrCode: String, pdf: Data?) -> UserCertificate? {
+        var newModel: UserCertificate?
+        userCertificates = userCertificates.map { uc in
+            if let qr = uc.qrCode, qr == qrCode {
+                let model = UserCertificate(qrCode: uc.qrCode, transferCode: uc.transferCode, lightCertificate: uc.lightCertificate, pdf: pdf)
+                newModel = model
+                return model
+            }
+            return uc
+        }
+        return newModel
+    }
+
+    func discardExpiredLightCertificates(completionHandler: (() -> Void)? = nil) {
+        DispatchQueue.global().async {
+            self.userCertificates = self.userCertificates.map { userCertificate in
+                // is the certificate has no light certificate we don't touch it
+                guard let lightCertificate = userCertificate.lightCertificate?.certificate else {
+                    return userCertificate
+                }
+                var isValid = true
+                // first check if we can decode the light certificate
+                switch CovidCertificateSDK.Wallet.decode(encodedData: lightCertificate) {
+                case let .success(holder):
+                    let semaphore = DispatchSemaphore(value: 0)
+                    // we only delete light certificates which signature is expired
+                    CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: false) { checkResults in
+                        switch checkResults.signature {
+                        case .failure(.CWT_EXPIRED):
+                            isValid = false
+                        default:
+                            isValid = true
+                        }
+                        semaphore.signal()
+                    }
+                    semaphore.wait()
+                case .failure:
+                    isValid = false
+                }
+                if isValid {
+                    return userCertificate
+                } else {
+                    return UserCertificate(qrCode: userCertificate.qrCode,
+                                           transferCode: userCertificate.transferCode,
+                                           lightCertificate: nil,
+                                           pdf: userCertificate.pdf)
+                }
+            }
+            completionHandler?()
         }
     }
 

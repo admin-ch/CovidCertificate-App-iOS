@@ -13,8 +13,11 @@ import Foundation
 
 class WalletDetailViewController: ViewController {
     private let certificateDetailVC: CertificateDetailViewController
+    private let lightCertificateDetailVC: CertificateLightDetailViewController
     private let transferCodeDetailVC: TransferCodeDetailViewController
     private let loadingView = LoadingView()
+
+    private let brightnessQRScanning = BrightnessQRScanning()
 
     private var certificate: UserCertificate
 
@@ -24,6 +27,7 @@ class WalletDetailViewController: ViewController {
         self.certificate = certificate
         certificateDetailVC = CertificateDetailViewController(certificate: certificate)
         transferCodeDetailVC = TransferCodeDetailViewController(certificate: certificate)
+        lightCertificateDetailVC = CertificateLightDetailViewController(certificate: certificate)
         super.init()
     }
 
@@ -37,12 +41,30 @@ class WalletDetailViewController: ViewController {
 
         update(animated: false)
 
-        addDismissButton()
-
         UIStateManager.shared.addObserver(self) { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.startDownloadIfNeeded()
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addDismissButton()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        switch certificate.type {
+        case .lightCertificate, .certificate:
+            brightnessQRScanning.isEnabled = true
+        default:
+            break
+        }
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        brightnessQRScanning.isEnabled = false
     }
 
     // MARK: - Setup
@@ -50,6 +72,7 @@ class WalletDetailViewController: ViewController {
     private func setup() {
         addSubviewController(certificateDetailVC)
         addSubviewController(transferCodeDetailVC)
+        addSubviewController(lightCertificateDetailVC)
 
         view.addSubview(loadingView)
 
@@ -63,6 +86,12 @@ class WalletDetailViewController: ViewController {
             guard let strongSelf = self else { return }
             strongSelf.startDownloadIfNeeded(forceUpdate: true)
         }
+        lightCertificateDetailVC.didDisableLightCertificate = { [weak self] certificate in
+            guard let strongSelf = self else { return }
+            strongSelf.certificate = certificate
+            strongSelf.update(animated: true)
+            UIAccessibility.post(notification: .screenChanged, argument: nil)
+        }
     }
 
     // MARK: - Download
@@ -74,6 +103,7 @@ class WalletDetailViewController: ViewController {
               transferCode.state != .failed
         else { return }
 
+        lightCertificateDetailVC.view.alpha = 0.0
         certificateDetailVC.view.alpha = 0.0
         transferCodeDetailVC.view.alpha = 0.0
         loadingView.alpha = 1.0
@@ -92,6 +122,7 @@ class WalletDetailViewController: ViewController {
                 // update date
                 if certificate.count > 0 {
                     strongSelf.certificate.qrCode = certificate.first?.cert
+                    strongSelf.certificate.pdf = certificate.first?.pdf
                     strongSelf.certificateDetailVC.certificate = strongSelf.certificate
                 } else {
                     strongSelf.updateLastLoad()
@@ -124,14 +155,24 @@ class WalletDetailViewController: ViewController {
         // switch animatable states
         let actions = {
             switch self.certificate.type {
+            case .lightCertificate:
+                self.title = self.lightCertificateDetailVC.title
+                self.certificateDetailVC.view.alpha = 0.0
+                self.transferCodeDetailVC.view.alpha = 0.0
+                self.lightCertificateDetailVC.view.alpha = 1.0
+                self.brightnessQRScanning.isEnabled = true
             case .certificate:
                 self.title = self.certificateDetailVC.title
                 self.certificateDetailVC.view.alpha = 1.0
                 self.transferCodeDetailVC.view.alpha = 0.0
+                self.lightCertificateDetailVC.view.alpha = 0.0
+                self.brightnessQRScanning.isEnabled = true
             case .transferCode:
                 self.title = self.transferCodeDetailVC.title
                 self.certificateDetailVC.view.alpha = 0.0
+                self.lightCertificateDetailVC.view.alpha = 0.0
                 self.transferCodeDetailVC.view.alpha = 1.0
+                self.brightnessQRScanning.isEnabled = false
             }
         }
 

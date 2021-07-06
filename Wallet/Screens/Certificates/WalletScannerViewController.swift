@@ -258,7 +258,11 @@ extension WalletScannerViewController: QRScannerViewDelegate {
             let result = CovidCertificateSDK.Wallet.decode(encodedData: s)
 
             switch result {
-            case .success:
+            case let .success(holder):
+                guard holder.certificate.type != .lightCert else {
+                    showError(error: .INVALID_SCHEME_PREFIX)
+                    return
+                }
                 let feedback = UIImpactFeedbackGenerator(style: .heavy)
                 feedback.impactOccurred()
 

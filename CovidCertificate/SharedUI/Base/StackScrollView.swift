@@ -75,12 +75,24 @@ class StackScrollView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func addArrangedView(_ view: UIView, height: CGFloat? = nil, index: Int? = nil) {
+    func addArrangedView(_ view: UIView, height: CGFloat? = nil, index: Int? = nil, inset: UIEdgeInsets? = nil) {
+        var view = view
+
         if let h = height {
             view.snp.makeConstraints { make in
                 make.height.equalTo(h)
             }
         }
+
+        if let inset = inset {
+            let wrapper = UIView()
+            wrapper.addSubview(view)
+            view.snp.makeConstraints { make in
+                make.edges.equalToSuperview().inset(inset)
+            }
+            view = wrapper
+        }
+
         if let i = index {
             stackView.insertArrangedSubview(view, at: i)
         } else {
@@ -88,15 +100,15 @@ class StackScrollView: UIView {
         }
     }
 
-    func addArrangedViewCentered(_ view: UIView) {
+    func addArrangedViewCentered(_ view: UIView, offset: CGFloat = Padding.medium) {
         let v = UIView()
         v.addSubview(view)
 
         view.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.left.greaterThanOrEqualToSuperview().offset(Padding.medium)
-            make.right.lessThanOrEqualToSuperview().offset(-Padding.medium)
+            make.left.greaterThanOrEqualToSuperview().offset(offset)
+            make.right.lessThanOrEqualToSuperview().offset(-offset)
         }
 
         addArrangedView(v)
@@ -108,10 +120,12 @@ class StackScrollView: UIView {
         viewController.didMove(toParent: parent)
     }
 
-    func addSpacerView(_ height: CGFloat, color: UIColor? = nil) {
+    @discardableResult
+    func addSpacerView(_ height: CGFloat, color: UIColor? = nil) -> UIView {
         let extraSpacer = UIView()
         extraSpacer.backgroundColor = color
         addArrangedView(extraSpacer, height: height)
+        return extraSpacer
     }
 
     func removeView(_ view: UIView) {

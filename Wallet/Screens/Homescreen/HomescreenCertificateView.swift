@@ -23,11 +23,13 @@ class HomescreenCertificateView: UIView {
     private let contentView = UIView()
 
     private let qrCodeView: QRCodeView
+    private let lightQrCodeView: LightQRCodeView
     private let transferView: TransferView
 
     public var certificate: UserCertificate? {
         didSet {
             qrCodeView.certificate = certificate
+            lightQrCodeView.certificate = certificate
             transferView.certificate = certificate
             update(animated: true)
         }
@@ -36,6 +38,7 @@ class HomescreenCertificateView: UIView {
     public var state: VerificationState = .loading {
         didSet {
             qrCodeView.state = state
+            lightQrCodeView.state = state
             update(animated: true)
         }
     }
@@ -51,6 +54,7 @@ class HomescreenCertificateView: UIView {
     init(certificate: UserCertificate) {
         self.certificate = certificate
         qrCodeView = QRCodeView(certificate: certificate)
+        lightQrCodeView = LightQRCodeView(certificate: certificate)
         transferView = TransferView(certificate: certificate)
         super.init(frame: .zero)
         setup()
@@ -87,6 +91,12 @@ class HomescreenCertificateView: UIView {
 
         contentView.addSubview(qrCodeView)
         qrCodeView.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(self.titleLabel.snp.bottom)
+        }
+
+        contentView.addSubview(lightQrCodeView)
+        lightQrCodeView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
             make.top.equalTo(self.titleLabel.snp.bottom)
         }
@@ -131,10 +141,28 @@ class HomescreenCertificateView: UIView {
         guard let cert = certificate else { return }
 
         switch cert.type {
+        case .lightCertificate:
+            qrCodeView.alpha = 0.0
+            transferView.alpha = 0.0
+            lightQrCodeView.alpha = 1.0
+
+            let c = CovidCertificateSDK.Wallet.decode(encodedData: cert.lightCertificate?.certificate ?? "")
+            switch c {
+            case let .success(holder):
+                let vaccinations = (holder.certificate as? DCCCert)?.vaccinations ?? []
+                if vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
+                    titleLabel.text = UBLocalized.wallet_certificate
+                } else {
+                    titleLabel.text = UBLocalized.wallet_certificate_evidence_title
+                }
+            case .failure:
+                break
+            }
+            accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
         case .certificate:
             qrCodeView.alpha = 1.0
             transferView.alpha = 0.0
-            accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+            lightQrCodeView.alpha = 0.0
 
             let c = CovidCertificateSDK.Wallet.decode(encodedData: cert.qrCode ?? "")
             switch c {
@@ -149,10 +177,12 @@ class HomescreenCertificateView: UIView {
             case .failure:
                 break
             }
+            accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
         case .transferCode:
             titleLabel.text = UBLocalized.wallet_transfer_code_card_title
             qrCodeView.alpha = 0.0
             transferView.alpha = 1.0
+            lightQrCodeView.alpha = 0.0
             accessibilityLabel = [titleLabel.text, transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
         }
     }
@@ -352,6 +382,70 @@ private class QRCodeView: UIView {
         }
 
         update(animated: false)
+    }
+
+    public func update(animated _: Bool) {
+        let isInvalid = state.isInvalid()
+        nameView.enabled = !isInvalid
+        nameView.certificate = certificate
+
+        accessibilityLabel = [nameView.accessibilityLabel, stateView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+    }
+}
+
+private class LightQRCodeView: UIView {
+    // MARK: - Inset
+
+    private let titleLabel = Label(.uppercaseBold, textColor: .cc_greyText, textAlignment: .center)
+    private let nameView = QRCodeNameView(qrCodeInset: Padding.large, isLightCertificate: true)
+    private let stateView = CertificateStateView(showValidity: false, isLightCertificate: true)
+
+    public var certificate: UserCertificate?
+
+    public var state: VerificationState = .loading {
+        didSet {
+            stateView.states = (state, .idle)
+            update(animated: true)
+        }
+    }
+
+    // MARK: - Subviews
+
+    init(certificate: UserCertificate) {
+        self.certificate = certificate
+        super.init(frame: .zero)
+        setup()
+
+        isAccessibilityElement = true
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setup() {
+        addSubview(nameView)
+
+        nameView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(Padding.medium)
+            make.left.right.equalToSuperview().inset(Padding.large)
+        }
+
+        nameView.certificate = certificate
+        addSubview(stateView)
+        stateView.snp.makeConstraints { make in
+            make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium + Padding.small)
+            make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
+        }
+
+        update(animated: false)
+
+        nameView.didExpireCallback = { [weak self] in
+            guard let self = self,
+                  let qrCode = self.certificate?.qrCode else { return }
+            CertificateStorage.shared.updateCertificate(with: qrCode, lightCertififcate: nil)
+        }
     }
 
     public func update(animated _: Bool) {

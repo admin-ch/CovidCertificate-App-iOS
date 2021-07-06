@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if isFirstLaunch {
             Keychain().deleteAll()
             isFirstLaunch = false
+            // dont show light certificate update boarding on first launch
+            VerifierUserStorage.shared.hasCompletedLightCertificateUpdateBoarding = true
         }
 
         // no onboarding: so directly complete it here (so that the
@@ -96,14 +98,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         setupAppearance()
 
-        window?.makeKeyAndVisible()
-
-        if !VerifierUserStorage.shared.hasCompletedOnboarding {
-            // show onboarding
-            let onboardingViewController = UIViewController()
+        if !VerifierUserStorage.shared.hasCompletedLightCertificateUpdateBoarding {
+            let onboardingViewController = CertificateLightUpdateBoardingViewController()
             onboardingViewController.modalPresentationStyle = .fullScreen
-            // window?.rootViewController?.present(onboardingViewController, animated: false)
+            window?.rootViewController = onboardingViewController
+        } else {
+            window?.rootViewController = navigationController
         }
+
+        window?.makeKeyAndVisible()
+    }
+
+    func completedOnboarding() {
+        guard let window = window else { return }
+
+        let transition = CATransition()
+        transition.type = .push
+        transition.subtype = .fromRight
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        window.layer.add(transition, forKey: kCATransition)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
     }
 
     private func willAppearAfterColdstart(_: UIApplication, coldStart _: Bool, backgroundTime _: TimeInterval) {
