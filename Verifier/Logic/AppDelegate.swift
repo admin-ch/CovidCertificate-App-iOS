@@ -34,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if isFirstLaunch {
             Keychain().deleteAll()
             isFirstLaunch = false
+            // dont show light certificate update boarding on first launch
+            VerifierUserStorage.shared.hasCompletedLightCertificateUpdateBoarding = true
         }
 
         // no onboarding: so directly complete it here (so that the

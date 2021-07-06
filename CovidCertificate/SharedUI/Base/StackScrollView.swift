@@ -100,15 +100,15 @@ class StackScrollView: UIView {
         }
     }
 
-    func addArrangedViewCentered(_ view: UIView) {
+    func addArrangedViewCentered(_ view: UIView, offset: CGFloat = Padding.medium) {
         let v = UIView()
         v.addSubview(view)
 
         view.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.left.greaterThanOrEqualToSuperview().offset(Padding.medium)
-            make.right.lessThanOrEqualToSuperview().offset(-Padding.medium)
+            make.left.greaterThanOrEqualToSuperview().offset(offset)
+            make.right.lessThanOrEqualToSuperview().offset(-offset)
         }
 
         addArrangedView(v)
