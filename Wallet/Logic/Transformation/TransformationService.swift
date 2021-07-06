@@ -18,7 +18,7 @@ enum TransformationService {
         let payload = TransformationRequestPayload(hcert: qrCode)
 
         let request = Endpoint.lightCertificate(payload: payload).request()
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        URLSession.certificatePinned.dataTask(with: request) { data, response, error in
 
             if let error = error?.asNetworkError() {
                 completionHandler(.failure(.networkError(error)))
@@ -50,7 +50,7 @@ enum TransformationService {
         let payload = TransformationRequestPayload(hcert: qrCode)
 
         let request = Endpoint.pdf(payload: payload).request()
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        URLSession.certificatePinned.dataTask(with: request) { data, response, error in
 
             if let error = error?.asNetworkError() {
                 completionHandler(.failure(.networkError(error)))
