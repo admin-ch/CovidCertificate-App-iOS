@@ -85,7 +85,11 @@ class OnboardingContentViewController: ViewController {
         header.didExpand = { expanded in
             body.superview?.ub_setHidden(!expanded)
             body.alpha = expanded ? 1 : 0
-            UIAccessibility.post(notification: .screenChanged, argument: expanded ? body : header)
+            if let text = header.headerLabel.text {
+                let stateInfo = expanded ? UBLocalized.accessibility_expandable_box_expanded_state : UBLocalized.accessibility_expandable_box_reduced_state
+                header.accessibilityLabel = text + ", " + stateInfo
+            }
+            UIAccessibility.post(notification: .layoutChanged, argument: expanded ? body : header)
         }
 
         stackView.addSpacerView(Padding.medium)

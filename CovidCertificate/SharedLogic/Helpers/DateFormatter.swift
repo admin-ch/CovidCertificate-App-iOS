@@ -52,4 +52,20 @@ extension DateFormatter {
     static func ub_dayTimeString(from date: Date) -> String {
         dayDateTimeFormatter.string(from: date)
     }
+
+    static func ub_accessibilityDateString(dateString: String?) -> String? {
+        guard let d = dateString else { return nil }
+
+        let accDateFormatter = DateFormatter()
+        if let date = DateFormatter.dayDateTimeFormatter.date(from: d) {
+            accDateFormatter.dateStyle = .long
+            accDateFormatter.timeStyle = .short
+            return accDateFormatter.string(from: date)
+        } else if let date = DateFormatter.dayDateFormatter.date(from: d) {
+            accDateFormatter.dateStyle = .long
+            accDateFormatter.timeStyle = .none
+            return accDateFormatter.string(from: date)
+        }
+        return nil
+    }
 }

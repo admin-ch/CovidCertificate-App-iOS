@@ -80,6 +80,7 @@ class WalletScannerViewController: ViewController {
             }
 
             qrOverlay = WalletQRScannerFullOverlayView(additionalInset: additionalInset)
+            qrOverlay?.isAccessibilityElement = true
 
             view.addSubview(qrOverlay!)
             qrOverlay?.snp.makeConstraints { make in
