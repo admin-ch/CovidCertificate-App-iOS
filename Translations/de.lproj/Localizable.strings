@@ -890,4 +890,26 @@
 "accessibility_expandable_box_reduced_state" = "reduziert";
 
 /*VoiceOver reads this when the expandable box is expanded*/
+/*Fuzzy*/
 "accessibility_expandable_box_expanded_state" = "erweitert";
+
+/*Header im Update Boarding-Screen*/
+"wallet_update_boarding_header" = "Update";
+
+/*Titel im Zertifikat Light-Screen*/
+"wallet_update_boarding_certificate_light_title" = "Zertifikat Light";
+
+/*Text im Zertifikat Light-Screen*/
+"wallet_update_boarding_certificate_light_text" = "Mit diesem Update können Sie in der App eine Zertifikatskopie ohne Gesundheitsdaten für die Verwendung in der Schweiz generieren lassen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.";
+
+/*Header im Update Boarding-Screen*/
+"verifier_update_boarding_header" = "Update";
+
+/*Titel im Zertifikat Light-Screen*/
+"verifier_update_boarding_certificate_light_title" = "Zertifikat Light";
+
+/*Text im Zertifikat Light-Screen*/
+"verifier_update_boarding_certificate_light_text" = "Mit diesem Update können Sie in der App auch die Zertifikatskopie ohne Gesundheitsdaten prüfen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.";
+
+/*Verifier: Die Gültigkeit eines Certificate Light ist abgelaufen*/
+"verifier_certificate_light_error_expired" = "Gültigkeit des Zertifikats\nabgelaufen";

@@ -102,6 +102,8 @@ import Foundation
      case verifier_app_title_key = "verifier_app_title"
     /// http://itunes.apple.com/app/id1565917510
      case verifier_apple_app_store_url_key = "verifier_apple_app_store_url"
+    /// Gültigkeit des Zertifikats\nabgelaufen
+     case verifier_certificate_light_error_expired_key = "verifier_certificate_light_error_expired"
     /// Geburtsdatum
      case verifier_covid_certificate_birthdate_key = "verifier_covid_certificate_birthdate"
     /// Nachname
@@ -182,6 +184,12 @@ import Foundation
      case verifier_terms_privacy_link_key = "verifier_terms_privacy_link"
     /// Prüfen
      case verifier_title_qr_scan_key = "verifier_title_qr_scan"
+    /// Mit diesem Update können Sie in der App auch die Zertifikatskopie ohne Gesundheitsdaten prüfen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.
+     case verifier_update_boarding_certificate_light_text_key = "verifier_update_boarding_certificate_light_text"
+    /// Zertifikat Light
+     case verifier_update_boarding_certificate_light_title_key = "verifier_update_boarding_certificate_light_title"
+    /// Update
+     case verifier_update_boarding_header_key = "verifier_update_boarding_header"
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDie Gültigkeit des Zertifikat ist abgelaufen.
      case verifier_verifiy_error_expired_key = "verifier_verifiy_error_expired"
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDas Zertifikat ist noch nicht gültig.
@@ -660,6 +668,12 @@ import Foundation
      case wallet_transfer_code_update_no_internet_error_text_key = "wallet_transfer_code_update_no_internet_error_text"
     /// Wollen Sie den Transfer-Code wirklich löschen?
      case wallet_transfer_delete_confirm_text_key = "wallet_transfer_delete_confirm_text"
+    /// Mit diesem Update können Sie in der App eine Zertifikatskopie ohne Gesundheitsdaten für die Verwendung in der Schweiz generieren lassen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.
+     case wallet_update_boarding_certificate_light_text_key = "wallet_update_boarding_certificate_light_text"
+    /// Zertifikat Light
+     case wallet_update_boarding_certificate_light_title_key = "wallet_update_boarding_certificate_light_title"
+    /// Update
+     case wallet_update_boarding_header_key = "wallet_update_boarding_header"
   }
 
   /// Zertifikat hinzufügen
@@ -754,6 +768,8 @@ import Foundation
    static let verifier_app_title = UBLocalized.tr(UBLocalizedKey.verifier_app_title_key)
   /// http://itunes.apple.com/app/id1565917510
    static let verifier_apple_app_store_url = UBLocalized.tr(UBLocalizedKey.verifier_apple_app_store_url_key)
+  /// Gültigkeit des Zertifikats\nabgelaufen
+   static let verifier_certificate_light_error_expired = UBLocalized.tr(UBLocalizedKey.verifier_certificate_light_error_expired_key)
   /// Geburtsdatum
    static let verifier_covid_certificate_birthdate = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_birthdate_key)
   /// Nachname
@@ -834,6 +850,12 @@ import Foundation
    static let verifier_terms_privacy_link = UBLocalized.tr(UBLocalizedKey.verifier_terms_privacy_link_key)
   /// Prüfen
    static let verifier_title_qr_scan = UBLocalized.tr(UBLocalizedKey.verifier_title_qr_scan_key)
+  /// Mit diesem Update können Sie in der App auch die Zertifikatskopie ohne Gesundheitsdaten prüfen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.
+   static let verifier_update_boarding_certificate_light_text = UBLocalized.tr(UBLocalizedKey.verifier_update_boarding_certificate_light_text_key)
+  /// Zertifikat Light
+   static let verifier_update_boarding_certificate_light_title = UBLocalized.tr(UBLocalizedKey.verifier_update_boarding_certificate_light_title_key)
+  /// Update
+   static let verifier_update_boarding_header = UBLocalized.tr(UBLocalizedKey.verifier_update_boarding_header_key)
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDie Gültigkeit des Zertifikat ist abgelaufen.
    static let verifier_verifiy_error_expired = UBLocalized.tr(UBLocalizedKey.verifier_verifiy_error_expired_key)
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDas Zertifikat ist noch nicht gültig.
@@ -1312,6 +1334,12 @@ import Foundation
    static let wallet_transfer_code_update_no_internet_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_update_no_internet_error_text_key)
   /// Wollen Sie den Transfer-Code wirklich löschen?
    static let wallet_transfer_delete_confirm_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_delete_confirm_text_key)
+  /// Mit diesem Update können Sie in der App eine Zertifikatskopie ohne Gesundheitsdaten für die Verwendung in der Schweiz generieren lassen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.
+   static let wallet_update_boarding_certificate_light_text = UBLocalized.tr(UBLocalizedKey.wallet_update_boarding_certificate_light_text_key)
+  /// Zertifikat Light
+   static let wallet_update_boarding_certificate_light_title = UBLocalized.tr(UBLocalizedKey.wallet_update_boarding_certificate_light_title_key)
+  /// Update
+   static let wallet_update_boarding_header = UBLocalized.tr(UBLocalizedKey.wallet_update_boarding_header_key)
 }
 // swiftlint:enable function_parameter_count identifier_name line_length type_body_length
 

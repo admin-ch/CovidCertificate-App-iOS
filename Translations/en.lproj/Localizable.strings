@@ -29,7 +29,7 @@
 "error_camera_permission_text" = "The app requires access to the camera to be able to scan the QR code.";
 "error_action_change_settings" = "Change settings";
 "error_title" = "Error";
-"qr_scanner_error" = "No valid code";
+"qr_scanner_error" = "Invalid code";
 "ok_button" = "OK";
 "camera_permission_dialog_text" = "The app requires access to the camera to be able to scan the QR code.";
 "camera_permission_dialog_action" = "Allow access to camera";
@@ -60,7 +60,7 @@
 "verifier_verify_success_title" = "Verification successful";
 
 /*Info Text bei erfolgreicher Prüfung*/
-"verifier_verify_success_info" = "Valid only with \nan identity document";
+"verifier_verify_success_info" = "Only valid in combination with \nan identity document";
 
 /*Prüfung loading text*/
 "verifier_verify_loading_text" = "Certificate is being verified";
@@ -117,7 +117,7 @@
 "continue_button" = "Next";
 
 /*Header im Onboarding-Screen "Datenschutz"*/
-"wallet_onboarding_privacy_header" = "Data privacy";
+"wallet_onboarding_privacy_header" = "Data protection";
 
 /*Titel im Onboardingscreen "Datenschutz"*/
 "wallet_onboarding_privacy_title" = "Your data remains \nin the app";
@@ -211,7 +211,7 @@
 "wallet_faq_questions_answer_1" = "You can get a COVID certificate after a complete COVID-19 vaccination, after you have recovered from the virus or after you have tested negative. The certificate is generally issued upon request by health care professionals on site.";
 
 /*Antwort 2 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_2" = "You can present your COVID certificate in hard copy or you can use the COVID Certificate app to save certificates in the app and present them directly from the app. You are free to choose whether you present your certificate in hard copy or in the app.\n\nPlease note that you will also need to show an identification document (passport or ID card) in either case.\n";
+"wallet_faq_questions_answer_2" = "You can present your COVID certificate in paper form, or you can use the COVID Certificate app to save certificates in the dedicated app. You are free to choose whether to present your certificate in paper form or in the app.\n\nPlease note that you will also need to show an identification document (passport or ID card) in either case.\n";
 
 /*Antwort 3 im FAQ-Screen der Wallet App*/
 "wallet_faq_questions_answer_3" = "Your data is not stored in a central system, but only locally on your mobile device or in the QR code in the case of the paper COVID certificate.";
@@ -253,10 +253,10 @@
 "verifier_covid_certificate_prename" = "First name";
 
 /*Config: Titel wenn App muss geupdatet werden*/
-"force_update_title" = "Update needed";
+"force_update_title" = "Update required";
 
 /*Config: Text der angezeigt wird falls App muss geupdatet werden*/
-"force_update_text" = "Load the latest version of the app.";
+"force_update_text" = "Download the latest version of the app.";
 
 /*Config: Update Button Aktualisieren*/
 "force_update_button" = "Update";
@@ -268,7 +268,7 @@
 "certificate_reason_vaccinated" = "Vaccination";
 
 /*Wallet: Zertifikat Detail Genesen*/
-"certificate_reason_recovered" = "Recovery";
+"certificate_reason_recovered" = "Recovered";
 
 /*Wallet: Zertifikat Detail Getestet*/
 "certificate_reason_tested" = "Test";
@@ -289,28 +289,28 @@
 "wallet_onboarding_show_header" = "Advantages";
 
 /*Accessibility: Information*/
-"accessibility_info_button" = "Imprint";
+"accessibility_info_button" = "Publication details";
 
 /*Accessibility: FAQ Button Titel*/
 "accessibility_faq_button" = "FAQs";
 
 /*Accessibility: Button zur Liste der Zertifikate*/
-"accessibility_list_button" = "Certificates list";
+"accessibility_list_button" = "List of certificates";
 
 /*Accessibility: Zertifikate hinzufügen*/
-"accessibility_add_button" = "Add certificate";
+"accessibility_add_button" = "Add a certificate";
 
 /*Accessibility: Schliessen Button*/
 "accessibility_close_button" = "Close";
 
 /*Accessibility: Taschenlampe anschalten Button*/
-"accessibility_lamp_on_button" = "Switch on flashlight";
+"accessibility_lamp_on_button" = "Turn on torch";
 
 /*Accessibility: Lampe abschalten*/
-"accessibility_lamp_off_button" = "Switch off flashlight";
+"accessibility_lamp_off_button" = "Turn off torch";
 
 /*Titel des Impressum-Screens*/
-"impressum_title" = "Imprint";
+"impressum_title" = "Publication details";
 
 /*Unbekannter Fehler*/
 "unknown_error" = "An unknown error has occurred";
@@ -383,7 +383,7 @@
 "wallet_certificate_recovery_first_positiv_result" = "Date of first positive test result";
 "wallet_certificate_recovery_from" = "Valid from";
 "wallet_certificate_recovery_until" = "Valid until";
-"wallet_certificate_test_land" = "Country of Test";
+"wallet_certificate_test_land" = "Country of test";
 "covid_certificate_test_title" = "Test";
 "wallet_certificate_test_result_title" = "Result";
 "wallet_certificate_test_result_negativ" = "Not detected (Negative)";
@@ -443,7 +443,7 @@
 "verifier_faq_works_question_2" = "What exactly is checked?";
 
 /*Antwort 2 im FAQ der Verifier App*/
-"verifier_faq_works_answer_2" = "Three aspects are checked when scanning:\n– Does the certificate contain a valid electronic signature?\n– Is the certificate non-revoked?\n– Does the certificate meet Switzerland's validity criteria?\n\nIf the answer to all three questions is affirmative, the COVID certificate is shown as valid.";
+"verifier_faq_works_answer_2" = "Three aspects are checked when scanning:\n– Does the certificate contain a valid electronic signature?\n– Is the certificate unrevoked?\n– Does the certificate meet Switzerland's validity criteria?\n\nIf the answer to all three questions is affirmative, the COVID certificate is shown as valid.";
 
 /*Frage 3 im FAQ der Verifier App*/
 "verifier_faq_works_question_3" = "Which identification documents are valid? Why do personal details have to be checked?";
@@ -473,7 +473,7 @@
 "ios_settings_open" = "Settings";
 
 /*Wallet: Onboarding externer Link zu Datenschutz*/
-"wallet_onboarding_external_privacy_button" = "Data Protection Statement & Conditions of Use";
+"wallet_onboarding_external_privacy_button" = "Privacy policy & Terms of use";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
 "wallet_certificate_detail_note" = "This certificate is not a travel document. \n\nThe scientific evidence on COVID-19 vaccination, testing and recovery continues to evolve, including with regard to new virus variants of concern. \n\nBefore travelling, please check the applicable public health measures and related restrictions applicable at the point of destination.";
@@ -865,3 +865,24 @@
 
 /*VoiceOver reads this when the expandable box is expanded*/
 "accessibility_expandable_box_expanded_state" = "erweitert";
+
+/*Header im Update Boarding-Screen*/
+"wallet_update_boarding_header" = "Update";
+
+/*Titel im Zertifikat Light-Screen*/
+"wallet_update_boarding_certificate_light_title" = "Zertifikat Light";
+
+/*Text im Zertifikat Light-Screen*/
+"wallet_update_boarding_certificate_light_text" = "Mit diesem Update können Sie in der App eine Zertifikatskopie ohne Gesundheitsdaten für die Verwendung in der Schweiz generieren lassen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.";
+
+/*Header im Update Boarding-Screen*/
+"verifier_update_boarding_header" = "Update";
+
+/*Titel im Zertifikat Light-Screen*/
+"verifier_update_boarding_certificate_light_title" = "Zertifikat Light";
+
+/*Text im Zertifikat Light-Screen*/
+"verifier_update_boarding_certificate_light_text" = "Mit diesem Update können Sie in der App auch die Zertifikatskopie ohne Gesundheitsdaten prüfen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.";
+
+/*Verifier: Die Gültigkeit eines Certificate Light ist abgelaufen*/
+"verifier_certificate_light_error_expired" = "Certificate validity \nexpired";
