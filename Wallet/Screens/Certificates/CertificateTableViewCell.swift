@@ -166,7 +166,7 @@ class CertificateTableViewCell: UITableViewCell {
                     switch e {
                     case .signature, .revocation, .otherNationalRules, .unknown, .typeInvalid:
                         self.qrCodeStateImageView.image = invalid
-                    case .expired:
+                    case .expired, .signatureExpired:
                         self.qrCodeStateImageView.image = expired
                     case .notYetValid:
                         self.qrCodeStateImageView.image = notYetValid

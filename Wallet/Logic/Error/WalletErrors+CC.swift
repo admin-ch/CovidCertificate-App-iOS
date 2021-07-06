@@ -26,6 +26,8 @@ extension VerificationError {
         case .expired:
             let bold = UBLocalized.wallet_error_expired_bold
             return UBLocalized.wallet_error_expired.formattingOccurrenceBold(bold)
+        case .signatureExpired:
+            return UBLocalized.verifier_certificate_light_error_expired.bold()
         case let .notYetValid(date):
             let dayDate = DateFormatter.ub_dayString(from: date)
             return UBLocalized.wallet_error_valid_from.replacingOccurrences(of: "{DATE}", with: dayDate).formattingOccurrenceBold(dayDate)
@@ -42,7 +44,7 @@ extension VerificationError {
         case .signature, .typeInvalid: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .revocation: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .otherNationalRules: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
-        case .expired:
+        case .expired, .signatureExpired:
             if let c = color {
                 return UIImage(named: "ic-invalid")?.ub_image(with: c)
             } else {
