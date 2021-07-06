@@ -193,6 +193,7 @@ class AddTransferCodeButton: UBButton {
         }
 
         accessibilityLabel = topLabel.text
+        accessibilityTraits = [.button, .header]
     }
 }
 
