@@ -812,44 +812,44 @@
 "wallet_certificate_export_button" = "Exporter";
 
 /*Wallet: Zertifikat Export Error Title*/
-"wallet_certificate_export_detail_error_title" = "PDF konnte nicht\nerstellt werden";
+"wallet_certificate_export_detail_error_title" = "Impossible d’établir le fichier PDF";
 
 /*Wallet: Zertifikat Export Netzwerk Error*/
-"wallet_certificate_export_detail_network_error_text" = "Um das PDF erstellen zu können, muss die App online sein.";
+"wallet_certificate_export_detail_network_error_text" = "Le fichier PDF ne peut être établi que si l’application est connectée.";
 "accessibility_qr_code" = "code QR";
 
 /*Wallet: Zertifikat Light Aktivation Netzwerk Fehler Title*/
 "wallet_certificate_light_detail_activation_network_error_title" = "Pas de connexion Internet";
 
 /*Wallet: Zertifikat Light Aktivation General Fehler Text*/
-"wallet_certificate_light_detail_activation_general_error_text" = "Une erreur inattendue est survenue.";
+"wallet_certificate_light_detail_activation_general_error_text" = "Veuillez réessayer plus tard.";
 
 /*Wallet: Zertifikat Light Aktivation General Fehler Titel*/
-"wallet_certificate_light_detail_activation_general_error_title" = "Ein unerwarteter Fehler ist aufgetreten.";
+"wallet_certificate_light_detail_activation_general_error_title" = "Une erreur inattendue est survenue.";
 
 /*Wallet: Zertifikat Light Titel*/
 "wallet_certificate_light_title" = "Certificat light";
 
 /*Wallet: Zertifikat Exportieren Detail Title*/
-"wallet_certificate_export_detail_title" = "Covid-Zertifikat exportieren";
+"wallet_certificate_export_detail_title" = "Exporter";
 
 /*Wallet: Zertifikat Exportieren Summary 1*/
-"wallet_certificate_export_detail_summary_1" = "Aus den Daten Ihres Covid-Zertifikats wird ein PDF erstellt, das Sie drucken oder teilen können.";
+"wallet_certificate_export_detail_summary_1" = "Un fichier PDF sera établi avec les données de votre certificat COVID ; vous pourrez l’imprimer ou le partager.";
 
 /*Wallet: Zertifikat Exportieren Summary 2*/
-"wallet_certificate_export_detail_summary_2" = "Die Erstellung des PDF-Dokuments erfolgt online.";
+"wallet_certificate_export_detail_summary_2" = "Le fichier PDF est établi en ligne.";
 
 /*Wallet: Zertifikat Exportieren Datail Export Button*/
-"wallet_certificate_export_detail_export_button" = "Exportieren";
+"wallet_certificate_export_detail_export_button" = "Exporter";
 
 /*Wallet: Zertifikat Exportieren Datail Netzwerk Fehler*/
-"wallet_certificate_export_detail_network_error_title" = "Keine Verbindung zum Internet";
+"wallet_certificate_export_detail_network_error_title" = "Pas de connexion Internet";
 
 /*Wallet: Zertifikat Exportieren Datail General Fehler*/
-"wallet_certificate_export_detail_general_error_title" = "Ein unerwarteter Fehler ist aufgetreten.";
+"wallet_certificate_export_detail_general_error_title" = "Une erreur inattendue est survenue.";
 
 /*Wallet: Zertifikat Exportieren Datail General Fehler Text*/
-"wallet_certificate_export_detail_general_error_text" = "Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.";
+"wallet_certificate_export_detail_general_error_text" = "Une erreur inattendue est survenue. Veuillez réessayer plus tard.";
 
 /*Wallet: Zertifikat Light Erklärungstext 1*/
 "wallet_certificate_light_detail_text_1" = "Quand vous activez le certificat light, un nouveau code QR est créé à partir des données de votre certificat COVID. Ce nouveau code ne contient pas de données sur la santé.";
@@ -858,7 +858,7 @@
 "wallet_certificate_light_detail_text_2" = "Tant qu’il est valide, le certificat COVID normal est utilisable sans limitation en Suisse et dans l’UE/l’AELE. Par contre, le certificat light n’est utilisable qu’en Suisse. Pour des raisons de protection des données, le certificat light doit être réactivé après 48 heures. Il n’apporte aucun droit supplémentaire par rapport au certificat COVID normal.";
 
 /*Wallet: Zertifikat Light Erklärungstext Bold*/
-"wallet_certificate_light_detail_text_2_bold" = "nur muss keine";
+"wallet_certificate_light_detail_text_2_bold" = "n’est utilisable qu’en doit être aucun";
 
 /*VoiceOver reads this when the expandable box is reduced*/
 "accessibility_expandable_box_reduced_state" = "reduziert";
@@ -867,19 +867,19 @@
 "accessibility_expandable_box_expanded_state" = "erweitert";
 
 /*Header im Update Boarding-Screen*/
-"wallet_update_boarding_header" = "Update";
+"wallet_update_boarding_header" = "Mise à jour";
 
 /*Titel im Zertifikat Light-Screen*/
-"wallet_update_boarding_certificate_light_title" = "Zertifikat Light";
+"wallet_update_boarding_certificate_light_title" = "Certificat light";
 
 /*Text im Zertifikat Light-Screen*/
 "wallet_update_boarding_certificate_light_text" = "Cette mise à jour vous permet de générer une copie du certificat sans données sur la santé pour l’utiliser en Suisse. Les conditions d’utilisation et la déclaration sur la protection des données ont été actualisées et seront considérées comme acceptées si vous continuez à utiliser l’application.";
 
 /*Header im Update Boarding-Screen*/
-"verifier_update_boarding_header" = "Update";
+"verifier_update_boarding_header" = "Mise à jour";
 
 /*Titel im Zertifikat Light-Screen*/
-"verifier_update_boarding_certificate_light_title" = "Zertifikat Light";
+"verifier_update_boarding_certificate_light_title" = "Certificat light";
 
 /*Text im Zertifikat Light-Screen*/
 "verifier_update_boarding_certificate_light_text" = "Cette mise à jour vous permet aussi de vérifier les copies de certificat sans données sur la santé. Les conditions d’utilisation et la déclaration sur la protection des données ont été actualisées et seront considérées comme acceptées si vous continuez à utiliser l’application.";
@@ -889,3 +889,7 @@
 
 /*Wallet: Badge für Light-Zertifikate in Liste Zertifikate*/
 "wallet_certificate_list_light_certificate_badge" = "Light";
+"wallet_faq_questions_question_6" = "Qu’est-ce que le certificat light ?";
+"wallet_faq_questions_answer_6" = "L’application « COVID Certificate » propose aux titulaires de certificats COVID la possibilité de générer une copie du certificat ne contenant que les données strictement nécessaires. Ce certificat « light » indique uniquement si le certificat présenté est valide, sans fournir de données sur la santé.\n\nL’alternative permettant de limiter les données du certificat COVID au strict minimum a été suggérée par le Préposé fédéral à la protection des données et à la transparence (PFPDT) ; en effet, des personnes tierces pourraient développer des applications leur donnant la possibilité de lire, lors de la vérification d’un certificat, les données sur la santé (p. ex. le type de vaccin et la date de la vaccination). Le certificat light empêche tout abus de ce genre.\n\nLe certificat light, reconnu uniquement en Suisse, n’est disponible que sous forme électronique. Pour des raisons de protection des données, il n’est valide que pendant 48 heures et doit ensuite être réactivé. Si le certificat normal est à nouveau nécessaire avant la fin de ce délai, il suffit de désactiver le certificat light.";
+"verifier_faq_works_question_8" = "Qu’est-ce que le certificat light ?";
+"verifier_faq_works_answer_8" = "L’application « COVID Certificate » propose aux titulaires de certificats COVID la possibilité de générer une copie du certificat ne contenant que les données strictement nécessaires. Ce certificat « light » indique uniquement si le certificat présenté est valide, sans fournir de données sur la santé.\n\nL’alternative permettant de limiter les données du certificat COVID au strict minimum a été suggérée par le Préposé fédéral à la protection des données et à la transparence (PFPDT) ; en effet, des personnes tierces pourraient développer des applications leur donnant la possibilité de lire, lors de la vérification d’un certificat, les données sur la santé (p. ex. le type de vaccin et la date de la vaccination). Le certificat light empêche tout abus de ce genre.\n\nLe certificat light, reconnu uniquement en Suisse, n’est disponible que sous forme électronique. Pour des raisons de protection des données, il n’est valide que pendant 48 heures et doit ensuite être réactivé. Si le certificat normal est à nouveau nécessaire avant la fin de ce délai, il suffit de désactiver le certificat light.";
