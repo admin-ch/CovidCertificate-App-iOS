@@ -200,11 +200,6 @@ class CertificateDetailViewController: ViewController {
             guard let strongSelf = self,
                   let certificate = strongSelf.certificate else { return }
 
-            if let pdf = certificate.pdf {
-                self?.sharePDF(pdf)
-                return
-            }
-
             let vc = CertificateExportDetailViewController(certificate: certificate)
             vc.sharePDFCallback = { [weak self] certificate in
                 guard let self = self else { return }
