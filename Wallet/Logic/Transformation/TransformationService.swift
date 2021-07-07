@@ -41,7 +41,7 @@ enum TransformationService {
                 return
             }
 
-            completionHandler(.success(LightCertificate(certificate: cert.payload, qrCode: cert.qrcode)))
+            completionHandler(.success(LightCertificate(certificate: cert.payload, qrCode: cert.qrCode)))
         }.resume()
     }
 

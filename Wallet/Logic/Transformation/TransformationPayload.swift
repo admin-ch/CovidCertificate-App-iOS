@@ -17,7 +17,7 @@ struct TransformationRequestPayload: Codable {
 
 struct TransformationLightCertificateResponsePayload: Codable {
     let payload: String
-    let qrcode: Data
+    let qrCode: Data
 }
 
 struct TransformationPdfResponsePayload: Codable {
