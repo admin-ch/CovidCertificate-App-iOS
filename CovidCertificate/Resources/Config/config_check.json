@@ -328,5 +328,7 @@
                 }
             ]
         }
-    }
+    },
+    "androidTransferCheckIntervalMs": 0,
+    "androidTransferCheckBackoffMs": 0
 }
