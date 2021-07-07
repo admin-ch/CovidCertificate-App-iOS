@@ -338,7 +338,7 @@ class VerifyNameBirthdayView: UIView {
         didSet {
             nameView.titleLabel.text = holder?.displayName
             lastNameView.titleLabel.text = holder?.displayLastName
-            birthdayView.titleLabel.text = holder?.displayBirthDate
+            birthdayView.titleLabel.text = holder?.dateOfBirth
             monoLabel.text = holder?.displayMonospacedName
         }
     }

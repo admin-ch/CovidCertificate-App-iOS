@@ -46,16 +46,6 @@ public extension ExtensionModel {
         return [person.familyName, person.givenName].compactMap { $0 }.joined(separator: " ")
     }
 
-    var displayBirthDate: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        if let date = dateFormatter.date(from: dateOfBirth) {
-            return DateFormatter.ub_dayString(from: date)
-        }
-
-        return dateOfBirth
-    }
-
     var displayLastName: String? {
         return person.familyName
     }
