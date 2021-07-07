@@ -59,7 +59,7 @@ enum VerificationState: Equatable {
 
     public func isSuccess() -> Bool {
         switch self {
-        case .success:
+        case .success, .skipped:
             return true
         default:
             return false
