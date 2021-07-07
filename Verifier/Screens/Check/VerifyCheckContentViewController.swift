@@ -190,7 +190,7 @@ class VerifyCheckContentViewController: ViewController {
         case .success, .skipped:
             statusView.set(text: UBLocalized.verifier_verify_success_title.bold(), backgroundColor: .cc_greenish, icon: UIImage(named: "ic-check"))
             infoView.set(text: UBLocalized.verifier_verify_success_info, backgroundColor: .cc_blueish, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_blue), showReloadButton: false)
-        case let .invalid(errors, errorCodes, _):
+        case let .invalid(errors, errorCodes, _, _):
             let color: UIColor = .cc_redish
 
             let (signatureError, revocationError, nationalError) = state?.getVerifierErrorState() ?? (nil, nil, nil)
@@ -248,7 +248,7 @@ class VerifyCheckContentViewController: ViewController {
                 let (signatureError, revocationError, _) = self.state?.getVerifierErrorState() ?? (nil, nil, nil)
 
                 let showInfo1 = signatureError == nil
-                let showInfo2 = showInfo1 && revocationError == nil
+                let showInfo2 = showInfo1 && revocationError == nil && !(self.state?.wasRevocationSkipped ?? false)
                 self.loadingView.stopRotation()
 
                 self.loadingView.ub_setHidden(true)
