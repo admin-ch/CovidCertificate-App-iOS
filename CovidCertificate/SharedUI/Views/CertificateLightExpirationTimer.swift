@@ -63,6 +63,7 @@ class CertificateLightExpirationTimer: UIView {
         timerLabel.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: Padding.small, left: 8, bottom: Padding.small, right: 8))
         }
+        timerLabel.ub_setContentPriorityRequired()
 
         backgroundColor = .cc_blueish
 
