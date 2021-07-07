@@ -290,6 +290,8 @@ class Verifier: NSObject {
                     return .invalid(errors: [.notYetValid(result.validFrom ?? Date())], errorCodes: [], validity: validUntil, wasRevocationSkipped: false)
                 case .EXPIRED:
                     return .invalid(errors: [.expired(result.validUntil ?? Date())], errorCodes: [], validity: validUntil, wasRevocationSkipped: false)
+                case .NO_VALID_DATE:
+                    return .invalid(errors: [.typeInvalid], errorCodes: [], validity: validUntil, wasRevocationSkipped: false)
                 }
             } else {
                 return .invalid(errors: [.otherNationalRules], errorCodes: [], validity: validUntil, wasRevocationSkipped: false)
