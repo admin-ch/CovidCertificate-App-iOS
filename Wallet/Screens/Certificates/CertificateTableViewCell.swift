@@ -161,7 +161,7 @@ class CertificateTableViewCell: UITableViewCell {
                 case .noInternetConnection:
                     self.qrCodeStateImageView.image = noInternetError
                 }
-            case let .invalid(errors, _, _):
+            case let .invalid(errors, _, _, _):
                 if let e = errors.first {
                     switch e {
                     case .signature, .revocation, .otherNationalRules, .unknown, .typeInvalid:

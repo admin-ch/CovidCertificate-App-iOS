@@ -44,7 +44,7 @@ enum VerificationState: Equatable {
     // validity as formatted date as String
     case success(String?)
     // sorted errors, error codes, validity as formatted date as String
-    case invalid([VerificationError], [String], String?)
+    case invalid(errors: [VerificationError], errorCodes: [String], validity: String?, wasRevocationSkipped: Bool)
     // retry error, error codes
     case retry(RetryError, [String])
 
@@ -77,7 +77,7 @@ enum VerificationState: Equatable {
 
     public func verificationErrors() -> [VerificationError]? {
         switch self {
-        case let .invalid(errors, _, _):
+        case let .invalid(errors, _, _, _):
             return errors
         default:
             return nil
@@ -86,7 +86,7 @@ enum VerificationState: Equatable {
 
     public func validUntilDateString() -> String? {
         switch self {
-        case let .invalid(_, _, date):
+        case let .invalid(_, _, date, _):
             return date
         default:
             return nil
@@ -95,10 +95,19 @@ enum VerificationState: Equatable {
 
     public func errorCodes() -> [String] {
         switch self {
-        case let .invalid(_, codes, _):
+        case let .invalid(_, codes, _, _):
             return codes
         default:
             return []
+        }
+    }
+
+    public var wasRevocationSkipped: Bool {
+        switch self {
+        case let .invalid(_, _, _, wasRevocationSkipped):
+            return wasRevocationSkipped
+        default:
+            return false
         }
     }
 
@@ -108,7 +117,7 @@ enum VerificationState: Equatable {
     // (nil, nil, error) --> show signature ok, revocation ok, show national error
     public func getVerifierErrorState() -> (VerificationError?, VerificationError?, VerificationError?)? {
         switch self {
-        case let .invalid(errors, _, _):
+        case let .invalid(errors, _, _, _):
             let signatureError = errors.filter { $0 == .signature || $0 == .typeInvalid }.first
             let revocationError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 == .revocation }.first
             let nationalError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 != .revocation }.first
@@ -151,7 +160,7 @@ class Verifier: NSObject {
 
         guard let holder = holder else {
             // should never happen
-            self.stateUpdate?(.invalid([.unknown], ["V|HN"], nil))
+            self.stateUpdate?(.invalid(errors: [.unknown], errorCodes: ["V|HN"], validity: nil, wasRevocationSkipped: false))
             return
         }
 
@@ -177,7 +186,7 @@ class Verifier: NSObject {
 
             if errors.count > 0 {
                 let validityString = checkNationalRulesState.validUntilDateString()
-                self.stateUpdate?(.invalid(errors, errorCodes, validityString))
+                self.stateUpdate?(.invalid(errors: errors, errorCodes: errorCodes, validity: validityString, wasRevocationSkipped: results.revocationStatus == nil))
             } else if let r = retries.first {
                 self.stateUpdate?(r)
             } else if states.allSatisfy({ $0.isSuccess() }) {
@@ -201,7 +210,7 @@ class Verifier: NSObject {
             } else {
                 // !: checked
                 let errorCodes = result.error != nil ? [result.error!.errorCode] : []
-                return .invalid([.signature], errorCodes, nil)
+                return .invalid(errors: [.signature], errorCodes: errorCodes, validity: nil, wasRevocationSkipped: false)
             }
 
         case let .failure(err):
@@ -212,12 +221,12 @@ class Verifier: NSObject {
             case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
                 return .retry(.network, [err.errorCode])
             case .SIGNATURE_TYPE_INVALID:
-                return .invalid([.typeInvalid], [err.errorCode], nil)
+                return .invalid(errors: [.typeInvalid], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false)
             case .CWT_EXPIRED:
-                return .invalid([.signatureExpired], [err.errorCode], nil)
+                return .invalid(errors: [.signatureExpired], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false)
             default:
                 // error
-                return .invalid([.signature], [err.errorCode], nil)
+                return .invalid(errors: [.signature], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false)
             }
         }
     }
@@ -231,7 +240,7 @@ class Verifier: NSObject {
             } else {
                 // !: checked
                 let errorCodes = result.error != nil ? [result.error!.errorCode] : []
-                return .invalid([.revocation], errorCodes, nil)
+                return .invalid(errors: [.revocation], errorCodes: errorCodes, validity: nil, wasRevocationSkipped: false)
             }
 
         case let .failure(err):
@@ -242,7 +251,7 @@ class Verifier: NSObject {
             case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
                 return .retry(.network, [err.errorCode])
             default:
-                return .invalid([.revocation], [err.errorCode], nil)
+                return .invalid(errors: [.revocation], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false)
             }
         }
     }
@@ -250,7 +259,7 @@ class Verifier: NSObject {
     private func handleNationalRulesResult(_ result: Result<VerificationResult, NationalRulesError>) -> VerificationState {
         guard let holder = holder else {
             assertionFailure()
-            return .invalid([.unknown], ["V|HN"], nil)
+            return .invalid(errors: [.unknown], errorCodes: ["V|HN"], validity: nil, wasRevocationSkipped: false)
         }
         switch result {
         case let .success(result):
@@ -278,12 +287,14 @@ class Verifier: NSObject {
             } else if let dateError = result.dateError {
                 switch dateError {
                 case .NOT_YET_VALID:
-                    return .invalid([.notYetValid(result.validFrom ?? Date())], [], validUntil)
+                    return .invalid(errors: [.notYetValid(result.validFrom ?? Date())], errorCodes: [], validity: validUntil, wasRevocationSkipped: false)
                 case .EXPIRED:
-                    return .invalid([.expired(result.validUntil ?? Date())], [], validUntil)
+                    return .invalid(errors: [.expired(result.validUntil ?? Date())], errorCodes: [], validity: validUntil, wasRevocationSkipped: false)
+                case .NO_VALID_DATE:
+                    return .invalid(errors: [.typeInvalid], errorCodes: [], validity: validUntil, wasRevocationSkipped: false)
                 }
             } else {
-                return .invalid([.otherNationalRules], [], validUntil)
+                return .invalid(errors: [.otherNationalRules], errorCodes: [], validity: validUntil, wasRevocationSkipped: false)
             }
         case let .failure(err):
             switch err {
@@ -297,9 +308,9 @@ class Verifier: NSObject {
                 // do not show the explicit error code on the verifier app, s.t.
                 // no information is shown about the checked user (e.g. certificate type)
                 #if WALLET
-                    return .invalid([.otherNationalRules], [err.errorCode], nil)
+                    return .invalid(errors: [.otherNationalRules], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false)
                 #elseif VERIFIER
-                    return .invalid([.otherNationalRules], [], nil)
+                    return .invalid(errors: [.otherNationalRules], errorCodes: [], validity: nil, wasRevocationSkipped: false)
                 #endif
             }
         }
