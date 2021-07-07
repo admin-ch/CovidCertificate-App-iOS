@@ -45,6 +45,15 @@ enum TransformationManager {
             assertionFailure()
             return
         }
+        if certificate.pdf != nil {
+            if Thread.isMainThread {
+                completionHandler(.success(certificate))
+            } else {
+                DispatchQueue.main.async {
+                    completionHandler(.success(certificate))
+                }
+            }
+        }
         TransformationService.getPdf(qrCode: qrCode) { result in
             switch result {
             case let .success(pdf):
