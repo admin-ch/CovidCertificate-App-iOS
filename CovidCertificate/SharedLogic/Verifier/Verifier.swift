@@ -281,6 +281,8 @@ class Verifier: NSObject {
                     return .invalid([.notYetValid(result.validFrom ?? Date())], [], validUntil)
                 case .EXPIRED:
                     return .invalid([.expired(result.validUntil ?? Date())], [], validUntil)
+                case .NO_VALID_DATE:
+                    return .invalid([.typeInvalid], [], validUntil)
                 }
             } else {
                 return .invalid([.otherNationalRules], [], validUntil)
