@@ -135,7 +135,9 @@ final class TransferManager {
         }
 
         // add all additional codes
-        let certs: [UserCertificate] = certificates.map { UserCertificate(qrCode: $0.cert, transferCode: UserTransferCode(transferCode: code, created: created ?? Date())) }
+        let certs: [UserCertificate] = certificates
+            .dropFirst()
+            .map { UserCertificate(qrCode: $0.cert, transferCode: UserTransferCode(transferCode: code, created: created ?? Date()), pdf: $0.pdf) }
         CertificateStorage.shared.insertCertificates(certificates: certs)
     }
 
