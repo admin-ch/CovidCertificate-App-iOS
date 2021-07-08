@@ -85,4 +85,30 @@ class CertificateLightExpirationTimer: UIView {
         let timeInterval = max(date.timeIntervalSinceNow, 0.0)
         timerLabel.text = "\(timeInterval.stringTime)"
     }
+
+    lazy var componentsFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .spellOut
+        return formatter
+    }()
+
+    override var accessibilityLabel: String? {
+        set {}
+        get {
+            guard let date = expiration,
+                  date.timeIntervalSinceNow >= 0 else {
+                return nil
+            }
+            let timeInterval = max(date.timeIntervalSinceNow, 0.0)
+
+            let components = DateComponents(calendar: .current,
+                                            hour: timeInterval.hours,
+                                            minute: timeInterval.minutes,
+                                            second: timeInterval.seconds)
+
+            guard let formattedString = componentsFormatter.string(from: components) else { return nil }
+
+            return UBLocalized.wallet_certificate_recovery_until + " " + formattedString
+        }
+    }
 }
