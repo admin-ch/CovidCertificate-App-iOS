@@ -22,10 +22,7 @@ extension TransformationError: ErrorViewError {
         switch self {
         case .networkError(.NETWORK_NO_INTERNET_CONNECTION):
             var image = UIImage(named: "ic-offline")
-            if let c = color {
-                image = image?.ub_image(with: c)
-            }
-
+            image = image?.ub_image(with: color ?? .cc_orange)
             return image
         default:
             var image = UIImage(named: "ic-error")
