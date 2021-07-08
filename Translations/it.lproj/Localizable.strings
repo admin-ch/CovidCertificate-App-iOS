@@ -576,7 +576,7 @@
 "wallet_transfer_code_next_steps1" = "Al momento dell'esecuzione del test comunica il codice alla farmacia, al centro di test o al medico.";
 
 /*Wallet: Transfer Code Nächste Schritte 2*/
-"wallet_transfer_code_next_steps2" = "Al momento dell'esecuzione del test comunica il codice alla farmacia, al centro di test o al medico.";
+"wallet_transfer_code_next_steps2" = "Se desideri ricevere più di un certificato, per esempio i certificati dei tuoi familiari, crea un nuovo codice per ciascun certificato.";
 
 /*Wallet: Transfer Code Fertig Button*/
 "wallet_transfer_code_done_button" = "Fatto";
