@@ -145,19 +145,7 @@ class HomescreenCertificateView: UIView {
             qrCodeView.alpha = 0.0
             transferView.alpha = 0.0
             lightQrCodeView.alpha = 1.0
-
-            let c = CovidCertificateSDK.Wallet.decode(encodedData: cert.lightCertificate?.certificate ?? "")
-            switch c {
-            case let .success(holder):
-                let vaccinations = (holder.certificate as? DCCCert)?.vaccinations ?? []
-                if vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
-                    titleLabel.text = UBLocalized.wallet_certificate
-                } else {
-                    titleLabel.text = UBLocalized.wallet_certificate_evidence_title
-                }
-            case .failure:
-                break
-            }
+            titleLabel.text = UBLocalized.wallet_certificate_light_title
             accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
         case .certificate:
             qrCodeView.alpha = 1.0
