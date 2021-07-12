@@ -11,10 +11,12 @@
 
 import UIKit
 
-class TransferCodeLabel: UIView {
+class TransferCodeLabel: UIControl {
     private let label1 = InsetLabel()
     private let label2 = InsetLabel()
     private let label3 = InsetLabel()
+
+    private let highlightView = UIView()
 
     private var labels: [InsetLabel] {
         [label1, label2, label3]
@@ -39,6 +41,7 @@ class TransferCodeLabel: UIView {
     private func setupView() {
         labels.forEach {
             addSubview($0)
+            $0.isUserInteractionEnabled = false
         }
 
         label1.snp.makeConstraints { make in
@@ -55,6 +58,16 @@ class TransferCodeLabel: UIView {
             make.leading.equalTo(label2.snp.trailing).offset(4)
             make.trailing.lessThanOrEqualToSuperview()
         }
+
+        addSubview(highlightView)
+        bringSubviewToFront(highlightView)
+        highlightView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        highlightView.alpha = 0
+        highlightView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        addTarget(self, action: #selector(touchUp), for: .touchUpInside)
     }
 
     private func update() {
@@ -70,6 +83,45 @@ class TransferCodeLabel: UIView {
         label3.label.text = "\(arrayCode[6])\(arrayCode[7])\(arrayCode[8])"
 
         accessibilityLabel = arrayCode.map { "\($0)" }.joined(separator: ", ")
+    }
+
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+
+    @objc func touchUp() {
+        guard let superview = superview else { return }
+        if becomeFirstResponder() {
+            let menuController = UIMenuController.shared
+            menuController.setTargetRect(frame, in: superview)
+            menuController.setMenuVisible(true, animated: true)
+        }
+    }
+
+    @objc func handleLongPressGesture(recognizer: UIGestureRecognizer) {
+        guard recognizer.state == .recognized else { return }
+    }
+
+    override func canPerformAction(_ action: Selector, withSender _: Any?) -> Bool {
+        return (action == #selector(UIResponderStandardEditActions.copy(_:)))
+    }
+
+    override func copy(_: Any?) {
+        guard let code = code else {
+            return
+        }
+        UIPasteboard.general.string = code
+    }
+
+    override var isHighlighted: Bool {
+        get { super.isHighlighted }
+
+        set(highlighted) {
+            super.isHighlighted = highlighted
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: [.beginFromCurrentState, .allowUserInteraction]) {
+                self.highlightView.alpha = highlighted ? 1.0 : 0.0
+            } completion: { _ in }
+        }
     }
 }
 
