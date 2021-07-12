@@ -108,7 +108,8 @@ class CertificateLightExpirationTimer: UIView {
 
             guard let formattedString = componentsFormatter.string(from: components) else { return nil }
 
-            return UBLocalized.wallet_certificate_recovery_until + " " + formattedString
+            return UBLocalized.wallet_accessibility_light_certificate_expiration_timer
+                .replacingOccurrences(of: "{TIMESPAN}", with: formattedString)
         }
     }
 }
