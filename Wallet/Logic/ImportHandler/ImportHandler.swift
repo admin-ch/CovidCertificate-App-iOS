@@ -131,7 +131,8 @@ class ImportHandler {
         var images: [UIImage] = []
 
         // CGPDFDocument pages start at 1
-        for i in 1 ..< document.numberOfPages + 1 {
+        // only look at first 5 pages
+        for i in 1 ..< min(document.numberOfPages + 1, 5) {
             if let page = document.page(at: i) {
                 let pageRect = page.getBoxRect(.mediaBox)
 
