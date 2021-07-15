@@ -130,6 +130,8 @@ import Foundation
      case verifier_faq_works_answer_7_key = "verifier_faq_works_answer_7"
     /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von 48 Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der 48 Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
      case verifier_faq_works_answer_8_key = "verifier_faq_works_answer_8"
+    /// Das Zertifikat Light kann durch die Halterin / den Halter jederzeit in der «COVID Certificate»-App deaktiviert werden. Danach steht das normale Covid-Zertifikat wieder zur Verfügung.
+     case verifier_faq_works_answer_9_key = "verifier_faq_works_answer_9"
     /// Weitere Informationen
      case verifier_faq_works_linktext_2_1_key = "verifier_faq_works_linktext_2_1"
     /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624
@@ -152,6 +154,8 @@ import Foundation
      case verifier_faq_works_question_7_key = "verifier_faq_works_question_7"
     /// Was ist das Zertifikat Light?
      case verifier_faq_works_question_8_key = "verifier_faq_works_question_8"
+    /// Wie kann ein Zertifikat Light wieder in ein EU/EFTA-konformes Covid-Zertifikat umgewandelt werden?
+     case verifier_faq_works_question_9_key = "verifier_faq_works_question_9"
     /// Mit der COVID Certificate Check App können QR-Codes auf Covid-Zertifikaten gescannt und die Zertifikate auf Echtheit und Gültigkeit überprüft werden.
      case verifier_faq_works_subtitle_key = "verifier_faq_works_subtitle"
     /// So werden Covid-Zertifikate geprüft
@@ -224,6 +228,8 @@ import Foundation
      case verifier_verify_success_info_for_certificate_valid_key = "verifier_verify_success_info_for_certificate_valid"
     /// Prüfung erfolgreich
      case verifier_verify_success_title_key = "verifier_verify_success_title"
+    /// Noch {TIMESPAN} gültig
+     case wallet_accessibility_light_certificate_expiration_timer_key = "wallet_accessibility_light_certificate_expiration_timer"
     /// Hinzufügen
      case wallet_add_certificate_key = "wallet_add_certificate"
     /// Hinzufügen
@@ -806,6 +812,8 @@ import Foundation
    static let verifier_faq_works_answer_7 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_7_key)
   /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von 48 Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der 48 Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
    static let verifier_faq_works_answer_8 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_8_key)
+  /// Das Zertifikat Light kann durch die Halterin / den Halter jederzeit in der «COVID Certificate»-App deaktiviert werden. Danach steht das normale Covid-Zertifikat wieder zur Verfügung.
+   static let verifier_faq_works_answer_9 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_9_key)
   /// Weitere Informationen
    static let verifier_faq_works_linktext_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linktext_2_1_key)
   /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624
@@ -828,6 +836,8 @@ import Foundation
    static let verifier_faq_works_question_7 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_7_key)
   /// Was ist das Zertifikat Light?
    static let verifier_faq_works_question_8 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_8_key)
+  /// Wie kann ein Zertifikat Light wieder in ein EU/EFTA-konformes Covid-Zertifikat umgewandelt werden?
+   static let verifier_faq_works_question_9 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_9_key)
   /// Mit der COVID Certificate Check App können QR-Codes auf Covid-Zertifikaten gescannt und die Zertifikate auf Echtheit und Gültigkeit überprüft werden.
    static let verifier_faq_works_subtitle = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_subtitle_key)
   /// So werden Covid-Zertifikate geprüft
@@ -900,6 +910,8 @@ import Foundation
    static let verifier_verify_success_info_for_certificate_valid = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_for_certificate_valid_key)
   /// Prüfung erfolgreich
    static let verifier_verify_success_title = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_title_key)
+  /// Noch {TIMESPAN} gültig
+   static let wallet_accessibility_light_certificate_expiration_timer = UBLocalized.tr(UBLocalizedKey.wallet_accessibility_light_certificate_expiration_timer_key)
   /// Hinzufügen
    static let wallet_add_certificate = UBLocalized.tr(UBLocalizedKey.wallet_add_certificate_key)
   /// Hinzufügen

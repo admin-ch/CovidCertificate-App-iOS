@@ -132,7 +132,15 @@ class QRCodeNameView: UIView {
         } else {
             imageView.setQrCode(qrCode)
         }
+    }
 
-        accessibilityLabel = [UBLocalized.accessibility_qr_code, nameView.text, birthdayLabelView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+    override var accessibilityLabel: String? {
+        set {}
+        get {
+            return [UBLocalized.accessibility_qr_code,
+                    certificateTimer.accessibilityLabel,
+                    nameView.text,
+                    birthdayLabelView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+        }
     }
 }
