@@ -19,7 +19,12 @@ class WalletDetailViewController: ViewController {
 
     private let brightnessQRScanning = BrightnessQRScanning()
 
-    private var certificate: UserCertificate
+    private var certificate: UserCertificate {
+        didSet {
+            // propagate certificate to certificateDetailVC
+            certificateDetailVC.certificate = certificate
+        }
+    }
 
     // MARK: - Init
 
