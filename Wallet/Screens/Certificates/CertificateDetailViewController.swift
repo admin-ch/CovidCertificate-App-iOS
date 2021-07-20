@@ -286,9 +286,32 @@ class CertificateDetailViewController: ViewController {
         stateView.states = (state, temporaryVerifierState)
         detailView.states = (state, temporaryVerifierState)
         qrCodeNameView.enabled = temporaryVerifierState != .idle || !state.isInvalid()
-        exportRow.isEnabled = !state.isInvalid()
 
-        certificateLightRow.isEnabled = !state.isInvalid()
+        exportRow.isEnabled = false
+        certificateLightRow.isEnabled = false
+
+        let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate?.qrCode ?? "")
+        switch c {
+        case let .success(holder):
+            let issuedBySwitzerland = ["CH", "CH BAG"].contains(holder.issuer)
+            // Light certificates can only be created from "CH" and "CH BAG" issuer where the state is valid
+            certificateLightRow.isEnabled = issuedBySwitzerland && !state.isInvalid()
+
+            // PDF export is enabled for certificates that were issed by switzerland and have a valid signature
+            if issuedBySwitzerland {
+                CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: false) { results in
+                    switch results.signature {
+                    case let .success(result) where result.isValid:
+                        self.exportRow.isEnabled = true
+                    default:
+                        self.exportRow.isEnabled = false
+                    }
+                }
+            }
+        case .failure:
+            exportRow.isEnabled = false
+            certificateLightRow.isEnabled = false
+        }
     }
 
     deinit {
