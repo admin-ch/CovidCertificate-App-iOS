@@ -242,11 +242,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     private func setupImportHandler() {
-        guard let delegate = window?.rootViewController as? NavigationController else {
-            return
-        }
-
-        importHandler = ImportHandler(delegate: delegate)
+        importHandler = ImportHandler(navigationControllerCallback: { [weak self] in
+            guard let self = self,
+                  let navigationController = self.window?.rootViewController as? NavigationController else {
+                return nil
+            }
+            return navigationController
+        })
     }
 
     func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {

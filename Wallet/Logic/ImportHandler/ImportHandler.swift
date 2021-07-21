@@ -14,12 +14,12 @@ import Foundation
 import PDFKit
 
 class ImportHandler {
-    private weak var delegate: NavigationController?
+    private var navigationControllerCallback: () -> (NavigationController?)
 
     // MARK: - Init
 
-    init(delegate: NavigationController) {
-        self.delegate = delegate
+    init(navigationControllerCallback: @escaping () -> (NavigationController?)) {
+        self.navigationControllerCallback = navigationControllerCallback
     }
 
     // MARK: - Handle URL
@@ -77,7 +77,7 @@ class ImportHandler {
 
         switch result {
         case .success:
-            delegate?.topViewController?.dismiss(animated: false, completion: nil)
+            navigationControllerCallback()?.topViewController?.dismiss(animated: false, completion: nil)
 
             let vc = CertificateAddDetailViewController(showScanAgainButton: false)
             vc.certificate = UserCertificate(qrCode: message, transferCode: nil)
@@ -93,7 +93,7 @@ class ImportHandler {
                 navVC.dismiss(animated: true, completion: nil)
             }
 
-            delegate?.present(navVC, animated: true, completion: nil)
+            navigationControllerCallback()?.present(navVC, animated: true, completion: nil)
 
         case .failure:
             presentError()
@@ -109,14 +109,14 @@ class ImportHandler {
     }
 
     func presentError() {
-        delegate?.topViewController?.dismiss(animated: false, completion: nil)
+        navigationControllerCallback()?.topViewController?.dismiss(animated: false, completion: nil)
 
         let alert = UIAlertController(title: UBLocalized.error_title, message: UBLocalized.verifier_error_invalid_format, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: UBLocalized.ok_button, style: .default, handler: { _ in
             alert.dismiss(animated: true, completion: nil)
         }))
 
-        delegate?.present(alert, animated: true, completion: nil)
+        navigationControllerCallback()?.present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Helpers
