@@ -112,10 +112,9 @@ class HomescreenCertificatesViewController: ViewController {
                 VerifierManager.shared.addObserver(self, for: qrCode) { [weak i] state in
                     i?.state = state
                 }
-            } else if let transferCode = i.certificate?.transferCode {
-                // only start when not already failed
-                guard transferCode.state != .failed else { return }
-
+            } else if let transferCode = i.certificate?.transferCode,
+                      transferCode.state != .failed // only start when not already failed
+            {
                 TransferManager.shared.addObserver(self, for: transferCode.transferCode) { [weak i] result in
                     guard let strongI = i else { return }
                     switch result {
