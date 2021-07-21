@@ -57,7 +57,7 @@ class CertificateAddDetailView: UIView {
         stackScrollView.addSpacerView(Padding.large + Padding.medium)
 
         if let cert = certificate {
-            if CertificateStorage.shared.userCertificates.contains(cert) {
+            if CertificateStorage.shared.userCertificates.contains(where: { $0.qrCode == cert.qrCode }) {
                 stackScrollView.addSpacerView(Padding.medium)
                 stackScrollView.addArrangedView(CertificateAlreadyAddedView())
             }
