@@ -926,3 +926,8 @@
 
 /*Wallet: Light Zertifikat Accessibility Gültigkeits Label {TIMESPAN} wird ersetzt durch zB. 5 Stunden 3 Minuten*/
 "wallet_accessibility_light_certificate_expiration_timer" = "Noch {TIMESPAN} gültig";
+
+/*Toast Text wenn ein Transfer Code durch Klicken kopiert wurde*/
+"wallet_transfer_code_copied" = "Transfer Code kopiert";
+"wallet_faq_works_question_2_1" = "Was ist ein Transfer-Code?";
+"wallet_faq_works_answer_2_1" = "Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.";

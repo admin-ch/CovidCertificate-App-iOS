@@ -861,10 +861,10 @@
 "wallet_certificate_light_detail_text_2_bold" = "only has to does not";
 
 /*VoiceOver reads this when the expandable box is reduced*/
-"accessibility_expandable_box_reduced_state" = "reduziert";
+"accessibility_expandable_box_reduced_state" = "reduced";
 
 /*VoiceOver reads this when the expandable box is expanded*/
-"accessibility_expandable_box_expanded_state" = "erweitert";
+"accessibility_expandable_box_expanded_state" = "expanded";
 
 /*Header im Update Boarding-Screen*/
 "wallet_update_boarding_header" = "Update";
@@ -898,3 +898,8 @@
 
 /*Wallet: Light Zertifikat Accessibility Gültigkeits Label {TIMESPAN} wird ersetzt durch zB. 5 Stunden 3 Minuten*/
 "wallet_accessibility_light_certificate_expiration_timer" = "Valid for {TIMESPAN}";
+
+/*Toast Text wenn ein Transfer Code durch Klicken kopiert wurde*/
+"wallet_transfer_code_copied" = "Transfer code copied";
+"wallet_faq_works_question_2_1" = "What is a transfer code?";
+"wallet_faq_works_answer_2_1" = "The transfer codes allow COVID certificates to be transmitted quickly and securely. In this way, you receive your certificate (e.g. after a test) directly in the application.";
