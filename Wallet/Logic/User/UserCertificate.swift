@@ -38,17 +38,6 @@ struct UserCertificate: Codable, Equatable {
 
         return .certificate
     }
-
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        // a certificate is considerd equal if they have the same qrCode
-        if lhs.qrCode != nil,
-           rhs.qrCode != nil,
-           lhs.qrCode == rhs.qrCode {
-            return true
-        }
-        // the lightcertificate isn't compared because it is derived by the qrCode
-        return false
-    }
 }
 
 extension LightCertificate {
