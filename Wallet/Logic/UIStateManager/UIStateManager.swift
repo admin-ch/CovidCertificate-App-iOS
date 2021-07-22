@@ -14,6 +14,8 @@ import Foundation
 class UIStateManager: NSObject {
     static let shared = UIStateManager()
 
+    private let queue = DispatchQueue(label: "UiStateManager")
+
     override init() {
         // only one instance
         super.init()
@@ -28,30 +30,26 @@ class UIStateManager: NSObject {
     // MARK: - Refresh triggers
 
     public func stateChanged(forceRefresh: Bool = false) {
-        self.forceRefresh = forceRefresh
-        refresh()
+        refresh(forceRefresh: forceRefresh)
     }
 
     // MARK: - UI State Update
 
-    private(set) var uiState: UIStateModel? {
-        didSet {
-            let stateHasChanged = uiState != oldValue || forceRefresh
+    private(set) var uiState: UIStateModel?
+
+    private func refresh(forceRefresh: Bool = false) {
+        queue.async {
+            // build new state, sending update to observers if changed
+            let oldState = self.uiState
+
+            self.uiState = UIStateLogic(manager: self).buildState()
+
+            let stateHasChanged = self.uiState != oldState || forceRefresh
 
             if stateHasChanged {
-                updateObservers()
+                self.updateObservers()
                 dprint("New UI State")
             }
-        }
-    }
-
-    private var forceRefresh = false
-
-    private func refresh() {
-        DispatchQueue.global().async {
-            // build new state, sending update to observers if changed
-            self.uiState = UIStateLogic(manager: self).buildState()
-            self.forceRefresh = false
         }
     }
 
@@ -65,14 +63,17 @@ class UIStateManager: NSObject {
     private var observers: [Observer] = []
 
     func addObserver(_ object: AnyObject, block: @escaping (UIStateModel) -> Void) {
-        observers.append(Observer(object: object, block: block))
+        queue.sync {
+            observers.append(Observer(object: object, block: block))
+        }
 
         if let currentState = uiState {
             block(currentState)
         }
     }
 
-    func updateObservers() {
+    private func updateObservers() {
+        dispatchPrecondition(condition: .onQueue(queue))
         guard let currentState = uiState else { return }
 
         observers = observers.filter { $0.object != nil }
