@@ -450,6 +450,8 @@ import Foundation
      case wallet_faq_works_answer_1_key = "wallet_faq_works_answer_1"
     /// Ja das ist möglich. So können Sie z. B. alle Covid-Zertifikate von Familienangehörigen in Ihrer App speichern. Auch in diesem Fall gilt: Das Covid-Zertifikat ist nur in Kombination mit einem Ausweisdokument des Zertifikatsinhabers / der Zertifikatsinhaberin gültig.
      case wallet_faq_works_answer_2_key = "wallet_faq_works_answer_2"
+    /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
+     case wallet_faq_works_answer_2_1_key = "wallet_faq_works_answer_2_1"
     /// In der COVID Certificate App wird ausgewiesen, wann Ihr Covid-Zertifikat in der Schweiz ablaufen wird. Sie können in der Detail-Ansicht zudem per Knopfdruck überprüfen, ob Ihr Covid-Zertifikat aktuell gültig ist.
      case wallet_faq_works_answer_3_key = "wallet_faq_works_answer_3"
     /// Sie können die App ohne eine Internetverbindung verwenden. Auch im Offline-Modus können Zertifikate vorgewiesen und von den Prüfern gescannt und verifiziert werden.\n\nUm in der «COVID Certificate»-App anzeigen zu können, ob ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht und bis wann Ihr Zertifikat gültig ist, muss die App jedoch regelmässig online sein.
@@ -464,6 +466,8 @@ import Foundation
      case wallet_faq_works_question_1_key = "wallet_faq_works_question_1"
     /// Können auch mehrere Covid-Zertifikate hinzugefügt werden?
      case wallet_faq_works_question_2_key = "wallet_faq_works_question_2"
+    /// Was ist ein Transfer-Code?
+     case wallet_faq_works_question_2_1_key = "wallet_faq_works_question_2_1"
     /// Wie sehe ich, ob mein Covid-Zertifikat gültig ist?
      case wallet_faq_works_question_3_key = "wallet_faq_works_question_3"
     /// Kann ich die App auch offline verwenden?
@@ -582,6 +586,8 @@ import Foundation
      case wallet_transfer_code_card_title_key = "wallet_transfer_code_card_title"
     /// Ihr Transfer-Code wurde erstellt
      case wallet_transfer_code_code_created_title_key = "wallet_transfer_code_code_created_title"
+    /// Transfer Code kopiert
+     case wallet_transfer_code_copied_key = "wallet_transfer_code_copied"
     /// Code erstellen
      case wallet_transfer_code_create_code_button_key = "wallet_transfer_code_create_code_button"
     /// Erstellt am {DATE}
@@ -1132,6 +1138,8 @@ import Foundation
    static let wallet_faq_works_answer_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_1_key)
   /// Ja das ist möglich. So können Sie z. B. alle Covid-Zertifikate von Familienangehörigen in Ihrer App speichern. Auch in diesem Fall gilt: Das Covid-Zertifikat ist nur in Kombination mit einem Ausweisdokument des Zertifikatsinhabers / der Zertifikatsinhaberin gültig.
    static let wallet_faq_works_answer_2 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_2_key)
+  /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
+   static let wallet_faq_works_answer_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_2_1_key)
   /// In der COVID Certificate App wird ausgewiesen, wann Ihr Covid-Zertifikat in der Schweiz ablaufen wird. Sie können in der Detail-Ansicht zudem per Knopfdruck überprüfen, ob Ihr Covid-Zertifikat aktuell gültig ist.
    static let wallet_faq_works_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_3_key)
   /// Sie können die App ohne eine Internetverbindung verwenden. Auch im Offline-Modus können Zertifikate vorgewiesen und von den Prüfern gescannt und verifiziert werden.\n\nUm in der «COVID Certificate»-App anzeigen zu können, ob ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht und bis wann Ihr Zertifikat gültig ist, muss die App jedoch regelmässig online sein.
@@ -1146,6 +1154,8 @@ import Foundation
    static let wallet_faq_works_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_1_key)
   /// Können auch mehrere Covid-Zertifikate hinzugefügt werden?
    static let wallet_faq_works_question_2 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_2_key)
+  /// Was ist ein Transfer-Code?
+   static let wallet_faq_works_question_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_2_1_key)
   /// Wie sehe ich, ob mein Covid-Zertifikat gültig ist?
    static let wallet_faq_works_question_3 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_3_key)
   /// Kann ich die App auch offline verwenden?
@@ -1264,6 +1274,8 @@ import Foundation
    static let wallet_transfer_code_card_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_card_title_key)
   /// Ihr Transfer-Code wurde erstellt
    static let wallet_transfer_code_code_created_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_code_created_title_key)
+  /// Transfer Code kopiert
+   static let wallet_transfer_code_copied = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_copied_key)
   /// Code erstellen
    static let wallet_transfer_code_create_code_button = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_create_code_button_key)
   /// Erstellt am {DATE}

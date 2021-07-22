@@ -861,10 +861,10 @@
 "wallet_certificate_light_detail_text_2_bold" = "n’est utilisable qu’en doit être aucun";
 
 /*VoiceOver reads this when the expandable box is reduced*/
-"accessibility_expandable_box_reduced_state" = "reduziert";
+"accessibility_expandable_box_reduced_state" = "réduit";
 
 /*VoiceOver reads this when the expandable box is expanded*/
-"accessibility_expandable_box_expanded_state" = "erweitert";
+"accessibility_expandable_box_expanded_state" = "étendu";
 
 /*Header im Update Boarding-Screen*/
 "wallet_update_boarding_header" = "Mise à jour";
@@ -897,4 +897,9 @@
 "verifier_faq_works_answer_9" = "Le détenteur peut en tout temps désactiver le certificat light dans l’application «COVID Certificate». Le certificat COVID standard est alors à nouveau disponible.";
 
 /*Wallet: Light Zertifikat Accessibility Gültigkeits Label {TIMESPAN} wird ersetzt durch zB. 5 Stunden 3 Minuten*/
-"wallet_accessibility_light_certificate_expiration_timer" = "Noch {TIMESPAN} gültig";
+"wallet_accessibility_light_certificate_expiration_timer" = "Valable encore {TIMESPAN}";
+
+/*Toast Text wenn ein Transfer Code durch Klicken kopiert wurde*/
+"wallet_transfer_code_copied" = "Code de transfert copié";
+"wallet_faq_works_question_2_1" = "Qu'est-ce qu'un code de transfert ?";
+"wallet_faq_works_answer_2_1" = "Les codes de transfert permettent de transmettre les certificats COVID rapidement et en toute sécurité. De cette façon, vous recevez votre certificat (p. ex. après un test) directement dans l’application.";
