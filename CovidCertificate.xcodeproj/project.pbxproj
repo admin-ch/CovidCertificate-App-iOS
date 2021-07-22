@@ -288,6 +288,7 @@
 		DCF9C3652656395A00E34481 /* config_check.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF9C3622656395A00E34481 /* config_check.json */; };
 		DCF9C3662656395A00E34481 /* config_wallet.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF9C3632656395A00E34481 /* config_wallet.json */; };
 		F20E4F31268208DB00D14609 /* PushNotificationPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */; };
+		F803F4DC26A9731A0068311C /* UIStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */; };
 		F809AF322693B21D00D16EED /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDEA264A5C5600FDE0E1 /* OnboardingBaseViewController.swift */; };
 		F809AF342693B25700D16EED /* OnboardingDisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDFA264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift */; };
 		F809AF362693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */; };
@@ -544,6 +545,7 @@
 		DCF9C3622656395A00E34481 /* config_check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config_check.json; sourceTree = "<group>"; };
 		DCF9C3632656395A00E34481 /* config_wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config_wallet.json; sourceTree = "<group>"; };
 		F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationPopupView.swift; sourceTree = "<group>"; };
+		F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateManagerTests.swift; sourceTree = "<group>"; };
 		F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificateLightUpdateBoardingViewController.swift; sourceTree = "<group>"; };
 		F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+pinning.swift"; sourceTree = "<group>"; };
 		F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBPinnedCertificatesTrustEvaluator.swift; sourceTree = "<group>"; };
@@ -1131,6 +1133,7 @@
 				8E81CCB1241FCC7F006F2437 /* Info.plist */,
 				F84089EF24936D8700A66CD1 /* MockKeychain.swift */,
 				2733246E2679FB81002D0ED2 /* LuhnTests.swift */,
+				F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */,
 			);
 			path = CovidCertificateTests;
 			sourceTree = "<group>";
@@ -1962,6 +1965,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F84089F024936D8700A66CD1 /* MockKeychain.swift in Sources */,
+				F803F4DC26A9731A0068311C /* UIStateManagerTests.swift in Sources */,
 				6EC172BC26407753002E27DB /* Keychain.swift in Sources */,
 				2733246F2679FB81002D0ED2 /* LuhnTests.swift in Sources */,
 			);
