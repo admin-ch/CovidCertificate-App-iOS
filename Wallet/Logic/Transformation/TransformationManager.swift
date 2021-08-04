@@ -24,7 +24,7 @@ enum TransformationManager {
             case let .success(lightCertififcate):
                 guard let model = CertificateStorage.shared.updateCertificate(with: qrCode, lightCertififcate: lightCertififcate) else {
                     DispatchQueue.main.async {
-                        completionHandler(.failure(.certificateInvalid))
+                        completionHandler(.failure(.certificateInvalid(.certificateLight)))
                     }
                     return
                 }
@@ -60,7 +60,7 @@ enum TransformationManager {
             case let .success(pdf):
                 guard let model = CertificateStorage.shared.updateCertificate(with: qrCode, pdf: pdf) else {
                     DispatchQueue.main.async {
-                        completionHandler(.failure(.certificateInvalid))
+                        completionHandler(.failure(.certificateInvalid(.export)))
                     }
                     return
                 }

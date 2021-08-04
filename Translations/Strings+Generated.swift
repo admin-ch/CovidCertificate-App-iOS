@@ -96,6 +96,8 @@ import Foundation
      case target_disease_name_key = "target_disease_name"
     /// Ein unbekannter Fehler ist aufgetreten.
      case unknown_error_key = "unknown_error"
+    /// market://details?id=ch.admin.bag.covidcertificate.verifier
+     case verifier_android_app_google_play_store_url_key = "verifier_android_app_google_play_store_url"
     /// Covid Check
      case verifier_app_name_key = "verifier_app_name"
     /// COVID Certificate Check
@@ -234,6 +236,8 @@ import Foundation
      case wallet_add_certificate_key = "wallet_add_certificate"
     /// Hinzufügen
      case wallet_add_certificate_button_key = "wallet_add_certificate_button"
+    /// market://details?id=ch.admin.bag.covidcertificate.wallet
+     case wallet_android_app_google_play_store_url_key = "wallet_android_app_google_play_store_url"
     /// Covid Cert
      case wallet_app_name_key = "wallet_app_name"
     /// http://itunes.apple.com/app/id1565917320
@@ -324,6 +328,10 @@ import Foundation
      case wallet_certificate_light_detail_text_2_bold_key = "wallet_certificate_light_detail_text_2_bold"
     /// Was ist ein \nZertifikat Light?
      case wallet_certificate_light_detail_title_key = "wallet_certificate_light_detail_title"
+    /// Das Zertifikat Light wurde in den letzten 24h bereits zu oft aktiviert.
+     case wallet_certificate_light_rate_limit_text_key = "wallet_certificate_light_rate_limit_text"
+    /// 24h-Limite erreicht
+     case wallet_certificate_light_rate_limit_title_key = "wallet_certificate_light_rate_limit_title"
     /// Zertifikat Light
      case wallet_certificate_light_title_key = "wallet_certificate_light_title"
     /// Light
@@ -460,6 +468,8 @@ import Foundation
      case wallet_faq_works_answer_4_key = "wallet_faq_works_answer_4"
     /// Der QR-Code enthält alle Informationen, die Sie auf Ihrem Covid-Zertifikat in Papierform im Klartext finden. Weiter befindet sich im QR-Code eine elektronische Signatur, mit der sich die Echtheit des Covid-Zertifikats überprüfen lässt. Dadurch wird das Covid-Zertifikat fälschungssicher.
      case wallet_faq_works_answer_5_key = "wallet_faq_works_answer_5"
+    /// In der «COVID Certificate»-App finden Sie in der Detailansicht des elektronische Covid-Zertifikats die Funktion «Exportieren». Damit können Sie ein PDF erstellen, dieses speichern und ausdrucken.
+     case wallet_faq_works_answer_5_1_key = "wallet_faq_works_answer_5_1"
     /// Sie können Ihr Covid-Zertifikat einfach wieder auf Ihrem Mobilgerät speichern. Laden Sie dazu die App erneut herunter und scannen Sie anschliessend den QR-Code auf Ihrem Covid-Zertifikat auf Papier oder als PDF.
      case wallet_faq_works_answer_6_key = "wallet_faq_works_answer_6"
     /// Wie kann ich ein Covid-Zertifikat zur App hinzufügen?
@@ -476,6 +486,8 @@ import Foundation
      case wallet_faq_works_question_4_key = "wallet_faq_works_question_4"
     /// Welche Daten sind im QR-Code enthalten?
      case wallet_faq_works_question_5_key = "wallet_faq_works_question_5"
+    /// Ich habe das Covid-Zertifikat ausschliesslich elektronisch in der App. Wie komme ich zum Zertifikat als PDF oder auf Papier?
+     case wallet_faq_works_question_5_1_key = "wallet_faq_works_question_5_1"
     /// Was muss ich tun, wenn ich das Covid-Zertifikat oder die App lösche?
      case wallet_faq_works_question_6_key = "wallet_faq_works_question_6"
     /// Mit der COVID Certificate App können Sie Covid-Zertifikate einfach und sicher auf Ihrem Mobilgerät abspeichern und vorweisen.
@@ -784,6 +796,8 @@ import Foundation
    static let target_disease_name = UBLocalized.tr(UBLocalizedKey.target_disease_name_key)
   /// Ein unbekannter Fehler ist aufgetreten.
    static let unknown_error = UBLocalized.tr(UBLocalizedKey.unknown_error_key)
+  /// market://details?id=ch.admin.bag.covidcertificate.verifier
+   static let verifier_android_app_google_play_store_url = UBLocalized.tr(UBLocalizedKey.verifier_android_app_google_play_store_url_key)
   /// Covid Check
    static let verifier_app_name = UBLocalized.tr(UBLocalizedKey.verifier_app_name_key)
   /// COVID Certificate Check
@@ -922,6 +936,8 @@ import Foundation
    static let wallet_add_certificate = UBLocalized.tr(UBLocalizedKey.wallet_add_certificate_key)
   /// Hinzufügen
    static let wallet_add_certificate_button = UBLocalized.tr(UBLocalizedKey.wallet_add_certificate_button_key)
+  /// market://details?id=ch.admin.bag.covidcertificate.wallet
+   static let wallet_android_app_google_play_store_url = UBLocalized.tr(UBLocalizedKey.wallet_android_app_google_play_store_url_key)
   /// Covid Cert
    static let wallet_app_name = UBLocalized.tr(UBLocalizedKey.wallet_app_name_key)
   /// http://itunes.apple.com/app/id1565917320
@@ -1012,6 +1028,10 @@ import Foundation
    static let wallet_certificate_light_detail_text_2_bold = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_2_bold_key)
   /// Was ist ein \nZertifikat Light?
    static let wallet_certificate_light_detail_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_title_key)
+  /// Das Zertifikat Light wurde in den letzten 24h bereits zu oft aktiviert.
+   static let wallet_certificate_light_rate_limit_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_rate_limit_text_key)
+  /// 24h-Limite erreicht
+   static let wallet_certificate_light_rate_limit_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_rate_limit_title_key)
   /// Zertifikat Light
    static let wallet_certificate_light_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_title_key)
   /// Light
@@ -1148,6 +1168,8 @@ import Foundation
    static let wallet_faq_works_answer_4 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_4_key)
   /// Der QR-Code enthält alle Informationen, die Sie auf Ihrem Covid-Zertifikat in Papierform im Klartext finden. Weiter befindet sich im QR-Code eine elektronische Signatur, mit der sich die Echtheit des Covid-Zertifikats überprüfen lässt. Dadurch wird das Covid-Zertifikat fälschungssicher.
    static let wallet_faq_works_answer_5 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_5_key)
+  /// In der «COVID Certificate»-App finden Sie in der Detailansicht des elektronische Covid-Zertifikats die Funktion «Exportieren». Damit können Sie ein PDF erstellen, dieses speichern und ausdrucken.
+   static let wallet_faq_works_answer_5_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_5_1_key)
   /// Sie können Ihr Covid-Zertifikat einfach wieder auf Ihrem Mobilgerät speichern. Laden Sie dazu die App erneut herunter und scannen Sie anschliessend den QR-Code auf Ihrem Covid-Zertifikat auf Papier oder als PDF.
    static let wallet_faq_works_answer_6 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_6_key)
   /// Wie kann ich ein Covid-Zertifikat zur App hinzufügen?
@@ -1164,6 +1186,8 @@ import Foundation
    static let wallet_faq_works_question_4 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_4_key)
   /// Welche Daten sind im QR-Code enthalten?
    static let wallet_faq_works_question_5 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_5_key)
+  /// Ich habe das Covid-Zertifikat ausschliesslich elektronisch in der App. Wie komme ich zum Zertifikat als PDF oder auf Papier?
+   static let wallet_faq_works_question_5_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_5_1_key)
   /// Was muss ich tun, wenn ich das Covid-Zertifikat oder die App lösche?
    static let wallet_faq_works_question_6 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_6_key)
   /// Mit der COVID Certificate App können Sie Covid-Zertifikate einfach und sicher auf Ihrem Mobilgerät abspeichern und vorweisen.
