@@ -65,6 +65,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setup push manager
         setupPushManager(launchOptions: launchOptions)
 
+        // delete PDF's on filesystem. A PDF can be saved there without being encrypted in two cases:
+        // 1. when the app gets killed while sharing
+        // 2. the OS stores the PDF in an inbox folder when importing it
+        // Therefore we delete all PDFs on the app start to be sure.
+        deletePDFs()
+
         return true
     }
 
@@ -257,5 +263,25 @@ extension AppDelegate {
             return false
         }
         return importHandler.handle(url: url)
+    }
+
+    func deletePDFs() {
+        func deletePDFs(in directory: URL) {
+            if let enumerator = FileManager.default.enumerator(at: directory,
+                                                               includingPropertiesForKeys: [.isRegularFileKey],
+                                                               options: [.skipsHiddenFiles, .skipsPackageDescendants]) {
+                for case let fileURL as URL in enumerator {
+                    do {
+                        if fileURL.pathExtension.lowercased() == "pdf" {
+                            try FileManager.default.removeItem(at: fileURL)
+                        }
+                    } catch {}
+                }
+            }
+        }
+        deletePDFs(in: FileManager.default.temporaryDirectory)
+        for directory in FileManager.default.urls(for: .documentDirectory, in: .userDomainMask) {
+            deletePDFs(in: directory)
+        }
     }
 }

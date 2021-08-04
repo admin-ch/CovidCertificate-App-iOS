@@ -69,6 +69,9 @@ class ImportHandler {
             presentWrongFileError()
         }
 
+        // delete file after import
+        try? FileManager.default.removeItem(at: url)
+
         return true
     }
 
