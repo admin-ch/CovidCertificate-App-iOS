@@ -38,6 +38,9 @@ final class TransferManager {
 
     // MARK: - Properties
 
+    // this queue protects cachedResult and cachedLastLoad from threading issues
+    private let queue = DispatchQueue(label: "TransferManager")
+
     private var cachedResult: [String: TransferCodeResult] = [:]
 
     struct LastLoad: UBCodable {
@@ -69,18 +72,20 @@ final class TransferManager {
     // MARK: - Public API
 
     func addObserver(_ object: AnyObject, for code: String, forceUpdate: Bool = false, block: @escaping (TransferCodeResult) -> Void) {
-        if observers[code] != nil {
-            observers[code] = observers[code]!.filter { $0.object != nil && !$0.object!.isEqual(object) }
-            observers[code]?.append(Observer(object: object, block: block))
-        } else {
-            observers[code] = [Observer(object: object, block: block)]
-        }
+        queue.sync {
+            if observers[code] != nil {
+                observers[code] = observers[code]!.filter { $0.object != nil && !$0.object!.isEqual(object) }
+                observers[code]?.append(Observer(object: object, block: block))
+            } else {
+                observers[code] = [Observer(object: object, block: block)]
+            }
 
-        if let result = cachedResult[safe: code], !forceUpdate {
-            // Return last cached result
-            block(result)
-        } else {
-            download(code: code)
+            if let result = cachedResult[safe: code], !forceUpdate {
+                // Return last cached result
+                block(result)
+            } else {
+                download(code: code)
+            }
         }
     }
 
@@ -94,33 +99,34 @@ final class TransferManager {
         #endif
         DispatchQueue.global().async {
             let result = InAppDelivery.shared.tryDownloadCertificate(withCode: code)
-            self.cachedResult[code] = result
+            self.queue.sync {
+                self.cachedResult[code] = result
 
-            var lastLoadCacheCopy = self.cachedLastLoad.filter { $0.code != code }
-            lastLoadCacheCopy.append(LastLoad(code: code, lastLoad: .init()))
-            self.cachedLastLoad = lastLoadCacheCopy
+                var lastLoadCacheCopy = self.cachedLastLoad.filter { $0.code != code }
+                lastLoadCacheCopy.append(LastLoad(code: code, lastLoad: .init()))
+                self.cachedLastLoad = lastLoadCacheCopy
 
-            switch result {
-            case let .success(certificates):
-                guard certificates.count > 0 else { break }
+                switch result {
+                case let .success(certificates):
+                    guard certificates.count > 0 else { break }
 
-                // if a certificate was downloaded we schedule a local notification
-                LocalPush.shared.scheduleNotification(identifier: code)
+                    // if a certificate was downloaded we schedule a local notification
+                    LocalPush.shared.scheduleNotification(identifier: code)
 
-                Self.updateCertificateStorage(code: code, certificates: certificates)
+                    Self.updateCertificateStorage(code: code, certificates: certificates)
 
-                // certificates were inserted, can be deleted on backend (best effort)
-                _ = InAppDelivery.shared.tryDeleteCertificate(withCode: code)
+                    // certificates were inserted, can be deleted on backend (best effort)
+                    _ = InAppDelivery.shared.tryDeleteCertificate(withCode: code)
 
-                // delete caches
-                self.cachedResult = self.cachedResult.filter { $0.key != code }
-                self.cachedLastLoad = self.cachedLastLoad.filter { $0.code != code }
-            case .failure:
-                break
+                    // delete caches
+                    self.cachedResult = self.cachedResult.filter { $0.key != code }
+                    self.cachedLastLoad = self.cachedLastLoad.filter { $0.code != code }
+                case .failure:
+                    break
+                }
+
+                self.updateObservers(for: code, state: result)
             }
-
-            self.updateObservers(for: code, state: result)
-
             completion?(result)
         }
     }
