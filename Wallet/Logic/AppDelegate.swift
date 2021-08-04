@@ -272,8 +272,7 @@ extension AppDelegate {
                                                                options: [.skipsHiddenFiles, .skipsPackageDescendants]) {
                 for case let fileURL as URL in enumerator {
                     do {
-                        let fileAttributes = try fileURL.resourceValues(forKeys: [.isRegularFileKey])
-                        if fileAttributes.isRegularFile!, fileURL.pathExtension == "pdf" {
+                        if fileURL.pathExtension.lowercased() == "pdf" {
                             try FileManager.default.removeItem(at: fileURL)
                         }
                     } catch {}
