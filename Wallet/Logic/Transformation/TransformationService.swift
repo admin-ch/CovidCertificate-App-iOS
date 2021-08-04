@@ -21,23 +21,28 @@ enum TransformationService {
         URLSession.certificatePinned.dataTask(with: request) { data, response, error in
 
             if let error = error?.asNetworkError() {
-                completionHandler(.failure(.networkError(error)))
+                completionHandler(.failure(.networkError(error, .certificateLight)))
                 return
             }
 
             guard let response = response as? HTTPURLResponse,
                   response.statusCode != 400 else {
-                completionHandler(.failure(.certificateInvalid))
+                completionHandler(.failure(.certificateInvalid(.certificateLight)))
+                return
+            }
+
+            guard response.statusCode != 429 else {
+                completionHandler(.failure(.rateLimit(.certificateLight)))
                 return
             }
 
             guard let data = data else {
-                completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR)))
+                completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR, .certificateLight)))
                 return
             }
 
             guard let cert = try? JSONDecoder().decode(TransformationLightCertificateResponsePayload.self, from: data) else {
-                completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR)))
+                completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR, .certificateLight)))
                 return
             }
 
@@ -53,23 +58,23 @@ enum TransformationService {
         URLSession.certificatePinned.dataTask(with: request) { data, response, error in
 
             if let error = error?.asNetworkError() {
-                completionHandler(.failure(.networkError(error)))
+                completionHandler(.failure(.networkError(error, .export)))
                 return
             }
 
             guard let response = response as? HTTPURLResponse,
                   response.statusCode != 400 else {
-                completionHandler(.failure(.certificateInvalid))
+                completionHandler(.failure(.certificateInvalid(.export)))
                 return
             }
 
             guard let data = data else {
-                completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR)))
+                completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR, .export)))
                 return
             }
 
             guard let pdfResponse = try? JSONDecoder().decode(TransformationPdfResponsePayload.self, from: data) else {
-                completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR)))
+                completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR, .export)))
                 return
             }
 

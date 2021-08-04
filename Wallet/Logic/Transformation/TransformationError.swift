@@ -13,15 +13,32 @@ import CovidCertificateSDK
 import Foundation
 
 enum TransformationError: Error {
-    case networkError(NetworkError)
-    case certificateInvalid
+    enum Mode {
+        case export, certificateLight
+        var errorPrefix: String {
+            switch self {
+            case .export:
+                return "EX"
+            case .certificateLight:
+                return "CI"
+            }
+        }
+    }
+
+    case networkError(NetworkError, Mode)
+    case certificateInvalid(Mode)
+    case rateLimit(Mode)
 }
 
 extension TransformationError: ErrorViewError {
     func icon(color: UIColor?) -> UIImage? {
         switch self {
-        case .networkError(.NETWORK_NO_INTERNET_CONNECTION):
+        case .networkError(.NETWORK_NO_INTERNET_CONNECTION, _):
             var image = UIImage(named: "ic-offline")
+            image = image?.ub_image(with: color ?? .cc_orange)
+            return image
+        case .rateLimit:
+            var image = UIImage(named: "ic-info-alert")
             image = image?.ub_image(with: color ?? .cc_orange)
             return image
         default:
@@ -36,8 +53,15 @@ extension TransformationError: ErrorViewError {
 
     var errorTitle: String {
         switch self {
-        case .networkError(.NETWORK_NO_INTERNET_CONNECTION):
-            return UBLocalized.wallet_certificate_light_detail_activation_network_error_title
+        case let .networkError(.NETWORK_NO_INTERNET_CONNECTION, mode):
+            switch mode {
+            case .certificateLight:
+                return UBLocalized.wallet_certificate_light_detail_activation_network_error_title
+            case .export:
+                return UBLocalized.wallet_certificate_export_detail_network_error_title
+            }
+        case .rateLimit:
+            return UBLocalized.wallet_certificate_light_rate_limit_title
         default:
             return UBLocalized.wallet_certificate_light_detail_activation_general_error_title
         }
@@ -45,8 +69,15 @@ extension TransformationError: ErrorViewError {
 
     var errorText: String {
         switch self {
-        case .networkError(.NETWORK_NO_INTERNET_CONNECTION):
-            return UBLocalized.wallet_certificate_light_detail_activation_network_error_text
+        case let .networkError(.NETWORK_NO_INTERNET_CONNECTION, mode):
+            switch mode {
+            case .certificateLight:
+                return UBLocalized.wallet_certificate_light_detail_activation_network_error_text
+            case .export:
+                return UBLocalized.wallet_certificate_export_detail_network_error_text
+            }
+        case .rateLimit:
+            return UBLocalized.wallet_certificate_light_rate_limit_text
         default:
             return UBLocalized.wallet_certificate_light_detail_activation_general_error_text
         }
@@ -54,10 +85,12 @@ extension TransformationError: ErrorViewError {
 
     var errorCode: String {
         switch self {
-        case let .networkError(error):
-            return "CL|" + error.errorCode
-        case .certificateInvalid:
-            return "CL|CI"
+        case let .networkError(error, mode):
+            return mode.errorPrefix + "|" + error.errorCode
+        case let .certificateInvalid(mode):
+            return mode.errorPrefix + "|" + "CI"
+        case let .rateLimit(mode):
+            return mode.errorPrefix + "|" + "RL"
         }
     }
 }
