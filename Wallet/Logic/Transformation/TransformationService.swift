@@ -68,11 +68,6 @@ enum TransformationService {
                 return
             }
 
-            guard response.statusCode != 429 else {
-                completionHandler(.failure(.rateLimit(.export)))
-                return
-            }
-
             guard let data = data else {
                 completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR, .export)))
                 return
