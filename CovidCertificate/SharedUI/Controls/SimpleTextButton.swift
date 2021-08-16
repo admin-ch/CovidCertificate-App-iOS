@@ -13,7 +13,9 @@ import UIKit
 class ExternalLinkButton: UBButton {
     // MARK: - Init
 
-    init(title: String) {
+    enum Mode { case link, phone }
+
+    init(title: String, mode: Mode = .link, tintColor: UIColor = .cc_blue) {
         super.init()
 
         self.title = title
@@ -25,10 +27,16 @@ class ExternalLinkButton: UBButton {
         highlightYInset = -Padding.small
         highlightCornerRadius = -Padding.small
 
-        setTitleColor(.cc_blue, for: .normal)
+        setTitleColor(tintColor, for: .normal)
         titleLabel?.font = LabelType.textBold.font
 
-        setImage(UIImage(named: "ic-link-external"), for: .normal)
+        switch mode {
+        case .link:
+            setImage(UIImage(named: "ic-link-external")?.ub_image(with: tintColor), for: .normal)
+        case .phone:
+            setImage(UIImage(named: "ic-call")?.ub_image(with: tintColor), for: .normal)
+        }
+
         imageView?.contentMode = .scaleAspectFit
 
         imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: Padding.small)
