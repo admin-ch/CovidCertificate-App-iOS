@@ -21,7 +21,7 @@ public enum TransferError: Error {
     case CANNOT_ENCODE_PUBLIC_KEY(Error?)
     case REGISTER_FAILED(Error?)
     case GET_CERTIFICATE_FAILED(Error?)
-    case CANNOT_DECODE_RESPONSE
+    case CANNOT_DECODE_RESPONSE(statusCode: Int)
     case DELETE_CERTIFICATE_FAILED(Error?)
 
     public var errorCode: String {
@@ -35,7 +35,7 @@ public enum TransferError: Error {
         case let .CANNOT_ENCODE_PUBLIC_KEY(error): return "C|CEPK\(error.errorCodeString)"
         case let .REGISTER_FAILED(error): return "N|RF\(error.errorCodeString)"
         case let .GET_CERTIFICATE_FAILED(error): return "N|GCF\(error.errorCodeString)"
-        case .CANNOT_DECODE_RESPONSE: return "N|CDR"
+        case let .CANNOT_DECODE_RESPONSE(statusCode): return "N|CDR\(statusCode)"
         case let .DELETE_CERTIFICATE_FAILED(error): return "N|DCF\(error.errorCodeString)"
         }
     }
