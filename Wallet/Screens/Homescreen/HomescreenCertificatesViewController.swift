@@ -106,11 +106,11 @@ class HomescreenCertificatesViewController: ViewController {
         for i in certificateViews {
             if let lightQrCode = i.certificate?.lightCertificate?.certificate {
                 VerifierManager.shared.addObserver(self, for: lightQrCode) { [weak i] state in
-                    i?.state = state
+                    i?.verificationState = state
                 }
             } else if let qrCode = i.certificate?.qrCode {
                 VerifierManager.shared.addObserver(self, for: qrCode) { [weak i] state in
-                    i?.state = state
+                    i?.verificationState = state
                 }
             } else if let transferCode = i.certificate?.transferCode,
                       transferCode.state != .failed // only start when not already failed

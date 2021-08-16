@@ -84,8 +84,14 @@ class TransferCodeTableViewCell: UITableViewCell {
 
         switch code.state {
         case .valid, .expired:
-            stateLabel.text = UBLocalized.wallet_transfer_code_state_waiting
-            icon.image = UIImage(named: "ic-transfer-code")
+            switch TransferManager.shared.getCachedResult(code: code.transferCode) {
+            case let .failure(error) where !error.isRecovarable:
+                stateLabel.text = UBLocalized.wallet_transfer_code_state_expired
+                icon.image = UIImage(named: "ic-transfer-failed")
+            default:
+                stateLabel.text = UBLocalized.wallet_transfer_code_state_waiting
+                icon.image = UIImage(named: "ic-transfer-code")
+            }
         case .failed:
             stateLabel.text = UBLocalized.wallet_transfer_code_state_expired
             icon.image = UIImage(named: "ic-transfer-failed")
