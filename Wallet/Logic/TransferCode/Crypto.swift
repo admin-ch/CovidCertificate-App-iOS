@@ -29,8 +29,9 @@ public enum Crypto {
     static func decryptData(privateKey: SecKey, cipherText: String) -> Result<Data, TransferError> {
         let algorithm: SecKeyAlgorithm = .eciesEncryptionStandardVariableIVX963SHA256AESGCM
         var error: Unmanaged<CFError>?
-        let data = Data(base64Encoded: cipherText)!
-        guard let clearText = SecKeyCreateDecryptedData(privateKey, algorithm, data as CFData, &error) else {
+
+        guard let data = Data(base64Encoded: cipherText),
+              let clearText = SecKeyCreateDecryptedData(privateKey, algorithm, data as CFData, &error) else {
             let publicKeyPrefix: String?
             switch getPublicKeyData(fromPrivateKeyReference: privateKey) {
             case let .success(data):
