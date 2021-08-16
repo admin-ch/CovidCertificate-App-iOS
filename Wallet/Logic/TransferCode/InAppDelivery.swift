@@ -88,14 +88,14 @@ public class InAppDelivery {
 
         let (optData, response, error) = session.synchronousDataTask(with: request)
 
-        guard let response = response as? HTTPURLResponse,
+        guard let httpUrlResponse = response as? HTTPURLResponse,
               let data = optData
         else {
             return .failure(.GET_CERTIFICATE_FAILED(error))
         }
 
         guard let certs = try? JSONDecoder().decode(InAppDeliveryCertificateBody.self, from: data) else {
-            return .failure(.CANNOT_DECODE_RESPONSE(statusCode: response.statusCode))
+            return .failure(.CANNOT_DECODE_RESPONSE(statusCode: httpUrlResponse.statusCode))
         }
 
         var collectedCerts: [DecryptedCertificate] = []
