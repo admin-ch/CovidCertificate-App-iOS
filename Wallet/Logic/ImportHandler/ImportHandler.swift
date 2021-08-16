@@ -114,7 +114,8 @@ class ImportHandler {
     func presentError() {
         navigationControllerCallback()?.topViewController?.dismiss(animated: false, completion: nil)
 
-        let alert = UIAlertController(title: UBLocalized.error_title, message: UBLocalized.verifier_error_invalid_format, preferredStyle: .alert)
+        let alert = UIAlertController(title: UBLocalized.error_file_import_title,
+                                      message: UBLocalized.error_file_import_text, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: UBLocalized.ok_button, style: .default, handler: { _ in
             alert.dismiss(animated: true, completion: nil)
         }))
