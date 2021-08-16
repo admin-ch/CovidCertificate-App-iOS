@@ -15,7 +15,10 @@ class TransferCodeStatusView: UIView {
     private let imageView = UIImageView()
     private let roundImageBackgroundView = UIView()
 
+    private let titleValidStackView = UIStackView()
+
     private let expiredLabel = Label(.title, textAlignment: .center)
+    let contactSupportView = ContactSupportView()
     private let titleLabel = Label(.textBold, textAlignment: .center)
     private let validLabel = Label(.text, textColor: .cc_blue, textAlignment: .center)
 
@@ -73,13 +76,14 @@ class TransferCodeStatusView: UIView {
             make.centerX.equalToSuperview()
         }
 
-        let titleValidStackView = UIStackView()
         titleValidStackView.axis = .vertical
         titleValidStackView.spacing = 0.0
         titleValidStackView.addArrangedSubview(titleLabel)
         titleValidStackView.addArrangedSubview(validLabel)
         titleValidStackView.addArrangedSubview(codeContainer)
         titleValidStackView.addArrangedSubview(expiredLabel)
+        titleValidStackView.addArrangedSubview(contactSupportView)
+        contactSupportView.ub_setHidden(true)
         titleValidStackView.ub_setContentPriorityRequired()
 
         codeContainer.addSubview(codeLabel)
@@ -144,10 +148,47 @@ class TransferCodeStatusView: UIView {
                 titleLabel.ub_setHidden(true)
                 codeContainer.ub_setHidden(false)
                 expiredLabel.ub_setHidden(true)
+                contactSupportView.ub_setHidden(true)
                 validLabel.attributedText = code.validDaysText
 
                 backgroundColor = .cc_blueish
                 codeLabel.code = code.transferCode
+
+                DispatchQueue.global().async {
+                    TransferManager.shared.addObserver(self, for: code.transferCode) { [weak self] result in
+                        DispatchQueue.main.async {
+                            guard let self = self else { return }
+                            switch result {
+                            case let .failure(error) where !error.isRecovarable:
+                                self.backgroundColor = .cc_redish
+                                self.imageView.image = UIImage(named: "ic-info-outline")?.ub_image(with: .cc_red)
+
+                                self.createdAtLabel.ub_setHidden(true)
+                                self.createdAtLabel.snp.remakeConstraints { make in
+                                    make.height.equalTo(0)
+                                    make.top.equalTo(self.titleValidStackView.snp.bottom)
+                                    make.leading.trailing.equalToSuperview()
+                                    make.bottom.equalToSuperview()
+                                }
+                                self.validLabel.ub_setHidden(true)
+                                self.titleLabel.ub_setHidden(true)
+                                self.codeContainer.ub_setHidden(true)
+                                self.expiredLabel.ub_setHidden(true)
+                                self.contactSupportView.ub_setHidden(false)
+                                self.contactSupportView.errorCode = error.errorCode
+                                self.contactSupportView.transferCode = code.transferCode
+                                self.expiredLabel.textColor = .cc_red
+
+                                self.accessibilityLabel = [self.expiredLabel.text, self.codeLabel.accessibilityLabel, self.createdAtLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+
+                                self.errorCorner.image = nil
+                                self.errorCorner.alpha = 0.0
+                            default:
+                                break
+                            }
+                        }
+                    }
+                }
 
                 accessibilityLabel = [validLabel.text, codeLabel.accessibilityLabel, createdAtLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
 
@@ -159,6 +200,7 @@ class TransferCodeStatusView: UIView {
                 titleLabel.ub_setHidden(true)
                 codeContainer.ub_setHidden(true)
                 expiredLabel.ub_setHidden(false)
+                contactSupportView.ub_setHidden(true)
 
                 expiredLabel.text = UBLocalized.wallet_transfer_code_old_code
                 expiredLabel.textColor = code.state == .expired ? .cc_blue : .cc_red
@@ -178,5 +220,63 @@ class TransferCodeStatusView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         roundImageBackgroundView.layer.cornerRadius = roundImageBackgroundView.frame.size.height * 0.5
+    }
+}
+
+class ContactSupportView: UIView {
+    private let textLabel = Label(.textBoldLarge, textAlignment: .center)
+    let phoneNumber = ExternalLinkButton(title: UBLocalized.wallet_transfer_code_unexpected_error_phone_number,
+                                         mode: .phone,
+                                         tintColor: .cc_red)
+    private let transfercodeLabel = Label(.smallError, textColor: .cc_greyText, textAlignment: .center)
+    private let errorLabel = Label(.smallErrorLight, textAlignment: .center)
+
+    var errorCode: String? {
+        didSet {
+            errorLabel.text = errorCode ?? ""
+        }
+    }
+
+    var transferCode: String? {
+        didSet {
+            transfercodeLabel.text = UBLocalized.wallet_transfer_code_title + ": " + (transferCode ?? "")
+        }
+    }
+
+    init() {
+        super.init(frame: .zero)
+        textLabel.text = UBLocalized.wallet_transfer_code_unexpected_error_text
+
+        addSubview(textLabel)
+        textLabel.snp.makeConstraints { make in
+            make.leading.trailing.top.equalToSuperview()
+        }
+
+        addSubview(phoneNumber)
+        phoneNumber.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(textLabel.snp.bottom).inset(-Padding.small)
+        }
+
+        addSubview(transfercodeLabel)
+        transfercodeLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(phoneNumber.snp.bottom).inset(-Padding.medium)
+        }
+
+        addSubview(errorLabel)
+        errorLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().inset(Padding.medium)
+            make.top.equalTo(transfercodeLabel.snp.bottom).inset(-Padding.small)
+        }
+
+        phoneNumber.touchUpCallback = {
+            PhoneCallHelper.call(UBLocalized.wallet_transfer_code_unexpected_error_phone_number)
+        }
+    }
+
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

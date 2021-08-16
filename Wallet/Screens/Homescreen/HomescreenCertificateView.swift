@@ -26,6 +26,8 @@ class HomescreenCertificateView: UIView {
     private let lightQrCodeView: LightQRCodeView
     private let transferView: TransferView
 
+    private let backgroundButton = BackgroundButton()
+
     public var certificate: UserCertificate? {
         didSet {
             qrCodeView.certificate = certificate
@@ -35,10 +37,10 @@ class HomescreenCertificateView: UIView {
         }
     }
 
-    public var state: VerificationState = .loading {
+    public var verificationState: VerificationState = .loading {
         didSet {
-            qrCodeView.state = state
-            lightQrCodeView.state = state
+            qrCodeView.state = verificationState
+            lightQrCodeView.state = verificationState
             update(animated: true)
         }
     }
@@ -57,6 +59,7 @@ class HomescreenCertificateView: UIView {
         lightQrCodeView = LightQRCodeView(certificate: certificate)
         transferView = TransferView(certificate: certificate)
         super.init(frame: .zero)
+        backgroundButton.transferView = transferView
         setup()
 
         isAccessibilityElement = true
@@ -122,14 +125,13 @@ class HomescreenCertificateView: UIView {
         }
 
         // add button at bottom
-        let v = UBButton()
-        contentView.insertSubview(v, at: 0)
-        v.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        v.layer.cornerRadius = contentView.layer.cornerRadius
-        v.backgroundColor = .clear
-        v.highlightedBackgroundColor = UIColor.cc_touchState
+        contentView.insertSubview(backgroundButton, at: 0)
+        backgroundButton.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        backgroundButton.layer.cornerRadius = contentView.layer.cornerRadius
+        backgroundButton.backgroundColor = .clear
+        backgroundButton.highlightedBackgroundColor = UIColor.cc_touchState
 
-        v.touchUpCallback = { [weak self] in
+        backgroundButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.touchUpCallback?()
         }
@@ -139,6 +141,8 @@ class HomescreenCertificateView: UIView {
 
     private func update(animated _: Bool) {
         guard let cert = certificate else { return }
+
+        backgroundButton.type = cert.type
 
         switch cert.type {
         case .lightCertificate:
@@ -173,6 +177,37 @@ class HomescreenCertificateView: UIView {
             lightQrCodeView.alpha = 0.0
             accessibilityLabel = [titleLabel.text, transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
         }
+    }
+}
+
+private class BackgroundButton: UBButton {
+    weak var transferView: TransferView?
+
+    var type: CertificateType = .certificate
+
+    override func hitTest(_ point: CGPoint, with _: UIEvent?) -> UIView? {
+        guard let transferView = transferView,
+              type == .transferCode else {
+            if frame.contains(point) {
+                return self
+            }
+            return nil
+        }
+
+        // the transferview contains a clickable button
+        // therefore we make a hittest to check if this button was clicked
+        let button: ExternalLinkButton = transferView.transferCodeView.contactSupportView.phoneNumber
+        let buttonFrame: CGRect = button.convert(button.frame, to: self).offsetBy(dx: 0, dy: -transferView.frame.minY)
+
+        if buttonFrame.contains(point) {
+            return button
+        }
+
+        if frame.contains(point) {
+            return self
+        }
+
+        return nil
     }
 }
 
@@ -237,7 +272,7 @@ private class HoleView: UIView {
 private class TransferView: UIView {
     // MARK: - Views
 
-    private let transferCodeView = TransferCodeStatusView()
+    let transferCodeView = TransferCodeStatusView()
     public var certificate: UserCertificate? {
         didSet { update(animated: true) }
     }
@@ -304,6 +339,48 @@ private class TransferView: UIView {
         }
 
         nameView.text = codeHasFailed ? UBLocalized.wallet_transfer_code_state_expired : UBLocalized.wallet_transfer_code_state_waiting
+
+        if let code = certificate?.transferCode?.transferCode {
+            TransferManager.shared.addObserver(self, for: code) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case let .failure(error) where !error.isRecovarable:
+                    self.nameView.text = UBLocalized.wallet_transfer_code_state_expired
+                    self.animationView.removeFromSuperview()
+                    if self.failedImageView.superview == nil {
+                        self.addSubview(self.failedImageView)
+                        self.failedImageView.snp.makeConstraints { make in
+                            make.top.equalToSuperview().inset(40)
+                            make.centerX.equalToSuperview()
+                        }
+
+                        self.failedImageView.contentMode = .scaleAspectFit
+
+                        self.failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+                        self.failedImageView.setContentHuggingPriority(.defaultLow, for: .vertical)
+                        self.failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+                        self.failedImageView.setContentHuggingPriority(.defaultLow, for: .horizontal)
+                    }
+                    self.nameView.snp.makeConstraints { make in
+                        make.top.equalTo(self.failedImageView.snp.bottom).offset(Padding.large)
+                        make.left.right.equalToSuperview().inset(Padding.large)
+                    }
+                default:
+                    self.nameView.text = UBLocalized.wallet_transfer_code_state_waiting
+                    self.failedImageView.removeFromSuperview()
+                    if self.animationView.superview == nil {
+                        self.addSubview(self.animationView)
+                        self.animationView.snp.makeConstraints { make in
+                            make.top.left.right.equalToSuperview()
+                        }
+                    }
+                    self.nameView.snp.remakeConstraints { make in
+                        make.top.equalTo(self.animationView.snp.bottom).offset(Padding.medium)
+                        make.left.right.equalToSuperview().inset(Padding.large)
+                    }
+                }
+            }
+        }
 
         nameView.ub_setContentPriorityRequired()
 

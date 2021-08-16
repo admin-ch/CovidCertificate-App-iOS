@@ -945,3 +945,14 @@
 
 /*Wallet: Text Fehlermeldung wenn Conversion Rate Limit erreicht wurde*/
 "wallet_certificate_light_rate_limit_text" = "Das Zertifikat Light wurde in den letzten 24h bereits zu oft aktiviert.";
+"error_file_import_title" = "Import fehlgeschlagen";
+"error_file_import_text" = "Die Datei enthält entweder keinen gültigen QR-Code oder der QR-Code konnte nicht erkannt werden.";
+
+/*Wallet: Transfercode ein unerwartet Fehler ist aufgetreten titel*/
+"wallet_transfer_code_unexpected_error_title" = "Unerwarteter Fehler";
+
+/*Wallet: Transfercode ein unerwartet Fehler ist aufgetreten text*/
+"wallet_transfer_code_unexpected_error_text" = "Kontaktieren Sie den Support";
+
+/*Wallet: Transfercode ein unerwartet Fehler ist aufgetreten telefon nummer*/
+"wallet_transfer_code_unexpected_error_phone_number" = "+41 58 466 07 99";

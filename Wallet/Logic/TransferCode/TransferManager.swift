@@ -89,6 +89,12 @@ final class TransferManager {
         }
     }
 
+    func getCachedResult(code: String) -> TransferCodeResult? {
+        queue.sync {
+            cachedResult[safe: code]
+        }
+    }
+
     func getLastLoad(code: String) -> Date? {
         return cachedLastLoad.first(where: { $0.code == code })?.lastLoad
     }

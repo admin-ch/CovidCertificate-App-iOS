@@ -68,6 +68,10 @@ import Foundation
      case error_camera_permission_text_key = "error_camera_permission_text"
     /// Kein Zugriff auf Kamera
      case error_camera_permission_title_key = "error_camera_permission_title"
+    /// Die Datei enthält entweder keinen gültigen QR-Code oder der QR-Code konnte nicht erkannt werden.
+     case error_file_import_text_key = "error_file_import_text"
+    /// Import fehlgeschlagen
+     case error_file_import_title_key = "error_file_import_title"
     /// Überprüfen Sie Ihre Internet Verbindung.
      case error_network_text_key = "error_network_text"
     /// Netzwerkfehler
@@ -694,6 +698,12 @@ import Foundation
      case wallet_transfer_code_state_waiting_key = "wallet_transfer_code_state_waiting"
     /// Transfer-Code
      case wallet_transfer_code_title_key = "wallet_transfer_code_title"
+    /// +41 58 466 07 99
+     case wallet_transfer_code_unexpected_error_phone_number_key = "wallet_transfer_code_unexpected_error_phone_number"
+    /// Kontaktieren Sie den Support
+     case wallet_transfer_code_unexpected_error_text_key = "wallet_transfer_code_unexpected_error_text"
+    /// Unerwarteter Fehler
+     case wallet_transfer_code_unexpected_error_title_key = "wallet_transfer_code_unexpected_error_title"
     /// Aktualisierung zur Zeit nicht möglich
      case wallet_transfer_code_update_error_title_key = "wallet_transfer_code_update_error_title"
     /// Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.
@@ -768,6 +778,10 @@ import Foundation
    static let error_camera_permission_text = UBLocalized.tr(UBLocalizedKey.error_camera_permission_text_key)
   /// Kein Zugriff auf Kamera
    static let error_camera_permission_title = UBLocalized.tr(UBLocalizedKey.error_camera_permission_title_key)
+  /// Die Datei enthält entweder keinen gültigen QR-Code oder der QR-Code konnte nicht erkannt werden.
+   static let error_file_import_text = UBLocalized.tr(UBLocalizedKey.error_file_import_text_key)
+  /// Import fehlgeschlagen
+   static let error_file_import_title = UBLocalized.tr(UBLocalizedKey.error_file_import_title_key)
   /// Überprüfen Sie Ihre Internet Verbindung.
    static let error_network_text = UBLocalized.tr(UBLocalizedKey.error_network_text_key)
   /// Netzwerkfehler
@@ -1394,6 +1408,12 @@ import Foundation
    static let wallet_transfer_code_state_waiting = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_waiting_key)
   /// Transfer-Code
    static let wallet_transfer_code_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_title_key)
+  /// +41 58 466 07 99
+   static let wallet_transfer_code_unexpected_error_phone_number = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_unexpected_error_phone_number_key)
+  /// Kontaktieren Sie den Support
+   static let wallet_transfer_code_unexpected_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_unexpected_error_text_key)
+  /// Unerwarteter Fehler
+   static let wallet_transfer_code_unexpected_error_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_unexpected_error_title_key)
   /// Aktualisierung zur Zeit nicht möglich
    static let wallet_transfer_code_update_error_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_update_error_title_key)
   /// Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.

@@ -13,7 +13,7 @@ import Foundation
 
 public enum TransferError: Error {
     case BASE64_DECODING_ERROR
-    case DECRYPTION_ERROR(Error?)
+    case DECRYPTION_ERROR(Error?, String?)
     case SIGN_ERROR(Error?)
     case LOAD_KEY_ERROR(OSStatus?)
     case CREATE_KEY_ERROR(Error?)
@@ -21,22 +21,49 @@ public enum TransferError: Error {
     case CANNOT_ENCODE_PUBLIC_KEY(Error?)
     case REGISTER_FAILED(Error?)
     case GET_CERTIFICATE_FAILED(Error?)
-    case CANNOT_DECODE_RESPONSE
+    case CANNOT_DECODE_RESPONSE(statusCode: Int)
     case DELETE_CERTIFICATE_FAILED(Error?)
 
     public var errorCode: String {
         switch self {
         case .BASE64_DECODING_ERROR: return "C|B64"
-        case .DECRYPTION_ERROR: return "C|DE"
-        case .SIGN_ERROR: return "C|SE"
-        case .LOAD_KEY_ERROR: return "C|LKE"
-        case .CREATE_KEY_ERROR: return "C|CKE"
+        case let .DECRYPTION_ERROR(error, prefix): return "C|DE\(error.errorCodeString)|\(prefix ?? "")"
+        case let .SIGN_ERROR(error): return "C|SE\(error.errorCodeString)"
+        case let .LOAD_KEY_ERROR(status): return "C|LKE\(status != nil ? "\(status!)" : "")"
+        case let .CREATE_KEY_ERROR(error): return "C|CKE\(error.errorCodeString)"
         case .CANNOT_GET_PUBLIC_KEY: return "C|CGPK"
-        case .CANNOT_ENCODE_PUBLIC_KEY: return "C|CEPK"
-        case .REGISTER_FAILED: return "N|RF"
-        case .GET_CERTIFICATE_FAILED: return "N|GCF"
-        case .CANNOT_DECODE_RESPONSE: return "N|CDR"
-        case .DELETE_CERTIFICATE_FAILED: return "N|DCF"
+        case let .CANNOT_ENCODE_PUBLIC_KEY(error): return "C|CEPK\(error.errorCodeString)"
+        case let .REGISTER_FAILED(error): return "N|RF\(error.errorCodeString)"
+        case let .GET_CERTIFICATE_FAILED(error): return "N|GCF\(error.errorCodeString)"
+        case let .CANNOT_DECODE_RESPONSE(statusCode): return "N|CDR\(statusCode)"
+        case let .DELETE_CERTIFICATE_FAILED(error): return "N|DCF\(error.errorCodeString)"
+        }
+    }
+
+    public var isRecovarable: Bool {
+        switch self {
+        case .BASE64_DECODING_ERROR:
+            return false
+        case .DECRYPTION_ERROR:
+            return false
+        case .SIGN_ERROR:
+            return false
+        case .LOAD_KEY_ERROR:
+            return false
+        case .CREATE_KEY_ERROR:
+            return false
+        case .CANNOT_GET_PUBLIC_KEY:
+            return false
+        case .CANNOT_ENCODE_PUBLIC_KEY:
+            return false
+        case .REGISTER_FAILED:
+            return true
+        case .GET_CERTIFICATE_FAILED:
+            return true
+        case .CANNOT_DECODE_RESPONSE:
+            return true
+        case .DELETE_CERTIFICATE_FAILED:
+            return true
         }
     }
 
@@ -120,5 +147,16 @@ public enum TransferError: Error {
         default:
             return UBLocalized.wallet_transfer_code_update_general_error_text
         }
+    }
+}
+
+private extension Optional where Wrapped == Error {
+    /// returns a empty string if there is no error
+    /// if a error exists the method retruns the error code prefixed with the uppercased letters of the error domain
+    /// this makes easier UI Error code generation
+    var errorCodeString: String {
+        guard let error = self else { return "" }
+        let domain = (error as NSError).domain.filter { $0.isUppercase || $0.isPunctuation }
+        return "|\(domain)\((error as NSError).code)"
     }
 }

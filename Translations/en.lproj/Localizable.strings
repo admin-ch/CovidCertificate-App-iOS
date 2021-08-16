@@ -913,7 +913,18 @@
 "verifier_android_app_google_play_store_url" = "market://details?id=ch.admin.bag.covidcertificate.verifier";
 
 /*Wallet: Titel Fehlermeldung wenn Conversion Rate Limit erreicht wurde*/
-"wallet_certificate_light_rate_limit_title" = "24h-Limite erreicht";
+"wallet_certificate_light_rate_limit_title" = "24h-limit reached";
 
 /*Wallet: Text Fehlermeldung wenn Conversion Rate Limit erreicht wurde*/
-"wallet_certificate_light_rate_limit_text" = "Das Zertifikat Light wurde in den letzten 24h bereits zu oft aktiviert.";
+"wallet_certificate_light_rate_limit_text" = "The 'certificate light' has been activated too often within the last 24 hours.";
+"error_file_import_title" = "Import unsuccessful";
+"error_file_import_text" = "The file contains either an invalid QR code or the QR code was not able to be recognised.";
+
+/*Wallet: Transfercode ein unerwartet Fehler ist aufgetreten titel*/
+"wallet_transfer_code_unexpected_error_title" = "Unexpected error";
+
+/*Wallet: Transfercode ein unerwartet Fehler ist aufgetreten text*/
+"wallet_transfer_code_unexpected_error_text" = "Please contact support";
+
+/*Wallet: Transfercode ein unerwartet Fehler ist aufgetreten telefon nummer*/
+"wallet_transfer_code_unexpected_error_phone_number" = "+41 58 466 07 99";

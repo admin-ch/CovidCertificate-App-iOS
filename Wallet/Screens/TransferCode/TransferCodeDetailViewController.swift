@@ -48,6 +48,8 @@ class TransferCodeDetailViewController: ViewController {
 
     public var refreshCallback: (() -> Void)?
 
+    public var cachedResult: TransferCodeResult?
+
     // MARK: - Init
 
     init(certificate: UserCertificate) {
@@ -55,6 +57,14 @@ class TransferCodeDetailViewController: ViewController {
         super.init()
 
         title = UBLocalized.wallet_transfer_code_card_title.uppercased()
+
+        if let code = certificate.transferCode?.transferCode {
+            TransferManager.shared.addObserver(self, for: code) { [weak self] result in
+                guard let self = self else { return }
+                self.cachedResult = result
+                self.update()
+            }
+        }
     }
 
     // MARK: - View
@@ -152,14 +162,25 @@ class TransferCodeDetailViewController: ViewController {
         refreshView.error = error
         errorLabel.text = error?.errorCode
         updateView.date = updateDate
-        nameView.text = certificate.transferCode?.state != .failed ? UBLocalized.wallet_transfer_code_state_waiting : UBLocalized.wallet_transfer_code_state_expired
+
+        var isFailed = certificate.transferCode?.state == .failed
+        var hasTransferError = false
+        if let cachedResult = cachedResult,
+           case let .failure(error) = cachedResult,
+           !error.isRecovarable {
+            isFailed = true
+            hasTransferError = true
+        }
+
+        nameView.text = !isFailed ? UBLocalized.wallet_transfer_code_state_waiting : UBLocalized.wallet_transfer_code_state_expired
 
         // visibility changes
-        failedImageContainerView.ub_setHidden(certificate.transferCode?.state != .failed)
-        animationView.ub_setHidden(certificate.transferCode?.state == .failed)
-        errorLabel.ub_setHidden(error == nil)
-        refreshView.ub_setHidden(error == nil || certificate.transferCode?.state == .failed)
-        updateView.ub_setHidden(error != nil || certificate.transferCode?.state == .failed)
+        failedImageContainerView.ub_setHidden(!isFailed)
+        animationView.ub_setHidden(isFailed)
+        // if we have a transfer error the errorCode is directly shown in the state view
+        errorLabel.ub_setHidden(error == nil || hasTransferError)
+        refreshView.ub_setHidden(error == nil || isFailed)
+        updateView.ub_setHidden(error != nil || isFailed)
         failedExplanatoryView.ub_setHidden(certificate.transferCode?.state != .failed)
 
         // notificationview
