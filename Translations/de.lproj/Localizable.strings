@@ -956,3 +956,11 @@
 
 /*Wallet: Transfercode ein unerwartet Fehler ist aufgetreten telefon nummer*/
 "wallet_transfer_code_unexpected_error_phone_number" = "+41 58 466 07 99";
+"error_corrupt_sharedprefs_title" = "Entschlüsselungsfehler";
+"error_corrupt_sharedprefs_text" = "Ein Speicher der App konnte nicht entschlüsselt werden. Um die App weiter zu benutzen muss der Speicher gelöscht und neu erstellt werden. Dabei gehen Daten verloren.";
+
+/*Einstellungen: Titel*/
+"settings_title" = "Einstellungen";
+
+/*Einstellungen: Titel Sprachauswahl*/
+"language_title" = "Sprache";

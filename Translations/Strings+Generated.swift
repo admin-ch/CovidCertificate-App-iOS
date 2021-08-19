@@ -68,6 +68,10 @@ import Foundation
      case error_camera_permission_text_key = "error_camera_permission_text"
     /// Kein Zugriff auf Kamera
      case error_camera_permission_title_key = "error_camera_permission_title"
+    /// Ein Speicher der App konnte nicht entschlüsselt werden. Um die App weiter zu benutzen muss der Speicher gelöscht und neu erstellt werden. Dabei gehen Daten verloren.
+     case error_corrupt_sharedprefs_text_key = "error_corrupt_sharedprefs_text"
+    /// Entschlüsselungsfehler
+     case error_corrupt_sharedprefs_title_key = "error_corrupt_sharedprefs_title"
     /// Die Datei enthält entweder keinen gültigen QR-Code oder der QR-Code konnte nicht erkannt werden.
      case error_file_import_text_key = "error_file_import_text"
     /// Import fehlgeschlagen
@@ -90,12 +94,16 @@ import Foundation
      case ios_settings_open_key = "ios_settings_open"
     /// de
      case language_key_key = "language_key"
+    /// Sprache
+     case language_title_key = "language_title"
     /// Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können.
      case NSCameraUsageDescription_key = "NSCameraUsageDescription"
     /// OK
      case ok_button_key = "ok_button"
     /// Kein gültiger Code
      case qr_scanner_error_key = "qr_scanner_error"
+    /// Einstellungen
+     case settings_title_key = "settings_title"
     /// Covid-19
      case target_disease_name_key = "target_disease_name"
     /// Ein unbekannter Fehler ist aufgetreten.
@@ -778,6 +786,10 @@ import Foundation
    static let error_camera_permission_text = UBLocalized.tr(UBLocalizedKey.error_camera_permission_text_key)
   /// Kein Zugriff auf Kamera
    static let error_camera_permission_title = UBLocalized.tr(UBLocalizedKey.error_camera_permission_title_key)
+  /// Ein Speicher der App konnte nicht entschlüsselt werden. Um die App weiter zu benutzen muss der Speicher gelöscht und neu erstellt werden. Dabei gehen Daten verloren.
+   static let error_corrupt_sharedprefs_text = UBLocalized.tr(UBLocalizedKey.error_corrupt_sharedprefs_text_key)
+  /// Entschlüsselungsfehler
+   static let error_corrupt_sharedprefs_title = UBLocalized.tr(UBLocalizedKey.error_corrupt_sharedprefs_title_key)
   /// Die Datei enthält entweder keinen gültigen QR-Code oder der QR-Code konnte nicht erkannt werden.
    static let error_file_import_text = UBLocalized.tr(UBLocalizedKey.error_file_import_text_key)
   /// Import fehlgeschlagen
@@ -800,12 +812,16 @@ import Foundation
    static let ios_settings_open = UBLocalized.tr(UBLocalizedKey.ios_settings_open_key)
   /// de
    static let language_key = UBLocalized.tr(UBLocalizedKey.language_key_key)
+  /// Sprache
+   static let language_title = UBLocalized.tr(UBLocalizedKey.language_title_key)
   /// Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können.
    static let NSCameraUsageDescription = UBLocalized.tr(UBLocalizedKey.NSCameraUsageDescription_key)
   /// OK
    static let ok_button = UBLocalized.tr(UBLocalizedKey.ok_button_key)
   /// Kein gültiger Code
    static let qr_scanner_error = UBLocalized.tr(UBLocalizedKey.qr_scanner_error_key)
+  /// Einstellungen
+   static let settings_title = UBLocalized.tr(UBLocalizedKey.settings_title_key)
   /// Covid-19
    static let target_disease_name = UBLocalized.tr(UBLocalizedKey.target_disease_name_key)
   /// Ein unbekannter Fehler ist aufgetreten.
