@@ -928,3 +928,11 @@
 
 /*Wallet: Transfercode ein unerwartet Fehler ist aufgetreten telefon nummer*/
 "wallet_transfer_code_unexpected_error_phone_number" = "+41 58 466 07 99";
+"error_corrupt_sharedprefs_title" = "Sbagl da decodaziun";
+"error_corrupt_sharedprefs_text" = "In arcun da l'app n'ha betg pudì vegnir decodà. Per pudair utilisar vinavant l'app, sto l'arcun vegnir stizzà e creà da nov. Cun far quai van a perder datas.";
+
+/*Einstellungen: Titel*/
+"settings_title" = "Parameters";
+
+/*Einstellungen: Titel Sprachauswahl*/
+"language_title" = "Lingua";

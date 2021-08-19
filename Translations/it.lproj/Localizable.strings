@@ -928,3 +928,11 @@
 
 /*Wallet: Transfercode ein unerwartet Fehler ist aufgetreten telefon nummer*/
 "wallet_transfer_code_unexpected_error_phone_number" = "+41 58 466 07 99";
+"error_corrupt_sharedprefs_title" = "Errore di decodificazione";
+"error_corrupt_sharedprefs_text" = "Una memoria dell'app non ha potuto essere decodificata. Per continuare a utilizzare l'app è necessario eliminare e ricreare la memoria. Questa operazione comporta la perdita dei dati.";
+
+/*Einstellungen: Titel*/
+"settings_title" = "Impostazioni";
+
+/*Einstellungen: Titel Sprachauswahl*/
+"language_title" = "Lingua";
