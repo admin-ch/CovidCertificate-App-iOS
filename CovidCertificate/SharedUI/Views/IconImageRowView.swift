@@ -79,7 +79,7 @@ class IconImageRowView: UIControl {
 
         set(enabled) {
             super.isEnabled = enabled
-            arrowView.image = arrowView.image?.ub_image(with: enabled ? .cc_blue : .cc_grey)
+            arrowView.ub_setHidden(!enabled)
             iconView.image = iconView.image?.ub_image(with: enabled ? .cc_blue : .cc_grey)
             label.textColor = enabled ? .cc_blue : .cc_grey
         }
