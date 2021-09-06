@@ -724,7 +724,7 @@
 "wallet_faq_works_question_3_1" = "Can I use the app offline?";
 "wallet_faq_works_answer_3_1" = "You can use the app without an internet connection, so you can still call up your certificates and present them for scanning and verification.\n\nHowever, in order to show whether your certificate meets Switzerland’s validity criteria and how long it is valid for, the COVID Certificate app has to be online at regular intervals.";
 "verifier_faq_works_question_2_1" = "What are the current validity criteria in Switzerland?";
-"verifier_faq_works_answer_2_1" = "The current validity period of Covid certificates can be found here:";
+"verifier_faq_works_answer_2_1" = "The current validity period of COVID certificates can be found here:";
 "verifier_faq_works_linktext_2_1" = "Further information";
 "verifier_faq_works_linkurl_2_1" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624";
 "verifier_faq_works_question_7" = "Is it possible to verify the certificates offline?";
@@ -861,9 +861,11 @@
 "wallet_certificate_light_detail_text_2_bold" = "only has to does not";
 
 /*VoiceOver reads this when the expandable box is reduced*/
+/*Fuzzy*/
 "accessibility_expandable_box_reduced_state" = "reduced";
 
 /*VoiceOver reads this when the expandable box is expanded*/
+/*Fuzzy*/
 "accessibility_expandable_box_expanded_state" = "expanded";
 
 /*Header im Update Boarding-Screen*/
@@ -936,3 +938,7 @@
 
 /*Einstellungen: Titel Sprachauswahl*/
 "language_title" = "Language";
+
+/*Information about the date format (always english)*/
+/*Fuzzy*/
+"wallet_certificate_detail_date_format_info" = "Date format used: dd.mm.yyyy";

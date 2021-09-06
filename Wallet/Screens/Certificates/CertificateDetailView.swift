@@ -290,12 +290,19 @@ class CertificateDetailView: UIView {
     private func addIssuedDate(dateString: String?, incomplete: Bool) {
         guard let d = dateString else { return }
 
-        let values: (String, String)
+        var values: (String, String)
         if incomplete {
             values = UBLocalized.translationWithEnglish(key: .wallet_certificate_evidence_creation_date_key)
         } else {
             values = UBLocalized.translationWithEnglish(key: .wallet_certificate_date_key)
         }
+
+        // in the english version show a hint about a date info
+        if UBLocalized.languageIsEnglish() {
+            values.0 = values.0 + "\n\n" + UBLocalized.wallet_certificate_detail_date_format_info
+        }
+
+        values.1 = values.1 + "\n\n" + UBLocalized.wallet_certificate_detail_date_format_info
 
         if let accD = DateFormatter.ub_accessibilityDateString(dateString: d) {
             let accLabel = (values.0.replacingOccurrences(of: "{DATE}", with: accD), values.1.replacingOccurrences(of: "{DATE}", with: accD))
