@@ -364,6 +364,8 @@ import Foundation
      case wallet_certificate_test_done_by_key = "wallet_certificate_test_done_by"
     /// Hersteller
      case wallet_certificate_test_holder_key = "wallet_certificate_test_holder"
+    /// Hersteller/ Name
+     case wallet_certificate_test_holder_and_name_key = "wallet_certificate_test_holder_and_name"
     /// Land des Tests
      case wallet_certificate_test_land_key = "wallet_certificate_test_land"
     /// Name
@@ -1084,6 +1086,8 @@ import Foundation
    static let wallet_certificate_test_done_by = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_done_by_key)
   /// Hersteller
    static let wallet_certificate_test_holder = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_holder_key)
+  /// Hersteller/ Name
+   static let wallet_certificate_test_holder_and_name = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_holder_and_name_key)
   /// Land des Tests
    static let wallet_certificate_test_land = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_land_key)
   /// Name

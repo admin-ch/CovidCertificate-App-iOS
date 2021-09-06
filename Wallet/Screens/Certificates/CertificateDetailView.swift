@@ -180,8 +180,7 @@ class CertificateDetailView: UIView {
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_title_key), value: text)
 
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_type_key), value: test.testType)
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_name_key), value: test.testName)
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_holder_key), value: test.manufacturer)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_holder_and_name_key), value: test.manufacturerAndTestName)
 
             addDividerLine()
 
