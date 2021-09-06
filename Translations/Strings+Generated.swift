@@ -264,6 +264,8 @@ import Foundation
      case wallet_certificate_delete_confirm_text_key = "wallet_certificate_delete_confirm_text"
     /// Zertifikat Light
      case wallet_certificate_detail_certificate_light_button_key = "wallet_certificate_detail_certificate_light_button"
+    /// Date format used: dd.mm.yyyy
+     case wallet_certificate_detail_date_format_info_key = "wallet_certificate_detail_date_format_info"
     /// Exportieren
      case wallet_certificate_detail_export_button_key = "wallet_certificate_detail_export_button"
     /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
@@ -362,6 +364,8 @@ import Foundation
      case wallet_certificate_test_done_by_key = "wallet_certificate_test_done_by"
     /// Hersteller
      case wallet_certificate_test_holder_key = "wallet_certificate_test_holder"
+    /// Hersteller/ Name
+     case wallet_certificate_test_holder_and_name_key = "wallet_certificate_test_holder_and_name"
     /// Land des Tests
      case wallet_certificate_test_land_key = "wallet_certificate_test_land"
     /// Name
@@ -982,6 +986,8 @@ import Foundation
    static let wallet_certificate_delete_confirm_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_delete_confirm_text_key)
   /// Zertifikat Light
    static let wallet_certificate_detail_certificate_light_button = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_certificate_light_button_key)
+  /// Date format used: dd.mm.yyyy
+   static let wallet_certificate_detail_date_format_info = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_date_format_info_key)
   /// Exportieren
    static let wallet_certificate_detail_export_button = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_export_button_key)
   /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
@@ -1080,6 +1086,8 @@ import Foundation
    static let wallet_certificate_test_done_by = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_done_by_key)
   /// Hersteller
    static let wallet_certificate_test_holder = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_holder_key)
+  /// Hersteller/ Name
+   static let wallet_certificate_test_holder_and_name = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_holder_and_name_key)
   /// Land des Tests
    static let wallet_certificate_test_land = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_land_key)
   /// Name

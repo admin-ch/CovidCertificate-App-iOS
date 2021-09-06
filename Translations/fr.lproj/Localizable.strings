@@ -861,9 +861,11 @@
 "wallet_certificate_light_detail_text_2_bold" = "n’est utilisable qu’en doit être aucun";
 
 /*VoiceOver reads this when the expandable box is reduced*/
+/*Fuzzy*/
 "accessibility_expandable_box_reduced_state" = "réduit";
 
 /*VoiceOver reads this when the expandable box is expanded*/
+/*Fuzzy*/
 "accessibility_expandable_box_expanded_state" = "étendu";
 
 /*Header im Update Boarding-Screen*/
@@ -936,3 +938,8 @@
 
 /*Einstellungen: Titel Sprachauswahl*/
 "language_title" = "Langue";
+
+/*Information about the date format (always english)*/
+/*Fuzzy*/
+"wallet_certificate_detail_date_format_info" = "Date format used: dd.mm.yyyy";
+"wallet_certificate_test_holder_and_name" = "Fabricant/ Nom";
