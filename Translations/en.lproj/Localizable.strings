@@ -942,3 +942,4 @@
 /*Information about the date format (always english)*/
 /*Fuzzy*/
 "wallet_certificate_detail_date_format_info" = "Date format used: dd.mm.yyyy";
+"wallet_certificate_test_holder_and_name" = "Manufacturer/ Name";
