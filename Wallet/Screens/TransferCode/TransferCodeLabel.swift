@@ -98,10 +98,6 @@ class TransferCodeLabel: UIControl {
         }
     }
 
-    @objc func handleLongPressGesture(recognizer: UIGestureRecognizer) {
-        guard recognizer.state == .recognized else { return }
-    }
-
     override func canPerformAction(_ action: Selector, withSender _: Any?) -> Bool {
         return (action == #selector(UIResponderStandardEditActions.copy(_:)))
     }
