@@ -115,7 +115,7 @@ class CertificateDetailView: UIView {
             addDividerLine()
 
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title_key), value: vaccination.certificateIssuer)
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier_key), value: vaccination.certificateIdentifier, addEnglishLabels: false)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier_key), value: vaccination.certificateIdentifier, addEnglishLabels: false, addPasteboardCopyCapability: true)
 
             addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: vaccination.doseNumber != vaccination.totalDoses)
         }
@@ -149,7 +149,7 @@ class CertificateDetailView: UIView {
             addDividerLine()
 
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title_key), value: pastInfection.certificateIssuer)
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier_key), value: pastInfection.certificateIdentifier, addEnglishLabels: false)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier_key), value: pastInfection.certificateIdentifier, addEnglishLabels: false, addPasteboardCopyCapability: true)
 
             addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: false)
         }
@@ -195,7 +195,7 @@ class CertificateDetailView: UIView {
             addDividerLine()
 
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title_key), value: test.certificateIssuer)
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier_key), value: test.certificateIdentifier, addEnglishLabels: false)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier_key), value: test.certificateIdentifier, addEnglishLabels: false, addPasteboardCopyCapability: true)
 
             addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: false)
         }
@@ -219,7 +219,7 @@ class CertificateDetailView: UIView {
         englishLabels.append(englishLabel)
     }
 
-    private func addValueItem(title: (String, String), value: String?, addEnglishLabels: Bool = true, accLabel: String? = nil) {
+    private func addValueItem(title: (String, String), value: String?, addEnglishLabels: Bool = true, accLabel: String? = nil, addPasteboardCopyCapability: Bool = false) {
         guard let v = value else { return }
 
         let sv = UIStackView()
@@ -232,6 +232,18 @@ class CertificateDetailView: UIView {
         let titleLabel = Label(.textBold)
         titleLabel.text = v
         sv.addArrangedView(titleLabel)
+
+        // if value should be able to be copied into UIPasteboard,
+        // add copy text overlay
+        if addPasteboardCopyCapability {
+            titleLabel.isUserInteractionEnabled = true
+
+            let overlay = CopyAbleTextLabelOverlay(text: v)
+            titleLabel.addSubview(overlay)
+            overlay.snp.makeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+        }
 
         let textLabel = Label(.text)
         textLabel.text = title.0
