@@ -210,6 +210,7 @@ class CertificateDetailView: UIView {
 
         let englishLabel = Label(.text, textColor: .cc_greyText)
         englishLabel.text = title.1
+        englishLabel.isAccessibilityElement = false
         stackView.addArrangedView(englishLabel)
 
         stackView.addSpacerView(Padding.large)
@@ -226,13 +227,7 @@ class CertificateDetailView: UIView {
         sv.isAccessibilityElement = true
 
         let accText = accLabel ?? v
-
-        // we add what the screen shows to accessibility
-        if UBLocalized.languageIsEnglish() || !addEnglishLabels {
-            sv.accessibilityLabel = [title.0, accText].joined(separator: ", ")
-        } else {
-            sv.accessibilityLabel = [title.0, title.1, accText].joined(separator: ", ")
-        }
+        sv.accessibilityLabel = [title.0, accText].joined(separator: ", ").cc_accessibilityLabel
 
         let titleLabel = Label(.textBold)
         titleLabel.text = v
@@ -263,7 +258,7 @@ class CertificateDetailView: UIView {
 
         let textLabel = Label(.text)
         textLabel.text = v
-        textLabel.accessibilityLabel = accLabel.0 ?? v
+        textLabel.accessibilityLabel = (accLabel.0 ?? v).cc_accessibilityLabel
         stackView.addArrangedView(textLabel)
 
         if spacing > 0.0 {
@@ -272,7 +267,7 @@ class CertificateDetailView: UIView {
 
         let englishLabel = Label(.text, textColor: .cc_grey)
         englishLabel.text = vEnglish
-        textLabel.accessibilityLabel = accLabel.1 ?? vEnglish
+        englishLabel.isAccessibilityElement = false
         stackView.addArrangedView(englishLabel)
 
         stackView.addSpacerView(Padding.large)
@@ -411,5 +406,11 @@ private class DashedLineView: UIView {
         let cgPoint = [CGPoint(x: 0, y: 0), CGPoint(x: frame.width, y: 0)]
         cgPath.addLines(between: cgPoint)
         shapeLayer.path = cgPath
+    }
+}
+
+private extension String {
+    var cc_accessibilityLabel: String? {
+        return replacingOccurrences(of: "uvci", with: "U.V.C.I.", options: .caseInsensitive).replacingOccurrences(of: "(bag)", with: "(B.A.G.)", options: .caseInsensitive).replacingOccurrences(of: "urn:", with: "(U.R.N.):", options: .caseInsensitive)
     }
 }

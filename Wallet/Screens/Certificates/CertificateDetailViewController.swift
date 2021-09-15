@@ -51,6 +51,8 @@ class CertificateDetailViewController: ViewController {
                 self.qrCodeStateView.state = self.temporaryVerifierState
             }
             if temporaryVerifierState != .idle && temporaryVerifierState != .verifying {
+                UIAccessibility.post(notification: .screenChanged, argument: stateView)
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + .pi) { [weak self] in
                     guard let strongSelf = self else { return }
                     UIView.animate(withDuration: 0.2) {
