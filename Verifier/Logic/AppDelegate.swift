@@ -143,8 +143,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         addBlurView()
 
-        // Close all views that are currently shown, such that people can start to scan directly when opening the app the next time.
-        window?.rootViewController?.dismiss(animated: true, completion: nil)
+        // if the presented view controller is a VerifyViewController, we only dismiss the result
+        // such that the scanner is directly available without a click
+        if let pvc = window?.rootViewController?.presentedViewController as? VerifyViewController {
+            pvc.dismissResult()
+        } else {
+            window?.rootViewController?.dismiss(animated: true, completion: nil)
+        }
     }
 
     func applicationDidBecomeActive(_: UIApplication) {

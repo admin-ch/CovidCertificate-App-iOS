@@ -38,6 +38,10 @@ class VerifyViewController: ViewController {
         checkViewController.view.isUserInteractionEnabled = false
     }
 
+    public func dismissResult() {
+        checkViewController.dismissResult()
+    }
+
     private func setupInteraction() {
         scannerViewController.scanningSucceededCallback = { [weak self] holder in
             guard let strongSelf = self else { return }
