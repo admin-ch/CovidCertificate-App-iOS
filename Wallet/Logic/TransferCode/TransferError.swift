@@ -12,6 +12,12 @@
 import Foundation
 
 public enum TransferError: Error {
+    // MARK: - ErrorCodes
+
+    static let timeErrorCode: Int = 425
+
+    // MARK: - Cases
+
     case BASE64_DECODING_ERROR
     case DECRYPTION_ERROR(Error?, String?)
     case SIGN_ERROR(Error?)
@@ -19,10 +25,12 @@ public enum TransferError: Error {
     case CREATE_KEY_ERROR(Error?)
     case CANNOT_GET_PUBLIC_KEY
     case CANNOT_ENCODE_PUBLIC_KEY(Error?)
-    case REGISTER_FAILED(Error?)
-    case GET_CERTIFICATE_FAILED(Error?)
+    case REGISTER_FAILED(statusCode: Int?, error: Error?)
+    case GET_CERTIFICATE_FAILED(statusCode: Int?, error: Error?)
     case CANNOT_DECODE_RESPONSE(statusCode: Int)
-    case DELETE_CERTIFICATE_FAILED(Error?)
+    case DELETE_CERTIFICATE_FAILED(statusCode: Int?, error: Error?)
+
+    // MARK: - API
 
     public var errorCode: String {
         switch self {
@@ -33,10 +41,10 @@ public enum TransferError: Error {
         case let .CREATE_KEY_ERROR(error): return "C|CKE\(error.errorCodeString)"
         case .CANNOT_GET_PUBLIC_KEY: return "C|CGPK"
         case let .CANNOT_ENCODE_PUBLIC_KEY(error): return "C|CEPK\(error.errorCodeString)"
-        case let .REGISTER_FAILED(error): return "N|RF\(error.errorCodeString)"
-        case let .GET_CERTIFICATE_FAILED(error): return "N|GCF\(error.errorCodeString)"
+        case let .REGISTER_FAILED(_, error): return "N|RF\(error.errorCodeString)"
+        case let .GET_CERTIFICATE_FAILED(_, error): return "N|GCF\(error.errorCodeString)"
         case let .CANNOT_DECODE_RESPONSE(statusCode): return "N|CDR\(statusCode)"
-        case let .DELETE_CERTIFICATE_FAILED(error): return "N|DCF\(error.errorCodeString)"
+        case let .DELETE_CERTIFICATE_FAILED(_, error): return "N|DCF\(error.errorCodeString)"
         }
     }
 
@@ -69,7 +77,7 @@ public enum TransferError: Error {
 
     public var icon: UIImage? {
         switch self {
-        case let .GET_CERTIFICATE_FAILED(error as NSError), let .REGISTER_FAILED(error as NSError):
+        case let .GET_CERTIFICATE_FAILED(_, error as NSError), let .REGISTER_FAILED(_, error as NSError):
             if error.noInternetError() {
                 return UIImage(named: "ic-nocon")
             } else {
@@ -82,7 +90,7 @@ public enum TransferError: Error {
 
     public var cornerIcon: UIImage? {
         switch self {
-        case let .GET_CERTIFICATE_FAILED(error as NSError), let .REGISTER_FAILED(error as NSError):
+        case let .GET_CERTIFICATE_FAILED(_, error as NSError), let .REGISTER_FAILED(_, error as NSError):
             if error.noInternetError() {
                 return UIImage(named: "corner-left-no-internet")
             } else {
@@ -97,9 +105,13 @@ public enum TransferError: Error {
 
     public var generateErrorTitle: String {
         switch self {
-        case let .REGISTER_FAILED(error as NSError):
-            if error.noInternetError() {
+        case let .REGISTER_FAILED(statusCode, error),
+             let .DELETE_CERTIFICATE_FAILED(statusCode, error),
+             let .GET_CERTIFICATE_FAILED(statusCode, error):
+            if let e = error as NSError?, e.noInternetError() {
                 return UBLocalized.wallet_transfer_code_no_internet_title
+            } else if statusCode == TransferError.timeErrorCode {
+                return UBLocalized.wallet_transfer_code_time_inconsistency_title
             } else {
                 return UBLocalized.wallet_transfer_code_generate_error_title
             }
@@ -110,9 +122,13 @@ public enum TransferError: Error {
 
     public var generateErrorText: String {
         switch self {
-        case let .REGISTER_FAILED(error as NSError):
-            if error.noInternetError() {
+        case let .REGISTER_FAILED(statusCode, error),
+             let .DELETE_CERTIFICATE_FAILED(statusCode, error),
+             let .GET_CERTIFICATE_FAILED(statusCode, error):
+            if let e = error as NSError?, e.noInternetError() {
                 return UBLocalized.wallet_transfer_code_generate_no_internet_error_text
+            } else if statusCode == TransferError.timeErrorCode {
+                return UBLocalized.wallet_transfer_code_time_inconsistency_text
             } else {
                 return UBLocalized.wallet_transfer_code_generate_error_text
             }
@@ -125,9 +141,13 @@ public enum TransferError: Error {
 
     public var updateErrorTitle: String {
         switch self {
-        case let .GET_CERTIFICATE_FAILED(error as NSError):
-            if error.noInternetError() {
+        case let .REGISTER_FAILED(statusCode, error),
+             let .DELETE_CERTIFICATE_FAILED(statusCode, error),
+             let .GET_CERTIFICATE_FAILED(statusCode, error):
+            if let e = error as NSError?, e.noInternetError() {
                 return UBLocalized.wallet_transfer_code_no_internet_title
+            } else if statusCode == TransferError.timeErrorCode {
+                return UBLocalized.wallet_transfer_code_time_inconsistency_title
             } else {
                 return UBLocalized.wallet_transfer_code_update_error_title
             }
@@ -138,9 +158,13 @@ public enum TransferError: Error {
 
     public var updateErrorText: String {
         switch self {
-        case let .GET_CERTIFICATE_FAILED(error as NSError):
-            if error.noInternetError() {
+        case let .REGISTER_FAILED(statusCode, error),
+             let .DELETE_CERTIFICATE_FAILED(statusCode, error),
+             let .GET_CERTIFICATE_FAILED(statusCode, error):
+            if let e = error as NSError?, e.noInternetError() {
                 return UBLocalized.wallet_transfer_code_update_no_internet_error_text
+            } else if statusCode == TransferError.timeErrorCode {
+                return UBLocalized.wallet_transfer_code_time_inconsistency_text
             } else {
                 return UBLocalized.wallet_transfer_code_update_general_error_text
             }
