@@ -364,7 +364,7 @@ import Foundation
      case wallet_certificate_test_done_by_key = "wallet_certificate_test_done_by"
     /// Hersteller
      case wallet_certificate_test_holder_key = "wallet_certificate_test_holder"
-    /// Hersteller/ Name
+    /// Hersteller und Name
      case wallet_certificate_test_holder_and_name_key = "wallet_certificate_test_holder_and_name"
     /// Land des Tests
      case wallet_certificate_test_land_key = "wallet_certificate_test_land"
@@ -708,6 +708,10 @@ import Foundation
      case wallet_transfer_code_state_updated_key = "wallet_transfer_code_state_updated"
     /// Warten auf Transfer
      case wallet_transfer_code_state_waiting_key = "wallet_transfer_code_state_waiting"
+    /// Die Uhrzeit muss richtig eingestellt sein, damit Transfer-Codes funktionieren. Passen Sie Ihre Uhrzeit an und versuchen sie es erneut.
+     case wallet_transfer_code_time_inconsistency_text_key = "wallet_transfer_code_time_inconsistency_text"
+    /// Uhrzeit Fehler
+     case wallet_transfer_code_time_inconsistency_title_key = "wallet_transfer_code_time_inconsistency_title"
     /// Transfer-Code
      case wallet_transfer_code_title_key = "wallet_transfer_code_title"
     /// +41 58 466 07 99
@@ -1086,7 +1090,7 @@ import Foundation
    static let wallet_certificate_test_done_by = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_done_by_key)
   /// Hersteller
    static let wallet_certificate_test_holder = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_holder_key)
-  /// Hersteller/ Name
+  /// Hersteller und Name
    static let wallet_certificate_test_holder_and_name = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_holder_and_name_key)
   /// Land des Tests
    static let wallet_certificate_test_land = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_land_key)
@@ -1430,6 +1434,10 @@ import Foundation
    static let wallet_transfer_code_state_updated = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_updated_key)
   /// Warten auf Transfer
    static let wallet_transfer_code_state_waiting = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_waiting_key)
+  /// Die Uhrzeit muss richtig eingestellt sein, damit Transfer-Codes funktionieren. Passen Sie Ihre Uhrzeit an und versuchen sie es erneut.
+   static let wallet_transfer_code_time_inconsistency_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_time_inconsistency_text_key)
+  /// Uhrzeit Fehler
+   static let wallet_transfer_code_time_inconsistency_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_time_inconsistency_title_key)
   /// Transfer-Code
    static let wallet_transfer_code_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_title_key)
   /// +41 58 466 07 99

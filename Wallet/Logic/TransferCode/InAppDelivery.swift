@@ -54,17 +54,24 @@ public class InAppDelivery {
 
         // do some requests
         let request = Endpoint.register(payload: payload).request()
-        registerDataTask = session.dataTask(with: request, completionHandler: { _, response, error in
+        registerDataTask = session.dataTask(with: request, completionHandler: { data, response, error in
             DispatchQueue.main.async {
                 guard let resp = response as? HTTPURLResponse
                 else {
-                    callback(.failure(.REGISTER_FAILED(error)))
+                    callback(.failure(.REGISTER_FAILED(statusCode: nil, error: error)))
                     return
                 }
+
                 if resp.statusCode < 200 || resp.statusCode >= 300 {
-                    callback(.failure(.REGISTER_FAILED(nil)))
+                    var error: Error?
+                    if let d = data {
+                        error = NSError(domain: String(decoding: d, as: UTF8.self), code: resp.statusCode, userInfo: nil)
+                    }
+
+                    callback(.failure(.REGISTER_FAILED(statusCode: resp.statusCode, error: error)))
                     return
                 }
+
                 callback(.success(code))
             }
         })
@@ -91,7 +98,12 @@ public class InAppDelivery {
         guard let httpUrlResponse = response as? HTTPURLResponse,
               let data = optData
         else {
-            return .failure(.GET_CERTIFICATE_FAILED(error))
+            return .failure(.GET_CERTIFICATE_FAILED(statusCode: nil, error: error))
+        }
+
+        if httpUrlResponse.statusCode < 200 || httpUrlResponse.statusCode >= 300 {
+            let error = NSError(domain: String(decoding: data, as: UTF8.self), code: httpUrlResponse.statusCode, userInfo: nil)
+            return .failure(.GET_CERTIFICATE_FAILED(statusCode: httpUrlResponse.statusCode, error: error))
         }
 
         guard let certs = try? JSONDecoder().decode(InAppDeliveryCertificateBody.self, from: data) else {
@@ -146,11 +158,17 @@ public class InAppDelivery {
         let request = Endpoint.deleteCertificate(payload: payload).request()
         let (optData, response, error) = session.synchronousDataTask(with: request)
 
-        guard let _ = response as? HTTPURLResponse,
-              let _ = optData
+        guard let httpUrlResponse = response as? HTTPURLResponse,
+              let data = optData
         else {
-            return .failure(.DELETE_CERTIFICATE_FAILED(error))
+            return .failure(.DELETE_CERTIFICATE_FAILED(statusCode: nil, error: error))
         }
+
+        if httpUrlResponse.statusCode < 200 || httpUrlResponse.statusCode >= 300 {
+            let error = NSError(domain: String(decoding: data, as: UTF8.self), code: httpUrlResponse.statusCode, userInfo: nil)
+            return .failure(.DELETE_CERTIFICATE_FAILED(statusCode: httpUrlResponse.statusCode, error: error))
+        }
+
         return .success(true)
     }
 

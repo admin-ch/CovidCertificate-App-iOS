@@ -104,6 +104,7 @@ class TransferCodeErrorView: UIView {
             self.titleLabel.text = self.error?.generateErrorTitle
             self.textLabel.text = self.error?.generateErrorText
             self.accessibilityLabel = [self.titleLabel.attributedText?.string, self.textLabel.attributedText?.string].compactMap { $0 }.joined(separator: ", ")
+            self.errorLabel.text = self.error?.errorCode
         }
 
         if animated {

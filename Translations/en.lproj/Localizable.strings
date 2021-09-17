@@ -942,4 +942,10 @@
 /*Information about the date format (always english)*/
 /*Fuzzy*/
 "wallet_certificate_detail_date_format_info" = "Date format used: dd.mm.yyyy";
-"wallet_certificate_test_holder_and_name" = "Manufacturer/ Name";
+"wallet_certificate_test_holder_and_name" = "Manufacturer and Name";
+
+/*Wallet: Fehler-Titel falls Uhrzeit falsch eingestellt bei Transfer-Code*/
+"wallet_transfer_code_time_inconsistency_title" = "Uhrzeit Fehler";
+
+/*Wallet: Transfer-Code Fehler-Text, falls Zeit falsch eingestellt*/
+"wallet_transfer_code_time_inconsistency_text" = "Die Uhrzeit muss richtig eingestellt sein, damit Transfer-Codes funktionieren. Passen Sie Ihre Uhrzeit an und versuchen sie es erneut.";
