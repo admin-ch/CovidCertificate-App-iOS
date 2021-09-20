@@ -148,6 +148,10 @@ class VerifyCheckViewController: ViewController {
         }
     }
 
+    public func dismissResult() {
+        checkContentViewController.okButtonTouchUpCallback?()
+    }
+
     // MARK: - Update
 
     private func updateBackground(_ animated: Bool) {
