@@ -59,6 +59,7 @@ public extension ExtensionModel {
     }
 
     var sharePDFName: String? {
+        // only DCCCerts should get exported
         guard let certificate = self as? DCCCert else { return nil }
         let name = [certificate.person.familyName, certificate.person.givenName].compactMap { $0 }.joined(separator: "-")
         guard let uvic: String = certificate.vaccinations?.first?.certificateIdentifier ??
