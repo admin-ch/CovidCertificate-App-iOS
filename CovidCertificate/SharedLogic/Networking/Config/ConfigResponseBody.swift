@@ -55,6 +55,14 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     #if WALLET
         var lightCertificateActive = false
         var pdfGenerationActive = false
+
+        var showVaccinationHintHomescreen = false
+        var showVaccinationHintDetail = false
+        var showVaccinationHintTransfer = false
+
+        let vaccinationHints: LocalizedValue<[VaccinationHint]>?
+        let vaccinationBookingCantons: LocalizedValue<[VaccinationBookingCanton]>
+        let vaccinationBookingInfo: LocalizedValue<VaccinationBookingInfo>
     #endif
 
     class FAQEntriesContainer: UBCodable {
@@ -76,6 +84,23 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     class FAQIntroEntry: UBCodable {
         let text: String
         let iconIos: String?
+    }
+
+    struct VaccinationHint: UBCodable {
+        let title: String
+        let text: String
+    }
+
+    struct VaccinationBookingCanton: UBCodable {
+        let name: String
+        let iconIos: String
+        let linkUrl: String
+    }
+
+    struct VaccinationBookingInfo: UBCodable {
+        let title: String
+        let text: String
+        let info: String
     }
 }
 
