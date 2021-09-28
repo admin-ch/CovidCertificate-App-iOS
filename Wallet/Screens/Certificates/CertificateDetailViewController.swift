@@ -39,6 +39,9 @@ class CertificateDetailViewController: ViewController {
     private let exportRow = IconImageRowView(icon: UIImage(named: "ic-pdf")!,
                                              text: UBLocalized.wallet_certificate_detail_export_button)
 
+    private let vaccinationInfoRow = IconImageRowView(icon: UIImage(named: "ic-info-outline")!,
+                                                      text: UBLocalized.vaccination_information_button_in_certificate)
+
     private var state: VerificationState = .loading {
         didSet {
             update()
@@ -149,6 +152,11 @@ class CertificateDetailViewController: ViewController {
             stackScrollView.addSpacerView(2.0, color: .cc_blueish)
         }
 
+        if ConfigManager.currentConfig?.showVaccinationHintDetail ?? false {
+            stackScrollView.addArrangedView(vaccinationInfoRow)
+            stackScrollView.addSpacerView(2.0, color: .cc_blueish)
+        }
+
         let spacer = stackScrollView.addSpacerView(3.0 * Padding.large + Padding.medium)
         stackScrollView.addArrangedViewCentered(removeButton)
 
@@ -210,6 +218,11 @@ class CertificateDetailViewController: ViewController {
                 self.sharePDF(pdf)
             }
             strongSelf.navigationController?.pushViewController(vc, animated: true)
+        }
+
+        vaccinationInfoRow.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.navigationController?.pushViewController(VaccinationInformationViewController(), animated: true)
         }
     }
 

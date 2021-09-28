@@ -131,11 +131,24 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             vc.presentInNavigationController(from: strongSelf)
         }
 
+        onboardingViewController.showVaccinationAppointmentInformationTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            let vc = VaccinationInformationViewController()
+            vc.presentInNavigationController(from: strongSelf)
+        }
         actionPopupView.addTransferCodeTouchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.actionPopupView.dismiss()
 
             let vc = TransferCodeViewController()
+            vc.presentInNavigationController(from: strongSelf)
+        }
+
+        actionPopupView.showVaccinationAppointmentInformationTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.actionPopupView.dismiss()
+
+            let vc = VaccinationInformationViewController()
             vc.presentInNavigationController(from: strongSelf)
         }
 

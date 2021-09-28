@@ -17,6 +17,7 @@ class HomescreenOnboardingViewController: ViewController {
     public var addQRCertificateTouchUpCallback: (() -> Void)?
     public var addPDFCertificateTouchUpCallback: (() -> Void)?
     public var addTransferCodeTouchUpCallback: (() -> Void)?
+    public var showVaccinationAppointmentInformationTouchUpCallback: (() -> Void)?
 
     // MARK: - Subviews
 
@@ -45,6 +46,11 @@ class HomescreenOnboardingViewController: ViewController {
         homescreenButtons.addTransferCodeTouchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.addTransferCodeTouchUpCallback?()
+        }
+
+        homescreenButtons.showVaccinationAppointmentInformationTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.showVaccinationAppointmentInformationTouchUpCallback?()
         }
     }
 

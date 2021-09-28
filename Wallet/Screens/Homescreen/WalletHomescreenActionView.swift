@@ -17,13 +17,15 @@ class WalletHomescreenActionView: UIView {
     public var addQRCertificateTouchUpCallback: (() -> Void)?
     public var addPDFCertificateTouchUpCallback: (() -> Void)?
     public var addTransferCodeTouchUpCallback: (() -> Void)?
+    public var showVaccinationAppointmentInformationTouchUpCallback: (() -> Void)?
 
     // MARK: - Subviews
 
     private let stackView = UIStackView()
 
     private let addCertificateView = AddCertificateView()
-    private let addTransferCodeButton = AddTransferCodeButton()
+    private let addTransferCodeButton = RoundedButton(title: UBLocalized.wallet_homescreen_add_transfer_code)
+    private lazy var showVaccinationAppointmentInformationButton = RoundedButton(title: UBLocalized.vaccination_homescreen_button_title)
 
     // MARK: - Init
 
@@ -51,6 +53,10 @@ class WalletHomescreenActionView: UIView {
 
         stackView.addArrangedView(addCertificateView)
         stackView.addArrangedView(addTransferCodeButton)
+
+        if ConfigManager.currentConfig?.showVaccinationHintHomescreen ?? false {
+            stackView.addArrangedView(showVaccinationAppointmentInformationButton)
+        }
     }
 
     private func setupInteraction() {
@@ -67,6 +73,11 @@ class WalletHomescreenActionView: UIView {
         addTransferCodeButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.addTransferCodeTouchUpCallback?()
+        }
+
+        showVaccinationAppointmentInformationButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.showVaccinationAppointmentInformationTouchUpCallback?()
         }
     }
 }
@@ -161,28 +172,28 @@ class AddCertificateView: UIView {
     }
 }
 
-class AddTransferCodeButton: UBButton {
+class RoundedButton: UBButton {
     // MARK: - Subviews
 
     private let topLabel = Label(.textBoldLarge)
 
     // MARK: - Init
 
-    override init() {
+    init(title: String) {
         super.init()
-        setup()
+        setup(title: title)
     }
 
     // MARK: - Setup
 
-    private func setup() {
+    private func setup(title: String) {
         highlightedBackgroundColor = UIColor.cc_touchState
         backgroundColor = UIColor.cc_white
         layer.cornerRadius = 20
         highlightCornerRadius = 20
         ub_addShadow(radius: 10.0, opacity: 0.2, xOffset: 0.0, yOffset: 0.0)
 
-        topLabel.text = UBLocalized.wallet_homescreen_add_transfer_code
+        topLabel.text = title
         addSubview(topLabel)
 
         let lr = Padding.small + Padding.medium

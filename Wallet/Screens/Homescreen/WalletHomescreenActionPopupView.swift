@@ -21,6 +21,7 @@ class WalletHomescreenActionPopupView: PopupView {
     public var addQRCertificateTouchUpCallback: (() -> Void)?
     public var addPDFCertificateTouchUpCallback: (() -> Void)?
     public var addTransferCodeTouchUpCallback: (() -> Void)?
+    public var showVaccinationAppointmentInformationTouchUpCallback: (() -> Void)?
 
     // MARK: - Setup
 
@@ -51,6 +52,11 @@ class WalletHomescreenActionPopupView: PopupView {
         actionView.addTransferCodeTouchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.addTransferCodeTouchUpCallback?()
+        }
+
+        actionView.showVaccinationAppointmentInformationTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.showVaccinationAppointmentInformationTouchUpCallback?()
         }
     }
 }

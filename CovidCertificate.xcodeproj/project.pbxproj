@@ -239,6 +239,8 @@
 		8EB23D78245AF2C30073E83A /* RandomGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23D77245AF2C30073E83A /* RandomGenerators.swift */; };
 		A6BBA110246BFCBC00E42EE7 /* UIDevice+ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BBA10F246BFCBC00E42EE7 /* UIDevice+ScreenType.swift */; };
 		AAF73668242F3D030051E34A /* UIStackView+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF73667242F3D030051E34A /* UIStackView+CC.swift */; };
+		B61114DB2703085C00E7DBAB /* VaccinationCantonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61114DA2703085C00E7DBAB /* VaccinationCantonButton.swift */; };
+		B68FDBFA2702FFE000E853D8 /* VaccinationInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */; };
 		DC286A26242CE0B9001D5344 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286A25242CE0B9001D5344 /* Environment.swift */; };
 		DC445D332645828E007DC8F2 /* QRScanErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC445D322645828E007DC8F2 /* QRScanErrorView.swift */; };
 		DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFA243F6D870066C773 /* UBLabelType.swift */; };
@@ -506,6 +508,8 @@
 		8EB23D77245AF2C30073E83A /* RandomGenerators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGenerators.swift; sourceTree = "<group>"; };
 		A6BBA10F246BFCBC00E42EE7 /* UIDevice+ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ScreenType.swift"; sourceTree = "<group>"; };
 		AAF73667242F3D030051E34A /* UIStackView+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+CC.swift"; sourceTree = "<group>"; };
+		B61114DA2703085C00E7DBAB /* VaccinationCantonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationCantonButton.swift; sourceTree = "<group>"; };
+		B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationInformationViewController.swift; sourceTree = "<group>"; };
 		DC286A25242CE0B9001D5344 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		DC445D322645828E007DC8F2 /* QRScanErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanErrorView.swift; sourceTree = "<group>"; };
 		DC50D5D026832080006915AD /* CovidCertificateWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CovidCertificateWallet.entitlements; sourceTree = "<group>"; };
@@ -1142,6 +1146,15 @@
 			path = CovidCertificateTests;
 			sourceTree = "<group>";
 		};
+		B68FDBF82702FE6500E853D8 /* Vaccination */ = {
+			isa = PBXGroup;
+			children = (
+				B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */,
+				B61114DA2703085C00E7DBAB /* VaccinationCantonButton.swift */,
+			);
+			path = Vaccination;
+			sourceTree = "<group>";
+		};
 		DC286A24242CE0AD001D5344 /* SharedLogic */ = {
 			isa = PBXGroup;
 			children = (
@@ -1156,6 +1169,7 @@
 		DC286A27242CE1D2001D5344 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B68FDBF82702FE6500E853D8 /* Vaccination */,
 				6E6035FF267878EC00EB57E7 /* TransferCode */,
 				DC8ABDE9264A5C4500FDE0E1 /* Onboarding */,
 				6EC172BD26407EAB002E27DB /* Homescreen */,
@@ -1855,6 +1869,7 @@
 				DC8ABDFF264AAA1B00FDE0E1 /* ExpandableViewBody.swift in Sources */,
 				F8E6C5622683808F00A9E112 /* DebugSwitchView.swift in Sources */,
 				F88DA6C4268CA82D001DB072 /* NetworkErrorRetryViewController.swift in Sources */,
+				B61114DB2703085C00E7DBAB /* VaccinationCantonButton.swift in Sources */,
 				DC702B0C243F6FAE0066C773 /* UBUserDefault.swift in Sources */,
 				6E8F52D9265BA94B00406430 /* CameraErrorView.swift in Sources */,
 				F88DA6D0268CC3AB001DB072 /* CertificateLightExpirationTimer.swift in Sources */,
@@ -1937,6 +1952,7 @@
 				6ED9161D2681B171006D9E7C /* UBPushManager.swift in Sources */,
 				F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */,
 				F88DA6CB268CAD2A001DB072 /* TransformationError.swift in Sources */,
+				B68FDBFA2702FFE000E853D8 /* VaccinationInformationViewController.swift in Sources */,
 				F8A259512684A07A0087D86E /* TransferCodeNotificationDisabledView.swift in Sources */,
 				6E70145C265421940097BBC8 /* CertificateAlreadyAddedView.swift in Sources */,
 				6ED916302681D932006D9E7C /* LocalPush.swift in Sources */,
