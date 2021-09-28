@@ -15,7 +15,7 @@ final class QRCodeUtils {
     static func createQrCodeImage(from string: String) -> UIImage? {
         if let data = string.data(using: .utf8), let filter = CIFilter(name: "CIQRCodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")
-            filter.setValue("Q", forKey: "inputCorrectionLevel")
+            filter.setValue("M", forKey: "inputCorrectionLevel")
 
             if let output = filter.outputImage {
                 if let cgImage = CIContext(options: nil).createCGImage(output, from: output.extent) {
