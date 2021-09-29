@@ -30,14 +30,8 @@ class WalletUserStorage {
     @UBUserDefault(key: "wallet.user.hasCompletedPushRegistration", defaultValue: false)
     var hasCompletedPushRegistration: Bool
 
-    @UBUserDefault(key: "wallet.user.timestampOfLastVaccinationHintDismissal", defaultValue: Calendar.current.date(byAdding: .day, value: -7, to: Date())?.timeIntervalSince1970 ?? Date().timeIntervalSince1970)
-    var timestampOfLastVaccinationHintDismissal: TimeInterval
-
-    @UBUserDefault(key: "wallet.user.timestampOfLastVaccinationHintRefresh", defaultValue: Date().timeIntervalSince1970)
-    var timestampOfLastVaccinationHintRefresh: TimeInterval
-
-    @UBUserDefault(key: "wallet.user.lastVaccinationHint", defaultValue: nil)
-    var lastVaccinationHint: ConfigResponseBody.VaccinationHint?
+    @UBUserDefault(key: "wallet.user.lastVaccinationHintDismissal", defaultValue: Date(timeIntervalSinceNow: -HomescreenCertificateView.showVaccinationHintAgainInterval))
+    var lastVaccinationHintDismissal: Date
 }
 
 class CertificateStorage {

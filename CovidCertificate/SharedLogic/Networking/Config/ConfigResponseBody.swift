@@ -150,7 +150,9 @@ extension ConfigResponseBody {
         ]
     }
 
-    var randomVaccinationInfoHint: VaccinationHint? {
-        return vaccinationHints?.value?.randomElement()
-    }
+    #if WALLET
+        var randomVaccinationInfoHint: VaccinationHint? {
+            return vaccinationHints?.value?.randomElement()
+        }
+    #endif
 }

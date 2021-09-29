@@ -22,6 +22,8 @@ class HomescreenCertificatesViewController: ViewController {
     private let pageControl = UIPageControl()
     private var certificateViews: [HomescreenCertificateView] = []
 
+    private var certificateHints: [String: ConfigResponseBody.VaccinationHint] = [:]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -85,7 +87,16 @@ class HomescreenCertificatesViewController: ViewController {
         pageControl.alpha = certificates.count <= 1 ? 0.0 : 1.0
 
         for c in certificates {
-            let v = HomescreenCertificateView(certificate: c)
+            var vaccinationHint = ConfigManager.currentConfig?.randomVaccinationInfoHint
+
+            if let code = c.transferCode?.transferCode {
+                if let hint = certificateHints[code] {
+                    vaccinationHint = hint
+                } else {
+                    certificateHints[code] = vaccinationHint
+                }
+            }
+            let v = HomescreenCertificateView(certificate: c, vaccinationHint: vaccinationHint)
             stackScrollView.addArrangedView(v)
             certificateViews.append(v)
 

@@ -27,11 +27,19 @@ class HomescreenCertificateView: UIView {
     private let lightQrCodeView: LightQRCodeView
     private let transferView: TransferView
     private var vaccinationInfoView: HomescreenVaccinationInfoView?
-    private var topView: UIView?
-
+    private var topViewLayoutGuide = UILayoutGuide()
     private let backgroundButton = BackgroundButton()
 
-    public var certificate: UserCertificate? {
+    static let showVaccinationHintAgainInterval: TimeInterval = 60 * 60 * 24 * 7 // 7d
+
+    private var showVaccinationInfo: Bool {
+        let dismissedTooLongAgo = Date(timeIntervalSinceNow: -Self.showVaccinationHintAgainInterval) > WalletUserStorage.shared.lastVaccinationHintDismissal
+        return vaccinationHint != nil && dismissedTooLongAgo && certificate?.type == .transferCode && ConfigManager.currentConfig?.showVaccinationHintTransfer ?? false
+    }
+
+    private var vaccinationHint: ConfigResponseBody.VaccinationHint?
+
+    private(set) var certificate: UserCertificate? {
         didSet {
             qrCodeView.certificate = certificate
             lightQrCodeView.certificate = certificate
@@ -56,8 +64,9 @@ class HomescreenCertificateView: UIView {
 
     // MARK: - Subviews
 
-    init(certificate: UserCertificate) {
+    init(certificate: UserCertificate, vaccinationHint: ConfigResponseBody.VaccinationHint? = nil) {
         self.certificate = certificate
+        self.vaccinationHint = vaccinationHint
         qrCodeView = QRCodeView(certificate: certificate)
         lightQrCodeView = LightQRCodeView(certificate: certificate)
         transferView = TransferView(certificate: certificate)
@@ -77,8 +86,6 @@ class HomescreenCertificateView: UIView {
     private func setup() {
         let shadowRadius: CGFloat = 20.0
         let shadowOpacity: CGFloat = 0.17
-        let vaccinationHintDuration: TimeInterval = 60 * 60 * 24 * 7
-        let showVaccinationInfo = Date().timeIntervalSince1970 - WalletUserStorage.shared.timestampOfLastVaccinationHintDismissal >= vaccinationHintDuration && certificate?.type == .transferCode && ConfigManager.currentConfig?.showVaccinationHintTransfer ?? false
 
         contentView.backgroundColor = .white
         contentView.ub_addShadow(radius: shadowRadius, opacity: shadowOpacity, xOffset: 0.0, yOffset: 2.0)
@@ -91,17 +98,6 @@ class HomescreenCertificateView: UIView {
         }
 
         if showVaccinationInfo {
-            var vaccinationHint = ConfigManager.currentConfig?.randomVaccinationInfoHint
-
-            // Do not change vaccination hint more than once every minute
-            if let lastHint = WalletUserStorage.shared.lastVaccinationHint, Date().timeIntervalSince1970 - WalletUserStorage.shared.timestampOfLastVaccinationHintRefresh < 60 {
-                vaccinationHint = lastHint
-            } else {
-                WalletUserStorage.shared.timestampOfLastVaccinationHintRefresh = Date().timeIntervalSince1970
-            }
-
-            WalletUserStorage.shared.lastVaccinationHint = vaccinationHint
-
             vaccinationInfoView = HomescreenVaccinationInfoView(title: vaccinationHint?.title, text: vaccinationHint?.text)
             contentView.addSubview(vaccinationInfoView!)
             backgroundButton.vaccinationInfoView = vaccinationInfoView
@@ -112,41 +108,43 @@ class HomescreenCertificateView: UIView {
 
             vaccinationInfoView?.dismissButtonTouchUpCallback = { [weak self] in
                 guard let strongSelf = self else { return }
-                WalletUserStorage.shared.timestampOfLastVaccinationHintDismissal = Date().timeIntervalSince1970
-                // TODO:
+                WalletUserStorage.shared.lastVaccinationHintDismissal = Date()
+                strongSelf.update(animated: true)
             }
 
             vaccinationInfoView?.vaccinationButtonTouchUpCallback = { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.vaccinationButtonTouchUpCallback?()
             }
+        }
 
-            topView = vaccinationInfoView
-        } else {
-            contentView.addSubview(titleLabel)
-            titleLabel.ub_setContentPriorityRequired()
-            titleLabel.snp.makeConstraints { make in
-                make.top.left.right.equalToSuperview().inset(Padding.large)
-            }
-            topView = titleLabel
+        contentView.addSubview(titleLabel)
+        titleLabel.ub_setContentPriorityRequired()
+        titleLabel.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview().inset(Padding.large)
+        }
+
+        addLayoutGuide(topViewLayoutGuide)
+        topViewLayoutGuide.snp.makeConstraints { make in
+            make.bottom.equalTo(vaccinationInfoView ?? titleLabel)
         }
 
         contentView.addSubview(qrCodeView)
         qrCodeView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(topView!.snp.bottom)
+            make.top.equalTo(topViewLayoutGuide.snp.bottom)
         }
 
         contentView.addSubview(lightQrCodeView)
         lightQrCodeView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(topView!.snp.bottom)
+            make.top.equalTo(topViewLayoutGuide.snp.bottom)
         }
 
         contentView.addSubview(transferView)
         transferView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(topView!.snp.bottom)
+            make.top.equalTo(topViewLayoutGuide.snp.bottom)
         }
 
         let holeViews = [HoleView(radius: 10.0, shadowRadius: shadowRadius, shadowOpacity: shadowOpacity, left: true), HoleView(radius: 10.0, shadowRadius: shadowRadius, shadowOpacity: shadowOpacity, left: false)]
@@ -178,7 +176,7 @@ class HomescreenCertificateView: UIView {
         update(animated: false)
     }
 
-    private func update(animated _: Bool) {
+    private func update(animated: Bool) {
         guard let cert = certificate else { return }
 
         backgroundButton.type = cert.type
@@ -215,7 +213,29 @@ class HomescreenCertificateView: UIView {
             transferView.alpha = 1.0
             lightQrCodeView.alpha = 0.0
 
-            accessibilityLabel = [topView!.accessibilityLabel, transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+            if showVaccinationInfo {
+                accessibilityLabel = [titleLabel.accessibilityLabel, transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+            } else {
+                accessibilityLabel = [vaccinationInfoView?.accessibilityLabel ?? "", transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+            }
+
+            if animated {
+                UIView.animate(withDuration: 0.3) {
+                    self.topViewLayoutGuide.snp.makeConstraints { make in
+                        make.bottom.equalTo(self.showVaccinationInfo ? self.vaccinationInfoView!.snp.bottom : self.titleLabel.snp.bottom)
+                    }
+                    self.vaccinationInfoView?.alpha = self.showVaccinationInfo ? 1.0 : 0.0
+                    self.titleLabel.alpha = self.showVaccinationInfo ? 0.0 : 1.0
+                    self.superview?.layoutIfNeeded()
+                }
+            } else {
+                topViewLayoutGuide.snp.makeConstraints { make in
+                    make.bottom.equalTo(self.showVaccinationInfo ? self.vaccinationInfoView!.snp.bottom : self.titleLabel.snp.bottom)
+                }
+                vaccinationInfoView?.alpha = showVaccinationInfo ? 1.0 : 0.0
+                titleLabel.alpha = showVaccinationInfo ? 0.0 : 1.0
+                superview?.layoutIfNeeded()
+            }
         }
     }
 }
