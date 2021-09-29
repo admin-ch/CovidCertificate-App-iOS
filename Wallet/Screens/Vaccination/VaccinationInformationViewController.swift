@@ -24,6 +24,7 @@ class VaccinationInformationViewController: StackScrollViewController {
         stackScrollView.stackView.alignment = .fill
 
         let title = Label(.title, textAlignment: .center)
+        title.accessibilityTraits = .header
         title.text = ConfigManager.currentConfig?.vaccinationBookingInfo.value?.title ?? ""
         addArrangedView(title, insets: insets)
 
@@ -38,6 +39,7 @@ class VaccinationInformationViewController: StackScrollViewController {
 
         stackScrollView.addSpacerView(30)
         let titleLabel = Label(.textBoldLarge, textAlignment: .left)
+        titleLabel.accessibilityTraits = .header
         titleLabel.text = UBLocalized.vaccination_choose_your_canton
         addArrangedView(titleLabel, insets: insets)
         stackScrollView.addSpacerView(14)

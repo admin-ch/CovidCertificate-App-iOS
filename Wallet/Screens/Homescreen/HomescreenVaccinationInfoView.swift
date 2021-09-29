@@ -13,10 +13,15 @@ import Foundation
 
 class HomescreenVaccinationInfoView: UIView {
     public var dismissButtonTouchUpCallback: (() -> Void)?
-    public var vaccinationButtonTouchUpCallback: (() -> Void)?
+    public var vaccinationButtonTouchUpCallback: (() -> Void)? {
+        didSet {
+            container.action = vaccinationButtonTouchUpCallback
+        }
+    }
 
     private let insets = UIEdgeInsets(top: 13, left: 13, bottom: 17, right: 10)
 
+    private var container = AccessibilityContainer()
     private let titleLabel = Label(.textBoldLarge, textAlignment: .left)
     private let textLabel = Label(.text, textAlignment: .left)
 
@@ -31,6 +36,7 @@ class HomescreenVaccinationInfoView: UIView {
 
         setup()
         setupInteraction()
+        setupAccessibility()
     }
 
     required init?(coder _: NSCoder) {
@@ -38,11 +44,15 @@ class HomescreenVaccinationInfoView: UIView {
     }
 
     private func setup() {
-        addSubview(titleLabel)
-        addSubview(textLabel)
-        addSubview(vaccinationButton)
-        addSubview(dismissButton)
+        addSubview(container)
+        container.addSubview(titleLabel)
+        container.addSubview(textLabel)
+        container.addSubview(vaccinationButton)
+        container.addSubview(dismissButton)
 
+        container.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         titleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(insets)
             make.top.equalToSuperview().inset(insets)
@@ -96,10 +106,39 @@ class HomescreenVaccinationInfoView: UIView {
 
         return super.hitTest(point, with: event)
     }
+
+    private func setupAccessibility() {
+        container.isAccessibilityElement = true
+        dismissButton.isAccessibilityElement = true
+
+        container.accessibilityLabel = [titleLabel.text, textLabel.text, vaccinationButton.titleText].compactMap { $0 }.joined(separator: ", ")
+        container.accessibilityTraits = .button
+
+        accessibilityElements = [container, dismissButton]
+        isAccessibilityElement = false
+    }
+}
+
+private class AccessibilityContainer: UIView {
+    public var action: (() -> Void)?
+
+    override func accessibilityActivate() -> Bool {
+        action?()
+        return true
+    }
 }
 
 private class TitleIconButton: UBButton {
     // MARK: - Subviews
+
+    public var titleText: String? {
+        get {
+            return textLabel.text
+        }
+        set {
+            textLabel.text = newValue
+        }
+    }
 
     private let textLabel = Label(.textBoldLarge)
     private let iconView = UIImageView()
@@ -109,7 +148,7 @@ private class TitleIconButton: UBButton {
     init(text: String?, icon: UIImage?) {
         super.init()
 
-        textLabel.text = text
+        titleText = text
         iconView.image = icon
 
         highlightedBackgroundColor = UIColor.cc_blue.withAlphaComponent(0.15)

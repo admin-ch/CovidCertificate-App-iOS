@@ -74,7 +74,6 @@ class HomescreenCertificateView: UIView {
         backgroundButton.transferView = transferView
         setup()
 
-        isAccessibilityElement = true
         accessibilityTraits = [.button]
     }
 
@@ -109,6 +108,7 @@ class HomescreenCertificateView: UIView {
             vaccinationInfoView?.dismissButtonTouchUpCallback = { [weak self] in
                 guard let strongSelf = self else { return }
                 WalletUserStorage.shared.lastVaccinationHintDismissal = Date()
+                UIAccessibility.post(notification: .layoutChanged, argument: strongSelf)
                 strongSelf.update(animated: true)
             }
 
@@ -214,9 +214,9 @@ class HomescreenCertificateView: UIView {
             lightQrCodeView.alpha = 0.0
 
             if showVaccinationInfo {
-                accessibilityLabel = [titleLabel.accessibilityLabel, transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+                contentView.accessibilityLabel = [vaccinationInfoView?.accessibilityLabel ?? "", transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
             } else {
-                accessibilityLabel = [vaccinationInfoView?.accessibilityLabel ?? "", transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+                accessibilityLabel = [titleLabel.accessibilityLabel, transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
             }
 
             if animated {
@@ -236,6 +236,18 @@ class HomescreenCertificateView: UIView {
                 titleLabel.alpha = showVaccinationInfo ? 0.0 : 1.0
                 superview?.layoutIfNeeded()
             }
+        }
+
+        updateAccessibilityElements()
+    }
+
+    private func updateAccessibilityElements() {
+        guard let cert = certificate else { return }
+        if cert.type == .transferCode, showVaccinationInfo {
+            isAccessibilityElement = false
+            accessibilityElements = [vaccinationInfoView!, transferView]
+        } else {
+            isAccessibilityElement = true
         }
     }
 }
