@@ -114,9 +114,21 @@ class HomescreenCertificatesViewController: ViewController {
                 let vc = VaccinationInformationViewController()
                 vc.presentInNavigationController(from: strongSelf)
             }
+
+            v.dismissedVaccinationHintTouchUpCallback = { [weak self] in
+                guard let strongSelf = self else { return }
+                WalletUserStorage.shared.lastVaccinationHintDismissal = Date()
+                strongSelf.dismissAllVaccinationHints()
+            }
         }
 
         startChecks()
+    }
+
+    private func dismissAllVaccinationHints() {
+        for certificateView in certificateViews {
+            certificateView.dismissVaccinationHint()
+        }
     }
 
     private func startChecks() {

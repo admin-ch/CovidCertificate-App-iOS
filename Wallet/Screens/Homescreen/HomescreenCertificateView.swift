@@ -15,6 +15,7 @@ import Foundation
 class HomescreenCertificateView: UIView {
     public var touchUpCallback: (() -> Void)?
     public var vaccinationButtonTouchUpCallback: (() -> Void)?
+    public var dismissedVaccinationHintTouchUpCallback: (() -> Void)?
 
     // MARK: - Inset
 
@@ -62,6 +63,10 @@ class HomescreenCertificateView: UIView {
         }
     }
 
+    public func dismissVaccinationHint() {
+        update(animated: true)
+    }
+
     // MARK: - Subviews
 
     init(certificate: UserCertificate, vaccinationHint: ConfigResponseBody.VaccinationHint? = nil) {
@@ -107,9 +112,8 @@ class HomescreenCertificateView: UIView {
 
             vaccinationInfoView?.dismissButtonTouchUpCallback = { [weak self] in
                 guard let strongSelf = self else { return }
-                WalletUserStorage.shared.lastVaccinationHintDismissal = Date()
                 UIAccessibility.post(notification: .layoutChanged, argument: strongSelf)
-                strongSelf.update(animated: true)
+                strongSelf.dismissedVaccinationHintTouchUpCallback?()
             }
 
             vaccinationInfoView?.vaccinationButtonTouchUpCallback = { [weak self] in
