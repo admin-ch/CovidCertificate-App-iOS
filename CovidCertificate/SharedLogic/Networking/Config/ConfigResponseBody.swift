@@ -86,18 +86,18 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         let iconIos: String?
     }
 
-    struct VaccinationHint: UBCodable {
+    class VaccinationHint: UBCodable {
         let title: String
         let text: String
     }
 
-    struct VaccinationBookingCanton: UBCodable {
+    class VaccinationBookingCanton: UBCodable {
         let name: String
         let iconIos: String
         let linkUrl: String
     }
 
-    struct VaccinationBookingInfo: UBCodable {
+    class VaccinationBookingInfo: UBCodable {
         let title: String
         let text: String
         let info: String
@@ -148,5 +148,9 @@ extension ConfigResponseBody {
                                    textGroups: transferWorks?.value?.faqIntroSections?.map { (UIImage(named: $0.iconIos ?? ""), $0.text) } ?? [],
                                    expandableTextGroups: transferWorks?.value?.faqEntries.compactMap { ($0.title, $0.text, $0.linkTitle, $0.linkUrl) } ?? []),
         ]
+    }
+
+    var randomVaccinationInfoHint: VaccinationHint? {
+        return vaccinationHints?.value?.randomElement()
     }
 }

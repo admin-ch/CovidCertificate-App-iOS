@@ -97,6 +97,12 @@ class HomescreenCertificatesViewController: ViewController {
                 guard let strongSelf = self else { return }
                 strongSelf.touchedCertificateCallback?(c)
             }
+
+            v.vaccinationButtonTouchUpCallback = { [weak self] in
+                guard let strongSelf = self else { return }
+                let vc = VaccinationInformationViewController()
+                vc.presentInNavigationController(from: strongSelf)
+            }
         }
 
         startChecks()

@@ -93,8 +93,8 @@ class AddCertificateView: UIView {
     private let topLabel = Label(.textBoldLarge)
     private let textLabel = Label(.text)
 
-    private let qrButton = IconButton(text: UBLocalized.wallet_homescreen_qr_code_scannen, iconName: "ic-qrcode-scan")
-    private let pdfButton = IconButton(text: UBLocalized.wallet_homescreen_pdf_import, iconName: "ic-pdf")
+    private let qrButton = IconButton(text: UBLocalized.wallet_homescreen_qr_code_scannen, icon: UIImage(named: "ic-qrcode-scan"))
+    private let pdfButton = IconButton(text: UBLocalized.wallet_homescreen_pdf_import, icon: UIImage(named: "ic-pdf"))
 
     // MARK: - Init
 
@@ -211,17 +211,16 @@ class RoundedButton: UBButton {
 class IconButton: UBButton {
     // MARK: - Subviews
 
-    private let textLabel = Label(.textBoldLarge)
-    private let icon = UIImageView()
+    private let textLabel = Label(.textBoldLarge, numberOfLines: 0)
+    private let iconImageView = UIImageView()
 
     // MARK: - Init
 
-    init(text: String, iconName: String) {
+    init(text: String, icon: UIImage?) {
         super.init()
 
         textLabel.text = text
-        icon.image = UIImage(named: iconName)
-
+        iconImageView.image = icon
         setup()
     }
 
@@ -233,12 +232,13 @@ class IconButton: UBButton {
 
         let lr = Padding.small + Padding.medium
 
-        icon.contentMode = .scaleAspectFit
+        iconImageView.contentMode = .scaleAspectFit
 
-        addSubview(icon)
-        icon.snp.makeConstraints { make in
+        addSubview(iconImageView)
+        iconImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(lr / 2)
-            make.top.bottom.equalToSuperview()
+            make.top.greaterThanOrEqualToSuperview().offset(Padding.small)
+            make.bottom.lessThanOrEqualToSuperview().offset(-Padding.small)
             make.centerY.equalToSuperview()
         }
 
@@ -246,8 +246,11 @@ class IconButton: UBButton {
 
         addSubview(textLabel)
         textLabel.snp.makeConstraints { make in
-            make.leading.equalTo(icon.snp.trailing).offset(2 * Padding.small)
+            make.leading.equalTo(iconImageView.snp.trailing).offset(2 * Padding.small)
             make.centerY.equalToSuperview()
+            make.trailing.lessThanOrEqualToSuperview().offset(-lr / 2)
+            make.top.greaterThanOrEqualToSuperview().offset(Padding.small)
+            make.bottom.lessThanOrEqualToSuperview().offset(-Padding.small)
         }
 
         accessibilityLabel = textLabel.text

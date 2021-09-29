@@ -45,6 +45,7 @@ class VaccinationCantonButton: UBButton {
             make.top.greaterThanOrEqualToSuperview()
             make.bottom.lessThanOrEqualToSuperview()
             make.centerY.equalToSuperview()
+            make.size.equalTo(24)
         }
 
         textLabel.textColor = .cc_blue

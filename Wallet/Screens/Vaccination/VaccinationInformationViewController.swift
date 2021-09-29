@@ -17,7 +17,7 @@ class VaccinationInformationViewController: StackScrollViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = UBLocalized.vaccination_appointment_header
+        self.title = UBLocalized.vaccination_appointment_header.uppercased()
         view.backgroundColor = .cc_background
         addDismissButton()
 
@@ -44,7 +44,7 @@ class VaccinationInformationViewController: StackScrollViewController {
         stackScrollView.addSpacerView(2, color: .cc_blueish)
 
         for canton in ConfigManager.currentConfig?.vaccinationBookingCantons.value ?? [] {
-            let cantonButton = VaccinationCantonButton(text: canton.name, iconName: "canton_3") // canton.iconIos)
+            let cantonButton = VaccinationCantonButton(text: canton.name, iconName: canton.iconIos)
             cantonButton.accessibilityTraits = .link
 
             cantonButton.touchUpCallback = {
@@ -56,7 +56,7 @@ class VaccinationInformationViewController: StackScrollViewController {
         }
         stackScrollView.addSpacerView(30)
 
-        let button = IconTitleButton(text: UBLocalized.vaccination_more_information_title, icon: UIImage(named: "ic-link-external")?.ub_image(with: .cc_blue))
+        let button = IconButton(text: UBLocalized.vaccination_more_information_title, icon: UIImage(named: "ic-link-external")?.ub_image(with: .cc_blue))
         button.accessibilityTraits = .link
         button.touchUpCallback = {
             // UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -100,57 +100,5 @@ class RoundedBackgroundView: UIView {
         label.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(Padding.large)
         }
-    }
-}
-
-private class IconTitleButton: UBButton {
-    // MARK: - Subviews
-
-    private let textLabel = Label(.textBoldLarge)
-    private let iconView = UIImageView()
-
-    // MARK: - Init
-
-    init(text: String?, icon: UIImage?) {
-        super.init()
-
-        textLabel.text = text
-        iconView.image = icon
-
-        highlightedBackgroundColor = UIColor.cc_blue.withAlphaComponent(0.15)
-
-        highlightXInset = -2.0 * Padding.small
-        highlightYInset = -Padding.medium
-        highlightCornerRadius = -Padding.small
-
-        setup()
-    }
-
-    // MARK: - Setup
-
-    private func setup() {
-        addSubview(iconView)
-        iconView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.top.greaterThanOrEqualToSuperview()
-            make.bottom.lessThanOrEqualToSuperview()
-            make.centerY.equalToSuperview()
-        }
-
-        textLabel.textColor = .cc_blue
-        textLabel.textAlignment = .left
-        addSubview(textLabel)
-        textLabel.snp.makeConstraints { make in
-            make.leading.equalTo(iconView.snp.trailing).offset(10)
-            make.trailing.equalToSuperview()
-            make.centerY.equalToSuperview()
-        }
-
-        accessibilityLabel = textLabel.text
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        highlightCornerRadius = frame.size.height * 0.5 + 3.0
     }
 }

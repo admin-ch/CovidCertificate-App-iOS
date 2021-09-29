@@ -240,6 +240,7 @@
 		A6BBA110246BFCBC00E42EE7 /* UIDevice+ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BBA10F246BFCBC00E42EE7 /* UIDevice+ScreenType.swift */; };
 		AAF73668242F3D030051E34A /* UIStackView+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF73667242F3D030051E34A /* UIStackView+CC.swift */; };
 		B61114DB2703085C00E7DBAB /* VaccinationCantonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61114DA2703085C00E7DBAB /* VaccinationCantonButton.swift */; };
+		B61114DF27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61114DE27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift */; };
 		B68FDBFA2702FFE000E853D8 /* VaccinationInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */; };
 		DC286A26242CE0B9001D5344 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286A25242CE0B9001D5344 /* Environment.swift */; };
 		DC445D332645828E007DC8F2 /* QRScanErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC445D322645828E007DC8F2 /* QRScanErrorView.swift */; };
@@ -509,6 +510,7 @@
 		A6BBA10F246BFCBC00E42EE7 /* UIDevice+ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ScreenType.swift"; sourceTree = "<group>"; };
 		AAF73667242F3D030051E34A /* UIStackView+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+CC.swift"; sourceTree = "<group>"; };
 		B61114DA2703085C00E7DBAB /* VaccinationCantonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationCantonButton.swift; sourceTree = "<group>"; };
+		B61114DE27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenVaccinationInfoView.swift; sourceTree = "<group>"; };
 		B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationInformationViewController.swift; sourceTree = "<group>"; };
 		DC286A25242CE0B9001D5344 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		DC445D322645828E007DC8F2 /* QRScanErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanErrorView.swift; sourceTree = "<group>"; };
@@ -921,6 +923,7 @@
 				6E87E381266950D1000C5517 /* WalletHomescreenActionView.swift */,
 				6E87E3852669744D000C5517 /* WalletHomescreenActionPopupView.swift */,
 				F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */,
+				B61114DE27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift */,
 			);
 			path = Homescreen;
 			sourceTree = "<group>";
@@ -1845,6 +1848,7 @@
 				6E8FC0FA24518BF2002AB1E5 /* UIScrollView+UBKeyboardObserver.m in Sources */,
 				DC8ABDEF264A643000FDE0E1 /* OnboardingViewController.swift in Sources */,
 				A6BBA110246BFCBC00E42EE7 /* UIDevice+ScreenType.swift in Sources */,
+				B61114DF27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift in Sources */,
 				DCBF64DD267883CC00450D51 /* TransferCodeLabel.swift in Sources */,
 				6E7C0D37242E02600017C4F9 /* StackScrollView.swift in Sources */,
 				DCA3FFB824504B190003F5AD /* ClickthroughStackView.swift in Sources */,
