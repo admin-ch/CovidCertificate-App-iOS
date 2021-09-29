@@ -207,7 +207,14 @@ class CertificateDetailViewController: ViewController {
                 guard let self = self else { return }
                 self.certificate = certificate
                 guard let pdf = certificate.pdf else { return }
-                self.sharePDF(pdf)
+                let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate.qrCode ?? "")
+                switch c {
+                case let .success(holder):
+                    guard let filename = holder.certificate.sharePDFName else { return }
+                    self.sharePDF(pdf, filename: filename)
+                case .failure:
+                    break
+                }
             }
             strongSelf.navigationController?.pushViewController(vc, animated: true)
         }
@@ -219,8 +226,8 @@ class CertificateDetailViewController: ViewController {
         startCheck()
     }
 
-    private func sharePDF(_ pdf: Data) {
-        let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent("\(UBLocalized.covid_certificate_title).pdf")
+    private func sharePDF(_ pdf: Data, filename: String) {
+        let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(filename)
         try? pdf.write(to: fileURL)
 
         let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
