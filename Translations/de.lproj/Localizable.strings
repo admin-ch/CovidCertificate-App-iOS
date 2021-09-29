@@ -1217,3 +1217,6 @@
 
 /*Button text for information about the vaccine at the bottom of the certificate*/
 "vaccination_information_button_in_certificate" = "Informationen zur Impfung";
+
+/*Vaccination Booking Info URL Link*/
+"vaccination_booking_info_url" = "https://bag-coronavirus.ch/impfung/";

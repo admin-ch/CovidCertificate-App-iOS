@@ -59,8 +59,10 @@ class VaccinationInformationViewController: StackScrollViewController {
         let button = IconButton(text: UBLocalized.vaccination_more_information_title, icon: UIImage(named: "ic-link-external")?.ub_image(with: .cc_blue))
         button.accessibilityTraits = .link
         button.touchUpCallback = {
-            // UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            guard let url = URL(string: UBLocalized.vaccination_booking_info_url) else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+
         addArrangedView(button, insets: insets)
         stackScrollView.addSpacerView(40)
     }

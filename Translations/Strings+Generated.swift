@@ -156,6 +156,8 @@ import Foundation
      case vaccination_booking_info_text_key = "vaccination_booking_info_text"
     /// Impftermin in Ihrer Nähe buchen
      case vaccination_booking_info_title_key = "vaccination_booking_info_title"
+    /// https://bag-coronavirus.ch/impfung/
+     case vaccination_booking_info_url_key = "vaccination_booking_info_url"
     /// Jura
      case vaccination_booking_ju_name_key = "vaccination_booking_ju_name"
     /// https://www.jura.ch/fr/Autorites/Coronavirus/Vaccination.html
@@ -1040,6 +1042,8 @@ import Foundation
    static let vaccination_booking_info_text = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_text_key)
   /// Impftermin in Ihrer Nähe buchen
    static let vaccination_booking_info_title = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_title_key)
+  /// https://bag-coronavirus.ch/impfung/
+   static let vaccination_booking_info_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_url_key)
   /// Jura
    static let vaccination_booking_ju_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ju_name_key)
   /// https://www.jura.ch/fr/Autorites/Coronavirus/Vaccination.html
