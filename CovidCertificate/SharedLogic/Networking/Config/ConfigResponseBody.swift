@@ -60,7 +60,7 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         var showVaccinationHintDetail = false
         var showVaccinationHintTransfer = false
 
-        let vaccinationHints: LocalizedValue<[VaccinationHint]>?
+        let vaccinationHints: LocalizedValue<[VaccinationHint]>
         let vaccinationBookingCantons: LocalizedValue<[VaccinationBookingCanton]>
         let vaccinationBookingInfo: LocalizedValue<VaccinationBookingInfo>
     #endif
@@ -152,7 +152,7 @@ extension ConfigResponseBody {
 
     #if WALLET
         var randomVaccinationInfoHint: VaccinationHint? {
-            return vaccinationHints?.value?.randomElement()
+            return vaccinationHints.value?.randomElement()
         }
     #endif
 }
