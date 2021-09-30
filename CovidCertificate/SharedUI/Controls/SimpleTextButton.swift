@@ -29,6 +29,7 @@ class ExternalLinkButton: UBButton {
 
         setTitleColor(tintColor, for: .normal)
         titleLabel?.font = LabelType.textBold.font
+        titleLabel?.textAlignment = .left
 
         switch mode {
         case .link:

@@ -55,6 +55,14 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     #if WALLET
         var lightCertificateActive = false
         var pdfGenerationActive = false
+
+        var showVaccinationHintHomescreen = false
+        var showVaccinationHintDetail = false
+        var showVaccinationHintTransfer = false
+
+        let vaccinationHints: LocalizedValue<[VaccinationHint]>
+        let vaccinationBookingCantons: LocalizedValue<[VaccinationBookingCanton]>
+        let vaccinationBookingInfo: LocalizedValue<VaccinationBookingInfo>
     #endif
 
     class FAQEntriesContainer: UBCodable {
@@ -76,6 +84,23 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     class FAQIntroEntry: UBCodable {
         let text: String
         let iconIos: String?
+    }
+
+    class VaccinationHint: UBCodable {
+        let title: String
+        let text: String
+    }
+
+    class VaccinationBookingCanton: UBCodable {
+        let name: String
+        let iconIos: String
+        let linkUrl: String
+    }
+
+    class VaccinationBookingInfo: UBCodable {
+        let title: String
+        let text: String
+        let info: String
     }
 }
 
@@ -124,4 +149,10 @@ extension ConfigResponseBody {
                                    expandableTextGroups: transferWorks?.value?.faqEntries.compactMap { ($0.title, $0.text, $0.linkTitle, $0.linkUrl) } ?? []),
         ]
     }
+
+    #if WALLET
+        var randomVaccinationInfoHint: VaccinationHint? {
+            return vaccinationHints.value?.randomElement()
+        }
+    #endif
 }

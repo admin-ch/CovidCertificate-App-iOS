@@ -22,6 +22,8 @@ class HomescreenCertificatesViewController: ViewController {
     private let pageControl = UIPageControl()
     private var certificateViews: [HomescreenCertificateView] = []
 
+    private var certificateHints: [String: ConfigResponseBody.VaccinationHint] = [:]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -85,7 +87,16 @@ class HomescreenCertificatesViewController: ViewController {
         pageControl.alpha = certificates.count <= 1 ? 0.0 : 1.0
 
         for c in certificates {
-            let v = HomescreenCertificateView(certificate: c)
+            var vaccinationHint = ConfigManager.currentConfig?.randomVaccinationInfoHint
+
+            if let code = c.transferCode?.transferCode {
+                if let hint = certificateHints[code] {
+                    vaccinationHint = hint
+                } else {
+                    certificateHints[code] = vaccinationHint
+                }
+            }
+            let v = HomescreenCertificateView(certificate: c, vaccinationHint: vaccinationHint)
             stackScrollView.addArrangedView(v)
             certificateViews.append(v)
 
@@ -97,9 +108,27 @@ class HomescreenCertificatesViewController: ViewController {
                 guard let strongSelf = self else { return }
                 strongSelf.touchedCertificateCallback?(c)
             }
+
+            v.vaccinationButtonTouchUpCallback = { [weak self] in
+                guard let strongSelf = self else { return }
+                let vc = VaccinationInformationViewController()
+                vc.presentInNavigationController(from: strongSelf)
+            }
+
+            v.dismissedVaccinationHintTouchUpCallback = { [weak self] in
+                guard let strongSelf = self else { return }
+                WalletUserStorage.shared.lastVaccinationHintDismissal = Date()
+                strongSelf.dismissAllVaccinationHints()
+            }
         }
 
         startChecks()
+    }
+
+    private func dismissAllVaccinationHints() {
+        for certificateView in certificateViews {
+            certificateView.dismissVaccinationHint()
+        }
     }
 
     private func startChecks() {

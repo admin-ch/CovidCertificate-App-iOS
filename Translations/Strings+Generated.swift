@@ -108,6 +108,164 @@ import Foundation
      case target_disease_name_key = "target_disease_name"
     /// Ein unbekannter Fehler ist aufgetreten.
      case unknown_error_key = "unknown_error"
+    /// Impftermin
+     case vaccination_appointment_header_key = "vaccination_appointment_header"
+    /// Aargau
+     case vaccination_booking_ag_name_key = "vaccination_booking_ag_name"
+    /// https://www.ag.ch/coronavirus-impfung
+     case vaccination_booking_ag_url_key = "vaccination_booking_ag_url"
+    /// Appenzell Innerrhoden
+     case vaccination_booking_ai_name_key = "vaccination_booking_ai_name"
+    /// https://www.ai.ch/coronavirus-impfung
+     case vaccination_booking_ai_url_key = "vaccination_booking_ai_url"
+    /// Appenzell Ausserrhoden
+     case vaccination_booking_ar_name_key = "vaccination_booking_ar_name"
+    /// https://www.ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/informationsseite-coronavirus/coronaimpfung/
+     case vaccination_booking_ar_url_key = "vaccination_booking_ar_url"
+    /// Bern
+     case vaccination_booking_be_name_key = "vaccination_booking_be_name"
+    /// http://www.be.ch/corona-impfung
+     case vaccination_booking_be_url_key = "vaccination_booking_be_url"
+    /// Basel-Landschaft
+     case vaccination_booking_bl_name_key = "vaccination_booking_bl_name"
+    /// https://www.bl.ch/impfen
+     case vaccination_booking_bl_url_key = "vaccination_booking_bl_url"
+    /// Basel-Stadt
+     case vaccination_booking_bs_name_key = "vaccination_booking_bs_name"
+    /// http://www.coronaimpfzentrumbasel.ch
+     case vaccination_booking_bs_url_key = "vaccination_booking_bs_url"
+    /// Freiburg
+     case vaccination_booking_fr_name_key = "vaccination_booking_fr_name"
+    /// https://www.fr.ch/de/gesundheit/covid-19/covid-19-impfung-in-ihrer-naehe-durch-impfteams-in-den-impfzentren-in-der-apotheke-oder-bei-ihrem-arzt
+     case vaccination_booking_fr_url_key = "vaccination_booking_fr_url"
+    /// Genf
+     case vaccination_booking_ge_name_key = "vaccination_booking_ge_name"
+    /// https://www.ge.ch/se-faire-vacciner-contre-covid-19
+     case vaccination_booking_ge_url_key = "vaccination_booking_ge_url"
+    /// Glarus
+     case vaccination_booking_gl_name_key = "vaccination_booking_gl_name"
+    /// https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/coronavirus.html/4817#Impfung
+     case vaccination_booking_gl_url_key = "vaccination_booking_gl_url"
+    /// Graubünden
+     case vaccination_booking_gr_name_key = "vaccination_booking_gr_name"
+    /// https://www.gr.ch/DE/institutionen/verwaltung/djsg/ga/coronavirus/info/impfen/Seiten/impfen.aspx
+     case vaccination_booking_gr_url_key = "vaccination_booking_gr_url"
+    /// Die Covid-19-Impfung ist für Personen ab 12 Jahren empfohlen. Die Impfung ist gratis.
+     case vaccination_booking_info_info_key = "vaccination_booking_info_info"
+    /// Eine Impfung könnte zum Beispiel an diesen Orten in Ihrer Nähe stattfinden:\n\n- in spezifischen Impfzentren\n- in Spitälern\n- bei Ihrem Hausarzt oder Ihrer Hausärztin\n- in Impfapotheken\n\nViele Orte bieten auch Walk-in-Impfungen ohne Termine an.
+     case vaccination_booking_info_text_key = "vaccination_booking_info_text"
+    /// Impftermin in Ihrer Nähe buchen
+     case vaccination_booking_info_title_key = "vaccination_booking_info_title"
+    /// https://bag-coronavirus.ch/impfung/
+     case vaccination_booking_info_url_key = "vaccination_booking_info_url"
+    /// Jura
+     case vaccination_booking_ju_name_key = "vaccination_booking_ju_name"
+    /// https://www.jura.ch/fr/Autorites/Coronavirus/Vaccination.html
+     case vaccination_booking_ju_url_key = "vaccination_booking_ju_url"
+    /// Luzern
+     case vaccination_booking_lu_name_key = "vaccination_booking_lu_name"
+    /// http://www.lu.ch/covid_impfung
+     case vaccination_booking_lu_url_key = "vaccination_booking_lu_url"
+    /// Neuenburg
+     case vaccination_booking_ne_name_key = "vaccination_booking_ne_name"
+    /// https://www.ne.ch/autorites/DFS/SCSP/medecin-cantonal/maladies-vaccinations/covid-19-vaccination/Pages/accueil.aspx
+     case vaccination_booking_ne_url_key = "vaccination_booking_ne_url"
+    /// Nidwalden
+     case vaccination_booking_nw_name_key = "vaccination_booking_nw_name"
+    /// https://www.nw.ch/gesundheitsamtdienste/6044#Impfung
+     case vaccination_booking_nw_url_key = "vaccination_booking_nw_url"
+    /// Obwalden
+     case vaccination_booking_ow_name_key = "vaccination_booking_ow_name"
+    /// https://www.ow.ch/de/verwaltung/dienstleistungen/?dienst_id=5962#Impfung
+     case vaccination_booking_ow_url_key = "vaccination_booking_ow_url"
+    /// St. Gallen
+     case vaccination_booking_sg_name_key = "vaccination_booking_sg_name"
+    /// https://www.sg.ch/coronavirus/impfen
+     case vaccination_booking_sg_url_key = "vaccination_booking_sg_url"
+    /// Schaffhausen
+     case vaccination_booking_sh_name_key = "vaccination_booking_sh_name"
+    /// https://sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Verwaltung/Departement-des-Innern/Gesundheitsamt-7126057-DE.html
+     case vaccination_booking_sh_url_key = "vaccination_booking_sh_url"
+    /// Solothurn
+     case vaccination_booking_so_name_key = "vaccination_booking_so_name"
+    /// https://so.ch/coronaimpfung
+     case vaccination_booking_so_url_key = "vaccination_booking_so_url"
+    /// Schwyz
+     case vaccination_booking_sz_name_key = "vaccination_booking_sz_name"
+    /// https://www.sz.ch/corona-impfen
+     case vaccination_booking_sz_url_key = "vaccination_booking_sz_url"
+    /// Thurgau
+     case vaccination_booking_tg_name_key = "vaccination_booking_tg_name"
+    /// https://gesundheit.tg.ch/aktuelles/impfung-fuer-covid-19.html/11590
+     case vaccination_booking_tg_url_key = "vaccination_booking_tg_url"
+    /// Tessin
+     case vaccination_booking_ti_name_key = "vaccination_booking_ti_name"
+    /// http://www.ti.ch/vaccinazione
+     case vaccination_booking_ti_url_key = "vaccination_booking_ti_url"
+    /// Uri
+     case vaccination_booking_ur_name_key = "vaccination_booking_ur_name"
+    /// https://www.ur.ch/themen/3673
+     case vaccination_booking_ur_url_key = "vaccination_booking_ur_url"
+    /// Waadt
+     case vaccination_booking_vd_name_key = "vaccination_booking_vd_name"
+    /// https://vd.ch/coronavirus-vaccins
+     case vaccination_booking_vd_url_key = "vaccination_booking_vd_url"
+    /// Wallis
+     case vaccination_booking_vs_name_key = "vaccination_booking_vs_name"
+    /// https://www.vs.ch/de/web/coronavirus#ancre_vaccination
+     case vaccination_booking_vs_url_key = "vaccination_booking_vs_url"
+    /// Zug
+     case vaccination_booking_zg_name_key = "vaccination_booking_zg_name"
+    /// https://www.corona-impfung-zug.ch/
+     case vaccination_booking_zg_url_key = "vaccination_booking_zg_url"
+    /// Zürich
+     case vaccination_booking_zh_name_key = "vaccination_booking_zh_name"
+    /// http://www.zh.ch/coronaimpfung
+     case vaccination_booking_zh_url_key = "vaccination_booking_zh_url"
+    /// Wählen Sie Ihren Kanton
+     case vaccination_choose_your_canton_key = "vaccination_choose_your_canton"
+    /// Mit der Covid-19-Impfung können Sie auf das wiederholte Testen verzichten.
+     case vaccination_hint_text_1_key = "vaccination_hint_text_1"
+    /// Mit der Covid-19-Impfung können Sie unbeschwert in die meisten Länder reisen.
+     case vaccination_hint_text_2_key = "vaccination_hint_text_2"
+    /// Mit der Covid-19-Impfung können Sie sich vor Erkrankung und einem allfälligen schweren Verlauf schützen.
+     case vaccination_hint_text_3_key = "vaccination_hint_text_3"
+    /// Mit der Covid-19-Impfung können Sie auf sichere Art immun werden.
+     case vaccination_hint_text_4_key = "vaccination_hint_text_4"
+    /// Mit der Covid-19-Impfung können Sie mithelfen, die Krankheitslast zu reduzieren.
+     case vaccination_hint_text_5_key = "vaccination_hint_text_5"
+    /// Mit der Covid-19-Impfung können Sie helfen, die Auswirkungen der Pandemie zu bekämpfen.
+     case vaccination_hint_text_6_key = "vaccination_hint_text_6"
+    /// Mit der Covid-19-Impfung können Sie die Langzeitfolgen einer Covid-19-Erkrankung vermeiden.
+     case vaccination_hint_text_7_key = "vaccination_hint_text_7"
+    /// Mit der Covid-19-Impfung können Sie dazu beitragen, das Gesundheitswesen zu entlasten.
+     case vaccination_hint_text_8_key = "vaccination_hint_text_8"
+    /// Mit der Covid-19-Impfung können Sie dazu beitragen, die Freiheiten des Alltags zurückzubringen.
+     case vaccination_hint_text_9_key = "vaccination_hint_text_9"
+    /// Jetzt impfen lassen!
+     case vaccination_hint_title_1_key = "vaccination_hint_title_1"
+    /// Jetzt impfen lassen!
+     case vaccination_hint_title_2_key = "vaccination_hint_title_2"
+    /// Jetzt impfen lassen!
+     case vaccination_hint_title_3_key = "vaccination_hint_title_3"
+    /// Jetzt impfen lassen!
+     case vaccination_hint_title_4_key = "vaccination_hint_title_4"
+    /// Jetzt impfen lassen!
+     case vaccination_hint_title_5_key = "vaccination_hint_title_5"
+    /// Jetzt impfen lassen!
+     case vaccination_hint_title_6_key = "vaccination_hint_title_6"
+    /// Jetzt impfen lassen!
+     case vaccination_hint_title_7_key = "vaccination_hint_title_7"
+    /// Jetzt impfen lassen!
+     case vaccination_hint_title_8_key = "vaccination_hint_title_8"
+    /// Jetzt impfen lassen!
+     case vaccination_hint_title_9_key = "vaccination_hint_title_9"
+    /// Impftermin buchen
+     case vaccination_homescreen_button_title_key = "vaccination_homescreen_button_title"
+    /// Informationen zur Impfung
+     case vaccination_information_button_in_certificate_key = "vaccination_information_button_in_certificate"
+    /// Weitere Informationen rund um die Covid-19-Impfung
+     case vaccination_more_information_title_key = "vaccination_more_information_title"
     /// market://details?id=ch.admin.bag.covidcertificate.verifier
      case verifier_android_app_google_play_store_url_key = "verifier_android_app_google_play_store_url"
     /// Covid Check
@@ -734,6 +892,8 @@ import Foundation
      case wallet_update_boarding_certificate_light_title_key = "wallet_update_boarding_certificate_light_title"
     /// Update
      case wallet_update_boarding_header_key = "wallet_update_boarding_header"
+    /// UVCI kopiert
+     case wallet_uvci_copied_key = "wallet_uvci_copied"
   }
 
   /// Zertifikat hinzufügen
@@ -834,6 +994,164 @@ import Foundation
    static let target_disease_name = UBLocalized.tr(UBLocalizedKey.target_disease_name_key)
   /// Ein unbekannter Fehler ist aufgetreten.
    static let unknown_error = UBLocalized.tr(UBLocalizedKey.unknown_error_key)
+  /// Impftermin
+   static let vaccination_appointment_header = UBLocalized.tr(UBLocalizedKey.vaccination_appointment_header_key)
+  /// Aargau
+   static let vaccination_booking_ag_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ag_name_key)
+  /// https://www.ag.ch/coronavirus-impfung
+   static let vaccination_booking_ag_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ag_url_key)
+  /// Appenzell Innerrhoden
+   static let vaccination_booking_ai_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ai_name_key)
+  /// https://www.ai.ch/coronavirus-impfung
+   static let vaccination_booking_ai_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ai_url_key)
+  /// Appenzell Ausserrhoden
+   static let vaccination_booking_ar_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ar_name_key)
+  /// https://www.ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/informationsseite-coronavirus/coronaimpfung/
+   static let vaccination_booking_ar_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ar_url_key)
+  /// Bern
+   static let vaccination_booking_be_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_be_name_key)
+  /// http://www.be.ch/corona-impfung
+   static let vaccination_booking_be_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_be_url_key)
+  /// Basel-Landschaft
+   static let vaccination_booking_bl_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_bl_name_key)
+  /// https://www.bl.ch/impfen
+   static let vaccination_booking_bl_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_bl_url_key)
+  /// Basel-Stadt
+   static let vaccination_booking_bs_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_bs_name_key)
+  /// http://www.coronaimpfzentrumbasel.ch
+   static let vaccination_booking_bs_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_bs_url_key)
+  /// Freiburg
+   static let vaccination_booking_fr_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_fr_name_key)
+  /// https://www.fr.ch/de/gesundheit/covid-19/covid-19-impfung-in-ihrer-naehe-durch-impfteams-in-den-impfzentren-in-der-apotheke-oder-bei-ihrem-arzt
+   static let vaccination_booking_fr_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_fr_url_key)
+  /// Genf
+   static let vaccination_booking_ge_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ge_name_key)
+  /// https://www.ge.ch/se-faire-vacciner-contre-covid-19
+   static let vaccination_booking_ge_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ge_url_key)
+  /// Glarus
+   static let vaccination_booking_gl_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_gl_name_key)
+  /// https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/coronavirus.html/4817#Impfung
+   static let vaccination_booking_gl_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_gl_url_key)
+  /// Graubünden
+   static let vaccination_booking_gr_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_gr_name_key)
+  /// https://www.gr.ch/DE/institutionen/verwaltung/djsg/ga/coronavirus/info/impfen/Seiten/impfen.aspx
+   static let vaccination_booking_gr_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_gr_url_key)
+  /// Die Covid-19-Impfung ist für Personen ab 12 Jahren empfohlen. Die Impfung ist gratis.
+   static let vaccination_booking_info_info = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_info_key)
+  /// Eine Impfung könnte zum Beispiel an diesen Orten in Ihrer Nähe stattfinden:\n\n- in spezifischen Impfzentren\n- in Spitälern\n- bei Ihrem Hausarzt oder Ihrer Hausärztin\n- in Impfapotheken\n\nViele Orte bieten auch Walk-in-Impfungen ohne Termine an.
+   static let vaccination_booking_info_text = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_text_key)
+  /// Impftermin in Ihrer Nähe buchen
+   static let vaccination_booking_info_title = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_title_key)
+  /// https://bag-coronavirus.ch/impfung/
+   static let vaccination_booking_info_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_url_key)
+  /// Jura
+   static let vaccination_booking_ju_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ju_name_key)
+  /// https://www.jura.ch/fr/Autorites/Coronavirus/Vaccination.html
+   static let vaccination_booking_ju_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ju_url_key)
+  /// Luzern
+   static let vaccination_booking_lu_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_lu_name_key)
+  /// http://www.lu.ch/covid_impfung
+   static let vaccination_booking_lu_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_lu_url_key)
+  /// Neuenburg
+   static let vaccination_booking_ne_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ne_name_key)
+  /// https://www.ne.ch/autorites/DFS/SCSP/medecin-cantonal/maladies-vaccinations/covid-19-vaccination/Pages/accueil.aspx
+   static let vaccination_booking_ne_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ne_url_key)
+  /// Nidwalden
+   static let vaccination_booking_nw_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_nw_name_key)
+  /// https://www.nw.ch/gesundheitsamtdienste/6044#Impfung
+   static let vaccination_booking_nw_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_nw_url_key)
+  /// Obwalden
+   static let vaccination_booking_ow_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ow_name_key)
+  /// https://www.ow.ch/de/verwaltung/dienstleistungen/?dienst_id=5962#Impfung
+   static let vaccination_booking_ow_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ow_url_key)
+  /// St. Gallen
+   static let vaccination_booking_sg_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sg_name_key)
+  /// https://www.sg.ch/coronavirus/impfen
+   static let vaccination_booking_sg_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sg_url_key)
+  /// Schaffhausen
+   static let vaccination_booking_sh_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sh_name_key)
+  /// https://sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Verwaltung/Departement-des-Innern/Gesundheitsamt-7126057-DE.html
+   static let vaccination_booking_sh_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sh_url_key)
+  /// Solothurn
+   static let vaccination_booking_so_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_so_name_key)
+  /// https://so.ch/coronaimpfung
+   static let vaccination_booking_so_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_so_url_key)
+  /// Schwyz
+   static let vaccination_booking_sz_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sz_name_key)
+  /// https://www.sz.ch/corona-impfen
+   static let vaccination_booking_sz_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sz_url_key)
+  /// Thurgau
+   static let vaccination_booking_tg_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_tg_name_key)
+  /// https://gesundheit.tg.ch/aktuelles/impfung-fuer-covid-19.html/11590
+   static let vaccination_booking_tg_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_tg_url_key)
+  /// Tessin
+   static let vaccination_booking_ti_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ti_name_key)
+  /// http://www.ti.ch/vaccinazione
+   static let vaccination_booking_ti_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ti_url_key)
+  /// Uri
+   static let vaccination_booking_ur_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ur_name_key)
+  /// https://www.ur.ch/themen/3673
+   static let vaccination_booking_ur_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ur_url_key)
+  /// Waadt
+   static let vaccination_booking_vd_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_vd_name_key)
+  /// https://vd.ch/coronavirus-vaccins
+   static let vaccination_booking_vd_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_vd_url_key)
+  /// Wallis
+   static let vaccination_booking_vs_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_vs_name_key)
+  /// https://www.vs.ch/de/web/coronavirus#ancre_vaccination
+   static let vaccination_booking_vs_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_vs_url_key)
+  /// Zug
+   static let vaccination_booking_zg_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_zg_name_key)
+  /// https://www.corona-impfung-zug.ch/
+   static let vaccination_booking_zg_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_zg_url_key)
+  /// Zürich
+   static let vaccination_booking_zh_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_zh_name_key)
+  /// http://www.zh.ch/coronaimpfung
+   static let vaccination_booking_zh_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_zh_url_key)
+  /// Wählen Sie Ihren Kanton
+   static let vaccination_choose_your_canton = UBLocalized.tr(UBLocalizedKey.vaccination_choose_your_canton_key)
+  /// Mit der Covid-19-Impfung können Sie auf das wiederholte Testen verzichten.
+   static let vaccination_hint_text_1 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_1_key)
+  /// Mit der Covid-19-Impfung können Sie unbeschwert in die meisten Länder reisen.
+   static let vaccination_hint_text_2 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_2_key)
+  /// Mit der Covid-19-Impfung können Sie sich vor Erkrankung und einem allfälligen schweren Verlauf schützen.
+   static let vaccination_hint_text_3 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_3_key)
+  /// Mit der Covid-19-Impfung können Sie auf sichere Art immun werden.
+   static let vaccination_hint_text_4 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_4_key)
+  /// Mit der Covid-19-Impfung können Sie mithelfen, die Krankheitslast zu reduzieren.
+   static let vaccination_hint_text_5 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_5_key)
+  /// Mit der Covid-19-Impfung können Sie helfen, die Auswirkungen der Pandemie zu bekämpfen.
+   static let vaccination_hint_text_6 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_6_key)
+  /// Mit der Covid-19-Impfung können Sie die Langzeitfolgen einer Covid-19-Erkrankung vermeiden.
+   static let vaccination_hint_text_7 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_7_key)
+  /// Mit der Covid-19-Impfung können Sie dazu beitragen, das Gesundheitswesen zu entlasten.
+   static let vaccination_hint_text_8 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_8_key)
+  /// Mit der Covid-19-Impfung können Sie dazu beitragen, die Freiheiten des Alltags zurückzubringen.
+   static let vaccination_hint_text_9 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_9_key)
+  /// Jetzt impfen lassen!
+   static let vaccination_hint_title_1 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_1_key)
+  /// Jetzt impfen lassen!
+   static let vaccination_hint_title_2 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_2_key)
+  /// Jetzt impfen lassen!
+   static let vaccination_hint_title_3 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_3_key)
+  /// Jetzt impfen lassen!
+   static let vaccination_hint_title_4 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_4_key)
+  /// Jetzt impfen lassen!
+   static let vaccination_hint_title_5 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_5_key)
+  /// Jetzt impfen lassen!
+   static let vaccination_hint_title_6 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_6_key)
+  /// Jetzt impfen lassen!
+   static let vaccination_hint_title_7 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_7_key)
+  /// Jetzt impfen lassen!
+   static let vaccination_hint_title_8 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_8_key)
+  /// Jetzt impfen lassen!
+   static let vaccination_hint_title_9 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_9_key)
+  /// Impftermin buchen
+   static let vaccination_homescreen_button_title = UBLocalized.tr(UBLocalizedKey.vaccination_homescreen_button_title_key)
+  /// Informationen zur Impfung
+   static let vaccination_information_button_in_certificate = UBLocalized.tr(UBLocalizedKey.vaccination_information_button_in_certificate_key)
+  /// Weitere Informationen rund um die Covid-19-Impfung
+   static let vaccination_more_information_title = UBLocalized.tr(UBLocalizedKey.vaccination_more_information_title_key)
   /// market://details?id=ch.admin.bag.covidcertificate.verifier
    static let verifier_android_app_google_play_store_url = UBLocalized.tr(UBLocalizedKey.verifier_android_app_google_play_store_url_key)
   /// Covid Check
@@ -1460,6 +1778,8 @@ import Foundation
    static let wallet_update_boarding_certificate_light_title = UBLocalized.tr(UBLocalizedKey.wallet_update_boarding_certificate_light_title_key)
   /// Update
    static let wallet_update_boarding_header = UBLocalized.tr(UBLocalizedKey.wallet_update_boarding_header_key)
+  /// UVCI kopiert
+   static let wallet_uvci_copied = UBLocalized.tr(UBLocalizedKey.wallet_uvci_copied_key)
 }
 // swiftlint:enable function_parameter_count identifier_name line_length type_body_length
 

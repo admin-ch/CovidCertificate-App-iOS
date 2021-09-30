@@ -945,7 +945,251 @@
 "wallet_certificate_test_holder_and_name" = "Fabricant et Nom";
 
 /*Wallet: Fehler-Titel falls Uhrzeit falsch eingestellt bei Transfer-Code*/
-"wallet_transfer_code_time_inconsistency_title" = "Uhrzeit Fehler";
+"wallet_transfer_code_time_inconsistency_title" = "Heure incorrecte";
 
 /*Wallet: Transfer-Code Fehler-Text, falls Zeit falsch eingestellt*/
-"wallet_transfer_code_time_inconsistency_text" = "Die Uhrzeit muss richtig eingestellt sein, damit Transfer-Codes funktionieren. Passen Sie Ihre Uhrzeit an und versuchen sie es erneut.";
+"wallet_transfer_code_time_inconsistency_text" = "L’heure doit être réglée correctement pour que les codes de transfert fonctionnent. Adaptez votre heure et essayez de nouveau.";
+
+/*Toast Text wenn ein UVCI durch Klicken kopiert wurde*/
+"wallet_uvci_copied" = "UVCI copié";
+
+/*canton name ag*/
+"vaccination_booking_ag_name" = "Argovie";
+
+/*url for booking an appointment for vaccination for canton ag*/
+"vaccination_booking_ag_url" = "https://www.ag.ch/coronavirus-impfung";
+
+/*canton name ar*/
+"vaccination_booking_ar_name" = "Appenzell Rhodes-Extérieures";
+
+/*url for booking an appointment for vaccination for canton ar*/
+"vaccination_booking_ar_url" = "https://www.ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/informationsseite-coronavirus/coronaimpfung/";
+
+/*canton name ai*/
+"vaccination_booking_ai_name" = "Appenzell Rhodes-Intérieures";
+
+/*url for booking an appointment for vaccination for canton ai*/
+/*Fuzzy*/
+"vaccination_booking_ai_url" = "https://www.ai.ch/coronavirus-impfung";
+
+/*canton name bl*/
+"vaccination_booking_bl_name" = "Bâle-Campagne";
+
+/*url for booking an appointment for vaccination for canton bl*/
+/*Fuzzy*/
+"vaccination_booking_bl_url" = "https://www.baselland.ch/politik-und-behorden/direktionen/volkswirtschafts-und-gesundheitsdirektion/amt-fur-gesundheit/medizinische-dienste/kantonsarztlicher-dienst/aktuelles/corona-impfung/franzoesisch-francais";
+
+/*canton name bs*/
+"vaccination_booking_bs_name" = "Bâle-Ville";
+
+/*url for booking an appointment for vaccination for canton bs*/
+/*Fuzzy*/
+"vaccination_booking_bs_url" = "http://www.coronaimpfzentrumbasel.ch";
+
+/*canton name be*/
+"vaccination_booking_be_name" = "Berne";
+
+/*url for booking an appointment for vaccination for canton be*/
+/*Fuzzy*/
+"vaccination_booking_be_url" = "https://www.gsi.be.ch/fr/start/themen/coronavirus/impfen.html";
+
+/*canton name fr*/
+"vaccination_booking_fr_name" = "Fribourg";
+
+/*url for booking an appointment for vaccination for canton fr*/
+"vaccination_booking_fr_url" = "https://www.fr.ch/sante/covid-19/covid-19-vaccination";
+
+/*canton name ge*/
+"vaccination_booking_ge_name" = "Genève";
+
+/*url for booking an appointment for vaccination for canton ge*/
+"vaccination_booking_ge_url" = "https://www.ge.ch/se-faire-vacciner-contre-covid-19";
+
+/*canton name gl*/
+"vaccination_booking_gl_name" = "Glaris";
+
+/*url for booking an appointment for vaccination for canton gl*/
+"vaccination_booking_gl_url" = "https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/coronavirus.html/4817#Impfung";
+
+/*canton name gr*/
+"vaccination_booking_gr_name" = "Grisons";
+
+/*url for booking an appointment for vaccination for canton gr*/
+"vaccination_booking_gr_url" = "https://www.gr.ch/DE/institutionen/verwaltung/djsg/ga/coronavirus/info/impfen/Seiten/impfen.aspx";
+
+/*canton name ju*/
+"vaccination_booking_ju_name" = "Jura";
+
+/*url for booking an appointment for vaccination for canton ju*/
+"vaccination_booking_ju_url" = "https://www.jura.ch/fr/Autorites/Coronavirus/Vaccination.html";
+
+/*canton name lu*/
+"vaccination_booking_lu_name" = "Lucerne";
+
+/*url for booking an appointment for vaccination for canton lu*/
+"vaccination_booking_lu_url" = "http://www.lu.ch/covid_impfung";
+
+/*canton name ne*/
+"vaccination_booking_ne_name" = "Neuchâtel";
+
+/*url for booking an appointment for vaccination for canton ne*/
+"vaccination_booking_ne_url" = "https://www.ne.ch/autorites/DFS/SCSP/medecin-cantonal/maladies-vaccinations/covid-19-vaccination/Pages/accueil.aspx";
+
+/*canton name nw*/
+"vaccination_booking_nw_name" = "Nidwald";
+
+/*url for booking an appointment for vaccination for canton nw*/
+"vaccination_booking_nw_url" = "https://www.nw.ch/gesundheitsamtdienste/6044#Impfung";
+
+/*canton name ow*/
+"vaccination_booking_ow_name" = "Obwald";
+
+/*url for booking an appointment for vaccination for canton ow*/
+"vaccination_booking_ow_url" = "https://www.ow.ch/de/verwaltung/dienstleistungen/?dienst_id=5962#Impfung";
+
+/*canton name sg*/
+"vaccination_booking_sg_name" = "Saint-Gall";
+
+/*url for booking an appointment for vaccination for canton sg*/
+"vaccination_booking_sg_url" = "https://www.sg.ch/coronavirus/impfen";
+
+/*canton name sh*/
+"vaccination_booking_sh_name" = "Schaffhouse";
+
+/*url for booking an appointment for vaccination for canton sh*/
+"vaccination_booking_sh_url" = "https://sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Verwaltung/Departement-des-Innern/Gesundheitsamt-7126057-DE.html";
+
+/*canton name sz*/
+"vaccination_booking_sz_name" = "Schwyz";
+
+/*url for booking an appointment for vaccination for canton sz*/
+"vaccination_booking_sz_url" = "https://www.sz.ch/corona-impfen";
+
+/*canton name so*/
+"vaccination_booking_so_name" = "Soleure";
+
+/*url for booking an appointment for vaccination for canton so*/
+"vaccination_booking_so_url" = "https://so.ch/coronaimpfung";
+
+/*canton name tg*/
+"vaccination_booking_tg_name" = "Thurgovie";
+
+/*url for booking an appointment for vaccination for canton tg*/
+"vaccination_booking_tg_url" = "https://gesundheit.tg.ch/aktuelles/impfung-fuer-covid-19.html/11590";
+
+/*canton name ti*/
+"vaccination_booking_ti_name" = "Tessin";
+
+/*url for booking an appointment for vaccination for canton ti*/
+"vaccination_booking_ti_url" = "http://www.ti.ch/vaccinazione";
+
+/*canton name ur*/
+"vaccination_booking_ur_name" = "Uri";
+
+/*url for booking an appointment for vaccination for canton ur*/
+"vaccination_booking_ur_url" = "https://www.ur.ch/themen/3673";
+
+/*canton name vs*/
+"vaccination_booking_vs_name" = "Valais";
+
+/*url for booking an appointment for vaccination for canton vs*/
+"vaccination_booking_vs_url" = "https://www.vs.ch/web/coronavirus/#ancre_vaccination";
+
+/*canton name vd*/
+"vaccination_booking_vd_name" = "Vaud";
+
+/*url for booking an appointment for vaccination for canton vd*/
+"vaccination_booking_vd_url" = "https://vd.ch/coronavirus-vaccins";
+
+/*canton name zg*/
+"vaccination_booking_zg_name" = "Zoug";
+
+/*url for booking an appointment for vaccination for canton zg*/
+"vaccination_booking_zg_url" = "https://www.corona-impfung-zug.ch/";
+
+/*canton name zh*/
+"vaccination_booking_zh_name" = "Zurich";
+
+/*url for booking an appointment for vaccination for canton zh*/
+"vaccination_booking_zh_url" = "http://www.zh.ch/coronaimpfung";
+
+/*vaccination hint box title*/
+"vaccination_hint_title_1" = "Faites-vous vacciner sans plus attendre !";
+
+/*vaccination hint box text*/
+"vaccination_hint_text_1" = "La vaccination contre le COVID-19 vous permet d’éviter les tests répétés.";
+
+/*vaccination hint box title*/
+"vaccination_hint_title_2" = "Faites-vous vacciner sans plus attendre !";
+
+/*vaccination hint box text*/
+"vaccination_hint_text_2" = "La vaccination contre le COVID-19 vous permet de voyager sereinement dans la plupart des pays.";
+
+/*vaccination hint box title*/
+"vaccination_hint_title_3" = "Faites-vous vacciner sans plus attendre !";
+
+/*vaccination hint box text*/
+"vaccination_hint_text_3" = "La vaccination vous protège contre le COVID-19 et, le cas échéant, contre une évolution grave de la maladie.";
+
+/*vaccination hint box title*/
+"vaccination_hint_title_4" = "Faites-vous vacciner sans plus attendre !";
+
+/*vaccination hint box text*/
+"vaccination_hint_text_4" = "La vaccination contre le COVID-19 vous permet de vous immuniser en toute sécurité.";
+
+/*vaccination hint box title*/
+"vaccination_hint_title_5" = "Faites-vous vacciner sans plus attendre !";
+
+/*vaccination hint box text*/
+"vaccination_hint_text_5" = "Grâce à la vaccination contre le COVID-19, vous pouvez contribuer à réduire la charge de morbidité.";
+
+/*vaccination hint box title*/
+"vaccination_hint_title_6" = "Faites-vous vacciner sans plus attendre !";
+
+/*vaccination hint box text*/
+"vaccination_hint_text_6" = "Grâce à la vaccination contre le COVID-19, vous contribuez à la lutte contre les conséquences de la pandémie.";
+
+/*vaccination hint box title*/
+"vaccination_hint_title_7" = "Faites-vous vacciner sans plus attendre !";
+
+/*vaccination hint box text*/
+"vaccination_hint_text_7" = "La vaccination contre le COVID-19 vous permet d’éviter les effets à long terme de la maladie.";
+
+/*vaccination hint box title*/
+"vaccination_hint_title_8" = "Faites-vous vacciner sans plus attendre !";
+
+/*vaccination hint box text*/
+"vaccination_hint_text_8" = "Grâce à la vaccination contre le COVID-19, vous pouvez contribuer à décharger le système de santé.";
+
+/*vaccination hint box title*/
+"vaccination_hint_title_9" = "Faites-vous vacciner sans plus attendre !";
+
+/*vaccination hint box text*/
+"vaccination_hint_text_9" = "Grâce à la vaccination contre le COVID-19, vous pouvez contribuer à rétablir les libertés de la vie quotidienne.";
+
+/*vaccination booking info screen title*/
+"vaccination_booking_info_title" = "Prendre un rendez-vous de vaccination près de chez vous";
+
+/*vaccination booking info screen text*/
+"vaccination_booking_info_text" = "La vaccination pourrait, par exemple, être proposée dans les lieux suivants situés à proximité de chez vous :\n\n- dans des centres de vaccination désignés\n- dans les hôpitaux\n- chez votre médecin de famille\n- dans les pharmacies\n\nIl est aussi possible de se faire vacciner sans rendez-vous dans de nombreux endroits.";
+
+/*vaccination booking info screen info box at bottom*/
+"vaccination_booking_info_info" = "Gratuite, la vaccination contre le COVID-19 est recommandée pour les personnes dès 12 ans.";
+
+/*Header on vaccination appointment screen*/
+"vaccination_appointment_header" = "Rendez-vous de vaccination";
+
+/*Book vaccination appointment button title on homescreen*/
+"vaccination_homescreen_button_title" = "Prendre un rendez-vous de vaccination";
+
+/*Choose your canton title in vaccination appointment screen*/
+"vaccination_choose_your_canton" = "Sélectionnez votre canton";
+
+/*Link title for more information about the vaccine*/
+"vaccination_more_information_title" = "Plus d’informations sur la vaccination contre le COVID-19";
+
+/*Button text for information about the vaccine at the bottom of the certificate*/
+"vaccination_information_button_in_certificate" = "Informations sur la vaccination";
+
+/*Vaccination Booking Info URL Link*/
+"vaccination_booking_info_url" = "https://ofsp-coronavirus.ch/vaccination/";
