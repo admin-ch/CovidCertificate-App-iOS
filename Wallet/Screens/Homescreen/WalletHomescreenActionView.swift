@@ -21,7 +21,7 @@ class WalletHomescreenActionView: UIView {
 
     public var isVaccinationButtonHidden: Bool = true {
         didSet {
-            showVaccinationAppointmentInformationButton.isHidden = isVaccinationButtonHidden
+            showVaccinationAppointmentInformationButton.ub_setHidden(isVaccinationButtonHidden)
         }
     }
 
@@ -60,9 +60,8 @@ class WalletHomescreenActionView: UIView {
         stackView.addArrangedView(addCertificateView)
         stackView.addArrangedView(addTransferCodeButton)
 
-        if ConfigManager.currentConfig?.showVaccinationHintHomescreen ?? false {
-            stackView.addArrangedView(showVaccinationAppointmentInformationButton)
-        }
+        stackView.addArrangedView(showVaccinationAppointmentInformationButton)
+        showVaccinationAppointmentInformationButton.ub_setHidden(isVaccinationButtonHidden)
     }
 
     private func setupInteraction() {

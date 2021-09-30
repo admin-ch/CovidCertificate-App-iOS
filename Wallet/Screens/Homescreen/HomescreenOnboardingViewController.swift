@@ -19,12 +19,6 @@ class HomescreenOnboardingViewController: ViewController {
     public var addTransferCodeTouchUpCallback: (() -> Void)?
     public var showVaccinationAppointmentInformationTouchUpCallback: (() -> Void)?
 
-    public var isVaccinationButtonHidden: Bool = true {
-        didSet {
-            homescreenButtons.isVaccinationButtonHidden = isVaccinationButtonHidden
-        }
-    }
-
     // MARK: - Subviews
 
     private let stackScrollView = StackScrollView(axis: .vertical)
@@ -58,6 +52,17 @@ class HomescreenOnboardingViewController: ViewController {
             guard let strongSelf = self else { return }
             strongSelf.showVaccinationAppointmentInformationTouchUpCallback?()
         }
+
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.update()
+        }
+    }
+
+    // MARK: - Update
+
+    private func update() {
+        homescreenButtons.isVaccinationButtonHidden = !(ConfigManager.currentConfig?.showVaccinationHintHomescreen ?? false)
     }
 
     // MARK: - Setup
@@ -90,5 +95,9 @@ class HomescreenOnboardingViewController: ViewController {
         titleLabel.text = UBLocalized.wallet_certificate
         questionLabel.text = UBLocalized.wallet_homescreen_what_to_do
         questionLabel.accessibilityTraits = [.header]
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

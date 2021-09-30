@@ -84,8 +84,6 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
                 self.onboardingViewController.view.alpha = 0.0
                 self.bottomView.alpha = 0.0
             }
-
-            self.onboardingViewController.isVaccinationButtonHidden = !(ConfigManager.currentConfig?.showVaccinationHintHomescreen ?? false)
         }
 
         if animated {
