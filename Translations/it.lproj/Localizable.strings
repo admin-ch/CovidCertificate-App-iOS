@@ -1114,82 +1114,82 @@
 "vaccination_booking_zh_url" = "http://www.zh.ch/coronaimpfung";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_1" = "Jetzt impfen lassen!";
+"vaccination_hint_title_1" = "Fatti vaccinare ora!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_1" = "Mit der Covid-19-Impfung können Sie auf das wiederholte Testen verzichten.";
+"vaccination_hint_text_1" = "Con la vaccinazione anti-COVID-19 puoi rinunciare ai test ripetuti.";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_2" = "Jetzt impfen lassen!";
+"vaccination_hint_title_2" = "Fatti vaccinare ora!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_2" = "Mit der Covid-19-Impfung können Sie unbeschwert in die meisten Länder reisen.";
+"vaccination_hint_text_2" = "Con la vaccinazione anti-COVID-19 puoi viaggiare senza preoccupazioni nella maggior parte dei Paesi.";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_3" = "Jetzt impfen lassen!";
+"vaccination_hint_title_3" = "Fatti vaccinare ora!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_3" = "Mit der Covid-19-Impfung können Sie sich vor Erkrankung und einem allfälligen schweren Verlauf schützen.";
+"vaccination_hint_text_3" = "Con la vaccinazione anti-COVID-19 puoi proteggerti dalla malattia e da un eventuale decorso grave.";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_4" = "Jetzt impfen lassen!";
+"vaccination_hint_title_4" = "Fatti vaccinare ora!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_4" = "Mit der Covid-19-Impfung können Sie auf sichere Art immun werden.";
+"vaccination_hint_text_4" = "Con la vaccinazione anti-COVID-19 puoi immunizzarti in modo sicuro.";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_5" = "Jetzt impfen lassen!";
+"vaccination_hint_title_5" = "Fatti vaccinare ora!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_5" = "Mit der Covid-19-Impfung können Sie mithelfen, die Krankheitslast zu reduzieren.";
+"vaccination_hint_text_5" = "Con la vaccinazione anti-COVID-19 puoi contribuire a ridurre il carico di malattia.";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_6" = "Jetzt impfen lassen!";
+"vaccination_hint_title_6" = "Fatti vaccinare ora!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_6" = "Mit der Covid-19-Impfung können Sie helfen, die Auswirkungen der Pandemie zu bekämpfen.";
+"vaccination_hint_text_6" = "Con la vaccinazione anti-COVID-19 puoi contribuire a combattere le ripercussioni della pandemia.";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_7" = "Jetzt impfen lassen!";
+"vaccination_hint_title_7" = "Fatti vaccinare ora!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_7" = "Mit der Covid-19-Impfung können Sie die Langzeitfolgen einer Covid-19-Erkrankung vermeiden.";
+"vaccination_hint_text_7" = "Con la vaccinazione anti-COVID-19 puoi evitare le conseguenze a lungo termine di una malattia COVID-19.";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_8" = "Jetzt impfen lassen!";
+"vaccination_hint_title_8" = "Fatti vaccinare ora!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_8" = "Mit der Covid-19-Impfung können Sie dazu beitragen, das Gesundheitswesen zu entlasten.";
+"vaccination_hint_text_8" = "Con la vaccinazione anti-COVID-19 puoi contribuire a sgravare il sistema sanitario.";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_9" = "Jetzt impfen lassen!";
+"vaccination_hint_title_9" = "Fatti vaccinare ora!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_9" = "Mit der Covid-19-Impfung können Sie dazu beitragen, die Freiheiten des Alltags zurückzubringen.";
+"vaccination_hint_text_9" = "Con la vaccinazione anti-COVID-19 puoi contribuire a fare in modo che tornino le libertà della vita quotidiana.";
 
 /*vaccination booking info screen title*/
-"vaccination_booking_info_title" = "Impftermin in Ihrer Nähe buchen";
+"vaccination_booking_info_title" = "Prendi appuntamento per la vaccinazione nelle tue vicinanze";
 
 /*vaccination booking info screen text*/
-"vaccination_booking_info_text" = "Eine Impfung könnte zum Beispiel an diesen Orten in Ihrer Nähe stattfinden:\n\n- in spezifischen Impfzentren\n- in Spitälern\n- bei Ihrem Hausarzt oder Ihrer Hausärztin\n- in Impfapotheken\n\nViele Orte bieten auch Walk-in-Impfungen ohne Termine an.";
+"vaccination_booking_info_text" = "Per esempio potresti farti vaccinare in uno di questi luoghi nelle tue vicinanze:\n\n- in centri di vaccinazione specifici\n- negli ospedali\n- dal tuo medico di famiglia\n- nelle farmacie che vaccinano\n\nMolti di essi offrono anche vaccinazioni libere senza appuntamento.";
 
 /*vaccination booking info screen info box at bottom*/
-"vaccination_booking_info_info" = "Die Covid-19-Impfung ist für Personen ab 12 Jahren empfohlen. Die Impfung ist gratis.";
+"vaccination_booking_info_info" = "La vaccinazione anti-COVID-19 è raccomandata per le persone a partire dai 12 anni ed è gratuita.";
 
 /*Header on vaccination appointment screen*/
-"vaccination_appointment_header" = "Impftermin";
+"vaccination_appointment_header" = "Appuntamento per la vaccinazione";
 
 /*Book vaccination appointment button title on homescreen*/
-"vaccination_homescreen_button_title" = "Impftermin buchen";
+"vaccination_homescreen_button_title" = "Prendi appuntamento per la vaccinazione";
 
 /*Choose your canton title in vaccination appointment screen*/
-"vaccination_choose_your_canton" = "Wählen Sie Ihren Kanton";
+"vaccination_choose_your_canton" = "Scegli il Cantone";
 
 /*Link title for more information about the vaccine*/
-"vaccination_more_information_title" = "Weitere Informationen rund um die Covid-19-Impfung";
+"vaccination_more_information_title" = "Ulteriori informazioni sulla vaccinazione anti-COVID-19";
 
 /*Button text for information about the vaccine at the bottom of the certificate*/
-"vaccination_information_button_in_certificate" = "Informationen zur Impfung";
+"vaccination_information_button_in_certificate" = "Informazioni sulla vaccinazione";
 
 /*Vaccination Booking Info URL Link*/
 "vaccination_booking_info_url" = "https://ufsp-coronavirus.ch/vaccinazione/";

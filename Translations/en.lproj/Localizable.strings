@@ -1114,82 +1114,82 @@
 "vaccination_booking_zh_url" = "http://www.zh.ch/coronaimpfung";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_1" = "Jetzt impfen lassen!";
+"vaccination_hint_title_1" = "Get vaccinated today!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_1" = "Mit der Covid-19-Impfung können Sie auf das wiederholte Testen verzichten.";
+"vaccination_hint_text_1" = "Being vaccinated against COVID-19 means no more repeat testing. ";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_2" = "Jetzt impfen lassen!";
+"vaccination_hint_title_2" = "Get vaccinated today!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_2" = "Mit der Covid-19-Impfung können Sie unbeschwert in die meisten Länder reisen.";
+"vaccination_hint_text_2" = "Being vaccinated against COVID-19 means hassle-free travel to most countries. ";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_3" = "Jetzt impfen lassen!";
+"vaccination_hint_title_3" = "Get vaccinated today!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_3" = "Mit der Covid-19-Impfung können Sie sich vor Erkrankung und einem allfälligen schweren Verlauf schützen.";
+"vaccination_hint_text_3" = "Being vaccinated against COVID-19 means protection from infection and severe disease. ";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_4" = "Jetzt impfen lassen!";
+"vaccination_hint_title_4" = "Get vaccinated today!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_4" = "Mit der Covid-19-Impfung können Sie auf sichere Art immun werden.";
+"vaccination_hint_text_4" = "Being vaccinated against COVID-19 means immunity the safe way.";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_5" = "Jetzt impfen lassen!";
+"vaccination_hint_title_5" = "Get vaccinated today!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_5" = "Mit der Covid-19-Impfung können Sie mithelfen, die Krankheitslast zu reduzieren.";
+"vaccination_hint_text_5" = "Being vaccinated against COVID-19 means helping to reduce the disease burden. ";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_6" = "Jetzt impfen lassen!";
+"vaccination_hint_title_6" = "Get vaccinated today!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_6" = "Mit der Covid-19-Impfung können Sie helfen, die Auswirkungen der Pandemie zu bekämpfen.";
+"vaccination_hint_text_6" = "Being vaccinated against COVID-19 means helping to control the impact of the pandemic. ";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_7" = "Jetzt impfen lassen!";
+"vaccination_hint_title_7" = "Get vaccinated today!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_7" = "Mit der Covid-19-Impfung können Sie die Langzeitfolgen einer Covid-19-Erkrankung vermeiden.";
+"vaccination_hint_text_7" = "Being vaccinated against COVID-19 means preventing long COVID.";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_8" = "Jetzt impfen lassen!";
+"vaccination_hint_title_8" = "Get vaccinated today!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_8" = "Mit der Covid-19-Impfung können Sie dazu beitragen, das Gesundheitswesen zu entlasten.";
+"vaccination_hint_text_8" = "Being vaccinated against COVID-19 means helping to relieve the pressure on the health system.";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_9" = "Jetzt impfen lassen!";
+"vaccination_hint_title_9" = "Get vaccinated today!";
 
 /*vaccination hint box text*/
-"vaccination_hint_text_9" = "Mit der Covid-19-Impfung können Sie dazu beitragen, die Freiheiten des Alltags zurückzubringen.";
+"vaccination_hint_text_9" = "Being vaccinated against COVID-19 means helping us get our everyday freedoms back.";
 
 /*vaccination booking info screen title*/
-"vaccination_booking_info_title" = "Impftermin in Ihrer Nähe buchen";
+"vaccination_booking_info_title" = "Book a vaccination appointment near you";
 
 /*vaccination booking info screen text*/
-"vaccination_booking_info_text" = "Eine Impfung könnte zum Beispiel an diesen Orten in Ihrer Nähe stattfinden:\n\n- in spezifischen Impfzentren\n- in Spitälern\n- bei Ihrem Hausarzt oder Ihrer Hausärztin\n- in Impfapotheken\n\nViele Orte bieten auch Walk-in-Impfungen ohne Termine an.";
+"vaccination_booking_info_text" = "Vaccination may be performed at the following locations near you:\n\n- at specific vaccination centres\n- in hospitals\n- at your general practitioner's surgery\n- at a vaccination pharmacy\n\nMany places also offer walk-in vaccinations without an appointment.";
 
 /*vaccination booking info screen info box at bottom*/
-"vaccination_booking_info_info" = "Die Covid-19-Impfung ist für Personen ab 12 Jahren empfohlen. Die Impfung ist gratis.";
+"vaccination_booking_info_info" = "The COVID-19 vaccination is recommended for those over 12. It's free of charge.";
 
 /*Header on vaccination appointment screen*/
-"vaccination_appointment_header" = "Impftermin";
+"vaccination_appointment_header" = "Vaccination appointment";
 
 /*Book vaccination appointment button title on homescreen*/
-"vaccination_homescreen_button_title" = "Impftermin buchen";
+"vaccination_homescreen_button_title" = "Book a vaccination appointment";
 
 /*Choose your canton title in vaccination appointment screen*/
-"vaccination_choose_your_canton" = "Wählen Sie Ihren Kanton";
+"vaccination_choose_your_canton" = "Select your canton";
 
 /*Link title for more information about the vaccine*/
-"vaccination_more_information_title" = "Weitere Informationen rund um die Covid-19-Impfung";
+"vaccination_more_information_title" = "More information about the COVID-19 vaccination";
 
 /*Button text for information about the vaccine at the bottom of the certificate*/
-"vaccination_information_button_in_certificate" = "Informationen zur Impfung";
+"vaccination_information_button_in_certificate" = "Information on vaccination ";
 
 /*Vaccination Booking Info URL Link*/
 "vaccination_booking_info_url" = "https://foph-coronavirus.ch/vaccination/";
