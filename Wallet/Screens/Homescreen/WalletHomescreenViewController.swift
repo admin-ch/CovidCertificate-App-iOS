@@ -84,6 +84,8 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
                 self.onboardingViewController.view.alpha = 0.0
                 self.bottomView.alpha = 0.0
             }
+
+            self.onboardingViewController.isVaccinationButtonHidden = !(ConfigManager.currentConfig?.showVaccinationHintHomescreen ?? false)
         }
 
         if animated {
@@ -170,6 +172,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             if strongSelf.actionViewIsShown {
                 strongSelf.actionPopupView.dismiss()
             } else {
+                strongSelf.actionPopupView.isVaccinationButtonHidden = !(ConfigManager.currentConfig?.showVaccinationHintHomescreen ?? false)
                 strongSelf.actionPopupView.presentFrom(view: strongSelf.addCertificateButton)
             }
         }

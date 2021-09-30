@@ -19,6 +19,12 @@ class WalletHomescreenActionView: UIView {
     public var addTransferCodeTouchUpCallback: (() -> Void)?
     public var showVaccinationAppointmentInformationTouchUpCallback: (() -> Void)?
 
+    public var isVaccinationButtonHidden: Bool = true {
+        didSet {
+            showVaccinationAppointmentInformationButton.isHidden = isVaccinationButtonHidden
+        }
+    }
+
     // MARK: - Subviews
 
     private let stackView = UIStackView()

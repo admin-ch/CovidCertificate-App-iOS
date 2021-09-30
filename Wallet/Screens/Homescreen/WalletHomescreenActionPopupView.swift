@@ -23,6 +23,12 @@ class WalletHomescreenActionPopupView: PopupView {
     public var addTransferCodeTouchUpCallback: (() -> Void)?
     public var showVaccinationAppointmentInformationTouchUpCallback: (() -> Void)?
 
+    public var isVaccinationButtonHidden: Bool = true {
+        didSet {
+            actionView.isVaccinationButtonHidden = isVaccinationButtonHidden
+        }
+    }
+
     // MARK: - Setup
 
     override func setup() {

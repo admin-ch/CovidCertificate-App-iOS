@@ -12,12 +12,18 @@
 import Foundation
 
 class HomescreenOnboardingViewController: ViewController {
-    // MARK: - Touch Up Callback
+    // MARK: - Public
 
     public var addQRCertificateTouchUpCallback: (() -> Void)?
     public var addPDFCertificateTouchUpCallback: (() -> Void)?
     public var addTransferCodeTouchUpCallback: (() -> Void)?
     public var showVaccinationAppointmentInformationTouchUpCallback: (() -> Void)?
+
+    public var isVaccinationButtonHidden: Bool = true {
+        didSet {
+            homescreenButtons.isVaccinationButtonHidden = isVaccinationButtonHidden
+        }
+    }
 
     // MARK: - Subviews
 
