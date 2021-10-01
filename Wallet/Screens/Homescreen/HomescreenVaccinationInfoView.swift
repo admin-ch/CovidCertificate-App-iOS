@@ -179,6 +179,7 @@ private class TitleIconButton: UBButton {
             make.trailing.equalToSuperview()
             make.centerY.equalToSuperview()
         }
+        iconView.setContentCompressionResistancePriority(.required, for: .horizontal)
 
         accessibilityLabel = textLabel.text
     }
