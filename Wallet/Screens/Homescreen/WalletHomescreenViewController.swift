@@ -52,6 +52,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             guard let strongSelf = self else { return }
             strongSelf.state = s.certificateState.certificates.count == 0 ? .onboarding : .certificates
             strongSelf.infoBox = s.infoBoxState
+            strongSelf.actionPopupView.isVaccinationButtonHidden = !s.vaccinationInfoState.showVaccinationHintHomescreen
 
             // show push if first time there is a transfer code
             let hasTransferCode = s.certificateState.certificates.contains(where: { $0.type == .transferCode })
@@ -77,6 +78,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
                 self.bottomView.state = s
                 self.bottomView.alpha = 1.0
                 self.loadingView.stopLoading()
+
             } else {
                 self.loadingView.startLoading()
                 self.addCertificateButton.alpha = 0.0
@@ -170,7 +172,6 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             if strongSelf.actionViewIsShown {
                 strongSelf.actionPopupView.dismiss()
             } else {
-                strongSelf.actionPopupView.isVaccinationButtonHidden = !(ConfigManager.currentConfig?.showVaccinationHintHomescreen ?? false)
                 strongSelf.actionPopupView.presentFrom(view: strongSelf.addCertificateButton)
             }
         }

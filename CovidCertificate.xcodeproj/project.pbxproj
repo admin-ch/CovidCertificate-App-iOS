@@ -210,6 +210,8 @@
 		6ED916352681E7F7006D9E7C /* PushRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9160C2681B171006D9E7C /* PushRegistration.swift */; };
 		6EDE754D2667DB6900A2656F /* UBLocalized+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */; };
 		6EDE754E2667DB6900A2656F /* UBLocalized+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */; };
+		6EE654892706DD0D00F71661 /* VaccinationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE654882706DD0D00F71661 /* VaccinationInfo.swift */; };
+		6EE6548A2706DD0D00F71661 /* VaccinationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE654882706DD0D00F71661 /* VaccinationInfo.swift */; };
 		6EE81DEB245163C400FC7218 /* PhoneCallHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */; };
 		6EEAFBED267B4F3300807C16 /* TransferCodeRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEAFBEC267B4F3300807C16 /* TransferCodeRefreshView.swift */; };
 		6EEAFBEF267B63BC00807C16 /* TransferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EEAFBEE267B63BC00807C16 /* TransferManager.swift */; };
@@ -487,6 +489,7 @@
 		6ED916152681B171006D9E7C /* UBPushRegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushRegistrationManager.swift; sourceTree = "<group>"; };
 		6ED9162F2681D932006D9E7C /* LocalPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalPush.swift; sourceTree = "<group>"; };
 		6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UBLocalized+CC.swift"; sourceTree = "<group>"; };
+		6EE654882706DD0D00F71661 /* VaccinationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationInfo.swift; sourceTree = "<group>"; };
 		6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCallHelper.swift; sourceTree = "<group>"; };
 		6EEAFBEC267B4F3300807C16 /* TransferCodeRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeRefreshView.swift; sourceTree = "<group>"; };
 		6EEAFBEE267B63BC00807C16 /* TransferManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferManager.swift; sourceTree = "<group>"; };
@@ -793,6 +796,7 @@
 				6E5A0F23264336B4004718B4 /* UIStateManager.swift */,
 				6E5A0F24264336B4004718B4 /* UIStateModel.swift */,
 				6E5A0F28264336CA004718B4 /* CertificateState.swift */,
+				6EE654882706DD0D00F71661 /* VaccinationInfo.swift */,
 			);
 			path = UIStateManager;
 			sourceTree = "<group>";
@@ -1766,6 +1770,7 @@
 				6EF166D3264E5C3200426985 /* ConfigManager.swift in Sources */,
 				6EC1730926429E31002E27DB /* Backend.swift in Sources */,
 				DCF9C35826562E5C00E34481 /* ExpandableViewBody.swift in Sources */,
+				6EE6548A2706DD0D00F71661 /* VaccinationInfo.swift in Sources */,
 				6EC1730B26429E31002E27DB /* RandomGenerators.swift in Sources */,
 				6E603605267879E500EB57E7 /* UserTransferCode.swift in Sources */,
 				6EC1730C26429E31002E27DB /* WebViewController.swift in Sources */,
@@ -1899,6 +1904,7 @@
 				6EF166E0264E7FD900426985 /* CertificateStateView.swift in Sources */,
 				24780B24242DFE6D003BB26C /* NavigationController.swift in Sources */,
 				DC445D332645828E007DC8F2 /* QRScanErrorView.swift in Sources */,
+				6EE654892706DD0D00F71661 /* VaccinationInfo.swift in Sources */,
 				DCBF64DF2678875D00450D51 /* TransferCodeNextStepsViewController.swift in Sources */,
 				F8130CDC2685B46200A29326 /* URLSession+synchron.swift in Sources */,
 				6EE81DEB245163C400FC7218 /* PhoneCallHelper.swift in Sources */,
