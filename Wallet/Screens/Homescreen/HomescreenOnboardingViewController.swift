@@ -53,16 +53,10 @@ class HomescreenOnboardingViewController: ViewController {
             strongSelf.showVaccinationAppointmentInformationTouchUpCallback?()
         }
 
-        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
+        UIStateManager.shared.addObserver(self) { [weak self] s in
             guard let strongSelf = self else { return }
-            strongSelf.update()
+            strongSelf.homescreenButtons.isVaccinationButtonHidden = !s.vaccinationInfoState.showVaccinationHintHomescreen
         }
-    }
-
-    // MARK: - Update
-
-    private func update() {
-        homescreenButtons.isVaccinationButtonHidden = !(ConfigManager.currentConfig?.showVaccinationHintHomescreen ?? false)
     }
 
     // MARK: - Setup
@@ -95,9 +89,5 @@ class HomescreenOnboardingViewController: ViewController {
         titleLabel.text = UBLocalized.wallet_certificate
         questionLabel.text = UBLocalized.wallet_homescreen_what_to_do
         questionLabel.accessibilityTraits = [.header]
-    }
-
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
 }

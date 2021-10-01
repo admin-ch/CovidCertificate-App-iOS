@@ -18,7 +18,7 @@ class UIStateLogic {
     }
 
     func buildState() -> UIStateModel {
-        return UIStateModel(certificateState: buildCertificateState(), infoBoxState: buildInfoBoxState())
+        return UIStateModel(certificateState: buildCertificateState(), infoBoxState: buildInfoBoxState(), vaccinationInfoState: buildVaccinationInfoState())
     }
 
     // MARK: - Substates
@@ -33,5 +33,13 @@ class UIStateLogic {
 
     private func buildInfoBoxState() -> InfoBox? {
         return ConfigManager.currentConfig?.infoBox?.value
+    }
+
+    private func buildVaccinationInfoState() -> VaccinationInfo {
+        #if WALLET
+            return VaccinationInfo(showVaccinationHintHomescreen: ConfigManager.currentConfig?.showVaccinationHintHomescreen ?? false)
+        #elseif VERIFIER
+            return VaccinationInfo(showVaccinationHintHomescreen: false)
+        #endif
     }
 }
