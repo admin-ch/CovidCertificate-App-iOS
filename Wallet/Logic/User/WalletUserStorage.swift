@@ -27,6 +27,9 @@ class WalletUserStorage {
     @UBUserDefault(key: "wallet.user.hasCompletedSecureStorageMigration", defaultValue: false)
     var hasCompletedSecureStorageMigration: Bool
 
+    @UBUserDefault(key: "wallet.user.hasCompletedSecureStorageMigrationWithoutSecureEnclave", defaultValue: false)
+    var hasCompletedSecureStorageMigrationWithoutSecureEnclave: Bool
+
     @UBUserDefault(key: "wallet.user.hasCompletedPushRegistration", defaultValue: false)
     var hasCompletedPushRegistration: Bool
 
@@ -170,6 +173,11 @@ class CertificateStorage {
 
     func removeAll() {
         userCertificates = []
+    }
+
+    /// certififcates are automatically saved on chages, this method forces a synchronous save
+    func forceSave() {
+        _ = secureStorage.saveSynchronously(certificates)
     }
 
     // MARK: - Migration

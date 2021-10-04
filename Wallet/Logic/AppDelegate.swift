@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // migrates certificates from keychain to secure storage
         Migration.migrateToSecureStorage()
 
+        // migrate certificate key to keychain without secure enclave
+        Migration.migrateToSecureStorageWithoutSecureEnclave()
+
         // Pre-populate isFirstLaunch for users which already installed the app before we introduced this flag
         if WalletUserStorage.shared.hasCompletedOnboarding {
             isFirstLaunch = false
