@@ -74,12 +74,12 @@ public struct SecureStorage<T: Codable> {
             }
         }
 
-        guard let key = key else { return nil }
+        guard let unwrappedKey = key else { return nil }
 
         let semaphore = DispatchSemaphore(value: 0)
         var t: T?
 
-        Enclave.decrypt(data: data, with: key) { decrypted, err in
+        Enclave.decrypt(data: data, with: unwrappedKey) { decrypted, err in
             guard
                 let decrypted = decrypted,
                 err == nil,
