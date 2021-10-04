@@ -35,6 +35,8 @@ public enum Enclave {
         "\(Bundle.main.bundleIdentifier ?? "app").\(name)".data(using: .utf8)!
     }
 
+    static let logger = OSLogger(category: "Enclave")
+
     static func generateKey(with name: String? = nil) -> (SecKey?, String?) {
         let name = name ?? UUID().uuidString
         let tag = Enclave.tag(for: name)
@@ -44,11 +46,13 @@ public enum Enclave {
             SecAccessControlCreateWithFlags(
                 kCFAllocatorDefault,
                 kSecAttrAccessibleAfterFirstUnlock,
-                [.privateKeyUsage],
+                [],
                 &error
             )
         else {
-            return (nil, error?.takeRetainedValue().localizedDescription)
+            let errorString = error?.takeRetainedValue().localizedDescription
+            Self.logger.error("%{public}@", errorString ?? "N/A")
+            return (nil, errorString)
         }
         let attributes: [String: Any] = [
             kSecAttrKeyType as String: kSecAttrKeyTypeEC,
@@ -65,7 +69,10 @@ public enum Enclave {
                 &error
             )
         else {
-            return (nil, error?.takeRetainedValue().localizedDescription)
+            let error = error!.takeRetainedValue()
+            let errorString = error.localizedDescription
+            Self.logger.error("%{public}@", errorString)
+            return (nil, errorString)
         }
         return (privateKey, nil)
     }
@@ -99,9 +106,11 @@ public enum Enclave {
 
     static func encrypt(data: Data, with key: SecKey) -> (Data?, String?) {
         guard let publicKey = SecKeyCopyPublicKey(key) else {
+            Self.logger.error("err.pub-key-irretrievable")
             return (nil, "err.pub-key-irretrievable")
         }
         guard SecKeyIsAlgorithmSupported(publicKey, .encrypt, encryptAlg) else {
+            Self.logger.error("err.alg-not-supported")
             return (nil, "err.alg-not-supported")
         }
         var error: Unmanaged<CFError>?
@@ -112,6 +121,9 @@ public enum Enclave {
             &error
         ) as Data?
         let err = error?.takeRetainedValue().localizedDescription
+        if let err = err {
+            Self.logger.error("%{public}@", err)
+        }
         return (cipherData, err)
     }
 
@@ -124,6 +136,7 @@ public enum Enclave {
 
     static func syncDecrypt(data: Data, with key: SecKey) -> (Data?, String?) {
         guard SecKeyIsAlgorithmSupported(key, .decrypt, encryptAlg) else {
+            Self.logger.error("err.alg-not-supported")
             return (nil, "err.alg-not-supported")
         }
         var error: Unmanaged<CFError>?
@@ -134,14 +147,19 @@ public enum Enclave {
             &error
         ) as Data?
         let err = error?.takeRetainedValue().localizedDescription
+        if let err = err {
+            Self.logger.error("%{public}@", err)
+        }
         return (clearData, err)
     }
 
     static func verify(data: Data, signature: Data, with key: SecKey) -> (Bool, String?) {
         guard let publicKey = SecKeyCopyPublicKey(key) else {
+            Self.logger.error("err.pub-key-irretrievable")
             return (false, "err.pub-key-irretrievable")
         }
         guard SecKeyIsAlgorithmSupported(publicKey, .verify, signAlg) else {
+            Self.logger.error("err.alg-not-supported")
             return (false, "err.alg-not-supported")
         }
         var error: Unmanaged<CFError>?
@@ -153,6 +171,9 @@ public enum Enclave {
             &error
         )
         let err = error?.takeRetainedValue().localizedDescription
+        if let err = err {
+            Self.logger.error("%{public}@", err)
+        }
         return (isValid, err)
     }
 
@@ -175,6 +196,7 @@ public enum Enclave {
     ) -> (Data?, String?) {
         let algorithm = algorithm ?? signAlg
         guard SecKeyIsAlgorithmSupported(key, .sign, algorithm) else {
+            Self.logger.error("err.alg-not-supported")
             return (nil, "err.alg-not-supported")
         }
         var error: Unmanaged<CFError>?
@@ -185,6 +207,9 @@ public enum Enclave {
             &error
         ) as Data?
         let err = error?.takeRetainedValue().localizedDescription
+        if let err = err {
+            Self.logger.error("%{public}@", err)
+        }
         return (signature, err)
     }
 }
