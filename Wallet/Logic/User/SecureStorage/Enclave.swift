@@ -50,7 +50,7 @@ public enum Enclave {
         else {
             return (nil, error?.takeRetainedValue().localizedDescription)
         }
-        var attributes: [String: Any] = [
+        let attributes: [String: Any] = [
             kSecAttrKeyType as String: kSecAttrKeyTypeEC,
             kSecAttrKeySizeInBits as String: 256,
             kSecPrivateKeyAttrs as String: [
@@ -59,9 +59,6 @@ public enum Enclave {
                 kSecAttrAccessControl as String: access,
             ],
         ]
-        #if !targetEnvironment(simulator)
-            attributes[kSecAttrTokenID as String] = kSecAttrTokenIDSecureEnclave
-        #endif
         guard
             let privateKey = SecKeyCreateRandomKey(
                 attributes as CFDictionary,
