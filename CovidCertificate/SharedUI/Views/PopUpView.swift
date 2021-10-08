@@ -22,6 +22,8 @@ class PopupView: UIView {
 
     private let enableBackgroundDismiss: Bool
 
+    private var accessibilityCloseButton: Button?
+
     // MARK: - API
 
     public var showCallback: ((Bool) -> Void)?
@@ -41,7 +43,9 @@ class PopupView: UIView {
 
     // MARK: - Animation
 
-    public func presentFrom(view: UIView) {
+    public func presentFrom(view: UIView, isPresentedFromCloseButton: Bool = false) {
+        accessibilityViewIsModal = true
+
         showCallback?(true)
 
         isUserInteractionEnabled = true
@@ -59,9 +63,38 @@ class PopupView: UIView {
             self.contentView.transform = .identity
             self.contentView.alpha = 1.0
         }, completion: { _ in })
+
+        if let button = view as? Button,
+           UIAccessibility.isVoiceOverRunning,
+           isPresentedFromCloseButton {
+            setupCloseButton(from: button)
+        }
+
+        UIAccessibility.post(notification: .screenChanged, argument: self)
+    }
+
+    private func setupCloseButton(from button: Button) {
+        accessibilityCloseButton?.removeFromSuperview()
+
+        accessibilityCloseButton = Button(image: nil, accessibilityName: UBLocalized.accessibility_close_button)
+        // !: intiailized above
+        addSubview(accessibilityCloseButton!)
+
+        accessibilityCloseButton?.snp.makeConstraints { make in
+            make.center.equalTo(viewPoint)
+            make.size.equalTo(button)
+        }
+
+        accessibilityCloseButton?.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.dismiss()
+        }
     }
 
     @objc public func dismiss() {
+        accessibilityCloseButton?.isHidden = true
+        accessibilityViewIsModal = false
+
         if viewPoint == .zero {
             return
         }
