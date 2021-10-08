@@ -162,6 +162,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.applicationIconBadgeNumber = 0
 
         addBlurView()
+
+        if let tcvc = (window?.rootViewController?.presentedViewController as? NavigationController)?.viewControllers.first as? TransferCodeViewController {
+            tcvc.dismissIfPossible()
+        }
     }
 
     func applicationDidBecomeActive(_: UIApplication) {

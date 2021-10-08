@@ -18,6 +18,8 @@ class TransferCodeViewController: ViewController {
 
     private let loadingView = LoadingView()
 
+    private var canBeDismissed = false
+
     // MARK: - View
 
     override func viewDidLoad() {
@@ -73,6 +75,7 @@ class TransferCodeViewController: ViewController {
 
         InAppDelivery.shared.registerNewCode { [weak self] result in
             guard let strongSelf = self else { return }
+            strongSelf.canBeDismissed = false
 
             switch result {
             case let .success(code):
@@ -85,6 +88,8 @@ class TransferCodeViewController: ViewController {
                     strongSelf.nextStepsVC.view.alpha = 1.0
                 }
 
+                strongSelf.canBeDismissed = true
+
             case let .failure(error):
                 strongSelf.errorRetryVC.error = error
 
@@ -95,6 +100,12 @@ class TransferCodeViewController: ViewController {
 
             strongSelf.loadingView.stopLoading()
             UIAccessibility.post(notification: .screenChanged, argument: nil)
+        }
+    }
+
+    public func dismissIfPossible() {
+        if canBeDismissed {
+            dismiss(animated: false, completion: nil)
         }
     }
 }
