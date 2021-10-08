@@ -99,6 +99,13 @@ final class TransferManager {
         return cachedLastLoad.first(where: { $0.code == code })?.lastLoad
     }
 
+    func hasKey(code: String) -> Bool {
+        if case .success = Crypto.loadKey(name: code) {
+            return true
+        }
+        return false
+    }
+
     func download(code: String, result completion: ((TransferCodeResult) -> Void)? = nil) {
         #if DEBUG
             LocalPush.shared.showDebugNotification(title: "Debug", body: "Transfermanager download for code: \(code) called at \(Date().description)")
