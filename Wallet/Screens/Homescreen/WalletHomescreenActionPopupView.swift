@@ -31,18 +31,32 @@ class WalletHomescreenActionPopupView: PopupView {
 
     // MARK: - Setup
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        let isUltraSmall = frame.size.width <= 320
+        let bottomInset = isUltraSmall ? 3.0 * Padding.large + Padding.medium : 5.0 * Padding.large + Padding.medium
+
+        contentView.snp.remakeConstraints { make in
+            make.top.equalTo(self.snp.topMargin).offset(Padding.small)
+            make.bottom.equalToSuperview().inset(bottomInset)
+            make.left.right.equalToSuperview().inset(Padding.large)
+        }
+    }
+
     override func setup() {
         super.setup()
 
-        contentView.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(5.0 * Padding.large + Padding.medium)
-            make.left.right.equalToSuperview().inset(Padding.large)
-        }
+        let stackScrollView = StackScrollView()
+        stackScrollView.addArrangedView(actionView)
+        stackScrollView.scrollView.alwaysBounceVertical = false
 
-        contentView.addSubview(actionView)
+        contentView.addSubview(stackScrollView)
 
-        actionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        stackScrollView.snp.makeConstraints { make in
+            make.top.greaterThanOrEqualToSuperview().priority(.medium)
+            make.left.right.bottom.equalToSuperview()
+            make.height.equalTo(actionView).priority(.low)
         }
 
         actionView.addQRCertificateTouchUpCallback = { [weak self] in

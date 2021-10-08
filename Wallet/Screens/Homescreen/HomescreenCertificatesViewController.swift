@@ -38,24 +38,10 @@ class HomescreenCertificatesViewController: ViewController {
     private func setup() {
         view.backgroundColor = .clear
 
-        let isSmall = view.frame.size.width <= 375
-        let pageControlBottomPaddig = isSmall ? Padding.large : (Padding.large + Padding.medium)
-
         view.addSubview(pageControl)
-
-        pageControl.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
-            make.bottom.equalToSuperview().inset(pageControlBottomPaddig)
-        }
 
         stackScrollView.scrollView.isPagingEnabled = true
         view.addSubview(stackScrollView)
-
-        stackScrollView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(Padding.large - HomescreenCertificateView.inset)
-            make.top.equalToSuperview()
-            make.bottom.equalTo(self.pageControl.snp.top).offset(-Padding.medium)
-        }
 
         stackScrollView.clipsToBounds = false
         stackScrollView.scrollView.clipsToBounds = false
@@ -85,6 +71,24 @@ class HomescreenCertificatesViewController: ViewController {
 
         pageControl.numberOfPages = certificates.count
         pageControl.alpha = certificates.count <= 1 ? 0.0 : 1.0
+
+        let isSmall = view.frame.size.width <= 375
+        let pageControlBottomPadding = isSmall ? Padding.large : (Padding.large + Padding.medium)
+
+        pageControl.snp.remakeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.bottom.equalToSuperview().inset(pageControlBottomPadding)
+        }
+
+        stackScrollView.snp.remakeConstraints { make in
+            make.left.right.equalToSuperview().inset(Padding.large - HomescreenCertificateView.inset)
+            make.top.equalToSuperview()
+            if certificates.count <= 1 {
+                make.bottom.equalToSuperview().inset(pageControlBottomPadding + Padding.medium)
+            } else {
+                make.bottom.equalTo(self.pageControl.snp.top).offset(-Padding.medium)
+            }
+        }
 
         for c in certificates {
             var vaccinationHint = ConfigManager.currentConfig?.randomVaccinationInfoHint

@@ -107,6 +107,8 @@ class AddCertificateView: UIView {
         super.init(frame: .zero)
         setup()
         setupInteraction()
+
+        ub_setContentPriorityRequired()
     }
 
     required init?(coder _: NSCoder) {
@@ -158,7 +160,7 @@ class AddCertificateView: UIView {
         pdfButton.snp.makeConstraints { make in
             make.top.equalTo(qrButton.snp.bottom).offset(Padding.medium + 2.0)
             make.left.right.equalToSuperview().inset(lr / 2)
-            make.bottom.lessThanOrEqualToSuperview().inset(2.0 * Padding.medium)
+            make.bottom.equalToSuperview().inset(2.0 * Padding.medium)
         }
 
         accessibilityLabel = [topLabel.text, textLabel.text].compactMap { $0 }.joined(separator: ", ")

@@ -100,8 +100,9 @@ class QRCodeNameView: UIView {
             make.bottom.equalToSuperview()
         }
 
-        nameView.ub_setContentPriorityRequired()
-        birthdayLabelView.ub_setContentPriorityRequired()
+        imageView.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .vertical)
+        nameView.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: .vertical)
+        birthdayLabelView.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: .vertical)
     }
 
     // MARK: - Update
