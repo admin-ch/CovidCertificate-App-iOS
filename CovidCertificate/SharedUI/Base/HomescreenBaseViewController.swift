@@ -135,7 +135,7 @@ class HomescreenBaseViewController: ViewController {
 
     private func presentInfoBox() {
         boxView.infoBox = infoBox
-        boxView.presentFrom(view: infoBoxButton)
+        boxView.presentFrom(view: infoBoxButton, isPresentedFromCloseButton: true)
     }
 
     private func dismissInfoBox() {

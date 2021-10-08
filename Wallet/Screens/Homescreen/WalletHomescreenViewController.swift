@@ -172,7 +172,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             if strongSelf.actionViewIsShown {
                 strongSelf.actionPopupView.dismiss()
             } else {
-                strongSelf.actionPopupView.presentFrom(view: strongSelf.addCertificateButton)
+                strongSelf.actionPopupView.presentFrom(view: strongSelf.addCertificateButton, isPresentedFromCloseButton: true)
             }
         }
 
@@ -183,8 +183,6 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             UIView.animate(withDuration: 0.25, delay: 0.0, options: [.curveEaseInOut]) {
                 strongSelf.addCertificateButton.transform = CGAffineTransform(rotationAngle: show ? CGFloat.pi * 0.25 : 0.0)
             } completion: { _ in }
-
-            UIAccessibility.post(notification: .layoutChanged, argument: show ? strongSelf.actionPopupView : nil)
         }
 
         infoButtonCallback = { [weak self] in
