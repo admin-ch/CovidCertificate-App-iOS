@@ -66,7 +66,7 @@ public struct SecureStorage<T: Codable> {
            !Enclave.verify(data: data, signature: signature, with: unwrappedKey).0 {
             // if the data is not decryptable with the new key try to decrypt it with the old one
             // this fallback ensures that we always can decrypt the saved data
-            // On the next save it will get encrypted with the ney key
+            // On the next save it will get encrypted with the new key
             key = oldKey
             guard let unwrappedOldKey = key,
                   Enclave.verify(data: data, signature: signature, with: unwrappedOldKey).0 else {
