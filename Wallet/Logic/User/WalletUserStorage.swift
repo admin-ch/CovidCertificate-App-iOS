@@ -40,8 +40,7 @@ class WalletUserStorage {
 class CertificateStorage {
     // MARK: - Shared
 
-    private lazy var certificates: [UserCertificate] = self.secureStorage.loadSynchronously()?
-        .filterInvalidTransferCodes ?? []
+    private lazy var certificates: [UserCertificate] = self.secureStorage.loadSynchronously() ?? []
     private lazy var secureStorage = SecureStorage<[UserCertificate]>(name: "wallet.user.certificates")
 
     static let shared = CertificateStorage()
@@ -185,14 +184,4 @@ class CertificateStorage {
 
     @KeychainPersisted(key: "wallet.user.certificates", defaultValue: [])
     var keyChainUserCertificates: [UserCertificate]
-}
-
-extension Array where Element == UserCertificate {
-    var filterInvalidTransferCodes: [UserCertificate] {
-        return filter { certificate in
-            guard certificate.type == .transferCode,
-                  let transferCode = certificate.transferCode else { return true }
-            return TransferManager.shared.hasKey(code: transferCode.transferCode)
-        }
-    }
 }
