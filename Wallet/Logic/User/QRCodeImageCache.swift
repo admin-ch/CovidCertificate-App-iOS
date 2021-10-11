@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import UIKit
 
 final class QRCodeImageCache {
     static let shared = QRCodeImageCache()
@@ -29,6 +30,7 @@ final class QRCodeImageCache {
 
         if let qrImage = QRCodeUtils.createQrCodeImage(from: payload) {
             renderedQRCodeImageCache.setObject(qrImage as AnyObject, forKey: payload as AnyObject)
+            return qrImage
         }
 
         return nil
