@@ -29,6 +29,7 @@ platform :ios do
     output_name: "CovidCertificate.ipa",
     archive_path: "build/CovidCertificate.xcarchive",
     buildlog_path: "build/build.log",
+    disable_package_automatic_updates: true,
     xcargs: "BUILD_NUMBER=#{build_number}"
   )
   end

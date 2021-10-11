@@ -23,7 +23,7 @@ jobs:
     
     # Compile "Release-Verifier-Prod" for iOS Simulator (no signing)
     - name: Compile Release-Verifier-Prod
-      run: fastlane gym --scheme "Release-Verifier-Prod" --skip_package_ipa true --destination "generic/platform=iOS Simulator"
+      run: fastlane gym --scheme "Release-Verifier-Prod" --skip_package_ipa true --disable_package_automatic_updates true --destination "generic/platform=iOS Simulator"
 
   build_wallet:
     runs-on: macOS-latest
@@ -36,4 +36,4 @@ jobs:
 
     # Compile "Release-Wallet-Prod" for iOS Simulator (no signing)
     - name: Compile Release-Wallet-Prod
-      run: fastlane gym --scheme "Release-Wallet-Prod" --skip_package_ipa true --destination "generic/platform=iOS Simulator"
+      run: fastlane gym --scheme "Release-Wallet-Prod" --skip_package_ipa true --disable_package_automatic_updates true --destination "generic/platform=iOS Simulator"
