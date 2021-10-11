@@ -119,6 +119,8 @@
 		6EA5C38426453D1400EA066F /* EuHealthCert+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C38326453D1400EA066F /* EuHealthCert+CC.swift */; };
 		6EA5C38526453E0000EA066F /* EuHealthCert+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C38326453D1400EA066F /* EuHealthCert+CC.swift */; };
 		6EA5C38B2645CF3B00EA066F /* VerifyCheckContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C38A2645CF3B00EA066F /* VerifyCheckContentViewController.swift */; };
+		6EB988722714DBD100DFFA17 /* QRCodeImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB988712714DBD100DFFA17 /* QRCodeImageCache.swift */; };
+		6EB988732714DBD400DFFA17 /* QRCodeImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB988712714DBD100DFFA17 /* QRCodeImageCache.swift */; };
 		6EBF9C77267C807B00E86B45 /* Enclave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF9C75267C807B00E86B45 /* Enclave.swift */; };
 		6EBF9C78267C807B00E86B45 /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF9C76267C807B00E86B45 /* SecureStorage.swift */; };
 		6EBF9C7A267C809700E86B45 /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF9C79267C809700E86B45 /* Migration.swift */; };
@@ -460,6 +462,7 @@
 		6EA5C3732644500C00EA066F /* VerifyQRScannerOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyQRScannerOverlay.swift; sourceTree = "<group>"; };
 		6EA5C38326453D1400EA066F /* EuHealthCert+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EuHealthCert+CC.swift"; sourceTree = "<group>"; };
 		6EA5C38A2645CF3B00EA066F /* VerifyCheckContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyCheckContentViewController.swift; sourceTree = "<group>"; };
+		6EB988712714DBD100DFFA17 /* QRCodeImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeImageCache.swift; sourceTree = "<group>"; };
 		6EBF9C75267C807B00E86B45 /* Enclave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enclave.swift; sourceTree = "<group>"; };
 		6EBF9C76267C807B00E86B45 /* SecureStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
 		6EBF9C79267C809700E86B45 /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
@@ -682,6 +685,7 @@
 		24780B00242DF983003BB26C /* User */ = {
 			isa = PBXGroup;
 			children = (
+				6EB988712714DBD100DFFA17 /* QRCodeImageCache.swift */,
 				6EBF9C79267C809700E86B45 /* Migration.swift */,
 				6EBF9C74267C807B00E86B45 /* SecureStorage */,
 				6E6036022678792000EB57E7 /* UserTransferCode.swift */,
@@ -1808,6 +1812,7 @@
 				6EC1732126429E31002E27DB /* UIColor+CC.swift in Sources */,
 				6EC1732226429E31002E27DB /* DateFormatter.swift in Sources */,
 				6EF166DD264E638200426985 /* CertificateState.swift in Sources */,
+				6EB988732714DBD400DFFA17 /* QRCodeImageCache.swift in Sources */,
 				6EA5C36C2644310D00EA066F /* VerifierImprintViewController.swift in Sources */,
 				6EA5C3742644500C00EA066F /* VerifyQRScannerOverlay.swift in Sources */,
 				6EC1732426429E31002E27DB /* Keychain.swift in Sources */,
@@ -1916,6 +1921,7 @@
 				DC286A26242CE0B9001D5344 /* Environment.swift in Sources */,
 				DC8ABDFB264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift in Sources */,
 				DC702B01243F6F640066C773 /* String+CC.swift in Sources */,
+				6EB988722714DBD100DFFA17 /* QRCodeImageCache.swift in Sources */,
 				6E17392E267B487900813D30 /* TransferCodeUpdateView.swift in Sources */,
 				6EC172C926407F5F002E27DB /* CertificateAddDetailViewController.swift in Sources */,
 				6E6036032678792000EB57E7 /* UserTransferCode.swift in Sources */,
