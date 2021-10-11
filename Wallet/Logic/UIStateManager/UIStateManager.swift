@@ -68,7 +68,9 @@ class UIStateManager: NSObject {
         }
 
         if let currentState = uiState {
-            block(currentState)
+            DispatchQueue.main.async {
+                block(currentState)
+            }
         }
     }
 
