@@ -40,17 +40,16 @@ public struct SecureStorage<T: Codable> {
         create: true
     )
     var path: URL! { URL(string: documents.absoluteString + name) }
-    let oldKey: SecKey?
-    let secureStorageKey: SecKey?
 
     let name: String
 
+    // this is the old key which was previously used to encrypt the storage
+    var oldKeyName: String { "\(name)_secureStorageKey" }
+    // this is the new key, since keychain attributes have changed we had to create a new key
+    var keyName: String { "\(name)_secureStorageKey_1" }
+
     public init(name: String) {
         self.name = name
-        // this is the key which was previously used to encrypt the storage
-        oldKey = Enclave.loadOrGenerateKey(with: "\(name)_secureStorageKey")
-        // this is the new key, since keychain attributes have changed we had to create a new key
-        secureStorageKey = Enclave.loadOrGenerateKey(with: "\(name)_secureStorageKey_1")
     }
 
     public func loadSynchronously() -> T? {
@@ -58,7 +57,11 @@ public struct SecureStorage<T: Codable> {
             return nil
         }
 
-        var key = secureStorageKey
+        var key: SecKey?
+
+        if case let .success(secureStorageKey) = Enclave.loadKey(with: keyName) {
+            key = secureStorageKey
+        }
 
         guard let (data, signature) = read() else { return nil }
 
@@ -67,7 +70,11 @@ public struct SecureStorage<T: Codable> {
             // if the data is not decryptable with the new key try to decrypt it with the old one
             // this fallback ensures that we always can decrypt the saved data
             // On the next save it will get encrypted with the new key
-            key = oldKey
+
+            if case let .success(secureStorageKey) = Enclave.loadKey(with: oldKeyName) {
+                key = secureStorageKey
+            }
+
             guard let unwrappedOldKey = key,
                   Enclave.verify(data: data, signature: signature, with: unwrappedOldKey).0 else {
                 return nil
@@ -98,6 +105,68 @@ public struct SecureStorage<T: Codable> {
         return t
     }
 
+    // returns nil if there is no error Code
+    public func errorCode() -> String? {
+        if !FileManager.default.fileExists(atPath: path.path) {
+            return nil
+        }
+
+        var key: SecKey?
+
+        switch Enclave.loadKey(with: keyName) {
+        case let .success(secureStorageKey):
+            key = secureStorageKey
+        case let .failure(error):
+            return "E\(error.errorCode)"
+        }
+
+        guard let (data, signature) = read() else { return nil }
+
+        if let unwrappedKey = key,
+           !Enclave.verify(data: data, signature: signature, with: unwrappedKey).0 {
+            // if the data is not decryptable with the new key try to decrypt it with the old one
+            // this fallback ensures that we always can decrypt the saved data
+            // On the next save it will get encrypted with the new key
+
+            switch Enclave.loadKey(with: oldKeyName) {
+            case let .success(secureStorageKey):
+                key = secureStorageKey
+            case let .failure(error):
+                return "E\(error.errorCode)"
+            }
+
+            guard let unwrappedOldKey = key,
+                  Enclave.verify(data: data, signature: signature, with: unwrappedOldKey).0 else {
+                return "SIG"
+            }
+        }
+
+        guard let unwrappedKey = key else {
+            return "ENK"
+        }
+
+        let semaphore = DispatchSemaphore(value: 0)
+        var t: T?
+
+        Enclave.decrypt(data: data, with: unwrappedKey) { decrypted, err in
+            guard
+                let decrypted = decrypted,
+                err == nil,
+                let data = try? JSONDecoder().decode(T.self, from: decrypted)
+            else {
+                semaphore.signal()
+                return
+            }
+
+            t = data
+            semaphore.signal()
+        }
+
+        semaphore.wait()
+
+        return t == nil ? "DEC" : nil
+    }
+
     public func saveSynchronously(_ instance: T) -> Bool {
         let semaphore = DispatchSemaphore(value: 0)
         var outcome = false
@@ -111,8 +180,13 @@ public struct SecureStorage<T: Codable> {
     }
 
     public func save(_ instance: T, completion: ((Bool) -> Void)? = nil) {
+        if case .failure = Enclave.loadKey(with: keyName) {
+            _ = Enclave.generateKey(with: keyName)
+        }
+
         guard
             let data = try? JSONEncoder().encode(instance),
+            case let .success(secureStorageKey) = Enclave.loadKey(with: keyName),
             let key = secureStorageKey,
             let encrypted = Enclave.encrypt(data: data, with: key).0
         else {

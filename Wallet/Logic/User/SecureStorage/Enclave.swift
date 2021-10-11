@@ -27,6 +27,17 @@
 
 import Foundation
 
+public enum EnclaveError: Error {
+    case keyLoadingError(_ status: OSStatus)
+
+    var errorCode: String {
+        switch self {
+        case let .keyLoadingError(status):
+            return "\(status)"
+        }
+    }
+}
+
 public enum Enclave {
     static let encryptAlg = SecKeyAlgorithm.eciesEncryptionCofactorVariableIVX963SHA256AESGCM
     static let signAlg = SecKeyAlgorithm.ecdsaSignatureMessageX962SHA512
@@ -77,7 +88,7 @@ public enum Enclave {
         return (privateKey, nil)
     }
 
-    static func loadKey(with name: String) -> SecKey? {
+    static func loadKey(with name: String) -> Result<SecKey?, EnclaveError> {
         let tag = Enclave.tag(for: name)
         let query: [String: Any] = [
             kSecClass as String: kSecClassKey,
@@ -92,16 +103,9 @@ public enum Enclave {
             status == errSecSuccess,
             case let result as SecKey? = item
         else {
-            return nil
+            return .failure(.keyLoadingError(status))
         }
-        return result
-    }
-
-    static func loadOrGenerateKey(with name: String) -> SecKey? {
-        if let key = loadKey(with: name) {
-            return key
-        }
-        return generateKey(with: name).0
+        return .success(result)
     }
 
     static func encrypt(data: Data, with key: SecKey) -> (Data?, String?) {
