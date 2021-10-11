@@ -9,12 +9,45 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
 import Foundation
 
 class LinkHandler {
     @discardableResult
     func handle(url _: URL) -> Bool {
         return false
+    }
+
+    func handle(userActivity: NSUserActivity,
+                navigationController: NavigationController) -> Bool {
+        switch UserActivityTypes(rawValue: userActivity.activityType) {
+        case .some(.certififcateView):
+            guard let uvciUserActivity = userActivity.userInfo?["uvci"] as? String else { return false }
+
+            for userCertificate in CertificateStorage.shared.userCertificates {
+                guard case let .success(certificateHolder) = CovidCertificateSDK.Wallet.decode(encodedData: userCertificate.qrCode ?? "")
+                else { continue }
+
+                guard let certificate = certificateHolder.certificate as? DCCCert else { continue }
+
+                guard let uvic: String = certificate.vaccinations?.first?.certificateIdentifier ??
+                    certificate.pastInfections?.first?.certificateIdentifier ??
+                    certificate.tests?.first?.certificateIdentifier else { continue }
+
+                if uvic == uvciUserActivity {
+                    // if anything is presented modally we dismiss it
+                    navigationController.topViewController?.dismiss(animated: false, completion: nil)
+                    guard let topViewController = navigationController.topViewController else { return false }
+                    let vc = WalletDetailViewController(certificate: userCertificate)
+                    vc.presentInNavigationController(from: topViewController, animated: false)
+                    return true
+                }
+            }
+            return false
+
+        default:
+            return false
+        }
     }
 }
 

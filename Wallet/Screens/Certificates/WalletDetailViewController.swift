@@ -50,6 +50,10 @@ class WalletDetailViewController: ViewController {
             guard let strongSelf = self else { return }
             strongSelf.startDownloadIfNeeded()
         }
+
+        if let activity = certificate.userActivity() {
+            userActivity = activity
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
