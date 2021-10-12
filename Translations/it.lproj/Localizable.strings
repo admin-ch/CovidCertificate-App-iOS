@@ -1193,3 +1193,12 @@
 
 /*Vaccination Booking Info URL Link*/
 "vaccination_booking_info_url" = "https://ufsp-coronavirus.ch/vaccinazione/";
+
+/*Show information if special hardware detected */
+"verifier_qr_scanner_external_hardware_detected" = "Rilevato uno scanner hardware esterno";
+
+/*Error popup reset button text*/
+"error_decryption_reset_button" = "Zurücksetzen";
+
+/*Text Certificate Could not be loaded {ERROR_CODE} gets replaces with the error code*/
+"error_decryption_text" = "Zertifikate konnten nicht geladen werden\n\nCode: {ERROR_CODE}";

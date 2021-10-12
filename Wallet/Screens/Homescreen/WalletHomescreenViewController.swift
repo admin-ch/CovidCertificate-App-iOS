@@ -264,14 +264,14 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
     private func checkStateValidity() {
         guard let errorCode = CertificateStorage.shared.errorCode() else { return }
         let alert = UIAlertController(title: UBLocalized.error_title,
-                                      message: "Zertifikate konnten nicht geladen werden \n\nCode: \(errorCode)",
+                                      message: UBLocalized.error_decryption_text.replacingOccurrences(of: "{ERROR_CODE}", with: errorCode),
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: UBLocalized.error_action_retry,
                                       style: .default,
                                       handler: { [weak self] _ in
                                           self?.checkStateValidity()
                                       }))
-        alert.addAction(UIAlertAction(title: UBLocalized.delete_button, style: .destructive, handler: { _ in
+        alert.addAction(UIAlertAction(title: UBLocalized.error_decryption_reset_button, style: .destructive, handler: { _ in
             CertificateStorage.shared.forceSave()
         }))
         present(alert, animated: true, completion: nil)
