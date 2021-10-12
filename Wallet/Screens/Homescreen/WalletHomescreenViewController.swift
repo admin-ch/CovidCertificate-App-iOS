@@ -272,7 +272,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
                                           self?.checkStateValidity()
                                       }))
         alert.addAction(UIAlertAction(title: UBLocalized.error_decryption_reset_button, style: .destructive, handler: { _ in
-            CertificateStorage.shared.forceSave()
+            CertificateStorage.shared.forceSave(generateNewKey: true)
         }))
         present(alert, animated: true, completion: nil)
     }

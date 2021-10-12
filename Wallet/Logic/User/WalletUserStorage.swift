@@ -178,8 +178,8 @@ class CertificateStorage {
     }
 
     /// certififcates are automatically saved on chages, this method forces a synchronous save
-    func forceSave() {
-        _ = secureStorage.saveSynchronously(certificates)
+    func forceSave(generateNewKey: Bool = false) {
+        _ = secureStorage.saveSynchronously(certificates, generateNewKey: generateNewKey)
     }
 
     func errorCode() -> String? {

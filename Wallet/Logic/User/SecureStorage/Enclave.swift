@@ -160,11 +160,11 @@ public enum Enclave {
     static func verify(data: Data, signature: Data, with key: SecKey) -> (Bool, String?) {
         guard let publicKey = SecKeyCopyPublicKey(key) else {
             Self.logger.error("err.pub-key-irretrievable")
-            return (false, "err.pub-key-irretrievable")
+            return (false, "pub")
         }
         guard SecKeyIsAlgorithmSupported(publicKey, .verify, signAlg) else {
             Self.logger.error("err.alg-not-supported")
-            return (false, "err.alg-not-supported")
+            return (false, "alg")
         }
         var error: Unmanaged<CFError>?
         let isValid = SecKeyVerifySignature(
@@ -174,11 +174,12 @@ public enum Enclave {
             signature as CFData,
             &error
         )
-        let err = error?.takeRetainedValue().localizedDescription
+        let err = error?.takeRetainedValue()
         if let err = err {
-            Self.logger.error("%{public}@", err)
+            Self.logger.error("%{public}@", err.localizedDescription)
+            return (isValid, "\(CFErrorGetCode(err))")
         }
-        return (isValid, err)
+        return (isValid, nil)
     }
 
     public static func sign(

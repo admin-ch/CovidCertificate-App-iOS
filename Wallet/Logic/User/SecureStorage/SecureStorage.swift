@@ -93,8 +93,13 @@ public struct SecureStorage<T: Codable> {
             return .success(nil)
         }
 
-        if let unwrappedKey = key,
-           !Enclave.verify(data: data, signature: signature, with: unwrappedKey).0 {
+        var verifiyResult: (Bool, String?) = (false, nil)
+
+        if let unwrappedKey = key {
+            verifiyResult = Enclave.verify(data: data, signature: signature, with: unwrappedKey)
+        }
+
+        if !verifiyResult.0 {
             // if the data is not decryptable with the new key try to decrypt it with the old one
             // this fallback ensures that we always can decrypt the saved data
             // On the next save it will get encrypted with the new key
@@ -106,9 +111,14 @@ public struct SecureStorage<T: Codable> {
                 return .failure(.init(errorCode: "E\(error.errorCode)"))
             }
 
-            guard let unwrappedOldKey = key,
-                  Enclave.verify(data: data, signature: signature, with: unwrappedOldKey).0 else {
-                return .failure(.init(errorCode: "SIG"))
+            guard let unwrappedOldKey = key else {
+                return .failure(.init(errorCode: "KMO"))
+            }
+
+            let verifyOldResult = Enclave.verify(data: data, signature: signature, with: unwrappedOldKey)
+
+            if !verifyOldResult.0 {
+                return .failure(.init(errorCode: "SIG\(verifyOldResult.1 ?? "")/\(verifiyResult.1 ?? "")"))
             }
         }
 
@@ -141,10 +151,10 @@ public struct SecureStorage<T: Codable> {
         return .failure(.init(errorCode: "DEC"))
     }
 
-    public func saveSynchronously(_ instance: T) -> Bool {
+    public func saveSynchronously(_ instance: T, generateNewKey: Bool = false) -> Bool {
         let semaphore = DispatchSemaphore(value: 0)
         var outcome = false
-        save(instance) { result in
+        save(instance, generateNewKey: generateNewKey) { result in
             outcome = result
             semaphore.signal()
         }
@@ -153,9 +163,14 @@ public struct SecureStorage<T: Codable> {
         return outcome
     }
 
-    public func save(_ instance: T, completion: ((Bool) -> Void)? = nil) {
+    public func save(_ instance: T, generateNewKey: Bool = false, completion: ((Bool) -> Void)? = nil) {
         if case .failure = Enclave.loadKey(with: keyName) {
-            _ = Enclave.generateKey(with: keyName)
+            if generateNewKey || !FileManager.default.fileExists(atPath: path.path) {
+                _ = Enclave.generateKey(with: keyName)
+            } else {
+                completion?(false)
+                return
+            }
         }
 
         guard
