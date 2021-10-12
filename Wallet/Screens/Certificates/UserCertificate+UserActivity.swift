@@ -25,7 +25,7 @@ extension UserCertificate {
 
         guard let certificate = certificateHolder.certificate as? DCCCert else { return nil }
 
-        guard let uvic: String = certificate.vaccinations?.first?.certificateIdentifier ??
+        guard let uvci: String = certificate.vaccinations?.first?.certificateIdentifier ??
             certificate.pastInfections?.first?.certificateIdentifier ??
             certificate.tests?.first?.certificateIdentifier else { return nil }
 
@@ -50,13 +50,26 @@ extension UserCertificate {
             return nil
         }
 
-        attributes.identifier = uvic
+        attributes.identifier = uvci
         activity.isEligibleForPrediction = true
-        activity.persistentIdentifier = NSUserActivityPersistentIdentifier(uvic)
+        activity.persistentIdentifier = NSUserActivityPersistentIdentifier(uvci)
         activity.keywords = keywords
         activity.contentAttributeSet = attributes
-        activity.userInfo = ["uvci": uvic]
+        activity.userInfo = ["uvci": uvci]
 
         return activity
+    }
+
+    func deleteUserActivity() {
+        guard case let .success(certificateHolder) = CovidCertificateSDK.Wallet.decode(encodedData: qrCode ?? "")
+        else { return }
+
+        guard let certificate = certificateHolder.certificate as? DCCCert else { return }
+
+        guard let uvci: String = certificate.vaccinations?.first?.certificateIdentifier ??
+            certificate.pastInfections?.first?.certificateIdentifier ??
+            certificate.tests?.first?.certificateIdentifier else { return }
+
+        NSUserActivity.deleteSavedUserActivities(withPersistentIdentifiers: [NSUserActivityPersistentIdentifier(uvci)]) {}
     }
 }

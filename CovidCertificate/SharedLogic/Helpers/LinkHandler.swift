@@ -30,11 +30,11 @@ class LinkHandler {
 
                 guard let certificate = certificateHolder.certificate as? DCCCert else { continue }
 
-                guard let uvic: String = certificate.vaccinations?.first?.certificateIdentifier ??
+                guard let uvci: String = certificate.vaccinations?.first?.certificateIdentifier ??
                     certificate.pastInfections?.first?.certificateIdentifier ??
                     certificate.tests?.first?.certificateIdentifier else { continue }
 
-                if uvic == uvciUserActivity {
+                if uvci == uvciUserActivity {
                     // if anything is presented modally we dismiss it
                     navigationController.topViewController?.dismiss(animated: false, completion: nil)
                     guard let topViewController = navigationController.topViewController else { return false }
@@ -43,6 +43,8 @@ class LinkHandler {
                     return true
                 }
             }
+            // if the certificate was not found we delete the user activity
+            NSUserActivity.deleteSavedUserActivities(withPersistentIdentifiers: [NSUserActivityPersistentIdentifier(uvciUserActivity)], completionHandler: {})
             return false
 
         default:

@@ -296,6 +296,7 @@ class CertificateDetailViewController: ViewController {
     private func removeCertificate() {
         let alert = UIAlertController(title: nil, message: UBLocalized.wallet_certificate_delete_confirm_text, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: UBLocalized.delete_button, style: .destructive, handler: { _ in
+            self.certificate?.deleteUserActivity()
             CertificateStorage.shared.userCertificates = CertificateStorage.shared.userCertificates.filter { $0 != self.certificate }
             self.dismiss(animated: true, completion: nil)
         }))
