@@ -13,7 +13,7 @@ import Foundation
 
 public extension UIImageView {
     func setQrCode(_ qrCode: String) {
-        image = QRCodeUtils.createQrCodeImage(from: qrCode)
+        image = QRCodeImageCache.shared.image(for: qrCode)
         layer.magnificationFilter = .nearest
     }
 

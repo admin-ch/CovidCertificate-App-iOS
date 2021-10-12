@@ -68,7 +68,6 @@
 		6E603601267878ED00EB57E7 /* TransferCodeOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E603600267878EC00EB57E7 /* TransferCodeOnboardingViewController.swift */; };
 		6E6036032678792000EB57E7 /* UserTransferCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6036022678792000EB57E7 /* UserTransferCode.swift */; };
 		6E603604267879D500EB57E7 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E87E383266971E5000C5517 /* PopUpView.swift */; };
-		6E603605267879E500EB57E7 /* UserTransferCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6036022678792000EB57E7 /* UserTransferCode.swift */; };
 		6E6B1A922649D17400DB4A38 /* Verifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6B1A912649D17400DB4A38 /* Verifier.swift */; };
 		6E6B1A942649D88A00DB4A38 /* VerifyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6B1A932649D88A00DB4A38 /* VerifyInfoView.swift */; };
 		6E6B1A962649D89500DB4A38 /* VerifyStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6B1A952649D89500DB4A38 /* VerifyStatusView.swift */; };
@@ -119,6 +118,8 @@
 		6EA5C38426453D1400EA066F /* EuHealthCert+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C38326453D1400EA066F /* EuHealthCert+CC.swift */; };
 		6EA5C38526453E0000EA066F /* EuHealthCert+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C38326453D1400EA066F /* EuHealthCert+CC.swift */; };
 		6EA5C38B2645CF3B00EA066F /* VerifyCheckContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C38A2645CF3B00EA066F /* VerifyCheckContentViewController.swift */; };
+		6EB988722714DBD100DFFA17 /* QRCodeImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB988712714DBD100DFFA17 /* QRCodeImageCache.swift */; };
+		6EB988732714DBD400DFFA17 /* QRCodeImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB988712714DBD100DFFA17 /* QRCodeImageCache.swift */; };
 		6EBF9C77267C807B00E86B45 /* Enclave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF9C75267C807B00E86B45 /* Enclave.swift */; };
 		6EBF9C78267C807B00E86B45 /* SecureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF9C76267C807B00E86B45 /* SecureStorage.swift */; };
 		6EBF9C7A267C809700E86B45 /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBF9C79267C809700E86B45 /* Migration.swift */; };
@@ -338,6 +339,7 @@
 		F8A259532684BB9D0087D86E /* covidcertificate-app-d.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C579268480D100A9E112 /* covidcertificate-app-d.bit.admin.ch.der */; };
 		F8A259542684BBA00087D86E /* covidcertificate-app-a.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C577268480D100A9E112 /* covidcertificate-app-a.bit.admin.ch.der */; };
 		F8C1E259268DDF4D007A306E /* CertificateExportSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1E258268DDF4D007A306E /* CertificateExportSummaryView.swift */; };
+		F8CA633027146D9000E4708B /* UserTransferCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6036022678792000EB57E7 /* UserTransferCode.swift */; };
 		F8D5B155268B659C00C39836 /* TransformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B154268B659C00C39836 /* TransformationService.swift */; };
 		F8D5B157268B66A500C39836 /* TransformationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B156268B66A500C39836 /* TransformationPayload.swift */; };
 		F8D5B159268C400B00C39836 /* IconImageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B158268C400B00C39836 /* IconImageRowView.swift */; };
@@ -461,6 +463,7 @@
 		6EA5C3732644500C00EA066F /* VerifyQRScannerOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyQRScannerOverlay.swift; sourceTree = "<group>"; };
 		6EA5C38326453D1400EA066F /* EuHealthCert+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EuHealthCert+CC.swift"; sourceTree = "<group>"; };
 		6EA5C38A2645CF3B00EA066F /* VerifyCheckContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyCheckContentViewController.swift; sourceTree = "<group>"; };
+		6EB988712714DBD100DFFA17 /* QRCodeImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeImageCache.swift; sourceTree = "<group>"; };
 		6EBF9C75267C807B00E86B45 /* Enclave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enclave.swift; sourceTree = "<group>"; };
 		6EBF9C76267C807B00E86B45 /* SecureStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureStorage.swift; sourceTree = "<group>"; };
 		6EBF9C79267C809700E86B45 /* Migration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
@@ -684,6 +687,7 @@
 		24780B00242DF983003BB26C /* User */ = {
 			isa = PBXGroup;
 			children = (
+				6EB988712714DBD100DFFA17 /* QRCodeImageCache.swift */,
 				6EBF9C79267C809700E86B45 /* Migration.swift */,
 				6EBF9C74267C807B00E86B45 /* SecureStorage */,
 				6E6036022678792000EB57E7 /* UserTransferCode.swift */,
@@ -1775,10 +1779,10 @@
 				DCF9C35826562E5C00E34481 /* ExpandableViewBody.swift in Sources */,
 				6EE6548A2706DD0D00F71661 /* VaccinationInfo.swift in Sources */,
 				6EC1730B26429E31002E27DB /* RandomGenerators.swift in Sources */,
-				6E603605267879E500EB57E7 /* UserTransferCode.swift in Sources */,
 				6EC1730C26429E31002E27DB /* WebViewController.swift in Sources */,
 				DCF9C35326562E0200E34481 /* StaticContentViewController.swift in Sources */,
 				6ED916352681E7F7006D9E7C /* PushRegistration.swift in Sources */,
+				F8CA633027146D9000E4708B /* UserTransferCode.swift in Sources */,
 				6EC1730D26429E31002E27DB /* NSQRScanningView.swift in Sources */,
 				6EC1730E26429E31002E27DB /* HomescreenBaseViewController.swift in Sources */,
 				F809AF342693B25700D16EED /* OnboardingDisclaimerViewController.swift in Sources */,
@@ -1811,6 +1815,7 @@
 				6EC1732126429E31002E27DB /* UIColor+CC.swift in Sources */,
 				6EC1732226429E31002E27DB /* DateFormatter.swift in Sources */,
 				6EF166DD264E638200426985 /* CertificateState.swift in Sources */,
+				6EB988732714DBD400DFFA17 /* QRCodeImageCache.swift in Sources */,
 				6EA5C36C2644310D00EA066F /* VerifierImprintViewController.swift in Sources */,
 				6EA5C3742644500C00EA066F /* VerifyQRScannerOverlay.swift in Sources */,
 				6EC1732426429E31002E27DB /* Keychain.swift in Sources */,
@@ -1920,6 +1925,7 @@
 				DC286A26242CE0B9001D5344 /* Environment.swift in Sources */,
 				DC8ABDFB264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift in Sources */,
 				DC702B01243F6F640066C773 /* String+CC.swift in Sources */,
+				6EB988722714DBD100DFFA17 /* QRCodeImageCache.swift in Sources */,
 				6E17392E267B487900813D30 /* TransferCodeUpdateView.swift in Sources */,
 				6EC172C926407F5F002E27DB /* CertificateAddDetailViewController.swift in Sources */,
 				6E6036032678792000EB57E7 /* UserTransferCode.swift in Sources */,
