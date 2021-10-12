@@ -32,6 +32,10 @@ struct SecureDB: Codable {
     let signature: Data
 }
 
+struct SecureStorageError: Error {
+    let errorCode: String
+}
+
 public struct SecureStorage<T: Codable> {
     let documents: URL! = try? FileManager.default.url(
         for: .documentDirectory,
@@ -53,62 +57,27 @@ public struct SecureStorage<T: Codable> {
     }
 
     public func loadSynchronously() -> T? {
-        if !FileManager.default.fileExists(atPath: path.path) {
+        switch load() {
+        case let .success(obj):
+            return obj
+        case .failure:
             return nil
         }
-
-        var key: SecKey?
-
-        if case let .success(secureStorageKey) = Enclave.loadKey(with: keyName) {
-            key = secureStorageKey
-        }
-
-        guard let (data, signature) = read() else { return nil }
-
-        if let unwrappedKey = key,
-           !Enclave.verify(data: data, signature: signature, with: unwrappedKey).0 {
-            // if the data is not decryptable with the new key try to decrypt it with the old one
-            // this fallback ensures that we always can decrypt the saved data
-            // On the next save it will get encrypted with the new key
-
-            if case let .success(secureStorageKey) = Enclave.loadKey(with: oldKeyName) {
-                key = secureStorageKey
-            }
-
-            guard let unwrappedOldKey = key,
-                  Enclave.verify(data: data, signature: signature, with: unwrappedOldKey).0 else {
-                return nil
-            }
-        }
-
-        guard let unwrappedKey = key else { return nil }
-
-        let semaphore = DispatchSemaphore(value: 0)
-        var t: T?
-
-        Enclave.decrypt(data: data, with: unwrappedKey) { decrypted, err in
-            guard
-                let decrypted = decrypted,
-                err == nil,
-                let data = try? JSONDecoder().decode(T.self, from: decrypted)
-            else {
-                semaphore.signal()
-                return
-            }
-
-            t = data
-            semaphore.signal()
-        }
-
-        semaphore.wait()
-
-        return t
     }
 
     // returns nil if there is no error Code
     public func errorCode() -> String? {
-        if !FileManager.default.fileExists(atPath: path.path) {
+        switch load() {
+        case .success:
             return nil
+        case let .failure(error):
+            return error.errorCode
+        }
+    }
+
+    private func load() -> Result<T?, SecureStorageError> {
+        if !FileManager.default.fileExists(atPath: path.path) {
+            return .success(nil)
         }
 
         var key: SecKey?
@@ -117,10 +86,12 @@ public struct SecureStorage<T: Codable> {
         case let .success(secureStorageKey):
             key = secureStorageKey
         case let .failure(error):
-            return "E\(error.errorCode)"
+            return .failure(.init(errorCode: "E\(error.errorCode)"))
         }
 
-        guard let (data, signature) = read() else { return nil }
+        guard let (data, signature) = read() else {
+            return .success(nil)
+        }
 
         if let unwrappedKey = key,
            !Enclave.verify(data: data, signature: signature, with: unwrappedKey).0 {
@@ -132,17 +103,17 @@ public struct SecureStorage<T: Codable> {
             case let .success(secureStorageKey):
                 key = secureStorageKey
             case let .failure(error):
-                return "E\(error.errorCode)"
+                return .failure(.init(errorCode: "E\(error.errorCode)"))
             }
 
             guard let unwrappedOldKey = key,
                   Enclave.verify(data: data, signature: signature, with: unwrappedOldKey).0 else {
-                return "SIG"
+                return .failure(.init(errorCode: "SIG"))
             }
         }
 
         guard let unwrappedKey = key else {
-            return "ENK"
+            return .failure(.init(errorCode: "ENK"))
         }
 
         let semaphore = DispatchSemaphore(value: 0)
@@ -164,7 +135,10 @@ public struct SecureStorage<T: Codable> {
 
         semaphore.wait()
 
-        return t == nil ? "DEC" : nil
+        if t != nil {
+            return .success(t)
+        }
+        return .failure(.init(errorCode: "DEC"))
     }
 
     public func saveSynchronously(_ instance: T) -> Bool {
