@@ -29,31 +29,16 @@ extension UserCertificate {
             certificate.pastInfections?.first?.certificateIdentifier ??
             certificate.tests?.first?.certificateIdentifier else { return nil }
 
-        guard let name = certificate.displayFullName else { return nil }
-
         let activity = NSUserActivity(activityType: UserActivityTypes.certififcateView.rawValue)
-        var keywords: Set<String> = [UBLocalized.wallet_certificate]
         activity.title = UBLocalized.wallet_certificate
 
         let attributes = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
-        switch certificate.immunisationType {
-        case .vaccination:
-            keywords.insert(UBLocalized.covid_certificate_vaccination_title)
-            attributes.contentDescription = UBLocalized.covid_certificate_vaccination_title + " " + name
-        case .test:
-            keywords.insert(UBLocalized.covid_certificate_test_title)
-            attributes.contentDescription = UBLocalized.covid_certificate_test_title + " " + name
-        case .recovery:
-            keywords.insert(UBLocalized.covid_certificate_recovery_title)
-            attributes.contentDescription = UBLocalized.covid_certificate_recovery_title + " " + name
-        case .none:
-            return nil
-        }
+        attributes.contentDescription = certificate.displayFullName
 
         attributes.identifier = uvci
         activity.isEligibleForPrediction = true
         activity.persistentIdentifier = NSUserActivityPersistentIdentifier(uvci)
-        activity.keywords = keywords
+        activity.keywords = [UBLocalized.wallet_certificate]
         activity.contentAttributeSet = attributes
         activity.userInfo = ["uvci": uvci]
 
