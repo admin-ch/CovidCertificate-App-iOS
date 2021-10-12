@@ -66,6 +66,11 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
         setupInteraction()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkStateValidity()
+    }
+
     // MARK: - Update
 
     private func updateState(_ animated: Bool) {
@@ -252,6 +257,24 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
         documentPicker.delegate = documentPickerDelegate
         documentPicker.modalPresentationStyle = .formSheet
         present(documentPicker, animated: true, completion: nil)
+    }
+
+    // MARK: - Invalid State handling
+
+    private func checkStateValidity() {
+        guard let errorCode = CertificateStorage.shared.errorCode() else { return }
+        let alert = UIAlertController(title: UBLocalized.error_title,
+                                      message: UBLocalized.error_decryption_text.replacingOccurrences(of: "{ERROR_CODE}", with: errorCode),
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: UBLocalized.error_action_retry,
+                                      style: .default,
+                                      handler: { [weak self] _ in
+                                          self?.checkStateValidity()
+                                      }))
+        alert.addAction(UIAlertAction(title: UBLocalized.error_decryption_reset_button, style: .destructive, handler: { _ in
+            CertificateStorage.shared.forceSave(generateNewKey: true)
+        }))
+        present(alert, animated: true, completion: nil)
     }
 }
 

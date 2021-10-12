@@ -1193,3 +1193,12 @@
 
 /*Vaccination Booking Info URL Link*/
 "vaccination_booking_info_url" = "https://ofsp-coronavirus.ch/vaccination/";
+
+/*Show information if special hardware detected */
+"verifier_qr_scanner_external_hardware_detected" = "Scanner matériel externe détecté";
+
+/*Error popup reset button text*/
+"error_decryption_reset_button" = "Réinitialiser";
+
+/*Text Certificate Could not be loaded {ERROR_CODE} gets replaces with the error code*/
+"error_decryption_text" = "Les certificats n'ont pas pu être chargés\n\nCode: {ERROR_CODE}";

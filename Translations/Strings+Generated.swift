@@ -72,6 +72,10 @@ import Foundation
      case error_corrupt_sharedprefs_text_key = "error_corrupt_sharedprefs_text"
     /// Entschlüsselungsfehler
      case error_corrupt_sharedprefs_title_key = "error_corrupt_sharedprefs_title"
+    /// Zurücksetzen
+     case error_decryption_reset_button_key = "error_decryption_reset_button"
+    /// Zertifikate konnten nicht geladen werden\n\nCode: {ERROR_CODE}
+     case error_decryption_text_key = "error_decryption_text"
     /// Die Datei enthält entweder keinen gültigen QR-Code oder der QR-Code konnte nicht erkannt werden.
      case error_file_import_text_key = "error_file_import_text"
     /// Import fehlgeschlagen
@@ -352,6 +356,8 @@ import Foundation
      case verifier_offline_error_text_key = "verifier_offline_error_text"
     /// Offline-Prüfung nicht möglich
      case verifier_offline_error_title_key = "verifier_offline_error_title"
+    /// Externer Hardwarescanner erkannt
+     case verifier_qr_scanner_external_hardware_detected_key = "verifier_qr_scanner_external_hardware_detected"
     /// QR-Code scannen\nzum Prüfen
      case verifier_qr_scanner_scan_qr_text_key = "verifier_qr_scanner_scan_qr_text"
     /// Das Gerät befindet sich im Flugmodus.
@@ -958,6 +964,10 @@ import Foundation
    static let error_corrupt_sharedprefs_text = UBLocalized.tr(UBLocalizedKey.error_corrupt_sharedprefs_text_key)
   /// Entschlüsselungsfehler
    static let error_corrupt_sharedprefs_title = UBLocalized.tr(UBLocalizedKey.error_corrupt_sharedprefs_title_key)
+  /// Zurücksetzen
+   static let error_decryption_reset_button = UBLocalized.tr(UBLocalizedKey.error_decryption_reset_button_key)
+  /// Zertifikate konnten nicht geladen werden\n\nCode: {ERROR_CODE}
+   static let error_decryption_text = UBLocalized.tr(UBLocalizedKey.error_decryption_text_key)
   /// Die Datei enthält entweder keinen gültigen QR-Code oder der QR-Code konnte nicht erkannt werden.
    static let error_file_import_text = UBLocalized.tr(UBLocalizedKey.error_file_import_text_key)
   /// Import fehlgeschlagen
@@ -1238,6 +1248,8 @@ import Foundation
    static let verifier_offline_error_text = UBLocalized.tr(UBLocalizedKey.verifier_offline_error_text_key)
   /// Offline-Prüfung nicht möglich
    static let verifier_offline_error_title = UBLocalized.tr(UBLocalizedKey.verifier_offline_error_title_key)
+  /// Externer Hardwarescanner erkannt
+   static let verifier_qr_scanner_external_hardware_detected = UBLocalized.tr(UBLocalizedKey.verifier_qr_scanner_external_hardware_detected_key)
   /// QR-Code scannen\nzum Prüfen
    static let verifier_qr_scanner_scan_qr_text = UBLocalized.tr(UBLocalizedKey.verifier_qr_scanner_scan_qr_text_key)
   /// Das Gerät befindet sich im Flugmodus.
