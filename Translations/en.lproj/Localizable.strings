@@ -1198,7 +1198,7 @@
 "verifier_qr_scanner_external_hardware_detected" = "External hardware scanner detected";
 
 /*Error popup reset button text*/
-"error_decryption_reset_button" = "Reset ";
+"error_decryption_reset_button" = "Reset";
 
 /*Text Certificate Could not be loaded {ERROR_CODE} gets replaces with the error code*/
-"error_decryption_text" = "Zertifikate konnten nicht geladen werden\n\nCode: {ERROR_CODE}";
+"error_decryption_text" = "Certificates could not be loaded\n\nCode: {ERROR_CODE}";
