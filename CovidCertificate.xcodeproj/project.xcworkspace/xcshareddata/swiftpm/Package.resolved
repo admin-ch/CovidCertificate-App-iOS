@@ -5,9 +5,9 @@
         "package": "base45-swift",
         "repositoryURL": "https://github.com/ehn-digital-green-development/base45-swift",
         "state": {
-          "branch": "main",
+          "branch": null,
           "revision": "b2fd6c1ff48f6ea1d2877368afd326700427f261",
-          "version": null
+          "version": "1.0.1"
         }
       },
       {
@@ -42,7 +42,7 @@
         "repositoryURL": "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
         "state": {
           "branch": "main",
-          "revision": "1c9a15cbbd7a9038187a4fa544600cc02da86aab",
+          "revision": "34f2fc28d9a1c42dcbb23592bdac519f2f9d4bbe",
           "version": null
         }
       },
@@ -113,9 +113,9 @@
         "package": "SwiftCBOR",
         "repositoryURL": "https://github.com/eu-digital-green-certificates/SwiftCBOR",
         "state": {
-          "branch": "master",
-          "revision": "642e9e93fb4a51b564c1bf21bf3c5b4c6bc79416",
-          "version": null
+          "branch": null,
+          "revision": "0209a2d1a30b1b42334c4ad3f8bd221b977b2273",
+          "version": "0.4.4"
         }
       }
     ]
