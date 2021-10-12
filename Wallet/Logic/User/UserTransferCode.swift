@@ -30,7 +30,15 @@ extension UserTransferCode {
         let interval = Date().timeIntervalSince(created)
         switch interval {
         case let x where x <= Self.validPeriod:
-            return .valid
+            #if Wallet
+                if TransferManager.shared.hasKey(code: transferCode) {
+                    return .valid
+                } else {
+                    return .failed
+                }
+            #else
+                return .valid
+            #endif
         case let x where x <= Self.expiredPeriod:
             return .expired
         default:

@@ -68,7 +68,6 @@
 		6E603601267878ED00EB57E7 /* TransferCodeOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E603600267878EC00EB57E7 /* TransferCodeOnboardingViewController.swift */; };
 		6E6036032678792000EB57E7 /* UserTransferCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6036022678792000EB57E7 /* UserTransferCode.swift */; };
 		6E603604267879D500EB57E7 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E87E383266971E5000C5517 /* PopUpView.swift */; };
-		6E603605267879E500EB57E7 /* UserTransferCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6036022678792000EB57E7 /* UserTransferCode.swift */; };
 		6E6B1A922649D17400DB4A38 /* Verifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6B1A912649D17400DB4A38 /* Verifier.swift */; };
 		6E6B1A942649D88A00DB4A38 /* VerifyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6B1A932649D88A00DB4A38 /* VerifyInfoView.swift */; };
 		6E6B1A962649D89500DB4A38 /* VerifyStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6B1A952649D89500DB4A38 /* VerifyStatusView.swift */; };
@@ -337,6 +336,7 @@
 		F8A259532684BB9D0087D86E /* covidcertificate-app-d.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C579268480D100A9E112 /* covidcertificate-app-d.bit.admin.ch.der */; };
 		F8A259542684BBA00087D86E /* covidcertificate-app-a.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C577268480D100A9E112 /* covidcertificate-app-a.bit.admin.ch.der */; };
 		F8C1E259268DDF4D007A306E /* CertificateExportSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1E258268DDF4D007A306E /* CertificateExportSummaryView.swift */; };
+		F8CA633027146D9000E4708B /* UserTransferCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6036022678792000EB57E7 /* UserTransferCode.swift */; };
 		F8D5B155268B659C00C39836 /* TransformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B154268B659C00C39836 /* TransformationService.swift */; };
 		F8D5B157268B66A500C39836 /* TransformationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B156268B66A500C39836 /* TransformationPayload.swift */; };
 		F8D5B159268C400B00C39836 /* IconImageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B158268C400B00C39836 /* IconImageRowView.swift */; };
@@ -1772,10 +1772,10 @@
 				DCF9C35826562E5C00E34481 /* ExpandableViewBody.swift in Sources */,
 				6EE6548A2706DD0D00F71661 /* VaccinationInfo.swift in Sources */,
 				6EC1730B26429E31002E27DB /* RandomGenerators.swift in Sources */,
-				6E603605267879E500EB57E7 /* UserTransferCode.swift in Sources */,
 				6EC1730C26429E31002E27DB /* WebViewController.swift in Sources */,
 				DCF9C35326562E0200E34481 /* StaticContentViewController.swift in Sources */,
 				6ED916352681E7F7006D9E7C /* PushRegistration.swift in Sources */,
+				F8CA633027146D9000E4708B /* UserTransferCode.swift in Sources */,
 				6EC1730D26429E31002E27DB /* NSQRScanningView.swift in Sources */,
 				6EC1730E26429E31002E27DB /* HomescreenBaseViewController.swift in Sources */,
 				F809AF342693B25700D16EED /* OnboardingDisclaimerViewController.swift in Sources */,

@@ -29,5 +29,20 @@ class Migration {
         CertificateStorage.shared.keyChainUserCertificates = []
 
         WalletUserStorage.shared.hasCompletedSecureStorageMigration = true
+
+        // if key is newly generated we dont have migrate to keychain without secure enclave
+        WalletUserStorage.shared.hasCompletedSecureStorageMigrationWithoutSecureEnclave = true
+    }
+
+    static func migrateToSecureStorageWithoutSecureEnclave() {
+        // previously the key to encrypt the secure storage was on the secure enclave
+        // due to this on backup restoration all certificates were lost
+        guard !WalletUserStorage.shared.hasCompletedSecureStorageMigrationWithoutSecureEnclave else {
+            return
+        }
+
+        CertificateStorage.shared.forceSave()
+
+        WalletUserStorage.shared.hasCompletedSecureStorageMigrationWithoutSecureEnclave = true
     }
 }
