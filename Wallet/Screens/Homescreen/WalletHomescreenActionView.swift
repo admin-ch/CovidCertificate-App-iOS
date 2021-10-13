@@ -248,6 +248,7 @@ class IconButton: UBButton {
             make.bottom.lessThanOrEqualToSuperview().offset(-Padding.small)
             make.centerY.equalToSuperview()
         }
+        iconImageView.ub_setContentPriorityRequired()
 
         textLabel.textColor = .cc_blue
 
