@@ -49,9 +49,11 @@ class IconImageRowView: UIControl {
         addSubview(label)
         label.snp.makeConstraints { make in
             make.leading.equalTo(iconView.snp.trailing).inset(-Padding.large)
-            make.trailing.equalTo(arrowView.snp.leading).inset(Padding.large)
+            make.trailing.equalTo(arrowView.snp.leading).inset(-Padding.medium)
             make.top.bottom.equalToSuperview().inset(Padding.large)
         }
+
+        arrowView.ub_setContentPriorityRequired()
     }
 
     func setHighlighted(_ highlighted: Bool, animated: Bool = false) {
