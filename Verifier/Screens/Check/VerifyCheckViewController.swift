@@ -65,7 +65,7 @@ class VerifyCheckViewController: ViewController {
     // MARK: - Start check
 
     private func startCheck() {
-        guard let holder = self.holder else { return }
+        guard let holder = holder else { return }
 
         checkContentViewController.view.isHidden = false
         checkContentViewController.view.transform = CGAffineTransform(translationX: 0.0, y: contentHeight)

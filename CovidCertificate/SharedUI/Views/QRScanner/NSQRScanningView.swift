@@ -101,7 +101,7 @@ extension QRScannerView {
     }
 
     func startCapture() {
-        guard let videoCaptureDevice = self.videoCaptureDevice else {
+        guard let videoCaptureDevice = videoCaptureDevice else {
             return
         }
 
