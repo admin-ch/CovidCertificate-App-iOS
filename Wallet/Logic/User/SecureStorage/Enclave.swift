@@ -217,4 +217,21 @@ public enum Enclave {
         }
         return (signature, err)
     }
+
+    /// Deletes all keys from the keychain
+    /// - Returns: a result true if successful
+    @discardableResult
+    public static func deleteAllKeys() -> Bool {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassKey as String,
+        ]
+
+        let status: OSStatus = SecItemDelete(query as CFDictionary)
+        switch status {
+        case noErr, errSecItemNotFound, errSecSuccess:
+            return true
+        default:
+            return false
+        }
+    }
 }
