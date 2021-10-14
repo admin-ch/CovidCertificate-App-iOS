@@ -134,8 +134,6 @@ class CertificateStorage {
 
     func discardExpiredLightCertificates(completionHandler: (() -> Void)? = nil) {
         DispatchQueue.global().async {
-            // only save certificates if there is no error loading them
-            guard self.errorCode() == nil else { return }
             self.userCertificates = self.userCertificates.map { userCertificate in
                 // if the certificate has no light certificate we don't touch it
                 guard let lightCertificate = userCertificate.lightCertificate?.certificate else {
