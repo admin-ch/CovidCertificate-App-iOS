@@ -81,12 +81,15 @@ public struct SecureStorage<T: Codable> {
         }
 
         var key: SecKey?
+        var keyLoadError: String = ""
 
         switch Enclave.loadKey(with: keyName) {
         case let .success(secureStorageKey):
             key = secureStorageKey
         case let .failure(error):
-            return .failure(.init(errorCode: "E\(error.errorCode)"))
+            // don't return here since we first try to use the old key
+            // but we keep the error code and append it to all following errors
+            keyLoadError = "/E\(error.errorCode)"
         }
 
         guard let (data, signature) = read() else {
@@ -108,22 +111,22 @@ public struct SecureStorage<T: Codable> {
             case let .success(secureStorageKey):
                 key = secureStorageKey
             case let .failure(error):
-                return .failure(.init(errorCode: "E\(error.errorCode)"))
+                return .failure(.init(errorCode: "EO\(error.errorCode)\(keyLoadError)"))
             }
 
             guard let unwrappedOldKey = key else {
-                return .failure(.init(errorCode: "KMO"))
+                return .failure(.init(errorCode: "KMO\(keyLoadError)"))
             }
 
             let verifyOldResult = Enclave.verify(data: data, signature: signature, with: unwrappedOldKey)
 
             if !verifyOldResult.0 {
-                return .failure(.init(errorCode: "SIG\(verifyOldResult.1 ?? "")/\(verifiyResult.1 ?? "")"))
+                return .failure(.init(errorCode: "SIG\(verifyOldResult.1 ?? "")/\(verifiyResult.1 ?? "")\(keyLoadError)"))
             }
         }
 
         guard let unwrappedKey = key else {
-            return .failure(.init(errorCode: "ENK"))
+            return .failure(.init(errorCode: "ENK\(keyLoadError)\(keyLoadError)"))
         }
 
         let semaphore = DispatchSemaphore(value: 0)
