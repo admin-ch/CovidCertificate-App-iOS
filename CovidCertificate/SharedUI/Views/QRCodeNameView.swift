@@ -57,7 +57,7 @@ class QRCodeNameView: UIView {
     private func setup() {
         // prohibits changing of colors with Apple's 'Smart Invert Colors'
         imageView.accessibilityIgnoresInvertColors = true
-        
+
         addSubview(imageView)
         if isLightCertificate {
             addSubview(certificateTimer)
