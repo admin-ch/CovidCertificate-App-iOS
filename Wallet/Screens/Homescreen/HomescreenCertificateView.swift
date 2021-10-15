@@ -32,7 +32,7 @@ class HomescreenCertificateView: UIView {
     private var topViewLayoutGuide = UILayoutGuide()
     private let backgroundButton = BackgroundButton()
 
-    static let showVaccinationHintAgainInterval: TimeInterval = 60 * 60 * 24 * 7 // 7d
+    static let showVaccinationHintAgainInterval: TimeInterval = 60 * 60 * 24 * 30 // 30d
 
     private var showVaccinationInfo: Bool {
         let dismissedTooLongAgo = Date(timeIntervalSinceNow: -Self.showVaccinationHintAgainInterval) > WalletUserStorage.shared.lastVaccinationHintDismissal

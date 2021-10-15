@@ -17,8 +17,8 @@ struct UserTransferCode: Codable, Equatable {
 }
 
 extension UserTransferCode {
-    static let validPeriod: TimeInterval = 60 * 60 * 24 * 7 // 7 days
-    static let expiredPeriod: TimeInterval = 60 * 60 * 24 * 10 // 10 days
+    static let validPeriod: TimeInterval = 60 * 60 * 24 * 30 // 30 days
+    static let expiredPeriod: TimeInterval = 60 * 60 * 24 * 33 // 33 days
 
     enum State: Equatable {
         case valid
@@ -52,8 +52,8 @@ extension UserTransferCode {
 
         if validUntil < 0 {
             return nil
-        } else if validUntil >= day * 6 {
-            return 7
+        } else if validUntil >= day * 29 {
+            return 30
         } else {
             return Int((validUntil / day).rounded(.up))
         }
@@ -61,7 +61,7 @@ extension UserTransferCode {
 
     var validityIcon: UIImage? {
         switch validDays {
-        case let .some(x) where x >= 1 && x <= 7:
+        case let .some(x) where x >= 1 && x <= 30:
             return UIImage(named: "ic-expire-\(x)")
         default:
             return nil
@@ -72,7 +72,7 @@ extension UserTransferCode {
         switch validDays {
         case 1:
             return UBLocalized.wallet_transfer_code_expire_singular.formattingOccurrenceBold(UBLocalized.wallet_transfer_code_expire_singular_bold)
-        case let .some(x) where x >= 2 && x <= 7:
+        case let .some(x) where x >= 2 && x <= 30:
             return UBLocalized.wallet_transfer_code_expire_plural.replacingOccurrences(of: "{DAYS}", with: "\(x)").formattingOccurrenceBold(UBLocalized.wallet_transfer_code_expire_plural_bold.replacingOccurrences(of: "{DAYS}", with: "\(x)"))
         default:
             return nil
