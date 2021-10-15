@@ -139,8 +139,11 @@ private class InsetLabel: UIView {
         addSubview(label)
 
         label.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.left.right.equalToSuperview().inset(inset)
+            make.centerY.centerX.equalToSuperview()
+            make.left.greaterThanOrEqualToSuperview()
+            make.right.lessThanOrEqualToSuperview()
+
+            make.left.right.equalToSuperview().inset(7).priority(.low)
         }
     }
 }
