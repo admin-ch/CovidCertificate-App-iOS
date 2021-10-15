@@ -670,7 +670,7 @@
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_works_intro_3" = "Nach 7 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.";
+"wallet_transfer_code_faq_works_intro_3" = "Nach 30 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Mitteilungen erlauben";
