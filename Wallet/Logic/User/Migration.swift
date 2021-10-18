@@ -41,7 +41,7 @@ class Migration {
             return
         }
 
-        CertificateStorage.shared.forceSave()
+        CertificateStorage.shared.forceSave(generateNewKey: true)
 
         WalletUserStorage.shared.hasCompletedSecureStorageMigrationWithoutSecureEnclave = true
     }

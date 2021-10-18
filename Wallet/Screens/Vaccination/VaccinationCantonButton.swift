@@ -15,7 +15,7 @@ import UIKit
 class VaccinationCantonButton: UBButton {
     // MARK: - Subviews
 
-    private let textLabel = Label(.textBoldLarge)
+    private let textLabel = Label(.textBoldLarge, numberOfLines: 1)
     private let icon = UIImageView()
     private let externalLinkIcon = UIImageView()
 
@@ -27,6 +27,7 @@ class VaccinationCantonButton: UBButton {
         textLabel.text = text
         icon.image = UIImage(named: iconName)
         externalLinkIcon.image = UIImage(named: "ic-link-external")?.ub_image(with: .cc_blue)
+
         setup()
     }
 
@@ -38,6 +39,8 @@ class VaccinationCantonButton: UBButton {
         icon.contentMode = .scaleAspectFit
         icon.layer.borderColor = UIColor(ub_hexString: "#e7e6e5")!.cgColor
         icon.layer.borderWidth = 1.2
+        externalLinkIcon.ub_setContentPriorityRequired()
+        icon.ub_setContentPriorityRequired()
 
         addSubview(icon)
         icon.snp.makeConstraints { make in

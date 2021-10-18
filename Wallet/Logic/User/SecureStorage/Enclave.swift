@@ -27,6 +27,17 @@
 
 import Foundation
 
+public enum EnclaveError: Error {
+    case keyLoadingError(_ status: OSStatus)
+
+    var errorCode: String {
+        switch self {
+        case let .keyLoadingError(status):
+            return "\(status)"
+        }
+    }
+}
+
 public enum Enclave {
     static let encryptAlg = SecKeyAlgorithm.eciesEncryptionCofactorVariableIVX963SHA256AESGCM
     static let signAlg = SecKeyAlgorithm.ecdsaSignatureMessageX962SHA512
@@ -77,7 +88,7 @@ public enum Enclave {
         return (privateKey, nil)
     }
 
-    static func loadKey(with name: String) -> SecKey? {
+    static func loadKey(with name: String) -> Result<SecKey?, EnclaveError> {
         let tag = Enclave.tag(for: name)
         let query: [String: Any] = [
             kSecClass as String: kSecClassKey,
@@ -92,16 +103,9 @@ public enum Enclave {
             status == errSecSuccess,
             case let result as SecKey? = item
         else {
-            return nil
+            return .failure(.keyLoadingError(status))
         }
-        return result
-    }
-
-    static func loadOrGenerateKey(with name: String) -> SecKey? {
-        if let key = loadKey(with: name) {
-            return key
-        }
-        return generateKey(with: name).0
+        return .success(result)
     }
 
     static func encrypt(data: Data, with key: SecKey) -> (Data?, String?) {
@@ -156,11 +160,11 @@ public enum Enclave {
     static func verify(data: Data, signature: Data, with key: SecKey) -> (Bool, String?) {
         guard let publicKey = SecKeyCopyPublicKey(key) else {
             Self.logger.error("err.pub-key-irretrievable")
-            return (false, "err.pub-key-irretrievable")
+            return (false, "pub")
         }
         guard SecKeyIsAlgorithmSupported(publicKey, .verify, signAlg) else {
             Self.logger.error("err.alg-not-supported")
-            return (false, "err.alg-not-supported")
+            return (false, "alg")
         }
         var error: Unmanaged<CFError>?
         let isValid = SecKeyVerifySignature(
@@ -170,11 +174,12 @@ public enum Enclave {
             signature as CFData,
             &error
         )
-        let err = error?.takeRetainedValue().localizedDescription
+        let err = error?.takeRetainedValue()
         if let err = err {
-            Self.logger.error("%{public}@", err)
+            Self.logger.error("%{public}@", err.localizedDescription)
+            return (isValid, "\(CFErrorGetCode(err))")
         }
-        return (isValid, err)
+        return (isValid, nil)
     }
 
     public static func sign(
@@ -211,5 +216,22 @@ public enum Enclave {
             Self.logger.error("%{public}@", err)
         }
         return (signature, err)
+    }
+
+    /// Deletes all keys from the keychain
+    /// - Returns: a result true if successful
+    @discardableResult
+    public static func deleteAllKeys() -> Bool {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassKey as String,
+        ]
+
+        let status: OSStatus = SecItemDelete(query as CFDictionary)
+        switch status {
+        case noErr, errSecItemNotFound, errSecSuccess:
+            return true
+        default:
+            return false
+        }
     }
 }

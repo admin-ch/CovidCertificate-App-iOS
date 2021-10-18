@@ -46,8 +46,6 @@ class TransferCodeStatusView: UIView {
 
         setupView()
         update()
-
-        ub_setContentPriorityRequired()
     }
 
     required init?(coder _: NSCoder) {
@@ -112,6 +110,9 @@ class TransferCodeStatusView: UIView {
         }
 
         errorCorner.alpha = 0.0
+
+        createdAtLabel.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .vertical)
+        validLabel.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .vertical)
     }
 
     private func update() {

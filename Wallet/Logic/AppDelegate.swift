@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if isFirstLaunch {
             CertificateStorage.shared.removeAll()
             Keychain().deleteAll()
+            Enclave.deleteAllKeys()
             isFirstLaunch = false
         }
 

@@ -55,6 +55,9 @@ class QRCodeNameView: UIView {
     // MARK: - Setup
 
     private func setup() {
+        // prohibits changing of colors with Apple's 'Smart Invert Colors'
+        imageView.accessibilityIgnoresInvertColors = true
+
         addSubview(imageView)
         if isLightCertificate {
             addSubview(certificateTimer)
@@ -100,8 +103,9 @@ class QRCodeNameView: UIView {
             make.bottom.equalToSuperview()
         }
 
-        nameView.ub_setContentPriorityRequired()
-        birthdayLabelView.ub_setContentPriorityRequired()
+        imageView.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .vertical)
+        nameView.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: .vertical)
+        birthdayLabelView.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: .vertical)
     }
 
     // MARK: - Update

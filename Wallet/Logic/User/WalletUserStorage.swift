@@ -135,7 +135,7 @@ class CertificateStorage {
     func discardExpiredLightCertificates(completionHandler: (() -> Void)? = nil) {
         DispatchQueue.global().async {
             self.userCertificates = self.userCertificates.map { userCertificate in
-                // is the certificate has no light certificate we don't touch it
+                // if the certificate has no light certificate we don't touch it
                 guard let lightCertificate = userCertificate.lightCertificate?.certificate else {
                     return userCertificate
                 }
@@ -176,8 +176,12 @@ class CertificateStorage {
     }
 
     /// certififcates are automatically saved on chages, this method forces a synchronous save
-    func forceSave() {
-        _ = secureStorage.saveSynchronously(certificates)
+    func forceSave(generateNewKey: Bool = false) {
+        _ = secureStorage.saveSynchronously(certificates, generateNewKey: generateNewKey)
+    }
+
+    func errorCode() -> String? {
+        secureStorage.errorCode()
     }
 
     // MARK: - Migration

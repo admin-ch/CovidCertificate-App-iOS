@@ -11,6 +11,7 @@
 
 import CovidCertificateSDK
 import Foundation
+import UIKit
 
 class HomescreenCertificateView: UIView {
     public var touchUpCallback: (() -> Void)?
@@ -31,7 +32,7 @@ class HomescreenCertificateView: UIView {
     private var topViewLayoutGuide = UILayoutGuide()
     private let backgroundButton = BackgroundButton()
 
-    static let showVaccinationHintAgainInterval: TimeInterval = 60 * 60 * 24 * 7 // 7d
+    static let showVaccinationHintAgainInterval: TimeInterval = 60 * 60 * 24 * 30 // 30d
 
     private var showVaccinationInfo: Bool {
         let dismissedTooLongAgo = Date(timeIntervalSinceNow: -Self.showVaccinationHintAgainInterval) > WalletUserStorage.shared.lastVaccinationHintDismissal
@@ -410,6 +411,8 @@ private class TransferView: UIView {
             animationView.snp.makeConstraints { make in
                 make.top.left.right.equalToSuperview()
             }
+
+            animationView.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .vertical)
         }
 
         nameView.snp.makeConstraints { make in
@@ -422,6 +425,9 @@ private class TransferView: UIView {
         }
 
         nameView.text = codeHasFailed ? UBLocalized.wallet_transfer_code_state_expired : UBLocalized.wallet_transfer_code_state_waiting
+
+        let p = UILayoutPriority(rawValue: UILayoutPriority.defaultHigh.rawValue - 100.0)
+        nameView.setContentCompressionResistancePriority(p, for: .vertical)
 
         if let code = certificate?.transferCode?.transferCode {
             TransferManager.shared.addObserver(self, for: code) { [weak self] result in
@@ -465,14 +471,12 @@ private class TransferView: UIView {
             }
         }
 
-        nameView.ub_setContentPriorityRequired()
-
         transferCodeView.snp.makeConstraints { make in
             make.top.greaterThanOrEqualTo(nameView.snp.bottom).offset(Padding.medium)
             make.bottom.left.right.equalToSuperview().inset(2.0 * Padding.small)
         }
 
-        transferCodeView.ub_setContentPriorityRequired()
+        transferCodeView.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: .vertical)
 
         update(animated: false)
     }
