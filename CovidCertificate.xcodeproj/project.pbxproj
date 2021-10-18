@@ -312,6 +312,7 @@
 		F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089ED2493696500A66CD1 /* KeychainPersisted.swift */; };
 		F84089F024936D8700A66CD1 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089EF24936D8700A66CD1 /* MockKeychain.swift */; };
 		F8454AA3263983B8005CF491 /* NSMutableAttributedString+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8454AA2263983B8005CF491 /* NSMutableAttributedString+CC.swift */; };
+		F84E70B12714DFD700512A49 /* UserCertificate+UserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E70B02714DFD700512A49 /* UserCertificate+UserActivity.swift */; };
 		F85ED9A32499EF93007EBC49 /* Bundle+BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85ED9A22499EF93007EBC49 /* Bundle+BuildInfo.swift */; };
 		F86A6A832637F93D003CAC1B /* UICollection+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86A6A822637F93D003CAC1B /* UICollection+CC.swift */; };
 		F86A6A862637F944003CAC1B /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86A6A852637F944003CAC1B /* ReusableView.swift */; };
@@ -570,6 +571,7 @@
 		F84089ED2493696500A66CD1 /* KeychainPersisted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPersisted.swift; sourceTree = "<group>"; };
 		F84089EF24936D8700A66CD1 /* MockKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeychain.swift; sourceTree = "<group>"; };
 		F8454AA2263983B8005CF491 /* NSMutableAttributedString+CC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+CC.swift"; sourceTree = "<group>"; };
+		F84E70B02714DFD700512A49 /* UserCertificate+UserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCertificate+UserActivity.swift"; sourceTree = "<group>"; };
 		F85ED9A22499EF93007EBC49 /* Bundle+BuildInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+BuildInfo.swift"; sourceTree = "<group>"; };
 		F86A6A822637F93D003CAC1B /* UICollection+CC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollection+CC.swift"; sourceTree = "<group>"; };
 		F86A6A852637F944003CAC1B /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -964,6 +966,7 @@
 				DC8AC74826541723005A2543 /* CertificateStateValidityView.swift */,
 				6E0281FD265660E500582904 /* CertificateDetailView.swift */,
 				6E8F52EB265EC33F00406430 /* CertificateNoteView.swift */,
+				F84E70B02714DFD700512A49 /* UserCertificate+UserActivity.swift */,
 			);
 			path = Certificates;
 			sourceTree = "<group>";
@@ -1864,6 +1867,7 @@
 				DCA3FFB824504B190003F5AD /* ClickthroughStackView.swift in Sources */,
 				F809AF362693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */,
 				6E5A0F26264336B4004718B4 /* UIStateManager.swift in Sources */,
+				F84E70B12714DFD700512A49 /* UserCertificate+UserActivity.swift in Sources */,
 				F8D5B159268C400B00C39836 /* IconImageRowView.swift in Sources */,
 				DC8ABDF5264A65C100FDE0E1 /* OnboardingInfoView.swift in Sources */,
 				6EF166D2264E5C3200426985 /* ConfigManager.swift in Sources */,

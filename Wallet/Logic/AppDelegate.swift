@@ -85,7 +85,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let url = userActivity.webpageURL {
             return linkHandler.handle(url: url)
         }
-        return false
+        return linkHandler.handle(userActivity: userActivity, navigationController: navigationController)
     }
 
     private func shouldSetupWindow(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

@@ -1197,7 +1197,7 @@
 "verifier_qr_scanner_external_hardware_detected" = "Identifitgà il scanner d'indriz tecnic extern";
 
 /*Error popup reset button text*/
-"error_decryption_reset_button" = "Zurücksetzen";
+"error_decryption_reset_button" = "Reinizialisar";
 
 /*Text Certificate Could not be loaded {ERROR_CODE} gets replaces with the error code*/
-"error_decryption_text" = "Zertifikate konnten nicht geladen werden\n\nCode: {ERROR_CODE}";
+"error_decryption_text" = "Ils certificats n’han betg pudì vegnir chargiads\n\nCode: {ERROR_CODE}";

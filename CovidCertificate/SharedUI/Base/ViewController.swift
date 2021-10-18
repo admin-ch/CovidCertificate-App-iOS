@@ -27,14 +27,14 @@ class ViewController: UIViewController {
 
     // MARK: - Present
 
-    func presentInNavigationController(from rootViewController: UIViewController) {
+    func presentInNavigationController(from rootViewController: UIViewController, animated: Bool = true) {
         let navCon = NavigationController(rootViewController: self, useNavigationBar: true)
 
         if UIDevice.current.isSmallScreenPhone {
             navCon.modalPresentationStyle = .fullScreen
         }
 
-        rootViewController.present(navCon, animated: true, completion: nil)
+        rootViewController.present(navCon, animated: animated, completion: nil)
     }
 
     @objc func dismissAction() {

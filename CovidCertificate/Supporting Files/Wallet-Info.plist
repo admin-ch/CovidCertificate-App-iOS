@@ -67,8 +67,14 @@
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<false/>
 	<key>NSCameraUsageDescription</key>
 	<string>Der Kamerazugriff wird benötigt, um QR-Codes zu scannen</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>ch.admin.bag.covidcertificate.wallet.certificate.view</string>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Regular.ttf</string>
@@ -97,8 +103,6 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>UISupportsDocumentBrowser</key>
-	<false/>
-	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<false/>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>

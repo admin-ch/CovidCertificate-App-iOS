@@ -63,10 +63,10 @@ public extension ExtensionModel {
             // only DCCCerts should get exported
             guard let certificate = self as? DCCCert else { return nil }
             let name = [certificate.person.familyName, certificate.person.givenName].compactMap { $0 }.joined(separator: "-")
-            guard let uvic: String = certificate.vaccinations?.first?.certificateIdentifier ??
+            guard let uvci: String = certificate.vaccinations?.first?.certificateIdentifier ??
                 certificate.pastInfections?.first?.certificateIdentifier ??
                 certificate.tests?.first?.certificateIdentifier else { return nil }
-            return "covid-certificate-\(name)-\(uvic.suffix(4)).pdf"
+            return "covid-certificate-\(name)-\(uvci.suffix(4)).pdf"
         }
     #endif
 }
