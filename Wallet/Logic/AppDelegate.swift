@@ -42,9 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Reset keychain on first launch
         if isFirstLaunch {
-            CertificateStorage.shared.removeAll()
             Keychain().deleteAll()
             Enclave.deleteAllKeys()
+            CertificateStorage.shared.removeAll()
             isFirstLaunch = false
         }
 
