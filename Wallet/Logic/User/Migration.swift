@@ -12,6 +12,29 @@
 import Foundation
 
 class Migration {
+    // MARK: - Migration of Transfer code Fail & Expiry Dates
+
+    static func migrateFailExpiryDatesOnTransferCodes() {
+        guard !WalletUserStorage.shared.hasCompletedTransferCodeFailExpiryMigration else {
+            return
+        }
+
+        // get all certificates
+        let certificates = CertificateStorage.shared.userCertificates
+
+        CertificateStorage.shared.userCertificates = certificates.map { cert in
+            if cert.type == .transferCode {
+                var code = cert.transferCode
+                code?.migrateExpiresAndFailDate()
+                return UserCertificate(qrCode: cert.qrCode, transferCode: code, lightCertificate: cert.lightCertificate, pdf: cert.pdf)
+            }
+
+            return cert
+        }
+
+        WalletUserStorage.shared.hasCompletedTransferCodeFailExpiryMigration = true
+    }
+
     // MARK: - Migration to SecureStorage
 
     static func migrateToSecureStorage() {

@@ -32,7 +32,7 @@ extension UserTransferCode {
     fileprivate static let expiredPeriod: TimeInterval = 60 * 60 * 24 * 33 // 33 days
 
     // MARK: - State
-    
+
     enum State: Equatable {
         case valid
         case expired
