@@ -62,7 +62,7 @@ extension UserTransferCode {
     var validityIcon: UIImage? {
         switch validDays {
         case let .some(x) where x >= 1 && x <= 30:
-            let imageIndex = min(max(Int(Double(x) / 30 * 7), 1), 7)
+            let imageIndex = min(max(Int(Double(x) / 30 * 7) + 1, 1), 7)
             return UIImage(named: "ic-expire-\(imageIndex)")
         default:
             return nil
