@@ -32,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // migrate certificate key to be included in encrypted backup
         Migration.migrateToSecureStorageWithoutSecureEnclave()
 
+        // migrate transfer code expiry and fail dates
+        Migration.migrateFailExpiryDatesOnTransferCodes()
+
         // Pre-populate isFirstLaunch for users which already installed the app before we introduced this flag
         if WalletUserStorage.shared.hasCompletedOnboarding {
             isFirstLaunch = false

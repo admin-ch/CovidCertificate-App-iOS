@@ -30,6 +30,9 @@ class WalletUserStorage {
     @UBUserDefault(key: "wallet.user.hasCompletedSecureStorageMigrationWithoutSecureEnclave", defaultValue: false)
     var hasCompletedSecureStorageMigrationWithoutSecureEnclave: Bool
 
+    @UBUserDefault(key: "wallet.user.hasCompletedTransferCodeFailExpiryMigration", defaultValue: false)
+    var hasCompletedTransferCodeFailExpiryMigration: Bool
+
     @UBUserDefault(key: "wallet.user.hasCompletedPushRegistration", defaultValue: false)
     var hasCompletedPushRegistration: Bool
 

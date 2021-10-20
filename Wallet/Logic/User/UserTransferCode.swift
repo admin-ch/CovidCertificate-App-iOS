@@ -12,13 +12,26 @@
 import Foundation
 
 struct UserTransferCode: Codable, Equatable {
+    init(transferCode: String, created: Date) {
+        self.transferCode = transferCode
+        self.created = created
+        expiresAt = created.addingTimeInterval(Self.validPeriod)
+        failsAt = created.addingTimeInterval(Self.expiredPeriod)
+    }
+
     let transferCode: String
     let created: Date
+    var expiresAt: Date?
+    var failsAt: Date?
 }
 
 extension UserTransferCode {
-    static let validPeriod: TimeInterval = 60 * 60 * 24 * 30 // 30 days
-    static let expiredPeriod: TimeInterval = 60 * 60 * 24 * 33 // 33 days
+    // MARK: - Periods
+
+    fileprivate static let validPeriod: TimeInterval = 60 * 60 * 24 * 30 // 30 days
+    fileprivate static let expiredPeriod: TimeInterval = 60 * 60 * 24 * 33 // 33 days
+
+    // MARK: - State
 
     enum State: Equatable {
         case valid
@@ -26,10 +39,12 @@ extension UserTransferCode {
         case failed
     }
 
+    // MARK: - API
+
     var state: State {
-        let interval = Date().timeIntervalSince(created)
-        switch interval {
-        case let x where x <= Self.validPeriod:
+        let now = Date()
+
+        if now <= expiryDate() {
             #if Wallet
                 if TransferManager.shared.hasKey(code: transferCode) {
                     return .valid
@@ -39,21 +54,19 @@ extension UserTransferCode {
             #else
                 return .valid
             #endif
-        case let x where x <= Self.expiredPeriod:
+        } else if now <= failDate() {
             return .expired
-        default:
+        } else {
             return .failed
         }
     }
 
     var validDays: Int? {
         let day: TimeInterval = 60 * 60 * 24
-        let validUntil = created.addingTimeInterval(Self.validPeriod).timeIntervalSince(Date())
+        let validUntil = expiryDate().timeIntervalSince(Date())
 
         if validUntil < 0 {
             return nil
-        } else if validUntil >= day * 29 {
-            return 30
         } else {
             return Int((validUntil / day).rounded(.up))
         }
@@ -61,9 +74,12 @@ extension UserTransferCode {
 
     var validityIcon: UIImage? {
         switch validDays {
-        case let .some(x) where x >= 1 && x <= 30:
-            let imageIndex = min(max(Int(Double(x) / 30 * 7) + 1, 1), 7)
-            return UIImage(named: "ic-expire-\(imageIndex)")
+        case let .some(x) where x >= 1:
+            let fullInterval = expiryDate().timeIntervalSince(created)
+            let part = Date().timeIntervalSince(created)
+            let percentage = max(0.0, min(Double(part) / Double(fullInterval), 1.0))
+            let index = min(7, max(1, Int(round(percentage * 7) + 1)))
+            return UIImage(named: "ic-expire-\(index)")
         default:
             return nil
         }
@@ -73,10 +89,31 @@ extension UserTransferCode {
         switch validDays {
         case 1:
             return UBLocalized.wallet_transfer_code_expire_singular.formattingOccurrenceBold(UBLocalized.wallet_transfer_code_expire_singular_bold)
-        case let .some(x) where x >= 2 && x <= 30:
+        case let .some(x) where x >= 2:
             return UBLocalized.wallet_transfer_code_expire_plural.replacingOccurrences(of: "{DAYS}", with: "\(x)").formattingOccurrenceBold(UBLocalized.wallet_transfer_code_expire_plural_bold.replacingOccurrences(of: "{DAYS}", with: "\(x)"))
         default:
             return nil
         }
+    }
+
+    // MARK: - Dates
+
+    private func expiryDate() -> Date {
+        return expiresAt ?? created.addingTimeInterval(Self.validPeriod)
+    }
+
+    private func failDate() -> Date {
+        return failsAt ?? created.addingTimeInterval(Self.expiredPeriod)
+    }
+}
+
+extension UserTransferCode {
+    // MARK: - Migration
+
+    public mutating func migrateExpiresAndFailDate() {
+        // transfer codes that need to be migrated where 7 days valid and failed
+        // after 10 days
+        expiresAt = created.addingTimeInterval(60 * 60 * 24 * 7)
+        failsAt = created.addingTimeInterval(60 * 60 * 24 * 10)
     }
 }
