@@ -26,6 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var navigationController = NavigationController(rootViewController: WalletHomescreenViewController())
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Pre-populate isFirstLaunch for users which already installed the app before we introduced this flag
+        if WalletUserStorage.shared.hasCompletedOnboarding {
+            isFirstLaunch = false
+        }
+
+        // Reset keychain on first launch
+        if isFirstLaunch {
+            Keychain().deleteAll()
+            Enclave.deleteAllKeys()
+            CertificateStorage.shared.removeAll()
+            isFirstLaunch = false
+        }
+
         // migrates certificates from keychain to secure storage
         Migration.migrateToSecureStorage()
 
@@ -34,19 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // migrate transfer code expiry and fail dates
         Migration.migrateFailExpiryDatesOnTransferCodes()
-
-        // Pre-populate isFirstLaunch for users which already installed the app before we introduced this flag
-        if WalletUserStorage.shared.hasCompletedOnboarding {
-            isFirstLaunch = false
-        }
-
-        // Reset keychain on first launch
-        if isFirstLaunch {
-            CertificateStorage.shared.removeAll()
-            Keychain().deleteAll()
-            Enclave.deleteAllKeys()
-            isFirstLaunch = false
-        }
 
         CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
         #if DEBUG || RELEASE_DEV
