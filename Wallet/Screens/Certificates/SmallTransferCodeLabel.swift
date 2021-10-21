@@ -12,7 +12,7 @@
 import UIKit
 
 class SmallTransferCodeLabel: UIView {
-    private let label = Label(.textBold, textColor: .cc_blue)
+    private let label = Label(.codeBoldSmall, textColor: .cc_blue)
 
     var code: UserTransferCode? {
         didSet { update() }
