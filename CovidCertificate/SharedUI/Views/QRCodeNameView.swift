@@ -104,6 +104,8 @@ class QRCodeNameView: UIView {
         }
 
         imageView.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .vertical)
+        imageView.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
+
         nameView.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: .vertical)
         birthdayLabelView.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: .vertical)
     }

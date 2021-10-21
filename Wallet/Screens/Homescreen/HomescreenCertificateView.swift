@@ -22,7 +22,7 @@ class HomescreenCertificateView: UIView {
 
     public static let inset: CGFloat = 6.0
 
-    private let titleLabel = Label(.uppercaseBold, textColor: .cc_greyText, textAlignment: .center)
+    private let titleLabel = Label(.uppercaseBold, textColor: .cc_greyText, numberOfLines: 1, textAlignment: .center)
     private let contentView = UIView()
 
     private let qrCodeView: QRCodeView
@@ -401,19 +401,18 @@ private class TransferView: UIView {
             }
 
             failedImageView.contentMode = .scaleAspectFit
-
-            failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-            failedImageView.setContentHuggingPriority(.defaultLow, for: .vertical)
-            failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-            failedImageView.setContentHuggingPriority(.defaultLow, for: .horizontal)
         } else {
             addSubview(animationView)
             animationView.snp.makeConstraints { make in
                 make.top.left.right.equalToSuperview()
             }
-
-            animationView.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .vertical)
         }
+
+        failedImageView.contentMode = .scaleAspectFit
+        failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        animationView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        animationView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
         nameView.snp.makeConstraints { make in
             if codeHasFailed {
@@ -438,7 +437,7 @@ private class TransferView: UIView {
                     self.animationView.removeFromSuperview()
                     if self.failedImageView.superview == nil {
                         self.addSubview(self.failedImageView)
-                        self.failedImageView.snp.makeConstraints { make in
+                        self.failedImageView.snp.remakeConstraints { make in
                             make.top.equalToSuperview().inset(40)
                             make.centerX.equalToSuperview()
                         }
@@ -450,7 +449,7 @@ private class TransferView: UIView {
                         self.failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
                         self.failedImageView.setContentHuggingPriority(.defaultLow, for: .horizontal)
                     }
-                    self.nameView.snp.makeConstraints { make in
+                    self.nameView.snp.remakeConstraints { make in
                         make.top.equalTo(self.failedImageView.snp.bottom).offset(Padding.large)
                         make.left.right.equalToSuperview().inset(Padding.large)
                     }
@@ -459,7 +458,7 @@ private class TransferView: UIView {
                     self.failedImageView.removeFromSuperview()
                     if self.animationView.superview == nil {
                         self.addSubview(self.animationView)
-                        self.animationView.snp.makeConstraints { make in
+                        self.animationView.snp.remakeConstraints { make in
                             make.top.left.right.equalToSuperview()
                         }
                     }

@@ -111,8 +111,10 @@ class TransferCodeStatusView: UIView {
 
         errorCorner.alpha = 0.0
 
-        createdAtLabel.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .vertical)
-        validLabel.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .vertical)
+        let p = UILayoutPriority.defaultMedium
+        let p2 = UILayoutPriority(rawValue: p.rawValue + 50.0)
+        createdAtLabel.setContentCompressionResistancePriority(p, for: .vertical)
+        validLabel.setContentCompressionResistancePriority(p2, for: .vertical)
     }
 
     private func update() {
