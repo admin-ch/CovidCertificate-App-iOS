@@ -77,7 +77,7 @@ extension UserTransferCode {
         case let .some(x) where x >= 1:
             let fullInterval = expiryDate().timeIntervalSince(created)
             let part = Date().timeIntervalSince(created)
-            let percentage = max(0.0, min(Double(part) / Double(fullInterval), 1.0))
+            let percentage = max(0.0, min(1.0 - (Double(part) / Double(fullInterval)), 1.0))
             let index = min(7, max(1, Int(round(percentage * 7) + 1)))
             return UIImage(named: "ic-expire-\(index)")
         default:
