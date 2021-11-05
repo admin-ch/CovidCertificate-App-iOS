@@ -387,7 +387,7 @@
 "covid_certificate_test_title" = "Test";
 "wallet_certificate_test_result_title" = "Resultat";
 "wallet_certificate_test_result_negativ" = "Betg identifitgà (Negativ)";
-"wallet_certificate_test_result_positiv" = "Positiv";
+"wallet_certificate_test_result_positiv" = "Betg identifitgà (Positiv)";
 "wallet_certificate_test_type" = "Tip";
 "wallet_certificate_test_name" = "Num";
 "wallet_certificate_test_holder" = "Producent";
@@ -651,7 +651,7 @@
 "wallet_transfer_code_faq_works_intro_2" = "Uschespert ch'il certificat COVID è disponibel, cumpara el en l'app. Sche Vus avais activà ils avis, vegnis Vus infurmada u infurmà da l'app.";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-"wallet_transfer_code_faq_works_intro_3" = "Suenter 30 dis scada il code da transfer. Silsuenter spetga l'app anc ulteriuras 72 uras, avant ch'il code da transfer daventa nunvalaivel.";
+"wallet_transfer_code_faq_works_intro_3" = "Suenter <transferCodeValidity> dis scada il code da transfer. Silsuenter spetga l'app anc ulteriuras 72 uras, avant ch'il code da transfer daventa nunvalaivel.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Permetter avis";
@@ -1201,3 +1201,6 @@
 
 /*Text Certificate Could not be loaded {ERROR_CODE} gets replaces with the error code*/
 "error_decryption_text" = "Ils certificats n’han betg pudì vegnir chargiads\n\nCode: {ERROR_CODE}";
+"covid_certificate_sero_positiv_test_title" = "Genesung Antikörper";
+"wallet_time_inconsistency_error_title" = "Prüfung nicht möglich";
+"wallet_time_inconsistency_error_text" = "Datum und Uhrzeit auf dem Gerät sind falsch eingestellt.";

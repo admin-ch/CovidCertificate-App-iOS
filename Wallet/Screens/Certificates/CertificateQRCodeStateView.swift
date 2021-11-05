@@ -70,7 +70,15 @@ class CertificateQRCodeStateView: UIView {
                 self.backgroundView.backgroundColor = .cc_red
             case let .retry(error, _):
                 self.imageView.layer.removeAllAnimations()
-                let imageName = error == .noInternetConnection ? "ic-header-offline" : "ic-header-error"
+                let imageName: String
+                switch error {
+                case .noInternetConnection:
+                    imageName = "ic-header-offline"
+                case .timeShift:
+                    imageName = "ic-header-time"
+                default:
+                    imageName = "ic-header-error"
+                }
                 self.imageView.image = UIImage(named: imageName)
                 self.backgroundView.backgroundColor = .cc_orange
             }

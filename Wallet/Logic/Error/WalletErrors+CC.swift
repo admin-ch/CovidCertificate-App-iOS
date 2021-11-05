@@ -71,31 +71,36 @@ extension RetryError {
         switch self {
         case .noInternetConnection:
             return isReload ? UBLocalized.wallet_detail_offline_retry_title.bold() : UBLocalized.wallet_homescreen_offline.bold()
+        case .timeShift:
+            return isReload ? UBLocalized.wallet_time_inconsistency_error_title.bold() : UBLocalized.wallet_homescreen_network_error.formattingOccurrenceBold("")
         case .network, .unknown:
             return isHomescreen ? UBLocalized.wallet_homescreen_network_error.formattingOccurrenceBold("") : UBLocalized.wallet_detail_network_error_title.formattingOccurrenceBold("")
         }
     }
 
     func displayText(isReload: Bool) -> String {
+        if case .timeShift = self {
+            return UBLocalized.wallet_time_inconsistency_error_text
+        }
+
         return isReload ? UBLocalized.wallet_detail_network_error_text : UBLocalized.wallet_offline_description
     }
 
     func icon(with color: UIColor? = nil) -> UIImage? {
+        var image: UIImage?
         switch self {
         case .noInternetConnection:
-            var image = UIImage(named: "ic-offline")
-            if let c = color {
-                image = image?.ub_image(with: c)
-            }
-
-            return image
+            image = UIImage(named: "ic-offline")
+        case .timeShift:
+            image = UIImage(named: "ic-timeerror")
         case .network, .unknown:
-            var image = UIImage(named: "ic-error")
-            if let c = color {
-                image = image?.ub_image(with: c)
-            }
-
-            return image
+            image = UIImage(named: "ic-error")
         }
+
+        if let c = color {
+            image = image?.ub_image(with: c)
+        }
+
+        return image
     }
 }

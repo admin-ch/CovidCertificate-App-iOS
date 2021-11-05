@@ -387,7 +387,7 @@
 "covid_certificate_test_title" = "Test";
 "wallet_certificate_test_result_title" = "Résultat";
 "wallet_certificate_test_result_negativ" = "Non détecté (Négatif)";
-"wallet_certificate_test_result_positiv" = "Positif";
+"wallet_certificate_test_result_positiv" = "Détecté (Positif)";
 "wallet_certificate_test_type" = "Type";
 "wallet_certificate_test_name" = "Nom";
 "wallet_certificate_test_holder" = "Fabricant";
@@ -651,7 +651,7 @@
 "wallet_transfer_code_faq_works_intro_2" = "Dès que le certificat COVID est disponible, il apparaît dans l’application. Si vous avez activé les notifications, vous recevrez un message de l’application.";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-"wallet_transfer_code_faq_works_intro_3" = "Le code de transfert expire après 30 jours. Une fois ce délai passé, l’application attend tout autre transfert pendant 72 h. Ensuite, le code de transfert n’est plus valable.";
+"wallet_transfer_code_faq_works_intro_3" = "Le code de transfert expire après <transferCodeValidity> jours. Une fois ce délai passé, l’application attend tout autre transfert pendant 72 h. Ensuite, le code de transfert n’est plus valable.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Autoriser les messages";
@@ -1202,3 +1202,6 @@
 
 /*Text Certificate Could not be loaded {ERROR_CODE} gets replaces with the error code*/
 "error_decryption_text" = "Les certificats n'ont pas pu être chargés\n\nCode: {ERROR_CODE}";
+"covid_certificate_sero_positiv_test_title" = "Genesung Antikörper";
+"wallet_time_inconsistency_error_title" = "Prüfung nicht möglich";
+"wallet_time_inconsistency_error_text" = "Datum und Uhrzeit auf dem Gerät sind falsch eingestellt.";
