@@ -39,6 +39,8 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
 
     let pushPopupView = PushNotificationPopUpView()
 
+    let tooManyScansPopupView = InfoBoxView()
+
     let documentPickerDelegate = DocumentPickerDelegate()
 
     init() {
@@ -201,6 +203,13 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
             let vc = WalletDetailViewController(certificate: cert)
             vc.presentInNavigationController(from: strongSelf)
         }
+
+        certificatesViewController.showTooManyScansCallback = { [weak self] in
+            guard let self = self else { return }
+            self.tooManyScansPopupView.presentFrom(view: self.view)
+            // Reset last scan dates whenever the popup is shown
+            WalletUserStorage.shared.lastScanDates = []
+        }
     }
 
     private func setupViews() {
@@ -246,6 +255,19 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
 
         view.addSubview(pushPopupView)
         pushPopupView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        tooManyScansPopupView.infoBox = InfoBox(title: UBLocalized.wallet_info_box_certificate_scan_title,
+                                                msg: UBLocalized.wallet_info_box_certificate_scan_text,
+                                                url: URL(string: UBLocalized.verifier_apple_app_store_url)!,
+                                                urlTitle: UBLocalized.wallet_info_box_certificate_scan_button_check_app,
+                                                infoId: nil,
+                                                isDismissible: true)
+        tooManyScansPopupView.closeButton.title = UBLocalized.wallet_info_box_certificate_scan_close
+
+        view.addSubview(tooManyScansPopupView)
+        tooManyScansPopupView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }

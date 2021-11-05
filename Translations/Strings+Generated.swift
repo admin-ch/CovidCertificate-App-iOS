@@ -52,6 +52,8 @@ import Foundation
      case continue_button_key = "continue_button"
     /// Genesung
      case covid_certificate_recovery_title_key = "covid_certificate_recovery_title"
+    /// Genesung Antikörper
+     case covid_certificate_sero_positiv_test_title_key = "covid_certificate_sero_positiv_test_title"
     /// Test
      case covid_certificate_test_title_key = "covid_certificate_test_title"
     /// Covid-Zertifikat
@@ -538,7 +540,7 @@ import Foundation
      case wallet_certificate_test_result_date_title_key = "wallet_certificate_test_result_date_title"
     /// Nicht erkannt (Negativ)
      case wallet_certificate_test_result_negativ_key = "wallet_certificate_test_result_negativ"
-    /// Positiv
+    /// Erkannt (Positiv)
      case wallet_certificate_test_result_positiv_key = "wallet_certificate_test_result_positiv"
     /// Ergebnis
      case wallet_certificate_test_result_title_key = "wallet_certificate_test_result_title"
@@ -692,6 +694,16 @@ import Foundation
      case wallet_homescreen_qr_code_scannen_key = "wallet_homescreen_qr_code_scannen"
     /// Nächsten Schritt wählen
      case wallet_homescreen_what_to_do_key = "wallet_homescreen_what_to_do"
+    /// Zur Check-App
+     case wallet_info_box_certificate_scan_button_check_app_key = "wallet_info_box_certificate_scan_button_check_app"
+    /// Verstanden
+     case wallet_info_box_certificate_scan_close_key = "wallet_info_box_certificate_scan_close"
+    /// Sie haben in kurzer Zeit einige Zertifikate gescannt.\n\nFür eine datenschutzkonforme Prüfung nutzen Sie die «COVID Certificate Check»-App.
+     case wallet_info_box_certificate_scan_text_key = "wallet_info_box_certificate_scan_text"
+    /// «COVID Certificate Check»-App.
+     case wallet_info_box_certificate_scan_text_bold_key = "wallet_info_box_certificate_scan_text_bold"
+    /// Müssen Sie Zertifikate prüfen?
+     case wallet_info_box_certificate_scan_title_key = "wallet_info_box_certificate_scan_title"
     /// Aktivieren
      case wallet_notification_disabled_button_key = "wallet_notification_disabled_button"
     /// Tipp: Mitteilungen aktivieren
@@ -774,6 +786,10 @@ import Foundation
      case wallet_scanner_title_key = "wallet_scanner_title"
     /// https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html
      case wallet_terms_privacy_link_key = "wallet_terms_privacy_link"
+    /// Datum und Uhrzeit auf dem Gerät sind falsch eingestellt.
+     case wallet_time_inconsistency_error_text_key = "wallet_time_inconsistency_error_text"
+    /// Prüfung nicht möglich
+     case wallet_time_inconsistency_error_title_key = "wallet_time_inconsistency_error_title"
     /// Transfer
      case wallet_transfer_code_card_title_key = "wallet_transfer_code_card_title"
     /// Ihr Transfer-Code wurde erstellt
@@ -830,7 +846,7 @@ import Foundation
      case wallet_transfer_code_faq_works_intro_1_key = "wallet_transfer_code_faq_works_intro_1"
     /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
      case wallet_transfer_code_faq_works_intro_2_key = "wallet_transfer_code_faq_works_intro_2"
-    /// Nach 30 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
+    /// Nach <transferCodeValidity> Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
      case wallet_transfer_code_faq_works_intro_3_key = "wallet_transfer_code_faq_works_intro_3"
     /// Wie sind meine Daten beim Transfer geschützt?
      case wallet_transfer_code_faq_works_question_1_key = "wallet_transfer_code_faq_works_question_1"
@@ -944,6 +960,8 @@ import Foundation
    static let continue_button = UBLocalized.tr(UBLocalizedKey.continue_button_key)
   /// Genesung
    static let covid_certificate_recovery_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_recovery_title_key)
+  /// Genesung Antikörper
+   static let covid_certificate_sero_positiv_test_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_sero_positiv_test_title_key)
   /// Test
    static let covid_certificate_test_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_test_title_key)
   /// Covid-Zertifikat
@@ -1430,7 +1448,7 @@ import Foundation
    static let wallet_certificate_test_result_date_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_result_date_title_key)
   /// Nicht erkannt (Negativ)
    static let wallet_certificate_test_result_negativ = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_result_negativ_key)
-  /// Positiv
+  /// Erkannt (Positiv)
    static let wallet_certificate_test_result_positiv = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_result_positiv_key)
   /// Ergebnis
    static let wallet_certificate_test_result_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_result_title_key)
@@ -1584,6 +1602,16 @@ import Foundation
    static let wallet_homescreen_qr_code_scannen = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_qr_code_scannen_key)
   /// Nächsten Schritt wählen
    static let wallet_homescreen_what_to_do = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_what_to_do_key)
+  /// Zur Check-App
+   static let wallet_info_box_certificate_scan_button_check_app = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_button_check_app_key)
+  /// Verstanden
+   static let wallet_info_box_certificate_scan_close = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_close_key)
+  /// Sie haben in kurzer Zeit einige Zertifikate gescannt.\n\nFür eine datenschutzkonforme Prüfung nutzen Sie die «COVID Certificate Check»-App.
+   static let wallet_info_box_certificate_scan_text = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_text_key)
+  /// «COVID Certificate Check»-App.
+   static let wallet_info_box_certificate_scan_text_bold = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_text_bold_key)
+  /// Müssen Sie Zertifikate prüfen?
+   static let wallet_info_box_certificate_scan_title = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_title_key)
   /// Aktivieren
    static let wallet_notification_disabled_button = UBLocalized.tr(UBLocalizedKey.wallet_notification_disabled_button_key)
   /// Tipp: Mitteilungen aktivieren
@@ -1666,6 +1694,10 @@ import Foundation
    static let wallet_scanner_title = UBLocalized.tr(UBLocalizedKey.wallet_scanner_title_key)
   /// https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html
    static let wallet_terms_privacy_link = UBLocalized.tr(UBLocalizedKey.wallet_terms_privacy_link_key)
+  /// Datum und Uhrzeit auf dem Gerät sind falsch eingestellt.
+   static let wallet_time_inconsistency_error_text = UBLocalized.tr(UBLocalizedKey.wallet_time_inconsistency_error_text_key)
+  /// Prüfung nicht möglich
+   static let wallet_time_inconsistency_error_title = UBLocalized.tr(UBLocalizedKey.wallet_time_inconsistency_error_title_key)
   /// Transfer
    static let wallet_transfer_code_card_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_card_title_key)
   /// Ihr Transfer-Code wurde erstellt
@@ -1722,7 +1754,7 @@ import Foundation
    static let wallet_transfer_code_faq_works_intro_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_1_key)
   /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
    static let wallet_transfer_code_faq_works_intro_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_2_key)
-  /// Nach 30 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
+  /// Nach <transferCodeValidity> Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
    static let wallet_transfer_code_faq_works_intro_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_3_key)
   /// Wie sind meine Daten beim Transfer geschützt?
    static let wallet_transfer_code_faq_works_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_1_key)

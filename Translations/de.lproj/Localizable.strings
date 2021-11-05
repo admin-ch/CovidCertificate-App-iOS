@@ -387,7 +387,7 @@
 "covid_certificate_test_title" = "Test";
 "wallet_certificate_test_result_title" = "Ergebnis";
 "wallet_certificate_test_result_negativ" = "Nicht erkannt (Negativ)";
-"wallet_certificate_test_result_positiv" = "Positiv";
+"wallet_certificate_test_result_positiv" = "Erkannt (Positiv)";
 "wallet_certificate_test_type" = "Typ";
 "wallet_certificate_test_name" = "Name";
 "wallet_certificate_test_holder" = "Hersteller";
@@ -670,7 +670,7 @@
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_works_intro_3" = "Nach 30 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.";
+"wallet_transfer_code_faq_works_intro_3" = "Nach <transferCodeValidity> Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Mitteilungen erlauben";
@@ -1229,3 +1229,13 @@
 
 /*Text Certificate Could not be loaded {ERROR_CODE} gets replaces with the error code*/
 "error_decryption_text" = "Zertifikate konnten nicht geladen werden\n\nCode: {ERROR_CODE}";
+"covid_certificate_sero_positiv_test_title" = "Genesung Antikörper";
+"wallet_time_inconsistency_error_title" = "Prüfung nicht möglich";
+"wallet_time_inconsistency_error_text" = "Datum und Uhrzeit auf dem Gerät sind falsch eingestellt.";
+"wallet_info_box_certificate_scan_title" = "Müssen Sie Zertifikate prüfen?";
+"wallet_info_box_certificate_scan_text" = "Sie haben in kurzer Zeit einige Zertifikate gescannt.\n\nFür eine datenschutzkonforme Prüfung nutzen Sie die «COVID Certificate Check»-App.";
+"wallet_info_box_certificate_scan_button_check_app" = "Zur Check-App";
+"wallet_info_box_certificate_scan_close" = "Verstanden";
+
+/*Fuzzy*/
+"wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";

@@ -38,6 +38,9 @@ class WalletUserStorage {
 
     @UBUserDefault(key: "wallet.user.lastVaccinationHintDismissal", defaultValue: Date(timeIntervalSinceNow: -HomescreenCertificateView.showVaccinationHintAgainInterval))
     var lastVaccinationHintDismissal: Date
+
+    @UBUserDefault(key: "wallet.user.lastScanDates", defaultValue: [])
+    var lastScanDates: [Date]
 }
 
 class CertificateStorage {
