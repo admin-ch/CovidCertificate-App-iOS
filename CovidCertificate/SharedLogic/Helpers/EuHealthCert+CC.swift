@@ -41,17 +41,28 @@ public extension CertificateHolder {
     fileprivate typealias ExtensionModel = VerifierCertificateHolder
 #endif
 
+private extension Optional where Wrapped == String {
+    var isNilOrEmpty: Bool {
+        switch self {
+        case .none:
+            return true
+        case let .some(s):
+            return s.isEmpty
+        }
+    }
+}
+
 public extension ExtensionModel {
     var displayFullName: String? {
-        return [person.familyName, person.givenName].compactMap { $0 }.joined(separator: " ")
+        return [displayLastName, displayName].compactMap { $0 }.joined(separator: " ")
     }
 
     var displayLastName: String? {
-        return person.familyName
+        return person.familyName.isNilOrEmpty ? person.standardizedFamilyName : person.familyName
     }
 
     var displayName: String? {
-        return person.givenName
+        return person.givenName.isNilOrEmpty ? person.standardizedGivenName : person.givenName
     }
 
     var displayMonospacedName: String? {
