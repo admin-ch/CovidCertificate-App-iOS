@@ -387,7 +387,7 @@
 "covid_certificate_test_title" = "Test";
 "wallet_certificate_test_result_title" = "Risultato";
 "wallet_certificate_test_result_negativ" = "Non rilevato (Negativo)";
-"wallet_certificate_test_result_positiv" = "Non rilevato (Positivo)";
+"wallet_certificate_test_result_positiv" = "Rilevato (Positivo)";
 "wallet_certificate_test_type" = "Tipo";
 "wallet_certificate_test_name" = "Nome";
 "wallet_certificate_test_holder" = "Fabbricante";
@@ -1205,3 +1205,10 @@
 "covid_certificate_sero_positiv_test_title" = "Genesung Antikörper";
 "wallet_time_inconsistency_error_title" = "Prüfung nicht möglich";
 "wallet_time_inconsistency_error_text" = "Datum und Uhrzeit auf dem Gerät sind falsch eingestellt.";
+"wallet_info_box_certificate_scan_title" = "Müssen Sie Zertifikate prüfen?";
+"wallet_info_box_certificate_scan_text" = "Sie haben in kurzer Zeit einige Zertifikate gescannt.\n\nFür eine datenschutzkonforme Prüfung nutzen Sie die «COVID Certificate Check»-App.";
+"wallet_info_box_certificate_scan_button_check_app" = "Zur Check-App";
+"wallet_info_box_certificate_scan_close" = "Verstanden";
+
+/*Fuzzy*/
+"wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";

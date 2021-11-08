@@ -540,7 +540,7 @@ import Foundation
      case wallet_certificate_test_result_date_title_key = "wallet_certificate_test_result_date_title"
     /// Nicht erkannt (Negativ)
      case wallet_certificate_test_result_negativ_key = "wallet_certificate_test_result_negativ"
-    /// Nicht erkannt (Positiv)
+    /// Erkannt (Positiv)
      case wallet_certificate_test_result_positiv_key = "wallet_certificate_test_result_positiv"
     /// Ergebnis
      case wallet_certificate_test_result_title_key = "wallet_certificate_test_result_title"
@@ -694,6 +694,16 @@ import Foundation
      case wallet_homescreen_qr_code_scannen_key = "wallet_homescreen_qr_code_scannen"
     /// Nächsten Schritt wählen
      case wallet_homescreen_what_to_do_key = "wallet_homescreen_what_to_do"
+    /// Zur Check-App
+     case wallet_info_box_certificate_scan_button_check_app_key = "wallet_info_box_certificate_scan_button_check_app"
+    /// Verstanden
+     case wallet_info_box_certificate_scan_close_key = "wallet_info_box_certificate_scan_close"
+    /// Sie haben in kurzer Zeit einige Zertifikate gescannt.\n\nFür eine datenschutzkonforme Prüfung nutzen Sie die «COVID Certificate Check»-App.
+     case wallet_info_box_certificate_scan_text_key = "wallet_info_box_certificate_scan_text"
+    /// «COVID Certificate Check»-App.
+     case wallet_info_box_certificate_scan_text_bold_key = "wallet_info_box_certificate_scan_text_bold"
+    /// Müssen Sie Zertifikate prüfen?
+     case wallet_info_box_certificate_scan_title_key = "wallet_info_box_certificate_scan_title"
     /// Aktivieren
      case wallet_notification_disabled_button_key = "wallet_notification_disabled_button"
     /// Tipp: Mitteilungen aktivieren
@@ -1438,7 +1448,7 @@ import Foundation
    static let wallet_certificate_test_result_date_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_result_date_title_key)
   /// Nicht erkannt (Negativ)
    static let wallet_certificate_test_result_negativ = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_result_negativ_key)
-  /// Nicht erkannt (Positiv)
+  /// Erkannt (Positiv)
    static let wallet_certificate_test_result_positiv = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_result_positiv_key)
   /// Ergebnis
    static let wallet_certificate_test_result_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_result_title_key)
@@ -1592,6 +1602,16 @@ import Foundation
    static let wallet_homescreen_qr_code_scannen = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_qr_code_scannen_key)
   /// Nächsten Schritt wählen
    static let wallet_homescreen_what_to_do = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_what_to_do_key)
+  /// Zur Check-App
+   static let wallet_info_box_certificate_scan_button_check_app = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_button_check_app_key)
+  /// Verstanden
+   static let wallet_info_box_certificate_scan_close = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_close_key)
+  /// Sie haben in kurzer Zeit einige Zertifikate gescannt.\n\nFür eine datenschutzkonforme Prüfung nutzen Sie die «COVID Certificate Check»-App.
+   static let wallet_info_box_certificate_scan_text = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_text_key)
+  /// «COVID Certificate Check»-App.
+   static let wallet_info_box_certificate_scan_text_bold = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_text_bold_key)
+  /// Müssen Sie Zertifikate prüfen?
+   static let wallet_info_box_certificate_scan_title = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_title_key)
   /// Aktivieren
    static let wallet_notification_disabled_button = UBLocalized.tr(UBLocalizedKey.wallet_notification_disabled_button_key)
   /// Tipp: Mitteilungen aktivieren
