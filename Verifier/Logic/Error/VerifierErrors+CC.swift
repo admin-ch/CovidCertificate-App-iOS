@@ -41,6 +41,8 @@ extension RetryError {
             return UBLocalized.verifier_network_error_title
         case .noInternetConnection:
             return UBLocalized.verifier_offline_error_title
+        case .timeShift:
+            return UBLocalized.wallet_time_inconsistency_error_title
         }
     }
 
@@ -50,6 +52,8 @@ extension RetryError {
             return UBLocalized.verifier_network_error_text
         case .noInternetConnection:
             return UBLocalized.verifier_offline_error_text
+        case .timeShift:
+            return UBLocalized.wallet_time_inconsistency_error_text
         }
     }
 }
