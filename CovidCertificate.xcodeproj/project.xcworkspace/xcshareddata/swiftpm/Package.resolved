@@ -42,7 +42,7 @@
         "repositoryURL": "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
         "state": {
           "branch": "feature/timeshift-detection",
-          "revision": "47aa97e6bb9201b19edf9a0cbfd0cb59881953a4",
+          "revision": "4be8ddba5e0d2632d9bc14bf912f285af83fe353",
           "version": null
         }
       },

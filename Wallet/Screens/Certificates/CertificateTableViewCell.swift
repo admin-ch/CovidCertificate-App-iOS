@@ -148,8 +148,7 @@ class CertificateTableViewCell: UITableViewCell {
             let load = UIImage(named: "ic-qrcode-small-load")
             let networkError = UIImage(named: "ic-qrcode-small-network-error")
             let noInternetError = UIImage(named: "ic-qrcode-small-nointernet-error")
-            // TODO: Replace with actual image
-            let timeshiftError = UIImage(named: "ic-qrcode-small-nointernet-error")?.ub_image(with: .green)
+            let timeshiftError = UIImage(named: "ic-qrcode-small-timeerror")
 
             switch self.state {
             case .loading:
