@@ -161,7 +161,12 @@ class CertificateDetailView: UIView {
         else { return }
 
         addDividerLine()
-        addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_test_title_key))
+
+        if tests[0].isSerologicalTest {
+            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_title_key))
+        } else {
+            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_test_title_key))
+        }
 
         for test in tests {
             addDividerLine()
@@ -179,8 +184,10 @@ class CertificateDetailView: UIView {
 
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_title_key), value: text)
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_type_key), value: test.testType)
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_holder_and_name_key), value: test.manufacturerAndTestName)
+            if !test.isSerologicalTest {
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_type_key), value: test.testType)
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_holder_and_name_key), value: test.manufacturerAndTestName)
+            }
 
             addDividerLine()
 
