@@ -289,6 +289,7 @@
 		DCBF64E62678D8AE00450D51 /* TransferCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBF64E52678D8AE00450D51 /* TransferCodeViewController.swift */; };
 		DCBF64E82679B92C00450D51 /* StackScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBF64E72679B92C00450D51 /* StackScrollViewController.swift */; };
 		DCBF64E92679B92C00450D51 /* StackScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCBF64E72679B92C00450D51 /* StackScrollViewController.swift */; };
+		DCEDD04D273931EA0008B8F8 /* WalletScanCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEDD04C273931EA0008B8F8 /* WalletScanCounter.swift */; };
 		DCF9C35326562E0200E34481 /* StaticContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDF0264A64DD00FDE0E1 /* StaticContentViewController.swift */; };
 		DCF9C35526562E2300E34481 /* BasicStaticContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5C361264418ED00EA066F /* BasicStaticContentViewController.swift */; };
 		DCF9C35626562E3F00E34481 /* OnboardingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDEC264A62A800FDE0E1 /* OnboardingContentViewController.swift */; };
@@ -561,6 +562,7 @@
 		DCBF64DE2678875D00450D51 /* TransferCodeNextStepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeNextStepsViewController.swift; sourceTree = "<group>"; };
 		DCBF64E52678D8AE00450D51 /* TransferCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeViewController.swift; sourceTree = "<group>"; };
 		DCBF64E72679B92C00450D51 /* StackScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackScrollViewController.swift; sourceTree = "<group>"; };
+		DCEDD04C273931EA0008B8F8 /* WalletScanCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletScanCounter.swift; sourceTree = "<group>"; };
 		DCF9C3622656395A00E34481 /* config_check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config_check.json; sourceTree = "<group>"; };
 		DCF9C3632656395A00E34481 /* config_wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config_wallet.json; sourceTree = "<group>"; };
 		F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationPopupView.swift; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 				6E6036022678792000EB57E7 /* UserTransferCode.swift */,
 				24780B06242DFCD9003BB26C /* WalletUserStorage.swift */,
 				6EC172DA26427296002E27DB /* UserCertificate.swift */,
+				DCEDD04C273931EA0008B8F8 /* WalletScanCounter.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1888,6 +1891,7 @@
 				F88DA6B3268C786D001DB072 /* Error+NetworkError.swift in Sources */,
 				6E173924267B31BB00813D30 /* TransferCodeErrorRetryViewController.swift in Sources */,
 				DC8ABDF1264A64DD00FDE0E1 /* StaticContentViewController.swift in Sources */,
+				DCEDD04D273931EA0008B8F8 /* WalletScanCounter.swift in Sources */,
 				F20E4F31268208DB00D14609 /* PushNotificationPopupView.swift in Sources */,
 				6E17392A267B382900813D30 /* TransferCodeAnimationView.swift in Sources */,
 				DC8ABDFF264AAA1B00FDE0E1 /* ExpandableViewBody.swift in Sources */,
