@@ -26,6 +26,8 @@ class WalletScannerViewController: ViewController {
     private let explanationLabel = Label(.textBoldLarge, textAlignment: .center)
     private let moreInfoButton = SimpleTextButton(title: UBLocalized.wallet_scanner_info_button, color: .cc_blue)
 
+    private let tooManyScansPopupView = InfoBoxView()
+
     private var isLightOn: Bool = false
     private let lightButton = ScannerLightButton.walletButton()
 
@@ -148,6 +150,19 @@ class WalletScannerViewController: ViewController {
         }
 
         detailViewController.view.alpha = 0.0
+
+        tooManyScansPopupView.infoBox = InfoBox(title: UBLocalized.wallet_info_box_certificate_scan_title,
+                                                msg: UBLocalized.wallet_info_box_certificate_scan_text,
+                                                url: URL(string: UBLocalized.verifier_apple_app_store_url)!,
+                                                urlTitle: UBLocalized.wallet_info_box_certificate_scan_button_check_app,
+                                                infoId: nil,
+                                                isDismissible: true)
+        tooManyScansPopupView.closeButton.title = UBLocalized.wallet_info_box_certificate_scan_close
+
+        view.addSubview(tooManyScansPopupView)
+        tooManyScansPopupView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 
     private func setupInteraction() {
@@ -243,6 +258,16 @@ class WalletScannerViewController: ViewController {
         }
     }
 
+    // MARK: - Many scans warning
+
+    private func showTooManyScansWarningIfNecessary() {
+        if WalletScanCounter.shouldShowTooManyScansWarning() {
+            tooManyScansPopupView.presentFrom(view: view)
+            // Reset scan count whenever the popup is shown
+            WalletScanCounter.resetScanCount()
+        }
+    }
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -271,6 +296,8 @@ extension WalletScannerViewController: QRScannerViewDelegate {
                 let cert = UserCertificate(qrCode: s, transferCode: nil)
                 detailViewController.certificate = cert
                 showDetail()
+                WalletScanCounter.trackScan(date: Date())
+                showTooManyScansWarningIfNecessary()
 
             case let .failure(error):
                 showError(error: error)

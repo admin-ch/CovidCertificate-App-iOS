@@ -19,7 +19,7 @@ class InfoBoxView: PopupView {
     private let titleLabel = Label(.title, textAlignment: .center)
     private let textLabel = Label(.text, textAlignment: .center)
     private let button = Button(title: "", style: .normal(.cc_blue))
-    private let closeButton = Button(title: "", style: .text(.cc_blue))
+    let closeButton = Button(title: "", style: .text(.cc_blue))
 
     private var buttonView = UIView()
     private var closeButtonView = UIView()
