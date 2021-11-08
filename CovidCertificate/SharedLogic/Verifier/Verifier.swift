@@ -34,6 +34,7 @@ enum VerificationError: Equatable, Comparable {
 enum RetryError: Equatable {
     case network
     case noInternetConnection
+    case timeShift
     case unknown
 }
 
@@ -220,6 +221,8 @@ class Verifier: NSObject {
                 return .retry(.noInternetConnection, [err.errorCode])
             case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
                 return .retry(.network, [err.errorCode])
+            case .TIME_INCONSISTENCY:
+                return .retry(.timeShift, [err.errorCode])
             case .SIGNATURE_TYPE_INVALID:
                 return .invalid(errors: [.typeInvalid], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false)
             case .CWT_EXPIRED:
@@ -250,6 +253,8 @@ class Verifier: NSObject {
                 return .retry(.noInternetConnection, [err.errorCode])
             case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
                 return .retry(.network, [err.errorCode])
+            case .TIME_INCONSISTENCY:
+                return .retry(.timeShift, [err.errorCode])
             default:
                 return .invalid(errors: [.revocation], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false)
             }
@@ -304,6 +309,8 @@ class Verifier: NSObject {
             case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
                 // retry possible
                 return .retry(.network, [err.errorCode])
+            case .TIME_INCONSISTENCY:
+                return .retry(.timeShift, [err.errorCode])
             default:
                 // do not show the explicit error code on the verifier app, s.t.
                 // no information is shown about the checked user (e.g. certificate type)
