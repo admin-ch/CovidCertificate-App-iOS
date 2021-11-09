@@ -2724,7 +2724,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/admin-ch/CovidCertificate-SDK-iOS";
 			requirement = {
-				branch = "feature/switzerland-only-cases";
+				branch = main;
 				kind = branch;
 			};
 		};

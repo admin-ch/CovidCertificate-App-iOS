@@ -41,8 +41,8 @@
         "package": "CovidCertificateSDK",
         "repositoryURL": "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
         "state": {
-          "branch": "feature/switzerland-only-cases",
-          "revision": "2e031b26d84ccdc81c19c2e5e7f69d76c3346afb",
+          "branch": "main",
+          "revision": "955af611f563e7a651590cb624be75d28eb61c57",
           "version": null
         }
       },
