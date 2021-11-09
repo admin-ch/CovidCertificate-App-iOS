@@ -756,6 +756,8 @@ import Foundation
      case wallet_onboarding_store_text2_key = "wallet_onboarding_store_text2"
     /// Covid-Zertifikate digital aufbewahren
      case wallet_onboarding_store_title_key = "wallet_onboarding_store_title"
+    /// Nur in der Schweiz gültig
+     case wallet_only_valid_in_switzerland_key = "wallet_only_valid_in_switzerland"
     /// Erneut scannen
      case wallet_scan_again_key = "wallet_scan_again"
     /// Scannen Sie den QR-Code auf dem Covid-Zertifikat.
@@ -1664,6 +1666,8 @@ import Foundation
    static let wallet_onboarding_store_text2 = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_store_text2_key)
   /// Covid-Zertifikate digital aufbewahren
    static let wallet_onboarding_store_title = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_store_title_key)
+  /// Nur in der Schweiz gültig
+   static let wallet_only_valid_in_switzerland = UBLocalized.tr(UBLocalizedKey.wallet_only_valid_in_switzerland_key)
   /// Erneut scannen
    static let wallet_scan_again = UBLocalized.tr(UBLocalizedKey.wallet_scan_again_key)
   /// Scannen Sie den QR-Code auf dem Covid-Zertifikat.

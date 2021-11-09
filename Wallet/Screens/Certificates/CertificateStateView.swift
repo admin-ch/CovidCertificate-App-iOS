@@ -11,6 +11,7 @@
 
 import CovidCertificateSDK
 import Foundation
+import UIKit
 
 class CertificateStateView: UIView {
     // MARK: - Subviews
@@ -130,6 +131,8 @@ class CertificateStateView: UIView {
             self.validityView.isOfflineMode = false
             self.errorLabel.ub_setHidden(true)
             self.validityErrorStackView.ub_setHidden(false)
+            self.roundImageBackgroundView.ub_setHidden(false)
+            self.setRedBorder(enabled: false)
 
             switch self.states.temporaryVerifierState {
             case let .success(validUntil):
@@ -196,12 +199,25 @@ class CertificateStateView: UIView {
                     self.validityView.textColor = .cc_black
                     self.validityView.untilText = nil
 
-                case let .success(validUntil):
-                    self.imageView.image = UIImage(named: "ic-info-filled")
-                    if self.isLightCertificate {
-                        self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_certificate_light_info)
+                case let .success(validUntil, isSwitzerlandOnly):
+                    let chOnly = isSwitzerlandOnly ?? false
+                    self.setRedBorder(enabled: chOnly)
+                    self.roundImageBackgroundView.ub_setHidden(chOnly)
+                    if chOnly {
+                        self.imageView.image = UIImage(named: "ic-flag-ch")
+                        let (lang, en) = UBLocalized.translationWithEnglish(key: UBLocalized.UBLocalizedKey.wallet_only_valid_in_switzerland_key)
+                        if lang == en {
+                            self.textLabel.attributedText = en.bold()
+                        } else {
+                            self.textLabel.attributedText = "\(lang)\n\(en)".formattingOccurrenceBold(lang)
+                        }
                     } else {
-                        self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
+                        self.imageView.image = UIImage(named: "ic-info-filled")
+                        if self.isLightCertificate {
+                            self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_certificate_light_info)
+                        } else {
+                            self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
+                        }
                     }
                     self.backgroundView.backgroundColor = .cc_blueish
                     self.validityView.backgroundColor = .cc_blueish
@@ -263,5 +279,10 @@ class CertificateStateView: UIView {
         } else {
             actions()
         }
+    }
+
+    private func setRedBorder(enabled: Bool) {
+        backgroundView.layer.borderWidth = enabled ? 2 : 0
+        backgroundView.layer.borderColor = enabled ? UIColor.cc_bund.cgColor : UIColor.clear.cgColor
     }
 }

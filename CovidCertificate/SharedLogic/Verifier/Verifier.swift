@@ -42,8 +42,8 @@ enum VerificationState: Equatable {
     case loading
     // verification was skipped
     case skipped
-    // validity as formatted date as String
-    case success(String?)
+    // validity as formatted date as String, whether the certificate is valid for switzerland only
+    case success(String?, Bool?)
     // sorted errors, error codes, validity as formatted date as String
     case invalid(errors: [VerificationError], errorCodes: [String], validity: String?, wasRevocationSkipped: Bool)
     // retry error, error codes
@@ -207,7 +207,7 @@ class Verifier: NSObject {
         switch result {
         case let .success(result):
             if result.isValid {
-                return .success(nil)
+                return .success(nil, nil)
             } else {
                 // !: checked
                 let errorCodes = result.error != nil ? [result.error!.errorCode] : []
@@ -239,7 +239,7 @@ class Verifier: NSObject {
         switch result {
         case let .success(result):
             if result.isValid {
-                return .success(nil)
+                return .success(nil, nil)
             } else {
                 // !: checked
                 let errorCodes = result.error != nil ? [result.error!.errorCode] : []
@@ -269,6 +269,7 @@ class Verifier: NSObject {
         switch result {
         case let .success(result):
             var validUntil: String?
+            var isSwitzerlandOnly: Bool?
 
             // get expired date string
             if let date = result.validUntil {
@@ -283,12 +284,14 @@ class Verifier: NSObject {
                     case .none:
                         break
                     }
+
+                    isSwitzerlandOnly = holder.certificate.isSwitzerlandOnly
                 #endif
             }
 
             // check for validity
             if result.isValid {
-                return .success(validUntil)
+                return .success(validUntil, isSwitzerlandOnly)
             } else if let dateError = result.dateError {
                 switch dateError {
                 case .NOT_YET_VALID:

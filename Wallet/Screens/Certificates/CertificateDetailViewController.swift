@@ -270,7 +270,7 @@ class CertificateDetailViewController: ViewController {
                 switch state {
                 case .loading: strongSelf.temporaryVerifierState = .verifying
                 case .skipped: strongSelf.temporaryVerifierState = .idle
-                case let .success(validUntil): strongSelf.temporaryVerifierState = .success(validUntil)
+                case let .success(validUntil, _): strongSelf.temporaryVerifierState = .success(validUntil)
                 case .invalid: strongSelf.temporaryVerifierState = .failure
                 case let .retry(error, errorCodes): strongSelf.temporaryVerifierState = .retry(error, errorCodes)
                 }
