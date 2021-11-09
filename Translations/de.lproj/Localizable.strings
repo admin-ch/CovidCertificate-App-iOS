@@ -1229,7 +1229,7 @@
 
 /*Text Certificate Could not be loaded {ERROR_CODE} gets replaces with the error code*/
 "error_decryption_text" = "Zertifikate konnten nicht geladen werden\n\nCode: {ERROR_CODE}";
-"covid_certificate_sero_positiv_test_title" = "Genesung Antikörper";
+"covid_certificate_sero_positiv_test_title" = "Genesung (Antikörper)";
 "wallet_time_inconsistency_error_title" = "Prüfung nicht möglich";
 "wallet_time_inconsistency_error_text" = "Datum und Uhrzeit auf dem Gerät sind falsch eingestellt.";
 "wallet_info_box_certificate_scan_title" = "Müssen Sie Zertifikate prüfen?";

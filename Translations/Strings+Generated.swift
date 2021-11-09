@@ -52,7 +52,7 @@ import Foundation
      case continue_button_key = "continue_button"
     /// Genesung
      case covid_certificate_recovery_title_key = "covid_certificate_recovery_title"
-    /// Genesung Antikörper
+    /// Genesung (Antikörper)
      case covid_certificate_sero_positiv_test_title_key = "covid_certificate_sero_positiv_test_title"
     /// Test
      case covid_certificate_test_title_key = "covid_certificate_test_title"
@@ -962,7 +962,7 @@ import Foundation
    static let continue_button = UBLocalized.tr(UBLocalizedKey.continue_button_key)
   /// Genesung
    static let covid_certificate_recovery_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_recovery_title_key)
-  /// Genesung Antikörper
+  /// Genesung (Antikörper)
    static let covid_certificate_sero_positiv_test_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_sero_positiv_test_title_key)
   /// Test
    static let covid_certificate_test_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_test_title_key)
