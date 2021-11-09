@@ -98,7 +98,7 @@ class CertificateAddDetailView: UIView {
         if let cert = certificate {
             let v = CertificateDetailView(showEnglishLabelsIfNeeded: false)
             v.certificate = cert
-            v.states = (.success(nil, (certificateHolder?.certificate as? DCCCert)?.isSwitzerlandOnly ?? false), .idle)
+            v.states = (.success(nil, (certificateHolder?.certificate.isSwitzerlandOnly ?? false), .idle)
             stackScrollView.addArrangedView(v)
         }
 
