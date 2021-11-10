@@ -528,8 +528,6 @@ import Foundation
      case wallet_certificate_recovery_from_key = "wallet_certificate_recovery_from"
     /// Gültig bis
      case wallet_certificate_recovery_until_key = "wallet_certificate_recovery_until"
-    /// Datum der Anaylse
-     case wallet_certificate_sero_positiv_test_analyse_date_title_key = "wallet_certificate_sero_positiv_test_analyse_date_title"
     /// Krankheit oder Erreger
      case wallet_certificate_target_disease_title_key = "wallet_certificate_target_disease_title"
     /// Testcenter
@@ -704,11 +702,11 @@ import Foundation
      case wallet_info_box_certificate_scan_button_check_app_key = "wallet_info_box_certificate_scan_button_check_app"
     /// Verstanden
      case wallet_info_box_certificate_scan_close_key = "wallet_info_box_certificate_scan_close"
-    /// Sie haben in kurzer Zeit einige Zertifikate gescannt.\n\nFür eine datenschutzkonforme Prüfung nutzen Sie die «COVID Certificate Check»-App.
+    /// Für eine Datenschutzkonforme und schnellere Prüfung nutzen Sie die "COVID Certificate Check"-App.
      case wallet_info_box_certificate_scan_text_key = "wallet_info_box_certificate_scan_text"
     /// «COVID Certificate Check»-App.
      case wallet_info_box_certificate_scan_text_bold_key = "wallet_info_box_certificate_scan_text_bold"
-    /// Müssen Sie Zertifikate prüfen?
+    /// Wollen Sie Zertifikate überprüfen?
      case wallet_info_box_certificate_scan_title_key = "wallet_info_box_certificate_scan_title"
     /// Aktivieren
      case wallet_notification_disabled_button_key = "wallet_notification_disabled_button"
@@ -1444,8 +1442,6 @@ import Foundation
    static let wallet_certificate_recovery_from = UBLocalized.tr(UBLocalizedKey.wallet_certificate_recovery_from_key)
   /// Gültig bis
    static let wallet_certificate_recovery_until = UBLocalized.tr(UBLocalizedKey.wallet_certificate_recovery_until_key)
-  /// Datum der Anaylse
-   static let wallet_certificate_sero_positiv_test_analyse_date_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_sero_positiv_test_analyse_date_title_key)
   /// Krankheit oder Erreger
    static let wallet_certificate_target_disease_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_target_disease_title_key)
   /// Testcenter
@@ -1620,11 +1616,11 @@ import Foundation
    static let wallet_info_box_certificate_scan_button_check_app = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_button_check_app_key)
   /// Verstanden
    static let wallet_info_box_certificate_scan_close = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_close_key)
-  /// Sie haben in kurzer Zeit einige Zertifikate gescannt.\n\nFür eine datenschutzkonforme Prüfung nutzen Sie die «COVID Certificate Check»-App.
+  /// Für eine Datenschutzkonforme und schnellere Prüfung nutzen Sie die "COVID Certificate Check"-App.
    static let wallet_info_box_certificate_scan_text = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_text_key)
   /// «COVID Certificate Check»-App.
    static let wallet_info_box_certificate_scan_text_bold = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_text_bold_key)
-  /// Müssen Sie Zertifikate prüfen?
+  /// Wollen Sie Zertifikate überprüfen?
    static let wallet_info_box_certificate_scan_title = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_title_key)
   /// Aktivieren
    static let wallet_notification_disabled_button = UBLocalized.tr(UBLocalizedKey.wallet_notification_disabled_button_key)
