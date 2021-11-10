@@ -1203,16 +1203,15 @@
 /*Text Certificate Could not be loaded {ERROR_CODE} gets replaces with the error code*/
 "error_decryption_text" = "Certificates could not be loaded\n\nCode: {ERROR_CODE}";
 "covid_certificate_sero_positiv_test_title" = "Recovery (Antibody)";
-"wallet_time_inconsistency_error_title" = "Prüfung nicht möglich";
-"wallet_time_inconsistency_error_text" = "Datum und Uhrzeit auf dem Gerät sind falsch eingestellt.";
-"wallet_info_box_certificate_scan_title" = "Müssen Sie Zertifikate prüfen?";
-"wallet_info_box_certificate_scan_text" = "Sie haben in kurzer Zeit einige Zertifikate gescannt.\n\nFür eine datenschutzkonforme Prüfung nutzen Sie die «COVID Certificate Check»-App.";
-"wallet_info_box_certificate_scan_button_check_app" = "Zur Check-App";
-"wallet_info_box_certificate_scan_close" = "Verstanden";
+"wallet_time_inconsistency_error_title" = "Checking not possible";
+"wallet_time_inconsistency_error_text" = "Date, time or time zone on the device are set incorrectly.";
+"wallet_info_box_certificate_scan_title" = "Do you want to check certificates?";
+"wallet_info_box_certificate_scan_text" = "For quicker checking that is data privacy compliant, use the COVID Certificate Check app";
+"wallet_info_box_certificate_scan_button_check_app" = "To the Check-App";
+"wallet_info_box_certificate_scan_close" = "Understood";
 
 /*Fuzzy*/
 "wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";
 "wallet_only_valid_in_switzerland" = "Only valid within Switzerland and in combination with an identity document";
-"wallet_certificate_sero_positiv_test_analyse_date_title" = "Datum der Anaylse";
 "covid_certificate_sero_positiv_test_befund_label" = "Finding";
 "covid_certificate_sero_positiv_test_befund_value" = "Sufficient";
