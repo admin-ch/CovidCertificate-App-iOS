@@ -52,6 +52,10 @@ import Foundation
      case continue_button_key = "continue_button"
     /// Genesung
      case covid_certificate_recovery_title_key = "covid_certificate_recovery_title"
+    /// Befund
+     case covid_certificate_sero_positiv_test_befund_label_key = "covid_certificate_sero_positiv_test_befund_label"
+    /// Genügend
+     case covid_certificate_sero_positiv_test_befund_value_key = "covid_certificate_sero_positiv_test_befund_value"
     /// Genesung (Antikörper)
      case covid_certificate_sero_positiv_test_title_key = "covid_certificate_sero_positiv_test_title"
     /// Test
@@ -524,6 +528,8 @@ import Foundation
      case wallet_certificate_recovery_from_key = "wallet_certificate_recovery_from"
     /// Gültig bis
      case wallet_certificate_recovery_until_key = "wallet_certificate_recovery_until"
+    /// Datum der Anaylse
+     case wallet_certificate_sero_positiv_test_analyse_date_title_key = "wallet_certificate_sero_positiv_test_analyse_date_title"
     /// Krankheit oder Erreger
      case wallet_certificate_target_disease_title_key = "wallet_certificate_target_disease_title"
     /// Testcenter
@@ -756,7 +762,7 @@ import Foundation
      case wallet_onboarding_store_text2_key = "wallet_onboarding_store_text2"
     /// Covid-Zertifikate digital aufbewahren
      case wallet_onboarding_store_title_key = "wallet_onboarding_store_title"
-    /// Nur in der Schweiz gültig
+    /// Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig
      case wallet_only_valid_in_switzerland_key = "wallet_only_valid_in_switzerland"
     /// Erneut scannen
      case wallet_scan_again_key = "wallet_scan_again"
@@ -848,7 +854,7 @@ import Foundation
      case wallet_transfer_code_faq_works_intro_1_key = "wallet_transfer_code_faq_works_intro_1"
     /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
      case wallet_transfer_code_faq_works_intro_2_key = "wallet_transfer_code_faq_works_intro_2"
-    /// Nach <transferCodeValidity> Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
+    /// Nach 30 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
      case wallet_transfer_code_faq_works_intro_3_key = "wallet_transfer_code_faq_works_intro_3"
     /// Wie sind meine Daten beim Transfer geschützt?
      case wallet_transfer_code_faq_works_question_1_key = "wallet_transfer_code_faq_works_question_1"
@@ -962,6 +968,10 @@ import Foundation
    static let continue_button = UBLocalized.tr(UBLocalizedKey.continue_button_key)
   /// Genesung
    static let covid_certificate_recovery_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_recovery_title_key)
+  /// Befund
+   static let covid_certificate_sero_positiv_test_befund_label = UBLocalized.tr(UBLocalizedKey.covid_certificate_sero_positiv_test_befund_label_key)
+  /// Genügend
+   static let covid_certificate_sero_positiv_test_befund_value = UBLocalized.tr(UBLocalizedKey.covid_certificate_sero_positiv_test_befund_value_key)
   /// Genesung (Antikörper)
    static let covid_certificate_sero_positiv_test_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_sero_positiv_test_title_key)
   /// Test
@@ -1434,6 +1444,8 @@ import Foundation
    static let wallet_certificate_recovery_from = UBLocalized.tr(UBLocalizedKey.wallet_certificate_recovery_from_key)
   /// Gültig bis
    static let wallet_certificate_recovery_until = UBLocalized.tr(UBLocalizedKey.wallet_certificate_recovery_until_key)
+  /// Datum der Anaylse
+   static let wallet_certificate_sero_positiv_test_analyse_date_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_sero_positiv_test_analyse_date_title_key)
   /// Krankheit oder Erreger
    static let wallet_certificate_target_disease_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_target_disease_title_key)
   /// Testcenter
@@ -1666,7 +1678,7 @@ import Foundation
    static let wallet_onboarding_store_text2 = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_store_text2_key)
   /// Covid-Zertifikate digital aufbewahren
    static let wallet_onboarding_store_title = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_store_title_key)
-  /// Nur in der Schweiz gültig
+  /// Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig
    static let wallet_only_valid_in_switzerland = UBLocalized.tr(UBLocalizedKey.wallet_only_valid_in_switzerland_key)
   /// Erneut scannen
    static let wallet_scan_again = UBLocalized.tr(UBLocalizedKey.wallet_scan_again_key)
@@ -1758,7 +1770,7 @@ import Foundation
    static let wallet_transfer_code_faq_works_intro_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_1_key)
   /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
    static let wallet_transfer_code_faq_works_intro_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_2_key)
-  /// Nach <transferCodeValidity> Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
+  /// Nach 30 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
    static let wallet_transfer_code_faq_works_intro_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_3_key)
   /// Wie sind meine Daten beim Transfer geschützt?
    static let wallet_transfer_code_faq_works_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_1_key)

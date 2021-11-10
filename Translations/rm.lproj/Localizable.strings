@@ -651,7 +651,7 @@
 "wallet_transfer_code_faq_works_intro_2" = "Uschespert ch'il certificat COVID è disponibel, cumpara el en l'app. Sche Vus avais activà ils avis, vegnis Vus infurmada u infurmà da l'app.";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-"wallet_transfer_code_faq_works_intro_3" = "Suenter <transferCodeValidity> dis scada il code da transfer. Silsuenter spetga l'app anc ulteriuras 72 uras, avant ch'il code da transfer daventa nunvalaivel.";
+"wallet_transfer_code_faq_works_intro_3" = "Suenter 30 dis scada il code da transfer. Silsuenter spetga l'app anc ulteriuras 72 uras, avant ch'il code da transfer daventa nunvalaivel.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Permetter avis";
@@ -1211,4 +1211,7 @@
 
 /*Fuzzy*/
 "wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";
-"wallet_only_valid_in_switzerland" = "Nur in der Schweiz gültig";
+"wallet_only_valid_in_switzerland" = "Valaivel mo cun in document da legitimaziun e mo en Svizra";
+"wallet_certificate_sero_positiv_test_analyse_date_title" = "Datum der Anaylse";
+"covid_certificate_sero_positiv_test_befund_label" = "Diagnosa";
+"covid_certificate_sero_positiv_test_befund_value" = "Suffizient";

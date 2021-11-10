@@ -651,7 +651,7 @@
 "wallet_transfer_code_faq_works_intro_2" = "Non appena il certificato COVID è disponibile, viene visualizzato nell’app. Se hai attivato le notifiche, ne riceverai una dall’app.";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-"wallet_transfer_code_faq_works_intro_3" = "Il codice di trasferimento scade dopo <transferCodeValidity> giorni. Poi l’app attende un eventuale trasferimento per altre 72 ore prima di considerare scaduto il codice.";
+"wallet_transfer_code_faq_works_intro_3" = "Il codice di trasferimento scade dopo 30 giorni. Poi l’app attende un eventuale trasferimento per altre 72 ore prima di considerare scaduto il codice.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Consenti notifiche";
@@ -1212,4 +1212,7 @@
 
 /*Fuzzy*/
 "wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";
-"wallet_only_valid_in_switzerland" = "Nur in der Schweiz gültig";
+"wallet_only_valid_in_switzerland" = "Valido solo in Svizzera con un documento di legittimazione";
+"wallet_certificate_sero_positiv_test_analyse_date_title" = "Datum der Anaylse";
+"covid_certificate_sero_positiv_test_befund_label" = "Risultati";
+"covid_certificate_sero_positiv_test_befund_value" = "Sufficiente";
