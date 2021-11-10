@@ -670,7 +670,7 @@
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_works_intro_3" = "Nach <transferCodeValidity> Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.";
+"wallet_transfer_code_faq_works_intro_3" = "Nach 30 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Mitteilungen erlauben";
@@ -1239,4 +1239,7 @@
 
 /*Fuzzy*/
 "wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";
-"wallet_only_valid_in_switzerland" = "Nur in der Schweiz gültig";
+"wallet_only_valid_in_switzerland" = "Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig";
+"wallet_certificate_sero_positiv_test_analyse_date_title" = "Datum der Anaylse";
+"covid_certificate_sero_positiv_test_befund_label" = "Befund";
+"covid_certificate_sero_positiv_test_befund_value" = "Genügend";
