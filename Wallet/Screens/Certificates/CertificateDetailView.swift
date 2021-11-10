@@ -174,23 +174,23 @@ class CertificateDetailView: UIView {
             if test.isTargetDiseaseCorrect {
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_target_disease_title_key), value: UBLocalized.target_disease_name)
             }
-            
+
             if !test.isSerologicalTest {
-                let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key:.wallet_certificate_test_result_positiv_key)
+                let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_positiv_key)
                 var text = [texts.0, texts.1].joined(separator: "\n")
                 if !showEnglishLabels {
                     text = texts.0
                 }
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_title_key), value: text)
             } else {
-                let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key:.covid_certificate_sero_positiv_test_befund_value_key)
+                let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_befund_value_key)
                 var text = [texts.0, texts.1].joined(separator: "\n")
                 if !showEnglishLabels {
                     text = texts.0
                 }
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_befund_label_key), value: text)
             }
-            
+
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_type_key), value: test.testType)
             if !test.isSerologicalTest {
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_holder_and_name_key), value: test.manufacturerAndTestName)
