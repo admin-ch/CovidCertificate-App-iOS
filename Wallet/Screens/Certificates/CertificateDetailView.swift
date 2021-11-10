@@ -181,7 +181,7 @@ class CertificateDetailView: UIView {
             if !showEnglishLabels {
                 text = texts.0
             }
-            
+
             if !test.isSerologicalTest {
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_title_key), value: text)
             } else {
