@@ -792,7 +792,7 @@ import Foundation
      case wallet_scanner_title_key = "wallet_scanner_title"
     /// https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html
      case wallet_terms_privacy_link_key = "wallet_terms_privacy_link"
-    /// Datum und Uhrzeit auf dem Gerät sind falsch eingestellt.
+    /// Datum, Uhrzeit oder Zeitzone auf dem Gerät sind falsch eingestellt.
      case wallet_time_inconsistency_error_text_key = "wallet_time_inconsistency_error_text"
     /// Prüfung nicht möglich
      case wallet_time_inconsistency_error_title_key = "wallet_time_inconsistency_error_title"
@@ -852,7 +852,7 @@ import Foundation
      case wallet_transfer_code_faq_works_intro_1_key = "wallet_transfer_code_faq_works_intro_1"
     /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
      case wallet_transfer_code_faq_works_intro_2_key = "wallet_transfer_code_faq_works_intro_2"
-    /// Nach 30 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
+    /// Nach <transferCodeValidity> Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
      case wallet_transfer_code_faq_works_intro_3_key = "wallet_transfer_code_faq_works_intro_3"
     /// Wie sind meine Daten beim Transfer geschützt?
      case wallet_transfer_code_faq_works_question_1_key = "wallet_transfer_code_faq_works_question_1"
@@ -1706,7 +1706,7 @@ import Foundation
    static let wallet_scanner_title = UBLocalized.tr(UBLocalizedKey.wallet_scanner_title_key)
   /// https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html
    static let wallet_terms_privacy_link = UBLocalized.tr(UBLocalizedKey.wallet_terms_privacy_link_key)
-  /// Datum und Uhrzeit auf dem Gerät sind falsch eingestellt.
+  /// Datum, Uhrzeit oder Zeitzone auf dem Gerät sind falsch eingestellt.
    static let wallet_time_inconsistency_error_text = UBLocalized.tr(UBLocalizedKey.wallet_time_inconsistency_error_text_key)
   /// Prüfung nicht möglich
    static let wallet_time_inconsistency_error_title = UBLocalized.tr(UBLocalizedKey.wallet_time_inconsistency_error_title_key)
@@ -1766,7 +1766,7 @@ import Foundation
    static let wallet_transfer_code_faq_works_intro_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_1_key)
   /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
    static let wallet_transfer_code_faq_works_intro_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_2_key)
-  /// Nach 30 Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
+  /// Nach <transferCodeValidity> Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
    static let wallet_transfer_code_faq_works_intro_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_3_key)
   /// Wie sind meine Daten beim Transfer geschützt?
    static let wallet_transfer_code_faq_works_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_1_key)
