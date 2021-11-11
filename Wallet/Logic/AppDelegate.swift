@@ -49,9 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Migration.migrateFailExpiryDatesOnTransferCodes()
 
         CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
-        #if DEBUG || RELEASE_DEV
-            CovidCertificateSDK.setOptions(options: SDKOptions(certificatePinning: URLSession.evaluator.useCertificatePinning))
-        #endif
+
+        SDKOptionsManager.updateSDKOptions()
 
         CertificateStorage.shared.discardExpiredLightCertificates()
 
