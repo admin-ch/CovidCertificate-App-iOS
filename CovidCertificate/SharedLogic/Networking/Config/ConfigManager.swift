@@ -53,6 +53,7 @@ class ConfigManager: NSObject {
     static var currentConfig: ConfigResponseBody? {
         didSet {
             UIStateManager.shared.stateChanged()
+            SDKOptionsManager.updateSDKOptions()
         }
     }
 

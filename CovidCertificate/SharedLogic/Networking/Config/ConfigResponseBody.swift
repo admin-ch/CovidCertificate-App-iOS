@@ -51,6 +51,7 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     let works: LocalizedValue<FAQEntriesContainer>
     let transferQuestions: LocalizedValue<FAQEntriesContainer>?
     let transferWorks: LocalizedValue<FAQEntriesContainer>?
+    let timeshiftDetectionEnabled: Bool?
 
     #if WALLET
         var lightCertificateActive = false
