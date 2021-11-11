@@ -651,7 +651,7 @@
 "wallet_transfer_code_faq_works_intro_2" = "As soon as the COVID certificate is available, it appears in the application. If you have activated notifications, you will receive a message from the application.";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-"wallet_transfer_code_faq_works_intro_3" = "The transfer code expires after 30 days. After this period, the application waits for any further transfers for 72 hours. After that, the transfer code is no longer valid.";
+"wallet_transfer_code_faq_works_intro_3" = "The transfer code expires after <transferCodeValidity> days. After this period, the application waits for any further transfers for 72 hours. After that, the transfer code is no longer valid.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Allow notifications";

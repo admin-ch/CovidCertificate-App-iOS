@@ -651,7 +651,7 @@
 "wallet_transfer_code_faq_works_intro_2" = "Uschespert ch'il certificat COVID è disponibel, cumpara el en l'app. Sche Vus avais activà ils avis, vegnis Vus infurmada u infurmà da l'app.";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-"wallet_transfer_code_faq_works_intro_3" = "Suenter 30 dis scada il code da transfer. Silsuenter spetga l'app anc ulteriuras 72 uras, avant ch'il code da transfer daventa nunvalaivel.";
+"wallet_transfer_code_faq_works_intro_3" = "Suenter <transferCodeValidity> dis scada il code da transfer. Silsuenter spetga l'app anc ulteriuras 72 uras, avant ch'il code da transfer daventa nunvalaivel.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Permetter avis";
