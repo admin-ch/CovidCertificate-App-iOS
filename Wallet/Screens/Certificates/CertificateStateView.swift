@@ -208,11 +208,7 @@ class CertificateStateView: UIView {
                         self.textLabel.attributedText = NSAttributedString(string: UBLocalized.wallet_only_valid_in_switzerland)
                     } else {
                         self.imageView.image = UIImage(named: "ic-info-filled")
-                        if self.isLightCertificate {
-                            self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_certificate_light_info)
-                        } else {
-                            self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
-                        }
+                        self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
                     }
                     self.backgroundView.backgroundColor = .cc_blueish
                     self.validityView.backgroundColor = .cc_blueish
