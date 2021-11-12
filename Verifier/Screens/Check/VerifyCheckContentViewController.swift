@@ -221,7 +221,8 @@ class VerifyCheckContentViewController: ViewController {
             let imageName = error == .noInternetConnection ? "ic-nocon" : "ic-error-orange"
 
             statusView.set(text: NSAttributedString(string: error.displayTitle()), backgroundColor: color, icon: UIImage(named: imageName))
-            infoView.set(text: error.displayText(), backgroundColor: color, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange), showReloadButton: true)
+            let infoImage = error == .timeShift ? UIImage(named: "ic-timeerror") : UIImage(named: "ic-info-outline")
+            infoView.set(text: error.displayText(), backgroundColor: color, icon: infoImage?.ub_image(with: .cc_orange), showReloadButton: true)
 
             let codes = errorCodes.joined(separator: ", ")
             if codes.count > 0 {
