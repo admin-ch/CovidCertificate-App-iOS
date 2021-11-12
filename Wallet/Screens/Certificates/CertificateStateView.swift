@@ -205,19 +205,10 @@ class CertificateStateView: UIView {
                     self.roundImageBackgroundView.ub_setHidden(chOnly)
                     if chOnly {
                         self.imageView.image = UIImage(named: "ic-flag-ch")
-                        let (lang, en) = UBLocalized.translationWithEnglish(key: UBLocalized.UBLocalizedKey.wallet_only_valid_in_switzerland_key)
-                        if lang == en {
-                            self.textLabel.attributedText = en.bold()
-                        } else {
-                            self.textLabel.attributedText = "\(lang)\n\(en)".formattingOccurrenceBold(lang)
-                        }
+                        self.textLabel.attributedText = NSAttributedString(string: UBLocalized.wallet_only_valid_in_switzerland)
                     } else {
                         self.imageView.image = UIImage(named: "ic-info-filled")
-                        if self.isLightCertificate {
-                            self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_certificate_light_info)
-                        } else {
-                            self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
-                        }
+                        self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
                     }
                     self.backgroundView.backgroundColor = .cc_blueish
                     self.validityView.backgroundColor = .cc_blueish
