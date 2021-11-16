@@ -15,8 +15,10 @@ import Foundation
 class CertificateDetailView: UIView {
     public var certificate: UserCertificate? {
         didSet {
-            setup()
-            update(animated: true)
+            if oldValue != certificate {
+                setup()
+                update(animated: true)
+            }
         }
     }
 
@@ -25,7 +27,11 @@ class CertificateDetailView: UIView {
     private let stackView = UIStackView()
 
     var states: (state: VerificationState, temporaryVerifierState: TemporaryVerifierState) = (.loading, .idle) {
-        didSet { update(animated: true) }
+        didSet {
+            if oldValue != states {
+                update(animated: true)
+            }
+        }
     }
 
     private let showEnglishLabels: Bool

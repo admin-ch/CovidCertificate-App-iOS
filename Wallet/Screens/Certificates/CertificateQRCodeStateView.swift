@@ -17,7 +17,9 @@ class CertificateQRCodeStateView: UIView {
 
     var state: TemporaryVerifierState {
         didSet {
-            updateBackground(animated: state != .verifying)
+            if oldValue != state {
+                updateBackground(animated: state != .verifying)
+            }
         }
     }
 

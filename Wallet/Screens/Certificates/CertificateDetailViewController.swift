@@ -183,6 +183,7 @@ class CertificateDetailViewController: ViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Padding.large)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(Padding.large + Padding.small)
         }
+        verifyButton.alpha = 0
 
         update()
     }
@@ -286,12 +287,13 @@ class CertificateDetailViewController: ViewController {
         guard let qrCode = certificate?.qrCode else { return }
 
         state = .loading
+        verifyButton.alpha = 0
 
         VerifierManager.shared.addObserver(self, for: qrCode) { [weak self] state in
-            guard let strongSelf = self else { return }
-            strongSelf.qrCodeStateView.alpha = 0
-            strongSelf.verifyButton.alpha = 1
-            strongSelf.state = state
+            guard let self = self else { return }
+            self.qrCodeStateView.alpha = 0
+            self.verifyButton.alpha = state == .loading ? 0 : 1
+            self.state = state
         }
     }
 

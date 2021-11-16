@@ -29,7 +29,11 @@ class CertificateStateView: UIView {
     private let hasValidityView: Bool
 
     var states: (state: VerificationState, temporaryVerifierState: TemporaryVerifierState) = (.loading, .idle) {
-        didSet { update(animated: true) }
+        didSet {
+            if oldValue != states {
+                update(animated: true)
+            }
+        }
     }
 
     private let isHomescreen: Bool
