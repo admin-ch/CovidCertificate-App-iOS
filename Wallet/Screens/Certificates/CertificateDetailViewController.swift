@@ -76,6 +76,7 @@ class CertificateDetailViewController: ViewController {
         didSet {
             if oldValue != certificate {
                 updateCertificate()
+                setTitle()
             }
         }
     }
@@ -84,19 +85,7 @@ class CertificateDetailViewController: ViewController {
         self.certificate = certificate
         super.init()
 
-        title = UBLocalized.wallet_certificate.uppercased()
-
-        let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate.qrCode ?? "")
-        switch c {
-        case let .success(holder):
-            guard let certificate = holder.certificate as? DCCCert else { break }
-            let vaccinations = certificate.vaccinations ?? []
-            if !vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
-                title = UBLocalized.wallet_certificate_evidence_title.uppercased()
-            }
-        case .failure:
-            break
-        }
+        setTitle()
     }
 
     // MARK: - View
@@ -246,6 +235,24 @@ class CertificateDetailViewController: ViewController {
         detailView.certificate = certificate
         qrCodeNameView.certificate = certificate
         startCheck()
+    }
+
+    private func setTitle() {
+        title = UBLocalized.wallet_certificate.uppercased()
+
+        guard let certificate = certificate else { return }
+
+        let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate.qrCode ?? "")
+        switch c {
+        case let .success(holder):
+            guard let certificate = holder.certificate as? DCCCert else { break }
+            let vaccinations = certificate.vaccinations ?? []
+            if !vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
+                title = UBLocalized.wallet_certificate_evidence_title.uppercased()
+            }
+        case .failure:
+            break
+        }
     }
 
     private func sharePDF(_ pdf: Data, filename: String) {
