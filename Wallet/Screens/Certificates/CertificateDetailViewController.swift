@@ -44,12 +44,16 @@ class CertificateDetailViewController: ViewController {
 
     private var state: VerificationState = .loading {
         didSet {
-            update()
+            if oldValue != state {
+                update()
+            }
         }
     }
 
     private var temporaryVerifierState: TemporaryVerifierState = .idle {
         didSet {
+            guard oldValue != temporaryVerifierState else { return }
+
             UIView.animate(withDuration: 0.2) {
                 self.qrCodeStateView.state = self.temporaryVerifierState
             }
@@ -69,7 +73,11 @@ class CertificateDetailViewController: ViewController {
     }
 
     public var certificate: UserCertificate? {
-        didSet { updateCertificate() }
+        didSet {
+            if oldValue != certificate {
+                updateCertificate()
+            }
+        }
     }
 
     init(certificate: UserCertificate) {
