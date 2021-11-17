@@ -44,12 +44,16 @@ class CertificateDetailViewController: ViewController {
 
     private var state: VerificationState = .loading {
         didSet {
-            update()
+            if oldValue != state {
+                update()
+            }
         }
     }
 
     private var temporaryVerifierState: TemporaryVerifierState = .idle {
         didSet {
+            guard oldValue != temporaryVerifierState else { return }
+
             UIView.animate(withDuration: 0.2) {
                 self.qrCodeStateView.state = self.temporaryVerifierState
             }
@@ -69,7 +73,11 @@ class CertificateDetailViewController: ViewController {
     }
 
     public var certificate: UserCertificate? {
-        didSet { updateCertificate() }
+        didSet {
+            if oldValue != certificate {
+                updateCertificate()
+            }
+        }
     }
 
     init(certificate: UserCertificate) {
@@ -183,6 +191,7 @@ class CertificateDetailViewController: ViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Padding.large)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(Padding.large + Padding.small)
         }
+        verifyButton.alpha = 0
 
         update()
     }
@@ -255,6 +264,8 @@ class CertificateDetailViewController: ViewController {
     // MARK: - Check
 
     private func startTemporaryCheck() {
+        guard let qrCode = certificate?.qrCode else { return }
+
         temporaryVerifierState = .verifying
         state = .loading
         UIView.animate(withDuration: 0.2) {
@@ -262,20 +273,20 @@ class CertificateDetailViewController: ViewController {
             self.qrCodeStateView.state = self.temporaryVerifierState
         }
 
-        guard let qrCode = certificate?.qrCode else { return }
-
         VerifierManager.shared.addObserver(self, for: qrCode, forceUpdate: true) { [weak self] state in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                guard let strongSelf = self else { return }
+            guard let self = self else { return }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+                guard let self = self else { return }
                 switch state {
-                case .loading: strongSelf.temporaryVerifierState = .verifying
-                case .skipped: strongSelf.temporaryVerifierState = .idle
-                case let .success(validUntil, _): strongSelf.temporaryVerifierState = .success(validUntil)
-                case .invalid: strongSelf.temporaryVerifierState = .failure
-                case let .retry(error, errorCodes): strongSelf.temporaryVerifierState = .retry(error, errorCodes)
+                case .loading: self.temporaryVerifierState = .verifying
+                case .skipped: self.temporaryVerifierState = .idle
+                case let .success(validUntil, _): self.temporaryVerifierState = .success(validUntil)
+                case .invalid: self.temporaryVerifierState = .failure
+                case let .retry(error, errorCodes): self.temporaryVerifierState = .retry(error, errorCodes)
                 }
 
-                strongSelf.state = state
+                self.state = state
             }
         }
     }
@@ -284,12 +295,13 @@ class CertificateDetailViewController: ViewController {
         guard let qrCode = certificate?.qrCode else { return }
 
         state = .loading
+        verifyButton.alpha = 0
 
         VerifierManager.shared.addObserver(self, for: qrCode) { [weak self] state in
-            guard let strongSelf = self else { return }
-            strongSelf.qrCodeStateView.alpha = 0
-            strongSelf.verifyButton.alpha = 1
-            strongSelf.state = state
+            guard let self = self else { return }
+            self.qrCodeStateView.alpha = 0
+            self.verifyButton.alpha = state == .loading ? 0 : 1
+            self.state = state
         }
     }
 
@@ -322,7 +334,9 @@ class CertificateDetailViewController: ViewController {
 
             // PDF export is enabled for certificates that were issed by switzerland and have a valid signature
             if issuedBySwitzerland {
-                CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: false) { results in
+                CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: false) { [weak self] results in
+                    guard let self = self else { return }
+
                     switch results.signature {
                     case let .success(result) where result.isValid:
                         self.exportRow.isEnabled = true
