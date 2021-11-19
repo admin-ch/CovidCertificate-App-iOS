@@ -75,12 +75,10 @@ class CertificateAddDetailView: UIView {
         let nameLabel = Label(.title, textAlignment: .center)
         let birthdayLabel = Label(.text, textAlignment: .center)
 
-        var certificateHolder: CertificateHolder?
         if let qrCode = certificate?.qrCode {
             let c = CovidCertificateSDK.Wallet.decode(encodedData: qrCode)
             switch c {
             case let .success(holder):
-                certificateHolder = holder
                 nameLabel.text = holder.certificate.displayFullName
                 birthdayLabel.text = holder.certificate.dateOfBirthFormatted
                 birthdayLabel.accessibilityLabel = DateFormatter.ub_accessibilityDateString(dateString: holder.certificate.dateOfBirthFormatted) ?? birthdayLabel.text
@@ -98,7 +96,7 @@ class CertificateAddDetailView: UIView {
         if let cert = certificate {
             let v = CertificateDetailView(showEnglishLabelsIfNeeded: false)
             v.certificate = cert
-            v.states = (.success(nil, certificateHolder?.certificate.isSwitzerlandOnly ?? false), .idle)
+            v.states = (.success(nil, false), .idle)
             stackScrollView.addArrangedView(v)
         }
 

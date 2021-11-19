@@ -271,9 +271,9 @@ class Verifier: NSObject {
             var validUntil: String?
             var isSwitzerlandOnly: Bool?
 
-            // get expired date string
-            if let date = result.validUntil {
-                #if WALLET
+            #if WALLET
+                // get expired date string
+                if let date = result.validUntil {
                     switch (holder.certificate as? DCCCert)?.immunisationType {
                     case .test:
                         validUntil = DateFormatter.ub_dayTimeString(from: date)
@@ -284,10 +284,12 @@ class Verifier: NSObject {
                     case .none:
                         break
                     }
+                }
 
-                    isSwitzerlandOnly = holder.certificate.isSwitzerlandOnly
-                #endif
-            }
+                if let chOnly = result.isSwitzerlandOnly {
+                    isSwitzerlandOnly = chOnly
+                }
+            #endif
 
             // check for validity
             if result.isValid {
