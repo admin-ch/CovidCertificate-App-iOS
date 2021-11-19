@@ -433,39 +433,9 @@ private class TransferView: UIView {
                 guard let self = self else { return }
                 switch result {
                 case let .failure(error) where !error.isRecovarable:
-                    self.nameView.text = UBLocalized.wallet_transfer_code_state_expired
-                    self.animationView.removeFromSuperview()
-                    if self.failedImageView.superview == nil {
-                        self.addSubview(self.failedImageView)
-                        self.failedImageView.snp.remakeConstraints { make in
-                            make.top.equalToSuperview().inset(40)
-                            make.centerX.equalToSuperview()
-                        }
-
-                        self.failedImageView.contentMode = .scaleAspectFit
-
-                        self.failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-                        self.failedImageView.setContentHuggingPriority(.defaultLow, for: .vertical)
-                        self.failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-                        self.failedImageView.setContentHuggingPriority(.defaultLow, for: .horizontal)
-                    }
-                    self.nameView.snp.remakeConstraints { make in
-                        make.top.equalTo(self.failedImageView.snp.bottom).offset(Padding.large)
-                        make.left.right.equalToSuperview().inset(Padding.large)
-                    }
+                    self.setFailedState()
                 default:
-                    self.nameView.text = UBLocalized.wallet_transfer_code_state_waiting
-                    self.failedImageView.removeFromSuperview()
-                    if self.animationView.superview == nil {
-                        self.addSubview(self.animationView)
-                        self.animationView.snp.remakeConstraints { make in
-                            make.top.left.right.equalToSuperview()
-                        }
-                    }
-                    self.nameView.snp.remakeConstraints { make in
-                        make.top.equalTo(self.animationView.snp.bottom).offset(Padding.medium)
-                        make.left.right.equalToSuperview().inset(Padding.large)
-                    }
+                    self.setWaitingState()
                 }
             }
         }
@@ -482,7 +452,52 @@ private class TransferView: UIView {
 
     public func update(animated _: Bool) {
         transferCodeView.transferCode = certificate?.transferCode
+
+        if let code = certificate?.transferCode {
+            if code.state == .failed {
+                setFailedState()
+            } else {
+                setWaitingState()
+            }
+        }
+
         accessibilityLabel = [nameView.text, transferCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+    }
+
+    private func setWaitingState() {
+        failedImageView.removeFromSuperview()
+        if animationView.superview == nil {
+            addSubview(animationView)
+            animationView.snp.remakeConstraints { make in
+                make.top.left.right.equalToSuperview()
+            }
+        }
+        nameView.snp.remakeConstraints { make in
+            make.top.equalTo(self.animationView.snp.bottom).offset(Padding.medium)
+            make.left.right.equalToSuperview().inset(Padding.large)
+        }
+    }
+
+    private func setFailedState() {
+        nameView.text = UBLocalized.wallet_transfer_code_state_expired
+        animationView.removeFromSuperview()
+        if failedImageView.superview == nil {
+            addSubview(failedImageView)
+            failedImageView.snp.remakeConstraints { make in
+                make.top.equalToSuperview().inset(40)
+                make.centerX.equalToSuperview()
+            }
+
+            failedImageView.contentMode = .scaleAspectFit
+            failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+            failedImageView.setContentHuggingPriority(.defaultLow, for: .vertical)
+            failedImageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+            failedImageView.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        }
+        nameView.snp.remakeConstraints { make in
+            make.top.equalTo(self.failedImageView.snp.bottom).offset(Padding.large)
+            make.left.right.equalToSuperview().inset(Padding.large)
+        }
     }
 }
 
