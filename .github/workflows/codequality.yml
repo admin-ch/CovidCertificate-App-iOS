@@ -1,7 +1,7 @@
 name: Codequality
 
 env:
-  XCODE_VERSION: 'Xcode_12.4'
+  XCODE_VERSION: 'Xcode_13.1'
 
 on:
   push:
@@ -23,4 +23,3 @@ jobs:
 
     - name: swiftformat
       run: swiftformat . --lint
-
