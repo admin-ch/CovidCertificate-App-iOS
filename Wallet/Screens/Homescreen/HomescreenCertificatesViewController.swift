@@ -69,6 +69,7 @@ class HomescreenCertificatesViewController: ViewController {
 
         certificateViews.removeAll()
 
+        let oldNumberOfPages = pageControl.numberOfPages
         pageControl.numberOfPages = certificates.count
         pageControl.alpha = certificates.count <= 1 ? 0.0 : 1.0
 
@@ -126,6 +127,13 @@ class HomescreenCertificatesViewController: ViewController {
             }
         }
 
+        // If there are more certificates than before, i.e. a certificate has been added,
+        // scroll to the beginning (since new certificate are inserted at the beginning)
+        if oldNumberOfPages < certificates.count {
+            stackScrollView.scrollView.setContentOffset(.zero, animated: false)
+            scrollViewDidScroll(stackScrollView.scrollView)
+        }
+
         startChecks()
     }
 
@@ -176,6 +184,7 @@ extension HomescreenCertificatesViewController: UIScrollViewDelegate {
 
 extension UIScrollView {
     var currentPage: Int {
+        guard frame.width > 0.0 else { return 0 }
         return Int((contentOffset.x + 0.5 * frame.size.width) / frame.width)
     }
 }
