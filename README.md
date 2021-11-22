@@ -11,6 +11,10 @@ The app design, UX and implementation was done by [Ubique](https://www.ubique.ch
 COVID Certificate is the official app for storing and presenting COVID certificates issued in Switzerland.
 The certificates are kept and checked locally on the user's phone.
 
+<a href='https://apps.apple.com/us/app/covid-certificate/id1565917320'>
+<img alt='Download on the App Store' src='badge-appstore.svg' width='25%'/>
+</a>
+
 <p align="center">
 <img src="Documentation/screenshots/wallet/en/screenshot1.png" width="20%">
 <img src="Documentation/screenshots/wallet/en/screenshot2.png" width="20%">
@@ -22,6 +26,10 @@ The certificates are kept and checked locally on the user's phone.
 
 COVID Certificate Check is the official app for checking COVID certificates in Switzerland.
 The validation is executed locally on the phone and no information of the scanned certificates is saved.
+
+<a href='https://apps.apple.com/us/app/covid-certificate/id1565917510'>
+<img alt='Download on the App Store' src='badge-appstore.svg' width='25%'/>
+</a>
 
 <p align="center">
 <img src="Documentation/screenshots/verifier/en/screenshot1.png" width="20%">
@@ -39,11 +47,10 @@ Please note that the app will be available with approved translations in English
 
 ## Repositories
 
-* Android App: [CovidCertificate-App-Android](https://github.com/admin-ch/CovidCertificate-App-Android)
-* Android SDK: [CovidCertificate-SDK-Android](https://github.com/admin-ch/CovidCertificate-SDK-Android)
 * iOS App: [CovidCertificate-App-iOS](https://github.com/admin-ch/CovidCertificate-App-iOS)
 * iOS SDK: [CovidCertificate-SDK-iOS](https://github.com/admin-ch/CovidCertificate-SDK-iOS)
-* Config Service: [CovidCertificate-App-Config-Service](https://github.com/admin-ch/CovidCertificate-App-Config-Service)
+* Android App: [CovidCertificate-App-Android](https://github.com/admin-ch/CovidCertificate-App-Android)
+* For all others, see the [Github organisation](https://github.com/admin-ch/)
 
 ## Installation and Building
 
