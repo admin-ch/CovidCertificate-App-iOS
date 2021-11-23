@@ -43,6 +43,7 @@ class SmallTransferCodeLabel: UIView {
         switch c.state {
         case .valid:
             backgroundColor = .cc_blueish
+            label.font = LabelType.codeBoldSmall.font
             label.textColor = .cc_blue
             label.snp.updateConstraints { make in
                 make.leading.trailing.equalToSuperview().inset(Padding.small)
@@ -57,6 +58,7 @@ class SmallTransferCodeLabel: UIView {
             label.text = "\(array[0])\(array[1])\(array[2]) \(array[3])\(array[4])\(array[5]) \(array[6])\(array[7])\(array[8])"
         case .expired:
             backgroundColor = .clear
+            label.font = LabelType.button.font
             label.textColor = .cc_blue
             label.snp.updateConstraints { make in
                 make.leading.trailing.equalToSuperview().inset(0)
@@ -64,6 +66,7 @@ class SmallTransferCodeLabel: UIView {
             label.text = UBLocalized.wallet_transfer_code_old_code
         case .failed:
             backgroundColor = .clear
+            label.font = LabelType.button.font
             label.textColor = .cc_red
             label.snp.updateConstraints { make in
                 make.leading.trailing.equalToSuperview().inset(0)
