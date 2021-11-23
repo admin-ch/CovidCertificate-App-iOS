@@ -330,27 +330,27 @@ class CertificateDetailView: UIView {
     }
 
     // MARK: - Update
-    
+
     func updateLabelColors(for states: (state: VerificationState, temporaryVerifierState: TemporaryVerifierState), animated: Bool) {
         let color: UIColor
-        
+
         switch states {
         case (_, .success),
-            (.success, .idle),
-            (.skipped, .idle):
+             (.success, .idle),
+             (.skipped, .idle):
             color = .cc_text
         default:
             color = .cc_grey
         }
-        
+
         setLabelsToColor(color, animated: animated)
     }
-    
+
     private func setLabelsToColor(_ color: UIColor, animated: Bool) {
         let actions = {
             self.labels.forEach { $0.textColor = color }
         }
-        
+
         if animated {
             UIView.animate(withDuration: 0.2) { actions() }
         } else {
