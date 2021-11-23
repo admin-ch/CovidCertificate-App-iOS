@@ -17,7 +17,6 @@ class CertificateDetailView: UIView {
         didSet {
             if oldValue != certificate {
                 setup()
-                update(animated: true)
             }
         }
     }
@@ -25,14 +24,6 @@ class CertificateDetailView: UIView {
     private var holder: CertificateHolder?
 
     private let stackView = UIStackView()
-
-    var states: (state: VerificationState, temporaryVerifierState: TemporaryVerifierState) = (.loading, .idle) {
-        didSet {
-            if oldValue != states {
-                update(animated: true)
-            }
-        }
-    }
 
     private let showEnglishLabels: Bool
 
@@ -81,7 +72,7 @@ class CertificateDetailView: UIView {
         addTestEntries()
 
         updateEnglishLabelVisibility()
-        applySuccessState()
+        setLabelsToColor(.cc_text, animated: false)
     }
 
     private func addVaccinationEntries() {
@@ -339,57 +330,29 @@ class CertificateDetailView: UIView {
     }
 
     // MARK: - Update
-
-    private func applyLoadingState() {
-        for l in labels {
-            l.textColor = .cc_grey
+    
+    func updateLabelColors(for states: (state: VerificationState, temporaryVerifierState: TemporaryVerifierState), animated: Bool) {
+        let color: UIColor
+        
+        switch states {
+        case (_, .success),
+            (.success, .idle),
+            (.skipped, .idle):
+            color = .cc_text
+        default:
+            color = .cc_grey
         }
+        
+        setLabelsToColor(color, animated: animated)
     }
-
-    private func applySuccessState() {
-        for l in labels {
-            l.textColor = .cc_text
-        }
-    }
-
-    private func applyErrorState() {
-        for l in labels {
-            l.textColor = .cc_grey
-        }
-    }
-
-    private func update(animated: Bool) {
-        // switch animatable states
+    
+    private func setLabelsToColor(_ color: UIColor, animated: Bool) {
         let actions = {
-            switch self.states.temporaryVerifierState {
-            case .success:
-                self.applySuccessState()
-            case .failure:
-                self.applyErrorState()
-            case .retry:
-                self.applyErrorState()
-            case .verifying:
-                self.applyLoadingState()
-            case .idle:
-                switch self.states.state {
-                case .loading:
-                    self.applyLoadingState()
-                case .skipped:
-                    self.applySuccessState()
-                case .success:
-                    self.applySuccessState()
-                case .invalid:
-                    self.applyErrorState()
-                case .retry:
-                    self.applyErrorState()
-                }
-            }
+            self.labels.forEach { $0.textColor = color }
         }
-
+        
         if animated {
-            UIView.animate(withDuration: 0.2) {
-                actions()
-            }
+            UIView.animate(withDuration: 0.2) { actions() }
         } else {
             actions()
         }
