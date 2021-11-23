@@ -326,7 +326,7 @@ class CertificateDetailViewController: ViewController {
 
     private func update() {
         stateView.states = (state, temporaryVerifierState)
-        detailView.states = (state, temporaryVerifierState)
+        detailView.updateLabelColors(for: (state, temporaryVerifierState), animated: true)
         qrCodeNameView.enabled = temporaryVerifierState != .idle || !state.isInvalid()
 
         exportRow.isEnabled = false
