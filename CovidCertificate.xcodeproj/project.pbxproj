@@ -1608,7 +1608,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=${PATH}:/usr/local/bin # Pick up SwiftFormat from Homebrew\n\nif [[ $CONFIGURATION == \"Debug\" ]]; then\n    if which swiftformat >/dev/null; then\n        swiftformat --swiftversion ${SWIFT_VERSION} ${SRCROOT}\n    else\n        echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n    fi\nfi \n";
+			shellScript = "PATH=${PATH}:/usr/local/bin:/opt/homebrew/bin # Pick up SwiftFormat from Homebrew\n\nif [[ $CONFIGURATION == \"Debug\" ]]; then\n    if which swiftformat >/dev/null; then\n        swiftformat --swiftversion ${SWIFT_VERSION} ${SRCROOT}\n    else\n        echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n    fi\nfi \n";
 		};
 		6EC172E526429E31002E27DB /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1662,7 +1662,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=${PATH}:/usr/local/bin # Pick up SwiftFormat from Homebrew\n\nif [[ $CONFIGURATION == \"Debug\" ]]; then\n    if which swiftformat >/dev/null; then\n        swiftformat --swiftversion ${SWIFT_VERSION} ${SRCROOT}\n    else\n        echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n    fi\nfi \n";
+			shellScript = "PATH=${PATH}:/usr/local/bin:/opt/homebrew/bin # Pick up SwiftFormat from Homebrew\n\nif [[ $CONFIGURATION == \"Debug\" ]]; then\n    if which swiftformat >/dev/null; then\n        swiftformat --swiftversion ${SWIFT_VERSION} ${SRCROOT}\n    else\n        echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\n    fi\nfi \n";
 		};
 		8E81CCC1241FD2EE006F2437 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1698,7 +1698,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if ! [ -x \"$(command -v iOSTranslations)\" ]; then\n  echo 'Error: iOSTranslation not installed. Download it from https://bitbucket.org/ubique-innovation/iostranslations/' >&2\n  exit 1\nfi\necho \"Running Translation Script. This will take a few seconds...\"\npwd\niOSTranslations\n";
+			shellScript = "PATH=${PATH}:/usr/local/bin:/opt/homebrew/bin # Pick up iOSTranslations from Homebrew\n\nif ! [ -x \"$(command -v iOSTranslations)\" ]; then\n  echo 'Error: iOSTranslation not installed. Download it from https://bitbucket.org/ubique-innovation/iostranslations/' >&2\n  exit 1\nfi\necho \"Running Translation Script. This will take a few seconds...\"\npwd\niOSTranslations\n";
 		};
 		DC8AC7442652B647005A2543 /* Generate Swift Strings */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1716,7 +1716,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if ! [ -x \"$(command -v swiftgen)\" ]; then\n  echo 'Error: swiftgen not installed. Download it via Homebrew `brew install swiftgen` or directly from https://github.com/SwiftGen/SwiftGen' >&2\n  exit 1\nfi\necho \"Generating strings...\"\npwd\nswiftgen\n";
+			shellScript = "PATH=${PATH}:/usr/local/bin:/opt/homebrew/bin # Pick up swiftgen from Homebrew\n\nif ! [ -x \"$(command -v swiftgen)\" ]; then\n  echo 'Error: swiftgen not installed. Download it via Homebrew `brew install swiftgen` or directly from https://github.com/SwiftGen/SwiftGen' >&2\n  exit 1\nfi\necho \"Generating strings...\"\npwd\nswiftgen\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
