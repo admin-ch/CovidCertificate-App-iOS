@@ -25,10 +25,14 @@ class QRScannerView: UIView {
 
     lazy var videoCaptureDevice: AVCaptureDevice? = AVCaptureDevice.default(for: .video)
 
-    /// capture settion which allows us to start and stop scanning.
+    /// capture session which allows us to start and stop scanning.
     var captureSession: AVCaptureSession?
 
     private var lampOn: Bool
+    
+    /// When this is set to true, the capture session keeps running but no output is processed.
+    /// One difference to stopping the scanning completely is that the torch can still be kept on while paused.
+    private var isScanningPaused: Bool = true
 
     init(delegate: QRScannerViewDelegate) {
         lampOn = false
@@ -64,6 +68,7 @@ extension QRScannerView {
     }
 
     func startScanning() {
+        isScanningPaused = false
         setupCaptureSessionIfNeeded()
 
         if let c = captureSession, !c.isRunning {
@@ -78,8 +83,13 @@ extension QRScannerView {
         lampOn = on
         try? camera.setLight(on: lampOn)
     }
+    
+    func pauseScanning() {
+        isScanningPaused = true
+    }
 
     func stopScanning() {
+        isScanningPaused = true
         captureSession?.stopRunning()
         delegate?.qrScanningDidStop()
 
@@ -137,6 +147,7 @@ extension QRScannerView {
 
     func scanningDidFail() {
         delegate?.qrScanningDidFail()
+        isScanningPaused = true
         captureSession = nil
     }
 
@@ -150,6 +161,8 @@ extension QRScannerView: AVCaptureMetadataOutputObjectsDelegate {
                         didOutput metadataObjects: [AVMetadataObject],
                         from _: AVCaptureConnection)
     {
+        guard !isScanningPaused else { return } // Don't process any input if scanning is paused
+        
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }

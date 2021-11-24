@@ -192,7 +192,7 @@ extension VerifyScannerViewController: QRScannerViewDelegate {
 
             switch result {
             case let .success(holder):
-                qrView?.stopScanning()
+                qrView?.pauseScanning()
 
                 let feedback = UIImpactFeedbackGenerator(style: .heavy)
                 feedback.impactOccurred()
