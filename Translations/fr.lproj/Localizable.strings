@@ -651,7 +651,7 @@
 "wallet_transfer_code_faq_works_intro_2" = "Dès que le certificat COVID est disponible, il apparaît dans l’application. Si vous avez activé les notifications, vous recevrez un message de l’application.";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-"wallet_transfer_code_faq_works_intro_3" = "Le code de transfert expire après <transferCodeValidity> jours. Une fois ce délai passé, l’application attend tout autre transfert pendant 72 h. Ensuite, le code de transfert n’est plus valable.";
+"wallet_transfer_code_faq_works_intro_3" = "Le code de transfert expire après {TRANSFER_CODE_VALIDITY} jours. Une fois ce délai passé, l’application attend tout autre transfert pendant 72 h. Ensuite, le code de transfert n’est plus valable.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Autoriser les messages";
@@ -776,7 +776,7 @@
 "wallet_certificate_light_detail_summary_2" = "Ne contient que le nom, le prénom, la date de naissance et une signature électronique";
 
 /*Wallet: Zertifikat Light Summary Punkt 3*/
-"wallet_certificate_light_detail_summary_3" = "Valide pour 48h au maximum";
+"wallet_certificate_light_detail_summary_3" = "Valide pour 24h au maximum";
 
 /*Wallet: Zertifikat Light Summary Punkt 4*/
 "wallet_certificate_light_detail_summary_4" = "Le certificat COVID est converti en certificat light en ligne.";
@@ -855,7 +855,7 @@
 "wallet_certificate_light_detail_text_1" = "Quand vous activez le certificat light, un nouveau code QR est créé à partir des données de votre certificat COVID. Ce nouveau code ne contient pas de données sur la santé.";
 
 /*Wallet: Zertifikat Light Erklärungstext 2*/
-"wallet_certificate_light_detail_text_2" = "Tant qu’il est valide, le certificat COVID normal est utilisable sans limitation en Suisse et dans l’UE/l’AELE. Par contre, le certificat light n’est utilisable qu’en Suisse. Pour des raisons de protection des données, le certificat light doit être réactivé après 48 heures. Il n’apporte aucun droit supplémentaire par rapport au certificat COVID normal.";
+"wallet_certificate_light_detail_text_2" = "Tant qu’il est valide, le certificat COVID normal est utilisable sans limitation en Suisse et dans l’UE/l’AELE. Par contre, le certificat light n’est utilisable qu’en Suisse. Pour des raisons de protection des données, le certificat light doit être réactivé après 24 heures. Il n’apporte aucun droit supplémentaire par rapport au certificat COVID normal.";
 
 /*Wallet: Zertifikat Light Erklärungstext Bold*/
 "wallet_certificate_light_detail_text_2_bold" = "n’est utilisable qu’en doit être aucun";
@@ -892,9 +892,9 @@
 /*Wallet: Badge für Light-Zertifikate in Liste Zertifikate*/
 "wallet_certificate_list_light_certificate_badge" = "Light";
 "wallet_faq_questions_question_6" = "Qu’est-ce que le certificat light ?";
-"wallet_faq_questions_answer_6" = "L’application « COVID Certificate » propose aux titulaires de certificats COVID la possibilité de générer une copie du certificat ne contenant que les données strictement nécessaires. Ce certificat « light » indique uniquement si le certificat présenté est valide, sans fournir de données sur la santé.\n\nL’alternative permettant de limiter les données du certificat COVID au strict minimum a été suggérée par le Préposé fédéral à la protection des données et à la transparence (PFPDT) ; en effet, des personnes tierces pourraient développer des applications leur donnant la possibilité de lire, lors de la vérification d’un certificat, les données sur la santé (p. ex. le type de vaccin et la date de la vaccination). Le certificat light empêche tout abus de ce genre.\n\nLe certificat light, reconnu uniquement en Suisse, n’est disponible que sous forme électronique. Pour des raisons de protection des données, il n’est valide que pendant 48 heures et doit ensuite être réactivé. Si le certificat normal est à nouveau nécessaire avant la fin de ce délai, il suffit de désactiver le certificat light.";
+"wallet_faq_questions_answer_6" = "L’application « COVID Certificate » propose aux titulaires de certificats COVID la possibilité de générer une copie du certificat ne contenant que les données strictement nécessaires. Ce certificat « light » indique uniquement si le certificat présenté est valide, sans fournir de données sur la santé.\n\nL’alternative permettant de limiter les données du certificat COVID au strict minimum a été suggérée par le Préposé fédéral à la protection des données et à la transparence (PFPDT) ; en effet, des personnes tierces pourraient développer des applications leur donnant la possibilité de lire, lors de la vérification d’un certificat, les données sur la santé (p. ex. le type de vaccin et la date de la vaccination). Le certificat light empêche tout abus de ce genre.\n\nLe certificat light, reconnu uniquement en Suisse, n’est disponible que sous forme électronique. Pour des raisons de protection des données, il n’est valide que pendant 24 heures et doit ensuite être réactivé. Si le certificat normal est à nouveau nécessaire avant la fin de ce délai, il suffit de désactiver le certificat light.";
 "verifier_faq_works_question_8" = "Qu’est-ce que le certificat light ?";
-"verifier_faq_works_answer_8" = "L’application « COVID Certificate » propose aux titulaires de certificats COVID la possibilité de générer une copie du certificat ne contenant que les données strictement nécessaires. Ce certificat « light » indique uniquement si le certificat présenté est valide, sans fournir de données sur la santé.\n\nL’alternative permettant de limiter les données du certificat COVID au strict minimum a été suggérée par le Préposé fédéral à la protection des données et à la transparence (PFPDT) ; en effet, des personnes tierces pourraient développer des applications leur donnant la possibilité de lire, lors de la vérification d’un certificat, les données sur la santé (p. ex. le type de vaccin et la date de la vaccination). Le certificat light empêche tout abus de ce genre.\n\nLe certificat light, reconnu uniquement en Suisse, n’est disponible que sous forme électronique. Pour des raisons de protection des données, il n’est valide que pendant 48 heures et doit ensuite être réactivé. Si le certificat normal est à nouveau nécessaire avant la fin de ce délai, il suffit de désactiver le certificat light.";
+"verifier_faq_works_answer_8" = "L’application « COVID Certificate » propose aux titulaires de certificats COVID la possibilité de générer une copie du certificat ne contenant que les données strictement nécessaires. Ce certificat « light » indique uniquement si le certificat présenté est valide, sans fournir de données sur la santé.\n\nL’alternative permettant de limiter les données du certificat COVID au strict minimum a été suggérée par le Préposé fédéral à la protection des données et à la transparence (PFPDT) ; en effet, des personnes tierces pourraient développer des applications leur donnant la possibilité de lire, lors de la vérification d’un certificat, les données sur la santé (p. ex. le type de vaccin et la date de la vaccination). Le certificat light empêche tout abus de ce genre.\n\nLe certificat light, reconnu uniquement en Suisse, n’est disponible que sous forme électronique. Pour des raisons de protection des données, il n’est valide que pendant 24 heures et doit ensuite être réactivé. Si le certificat normal est à nouveau nécessaire avant la fin de ce délai, il suffit de désactiver le certificat light.";
 "verifier_faq_works_question_9" = "Comment reconvertir un certificat light en certificat COVID conforme aux normes UE/AELE ?";
 "verifier_faq_works_answer_9" = "Le détenteur peut en tout temps désactiver le certificat light dans l’application «COVID Certificate». Le certificat COVID standard est alors à nouveau disponible.";
 
@@ -1215,3 +1215,19 @@
 "wallet_only_valid_in_switzerland" = "Valide uniquement en Suisse et avec un document d’identité";
 "covid_certificate_sero_positiv_test_befund_label" = "Résultat";
 "covid_certificate_sero_positiv_test_befund_value" = "Suffisant";
+
+/*Ausnahme Test Zertifikat Detail: Titel für Startdatum des Attests*/
+"wallet_certificate_ausnahme_test_attest_start_date" = "Startdatum des Attests";
+
+/*Ausnahme Test Zertifikat Detail: Titel für verantwortliche Stelle für Ausstellung*/
+"wallet_certificate_ausnahme_responsible_issuer" = "Verantwortliche Stelle für Ausstellung";
+
+/*Testname für Schweizer Ausnahme Zertifikat für Nicht-Testbare und Nicht-Impfbare Personen*/
+"covid_certificate_ch_ausnahme_test_title" = "Ausnahme Zertifikat";
+"infobox_update_title" = "Nouvelle version disponible";
+"infobox_update_text" = "Téléchargez la nouvelle version de l'application.";
+"infobox_update_button" = "Mettre à jour";
+"vaccination_impf_check_info_text" = "COVID-19 Vac-check fournit des renseignements sur la première vaccination ainsi que sur la vaccination de rappel et vous guide vers le service compétent de votre canton.";
+"vaccination_impf_check_action" = "Vers COVID-19 Vac-check";
+"vaccination_impf_check_url" = "https://covid19-vac-check.ch/";
+"vaccination_impf_check_title" = "Prendre un rendez-vous maintenant";

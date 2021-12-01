@@ -670,7 +670,7 @@
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_works_intro_3" = "Nach <transferCodeValidity> Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.";
+"wallet_transfer_code_faq_works_intro_3" = "Nach {TRANSFER_CODE_VALIDITY} Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Mitteilungen erlauben";
@@ -799,7 +799,7 @@
 "wallet_certificate_light_detail_summary_2" = "Enthält nur Namen, Vornamen, Geburtsdatum und eine elektronische Signatur";
 
 /*Wallet: Zertifikat Light Summary Punkt 3*/
-"wallet_certificate_light_detail_summary_3" = "Gültig für max. 48 Stunden";
+"wallet_certificate_light_detail_summary_3" = "Gültig für max. 24 Stunden";
 
 /*Wallet: Zertifikat Light Summary Punkt 4*/
 "wallet_certificate_light_detail_summary_4" = "Die Konvertierung des Covid-Zertifikats in ein Zertifikat Light erfolgt online.";
@@ -881,7 +881,7 @@
 "wallet_certificate_light_detail_text_1" = "Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.";
 
 /*Wallet: Zertifikat Light Erklärungstext 2*/
-"wallet_certificate_light_detail_text_2" = "Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 48 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.";
+"wallet_certificate_light_detail_text_2" = "Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 24 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.";
 
 /*Wallet: Zertifikat Light Erklärungstext Bold*/
 "wallet_certificate_light_detail_text_2_bold" = "nur muss keine";
@@ -919,9 +919,9 @@
 /*Fuzzy*/
 "wallet_certificate_list_light_certificate_badge" = "Light";
 "wallet_faq_questions_question_6" = "Was ist das Zertifikat Light?";
-"wallet_faq_questions_answer_6" = "Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von 48 Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der 48 Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.";
+"wallet_faq_questions_answer_6" = "Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von 24 Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der 24 Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.";
 "verifier_faq_works_question_8" = "Was ist das Zertifikat Light?";
-"verifier_faq_works_answer_8" = "Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von 48 Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der 48 Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.";
+"verifier_faq_works_answer_8" = "Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von 24 Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der 24 Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.";
 "verifier_faq_works_question_9" = "Wie kann ein Zertifikat Light wieder in ein EU/EFTA-konformes Covid-Zertifikat umgewandelt werden?";
 "verifier_faq_works_answer_9" = "Das Zertifikat Light kann durch die Halterin / den Halter jederzeit in der «COVID Certificate»-App deaktiviert werden. Danach steht das normale Covid-Zertifikat wieder zur Verfügung.";
 
@@ -1242,3 +1242,19 @@
 "wallet_only_valid_in_switzerland" = "Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig";
 "covid_certificate_sero_positiv_test_befund_label" = "Befund";
 "covid_certificate_sero_positiv_test_befund_value" = "Genügend";
+
+/*Ausnahme Test Zertifikat Detail: Titel für Startdatum des Attests*/
+"wallet_certificate_ausnahme_test_attest_start_date" = "Startdatum des Attests";
+
+/*Ausnahme Test Zertifikat Detail: Titel für verantwortliche Stelle für Ausstellung*/
+"wallet_certificate_ausnahme_responsible_issuer" = "Verantwortliche Stelle für Ausstellung";
+
+/*Testname für Schweizer Ausnahme Zertifikat für Nicht-Testbare und Nicht-Impfbare Personen*/
+"covid_certificate_ch_ausnahme_test_title" = "Ausnahme Zertifikat";
+"infobox_update_title" = "Neue Version verfügbar";
+"infobox_update_text" = "Laden Sie die neue Version der App.";
+"infobox_update_button" = "Aktualisieren";
+"vaccination_impf_check_info_text" = "Der Covid-19 Impf-Check gibt Auskunft über Erst- sowie Auffrischimpfungen und führt Sie zur entsprechenden Anlaufstelle in Ihrem Kanton.";
+"vaccination_impf_check_action" = "Zum Impf-Check";
+"vaccination_impf_check_url" = "https://covid19.impf-check.ch/";
+"vaccination_impf_check_title" = "Jetzt Termin buchen";
