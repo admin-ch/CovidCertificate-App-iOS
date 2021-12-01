@@ -50,6 +50,8 @@ import Foundation
      case close_button_key = "close_button"
     /// Weiter
      case continue_button_key = "continue_button"
+    /// Ausnahme Zertifikat
+     case covid_certificate_ch_ausnahme_test_title_key = "covid_certificate_ch_ausnahme_test_title"
     /// Genesung
      case covid_certificate_recovery_title_key = "covid_certificate_recovery_title"
     /// Befund
@@ -100,6 +102,12 @@ import Foundation
      case force_update_title_key = "force_update_title"
     /// Impressum
      case impressum_title_key = "impressum_title"
+    /// Aktualisieren
+     case infobox_update_button_key = "infobox_update_button"
+    /// Laden Sie die neue Version der App.
+     case infobox_update_text_key = "infobox_update_text"
+    /// Neue Version verfügbar
+     case infobox_update_title_key = "infobox_update_title"
     /// Einstellungen
      case ios_settings_open_key = "ios_settings_open"
     /// de
@@ -272,6 +280,14 @@ import Foundation
      case vaccination_hint_title_9_key = "vaccination_hint_title_9"
     /// Impftermin buchen
      case vaccination_homescreen_button_title_key = "vaccination_homescreen_button_title"
+    /// Zum Impf-Check
+     case vaccination_impf_check_action_key = "vaccination_impf_check_action"
+    /// Der Covid-19 Impf-Check gibt Auskunft über Erst- sowie Auffrischimpfungen und führt Sie zur entsprechenden Anlaufstelle in Ihrem Kanton.
+     case vaccination_impf_check_info_text_key = "vaccination_impf_check_info_text"
+    /// Jetzt Termin buchen
+     case vaccination_impf_check_title_key = "vaccination_impf_check_title"
+    /// https://covid19.impf-check.ch/
+     case vaccination_impf_check_url_key = "vaccination_impf_check_url"
     /// Informationen zur Impfung
      case vaccination_information_button_in_certificate_key = "vaccination_information_button_in_certificate"
     /// Weitere Informationen rund um die Covid-19-Impfung
@@ -428,6 +444,10 @@ import Foundation
      case wallet_certificate_key = "wallet_certificate"
     /// Dieses Zertifikat ist bereits in der App gespeichert
      case wallet_certificate_already_exists_key = "wallet_certificate_already_exists"
+    /// Verantwortliche Stelle für Ausstellung
+     case wallet_certificate_ausnahme_responsible_issuer_key = "wallet_certificate_ausnahme_responsible_issuer"
+    /// Startdatum des Attests
+     case wallet_certificate_ausnahme_test_attest_start_date_key = "wallet_certificate_ausnahme_test_attest_start_date"
     /// Zertifikat erstellt am\n{DATE}
      case wallet_certificate_date_key = "wallet_certificate_date"
     /// Wollen Sie das Zertifikat wirklich löschen?
@@ -852,7 +872,7 @@ import Foundation
      case wallet_transfer_code_faq_works_intro_1_key = "wallet_transfer_code_faq_works_intro_1"
     /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
      case wallet_transfer_code_faq_works_intro_2_key = "wallet_transfer_code_faq_works_intro_2"
-    /// Nach <transferCodeValidity> Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
+    /// Nach {transferCodeValidity} Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
      case wallet_transfer_code_faq_works_intro_3_key = "wallet_transfer_code_faq_works_intro_3"
     /// Wie sind meine Daten beim Transfer geschützt?
      case wallet_transfer_code_faq_works_question_1_key = "wallet_transfer_code_faq_works_question_1"
@@ -964,6 +984,8 @@ import Foundation
    static let close_button = UBLocalized.tr(UBLocalizedKey.close_button_key)
   /// Weiter
    static let continue_button = UBLocalized.tr(UBLocalizedKey.continue_button_key)
+  /// Ausnahme Zertifikat
+   static let covid_certificate_ch_ausnahme_test_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_ch_ausnahme_test_title_key)
   /// Genesung
    static let covid_certificate_recovery_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_recovery_title_key)
   /// Befund
@@ -1014,6 +1036,12 @@ import Foundation
    static let force_update_title = UBLocalized.tr(UBLocalizedKey.force_update_title_key)
   /// Impressum
    static let impressum_title = UBLocalized.tr(UBLocalizedKey.impressum_title_key)
+  /// Aktualisieren
+   static let infobox_update_button = UBLocalized.tr(UBLocalizedKey.infobox_update_button_key)
+  /// Laden Sie die neue Version der App.
+   static let infobox_update_text = UBLocalized.tr(UBLocalizedKey.infobox_update_text_key)
+  /// Neue Version verfügbar
+   static let infobox_update_title = UBLocalized.tr(UBLocalizedKey.infobox_update_title_key)
   /// Einstellungen
    static let ios_settings_open = UBLocalized.tr(UBLocalizedKey.ios_settings_open_key)
   /// de
@@ -1186,6 +1214,14 @@ import Foundation
    static let vaccination_hint_title_9 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_9_key)
   /// Impftermin buchen
    static let vaccination_homescreen_button_title = UBLocalized.tr(UBLocalizedKey.vaccination_homescreen_button_title_key)
+  /// Zum Impf-Check
+   static let vaccination_impf_check_action = UBLocalized.tr(UBLocalizedKey.vaccination_impf_check_action_key)
+  /// Der Covid-19 Impf-Check gibt Auskunft über Erst- sowie Auffrischimpfungen und führt Sie zur entsprechenden Anlaufstelle in Ihrem Kanton.
+   static let vaccination_impf_check_info_text = UBLocalized.tr(UBLocalizedKey.vaccination_impf_check_info_text_key)
+  /// Jetzt Termin buchen
+   static let vaccination_impf_check_title = UBLocalized.tr(UBLocalizedKey.vaccination_impf_check_title_key)
+  /// https://covid19.impf-check.ch/
+   static let vaccination_impf_check_url = UBLocalized.tr(UBLocalizedKey.vaccination_impf_check_url_key)
   /// Informationen zur Impfung
    static let vaccination_information_button_in_certificate = UBLocalized.tr(UBLocalizedKey.vaccination_information_button_in_certificate_key)
   /// Weitere Informationen rund um die Covid-19-Impfung
@@ -1342,6 +1378,10 @@ import Foundation
    static let wallet_certificate = UBLocalized.tr(UBLocalizedKey.wallet_certificate_key)
   /// Dieses Zertifikat ist bereits in der App gespeichert
    static let wallet_certificate_already_exists = UBLocalized.tr(UBLocalizedKey.wallet_certificate_already_exists_key)
+  /// Verantwortliche Stelle für Ausstellung
+   static let wallet_certificate_ausnahme_responsible_issuer = UBLocalized.tr(UBLocalizedKey.wallet_certificate_ausnahme_responsible_issuer_key)
+  /// Startdatum des Attests
+   static let wallet_certificate_ausnahme_test_attest_start_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_ausnahme_test_attest_start_date_key)
   /// Zertifikat erstellt am\n{DATE}
    static let wallet_certificate_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_date_key)
   /// Wollen Sie das Zertifikat wirklich löschen?
@@ -1766,7 +1806,7 @@ import Foundation
    static let wallet_transfer_code_faq_works_intro_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_1_key)
   /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
    static let wallet_transfer_code_faq_works_intro_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_2_key)
-  /// Nach <transferCodeValidity> Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
+  /// Nach {transferCodeValidity} Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
    static let wallet_transfer_code_faq_works_intro_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_3_key)
   /// Wie sind meine Daten beim Transfer geschützt?
    static let wallet_transfer_code_faq_works_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_1_key)

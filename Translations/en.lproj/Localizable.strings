@@ -651,7 +651,7 @@
 "wallet_transfer_code_faq_works_intro_2" = "As soon as the COVID certificate is available, it appears in the application. If you have activated notifications, you will receive a message from the application.";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-"wallet_transfer_code_faq_works_intro_3" = "The transfer code expires after <transferCodeValidity> days. After this period, the application waits for any further transfers for 72 hours. After that, the transfer code is no longer valid.";
+"wallet_transfer_code_faq_works_intro_3" = "The transfer code expires after {transferCodeValidity} days. After this period, the application waits for any further transfers for 72 hours. After that, the transfer code is no longer valid.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Allow notifications";
@@ -1215,3 +1215,19 @@
 "wallet_only_valid_in_switzerland" = "Only valid within Switzerland and in combination with an identity document";
 "covid_certificate_sero_positiv_test_befund_label" = "Finding";
 "covid_certificate_sero_positiv_test_befund_value" = "Sufficient";
+
+/*Ausnahme Test Zertifikat Detail: Titel für Startdatum des Attests*/
+"wallet_certificate_ausnahme_test_attest_start_date" = "Startdatum des Attests";
+
+/*Ausnahme Test Zertifikat Detail: Titel für verantwortliche Stelle für Ausstellung*/
+"wallet_certificate_ausnahme_responsible_issuer" = "Verantwortliche Stelle für Ausstellung";
+
+/*Testname für Schweizer Ausnahme Zertifikat für Nicht-Testbare und Nicht-Impfbare Personen*/
+"covid_certificate_ch_ausnahme_test_title" = "Ausnahme Zertifikat";
+"infobox_update_title" = "New version available";
+"infobox_update_text" = "Download the latest version of the app.";
+"infobox_update_button" = "Update";
+"vaccination_impf_check_info_text" = "The COVID-19 Vaccination Check provides information on initial and booster vaccinations and guides you to the relevant point of contact in your canton.";
+"vaccination_impf_check_action" = "To the Vaccination Check";
+"vaccination_impf_check_url" = "https://covid19.impf-check.ch/";
+"vaccination_impf_check_title" = "Book an appointment now";

@@ -670,7 +670,7 @@
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
 /*Fuzzy*/
-"wallet_transfer_code_faq_works_intro_3" = "Nach <transferCodeValidity> Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.";
+"wallet_transfer_code_faq_works_intro_3" = "Nach {transferCodeValidity} Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Mitteilungen erlauben";
@@ -1242,3 +1242,19 @@
 "wallet_only_valid_in_switzerland" = "Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig";
 "covid_certificate_sero_positiv_test_befund_label" = "Befund";
 "covid_certificate_sero_positiv_test_befund_value" = "Genügend";
+
+/*Ausnahme Test Zertifikat Detail: Titel für Startdatum des Attests*/
+"wallet_certificate_ausnahme_test_attest_start_date" = "Startdatum des Attests";
+
+/*Ausnahme Test Zertifikat Detail: Titel für verantwortliche Stelle für Ausstellung*/
+"wallet_certificate_ausnahme_responsible_issuer" = "Verantwortliche Stelle für Ausstellung";
+
+/*Testname für Schweizer Ausnahme Zertifikat für Nicht-Testbare und Nicht-Impfbare Personen*/
+"covid_certificate_ch_ausnahme_test_title" = "Ausnahme Zertifikat";
+"infobox_update_title" = "Neue Version verfügbar";
+"infobox_update_text" = "Laden Sie die neue Version der App.";
+"infobox_update_button" = "Aktualisieren";
+"vaccination_impf_check_info_text" = "Der Covid-19 Impf-Check gibt Auskunft über Erst- sowie Auffrischimpfungen und führt Sie zur entsprechenden Anlaufstelle in Ihrem Kanton.";
+"vaccination_impf_check_action" = "Zum Impf-Check";
+"vaccination_impf_check_url" = "https://covid19.impf-check.ch/";
+"vaccination_impf_check_title" = "Jetzt Termin buchen";

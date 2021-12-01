@@ -651,7 +651,7 @@
 "wallet_transfer_code_faq_works_intro_2" = "Uschespert ch'il certificat COVID è disponibel, cumpara el en l'app. Sche Vus avais activà ils avis, vegnis Vus infurmada u infurmà da l'app.";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-"wallet_transfer_code_faq_works_intro_3" = "Suenter <transferCodeValidity> dis scada il code da transfer. Silsuenter spetga l'app anc ulteriuras 72 uras, avant ch'il code da transfer daventa nunvalaivel.";
+"wallet_transfer_code_faq_works_intro_3" = "Suenter {transferCodeValidity} dis scada il code da transfer. Silsuenter spetga l'app anc ulteriuras 72 uras, avant ch'il code da transfer daventa nunvalaivel.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
 "wallet_notification_permission_title" = "Permetter avis";
@@ -1214,3 +1214,19 @@
 "wallet_only_valid_in_switzerland" = "Valaivel mo cun in document da legitimaziun e mo en Svizra";
 "covid_certificate_sero_positiv_test_befund_label" = "Diagnosa";
 "covid_certificate_sero_positiv_test_befund_value" = "Suffizient";
+
+/*Ausnahme Test Zertifikat Detail: Titel für Startdatum des Attests*/
+"wallet_certificate_ausnahme_test_attest_start_date" = "Startdatum des Attests";
+
+/*Ausnahme Test Zertifikat Detail: Titel für verantwortliche Stelle für Ausstellung*/
+"wallet_certificate_ausnahme_responsible_issuer" = "Verantwortliche Stelle für Ausstellung";
+
+/*Testname für Schweizer Ausnahme Zertifikat für Nicht-Testbare und Nicht-Impfbare Personen*/
+"covid_certificate_ch_ausnahme_test_title" = "Ausnahme Zertifikat";
+"infobox_update_title" = "A disposiziun versiun nova";
+"infobox_update_text" = "Chargiai giu la nova versiun da l'app.";
+"infobox_update_button" = "Actualisar";
+"vaccination_impf_check_info_text" = "Il check da vaccinaziun COVID-19 As infurmescha davart las emprimas vaccinaziuns sco er davart las vaccinaziuns da rinfrestgament ed As maina al post da consultaziun correspundent da Voss chantun.  ";
+"vaccination_impf_check_action" = "Al check da vaccinaziun";
+"vaccination_impf_check_url" = "https://covid19.impf-check.ch/";
+"vaccination_impf_check_title" = "Reservar in termin ussa";
