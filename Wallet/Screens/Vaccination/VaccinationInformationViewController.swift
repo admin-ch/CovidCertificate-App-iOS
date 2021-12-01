@@ -53,8 +53,7 @@ class VaccinationInformationViewController: StackScrollViewController {
             addArrangedView(subtitleLabel, insets: insets)
             stackScrollView.addSpacerView(Padding.large)
 
-            let button = Button(title: config?.vaccinationBookingInfo.value?.impfcheckButton ?? UBLocalized.vaccination_impf_check_action)
-            button.setImage(UIImage(named: "ic-link-external")?.ub_image(with: .white), for: .normal)
+            let button = TrailingIconButton(title: config?.vaccinationBookingInfo.value?.impfcheckButton ?? UBLocalized.vaccination_impf_check_action, icon: UIImage(named: "ic-link-external")?.ub_image(with: .white))
             button.touchUpCallback = { [weak self] in
                 self?.vaccinationCheckButtonPressed()
             }

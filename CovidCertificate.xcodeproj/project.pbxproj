@@ -249,6 +249,8 @@
 		B61114DF27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61114DE27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift */; };
 		B68FDBFA2702FFE000E853D8 /* VaccinationInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */; };
 		DC286A26242CE0B9001D5344 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286A25242CE0B9001D5344 /* Environment.swift */; };
+		DC2CF80A275755FE0009A2EC /* TrailingIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2CF809275755FE0009A2EC /* TrailingIconButton.swift */; };
+		DC2CF80B275755FE0009A2EC /* TrailingIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2CF809275755FE0009A2EC /* TrailingIconButton.swift */; };
 		DC445D332645828E007DC8F2 /* QRScanErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC445D322645828E007DC8F2 /* QRScanErrorView.swift */; };
 		DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFA243F6D870066C773 /* UBLabelType.swift */; };
 		DC702AFD243F6E410066C773 /* UBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFC243F6E410066C773 /* UBButton.swift */; };
@@ -525,6 +527,7 @@
 		B61114DE27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenVaccinationInfoView.swift; sourceTree = "<group>"; };
 		B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationInformationViewController.swift; sourceTree = "<group>"; };
 		DC286A25242CE0B9001D5344 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		DC2CF809275755FE0009A2EC /* TrailingIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailingIconButton.swift; sourceTree = "<group>"; };
 		DC445D322645828E007DC8F2 /* QRScanErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanErrorView.swift; sourceTree = "<group>"; };
 		DC50D5D026832080006915AD /* CovidCertificateWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CovidCertificateWallet.entitlements; sourceTree = "<group>"; };
 		DC702AFA243F6D870066C773 /* UBLabelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBLabelType.swift; sourceTree = "<group>"; };
@@ -735,6 +738,7 @@
 			children = (
 				6EF166BB264D488A00426985 /* ScannerLightButton.swift */,
 				6E7C0D21242CE2100017C4F9 /* Button.swift */,
+				DC2CF809275755FE0009A2EC /* TrailingIconButton.swift */,
 				6EA49E2824443E69009EFCAB /* SimpleTextButton.swift */,
 				DCA3FFB724504B190003F5AD /* ClickthroughStackView.swift */,
 				6E0281F42655280500582904 /* InfoBoxButton.swift */,
@@ -1756,6 +1760,7 @@
 				F8E6C5632683808F00A9E112 /* DebugSwitchView.swift in Sources */,
 				6EC172F526429E31002E27DB /* ClickthroughStackView.swift in Sources */,
 				6E6B1A942649D88A00DB4A38 /* VerifyInfoView.swift in Sources */,
+				DC2CF80B275755FE0009A2EC /* TrailingIconButton.swift in Sources */,
 				6EC172F726429E31002E27DB /* SimpleTextButton.swift in Sources */,
 				6EC172F926429E31002E27DB /* ViewController.swift in Sources */,
 				6EC172FA26429E31002E27DB /* UBUserDefault.swift in Sources */,
@@ -1950,6 +1955,7 @@
 				6E17391E267B204700813D30 /* LoadingView.swift in Sources */,
 				F8D5B155268B659C00C39836 /* TransformationService.swift in Sources */,
 				DC8ABDED264A62A800FDE0E1 /* OnboardingContentViewController.swift in Sources */,
+				DC2CF80A275755FE0009A2EC /* TrailingIconButton.swift in Sources */,
 				8EB23D78245AF2C30073E83A /* RandomGenerators.swift in Sources */,
 				6E7C0D43242E44D80017C4F9 /* WebViewController.swift in Sources */,
 				6ED916192681B171006D9E7C /* PushRegistrationManager.swift in Sources */,
