@@ -49,6 +49,11 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
             guard let strongSelf = self else { return }
             strongSelf.infoBox = state.infoBoxState
             strongSelf.mode = CheckModesHelper.mode(for: state.checkMode.key)
+
+            if CheckModesHelper.onlyOneMode() {
+                strongSelf.mode = CheckModesHelper.allModes().first
+            }
+
             strongSelf.updateUI()
         }
 
@@ -156,6 +161,7 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
         bottomView.modeButtonCallback = { [weak self] button in
             guard let strongSelf = self else { return }
 
+            strongSelf.modePopupView.selectedKey = strongSelf.mode?.id
             strongSelf.modePopupView.presentFrom(view: button)
         }
 
@@ -172,7 +178,7 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
 
         bottomView.setMode(mode: mode)
 
-        let title = mode == nil ? UBLocalized.verifier_homescreen_scan_button : UBLocalized.verifier_homescreen_scan_button_with_mode
+        let title = (mode == nil || CheckModesHelper.onlyOneMode()) ? UBLocalized.verifier_homescreen_scan_button : UBLocalized.verifier_homescreen_scan_button_with_mode
 
         checkButton.title = title.replacingOccurrences(of: "{MODE}", with: mode?.displayName ?? "")
     }

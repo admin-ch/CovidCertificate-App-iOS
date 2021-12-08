@@ -28,7 +28,7 @@ class CertificateModeView: UIView {
     private var modeResults: ModeResults? {
         didSet {
             modeView.modeResults = modeResults
-            button.isHidden = modeResults == nil
+            button.isHidden = modeResults == nil || (modeResults?.results.count ?? 0) <= 1
         }
     }
 
@@ -168,6 +168,10 @@ public class ModeStackView: UIView {
         for s in stackView.subviews {
             stackView.removeArrangedSubview(s)
             s.removeFromSuperview()
+        }
+
+        if (modeResults?.results.count ?? 0) <= 1 {
+            return
         }
 
         let modes = Verifier.currentModes()

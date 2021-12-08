@@ -20,6 +20,10 @@ struct CheckModeUIObject {
 }
 
 enum CheckModesHelper {
+    static func onlyOneMode() -> Bool {
+        return Verifier.currentModes().count <= 1
+    }
+
     #if VERIFIER
         static func allModes() -> [CheckModeUIObject] {
             let defaultColor = UIColor(ub_hexString: "#888888")!

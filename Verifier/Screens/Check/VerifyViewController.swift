@@ -44,6 +44,11 @@ class VerifyViewController: ViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if mode == nil {
+            if CheckModesHelper.onlyOneMode() {
+                mode = CheckModesHelper.allModes().first
+                return
+            }
+
             modePopupView.presentFrom(view: view)
             scannerViewController.pauseScanning()
         }
@@ -84,6 +89,7 @@ class VerifyViewController: ViewController {
 
         scannerViewController.scanModeButtonPressed = { [weak self] button in
             guard let strongSelf = self else { return }
+            strongSelf.modePopupView.selectedKey = strongSelf.mode?.id
             strongSelf.modePopupView.presentFrom(view: button)
             strongSelf.scannerViewController.pauseScanning()
         }

@@ -32,10 +32,13 @@ class VerifyModePopUpView: PopupView {
 
     private var infoView = UIStackView()
 
+    public var selectedKey: String?
+
     init(selectedKey: String? = nil) {
+        self.selectedKey = selectedKey
         super.init(enableBackgroundDismiss: false)
 
-        setupInteraction(selectedKey: selectedKey)
+        setupInteraction()
     }
 
     override func presentFrom(view: UIView, isPresentedFromCloseButton: Bool = false, point: CGPoint = .zero) {
@@ -104,7 +107,7 @@ class VerifyModePopUpView: PopupView {
         stackScrollView.addArrangedView(infoView, inset: UIEdgeInsets(top: Padding.medium + Padding.small, left: 0, bottom: Padding.small, right: 0))
     }
 
-    private func setupInteraction(selectedKey: String?) {
+    private func setupInteraction() {
         chooseButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
 
@@ -173,15 +176,10 @@ class VerifyModePopUpView: PopupView {
     }
 
     func reloadModes() {
-        let currentSelectedCheckboxId = checkBoxes.first(where: { $0.checked })?.id
-        let currentCheckboxIds = checkBoxes.map { $0.id }
-        let potentiallyNewCheckboxIds = CheckModesHelper.allModes().map { $0.id }
-        if potentiallyNewCheckboxIds != currentCheckboxIds {
-            stackScrollView.removeAllViews()
-            setup()
-            // We know that the new checkboxes aren't equal anymore, if there still exists the one that was previously selected we select it again
-            setupInteraction(selectedKey: currentSelectedCheckboxId)
-        }
+        stackScrollView.removeAllViews()
+        setup()
+        // We know that the new checkboxes aren't equal anymore, if there still exists the one that was previously selected we select it again
+        setupInteraction()
     }
 }
 
