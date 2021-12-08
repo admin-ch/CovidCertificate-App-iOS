@@ -41,8 +41,8 @@
         "package": "CovidCertificateSDK",
         "repositoryURL": "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
         "state": {
-          "branch": "main",
-          "revision": "4670cd0cae9878007e7dc1e7413e9f954249f216",
+          "branch": "feature/offline-mode-time-inconsistency",
+          "revision": "c9046e2e6d0cfb4877d4d71b636ee1bd6328ab1a",
           "version": null
         }
       },
