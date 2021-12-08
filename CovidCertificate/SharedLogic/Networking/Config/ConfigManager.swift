@@ -85,7 +85,6 @@ class ConfigManager: NSObject {
     // MARK: - Start config request
 
     static func shouldLoadConfig(url: String?, lastConfigUrl: String?, lastConfigLoad: Date?) -> Bool {
-        return false
         // if the config url was changed (by OS version or app version changing) load config in anycase
         if url != lastConfigUrl {
             return true

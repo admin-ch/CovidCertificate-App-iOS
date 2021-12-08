@@ -17,7 +17,7 @@ class CertificateModeView: UIView {
     // MARK: - Subviews
 
     private let modeView = ModeStackView(itemHeight: 18.0, validColor: .cc_blue, invalidColor: .cc_grey)
-    private let button = UBButton()
+    public let button = UBButton()
 
     // MARK: - Modes
 
@@ -30,6 +30,25 @@ class CertificateModeView: UIView {
             modeView.modeResults = modeResults
             button.isHidden = modeResults == nil
         }
+    }
+
+    public func infoImageTexts() -> [(UIImage, String)] {
+        var result: [(UIImage, String)] = []
+
+        let modes = Verifier.currentModes()
+
+        for m in modes {
+            if let r = modeResults?.results[CheckMode(id: m.id, displayName: m.displayName)] {
+                let img = CheckModesHelper.image(for: m.id, isValid: r.isValid, size: 32, validColor: UIColor.cc_blue, invalidColor: UIColor.cc_grey)
+                let text = CheckModesHelper.text(for: m.id, isValid: r.isValid)
+
+                if let i = img, let t = text {
+                    result.append((i, t))
+                }
+            }
+        }
+
+        return result
     }
 
     // MARK: - Init
@@ -91,6 +110,8 @@ class CertificateModeView: UIView {
         button.layer.borderWidth = 2.0
 
         addSubview(modeView)
+        modeView.isUserInteractionEnabled = false
+
         modeView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.bottom.equalToSuperview().inset(Padding.small)

@@ -16,12 +16,12 @@ class IconTextInfoBoxView: PopupView {
 
     private let titleLabel = Label(.title, textAlignment: .center)
 
-    private let iconTextSource: [(String, String)]
+    private let iconTextSource: [(UIImage, String)]
 
     private var closeButtonView = UIView()
     private let closeButton = Button(title: UBLocalized.close_button, style: .text(.cc_blue))
 
-    init(iconTextStrs: [(String, String)]) {
+    init(iconTextStrs: [(UIImage, String)]) {
         iconTextSource = iconTextStrs
         super.init()
     }
@@ -49,15 +49,13 @@ class IconTextInfoBoxView: PopupView {
 
         stackView.axis = .vertical
 
-        titleLabel.text = UBLocalized.accessibility_info_box
+        titleLabel.text = ConfigManager.currentConfig?.checkModesInfo?.value?.title ?? UBLocalized.accessibility_info_box
 
         stackView.addArrangedView(titleLabel)
         stackView.addSpacerView(Padding.medium + Padding.small - 2.0)
 
         iconTextSource.forEach {
-            let icon = UIImage(named: $0.0)?.ub_image(with: .cc_blue)
-
-            stackView.addArrangedSubview(OnboardingInfoView(icon: icon, text: $0.1, alignment: .natural, leftRightInset: 0))
+            stackView.addArrangedSubview(OnboardingInfoView(icon: $0.0, text: $0.1, alignment: .natural, leftRightInset: 0))
         }
 
         closeButtonView.addSubview(closeButton)

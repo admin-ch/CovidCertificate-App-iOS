@@ -28,6 +28,7 @@ class CertificateDetailViewController: ViewController {
     private lazy var detailView = CertificateDetailView(showEnglishLabelsIfNeeded: true, addTopDivider: false)
 
     private let modeView = CertificateModeView()
+    private var infoPopupView: IconTextInfoBoxView?
 
     private let removeButton = Button(title: UBLocalized.delete_button, style: .normal(.cc_bund))
 
@@ -233,6 +234,19 @@ class CertificateDetailViewController: ViewController {
         vaccinationInfoRow.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.navigationController?.pushViewController(VaccinationInformationViewController(), animated: true)
+        }
+
+        modeView.button.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.infoPopupView?.removeFromSuperview()
+
+            strongSelf.infoPopupView = IconTextInfoBoxView(iconTextStrs: strongSelf.modeView.infoImageTexts())
+            strongSelf.view.addSubview(strongSelf.infoPopupView!)
+            // without autolayout this guarantees correct layout for animation
+            strongSelf.infoPopupView?.frame = strongSelf.view.frame
+            strongSelf.infoPopupView?.layoutIfNeeded()
+
+            strongSelf.infoPopupView?.presentFrom(view: strongSelf.modeView.button)
         }
     }
 

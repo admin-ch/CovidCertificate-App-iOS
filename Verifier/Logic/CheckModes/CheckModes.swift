@@ -44,6 +44,16 @@ enum CheckModesHelper {
     #endif
 
     #if WALLET
+        static func text(for id: String, isValid: Bool) -> String? {
+            var text: String?
+
+            if let model = ConfigManager.currentConfig?.checkModesInfo?.value?.modes[id] {
+                text = isValid ? model.ok.text : model.notOk.text
+            }
+
+            return text
+        }
+
         static func image(for id: String, isValid: Bool, size: CGFloat, validColor: UIColor, invalidColor: UIColor) -> UIImage? {
             var image: UIImage?
 
