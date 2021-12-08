@@ -30,6 +30,10 @@ enum CheckModesHelper {
             }
         }
     }
+    
+    static func unselectedMode() -> [ConfigResponseBody.CheckModeInfo]? {
+        return ConfigManager.currentConfig?.checkModesInfos?.value?.unselected.infos
+    }
 
     static func mode(for id: String?) -> CheckModeUIObject? {
         guard let id = id else { return nil }

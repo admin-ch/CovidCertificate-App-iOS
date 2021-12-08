@@ -121,11 +121,16 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     #elseif VERIFIER
         class CheckModeContainer: UBCodable {
             let infos: [String: CheckModeEntriesContainer]
+            let unselected: CheckModeUnselected
         }
 
         class CheckModeEntriesContainer: UBCodable {
             let title: String
             let hexColor: String
+            let infos: [CheckModeInfo]
+        }
+    
+        class CheckModeUnselected: UBCodable {
             let infos: [CheckModeInfo]
         }
     #endif

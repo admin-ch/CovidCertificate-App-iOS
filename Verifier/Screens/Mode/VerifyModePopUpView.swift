@@ -29,6 +29,8 @@ class VerifyModePopUpView: PopupView {
     private let chooseButton = Button(title: UBLocalized.verifier_choose_mode_button_title, style: .normal(.cc_blue))
 
     private var checkBoxes: [CheckBox] = []
+    
+    private var infoView = UIStackView()
 
     init(selectedKey: String? = nil) {
         super.init(enableBackgroundDismiss: false)
@@ -49,6 +51,9 @@ class VerifyModePopUpView: PopupView {
         contentView.backgroundColor = .cc_white
         contentView.layer.cornerRadius = 20.0
         contentView.clipsToBounds = true
+        
+        infoView.axis = .vertical
+        infoView.spacing = Padding.small
 
         contentView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Padding.large)
@@ -87,6 +92,10 @@ class VerifyModePopUpView: PopupView {
         for c in checkBoxes {
             stackScrollView.addArrangedView(c, inset: UIEdgeInsets(top: 0, left: 0, bottom: Padding.small, right: 0))
         }
+
+        updateInfos()
+
+        stackScrollView.addArrangedView(infoView, inset: UIEdgeInsets(top: 0, left: 0, bottom: Padding.small, right: 0))
     }
 
     private func setupInteraction(selectedKey: String?) {
@@ -119,10 +128,36 @@ class VerifyModePopUpView: PopupView {
         for c in checkBoxes {
             c.setSelected(c == checkBox, animated: animated)
         }
+        
+        updateInfos()
     }
 
     private func setupCheckBoxes() {
         checkBoxes = CheckModesHelper.allModes().map { CheckBox(id: $0.id, text: $0.displayName, color: $0.color) }
+    }
+
+    private func updateInfos() {
+        
+        infoView.subviews.forEach { v in
+            infoView.removeArrangedSubview(v)
+            v.removeFromSuperview()
+        }
+        
+        var infos: [ConfigResponseBody.CheckModeInfo]? = []
+        
+        if let id = checkBoxes.first(where: { $0.checked })?.id {
+            infos = CheckModesHelper.allModes().first(where: { $0.id == id})?.infos
+        } else {
+            //this means we are in the unselected state
+            infos = CheckModesHelper.unselectedMode()
+        }
+        
+        for i in infos ?? [] {
+            let infoIcon = UIImage(named: i.iconIos)?.ub_image(with: .cc_blue)
+            let v = OnboardingInfoView(icon: infoIcon, text: i.text, alignment: .natural, leftRightInset: 0)
+            infoView.addArrangedSubview(v)
+        }
+        
     }
 }
 
