@@ -61,6 +61,8 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         var showVaccinationHintHomescreen = false
         var showVaccinationHintDetail = false
         var showVaccinationHintTransfer = false
+    
+        let lightCertDurationInHours: Int
 
         let vaccinationHints: LocalizedValue<[VaccinationHint]>
         let vaccinationBookingInfo: LocalizedValue<VaccinationBookingInfo>

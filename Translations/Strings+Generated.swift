@@ -552,7 +552,7 @@ import Foundation
      case wallet_certificate_light_detail_summary_1_key = "wallet_certificate_light_detail_summary_1"
     /// Enthält nur Namen, Vornamen, Geburtsdatum und eine elektronische Signatur
      case wallet_certificate_light_detail_summary_2_key = "wallet_certificate_light_detail_summary_2"
-    /// Gültig für max. 24 Stunden
+    /// Gültig für max. {LIGHT_CERT_VALIDITY_IN_H} Stunden
      case wallet_certificate_light_detail_summary_3_key = "wallet_certificate_light_detail_summary_3"
     /// Die Konvertierung des Covid-Zertifikats in ein Zertifikat Light erfolgt online.
      case wallet_certificate_light_detail_summary_4_key = "wallet_certificate_light_detail_summary_4"
@@ -562,7 +562,7 @@ import Foundation
      case wallet_certificate_light_detail_summary_title_key = "wallet_certificate_light_detail_summary_title"
     /// Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.
      case wallet_certificate_light_detail_text_1_key = "wallet_certificate_light_detail_text_1"
-    /// Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 24 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
+    /// Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach {LIGHT_CERT_VALIDITY_IN_H} Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
      case wallet_certificate_light_detail_text_2_key = "wallet_certificate_light_detail_text_2"
     /// nur muss keine
      case wallet_certificate_light_detail_text_2_bold_key = "wallet_certificate_light_detail_text_2_bold"
@@ -1532,7 +1532,7 @@ import Foundation
    static let wallet_certificate_light_detail_summary_1 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_1_key)
   /// Enthält nur Namen, Vornamen, Geburtsdatum und eine elektronische Signatur
    static let wallet_certificate_light_detail_summary_2 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_2_key)
-  /// Gültig für max. 24 Stunden
+  /// Gültig für max. {LIGHT_CERT_VALIDITY_IN_H} Stunden
    static let wallet_certificate_light_detail_summary_3 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_3_key)
   /// Die Konvertierung des Covid-Zertifikats in ein Zertifikat Light erfolgt online.
    static let wallet_certificate_light_detail_summary_4 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_4_key)
@@ -1542,7 +1542,7 @@ import Foundation
    static let wallet_certificate_light_detail_summary_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_title_key)
   /// Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.
    static let wallet_certificate_light_detail_text_1 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_1_key)
-  /// Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 24 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
+  /// Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach {LIGHT_CERT_VALIDITY_IN_H} Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
    static let wallet_certificate_light_detail_text_2 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_2_key)
   /// nur muss keine
    static let wallet_certificate_light_detail_text_2_bold = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_2_bold_key)
