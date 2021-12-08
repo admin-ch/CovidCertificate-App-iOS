@@ -36,7 +36,13 @@ class VerifyModePopUpView: PopupView {
         super.init(enableBackgroundDismiss: false)
 
         setupInteraction(selectedKey: selectedKey)
-        chooseButton.isEnabled = false
+    }
+
+    override func presentFrom(view: UIView, isPresentedFromCloseButton: Bool = false, point: CGPoint = .zero) {
+        // makes sure the data is alway up to date
+        reloadModes()
+
+        super.presentFrom(view: view, isPresentedFromCloseButton: isPresentedFromCloseButton, point: point)
     }
 
     // MARK: - Setup
@@ -120,10 +126,18 @@ class VerifyModePopUpView: PopupView {
                 c.setSelected(c.id == s, animated: false)
             }
         }
+
+        updateInfos()
+
+        if selectedKey == nil {
+            buttonView.isHidden = true
+        }
     }
 
     private func select(_ checkBox: CheckBox, animated: Bool) {
-        chooseButton.isEnabled = true
+        UIView.animate(withDuration: 0.1) {
+            self.buttonView.isHidden = false
+        }
 
         for c in checkBoxes {
             c.setSelected(c == checkBox, animated: animated)
@@ -155,6 +169,18 @@ class VerifyModePopUpView: PopupView {
             let infoIcon = UIImage(named: i.iconIos)?.ub_image(with: .cc_blue)
             let v = OnboardingInfoView(icon: infoIcon, text: i.text, alignment: .natural, leftRightInset: 0)
             infoView.addArrangedSubview(v)
+        }
+    }
+
+    func reloadModes() {
+        let currentSelectedCheckboxId = checkBoxes.first(where: { $0.checked })?.id
+        let currentCheckboxIds = checkBoxes.map { $0.id }
+        let potentiallyNewCheckboxIds = CheckModesHelper.allModes().map { $0.id }
+        if potentiallyNewCheckboxIds != currentCheckboxIds {
+            stackScrollView.removeAllViews()
+            setup()
+            // We know that the new checkboxes aren't equal anymore, if there still exists the one that was previously selected we select it again
+            setupInteraction(selectedKey: currentSelectedCheckboxId)
         }
     }
 }
