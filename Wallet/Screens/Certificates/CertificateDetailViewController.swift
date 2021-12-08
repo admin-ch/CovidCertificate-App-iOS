@@ -15,7 +15,7 @@ import Foundation
 enum TemporaryVerifierState: Equatable {
     case idle
     case verifying
-    case success(String?)
+    case success(String?, ModeResults?)
     case failure
     case retry(RetryError, [String])
 }
@@ -25,7 +25,9 @@ class CertificateDetailViewController: ViewController {
     private let qrCodeNameView = QRCodeNameView()
 
     private lazy var stateView = CertificateStateView(isHomescreen: false, showValidity: true)
-    private lazy var detailView = CertificateDetailView(showEnglishLabelsIfNeeded: true)
+    private lazy var detailView = CertificateDetailView(showEnglishLabelsIfNeeded: true, addTopDivider: false)
+
+    private let modeView = CertificateModeView()
 
     private let removeButton = Button(title: UBLocalized.delete_button, style: .normal(.cc_bund))
 
@@ -129,8 +131,11 @@ class CertificateDetailViewController: ViewController {
 
         stackScrollView.addSpacerView(2.0 * Padding.large)
         stackScrollView.addArrangedView(stateView, inset: padding)
+        stackScrollView.addSpacerView(Padding.medium)
 
-        stackScrollView.addSpacerView(2.0 * Padding.large)
+        stackScrollView.addArrangedView(modeView, inset: padding)
+
+        stackScrollView.addSpacerView(Padding.medium)
         stackScrollView.addArrangedView(detailView, inset: padding)
 
         stackScrollView.addSpacerView(2.0 * Padding.large + 2.0 * Padding.small)
@@ -288,7 +293,7 @@ class CertificateDetailViewController: ViewController {
                 switch state {
                 case .loading: self.temporaryVerifierState = .verifying
                 case .skipped: self.temporaryVerifierState = .idle
-                case let .success(validUntil, _, _): self.temporaryVerifierState = .success(validUntil)
+                case let .success(validUntil, _, modesResult): self.temporaryVerifierState = .success(validUntil, modesResult)
                 case .invalid: self.temporaryVerifierState = .failure
                 case let .retry(error, errorCodes): self.temporaryVerifierState = .retry(error, errorCodes)
                 }
@@ -326,6 +331,7 @@ class CertificateDetailViewController: ViewController {
 
     private func update() {
         stateView.states = (state, temporaryVerifierState)
+        modeView.states = (state, temporaryVerifierState)
         detailView.updateLabelColors(for: (state, temporaryVerifierState), animated: true)
         qrCodeNameView.enabled = temporaryVerifierState != .idle || !state.isInvalid()
 

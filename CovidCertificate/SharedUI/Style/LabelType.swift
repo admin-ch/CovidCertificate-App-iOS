@@ -43,6 +43,8 @@ public enum LabelType: UBLabelType {
     case codeBoldSmall
     case textExtraBold
 
+    case customExtraBold(size: CGFloat)
+
     public var font: UIFont {
         let bfs = FontSize.bodyFontSize()
 
@@ -94,19 +96,18 @@ public enum LabelType: UBLabelType {
             return Self.monospacedDigitFont(fontName: boldFontName, size: bfs)
         case .textExtraBold:
             return UIFont(name: extraBoldFontName, size: bfs)!
+        case let .customExtraBold(size):
+            return UIFont(name: extraBoldFontName, size: size)!
         }
     }
 
     public var textColor: UIColor {
-        if self == .smallError {
-            return .cc_bund
+        switch self {
+        case .smallError: return .cc_bund
+        case .uppercaseBold, .monospaced, .smallErrorLight, .smallUppercaseBold: return .cc_greyText
+        default:
+            return .cc_text
         }
-
-        if self == .uppercaseBold || self == .monospaced || self == .smallErrorLight || self == .smallUppercaseBold {
-            return .cc_greyText
-        }
-
-        return .cc_text
     }
 
     public var lineSpacing: CGFloat {
@@ -139,29 +140,29 @@ public enum LabelType: UBLabelType {
             return 13.0 / 18.0
         case .monospacedBold:
             return 22.0 / 16.0
-        case .textExtraBold:
+        case .textExtraBold, .customExtraBold:
             return 1.0
         }
     }
 
     public var letterSpacing: CGFloat? {
-        if self == .uppercaseBold || self == .button || self == .smallUppercaseBold {
+        switch self {
+        case .uppercaseBold, .button, .smallUppercaseBold:
             return 2.0
-        }
-
-        if self == .monospaced {
+        case .monospaced:
             return 1.5
+        default:
+            return nil
         }
-
-        return nil
     }
 
     public var isUppercased: Bool {
-        if self == .uppercaseBold || self == .smallUppercaseBold || self == .button || self == .monospaced {
+        switch self {
+        case .uppercaseBold, .smallUppercaseBold, .button, .monospaced:
             return true
+        default:
+            return false
         }
-
-        return false
     }
 
     public var hyphenationFactor: Float {

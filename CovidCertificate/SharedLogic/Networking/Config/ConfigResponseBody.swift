@@ -52,9 +52,10 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     let transferQuestions: LocalizedValue<FAQEntriesContainer>?
     let transferWorks: LocalizedValue<FAQEntriesContainer>?
     let timeshiftDetectionEnabled: Bool?
-    let checkModesInfos: LocalizedValue<CheckModeContainer>?
 
     #if WALLET
+        let checkModesInfo: LocalizedValue<CheckModeContainer>?
+
         var lightCertificateActive = false
         var pdfGenerationActive = false
 
@@ -66,6 +67,8 @@ class ConfigResponseBody: UBCodable, JWTExtension {
 
         let vaccinationHints: LocalizedValue<[VaccinationHint]>
         let vaccinationBookingInfo: LocalizedValue<VaccinationBookingInfo>
+    #elseif VERIFIER
+        let checkModesInfos: LocalizedValue<CheckModeContainer>?
     #endif
 
     class FAQEntriesContainer: UBCodable {
@@ -112,6 +115,7 @@ class ConfigResponseBody: UBCodable, JWTExtension {
 
     #if WALLET
         class CheckModeContainer: UBCodable {
+            let title: String
             let modes: [String: CheckModeEntriesContainer]
         }
 

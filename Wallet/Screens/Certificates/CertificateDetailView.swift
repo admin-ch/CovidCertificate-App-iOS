@@ -26,13 +26,15 @@ class CertificateDetailView: UIView {
     private let stackView = UIStackView()
 
     private let showEnglishLabels: Bool
+    private let addTopDivider: Bool
 
     private var labels: [UILabel] = []
     private var englishLabels: [UILabel] = []
 
     // MARK: - Init
 
-    init(showEnglishLabelsIfNeeded: Bool) {
+    init(showEnglishLabelsIfNeeded: Bool, addTopDivider: Bool) {
+        self.addTopDivider = addTopDivider
         showEnglishLabels = showEnglishLabelsIfNeeded && !UBLocalized.languageIsEnglish()
         super.init(frame: .zero)
     }
@@ -67,19 +69,24 @@ class CertificateDetailView: UIView {
             make.edges.equalToSuperview()
         }
 
-        addVaccinationEntries()
-        addRecoveryEntries()
-        addTestEntries()
+        // add all entries and add a line between any two entries if needed,
+        // on the detail screen addTopDivider is false, since the top divider
+        // is already there
+        var addedEntries = addVaccinationEntries(needsDivider: addTopDivider)
+        addedEntries = addRecoveryEntries(needsDivider: addedEntries || addTopDivider)
+        addedEntries = addTestEntries(needsDivider: addedEntries || addTopDivider)
 
         updateEnglishLabelVisibility()
         setLabelsToColor(.cc_text, animated: false)
     }
 
-    private func addVaccinationEntries() {
+    private func addVaccinationEntries(needsDivider: Bool) -> Bool {
         guard let vaccinations = (holder?.certificate as? DCCCert)?.vaccinations,
-              vaccinations.count > 0 else { return }
+              vaccinations.count > 0 else { return false }
 
-        addDividerLine()
+        if needsDivider {
+            addDividerLine()
+        }
 
         if vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
             addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_vaccination_title_key))
@@ -116,14 +123,19 @@ class CertificateDetailView: UIView {
 
             addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: vaccination.doseNumber != vaccination.totalDoses)
         }
+
+        return true
     }
 
-    private func addRecoveryEntries() {
+    private func addRecoveryEntries(needsDivider: Bool) -> Bool {
         guard let pastInfections = (holder?.certificate as? DCCCert)?.pastInfections,
               pastInfections.count > 0
-        else { return }
+        else { return false }
 
-        addDividerLine()
+        if needsDivider {
+            addDividerLine()
+        }
+
         addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_recovery_title_key))
 
         for pastInfection in pastInfections {
@@ -150,14 +162,18 @@ class CertificateDetailView: UIView {
 
             addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: false)
         }
+
+        return true
     }
 
-    private func addTestEntries() {
+    private func addTestEntries(needsDivider: Bool) -> Bool {
         guard let tests = (holder?.certificate as? DCCCert)?.tests,
               tests.count > 0
-        else { return }
+        else { return false }
 
-        addDividerLine()
+        if needsDivider {
+            addDividerLine()
+        }
 
         if tests[0].isSerologicalTest {
             addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_title_key))
@@ -210,6 +226,8 @@ class CertificateDetailView: UIView {
 
             addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: false)
         }
+
+        return true
     }
 
     // MARK: - Content
@@ -366,7 +384,7 @@ class CertificateDetailView: UIView {
     }
 }
 
-private class DashedLineView: UIView {
+class DashedLineView: UIView {
     private var shapeLayer = CAShapeLayer()
 
     // MARK: - Init

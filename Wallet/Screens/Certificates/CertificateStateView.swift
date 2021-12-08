@@ -139,7 +139,7 @@ class CertificateStateView: UIView {
             self.setRedBorder(enabled: false)
 
             switch self.states.temporaryVerifierState {
-            case let .success(validUntil):
+            case let .success(validUntil, _):
                 self.imageView.image = UIImage(named: "ic-check-filled")
                 self.textLabel.attributedText = UBLocalized.wallet_certificate_verify_success.bold()
                 self.backgroundView.backgroundColor = .cc_greenish

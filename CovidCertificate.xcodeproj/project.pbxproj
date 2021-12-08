@@ -221,6 +221,8 @@
 		6EE55DA32760A052001F9E1F /* VerifyModePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55DA22760A052001F9E1F /* VerifyModePopUpView.swift */; };
 		6EE55DA52760A0B8001F9E1F /* CheckModeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55DA42760A0B8001F9E1F /* CheckModeState.swift */; };
 		6EE55DA82761075B001F9E1F /* CheckModeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55DA42760A0B8001F9E1F /* CheckModeState.swift */; };
+		6EE55DAB276135CD001F9E1F /* CertificateModesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55DAA276135CD001F9E1F /* CertificateModesView.swift */; };
+		6EE55DAC27613D5F001F9E1F /* CheckModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55D9B27609F7F001F9E1F /* CheckModes.swift */; };
 		6EE654892706DD0D00F71661 /* VaccinationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE654882706DD0D00F71661 /* VaccinationInfo.swift */; };
 		6EE6548A2706DD0D00F71661 /* VaccinationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE654882706DD0D00F71661 /* VaccinationInfo.swift */; };
 		6EE81DEB245163C400FC7218 /* PhoneCallHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */; };
@@ -512,6 +514,7 @@
 		6EE55D9F2760A01F001F9E1F /* VerifierHomescreenBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifierHomescreenBottomView.swift; sourceTree = "<group>"; };
 		6EE55DA22760A052001F9E1F /* VerifyModePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyModePopUpView.swift; sourceTree = "<group>"; };
 		6EE55DA42760A0B8001F9E1F /* CheckModeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckModeState.swift; sourceTree = "<group>"; };
+		6EE55DAA276135CD001F9E1F /* CertificateModesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateModesView.swift; sourceTree = "<group>"; };
 		6EE654882706DD0D00F71661 /* VaccinationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationInfo.swift; sourceTree = "<group>"; };
 		6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCallHelper.swift; sourceTree = "<group>"; };
 		6EEAFBEC267B4F3300807C16 /* TransferCodeRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeRefreshView.swift; sourceTree = "<group>"; };
@@ -991,6 +994,7 @@
 				6E0281FD265660E500582904 /* CertificateDetailView.swift */,
 				6E8F52EB265EC33F00406430 /* CertificateNoteView.swift */,
 				F84E70B02714DFD700512A49 /* UserCertificate+UserActivity.swift */,
+				6EE55DAA276135CD001F9E1F /* CertificateModesView.swift */,
 			);
 			path = Certificates;
 			sourceTree = "<group>";
@@ -1916,6 +1920,7 @@
 				A6BBA110246BFCBC00E42EE7 /* UIDevice+ScreenType.swift in Sources */,
 				B61114DF27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift in Sources */,
 				DCBF64DD267883CC00450D51 /* TransferCodeLabel.swift in Sources */,
+				6EE55DAC27613D5F001F9E1F /* CheckModes.swift in Sources */,
 				6E7C0D37242E02600017C4F9 /* StackScrollView.swift in Sources */,
 				DCA3FFB824504B190003F5AD /* ClickthroughStackView.swift in Sources */,
 				F809AF362693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */,
@@ -2018,6 +2023,7 @@
 				F88D99DB2497938E0081790E /* UIImage+localizedImage.swift in Sources */,
 				6EC172C726407F2C002E27DB /* CertificateListViewController.swift in Sources */,
 				DC8ABDF3264A652800FDE0E1 /* StaticContentViewModel.swift in Sources */,
+				6EE55DAB276135CD001F9E1F /* CertificateModesView.swift in Sources */,
 				6E0281F52655280500582904 /* InfoBoxButton.swift in Sources */,
 				6E5A0F29264336CA004718B4 /* CertificateState.swift in Sources */,
 				F88DA6CD268CB1F4001DB072 /* CertificateLightDetailViewController.swift in Sources */,
