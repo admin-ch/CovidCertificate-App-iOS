@@ -170,8 +170,8 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
     }
 
     private func showModeSelectionIfNeeded() {
-//        if VerifierUserStorage.shared.lastCheckModeSetDate == nil {
-//            modePopupView.presentFrom(view: view, point: view.center)
-//        }
+        if VerifierUserStorage.shared.lastCheckModeSetDate == nil {
+            modePopupView.presentFrom(view: view, point: view.center)
+        }
     }
 }

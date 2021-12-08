@@ -129,7 +129,7 @@ class ConfigResponseBody: UBCodable, JWTExtension {
             let hexColor: String
             let infos: [CheckModeInfo]
         }
-    
+
         class CheckModeUnselected: UBCodable {
             let infos: [CheckModeInfo]
         }

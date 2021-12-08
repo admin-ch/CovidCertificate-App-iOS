@@ -30,7 +30,7 @@ enum CheckModesHelper {
             }
         }
     }
-    
+
     static func unselectedMode() -> [ConfigResponseBody.CheckModeInfo]? {
         return ConfigManager.currentConfig?.checkModesInfos?.value?.unselected.infos
     }
