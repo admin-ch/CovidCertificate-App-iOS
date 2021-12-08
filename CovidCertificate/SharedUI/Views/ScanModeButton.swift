@@ -18,8 +18,8 @@ class ScanModeButton: UBButton {
     public var mode: CheckModeUIObject? {
         didSet {
             labelView.backgroundColor = mode?.color
+            label.backgroundColor = mode?.color
             label.text = mode?.displayName
-            backgroundColor = mode?.color
         }
     }
 
@@ -42,16 +42,18 @@ class ScanModeButton: UBButton {
         labelView.addSubview(label)
 
         label.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(UIEdgeInsets(top: 0.0, left: Padding.medium, bottom: 0.0, right: Padding.medium))
+            make.left.right.equalToSuperview().inset(UIEdgeInsets(top: 0.0, left: 2 * Padding.small, bottom: 0.0, right: 2 * Padding.small))
             make.centerY.equalToSuperview()
         }
+
+        label.ub_setContentPriorityRequired()
 
         let size = label.font.pointSize
 
         // scale linearly with standard size
         labelView.layer.cornerRadius = (size / 16.0) * 14.0
         labelView.snp.makeConstraints { make in
-            make.height.equalTo(2.0 * layer.cornerRadius)
+            make.height.equalTo(2.0 * labelView.layer.cornerRadius)
         }
 
         stackView.addArrangedSubview(labelView)

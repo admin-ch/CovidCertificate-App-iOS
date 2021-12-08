@@ -149,7 +149,6 @@ class VerifyScannerViewController: ViewController {
             make.left.equalToSuperview().inset(Padding.small)
             make.right.lessThanOrEqualTo(label.snp.left).offset(-Padding.small)
             make.centerY.equalTo(label)
-            make.size.equalTo(44.0)
         }
 
         if qrView?.canEnableTorch ?? false {
