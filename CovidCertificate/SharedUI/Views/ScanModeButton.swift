@@ -19,6 +19,7 @@ class ScanModeButton: UBButton {
         didSet {
             labelView.backgroundColor = mode?.color
             label.text = mode?.displayName
+            backgroundColor = mode?.color
         }
     }
 
@@ -68,10 +69,5 @@ class ScanModeButton: UBButton {
         super.layoutSubviews()
         let height = frame.size.height
         highlightCornerRadius = height * 0.5
-    }
-
-    override func setHighlighted(_ highlighted: Bool, animated: Bool = false) {
-        super.setHighlighted(highlighted, animated: animated)
-        labelView.backgroundColor = mode?.color
     }
 }

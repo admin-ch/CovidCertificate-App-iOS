@@ -153,9 +153,8 @@ class VerifyCheckViewController: ViewController {
 
         checkContentViewController.retryButtonCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            // TODO: Fix
-            if let mode = Verifier.currentModes().first {
-                strongSelf.verifier?.restart(mode: mode)
+            if let mode = strongSelf.mode {
+                strongSelf.verifier?.restart(mode: CheckMode(id: mode.id, displayName: mode.displayName))
             }
         }
     }

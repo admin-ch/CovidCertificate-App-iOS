@@ -16,6 +16,8 @@ class VerifyScannerViewController: ViewController {
     // MARK: - Public Callbacks
 
     public var scanningSucceededCallback: ((HolderModel) -> Void)?
+    public var scanModeButtonPressed: ((UIView) -> Void)?
+
     public var dismissTouchUpCallback: (() -> Void)?
 
     private var timer: Timer?
@@ -25,6 +27,17 @@ class VerifyScannerViewController: ViewController {
         showError(error: nil)
         qrView?.startScanning()
         qrView?.setCameraLight(on: isLightOn)
+    }
+
+    public func pauseScanning() {
+        qrView?.pauseScanning()
+    }
+
+    public var mode: CheckModeUIObject? {
+        didSet {
+            scanModeButton.mode = mode
+            scanModeButton.alpha = mode == nil ? 0.0 : 1.0
+        }
     }
 
     // MARK: - Subviews
@@ -37,6 +50,8 @@ class VerifyScannerViewController: ViewController {
 
     private let label = Label(.uppercaseBold, textColor: .white, textAlignment: .center)
     private let closeButton = Button(image: UIImage(named: "ic-close")?.ub_image(with: .white), accessibilityName: UBLocalized.accessibility_close_button)
+
+    private let scanModeButton = ScanModeButton(addSettingsIcon: false)
 
     private var cameraErrorView: CameraErrorView?
 
@@ -77,6 +92,11 @@ class VerifyScannerViewController: ViewController {
         lightButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.toggleLight()
+        }
+
+        scanModeButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.scanModeButtonPressed?(strongSelf.scanModeButton)
         }
     }
 
@@ -119,6 +139,15 @@ class VerifyScannerViewController: ViewController {
 
         closeButton.snp.makeConstraints { make in
             make.right.equalToSuperview().inset(Padding.small)
+            make.centerY.equalTo(label)
+            make.size.equalTo(44.0)
+        }
+
+        backgroundView.addSubview(scanModeButton)
+
+        scanModeButton.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(Padding.small)
+            make.right.lessThanOrEqualTo(label.snp.left).offset(-Padding.small)
             make.centerY.equalTo(label)
             make.size.equalTo(44.0)
         }

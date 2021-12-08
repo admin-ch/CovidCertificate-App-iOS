@@ -15,21 +15,38 @@ class VerifyViewController: ViewController {
     private let scannerViewController = VerifyScannerViewController()
     private let checkViewController = VerifyCheckViewController()
 
-    private var mode: CheckModeUIObject?
+    private var mode: CheckModeUIObject? {
+        didSet {
+            checkViewController.mode = mode
+            scannerViewController.mode = mode
+        }
+    }
+
+    private var modePopupView = VerifyModePopUpView()
 
     // MARK: - View
+
+    init(mode: CheckModeUIObject?) {
+        self.mode = mode
+        super.init()
+
+        checkViewController.mode = mode
+        scannerViewController.mode = mode
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        UIStateManager.shared.addObserver(self) { [weak self] state in
-            guard let strongSelf = self else { return }
-            strongSelf.mode = CheckModesHelper.mode(for: state.checkMode.key)
-            strongSelf.updateUI()
-        }
-
         setup()
         setupInteraction()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if mode == nil {
+            modePopupView.presentFrom(view: view)
+            scannerViewController.pauseScanning()
+        }
     }
 
     // MARK: - Setup
@@ -44,6 +61,11 @@ class VerifyViewController: ViewController {
         }
 
         checkViewController.view.isUserInteractionEnabled = false
+
+        view.addSubview(modePopupView)
+        modePopupView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 
     public func dismissResult() {
@@ -57,11 +79,13 @@ class VerifyViewController: ViewController {
             strongSelf.checkViewController.view.isUserInteractionEnabled = true
 
             UIAccessibility.post(notification: .screenChanged, argument: strongSelf.checkViewController.view)
+            strongSelf.checkViewController.holder = holder
+        }
 
-            if let m = strongSelf.mode {
-                strongSelf.checkViewController.mode = m
-                strongSelf.checkViewController.holder = holder
-            }
+        scannerViewController.scanModeButtonPressed = { [weak self] button in
+            guard let strongSelf = self else { return }
+            strongSelf.modePopupView.presentFrom(view: button)
+            strongSelf.scannerViewController.pauseScanning()
         }
 
         scannerViewController.dismissTouchUpCallback = { [weak self] in
@@ -76,6 +100,14 @@ class VerifyViewController: ViewController {
             strongSelf.checkViewController.view.isUserInteractionEnabled = false
 
             UIAccessibility.post(notification: .screenChanged, argument: strongSelf.checkViewController.view)
+            strongSelf.scannerViewController.restart()
+        }
+
+        modePopupView.chooseCallback = { [weak self] modeKey in
+            guard let strongSelf = self else { return }
+
+            VerifierUserStorage.shared.checkModeKey = modeKey
+            strongSelf.mode = CheckModesHelper.mode(for: modeKey)
             strongSelf.scannerViewController.restart()
         }
     }

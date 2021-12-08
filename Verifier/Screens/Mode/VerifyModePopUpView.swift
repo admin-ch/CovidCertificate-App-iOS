@@ -30,10 +30,10 @@ class VerifyModePopUpView: PopupView {
 
     private var checkBoxes: [CheckBox] = []
 
-    init() {
+    init(selectedKey: String? = nil) {
         super.init(enableBackgroundDismiss: false)
 
-        setupInteraction()
+        setupInteraction(selectedKey: selectedKey)
         chooseButton.isEnabled = false
     }
 
@@ -89,7 +89,7 @@ class VerifyModePopUpView: PopupView {
         }
     }
 
-    private func setupInteraction() {
+    private func setupInteraction(selectedKey: String?) {
         chooseButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
 
@@ -103,6 +103,12 @@ class VerifyModePopUpView: PopupView {
             c.touchUpCallback = { [weak self, weak c] in
                 guard let strongSelf = self, let strongC = c else { return }
                 strongSelf.select(strongC, animated: true)
+            }
+        }
+
+        if let s = selectedKey {
+            for c in checkBoxes {
+                c.setSelected(c.id == s, animated: false)
             }
         }
     }

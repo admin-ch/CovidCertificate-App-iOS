@@ -318,6 +318,10 @@ import Foundation
      case verifier_check_mode_info_3g_text_3_key = "verifier_check_mode_info_3g_text_3"
     /// 3G
      case verifier_check_mode_info_3g_title_key = "verifier_check_mode_info_3g_title"
+    /// Wählen Sie den Modus, in dem Sie Zertifikate prüfen müssen.
+     case verifier_check_mode_info_unselected_text_1_key = "verifier_check_mode_info_unselected_text_1"
+    /// Die Einstellungen können jederzeit geändert werden
+     case verifier_check_mode_info_unselected_text_2_key = "verifier_check_mode_info_unselected_text_2"
     /// wählen
      case verifier_choose_mode_button_title_key = "verifier_choose_mode_button_title"
     /// Geburtsdatum
@@ -434,7 +438,7 @@ import Foundation
      case verifier_verify_error_info_for_blacklist_key = "verifier_verify_error_info_for_blacklist"
     /// Das Covid-Zertifikat hat keine gültige Signatur
      case verifier_verify_error_info_for_certificate_invalid_key = "verifier_verify_error_info_for_certificate_invalid"
-    /// Entspricht nicht den Gültigkeitskriterien der Schweiz
+    /// Entspricht nicht den Gültigkeitskriterien der Schweiz oder des Prüfmodus ({MODUS})
      case verifier_verify_error_info_for_national_rules_key = "verifier_verify_error_info_for_national_rules"
     /// Ein unerwarteter Fehler ist aufgetreten.
      case verifier_verify_error_list_info_text_key = "verifier_verify_error_list_info_text"
@@ -444,6 +448,10 @@ import Foundation
      case verifier_verify_error_title_key = "verifier_verify_error_title"
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz.
      case verifier_verify_error_validity_range_bold_key = "verifier_verify_error_validity_range_bold"
+    /// Die Prüfung kann in diesem Fall nur erfolgen, wenn die Umwandlung in ein Zertifikat Light rückgängig gemacht wird.
+     case verifier_verify_light_not_supported_by_mode_text_key = "verifier_verify_light_not_supported_by_mode_text"
+    /// Beim zu prüfenden Covid-Zertifikat handelt es sich um ein Zertifikat Light. Dies kann im {MODUS}-Prüfmodus nicht geprüft werden.
+     case verifier_verify_light_not_supported_by_mode_title_key = "verifier_verify_light_not_supported_by_mode_title"
     /// Zertifikat wird geprüft
      case verifier_verify_loading_text_key = "verifier_verify_loading_text"
     /// Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig
@@ -620,10 +628,14 @@ import Foundation
      case wallet_certificate_verify_success_key = "wallet_certificate_verify_success"
     /// Das Zertifikat wird geprüft
      case wallet_certificate_verifying_key = "wallet_certificate_verifying"
+    /// Hier könnte ein Text stehen, der erklärt was 2G bedeutet und dass der Zertifikatstyp für 2G NICHT ok ist.
+     case wallet_check_mode_info_2g_not_ok_text_key = "wallet_check_mode_info_2g_not_ok_text"
+    /// Hier könnte ein Text stehen, der erklärt was 2G bedeutet und dass der Zertifikatstyp für 2G ok ist.
+     case wallet_check_mode_info_2g_ok_text_key = "wallet_check_mode_info_2g_ok_text"
+    /// Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 3G NICHT ok ist.
+     case wallet_check_mode_info_3g_not_ok_text_key = "wallet_check_mode_info_3g_not_ok_text"
     /// Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 3G ok ist.
-     case wallet_check_mode_info_text_1_key = "wallet_check_mode_info_text_1"
-    /// Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 2G ok ist.
-     case wallet_check_mode_info_text_2_key = "wallet_check_mode_info_text_2"
+     case wallet_check_mode_info_3g_ok_text_key = "wallet_check_mode_info_3g_ok_text"
     /// Infos
      case wallet_check_mode_info_title_key = "wallet_check_mode_info_title"
     /// Versuchen Sie es später erneut.
@@ -1286,6 +1298,10 @@ import Foundation
    static let verifier_check_mode_info_3g_text_3 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_text_3_key)
   /// 3G
    static let verifier_check_mode_info_3g_title = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_title_key)
+  /// Wählen Sie den Modus, in dem Sie Zertifikate prüfen müssen.
+   static let verifier_check_mode_info_unselected_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_unselected_text_1_key)
+  /// Die Einstellungen können jederzeit geändert werden
+   static let verifier_check_mode_info_unselected_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_unselected_text_2_key)
   /// wählen
    static let verifier_choose_mode_button_title = UBLocalized.tr(UBLocalizedKey.verifier_choose_mode_button_title_key)
   /// Geburtsdatum
@@ -1402,7 +1418,7 @@ import Foundation
    static let verifier_verify_error_info_for_blacklist = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_info_for_blacklist_key)
   /// Das Covid-Zertifikat hat keine gültige Signatur
    static let verifier_verify_error_info_for_certificate_invalid = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_info_for_certificate_invalid_key)
-  /// Entspricht nicht den Gültigkeitskriterien der Schweiz
+  /// Entspricht nicht den Gültigkeitskriterien der Schweiz oder des Prüfmodus ({MODUS})
    static let verifier_verify_error_info_for_national_rules = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_info_for_national_rules_key)
   /// Ein unerwarteter Fehler ist aufgetreten.
    static let verifier_verify_error_list_info_text = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_list_info_text_key)
@@ -1412,6 +1428,10 @@ import Foundation
    static let verifier_verify_error_title = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_title_key)
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz.
    static let verifier_verify_error_validity_range_bold = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_validity_range_bold_key)
+  /// Die Prüfung kann in diesem Fall nur erfolgen, wenn die Umwandlung in ein Zertifikat Light rückgängig gemacht wird.
+   static let verifier_verify_light_not_supported_by_mode_text = UBLocalized.tr(UBLocalizedKey.verifier_verify_light_not_supported_by_mode_text_key)
+  /// Beim zu prüfenden Covid-Zertifikat handelt es sich um ein Zertifikat Light. Dies kann im {MODUS}-Prüfmodus nicht geprüft werden.
+   static let verifier_verify_light_not_supported_by_mode_title = UBLocalized.tr(UBLocalizedKey.verifier_verify_light_not_supported_by_mode_title_key)
   /// Zertifikat wird geprüft
    static let verifier_verify_loading_text = UBLocalized.tr(UBLocalizedKey.verifier_verify_loading_text_key)
   /// Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig
@@ -1588,10 +1608,14 @@ import Foundation
    static let wallet_certificate_verify_success = UBLocalized.tr(UBLocalizedKey.wallet_certificate_verify_success_key)
   /// Das Zertifikat wird geprüft
    static let wallet_certificate_verifying = UBLocalized.tr(UBLocalizedKey.wallet_certificate_verifying_key)
+  /// Hier könnte ein Text stehen, der erklärt was 2G bedeutet und dass der Zertifikatstyp für 2G NICHT ok ist.
+   static let wallet_check_mode_info_2g_not_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_not_ok_text_key)
+  /// Hier könnte ein Text stehen, der erklärt was 2G bedeutet und dass der Zertifikatstyp für 2G ok ist.
+   static let wallet_check_mode_info_2g_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_ok_text_key)
+  /// Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 3G NICHT ok ist.
+   static let wallet_check_mode_info_3g_not_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_3g_not_ok_text_key)
   /// Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 3G ok ist.
-   static let wallet_check_mode_info_text_1 = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_text_1_key)
-  /// Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 2G ok ist.
-   static let wallet_check_mode_info_text_2 = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_text_2_key)
+   static let wallet_check_mode_info_3g_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_3g_ok_text_key)
   /// Infos
    static let wallet_check_mode_info_title = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_title_key)
   /// Versuchen Sie es später erneut.

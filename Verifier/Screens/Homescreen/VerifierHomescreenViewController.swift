@@ -126,7 +126,7 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
     private func setupInteraction() {
         checkButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            let vc = VerifyViewController()
+            let vc = VerifyViewController(mode: strongSelf.mode)
             vc.modalPresentationStyle = .fullScreen
 
             strongSelf.present(vc, animated: true)
@@ -170,8 +170,8 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
     }
 
     private func showModeSelectionIfNeeded() {
-        if VerifierUserStorage.shared.lastCheckModeSetDate == nil {
-            modePopupView.presentFrom(view: view, point: view.center)
-        }
+//        if VerifierUserStorage.shared.lastCheckModeSetDate == nil {
+//            modePopupView.presentFrom(view: view, point: view.center)
+//        }
     }
 }
