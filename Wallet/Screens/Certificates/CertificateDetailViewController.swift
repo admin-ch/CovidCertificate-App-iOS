@@ -280,7 +280,7 @@ class CertificateDetailViewController: ViewController {
             self.qrCodeStateView.state = self.temporaryVerifierState
         }
 
-        VerifierManager.shared.addObserver(self, for: qrCode, forceUpdate: true) { [weak self] state in
+        VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes(), forceUpdate: true) { [weak self] state in
             guard let self = self else { return }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
@@ -288,7 +288,7 @@ class CertificateDetailViewController: ViewController {
                 switch state {
                 case .loading: self.temporaryVerifierState = .verifying
                 case .skipped: self.temporaryVerifierState = .idle
-                case let .success(validUntil, _): self.temporaryVerifierState = .success(validUntil)
+                case let .success(validUntil, _, _): self.temporaryVerifierState = .success(validUntil)
                 case .invalid: self.temporaryVerifierState = .failure
                 case let .retry(error, errorCodes): self.temporaryVerifierState = .retry(error, errorCodes)
                 }
@@ -304,7 +304,7 @@ class CertificateDetailViewController: ViewController {
         state = .loading
         verifyButton.alpha = 0
 
-        VerifierManager.shared.addObserver(self, for: qrCode) { [weak self] state in
+        VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes()) { [weak self] state in
             guard let self = self else { return }
             self.qrCodeStateView.alpha = 0
             self.verifyButton.alpha = state == .loading ? 0 : 1
@@ -341,7 +341,7 @@ class CertificateDetailViewController: ViewController {
 
             // PDF export is enabled for certificates that were issed by switzerland and have a valid signature
             if issuedBySwitzerland {
-                CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: false) { [weak self] results in
+                CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: false, modes: Verifier.currentModes()) { [weak self] results in
                     guard let self = self else { return }
 
                     switch results.signature {

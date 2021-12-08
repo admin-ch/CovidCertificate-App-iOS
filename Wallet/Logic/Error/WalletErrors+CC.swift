@@ -36,12 +36,14 @@ extension VerificationError {
             return UBLocalized.wallet_error_invalid_format.formattingOccurrenceBold(bold)
         case .unknown:
             return UBLocalized.unknown_error.formattingOccurrenceBold("")
+        case .lightUnsupported, .unknownMode:
+            return "".bold()
         }
     }
 
     func icon(with color: UIColor? = nil) -> UIImage? {
         switch self {
-        case .signature, .typeInvalid: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
+        case .signature, .typeInvalid, .unknownMode, .lightUnsupported: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .revocation: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .otherNationalRules: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .expired, .signatureExpired:
