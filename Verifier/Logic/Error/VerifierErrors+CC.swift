@@ -18,8 +18,8 @@ extension VerificationError {
             return UBLocalized.verifier_verify_error_info_for_certificate_invalid.bold()
         case .revocation:
             return UBLocalized.verifier_verify_error_info_for_blacklist.bold()
-        case .otherNationalRules:
-            return UBLocalized.verifier_verify_error_info_for_national_rules.bold()
+        case let .otherNationalRules(mode):
+            return UBLocalized.verifier_verify_error_info_for_national_rules.replacingOccurrences(of: "{MODUS}", with: mode).bold()
         case .expired:
             return UBLocalized.verifier_verifiy_error_expired.formattingOccurrenceBold(UBLocalized.verifier_verify_error_validity_range_bold)
         case .signatureExpired:
@@ -28,6 +28,11 @@ extension VerificationError {
             return UBLocalized.verifier_verifiy_error_notyetvalid.formattingOccurrenceBold(UBLocalized.verifier_verify_error_validity_range_bold)
         case .typeInvalid:
             return UBLocalized.verifier_error_invalid_format.bold()
+        case let .unknownMode(mode):
+            // TODO: Unknown mode
+            return UBLocalized.verifier_verify_error_info_for_national_rules.replacingOccurrences(of: "{MODUS}", with: mode).bold()
+        case let .lightUnsupported(mode):
+            return UBLocalized.verifier_verify_light_not_supported_by_mode_title.replacingOccurrences(of: "{MODUS}", with: mode).bold()
         case .unknown:
             return UBLocalized.unknown_error.bold()
         }

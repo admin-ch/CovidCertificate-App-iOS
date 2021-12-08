@@ -176,10 +176,18 @@ class VerifyCheckViewController: ViewController {
                 self.imageView.layer.removeAllAnimations()
                 self.imageView.image = UIImage(named: "ic-header-valid")
                 self.backgroundView.backgroundColor = .cc_green
-            case .invalid:
+            case let .invalid:
+                let (signatureError, revocationError, nationalError) = self.state.getVerifierErrorState() ?? (nil, nil, nil)
+
+                var isLightUnsupported = false
+                if let n = nationalError, case .lightUnsupported = n {
+                    isLightUnsupported = true
+                }
+
                 self.imageView.layer.removeAllAnimations()
-                self.imageView.image = UIImage(named: "ic-header-invalid")
-                self.backgroundView.backgroundColor = .cc_red
+
+                self.imageView.image = UIImage(named: isLightUnsupported ? "ic-header-error" : "ic-header-invalid")
+                self.backgroundView.backgroundColor = isLightUnsupported ? .cc_orange : .cc_red
             case let .retry(error, _):
                 self.imageView.layer.removeAllAnimations()
                 let imageName: String
