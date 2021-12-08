@@ -29,7 +29,7 @@ enum VerificationError: Equatable, Comparable {
     case notYetValid(Date)
     case otherNationalRules(String)
     case lightUnsupported(String)
-    case unknownMode(String)
+    case unknownMode
     case unknown
 }
 
@@ -112,6 +112,17 @@ enum VerificationState: Equatable {
         default:
             return false
         }
+    }
+
+    public var wasModeUnknown: Bool {
+        return (verificationErrors()?.contains(where: { error in
+            switch error {
+            case .unknownMode:
+                return true
+            default:
+                return false
+            }
+        })) ?? false
     }
 
     // get errors: (signature, revocation, nationalRuleError)
@@ -283,7 +294,7 @@ class Verifier: NSObject {
                 return .success(nil, nil)
             } else {
                 if r.isModeUnknown() {
-                    return VerificationState.invalid(errors: [.unknownMode(mode.displayName)], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
+                    return VerificationState.invalid(errors: [.unknownMode], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
                 } else if r.isLightUnsupported() {
                     return VerificationState.invalid(errors: [.lightUnsupported(mode.displayName)], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
                 } else {

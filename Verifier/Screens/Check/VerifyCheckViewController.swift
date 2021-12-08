@@ -45,6 +45,11 @@ class VerifyCheckViewController: ViewController {
 
     private var state: VerificationState = .loading {
         didSet {
+            if state.wasModeUnknown {
+                NotificationCenter.default.post(name: .userScannedWithUnknownMode, object: nil)
+                return
+            }
+
             updateBackground(true)
             self.checkContentViewController.state = state
         }
@@ -176,8 +181,8 @@ class VerifyCheckViewController: ViewController {
                 self.imageView.layer.removeAllAnimations()
                 self.imageView.image = UIImage(named: "ic-header-valid")
                 self.backgroundView.backgroundColor = .cc_green
-            case let .invalid:
-                let (signatureError, revocationError, nationalError) = self.state.getVerifierErrorState() ?? (nil, nil, nil)
+            case .invalid:
+                let (_, _, nationalError) = self.state.getVerifierErrorState() ?? (nil, nil, nil)
 
                 var isLightUnsupported = false
                 if let n = nationalError, case .lightUnsupported = n {

@@ -10,6 +10,12 @@
  */
 
 import Foundation
+import UIKit
+import UserNotifications
+
+extension Notification.Name {
+    static let userScannedWithUnknownMode = Notification.Name(rawValue: "ch.admin.bag.covidcertificate.verifier.unknown.mode")
+}
 
 class VerifierHomescreenViewController: HomescreenBaseViewController {
     // MARK: - Init
@@ -45,6 +51,8 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
             strongSelf.mode = CheckModesHelper.mode(for: state.checkMode.key)
             strongSelf.updateUI()
         }
+
+        NotificationCenter.default.addObserver(self, selector: #selector(userScannedWithUnknownMode), name: .userScannedWithUnknownMode, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -173,5 +181,18 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
         if VerifierUserStorage.shared.lastCheckModeSetDate == nil {
             modePopupView.presentFrom(view: view, point: view.center)
         }
+    }
+
+    @objc private func userScannedWithUnknownMode() {
+        VerifierUserStorage.shared.checkModeKey = nil
+        presentedViewController?.dismiss(animated: true, completion: nil)
+
+        let alert = UIAlertController(title: nil, message: UBLocalized.verifier_error_mode_no_longer_exists, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: UBLocalized.ok_button, style: .default))
+        present(alert, animated: true)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
