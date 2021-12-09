@@ -36,7 +36,7 @@ class VerifyScannerViewController: ViewController {
     public var mode: CheckModeUIObject? {
         didSet {
             scanModeButton.mode = mode
-            scanModeButton.alpha = mode == nil ? 0.0 : 1.0
+            scanModeButton.alpha = (mode == nil || CheckModesHelper.onlyOneMode()) ? 0.0 : 1.0
         }
     }
 
