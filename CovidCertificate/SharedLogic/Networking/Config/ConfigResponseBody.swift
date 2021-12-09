@@ -62,7 +62,6 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         var showVaccinationHintTransfer = false
 
         let vaccinationHints: LocalizedValue<[VaccinationHint]>
-        let vaccinationBookingCantons: LocalizedValue<[VaccinationBookingCanton]>
         let vaccinationBookingInfo: LocalizedValue<VaccinationBookingInfo>
     #endif
 
@@ -92,16 +91,14 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         let text: String
     }
 
-    class VaccinationBookingCanton: UBCodable {
-        let name: String
-        let iconIos: String
-        let linkUrl: String
-    }
-
     class VaccinationBookingInfo: UBCodable {
         let title: String
         let text: String
         let info: String
+        let impfcheckTitle: String?
+        let impfcheckText: String?
+        let impfcheckButton: String?
+        let impfcheckUrl: String?
     }
 }
 
@@ -156,4 +153,13 @@ extension ConfigResponseBody {
             return vaccinationHints.value?.randomElement()
         }
     #endif
+}
+
+extension ConfigResponseBody.VaccinationBookingInfo {
+    var hasAllImpfCheckValues: Bool {
+        return impfcheckTitle != nil
+            && impfcheckText != nil
+            && impfcheckButton != nil
+            && impfcheckUrl != nil
+    }
 }
