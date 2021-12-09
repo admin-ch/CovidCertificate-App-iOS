@@ -67,8 +67,8 @@ class VerifyModePopUpView: PopupView {
         contentView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Padding.large)
             make.centerY.equalToSuperview()
-            make.top.equalToSuperview().inset(6.0 * Padding.large)
-            make.bottom.equalToSuperview().inset(6.0 * Padding.large)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.topMargin).inset(2.0 * Padding.large)
+            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottomMargin).inset(2.0 * Padding.large)
         }
 
         contentView.addSubview(stackScrollView)
@@ -137,7 +137,7 @@ class VerifyModePopUpView: PopupView {
 
     private func select(_ checkBox: CheckBox, animated: Bool) {
         UIView.animate(withDuration: 0.1) {
-            self.buttonView.isHidden = false
+            self.buttonView.ub_setHidden(false)
         }
 
         for c in checkBoxes {

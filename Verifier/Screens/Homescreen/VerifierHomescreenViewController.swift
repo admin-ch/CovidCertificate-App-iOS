@@ -68,6 +68,11 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
         showModeSelectionIfNeeded()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.bringSubviewToFront(modePopupView)
+    }
+
     // MARK: - Setup
 
     private func setupViews() {
