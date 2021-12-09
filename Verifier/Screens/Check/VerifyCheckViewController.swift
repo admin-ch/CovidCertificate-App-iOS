@@ -79,7 +79,7 @@ class VerifyCheckViewController: ViewController {
     // MARK: - Start check
 
     private func startCheck() {
-        guard let holder = holder, let mode = mode else { return }
+        guard let holder = holder else { return }
 
         checkContentViewController.view.isHidden = false
         checkContentViewController.view.transform = CGAffineTransform(translationX: 0.0, y: contentHeight)
@@ -93,7 +93,13 @@ class VerifyCheckViewController: ViewController {
         } completion: { _ in }
 
         verifier = Verifier(holder: holder)
-        verifier?.start(modes: [CheckMode(id: mode.id, displayName: mode.displayName)]) { [weak self] state in
+
+        var modes: [CheckMode] = []
+        if let m = mode {
+            modes.append(CheckMode(id: m.id, displayName: m.displayName))
+        }
+
+        verifier?.start(modes: modes) { [weak self] state in
             guard let strongSelf = self else { return }
             strongSelf.state = state
         }
