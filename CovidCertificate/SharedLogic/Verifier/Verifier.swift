@@ -196,15 +196,7 @@ class Verifier: NSObject {
                 let checkSignatureState = self.handleSignatureResult(results.signature)
                 let checkRevocationState = self.handleRevocationResult(results.revocationStatus)
 
-                var modeResults: ModeResults?
-                switch results.modeResults {
-                case let .success(results):
-                    modeResults = results
-                case .failure:
-                    break
-                }
-
-                let checkNationalRulesState = self.handleNationalRulesResult(results.nationalRules, modeResults: modeResults)
+                let checkNationalRulesState = self.handleNationalRulesResult(results.nationalRules, modeResults: results.modeResults)
 
                 let states = [checkSignatureState, checkRevocationState, checkNationalRulesState]
 
@@ -327,15 +319,15 @@ class Verifier: NSObject {
         }
     }
 
-    private func handleModeResult(_ result: Result<ModeResults, NationalRulesError>, mode: CheckMode) -> VerificationState {
-        switch result {
-        case let .success(modeResults):
-            guard let r = modeResults.getResult(for: mode) else {
-                return VerificationState.invalid(errors: [.otherNationalRules(mode.displayName)], errorCodes: ["V|HN"], validity: nil, wasRevocationSkipped: false)
-            }
+    private func handleModeResult(_ result: ModeResults, mode: CheckMode) -> VerificationState {
+        guard let modeResult = result.getResult(for: mode) else {
+            return VerificationState.invalid(errors: [.otherNationalRules(mode.displayName)], errorCodes: ["V|HN"], validity: nil, wasRevocationSkipped: false)
+        }
 
+        switch modeResult {
+        case let .success(r):
             if r.isValid {
-                return .success(nil, nil, modeResults)
+                return .success(nil, nil, result)
             } else {
                 if r.isModeUnknown() {
                     return VerificationState.invalid(errors: [.unknownMode], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
@@ -346,9 +338,30 @@ class Verifier: NSObject {
                 }
             }
 
-        case let .failure(err):
-            return handleNationalRulesError(err: err)
+        case let .failure(error):
+            return handleNationalRulesError(err: error)
         }
+
+//        case let .success(modeResults):
+//            guard let r = modeResults.getResult(for: mode) else {
+//                return VerificationState.invalid(errors: [.otherNationalRules(mode.displayName)], errorCodes: ["V|HN"], validity: nil, wasRevocationSkipped: false)
+//            }
+//
+//            if r.isValid {
+//                return .success(nil, nil, modeResults)
+//            } else {
+//                if r.isModeUnknown() {
+//                    return VerificationState.invalid(errors: [.unknownMode], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
+//                } else if r.isLightUnsupported() {
+//                    return VerificationState.invalid(errors: [.lightUnsupported(mode.displayName)], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
+//                } else {
+//                    return VerificationState.invalid(errors: [.otherNationalRules(mode.displayName)], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
+//                }
+//            }
+//
+//        case let .failure(err):
+//            return handleNationalRulesError(err: err)
+//        }
     }
 
     private func handleNationalRulesResult(_ result: Result<VerificationResult, NationalRulesError>, modeResults: ModeResults?) -> VerificationState {

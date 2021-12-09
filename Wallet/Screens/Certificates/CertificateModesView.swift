@@ -38,12 +38,17 @@ class CertificateModeView: UIView {
         let modes = Verifier.currentModes()
 
         for m in modes {
-            if let r = modeResults?.results[CheckMode(id: m.id, displayName: m.displayName)] {
-                let img = CheckModesHelper.image(for: m.id, isValid: r.isValid, size: 32, validColor: UIColor.cc_blue, invalidColor: UIColor.cc_grey)
-                let text = CheckModesHelper.text(for: m.id, isValid: r.isValid)
+            if let r = modeResults?.getResult(for: m) {
+                switch r {
+                case let .success(r):
+                    let img = CheckModesHelper.image(for: m.id, isValid: r.isValid, size: 32, validColor: UIColor.cc_blue, invalidColor: UIColor.cc_grey)
+                    let text = CheckModesHelper.text(for: m.id, isValid: r.isValid)
 
-                if let i = img, let t = text {
-                    result.append((i, t))
+                    if let i = img, let t = text {
+                        result.append((i, t))
+                    }
+                case .failure:
+                    break
                 }
             }
         }
@@ -177,12 +182,17 @@ public class ModeStackView: UIView {
         let modes = Verifier.currentModes()
 
         for m in modes {
-            if let r = modeResults?.results[CheckMode(id: m.id, displayName: m.displayName)] {
-                let view = ModeIconView(mode: m.id, isValid: r.isValid, size: itemHeight, validColor: validColor, invalidColor: invalidColor)
-                stackView.addArrangedSubview(view)
+            if let r = modeResults?.getResult(for: m) {
+                switch r {
+                case let .success(r):
+                    let view = ModeIconView(mode: m.id, isValid: r.isValid, size: itemHeight, validColor: validColor, invalidColor: invalidColor)
+                    stackView.addArrangedSubview(view)
 
-                view.snp.makeConstraints { make in
-                    make.height.equalTo(itemHeight)
+                    view.snp.makeConstraints { make in
+                        make.height.equalTo(itemHeight)
+                    }
+                case .failure:
+                    break
                 }
             }
         }
