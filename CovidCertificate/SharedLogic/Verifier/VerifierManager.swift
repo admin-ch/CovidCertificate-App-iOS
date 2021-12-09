@@ -48,7 +48,7 @@ final class VerifierManager {
 
     // MARK: - Public API
 
-    func addObserver(_ object: AnyObject, for qrString: String, forceUpdate: Bool = false, block: @escaping (VerificationState) -> Void) {
+    func addObserver(_ object: AnyObject, for qrString: String, forceUpdate: Bool = false, block: @escaping (VerificationState) -> Void, mode: CheckMode) {
         if observers[qrString] != nil {
             observers[qrString] = observers[qrString]!.filter { $0.object != nil && !$0.object!.isEqual(object) }
             observers[qrString]?.append(Observer(object: object, block: block))
@@ -57,11 +57,11 @@ final class VerifierManager {
         }
 
         if let v = verifiers[qrString] {
-            v.restart(forceUpdate: forceUpdate)
+            v.restart(mode: mode, forceUpdate: forceUpdate)
         } else {
             let v = Verifier(qrString: qrString)
             verifiers[qrString] = v
-            v.start(forceUpdate: forceUpdate) { state in
+            v.start(mode: mode, forceUpdate: forceUpdate) { state in
                 self.updateObservers(for: qrString, state: state)
             }
         }

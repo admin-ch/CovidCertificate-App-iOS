@@ -52,6 +52,7 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     let transferQuestions: LocalizedValue<FAQEntriesContainer>?
     let transferWorks: LocalizedValue<FAQEntriesContainer>?
     let timeshiftDetectionEnabled: Bool?
+    let checkModesInfos: LocalizedValue<CheckModeContainer>?
 
     #if WALLET
         var lightCertificateActive = false
@@ -100,6 +101,34 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         let impfcheckButton: String?
         let impfcheckUrl: String?
     }
+
+    class CheckModeInfo: UBCodable {
+        let iconAndroid: String
+        let iconIos: String
+        let text: String
+    }
+
+    #if WALLET
+        class CheckModeContainer: UBCodable {
+            let modes: [String: CheckModeEntriesContainer]
+        }
+
+        class CheckModeEntriesContainer: UBCodable {
+            let ok: CheckModeInfo
+            let notOk: CheckModeInfo
+        }
+
+    #elseif VERIFIER
+        class CheckModeContainer: UBCodable {
+            let infos: [String: CheckModeEntriesContainer]
+        }
+
+        class CheckModeEntriesContainer: UBCodable {
+            let title: String
+            let hexColor: String
+            let infos: [CheckModeInfo]
+        }
+    #endif
 }
 
 extension ConfigResponseBody {

@@ -78,10 +78,13 @@ class VerifyCheckViewController: ViewController {
             self.checkContentViewController.view.transform = .identity
         } completion: { _ in }
 
-        verifier = Verifier(holder: holder)
-        verifier?.start { [weak self] state in
-            guard let strongSelf = self else { return }
-            strongSelf.state = state
+        // TODO: FIX
+        if let mode = Verifier.currentModes().first {
+            verifier = Verifier(holder: holder)
+            verifier?.start(mode: mode) { [weak self] state in
+                guard let strongSelf = self else { return }
+                strongSelf.state = state
+            }
         }
     }
 
@@ -144,7 +147,10 @@ class VerifyCheckViewController: ViewController {
 
         checkContentViewController.retryButtonCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.verifier?.restart()
+            // TODO: Fix
+            if let mode = Verifier.currentModes().first {
+                strongSelf.verifier?.restart(mode: mode)
+            }
         }
     }
 

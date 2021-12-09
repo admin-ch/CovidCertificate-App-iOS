@@ -41,9 +41,12 @@ public enum LabelType: UBLabelType {
     case monospacedBold
     case codeBold
     case codeBoldSmall
+    case textExtraBold
 
     public var font: UIFont {
         let bfs = FontSize.bodyFontSize()
+
+        let extraBoldFontName = "Inter-ExtraBold"
 
         var boldFontName = "Inter-Bold"
         var lightFontName = "Inter-Light"
@@ -51,7 +54,7 @@ public enum LabelType: UBLabelType {
         if #available(iOS 13.0, *) {
             switch UITraitCollection.current.legibilityWeight {
             case .bold:
-                boldFontName = "Inter-ExtraBold"
+                boldFontName = extraBoldFontName
                 lightFontName = "Inter-Medium"
             default:
                 break
@@ -89,6 +92,8 @@ public enum LabelType: UBLabelType {
             return UIFont(name: "FiraCode-Bold", size: bfs - 2.0)!
         case .monospacedBold:
             return Self.monospacedDigitFont(fontName: boldFontName, size: bfs)
+        case .textExtraBold:
+            return UIFont(name: extraBoldFontName, size: bfs)!
         }
     }
 
@@ -134,6 +139,8 @@ public enum LabelType: UBLabelType {
             return 13.0 / 18.0
         case .monospacedBold:
             return 22.0 / 16.0
+        case .textExtraBold:
+            return 1.0
         }
     }
 

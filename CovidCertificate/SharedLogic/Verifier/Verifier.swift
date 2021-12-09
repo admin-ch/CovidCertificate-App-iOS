@@ -154,9 +154,15 @@ class Verifier: NSObject {
         super.init()
     }
 
+    // MARK: - Modes
+
+    public static func currentModes() -> [CheckMode] {
+        return CovidCertificateSDK.supportedModes
+    }
+
     // MARK: - Start
 
-    public func start(forceUpdate: Bool = false, stateUpdate: @escaping ((VerificationState) -> Void)) {
+    public func start(mode: CheckMode, forceUpdate: Bool = false, stateUpdate: @escaping ((VerificationState) -> Void)) {
         self.stateUpdate = stateUpdate
 
         guard let holder = holder else {
@@ -169,7 +175,7 @@ class Verifier: NSObject {
             self.stateUpdate?(.loading)
         }
 
-        SDKNamespace.check(holder: holder, forceUpdate: forceUpdate) { [weak self] results in
+        SDKNamespace.check(holder: holder, forceUpdate: forceUpdate, mode: mode) { [weak self] results in
             guard let self = self else { return }
             let checkSignatureState = self.handleSignatureResult(results.signature)
             let checkRevocationState = self.handleRevocationResult(results.revocationStatus)
@@ -196,9 +202,9 @@ class Verifier: NSObject {
         }
     }
 
-    public func restart(forceUpdate: Bool = false) {
+    public func restart(mode: CheckMode, forceUpdate: Bool = false) {
         guard let su = stateUpdate else { return }
-        start(forceUpdate: forceUpdate, stateUpdate: su)
+        start(mode: mode, forceUpdate: forceUpdate, stateUpdate: su)
     }
 
     // MARK: - Signature
