@@ -62,6 +62,8 @@
 		6E17392A267B382900813D30 /* TransferCodeAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E173929267B382900813D30 /* TransferCodeAnimationView.swift */; };
 		6E17392E267B487900813D30 /* TransferCodeUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E17392D267B487900813D30 /* TransferCodeUpdateView.swift */; };
 		6E361225267239A4008C0C86 /* ImportHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E361224267239A4008C0C86 /* ImportHandler.swift */; };
+		6E45C1DC2762841100D39553 /* TrailingIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45C1DB2762841100D39553 /* TrailingIconButton.swift */; };
+		6E45C1DD2762841100D39553 /* TrailingIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45C1DB2762841100D39553 /* TrailingIconButton.swift */; };
 		6E5A0F2026432148004718B4 /* HomescreenBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A0F1F26432148004718B4 /* HomescreenBottomView.swift */; };
 		6E5A0F25264336B4004718B4 /* UIStateLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A0F22264336B4004718B4 /* UIStateLogic.swift */; };
 		6E5A0F26264336B4004718B4 /* UIStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A0F23264336B4004718B4 /* UIStateManager.swift */; };
@@ -254,7 +256,6 @@
 		8EB23D78245AF2C30073E83A /* RandomGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23D77245AF2C30073E83A /* RandomGenerators.swift */; };
 		A6BBA110246BFCBC00E42EE7 /* UIDevice+ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BBA10F246BFCBC00E42EE7 /* UIDevice+ScreenType.swift */; };
 		AAF73668242F3D030051E34A /* UIStackView+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF73667242F3D030051E34A /* UIStackView+CC.swift */; };
-		B61114DB2703085C00E7DBAB /* VaccinationCantonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61114DA2703085C00E7DBAB /* VaccinationCantonButton.swift */; };
 		B61114DF27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61114DE27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift */; };
 		B68FDBFA2702FFE000E853D8 /* VaccinationInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */; };
 		DC286A26242CE0B9001D5344 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286A25242CE0B9001D5344 /* Environment.swift */; };
@@ -414,6 +415,7 @@
 		6E173929267B382900813D30 /* TransferCodeAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeAnimationView.swift; sourceTree = "<group>"; };
 		6E17392D267B487900813D30 /* TransferCodeUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCodeUpdateView.swift; sourceTree = "<group>"; };
 		6E361224267239A4008C0C86 /* ImportHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportHandler.swift; sourceTree = "<group>"; };
+		6E45C1DB2762841100D39553 /* TrailingIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailingIconButton.swift; sourceTree = "<group>"; };
 		6E5A0F1E26430B99004718B4 /* Verifier-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Verifier-Info.plist"; sourceTree = "<group>"; };
 		6E5A0F1F26432148004718B4 /* HomescreenBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenBottomView.swift; sourceTree = "<group>"; };
 		6E5A0F22264336B4004718B4 /* UIStateLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStateLogic.swift; sourceTree = "<group>"; };
@@ -537,7 +539,6 @@
 		8EB23D77245AF2C30073E83A /* RandomGenerators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGenerators.swift; sourceTree = "<group>"; };
 		A6BBA10F246BFCBC00E42EE7 /* UIDevice+ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ScreenType.swift"; sourceTree = "<group>"; };
 		AAF73667242F3D030051E34A /* UIStackView+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+CC.swift"; sourceTree = "<group>"; };
-		B61114DA2703085C00E7DBAB /* VaccinationCantonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationCantonButton.swift; sourceTree = "<group>"; };
 		B61114DE27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenVaccinationInfoView.swift; sourceTree = "<group>"; };
 		B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationInformationViewController.swift; sourceTree = "<group>"; };
 		DC286A25242CE0B9001D5344 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -750,6 +751,7 @@
 		24780B04242DF9ED003BB26C /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				6E45C1DB2762841100D39553 /* TrailingIconButton.swift */,
 				6EF166BB264D488A00426985 /* ScannerLightButton.swift */,
 				6E7C0D21242CE2100017C4F9 /* Button.swift */,
 				6EA49E2824443E69009EFCAB /* SimpleTextButton.swift */,
@@ -1211,7 +1213,6 @@
 			isa = PBXGroup;
 			children = (
 				B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */,
-				B61114DA2703085C00E7DBAB /* VaccinationCantonButton.swift */,
 			);
 			path = Vaccination;
 			sourceTree = "<group>";
@@ -1841,6 +1842,7 @@
 				6EC1730D26429E31002E27DB /* NSQRScanningView.swift in Sources */,
 				6EC1730E26429E31002E27DB /* HomescreenBaseViewController.swift in Sources */,
 				F809AF342693B25700D16EED /* OnboardingDisclaimerViewController.swift in Sources */,
+				6E45C1DD2762841100D39553 /* TrailingIconButton.swift in Sources */,
 				DCF9C35526562E2300E34481 /* BasicStaticContentViewController.swift in Sources */,
 				6EC1731026429E31002E27DB /* URLSession+pinning.swift in Sources */,
 				6EC1731126429E31002E27DB /* UIImage+localizedImage.swift in Sources */,
@@ -1946,7 +1948,6 @@
 				DC8ABDFF264AAA1B00FDE0E1 /* ExpandableViewBody.swift in Sources */,
 				F8E6C5622683808F00A9E112 /* DebugSwitchView.swift in Sources */,
 				F88DA6C4268CA82D001DB072 /* NetworkErrorRetryViewController.swift in Sources */,
-				B61114DB2703085C00E7DBAB /* VaccinationCantonButton.swift in Sources */,
 				DC702B0C243F6FAE0066C773 /* UBUserDefault.swift in Sources */,
 				F234B5B927610DA100B361DF /* IconTextInfoBoxView.swift in Sources */,
 				6E8F52D9265BA94B00406430 /* CameraErrorView.swift in Sources */,
@@ -1984,6 +1985,7 @@
 				242D227D245D6581005DAEA8 /* Endpoint.swift in Sources */,
 				DC286A26242CE0B9001D5344 /* Environment.swift in Sources */,
 				DC8ABDFB264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift in Sources */,
+				6E45C1DC2762841100D39553 /* TrailingIconButton.swift in Sources */,
 				DC702B01243F6F640066C773 /* String+CC.swift in Sources */,
 				6EB988722714DBD100DFFA17 /* QRCodeImageCache.swift in Sources */,
 				6E17392E267B487900813D30 /* TransferCodeUpdateView.swift in Sources */,
