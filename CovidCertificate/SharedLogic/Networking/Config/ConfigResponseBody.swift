@@ -69,6 +69,7 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         let vaccinationBookingInfo: LocalizedValue<VaccinationBookingInfo>
     #elseif VERIFIER
         let checkModesInfos: LocalizedValue<CheckModeContainer>?
+        let checkModeReselectAfterHours: Int
     #endif
 
     class FAQEntriesContainer: UBCodable {

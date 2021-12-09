@@ -45,7 +45,7 @@ class UIStateLogic {
 
     private func buildCheckMode() -> CheckModeState {
         #if WALLET
-            return CheckModeState(key: nil)
+            return CheckModeState(key: nil, modes: Verifier.currentModes().map { $0.id })
         #elseif VERIFIER
             return CheckModeState(key: VerifierUserStorage.shared.checkModeKey, modes: Verifier.currentModes().map { $0.id })
         #endif

@@ -14,7 +14,7 @@ import Foundation
 class VerifierUserStorage {
     static let shared = VerifierUserStorage()
 
-    fileprivate static let checkModeValidPeriod: TimeInterval = 60 * 60 * 24 * 2 // 2 days
+    fileprivate static let checkModeValidPeriodHours: Int = 48
 
     @UBUserDefault(key: "verifier.user.hasCompletedOnboarding", defaultValue: false)
     var hasCompletedOnboarding: Bool
@@ -35,6 +35,8 @@ class VerifierUserStorage {
 
     public func checkModeNeedsUpdate() -> Bool {
         guard let last = lastCheckModeSetDate else { return false }
-        return Date() > last.addingTimeInterval(Self.checkModeValidPeriod)
+
+        let validPeriod = ConfigManager.currentConfig?.checkModeReselectAfterHours ?? Self.checkModeValidPeriodHours
+        return Date() > last.addingTimeInterval(TimeInterval(60 * 60 * validPeriod))
     }
 }
