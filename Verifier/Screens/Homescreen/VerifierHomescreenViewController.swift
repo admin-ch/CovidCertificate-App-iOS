@@ -164,7 +164,7 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
 
         bottomView.setMode(mode: mode)
 
-        let title = mode != nil ? UBLocalized.verifier_homescreen_scan_button : UBLocalized.verifier_title_qr_scan
+        let title = mode == nil ? UBLocalized.verifier_homescreen_scan_button : UBLocalized.verifier_homescreen_scan_button_with_mode
 
         checkButton.title = title.replacingOccurrences(of: "{MODE}", with: mode?.displayName ?? "")
     }

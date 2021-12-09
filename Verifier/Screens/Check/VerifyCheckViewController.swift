@@ -28,6 +28,10 @@ class VerifyCheckViewController: ViewController {
 
     // MARK: - Start Check
 
+    public var mode: CheckModeUIObject? {
+        didSet { startCheck() }
+    }
+
     public var holder: VerifierCertificateHolder? {
         didSet {
             checkContentViewController.holder = holder
@@ -53,6 +57,11 @@ class VerifyCheckViewController: ViewController {
 
         view.backgroundColor = .clear
 
+        UIStateManager.shared.addObserver(self) { [weak self] state in
+            guard let strongSelf = self else { return }
+            strongSelf.mode = CheckModesHelper.mode(for: state.checkMode.key)
+        }
+
         setup()
         setupInteraction()
     }
@@ -65,7 +74,7 @@ class VerifyCheckViewController: ViewController {
     // MARK: - Start check
 
     private func startCheck() {
-        guard let holder = holder else { return }
+        guard let holder = holder, let mode = mode else { return }
 
         checkContentViewController.view.isHidden = false
         checkContentViewController.view.transform = CGAffineTransform(translationX: 0.0, y: contentHeight)
@@ -78,13 +87,10 @@ class VerifyCheckViewController: ViewController {
             self.checkContentViewController.view.transform = .identity
         } completion: { _ in }
 
-        // TODO: FIX
-        if let mode = Verifier.currentModes().first {
-            verifier = Verifier(holder: holder)
-            verifier?.start(mode: mode) { [weak self] state in
-                guard let strongSelf = self else { return }
-                strongSelf.state = state
-            }
+        verifier = Verifier(holder: holder)
+        verifier?.start(mode: CheckMode(id: mode.id, displayName: mode.displayName)) { [weak self] state in
+            guard let strongSelf = self else { return }
+            strongSelf.state = state
         }
     }
 

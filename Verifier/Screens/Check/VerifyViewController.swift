@@ -15,10 +15,18 @@ class VerifyViewController: ViewController {
     private let scannerViewController = VerifyScannerViewController()
     private let checkViewController = VerifyCheckViewController()
 
+    private var mode: CheckModeUIObject?
+
     // MARK: - View
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        UIStateManager.shared.addObserver(self) { [weak self] state in
+            guard let strongSelf = self else { return }
+            strongSelf.mode = CheckModesHelper.mode(for: state.checkMode.key)
+            strongSelf.updateUI()
+        }
 
         setup()
         setupInteraction()
@@ -49,7 +57,11 @@ class VerifyViewController: ViewController {
             strongSelf.checkViewController.view.isUserInteractionEnabled = true
 
             UIAccessibility.post(notification: .screenChanged, argument: strongSelf.checkViewController.view)
-            strongSelf.checkViewController.holder = holder
+
+            if let m = strongSelf.mode {
+                strongSelf.checkViewController.mode = m
+                strongSelf.checkViewController.holder = holder
+            }
         }
 
         scannerViewController.dismissTouchUpCallback = { [weak self] in
@@ -67,4 +79,6 @@ class VerifyViewController: ViewController {
             strongSelf.scannerViewController.restart()
         }
     }
+
+    private func updateUI() {}
 }
