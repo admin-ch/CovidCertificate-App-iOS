@@ -35,6 +35,7 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
     private let checkButton = Button(title: UBLocalized.verifier_homescreen_scan_button, style: .normal(.cc_blue))
 
     private let modePopupView = VerifyModePopUpView()
+    private var modePopupIsShown: Bool = false
 
     private var mode: CheckModeUIObject?
 
@@ -55,13 +56,15 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
             }
 
             strongSelf.updateUI()
+
+            strongSelf.showModeSelectionIfNeeded()
         }
 
         NotificationCenter.default.addObserver(self, selector: #selector(userScannedWithUnknownMode), name: .userScannedWithUnknownMode, object: nil)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         showModeSelectionIfNeeded()
     }
 
@@ -168,6 +171,11 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
         modePopupView.chooseCallback = { modeKey in
             VerifierUserStorage.shared.checkModeKey = modeKey
         }
+
+        modePopupView.showCallback = { [weak self] show in
+            guard let strongSelf = self else { return }
+            strongSelf.modePopupIsShown = show
+        }
     }
 
     private func updateUI() {
@@ -184,8 +192,10 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
     }
 
     private func showModeSelectionIfNeeded() {
-        if VerifierUserStorage.shared.lastCheckModeSetDate == nil {
-            modePopupView.presentFrom(view: view, point: view.center)
+        if VerifierUserStorage.shared.lastCheckModeSetDate == nil || mode == nil, Verifier.currentModes().count > 1 {
+            if !modePopupIsShown {
+                modePopupView.presentFrom(view: view, point: view.center)
+            }
         }
     }
 

@@ -60,8 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             linkHandler.handle(url: url)
         }
 
-        VerifierUserStorage.shared.checkModeKey = "8G"
-
         return true
     }
 

@@ -13,4 +13,5 @@ import Foundation
 
 struct CheckModeState: Equatable {
     public let key: String?
+    public let modes: [String]
 }

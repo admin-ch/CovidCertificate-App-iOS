@@ -47,7 +47,7 @@ class UIStateLogic {
         #if WALLET
             return CheckModeState(key: nil)
         #elseif VERIFIER
-            return CheckModeState(key: VerifierUserStorage.shared.checkModeKey)
+            return CheckModeState(key: VerifierUserStorage.shared.checkModeKey, modes: Verifier.currentModes().map { $0.id })
         #endif
     }
 }
