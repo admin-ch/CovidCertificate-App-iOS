@@ -192,30 +192,8 @@ class Verifier: NSObject {
 
         #if WALLET
             SDKNamespace.check(holder: holder, forceUpdate: forceUpdate, modes: modes) { [weak self] results in
-                guard let self = self else { return }
-                let checkSignatureState = self.handleSignatureResult(results.signature)
-                let checkRevocationState = self.handleRevocationResult(results.revocationStatus)
-
-                let checkNationalRulesState = self.handleNationalRulesResult(results.nationalRules, modeResults: results.modeResults)
-
-                let states = [checkSignatureState, checkRevocationState, checkNationalRulesState]
-
-                var errors = states.compactMap { $0.verificationErrors() }.flatMap { $0 }
-                errors.sort()
-
-                var errorCodes = states.compactMap { $0.errorCodes() }.flatMap { $0 }
-                errorCodes.sort()
-
-                let retries = states.filter { $0.isRetry() }
-
-                if errors.count > 0 {
-                    let validityString = checkNationalRulesState.validUntilDateString()
-                    self.stateUpdate?(.invalid(errors: errors, errorCodes: errorCodes, validity: validityString, wasRevocationSkipped: results.revocationStatus == nil))
-                } else if let r = retries.first {
-                    self.stateUpdate?(r)
-                } else if states.allSatisfy({ $0.isSuccess() }) {
-                    self.stateUpdate?(checkNationalRulesState)
-                }
+                guard let strongSelf = self else { return }
+                strongSelf.updateState(with: results)
             }
 
         #elseif VERIFIER
@@ -226,33 +204,41 @@ class Verifier: NSObject {
             }
 
             SDKNamespace.check(holder: holder, forceUpdate: forceUpdate, mode: mode) { [weak self] results in
-                guard let self = self else { return }
-                let checkSignatureState = self.handleSignatureResult(results.signature)
-                let checkRevocationState = self.handleRevocationResult(results.revocationStatus)
-                let checkNationalRulesState = self.handleNationalRulesResult(results.nationalRules, modeResults: results.modeResults)
-                let modeResults = self.handleModeResult(results.modeResults, mode: mode)
-
-                let states = [checkSignatureState, checkRevocationState, checkNationalRulesState, modeResults]
-
-                var errors = states.compactMap { $0.verificationErrors() }.flatMap { $0 }
-                errors.sort()
-
-                var errorCodes = states.compactMap { $0.errorCodes() }.flatMap { $0 }
-                errorCodes.sort()
-
-                let retries = states.filter { $0.isRetry() }
-
-                if errors.count > 0 {
-                    let validityString = checkNationalRulesState.validUntilDateString()
-                    self.stateUpdate?(.invalid(errors: errors, errorCodes: errorCodes, validity: validityString, wasRevocationSkipped: results.revocationStatus == nil))
-                } else if let r = retries.first {
-                    self.stateUpdate?(r)
-                } else if states.allSatisfy({ $0.isSuccess() }) {
-                    self.stateUpdate?(checkNationalRulesState)
-                }
+                guard let strongSelf = self else { return }
+                let modeResults = strongSelf.handleModeResult(results.modeResults, mode: mode)
+                strongSelf.updateState(with: results, modeResults: modeResults)
             }
         #endif
     }
+
+    private func updateState(with results: CheckResults, modeResults: VerificationState? = nil) {
+        let checkSignatureState = self.handleSignatureResult(results.signature)
+        let checkRevocationState = self.handleRevocationResult(results.revocationStatus)
+        let checkNationalRulesState = self.handleNationalRulesResult(results.nationalRules, modeResults: results.modeResults)
+
+        var states = [checkSignatureState, checkRevocationState, checkNationalRulesState]
+        if let mr = modeResults {
+            states.append(mr)
+        }
+
+        var errors = states.compactMap { $0.verificationErrors() }.flatMap { $0 }
+        errors.sort()
+
+        var errorCodes = states.compactMap { $0.errorCodes() }.flatMap { $0 }
+        errorCodes.sort()
+
+        let retries = states.filter { $0.isRetry() }
+
+        if errors.count > 0 {
+            let validityString = checkNationalRulesState.validUntilDateString()
+            self.stateUpdate?(.invalid(errors: errors, errorCodes: errorCodes, validity: validityString, wasRevocationSkipped: results.revocationStatus == nil))
+        } else if let r = retries.first {
+            self.stateUpdate?(r)
+        } else if states.allSatisfy({ $0.isSuccess() }) {
+            self.stateUpdate?(checkNationalRulesState)
+        }
+    }
+
 
     public func restart(modes: [CheckMode], forceUpdate: Bool = false) {
         guard let su = stateUpdate else { return }
