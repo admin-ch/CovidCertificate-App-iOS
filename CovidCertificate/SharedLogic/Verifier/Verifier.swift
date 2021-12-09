@@ -212,9 +212,9 @@ class Verifier: NSObject {
     }
 
     private func updateState(with results: CheckResults, modeResults: VerificationState? = nil) {
-        let checkSignatureState = self.handleSignatureResult(results.signature)
-        let checkRevocationState = self.handleRevocationResult(results.revocationStatus)
-        let checkNationalRulesState = self.handleNationalRulesResult(results.nationalRules, modeResults: results.modeResults)
+        let checkSignatureState = handleSignatureResult(results.signature)
+        let checkRevocationState = handleRevocationResult(results.revocationStatus)
+        let checkNationalRulesState = handleNationalRulesResult(results.nationalRules, modeResults: results.modeResults)
 
         var states = [checkSignatureState, checkRevocationState, checkNationalRulesState]
         if let mr = modeResults {
@@ -231,14 +231,13 @@ class Verifier: NSObject {
 
         if errors.count > 0 {
             let validityString = checkNationalRulesState.validUntilDateString()
-            self.stateUpdate?(.invalid(errors: errors, errorCodes: errorCodes, validity: validityString, wasRevocationSkipped: results.revocationStatus == nil))
+            stateUpdate?(.invalid(errors: errors, errorCodes: errorCodes, validity: validityString, wasRevocationSkipped: results.revocationStatus == nil))
         } else if let r = retries.first {
-            self.stateUpdate?(r)
+            stateUpdate?(r)
         } else if states.allSatisfy({ $0.isSuccess() }) {
-            self.stateUpdate?(checkNationalRulesState)
+            stateUpdate?(checkNationalRulesState)
         }
     }
-
 
     public func restart(modes: [CheckMode], forceUpdate: Bool = false) {
         guard let su = stateUpdate else { return }
