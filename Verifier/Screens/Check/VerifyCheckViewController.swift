@@ -28,9 +28,7 @@ class VerifyCheckViewController: ViewController {
 
     // MARK: - Start Check
 
-    public var mode: CheckModeUIObject? {
-        didSet { startCheck() }
-    }
+    public var mode: CheckModeUIObject?
 
     public var holder: VerifierCertificateHolder? {
         didSet {
