@@ -132,9 +132,7 @@ class VerifyModePopUpView: PopupView {
 
         updateInfos()
 
-        if selectedKey == nil {
-            buttonView.isHidden = true
-        }
+        buttonView.ub_setHidden(selectedKey == nil)
     }
 
     private func select(_ checkBox: CheckBox, animated: Bool) {
