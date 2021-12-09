@@ -101,7 +101,7 @@ class VerifyModePopUpView: PopupView {
 
         updateInfos()
 
-        stackScrollView.addArrangedView(infoView, inset: UIEdgeInsets(top: 0, left: 0, bottom: Padding.small, right: 0))
+        stackScrollView.addArrangedView(infoView, inset: UIEdgeInsets(top: Padding.medium + Padding.small, left: 0, bottom: Padding.small, right: 0))
     }
 
     private func setupInteraction(selectedKey: String?) {

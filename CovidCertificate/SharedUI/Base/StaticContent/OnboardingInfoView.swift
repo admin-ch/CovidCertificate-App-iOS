@@ -32,13 +32,14 @@ class OnboardingInfoView: UIView {
         if icon != nil {
             addSubview(imgView)
             imgView.snp.makeConstraints { make in
-                make.top.equalToSuperview().inset(Padding.medium)
+                make.top.equalToSuperview()
                 make.leading.equalToSuperview().inset(leftRightInset)
             }
         }
 
         label.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(Padding.medium)
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview().inset(Padding.medium + Padding.small)
             if icon != nil {
                 make.leading.equalTo(imgView.snp.trailing).offset(Padding.medium + Padding.small)
             } else {
