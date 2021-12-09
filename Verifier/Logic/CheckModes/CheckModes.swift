@@ -67,7 +67,7 @@ enum CheckModesHelper {
 
             if image == nil {
                 let s = size * UIScreen.main.scale
-                let label = Label(.customExtraBold(size: s))
+                let label = Label(.customExtraBold(s))
                 label.text = Verifier.currentModes().first { $0.id == id }?.displayName ?? " "
                 label.sizeToFit()
 

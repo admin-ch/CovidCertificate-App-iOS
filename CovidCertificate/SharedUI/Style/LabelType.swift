@@ -42,8 +42,7 @@ public enum LabelType: UBLabelType {
     case codeBold
     case codeBoldSmall
     case textExtraBold
-
-    case customExtraBold(size: CGFloat)
+    case customExtraBold(CGFloat)
 
     public var font: UIFont {
         let bfs = FontSize.bodyFontSize()
