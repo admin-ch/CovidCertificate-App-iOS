@@ -302,25 +302,25 @@ import Foundation
      case verifier_apple_app_store_url_key = "verifier_apple_app_store_url"
     /// Gültigkeit des Zertifikats\nabgelaufen
      case verifier_certificate_light_error_expired_key = "verifier_certificate_light_error_expired"
-    /// Für Betriebe und Veranstalter mit 2G-Regel. Es werden nur Zertifikate von Impfungen und Genesungen akzeptiert.
+    /// Für Betriebe und Veranstaltungen, in welchen mit einer 2G-Regelung geprüft wird.
      case verifier_check_mode_info_2g_text_1_key = "verifier_check_mode_info_2g_text_1"
-    /// Zertifikate von Covid-Tests werden als ungültig dargestellt.
+    /// In diesem Modus werden Covid-Zertifikate für Geimpfte oder Genesene akzeptiert.
      case verifier_check_mode_info_2g_text_2_key = "verifier_check_mode_info_2g_text_2"
-    /// Light-Zertifikate können im 2G-Modus nicht geprüft werden.
+    /// Die Prüfung von einem Zertifikat Light ist in diesem Modus aus Datenschutzgründen nicht möglich.
      case verifier_check_mode_info_2g_text_3_key = "verifier_check_mode_info_2g_text_3"
     /// 2G
      case verifier_check_mode_info_2g_title_key = "verifier_check_mode_info_2g_title"
-    /// Für Betriebe und Veranstalter mit 3G-Regel.
+    /// Für Betriebe und Veranstaltungen, in welchen mit einer 3G-Regelung geprüft wird.
      case verifier_check_mode_info_3g_text_1_key = "verifier_check_mode_info_3g_text_1"
-    /// Es werden gültige Zertifikate von Impfungen, Genesungen und Tests akzeptiert.
+    /// In diesem Modus werden Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete akzeptiert.
      case verifier_check_mode_info_3g_text_2_key = "verifier_check_mode_info_3g_text_2"
-    /// Light-Zertifikate können geprüft werden.
+    /// Die Prüfung von einem Zertifikat Light ist in diesem Modus möglich.
      case verifier_check_mode_info_3g_text_3_key = "verifier_check_mode_info_3g_text_3"
     /// 3G
      case verifier_check_mode_info_3g_title_key = "verifier_check_mode_info_3g_title"
-    /// Wählen Sie den Modus, in dem Sie Zertifikate prüfen müssen.
+    /// Wählen Sie den Prüfmodus, in welchem Sie Covid-Zertifikate prüfen möchten.
      case verifier_check_mode_info_unselected_text_1_key = "verifier_check_mode_info_unselected_text_1"
-    /// Die Einstellungen können jederzeit geändert werden
+    /// Der Prüfmodus kann jederzeit geändert werden.
      case verifier_check_mode_info_unselected_text_2_key = "verifier_check_mode_info_unselected_text_2"
     /// wählen
      case verifier_choose_mode_button_title_key = "verifier_choose_mode_button_title"
@@ -358,7 +358,7 @@ import Foundation
      case verifier_faq_works_linktext_1_key = "verifier_faq_works_linktext_1"
     /// Weitere Informationen
      case verifier_faq_works_linktext_2_1_key = "verifier_faq_works_linktext_2_1"
-    /// 
+    /// https://www.youtube.com/watch?v=cVlAi184DU4
      case verifier_faq_works_linkurl_1_key = "verifier_faq_works_linkurl_1"
     /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624
      case verifier_faq_works_linkurl_2_1_key = "verifier_faq_works_linkurl_2_1"
@@ -628,15 +628,15 @@ import Foundation
      case wallet_certificate_verify_success_key = "wallet_certificate_verify_success"
     /// Das Zertifikat wird geprüft
      case wallet_certificate_verifying_key = "wallet_certificate_verifying"
-    /// Hier könnte ein Text stehen, der erklärt was 2G bedeutet und dass der Zertifikatstyp für 2G NICHT ok ist.
+    /// Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.
      case wallet_check_mode_info_2g_not_ok_text_key = "wallet_check_mode_info_2g_not_ok_text"
-    /// Hier könnte ein Text stehen, der erklärt was 2G bedeutet und dass der Zertifikatstyp für 2G ok ist.
+    /// Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.
      case wallet_check_mode_info_2g_ok_text_key = "wallet_check_mode_info_2g_ok_text"
-    /// Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 3G NICHT ok ist.
+    /// Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.
      case wallet_check_mode_info_3g_not_ok_text_key = "wallet_check_mode_info_3g_not_ok_text"
-    /// Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 3G ok ist.
+    /// Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.
      case wallet_check_mode_info_3g_ok_text_key = "wallet_check_mode_info_3g_ok_text"
-    /// Infos
+    /// Info
      case wallet_check_mode_info_title_key = "wallet_check_mode_info_title"
     /// Versuchen Sie es später erneut.
      case wallet_detail_network_error_text_key = "wallet_detail_network_error_text"
@@ -1282,25 +1282,25 @@ import Foundation
    static let verifier_apple_app_store_url = UBLocalized.tr(UBLocalizedKey.verifier_apple_app_store_url_key)
   /// Gültigkeit des Zertifikats\nabgelaufen
    static let verifier_certificate_light_error_expired = UBLocalized.tr(UBLocalizedKey.verifier_certificate_light_error_expired_key)
-  /// Für Betriebe und Veranstalter mit 2G-Regel. Es werden nur Zertifikate von Impfungen und Genesungen akzeptiert.
+  /// Für Betriebe und Veranstaltungen, in welchen mit einer 2G-Regelung geprüft wird.
    static let verifier_check_mode_info_2g_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_text_1_key)
-  /// Zertifikate von Covid-Tests werden als ungültig dargestellt.
+  /// In diesem Modus werden Covid-Zertifikate für Geimpfte oder Genesene akzeptiert.
    static let verifier_check_mode_info_2g_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_text_2_key)
-  /// Light-Zertifikate können im 2G-Modus nicht geprüft werden.
+  /// Die Prüfung von einem Zertifikat Light ist in diesem Modus aus Datenschutzgründen nicht möglich.
    static let verifier_check_mode_info_2g_text_3 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_text_3_key)
   /// 2G
    static let verifier_check_mode_info_2g_title = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_title_key)
-  /// Für Betriebe und Veranstalter mit 3G-Regel.
+  /// Für Betriebe und Veranstaltungen, in welchen mit einer 3G-Regelung geprüft wird.
    static let verifier_check_mode_info_3g_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_text_1_key)
-  /// Es werden gültige Zertifikate von Impfungen, Genesungen und Tests akzeptiert.
+  /// In diesem Modus werden Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete akzeptiert.
    static let verifier_check_mode_info_3g_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_text_2_key)
-  /// Light-Zertifikate können geprüft werden.
+  /// Die Prüfung von einem Zertifikat Light ist in diesem Modus möglich.
    static let verifier_check_mode_info_3g_text_3 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_text_3_key)
   /// 3G
    static let verifier_check_mode_info_3g_title = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_title_key)
-  /// Wählen Sie den Modus, in dem Sie Zertifikate prüfen müssen.
+  /// Wählen Sie den Prüfmodus, in welchem Sie Covid-Zertifikate prüfen möchten.
    static let verifier_check_mode_info_unselected_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_unselected_text_1_key)
-  /// Die Einstellungen können jederzeit geändert werden
+  /// Der Prüfmodus kann jederzeit geändert werden.
    static let verifier_check_mode_info_unselected_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_unselected_text_2_key)
   /// wählen
    static let verifier_choose_mode_button_title = UBLocalized.tr(UBLocalizedKey.verifier_choose_mode_button_title_key)
@@ -1338,7 +1338,7 @@ import Foundation
    static let verifier_faq_works_linktext_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linktext_1_key)
   /// Weitere Informationen
    static let verifier_faq_works_linktext_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linktext_2_1_key)
-  /// 
+  /// https://www.youtube.com/watch?v=cVlAi184DU4
    static let verifier_faq_works_linkurl_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linkurl_1_key)
   /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624
    static let verifier_faq_works_linkurl_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linkurl_2_1_key)
@@ -1608,15 +1608,15 @@ import Foundation
    static let wallet_certificate_verify_success = UBLocalized.tr(UBLocalizedKey.wallet_certificate_verify_success_key)
   /// Das Zertifikat wird geprüft
    static let wallet_certificate_verifying = UBLocalized.tr(UBLocalizedKey.wallet_certificate_verifying_key)
-  /// Hier könnte ein Text stehen, der erklärt was 2G bedeutet und dass der Zertifikatstyp für 2G NICHT ok ist.
+  /// Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.
    static let wallet_check_mode_info_2g_not_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_not_ok_text_key)
-  /// Hier könnte ein Text stehen, der erklärt was 2G bedeutet und dass der Zertifikatstyp für 2G ok ist.
+  /// Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.
    static let wallet_check_mode_info_2g_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_ok_text_key)
-  /// Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 3G NICHT ok ist.
+  /// Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.
    static let wallet_check_mode_info_3g_not_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_3g_not_ok_text_key)
-  /// Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 3G ok ist.
+  /// Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.
    static let wallet_check_mode_info_3g_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_3g_ok_text_key)
-  /// Infos
+  /// Info
    static let wallet_check_mode_info_title = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_title_key)
   /// Versuchen Sie es später erneut.
    static let wallet_detail_network_error_text = UBLocalized.tr(UBLocalizedKey.wallet_detail_network_error_text_key)

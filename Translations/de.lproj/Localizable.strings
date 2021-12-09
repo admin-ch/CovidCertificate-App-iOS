@@ -1271,7 +1271,7 @@
 
 /*Fuzzy*/
 "verifier_faq_works_linktext_1" = "Erklärvideo";
-"verifier_faq_works_linkurl_1" = "";
+"verifier_faq_works_linkurl_1" = "https://www.youtube.com/watch?v=cVlAi184DU4";
 
 /*Title of button to choose verification mode*/
 "verifier_choose_mode_button_title" = "wählen";
@@ -1285,17 +1285,17 @@
 
 /*👍*/
 /*title for info pop-up in wallet app describing the validation states for the different check modes*/
-"wallet_check_mode_info_title" = "Infos";
+"wallet_check_mode_info_title" = "Info";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G OK state*/
 /*Fuzzy*/
-"wallet_check_mode_info_2g_ok_text" = "Hier könnte ein Text stehen, der erklärt was 2G bedeutet und dass der Zertifikatstyp für 2G ok ist.";
+"wallet_check_mode_info_2g_ok_text" = "Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G NOT OK state*/
 /*Fuzzy*/
-"wallet_check_mode_info_2g_not_ok_text" = "Hier könnte ein Text stehen, der erklärt was 2G bedeutet und dass der Zertifikatstyp für 2G NICHT ok ist.";
+"wallet_check_mode_info_2g_not_ok_text" = "Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> display name of check mode 3G*/
@@ -1307,28 +1307,28 @@
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 3g*/
-"verifier_check_mode_info_3g_text_1" = "Für Betriebe und Veranstalter mit 3G-Regel.";
+"verifier_check_mode_info_3g_text_1" = "Für Betriebe und Veranstaltungen, in welchen mit einer 3G-Regelung geprüft wird.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 3g*/
-"verifier_check_mode_info_3g_text_2" = "Es werden gültige Zertifikate von Impfungen, Genesungen und Tests akzeptiert.";
+"verifier_check_mode_info_3g_text_2" = "In diesem Modus werden Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete akzeptiert.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 3g*/
-"verifier_check_mode_info_3g_text_3" = "Light-Zertifikate können geprüft werden.";
+"verifier_check_mode_info_3g_text_3" = "Die Prüfung von einem Zertifikat Light ist in diesem Modus möglich.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 2g*/
-"verifier_check_mode_info_2g_text_1" = "Für Betriebe und Veranstalter mit 2G-Regel. Es werden nur Zertifikate von Impfungen und Genesungen akzeptiert.";
+"verifier_check_mode_info_2g_text_1" = "Für Betriebe und Veranstaltungen, in welchen mit einer 2G-Regelung geprüft wird.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 2g*/
-"verifier_check_mode_info_2g_text_2" = "Zertifikate von Covid-Tests werden als ungültig dargestellt.";
+"verifier_check_mode_info_2g_text_2" = "In diesem Modus werden Covid-Zertifikate für Geimpfte oder Genesene akzeptiert.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 2g*/
 /*Fuzzy*/
-"verifier_check_mode_info_2g_text_3" = "Light-Zertifikate können im 2G-Modus nicht geprüft werden.";
+"verifier_check_mode_info_2g_text_3" = "Die Prüfung von einem Zertifikat Light ist in diesem Modus aus Datenschutzgründen nicht möglich.";
 
 /*👍*/
 /*Verifier: Modus auswählen Titel*/
@@ -1336,11 +1336,11 @@
 
 /*👍*/
 /*text for info pop-up in wallet app describing 3G OK state*/
-"wallet_check_mode_info_3g_ok_text" = "Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 3G ok ist.";
+"wallet_check_mode_info_3g_ok_text" = "Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 3G NOT OK state*/
-"wallet_check_mode_info_3g_not_ok_text" = "Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 3G NICHT ok ist.";
+"wallet_check_mode_info_3g_not_ok_text" = "Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.";
 
 /*Titel für Fehler wenn Modus Light-Zertifikat nicht unterstützt*/
 "verifier_verify_light_not_supported_by_mode_title" = "Beim zu prüfenden Covid-Zertifikat handelt es sich um ein Zertifikat Light. Dies kann im {MODUS}-Prüfmodus nicht geprüft werden.";
@@ -1350,7 +1350,7 @@
 
 /*check app -> check mode select pop-up -> info text when no check mode is selected*/
 /*Fuzzy*/
-"verifier_check_mode_info_unselected_text_1" = "Wählen Sie den Modus, in dem Sie Zertifikate prüfen müssen.";
+"verifier_check_mode_info_unselected_text_1" = "Wählen Sie den Prüfmodus, in welchem Sie Covid-Zertifikate prüfen möchten.";
 
 /*check app -> check mode select pop-up -> info text when no check mode is selected*/
-"verifier_check_mode_info_unselected_text_2" = "Die Einstellungen können jederzeit geändert werden";
+"verifier_check_mode_info_unselected_text_2" = "Der Prüfmodus kann jederzeit geändert werden.";

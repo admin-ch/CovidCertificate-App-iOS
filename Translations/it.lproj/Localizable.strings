@@ -69,7 +69,7 @@
 "verifier_verify_error_title" = "Certificato non valido";
 
 /*Fehler Infotext bei Prüfung (Nationale Regeln)*/
-"verifier_verify_error_info_for_national_rules" = "Entspricht nicht den Gültigkeitskriterien der Schweiz oder des Prüfmodus ({MODUS})";
+"verifier_verify_error_info_for_national_rules" = "Non conforme ai criteri di validità applicati in Svizzera o della modalità di verifica  ({MODUS})";
 
 /*Fehler Infotext bei Prüfung (Zertifikat Fehler)*/
 "verifier_verify_error_info_for_certificate_invalid" = "Il certificato COVID non dispone di una firma valida";
@@ -1244,29 +1244,29 @@
 
 /*Fuzzy*/
 "verifier_faq_works_linktext_1" = "Video esplicativo";
-"verifier_faq_works_linkurl_1" = "";
+"verifier_faq_works_linkurl_1" = "https://www.youtube.com/watch?v=Ix1s0PankKo&feature=emb_title";
 
 /*Title of button to choose verification mode*/
-"verifier_choose_mode_button_title" = "wählen";
+"verifier_choose_mode_button_title" = "Scegliere";
 
 /*👍*/
 /*Verifier app scan button with indication of mode*/
-"verifier_homescreen_scan_button_with_mode" = "Prüfen ({MODE})";
+"verifier_homescreen_scan_button_with_mode" = "Verifica ({MODE})";
 
 /*error if scan was performed with a no longer existing mode*/
-"verifier_error_mode_no_longer_exists" = "Ihr gewählter Prüfmodus existiert nicht mehr.";
+"verifier_error_mode_no_longer_exists" = "La modalità di verifica selezionata non esiste più.";
 
 /*👍*/
 /*title for info pop-up in wallet app describing the validation states for the different check modes*/
-"wallet_check_mode_info_title" = "Infos";
+"wallet_check_mode_info_title" = "Info";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G OK state*/
-"wallet_check_mode_info_2g_ok_text" = "Hier könnte ein Text stehen, der erklärt was 2G bedeutet und dass der Zertifikatstyp für 2G ok ist.";
+"wallet_check_mode_info_2g_ok_text" = "Per l’accesso a strutture e a manifestazioni in cui si applica la regola 2G sono ammessi certificati COVID per persone vaccinate o guarite. I certificati COVID per persone testate negative e i certificati light non sono accettati.";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G NOT OK state*/
-"wallet_check_mode_info_2g_not_ok_text" = "Hier könnte ein Text stehen, der erklärt was 2G bedeutet und dass der Zertifikatstyp für 2G NICHT ok ist.";
+"wallet_check_mode_info_2g_not_ok_text" = "Per l’accesso a strutture e a manifestazioni in cui si applica la regola 2G sono ammessi certificati COVID per persone vaccinate o guarite. I certificati COVID per persone testate negative e i certificati light non sono accettati.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> display name of check mode 3G*/
@@ -1278,48 +1278,48 @@
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 3g*/
-"verifier_check_mode_info_3g_text_1" = "Für Betriebe und Veranstalter mit 3G-Regel.";
+"verifier_check_mode_info_3g_text_1" = "Per le strutture e le manifestazioni in cui si applica la regola 3G.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 3g*/
-"verifier_check_mode_info_3g_text_2" = "Es werden gültige Zertifikate von Impfungen, Genesungen und Tests akzeptiert.";
+"verifier_check_mode_info_3g_text_2" = "In questa modalità sono accettati i certificati COVID per persone vaccinate, guartite o testate negative.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 3g*/
-"verifier_check_mode_info_3g_text_3" = "Light-Zertifikate können geprüft werden.";
+"verifier_check_mode_info_3g_text_3" = "I certificati light possono essere verificati.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 2g*/
-"verifier_check_mode_info_2g_text_1" = "Für Betriebe und Veranstalter mit 2G-Regel. Es werden nur Zertifikate von Impfungen und Genesungen akzeptiert.";
+"verifier_check_mode_info_2g_text_1" = "Per le strutture e le manifestazioni in cui si applica la regola 2G.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 2g*/
-"verifier_check_mode_info_2g_text_2" = "Zertifikate von Covid-Tests werden als ungültig dargestellt.";
+"verifier_check_mode_info_2g_text_2" = "In questa modalità sono accettati i certificati COVID per persone vaccinate o guartite.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 2g*/
-"verifier_check_mode_info_2g_text_3" = "Light-Zertifikate können im 2G-Modus nicht geprüft werden.";
+"verifier_check_mode_info_2g_text_3" = "Questa modalità non permette di verificare i certificati light per motivi legati alla protezione dei dati.";
 
 /*👍*/
 /*Verifier: Modus auswählen Titel*/
-"verifier_mode_title" = "Prüfmodus";
+"verifier_mode_title" = "Modalità di verifica";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 3G OK state*/
-"wallet_check_mode_info_3g_ok_text" = "Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 3G ok ist.";
+"wallet_check_mode_info_3g_ok_text" = "Per l’accesso a strutture e a manifestazioni in cui si applica la regola 3G sono ammessi certificati COVID per persone vaccinate, guartite o testate negative.";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 3G NOT OK state*/
-"wallet_check_mode_info_3g_not_ok_text" = "Hier könnte ein Text stehen, der erklärt was 3G bedeutet und dass der Zertifikatstyp für 3G NICHT ok ist.";
+"wallet_check_mode_info_3g_not_ok_text" = "Per l’accesso a strutture e a manifestazioni in cui si applica la regola 3G sono ammessi certificati COVID per persone vaccinate, guartite o testate negative.";
 
 /*Titel für Fehler wenn Modus Light-Zertifikat nicht unterstützt*/
-"verifier_verify_light_not_supported_by_mode_title" = "Beim zu prüfenden Covid-Zertifikat handelt es sich um ein Zertifikat Light. Dies kann im {MODUS}-Prüfmodus nicht geprüft werden.";
+"verifier_verify_light_not_supported_by_mode_title" = "Il certificato è di tipo «light». Questo tipo di certificato non può essere verificato nella modalità {MODUS}.";
 
 /*Text für Fehler wenn Modus Light-Zertifikat nicht unterstützt*/
-"verifier_verify_light_not_supported_by_mode_text" = "Die Prüfung kann in diesem Fall nur erfolgen, wenn die Umwandlung in ein Zertifikat Light rückgängig gemacht wird.";
+"verifier_verify_light_not_supported_by_mode_text" = "Per verificare il certificato è necessario disattivare il certificato light e tornare al certificato di base.";
 
 /*check app -> check mode select pop-up -> info text when no check mode is selected*/
-"verifier_check_mode_info_unselected_text_1" = "Wählen Sie den Modus, in dem Sie Zertifikate prüfen müssen.";
+"verifier_check_mode_info_unselected_text_1" = "Selezionare la modalità in cui verificare i certificati COVID.";
 
 /*check app -> check mode select pop-up -> info text when no check mode is selected*/
-"verifier_check_mode_info_unselected_text_2" = "Die Einstellungen können jederzeit geändert werden";
+"verifier_check_mode_info_unselected_text_2" = "La modalità di verifica può essere cambiata in qualsiasi momento.";
