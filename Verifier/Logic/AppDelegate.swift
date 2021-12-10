@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             isFirstLaunch = false
         }
 
+        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
+
         // Reset keychain on first launch
         if isFirstLaunch {
             Keychain().deleteAll()
@@ -41,8 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // no onboarding: so directly complete it here (so that the
         // isFirstLaunch still works)
         VerifierUserStorage.shared.hasCompletedOnboarding = true
-
-        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
 
         SDKOptionsManager.updateSDKOptions()
 

@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             isFirstLaunch = false
         }
 
+        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
+
         // Reset keychain on first launch
         if isFirstLaunch {
             Keychain().deleteAll()
@@ -38,8 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             CertificateStorage.shared.removeAll()
             isFirstLaunch = false
         }
-
-        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
 
         // migrates certificates from keychain to secure storage
         Migration.migrateToSecureStorage()
