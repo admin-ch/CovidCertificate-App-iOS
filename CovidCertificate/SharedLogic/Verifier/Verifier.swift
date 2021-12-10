@@ -197,15 +197,9 @@ class Verifier: NSObject {
             }
 
         #elseif VERIFIER
-            guard let mode = modes.first else {
-                // should never happen
-                self.stateUpdate?(.invalid(errors: [.unknown], errorCodes: ["V|HN"], validity: nil, wasRevocationSkipped: false))
-                return
-            }
-
-            SDKNamespace.check(holder: holder, forceUpdate: forceUpdate, mode: mode) { [weak self] results in
+            SDKNamespace.check(holder: holder, forceUpdate: forceUpdate, mode: modes.first) { [weak self] results in
                 guard let strongSelf = self else { return }
-                let modeResults = strongSelf.handleModeResult(results.modeResults, mode: mode)
+                let modeResults = strongSelf.handleModeResult(results.modeResults, mode: modes.first)
                 strongSelf.updateState(with: results, modeResults: modeResults)
             }
         #endif
@@ -304,9 +298,9 @@ class Verifier: NSObject {
         }
     }
 
-    private func handleModeResult(_ result: ModeResults, mode: CheckMode) -> VerificationState {
-        guard let modeResult = result.getResult(for: mode) else {
-            return VerificationState.invalid(errors: [.otherNationalRules(mode.displayName)], errorCodes: ["V|HN"], validity: nil, wasRevocationSkipped: false)
+    private func handleModeResult(_ result: ModeResults, mode: CheckMode?) -> VerificationState {
+        guard let mode = mode, let modeResult = result.getResult(for: mode) else {
+            return VerificationState.skipped
         }
 
         switch modeResult {
