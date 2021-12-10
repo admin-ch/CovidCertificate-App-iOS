@@ -18,4 +18,5 @@ struct UIStateModel: Equatable {
     let certificateState: CertificateState
     let infoBoxState: InfoBox?
     let vaccinationInfoState: VaccinationInfo
+    let checkMode: CheckModeState
 }

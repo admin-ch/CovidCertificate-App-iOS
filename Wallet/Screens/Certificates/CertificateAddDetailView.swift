@@ -94,7 +94,7 @@ class CertificateAddDetailView: UIView {
         stackScrollView.addSpacerView(2.0 * Padding.large)
 
         if let cert = certificate {
-            let v = CertificateDetailView(showEnglishLabelsIfNeeded: false)
+            let v = CertificateDetailView(showEnglishLabelsIfNeeded: false, addTopDivider: true)
             v.certificate = cert
             stackScrollView.addArrangedView(v)
         }

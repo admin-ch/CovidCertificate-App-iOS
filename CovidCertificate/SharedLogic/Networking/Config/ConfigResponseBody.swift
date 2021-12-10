@@ -54,6 +54,8 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     let timeshiftDetectionEnabled: Bool?
 
     #if WALLET
+        let checkModesInfo: LocalizedValue<CheckModeContainer>?
+
         var lightCertificateActive = false
         var pdfGenerationActive = false
 
@@ -61,8 +63,13 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         var showVaccinationHintDetail = false
         var showVaccinationHintTransfer = false
 
+        let lightCertDurationInHours: Int
+
         let vaccinationHints: LocalizedValue<[VaccinationHint]>
         let vaccinationBookingInfo: LocalizedValue<VaccinationBookingInfo>
+    #elseif VERIFIER
+        let checkModesInfos: LocalizedValue<CheckModeContainer>?
+        let checkModeReselectAfterHours: Int
     #endif
 
     class FAQEntriesContainer: UBCodable {
@@ -100,6 +107,40 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         let impfcheckButton: String?
         let impfcheckUrl: String?
     }
+
+    class CheckModeInfo: UBCodable {
+        let iconAndroid: String
+        let iconIos: String
+        let text: String
+    }
+
+    #if WALLET
+        class CheckModeContainer: UBCodable {
+            let title: String
+            let modes: [String: CheckModeEntriesContainer]
+        }
+
+        class CheckModeEntriesContainer: UBCodable {
+            let ok: CheckModeInfo
+            let notOk: CheckModeInfo
+        }
+
+    #elseif VERIFIER
+        class CheckModeContainer: UBCodable {
+            let infos: [String: CheckModeEntriesContainer]
+            let unselected: CheckModeUnselected
+        }
+
+        class CheckModeEntriesContainer: UBCodable {
+            let title: String
+            let hexColor: String
+            let infos: [CheckModeInfo]
+        }
+
+        class CheckModeUnselected: UBCodable {
+            let infos: [CheckModeInfo]
+        }
+    #endif
 }
 
 extension ConfigResponseBody {

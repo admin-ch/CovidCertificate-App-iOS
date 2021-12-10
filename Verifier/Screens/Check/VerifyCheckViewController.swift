@@ -28,6 +28,8 @@ class VerifyCheckViewController: ViewController {
 
     // MARK: - Start Check
 
+    public var mode: CheckModeUIObject?
+
     public var holder: VerifierCertificateHolder? {
         didSet {
             checkContentViewController.holder = holder
@@ -41,6 +43,11 @@ class VerifyCheckViewController: ViewController {
 
     private var state: VerificationState = .loading {
         didSet {
+            if state.wasModeUnknown {
+                NotificationCenter.default.post(name: .userScannedWithUnknownMode, object: nil)
+                return
+            }
+
             updateBackground(true)
             self.checkContentViewController.state = state
         }
@@ -52,6 +59,11 @@ class VerifyCheckViewController: ViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .clear
+
+        UIStateManager.shared.addObserver(self) { [weak self] state in
+            guard let strongSelf = self else { return }
+            strongSelf.mode = CheckModesHelper.mode(for: state.checkMode.key)
+        }
 
         setup()
         setupInteraction()
@@ -79,7 +91,13 @@ class VerifyCheckViewController: ViewController {
         } completion: { _ in }
 
         verifier = Verifier(holder: holder)
-        verifier?.start { [weak self] state in
+
+        var modes: [CheckMode] = []
+        if let m = mode {
+            modes.append(CheckMode(id: m.id, displayName: m.displayName))
+        }
+
+        verifier?.start(modes: modes) { [weak self] state in
             guard let strongSelf = self else { return }
             strongSelf.state = state
         }
@@ -144,7 +162,9 @@ class VerifyCheckViewController: ViewController {
 
         checkContentViewController.retryButtonCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.verifier?.restart()
+            if let mode = strongSelf.mode {
+                strongSelf.verifier?.restart(modes: [CheckMode(id: mode.id, displayName: mode.displayName)])
+            }
         }
     }
 
@@ -166,9 +186,17 @@ class VerifyCheckViewController: ViewController {
                 self.imageView.image = UIImage(named: "ic-header-valid")
                 self.backgroundView.backgroundColor = .cc_green
             case .invalid:
+                let (_, _, nationalError) = self.state.getVerifierErrorState() ?? (nil, nil, nil)
+
+                var isLightUnsupported = false
+                if let n = nationalError, case .lightUnsupported = n {
+                    isLightUnsupported = true
+                }
+
                 self.imageView.layer.removeAllAnimations()
-                self.imageView.image = UIImage(named: "ic-header-invalid")
-                self.backgroundView.backgroundColor = .cc_red
+
+                self.imageView.image = UIImage(named: isLightUnsupported ? "ic-header-error" : "ic-header-invalid")
+                self.backgroundView.backgroundColor = isLightUnsupported ? .cc_orange : .cc_red
             case let .retry(error, _):
                 self.imageView.layer.removeAllAnimations()
                 let imageName: String

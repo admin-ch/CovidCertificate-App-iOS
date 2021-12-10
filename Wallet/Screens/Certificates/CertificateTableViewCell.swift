@@ -120,7 +120,7 @@ class CertificateTableViewCell: UITableViewCell {
                 stateLabel.type = .light
             }
 
-            VerifierManager.shared.addObserver(self, for: qrCode) { [weak self] state in
+            VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes()) { [weak self] state in
                 guard let strongSelf = self else { return }
                 strongSelf.state = state
             }
@@ -167,7 +167,7 @@ class CertificateTableViewCell: UITableViewCell {
             case let .invalid(errors, _, _, _):
                 if let e = errors.first {
                     switch e {
-                    case .signature, .revocation, .otherNationalRules, .unknown, .typeInvalid:
+                    case .signature, .revocation, .otherNationalRules, .unknown, .typeInvalid, .lightUnsupported, .unknownMode:
                         self.qrCodeStateImageView.image = invalid
                     case .expired, .signatureExpired:
                         self.qrCodeStateImageView.image = expired

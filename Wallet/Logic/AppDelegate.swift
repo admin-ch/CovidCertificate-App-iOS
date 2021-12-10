@@ -39,6 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             isFirstLaunch = false
         }
 
+        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
+
         // migrates certificates from keychain to secure storage
         Migration.migrateToSecureStorage()
 
@@ -47,8 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // migrate transfer code expiry and fail dates
         Migration.migrateFailExpiryDatesOnTransferCodes()
-
-        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
 
         SDKOptionsManager.updateSDKOptions()
 

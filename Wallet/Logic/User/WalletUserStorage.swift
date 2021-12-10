@@ -151,7 +151,7 @@ class CertificateStorage {
                 case let .success(holder):
                     let semaphore = DispatchSemaphore(value: 0)
                     // we only delete light certificates which signature is expired
-                    CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: false) { checkResults in
+                    CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: false, modes: Verifier.currentModes()) { checkResults in
                         switch checkResults.signature {
                         case .failure(.CWT_EXPIRED):
                             isValid = false

@@ -15,7 +15,7 @@ import Foundation
 enum TemporaryVerifierState: Equatable {
     case idle
     case verifying
-    case success(String?)
+    case success(String?, ModeResults?)
     case failure
     case retry(RetryError, [String])
 }
@@ -25,7 +25,10 @@ class CertificateDetailViewController: ViewController {
     private let qrCodeNameView = QRCodeNameView()
 
     private lazy var stateView = CertificateStateView(isHomescreen: false, showValidity: true)
-    private lazy var detailView = CertificateDetailView(showEnglishLabelsIfNeeded: true)
+    private lazy var detailView = CertificateDetailView(showEnglishLabelsIfNeeded: true, addTopDivider: false)
+
+    private let modeView = CertificateModeView()
+    private var infoPopupView: IconTextInfoBoxView?
 
     private let removeButton = Button(title: UBLocalized.delete_button, style: .normal(.cc_bund))
 
@@ -129,8 +132,11 @@ class CertificateDetailViewController: ViewController {
 
         stackScrollView.addSpacerView(2.0 * Padding.large)
         stackScrollView.addArrangedView(stateView, inset: padding)
+        stackScrollView.addSpacerView(Padding.medium)
 
-        stackScrollView.addSpacerView(2.0 * Padding.large)
+        stackScrollView.addArrangedView(modeView, inset: padding)
+
+        stackScrollView.addSpacerView(Padding.medium)
         stackScrollView.addArrangedView(detailView, inset: padding)
 
         stackScrollView.addSpacerView(2.0 * Padding.large + 2.0 * Padding.small)
@@ -229,6 +235,19 @@ class CertificateDetailViewController: ViewController {
             guard let strongSelf = self else { return }
             strongSelf.navigationController?.pushViewController(VaccinationInformationViewController(), animated: true)
         }
+
+        modeView.button.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.infoPopupView?.removeFromSuperview()
+
+            strongSelf.infoPopupView = IconTextInfoBoxView(iconTextStrs: strongSelf.modeView.infoImageTexts())
+            strongSelf.view.addSubview(strongSelf.infoPopupView!)
+            // without autolayout this guarantees correct layout for animation
+            strongSelf.infoPopupView?.frame = strongSelf.view.frame
+            strongSelf.infoPopupView?.layoutIfNeeded()
+
+            strongSelf.infoPopupView?.presentFrom(view: strongSelf.modeView.button)
+        }
     }
 
     private func updateCertificate() {
@@ -280,7 +299,7 @@ class CertificateDetailViewController: ViewController {
             self.qrCodeStateView.state = self.temporaryVerifierState
         }
 
-        VerifierManager.shared.addObserver(self, for: qrCode, forceUpdate: true) { [weak self] state in
+        VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes(), forceUpdate: true) { [weak self] state in
             guard let self = self else { return }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
@@ -288,7 +307,7 @@ class CertificateDetailViewController: ViewController {
                 switch state {
                 case .loading: self.temporaryVerifierState = .verifying
                 case .skipped: self.temporaryVerifierState = .idle
-                case let .success(validUntil, _): self.temporaryVerifierState = .success(validUntil)
+                case let .success(validUntil, _, modesResult): self.temporaryVerifierState = .success(validUntil, modesResult)
                 case .invalid: self.temporaryVerifierState = .failure
                 case let .retry(error, errorCodes): self.temporaryVerifierState = .retry(error, errorCodes)
                 }
@@ -304,7 +323,7 @@ class CertificateDetailViewController: ViewController {
         state = .loading
         verifyButton.alpha = 0
 
-        VerifierManager.shared.addObserver(self, for: qrCode) { [weak self] state in
+        VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes()) { [weak self] state in
             guard let self = self else { return }
             self.qrCodeStateView.alpha = 0
             self.verifyButton.alpha = state == .loading ? 0 : 1
@@ -326,6 +345,7 @@ class CertificateDetailViewController: ViewController {
 
     private func update() {
         stateView.states = (state, temporaryVerifierState)
+        modeView.states = (state, temporaryVerifierState)
         detailView.updateLabelColors(for: (state, temporaryVerifierState), animated: true)
         qrCodeNameView.enabled = temporaryVerifierState != .idle || !state.isInvalid()
 
@@ -341,7 +361,7 @@ class CertificateDetailViewController: ViewController {
 
             // PDF export is enabled for certificates that were issed by switzerland and have a valid signature
             if issuedBySwitzerland {
-                CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: false) { [weak self] results in
+                CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: false, modes: Verifier.currentModes()) { [weak self] results in
                     guard let self = self else { return }
 
                     switch results.signature {

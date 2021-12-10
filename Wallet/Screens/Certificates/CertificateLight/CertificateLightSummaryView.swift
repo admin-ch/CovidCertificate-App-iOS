@@ -71,7 +71,7 @@ class CertificateLightSummaryView: UIView {
 
         stackView.addArrangedView(
             OnboardingInfoView(icon: UIImage(named: "ic-timelapse")?.ub_image(with: .cc_blue),
-                               text: UBLocalized.wallet_certificate_light_detail_summary_3,
+                               text: UBLocalized.wallet_certificate_light_detail_summary_3.replacingOccurrences(of: "{LIGHT_CERT_VALIDITY_IN_H}", with: "\(ConfigManager.currentConfig?.lightCertDurationInHours ?? 24)"),
                                alignment: .left,
                                leftRightInset: Padding.medium)
         )

@@ -14,9 +14,29 @@ import Foundation
 class VerifierUserStorage {
     static let shared = VerifierUserStorage()
 
+    fileprivate static let checkModeValidPeriodHours: Int = 48
+
     @UBUserDefault(key: "verifier.user.hasCompletedOnboarding", defaultValue: false)
     var hasCompletedOnboarding: Bool
 
     @UBUserDefault(key: "wallet.user.hasCompletedLightCertificateUpdateBoarding", defaultValue: false)
     var hasCompletedLightCertificateUpdateBoarding: Bool
+
+    @UBUserDefault(key: "verifier.user.checkmode.key", defaultValue: nil)
+    var checkModeKey: String? {
+        didSet {
+            lastCheckModeSetDate = Date()
+            UIStateManager.shared.stateChanged()
+        }
+    }
+
+    @UBUserDefault(key: "verifier.user.checkmode.set.date", defaultValue: nil)
+    var lastCheckModeSetDate: Date?
+
+    public func checkModeNeedsUpdate() -> Bool {
+        guard let last = lastCheckModeSetDate else { return false }
+
+        let validPeriod = ConfigManager.currentConfig?.checkModeReselectAfterHours ?? Self.checkModeValidPeriodHours
+        return Date() > last.addingTimeInterval(TimeInterval(60 * 60 * validPeriod))
+    }
 }

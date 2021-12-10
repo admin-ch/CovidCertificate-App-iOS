@@ -15,6 +15,8 @@ class CertificateQRCodeStateView: UIView {
     private let backgroundView = UIView()
     private let imageView = UIImageView()
 
+    private let modeView = ModeStackView(itemHeight: 32.0, validColor: .cc_white, invalidColor: .cc_text)
+
     var state: TemporaryVerifierState {
         didSet {
             if oldValue != state {
@@ -48,28 +50,42 @@ class CertificateQRCodeStateView: UIView {
         imageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
+
+        addSubview(modeView)
+        modeView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalTo(self.snp.bottom).multipliedBy(0.75)
+        }
     }
 
     private func updateBackground(animated: Bool) {
         let actions = {
             self.alpha = self.state != .idle ? 1 : 0
+
             switch self.state {
             case .idle:
                 self.imageView.layer.removeAllAnimations()
                 self.imageView.image = nil
                 self.backgroundView.backgroundColor = nil
+                self.modeView.modeResults = nil
+
             case .verifying:
                 self.imageView.image = UIImage(named: "ic-header-load")
                 self.imageView.rotate(time: 1.0)
                 self.backgroundView.backgroundColor = .cc_grey
-            case .success:
+                self.modeView.modeResults = nil
+
+            case let .success(_, modeResults):
                 self.imageView.layer.removeAllAnimations()
                 self.imageView.image = UIImage(named: "ic-header-valid")
                 self.backgroundView.backgroundColor = .cc_green
+                self.modeView.modeResults = modeResults
             case .failure:
                 self.imageView.layer.removeAllAnimations()
                 self.imageView.image = UIImage(named: "ic-header-invalid")
                 self.backgroundView.backgroundColor = .cc_red
+                self.modeView.modeResults = nil
+
             case let .retry(error, _):
                 self.imageView.layer.removeAllAnimations()
                 let imageName: String
@@ -83,6 +99,7 @@ class CertificateQRCodeStateView: UIView {
                 }
                 self.imageView.image = UIImage(named: imageName)
                 self.backgroundView.backgroundColor = .cc_orange
+                self.modeView.modeResults = nil
             }
         }
 

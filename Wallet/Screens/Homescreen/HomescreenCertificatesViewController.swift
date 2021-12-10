@@ -146,11 +146,11 @@ class HomescreenCertificatesViewController: ViewController {
     private func startChecks() {
         for i in certificateViews {
             if let lightQrCode = i.certificate?.lightCertificate?.certificate {
-                VerifierManager.shared.addObserver(self, for: lightQrCode) { [weak i] state in
+                VerifierManager.shared.addObserver(self, for: lightQrCode, modes: Verifier.currentModes()) { [weak i] state in
                     i?.verificationState = state
                 }
             } else if let qrCode = i.certificate?.qrCode {
-                VerifierManager.shared.addObserver(self, for: qrCode) { [weak i] state in
+                VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes()) { [weak i] state in
                     i?.verificationState = state
                 }
             } else if let transferCode = i.certificate?.transferCode,
