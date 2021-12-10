@@ -225,9 +225,13 @@ class VerifyCheckContentViewController: ViewController {
                 statusView.set(text: text, backgroundColor: .cc_redish, icon: UIImage(named: "ic-info-alert-red"))
             }
 
-            let codes = errorCodes.joined(separator: ", ")
-            if codes.count > 0 {
-                errorLabel.text = codes
+            if isLightUnsupported {
+                errorLabel.text = nil
+            } else {
+                let codes = errorCodes.joined(separator: ", ")
+                if codes.count > 0 {
+                    errorLabel.text = codes
+                }
             }
 
         case let .retry(error, errorCodes):
