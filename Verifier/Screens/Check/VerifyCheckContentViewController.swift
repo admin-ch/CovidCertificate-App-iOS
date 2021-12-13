@@ -202,18 +202,36 @@ class VerifyCheckContentViewController: ViewController {
                              showReloadButton: false)
             }
         case let .invalid(errors, errorCodes, _, _):
-            let color: UIColor = .cc_redish
 
             let (signatureError, revocationError, nationalError) = state?.getVerifierErrorState() ?? (nil, nil, nil)
 
             // errors can never be empty in invalid state, therefore one optional will always safely unwrap
-            let text: NSAttributedString = signatureError?.displayName() ?? revocationError?.displayName() ?? nationalError?.displayName() ?? errors.first?.displayName() ?? NSAttributedString(string: "")
 
-            statusView.set(text: text, backgroundColor: color, icon: UIImage(named: "ic-info-alert-red"))
+            let error: VerificationError? = signatureError ?? revocationError ?? nationalError ?? errors.first
 
-            let codes = errorCodes.joined(separator: ", ")
-            if codes.count > 0 {
-                errorLabel.text = codes
+            let text: NSAttributedString = error?.displayName() ?? NSAttributedString(string: "")
+
+            var isLightUnsupported = false
+            if let e = error, case .lightUnsupported = e {
+                isLightUnsupported = true
+            }
+
+            if isLightUnsupported {
+                statusView.set(text: text, backgroundColor: .cc_orangish, icon: UIImage(named: "ic-error-orange"))
+
+                infoView.set(text: UBLocalized.verifier_verify_light_not_supported_by_mode_text, backgroundColor: .cc_orangish, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange), showReloadButton: false)
+
+            } else {
+                statusView.set(text: text, backgroundColor: .cc_redish, icon: UIImage(named: "ic-info-alert-red"))
+            }
+
+            if isLightUnsupported {
+                errorLabel.text = nil
+            } else {
+                let codes = errorCodes.joined(separator: ", ")
+                if codes.count > 0 {
+                    errorLabel.text = codes
+                }
             }
 
         case let .retry(error, errorCodes):
@@ -222,7 +240,7 @@ class VerifyCheckContentViewController: ViewController {
 
             statusView.set(text: NSAttributedString(string: error.displayTitle()), backgroundColor: color, icon: UIImage(named: imageName))
             let infoImage = error == .timeShift ? UIImage(named: "ic-timeerror") : UIImage(named: "ic-info-outline")
-            infoView.set(text: error.displayText(), backgroundColor: color, icon: infoImage?.ub_image(with: .cc_orange), showReloadButton: true)
+            infoView.set(text: UBLocalized.verifier_verify_error_validity_range_bold, backgroundColor: color, icon: infoImage?.ub_image(with: .cc_orange), showReloadButton: true)
 
             let codes = errorCodes.joined(separator: ", ")
             if codes.count > 0 {
@@ -257,15 +275,20 @@ class VerifyCheckContentViewController: ViewController {
 
             case .invalid:
 
-                let (signatureError, revocationError, _) = self.state?.getVerifierErrorState() ?? (nil, nil, nil)
+                let (signatureError, revocationError, nationalError) = self.state?.getVerifierErrorState() ?? (nil, nil, nil)
 
-                let showInfo1 = signatureError == nil
-                let showInfo2 = showInfo1 && revocationError == nil && !(self.state?.wasRevocationSkipped ?? false)
+                var isLightUnsupported = false
+                if let n = nationalError, case .lightUnsupported = n {
+                    isLightUnsupported = true
+                }
+
+                let showInfo1 = signatureError == nil && !isLightUnsupported
+                let showInfo2 = showInfo1 && revocationError == nil && !(self.state?.wasRevocationSkipped ?? false) && !isLightUnsupported
                 self.loadingView.stopRotation()
 
                 self.loadingView.ub_setHidden(true)
                 self.statusView.ub_setHidden(false)
-                self.infoView.ub_setHidden(true)
+                self.infoView.ub_setHidden(!isLightUnsupported)
                 self.infoErrorView1.ub_setHidden(!showInfo1)
                 self.infoErrorView2.ub_setHidden(!showInfo2)
                 self.errorLabel.ub_setHidden(false)

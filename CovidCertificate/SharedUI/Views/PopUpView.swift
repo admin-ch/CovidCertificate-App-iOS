@@ -43,7 +43,7 @@ class PopupView: UIView {
 
     // MARK: - Animation
 
-    public func presentFrom(view: UIView, isPresentedFromCloseButton: Bool = false) {
+    public func presentFrom(view: UIView, isPresentedFromCloseButton: Bool = false, point: CGPoint = .zero) {
         accessibilityViewIsModal = true
 
         showCallback?(true)
@@ -54,8 +54,11 @@ class PopupView: UIView {
             self.backgroundView.alpha = 1.0
         }
 
-        viewPoint = view.superview?.convert(view.center, to: self) ?? .zero
-        let p2 = convert(contentView.center, to: superview)
+        viewPoint = view.superview?.convert(view.center, to: self) ?? point
+        var p2 = convert(contentView.center, to: superview)
+        if p2 == .zero {
+            p2 = point
+        }
 
         contentView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01).concatenating(CGAffineTransform(translationX: viewPoint.x - p2.x, y: viewPoint.y - p2.y))
 

@@ -62,6 +62,8 @@
 		6E17392A267B382900813D30 /* TransferCodeAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E173929267B382900813D30 /* TransferCodeAnimationView.swift */; };
 		6E17392E267B487900813D30 /* TransferCodeUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E17392D267B487900813D30 /* TransferCodeUpdateView.swift */; };
 		6E361225267239A4008C0C86 /* ImportHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E361224267239A4008C0C86 /* ImportHandler.swift */; };
+		6E45C1DC2762841100D39553 /* TrailingIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45C1DB2762841100D39553 /* TrailingIconButton.swift */; };
+		6E45C1DD2762841100D39553 /* TrailingIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45C1DB2762841100D39553 /* TrailingIconButton.swift */; };
 		6E5A0F2026432148004718B4 /* HomescreenBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A0F1F26432148004718B4 /* HomescreenBottomView.swift */; };
 		6E5A0F25264336B4004718B4 /* UIStateLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A0F22264336B4004718B4 /* UIStateLogic.swift */; };
 		6E5A0F26264336B4004718B4 /* UIStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A0F23264336B4004718B4 /* UIStateManager.swift */; };
@@ -215,6 +217,14 @@
 		6ED916352681E7F7006D9E7C /* PushRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ED9160C2681B171006D9E7C /* PushRegistration.swift */; };
 		6EDE754D2667DB6900A2656F /* UBLocalized+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */; };
 		6EDE754E2667DB6900A2656F /* UBLocalized+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */; };
+		6EE55D9C27609F7F001F9E1F /* CheckModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55D9B27609F7F001F9E1F /* CheckModes.swift */; };
+		6EE55D9E27609FE7001F9E1F /* ScanModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55D9D27609FE7001F9E1F /* ScanModeButton.swift */; };
+		6EE55DA02760A01F001F9E1F /* VerifierHomescreenBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55D9F2760A01F001F9E1F /* VerifierHomescreenBottomView.swift */; };
+		6EE55DA32760A052001F9E1F /* VerifyModePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55DA22760A052001F9E1F /* VerifyModePopUpView.swift */; };
+		6EE55DA52760A0B8001F9E1F /* CheckModeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55DA42760A0B8001F9E1F /* CheckModeState.swift */; };
+		6EE55DA82761075B001F9E1F /* CheckModeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55DA42760A0B8001F9E1F /* CheckModeState.swift */; };
+		6EE55DAB276135CD001F9E1F /* CertificateModesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55DAA276135CD001F9E1F /* CertificateModesView.swift */; };
+		6EE55DAC27613D5F001F9E1F /* CheckModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE55D9B27609F7F001F9E1F /* CheckModes.swift */; };
 		6EE654892706DD0D00F71661 /* VaccinationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE654882706DD0D00F71661 /* VaccinationInfo.swift */; };
 		6EE6548A2706DD0D00F71661 /* VaccinationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE654882706DD0D00F71661 /* VaccinationInfo.swift */; };
 		6EE81DEB245163C400FC7218 /* PhoneCallHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */; };
@@ -246,7 +256,6 @@
 		8EB23D78245AF2C30073E83A /* RandomGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB23D77245AF2C30073E83A /* RandomGenerators.swift */; };
 		A6BBA110246BFCBC00E42EE7 /* UIDevice+ScreenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BBA10F246BFCBC00E42EE7 /* UIDevice+ScreenType.swift */; };
 		AAF73668242F3D030051E34A /* UIStackView+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF73667242F3D030051E34A /* UIStackView+CC.swift */; };
-		B61114DB2703085C00E7DBAB /* VaccinationCantonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61114DA2703085C00E7DBAB /* VaccinationCantonButton.swift */; };
 		B61114DF27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61114DE27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift */; };
 		B68FDBFA2702FFE000E853D8 /* VaccinationInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */; };
 		DC286A26242CE0B9001D5344 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286A25242CE0B9001D5344 /* Environment.swift */; };
@@ -301,6 +310,7 @@
 		DCF9C3652656395A00E34481 /* config_check.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF9C3622656395A00E34481 /* config_check.json */; };
 		DCF9C3662656395A00E34481 /* config_wallet.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF9C3632656395A00E34481 /* config_wallet.json */; };
 		F20E4F31268208DB00D14609 /* PushNotificationPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */; };
+		F234B5B927610DA100B361DF /* IconTextInfoBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F234B5B827610DA100B361DF /* IconTextInfoBoxView.swift */; };
 		F803F4DC26A9731A0068311C /* UIStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */; };
 		F809AF322693B21D00D16EED /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDEA264A5C5600FDE0E1 /* OnboardingBaseViewController.swift */; };
 		F809AF342693B25700D16EED /* OnboardingDisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDFA264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift */; };
@@ -328,7 +338,6 @@
 		F88DA6B7268C789A001DB072 /* CertificateLightCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6B6268C789A001DB072 /* CertificateLightCreationViewController.swift */; };
 		F88DA6BB268C78F5001DB072 /* CertificateExportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6BA268C78F5001DB072 /* CertificateExportDetailViewController.swift */; };
 		F88DA6BE268C9282001DB072 /* CertificateLightSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6BD268C9282001DB072 /* CertificateLightSummaryView.swift */; };
-		F88DA6BF268C9282001DB072 /* CertificateLightSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6BD268C9282001DB072 /* CertificateLightSummaryView.swift */; };
 		F88DA6C1268CA60A001DB072 /* TransformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C0268CA60A001DB072 /* TransformationManager.swift */; };
 		F88DA6C4268CA82D001DB072 /* NetworkErrorRetryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C3268CA82D001DB072 /* NetworkErrorRetryViewController.swift */; };
 		F88DA6C5268CA82D001DB072 /* NetworkErrorRetryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6C3268CA82D001DB072 /* NetworkErrorRetryViewController.swift */; };
@@ -406,6 +415,7 @@
 		6E173929267B382900813D30 /* TransferCodeAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeAnimationView.swift; sourceTree = "<group>"; };
 		6E17392D267B487900813D30 /* TransferCodeUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCodeUpdateView.swift; sourceTree = "<group>"; };
 		6E361224267239A4008C0C86 /* ImportHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportHandler.swift; sourceTree = "<group>"; };
+		6E45C1DB2762841100D39553 /* TrailingIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailingIconButton.swift; sourceTree = "<group>"; };
 		6E5A0F1E26430B99004718B4 /* Verifier-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Verifier-Info.plist"; sourceTree = "<group>"; };
 		6E5A0F1F26432148004718B4 /* HomescreenBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenBottomView.swift; sourceTree = "<group>"; };
 		6E5A0F22264336B4004718B4 /* UIStateLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStateLogic.swift; sourceTree = "<group>"; };
@@ -500,6 +510,12 @@
 		6ED916152681B171006D9E7C /* UBPushRegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushRegistrationManager.swift; sourceTree = "<group>"; };
 		6ED9162F2681D932006D9E7C /* LocalPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalPush.swift; sourceTree = "<group>"; };
 		6EDE754C2667DB6900A2656F /* UBLocalized+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UBLocalized+CC.swift"; sourceTree = "<group>"; };
+		6EE55D9B27609F7F001F9E1F /* CheckModes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckModes.swift; sourceTree = "<group>"; };
+		6EE55D9D27609FE7001F9E1F /* ScanModeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanModeButton.swift; sourceTree = "<group>"; };
+		6EE55D9F2760A01F001F9E1F /* VerifierHomescreenBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifierHomescreenBottomView.swift; sourceTree = "<group>"; };
+		6EE55DA22760A052001F9E1F /* VerifyModePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyModePopUpView.swift; sourceTree = "<group>"; };
+		6EE55DA42760A0B8001F9E1F /* CheckModeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckModeState.swift; sourceTree = "<group>"; };
+		6EE55DAA276135CD001F9E1F /* CertificateModesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateModesView.swift; sourceTree = "<group>"; };
 		6EE654882706DD0D00F71661 /* VaccinationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationInfo.swift; sourceTree = "<group>"; };
 		6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCallHelper.swift; sourceTree = "<group>"; };
 		6EEAFBEC267B4F3300807C16 /* TransferCodeRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeRefreshView.swift; sourceTree = "<group>"; };
@@ -523,7 +539,6 @@
 		8EB23D77245AF2C30073E83A /* RandomGenerators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGenerators.swift; sourceTree = "<group>"; };
 		A6BBA10F246BFCBC00E42EE7 /* UIDevice+ScreenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ScreenType.swift"; sourceTree = "<group>"; };
 		AAF73667242F3D030051E34A /* UIStackView+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+CC.swift"; sourceTree = "<group>"; };
-		B61114DA2703085C00E7DBAB /* VaccinationCantonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationCantonButton.swift; sourceTree = "<group>"; };
 		B61114DE27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenVaccinationInfoView.swift; sourceTree = "<group>"; };
 		B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccinationInformationViewController.swift; sourceTree = "<group>"; };
 		DC286A25242CE0B9001D5344 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -569,6 +584,7 @@
 		DCF9C3622656395A00E34481 /* config_check.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config_check.json; sourceTree = "<group>"; };
 		DCF9C3632656395A00E34481 /* config_wallet.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config_wallet.json; sourceTree = "<group>"; };
 		F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationPopupView.swift; sourceTree = "<group>"; };
+		F234B5B827610DA100B361DF /* IconTextInfoBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextInfoBoxView.swift; sourceTree = "<group>"; };
 		F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateManagerTests.swift; sourceTree = "<group>"; };
 		F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificateLightUpdateBoardingViewController.swift; sourceTree = "<group>"; };
 		F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+pinning.swift"; sourceTree = "<group>"; };
@@ -735,6 +751,7 @@
 		24780B04242DF9ED003BB26C /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				6E45C1DB2762841100D39553 /* TrailingIconButton.swift */,
 				6EF166BB264D488A00426985 /* ScannerLightButton.swift */,
 				6E7C0D21242CE2100017C4F9 /* Button.swift */,
 				6EA49E2824443E69009EFCAB /* SimpleTextButton.swift */,
@@ -808,6 +825,7 @@
 		6E5A0F21264336B4004718B4 /* UIStateManager */ = {
 			isa = PBXGroup;
 			children = (
+				6EE55DA42760A0B8001F9E1F /* CheckModeState.swift */,
 				6E5A0F22264336B4004718B4 /* UIStateLogic.swift */,
 				6E5A0F23264336B4004718B4 /* UIStateManager.swift */,
 				6E5A0F24264336B4004718B4 /* UIStateModel.swift */,
@@ -977,6 +995,7 @@
 				6E0281FD265660E500582904 /* CertificateDetailView.swift */,
 				6E8F52EB265EC33F00406430 /* CertificateNoteView.swift */,
 				F84E70B02714DFD700512A49 /* UserCertificate+UserActivity.swift */,
+				6EE55DAA276135CD001F9E1F /* CertificateModesView.swift */,
 			);
 			path = Certificates;
 			sourceTree = "<group>";
@@ -1002,6 +1021,7 @@
 		6EC173582642A0AD002E27DB /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				6EE55D9A27609F7F001F9E1F /* CheckModes */,
 				6E701451265404520097BBC8 /* Error */,
 				6EC173602642A1C9002E27DB /* User */,
 				6EC173592642A0C0002E27DB /* AppDelegate.swift */,
@@ -1027,6 +1047,7 @@
 		6EC1735C2642A1A1002E27DB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6EE55DA12760A052001F9E1F /* Mode */,
 				6EA5C3682644301700EA066F /* Info */,
 				6EA5C3672644300A00EA066F /* Check */,
 				6EC1735D2642A1A7002E27DB /* Homescreen */,
@@ -1037,6 +1058,7 @@
 		6EC1735D2642A1A7002E27DB /* Homescreen */ = {
 			isa = PBXGroup;
 			children = (
+				6EE55D9F2760A01F001F9E1F /* VerifierHomescreenBottomView.swift */,
 				6EC1735E2642A1B4002E27DB /* VerifierHomescreenViewController.swift */,
 				6EA5C3632644298E00EA066F /* VerifierHomescreenInfoView.swift */,
 			);
@@ -1073,6 +1095,22 @@
 				6ED916152681B171006D9E7C /* UBPushRegistrationManager.swift */,
 			);
 			path = UBPush;
+			sourceTree = "<group>";
+		};
+		6EE55D9A27609F7F001F9E1F /* CheckModes */ = {
+			isa = PBXGroup;
+			children = (
+				6EE55D9B27609F7F001F9E1F /* CheckModes.swift */,
+			);
+			path = CheckModes;
+			sourceTree = "<group>";
+		};
+		6EE55DA12760A052001F9E1F /* Mode */ = {
+			isa = PBXGroup;
+			children = (
+				6EE55DA22760A052001F9E1F /* VerifyModePopUpView.swift */,
+			);
+			path = Mode;
 			sourceTree = "<group>";
 		};
 		6EE81DF22451809D00FC7218 /* UBKeyboardHelpers */ = {
@@ -1175,7 +1213,6 @@
 			isa = PBXGroup;
 			children = (
 				B68FDBF92702FFE000E853D8 /* VaccinationInformationViewController.swift */,
-				B61114DA2703085C00E7DBAB /* VaccinationCantonButton.swift */,
 			);
 			path = Vaccination;
 			sourceTree = "<group>";
@@ -1269,6 +1306,7 @@
 		DCA3FFB224502D0F0003F5AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6EE55D9D27609FE7001F9E1F /* ScanModeButton.swift */,
 				F88DA6C6268CA890001DB072 /* Error */,
 				6EF28CFB26370538001C1565 /* QRScanner */,
 				6EC172D826419D33002E27DB /* RoundBackgroundView.swift */,
@@ -1278,6 +1316,7 @@
 				6E0281F126550E1100582904 /* InfoBoxView.swift */,
 				6E87E383266971E5000C5517 /* PopUpView.swift */,
 				F8D5B158268C400B00C39836 /* IconImageRowView.swift */,
+				F234B5B827610DA100B361DF /* IconTextInfoBoxView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1748,6 +1787,7 @@
 				6EF166D7264E5C3200426985 /* InfoBoxVisibilityManager.swift in Sources */,
 				6EA5C38B2645CF3B00EA066F /* VerifyCheckContentViewController.swift in Sources */,
 				6E0281F62655280500582904 /* InfoBoxButton.swift in Sources */,
+				6EE55D9E27609FE7001F9E1F /* ScanModeButton.swift in Sources */,
 				6EF166B7264C52BD00426985 /* QRScanErrorView.swift in Sources */,
 				6E91372C2721383100FFED5E /* AutoLayout+CC.swift in Sources */,
 				6EC172F226429E31002E27DB /* UIScrollView+UBKeyboardObserver.m in Sources */,
@@ -1759,6 +1799,7 @@
 				F8E6C5632683808F00A9E112 /* DebugSwitchView.swift in Sources */,
 				6EC172F526429E31002E27DB /* ClickthroughStackView.swift in Sources */,
 				6E6B1A942649D88A00DB4A38 /* VerifyInfoView.swift in Sources */,
+				6EE55DA32760A052001F9E1F /* VerifyModePopUpView.swift in Sources */,
 				6EC172F726429E31002E27DB /* SimpleTextButton.swift in Sources */,
 				6EC172F926429E31002E27DB /* ViewController.swift in Sources */,
 				6EC172FA26429E31002E27DB /* UBUserDefault.swift in Sources */,
@@ -1768,6 +1809,7 @@
 				6EC172FE26429E31002E27DB /* OSLogger.swift in Sources */,
 				F809AF372693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */,
 				6EC172FF26429E31002E27DB /* NavigationController.swift in Sources */,
+				6EE55DA02760A01F001F9E1F /* VerifierHomescreenBottomView.swift in Sources */,
 				DCF9C35726562E5C00E34481 /* ExpandableViewHeader.swift in Sources */,
 				6EC1730026429E31002E27DB /* PhoneCallHelper.swift in Sources */,
 				4825D133273D5F3E00F4F71E /* SDKOptionsManager.swift in Sources */,
@@ -1789,6 +1831,7 @@
 				6EC1730726429E31002E27DB /* String+CC.swift in Sources */,
 				6EF166D3264E5C3200426985 /* ConfigManager.swift in Sources */,
 				6EC1730926429E31002E27DB /* Backend.swift in Sources */,
+				6EE55DA52760A0B8001F9E1F /* CheckModeState.swift in Sources */,
 				DCF9C35826562E5C00E34481 /* ExpandableViewBody.swift in Sources */,
 				6EE6548A2706DD0D00F71661 /* VaccinationInfo.swift in Sources */,
 				6EC1730B26429E31002E27DB /* RandomGenerators.swift in Sources */,
@@ -1799,6 +1842,7 @@
 				6EC1730D26429E31002E27DB /* NSQRScanningView.swift in Sources */,
 				6EC1730E26429E31002E27DB /* HomescreenBaseViewController.swift in Sources */,
 				F809AF342693B25700D16EED /* OnboardingDisclaimerViewController.swift in Sources */,
+				6E45C1DD2762841100D39553 /* TrailingIconButton.swift in Sources */,
 				DCF9C35526562E2300E34481 /* BasicStaticContentViewController.swift in Sources */,
 				6EC1731026429E31002E27DB /* URLSession+pinning.swift in Sources */,
 				6EC1731126429E31002E27DB /* UIImage+localizedImage.swift in Sources */,
@@ -1806,8 +1850,8 @@
 				6EC1731426429E31002E27DB /* ReusableView.swift in Sources */,
 				6EC1731526429E31002E27DB /* LayoutConstants.swift in Sources */,
 				6EC1731626429E31002E27DB /* KeychainPersisted.swift in Sources */,
+				6EE55D9C27609F7F001F9E1F /* CheckModes.swift in Sources */,
 				6E8F52DA265BA94B00406430 /* CameraErrorView.swift in Sources */,
-				F88DA6BF268C9282001DB072 /* CertificateLightSummaryView.swift in Sources */,
 				6EA5C3642644298E00EA066F /* VerifierHomescreenInfoView.swift in Sources */,
 				6EA5C36626442EBD00EA066F /* QRCodeUtils.swift in Sources */,
 				6E603604267879D500EB57E7 /* PopUpView.swift in Sources */,
@@ -1876,6 +1920,7 @@
 				A6BBA110246BFCBC00E42EE7 /* UIDevice+ScreenType.swift in Sources */,
 				B61114DF27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift in Sources */,
 				DCBF64DD267883CC00450D51 /* TransferCodeLabel.swift in Sources */,
+				6EE55DAC27613D5F001F9E1F /* CheckModes.swift in Sources */,
 				6E7C0D37242E02600017C4F9 /* StackScrollView.swift in Sources */,
 				DCA3FFB824504B190003F5AD /* ClickthroughStackView.swift in Sources */,
 				F809AF362693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */,
@@ -1894,6 +1939,7 @@
 				8E81CC9D241FCC7D006F2437 /* ViewController.swift in Sources */,
 				6ED9161F2681B171006D9E7C /* UBPushRegistrationManager.swift in Sources */,
 				F88DA6B3268C786D001DB072 /* Error+NetworkError.swift in Sources */,
+				6EE55DA82761075B001F9E1F /* CheckModeState.swift in Sources */,
 				6E173924267B31BB00813D30 /* TransferCodeErrorRetryViewController.swift in Sources */,
 				DC8ABDF1264A64DD00FDE0E1 /* StaticContentViewController.swift in Sources */,
 				DCEDD04D273931EA0008B8F8 /* WalletScanCounter.swift in Sources */,
@@ -1902,8 +1948,8 @@
 				DC8ABDFF264AAA1B00FDE0E1 /* ExpandableViewBody.swift in Sources */,
 				F8E6C5622683808F00A9E112 /* DebugSwitchView.swift in Sources */,
 				F88DA6C4268CA82D001DB072 /* NetworkErrorRetryViewController.swift in Sources */,
-				B61114DB2703085C00E7DBAB /* VaccinationCantonButton.swift in Sources */,
 				DC702B0C243F6FAE0066C773 /* UBUserDefault.swift in Sources */,
+				F234B5B927610DA100B361DF /* IconTextInfoBoxView.swift in Sources */,
 				6E8F52D9265BA94B00406430 /* CameraErrorView.swift in Sources */,
 				F88DA6D0268CC3AB001DB072 /* CertificateLightExpirationTimer.swift in Sources */,
 				DCBF64E82679B92C00450D51 /* StackScrollViewController.swift in Sources */,
@@ -1939,6 +1985,7 @@
 				242D227D245D6581005DAEA8 /* Endpoint.swift in Sources */,
 				DC286A26242CE0B9001D5344 /* Environment.swift in Sources */,
 				DC8ABDFB264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift in Sources */,
+				6E45C1DC2762841100D39553 /* TrailingIconButton.swift in Sources */,
 				DC702B01243F6F640066C773 /* String+CC.swift in Sources */,
 				6EB988722714DBD100DFFA17 /* QRCodeImageCache.swift in Sources */,
 				6E17392E267B487900813D30 /* TransferCodeUpdateView.swift in Sources */,
@@ -1976,6 +2023,7 @@
 				F88D99DB2497938E0081790E /* UIImage+localizedImage.swift in Sources */,
 				6EC172C726407F2C002E27DB /* CertificateListViewController.swift in Sources */,
 				DC8ABDF3264A652800FDE0E1 /* StaticContentViewModel.swift in Sources */,
+				6EE55DAB276135CD001F9E1F /* CertificateModesView.swift in Sources */,
 				6E0281F52655280500582904 /* InfoBoxButton.swift in Sources */,
 				6E5A0F29264336CA004718B4 /* CertificateState.swift in Sources */,
 				F88DA6CD268CB1F4001DB072 /* CertificateLightDetailViewController.swift in Sources */,
@@ -2118,7 +2166,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.10.0;
+				MARKETING_VERSION = 3.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "-D RELEASE_DEV";
@@ -2345,7 +2393,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.10.0;
+				MARKETING_VERSION = 3.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "-D RELEASE_ABNAHME";
@@ -2472,7 +2520,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.10.0;
+				MARKETING_VERSION = 3.0.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2584,7 +2632,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 2.10.0;
+				MARKETING_VERSION = 3.0.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "-D RELEASE_PROD";

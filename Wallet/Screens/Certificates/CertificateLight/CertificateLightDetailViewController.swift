@@ -35,7 +35,7 @@ class CertificateLightDetailViewController: StackScrollViewController {
         guard let qrCode = certificate.lightCertificate?.certificate else {
             return
         }
-        VerifierManager.shared.addObserver(self, for: qrCode) { [weak self] state in
+        VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes()) { [weak self] state in
             guard let self = self else { return }
             self.verificationStateView.states = (state, .idle)
             self.qrCodeNameView.enabled = !state.isInvalid()

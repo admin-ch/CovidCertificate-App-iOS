@@ -52,7 +52,8 @@ class CertificateLightCreationViewController: StackScrollViewController {
 
         let text = Label(.text)
         let attributedString = NSMutableAttributedString(string: UBLocalized.wallet_certificate_light_detail_text_1 + "\n\n")
-        attributedString.append(UBLocalized.wallet_certificate_light_detail_text_2.formattingOccurrencesBold(UBLocalized.wallet_certificate_light_detail_text_2_bold))
+        let newDetailText = UBLocalized.wallet_certificate_light_detail_text_2.replacingOccurrences(of: "{LIGHT_CERT_VALIDITY_IN_H}", with: "\(ConfigManager.currentConfig?.lightCertDurationInHours ?? 24)")
+        attributedString.append(newDetailText.formattingOccurrencesBold(UBLocalized.wallet_certificate_light_detail_text_2_bold))
         text.attributedText = attributedString
 
         addArrangedView(text,

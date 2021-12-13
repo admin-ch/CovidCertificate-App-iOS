@@ -69,7 +69,7 @@
 "verifier_verify_error_title" = "Il certificat n'è betg valaivel";
 
 /*Fehler Infotext bei Prüfung (Nationale Regeln)*/
-"verifier_verify_error_info_for_national_rules" = "Na correspunda betg als criteris da valaivladad da la Svizra";
+"verifier_verify_error_info_for_national_rules" = "Na correspunda betg als criteris da valaivladad da la Svizra u dal modus da verificaziun ({MODUS})";
 
 /*Fehler Infotext bei Prüfung (Zertifikat Fehler)*/
 "verifier_verify_error_info_for_certificate_invalid" = "Il certificat COVID n'ha betg ina signatura valaivla";
@@ -776,7 +776,7 @@
 "wallet_certificate_light_detail_summary_2" = "Cuntegna mo il num, il prenum, la data da naschientscha ed ina signatura digitala";
 
 /*Wallet: Zertifikat Light Summary Punkt 3*/
-"wallet_certificate_light_detail_summary_3" = "Valaivel per max. 24 uras";
+"wallet_certificate_light_detail_summary_3" = "Valaivel per max. {LIGHT_CERT_VALIDITY_IN_H} uras";
 
 /*Wallet: Zertifikat Light Summary Punkt 4*/
 "wallet_certificate_light_detail_summary_4" = "La conversiun dal certificat COVID en in certificat light succeda online.";
@@ -855,7 +855,7 @@
 "wallet_certificate_light_detail_text_1" = "Sche Vus activais il certificat light, vegn creà or da las datas da Voss certificat COVID in nov code QR che na cuntegna naginas datas da sanadad.";
 
 /*Wallet: Zertifikat Light Erklärungstext 2*/
-"wallet_certificate_light_detail_text_2" = "Entant ch'il certificat COVID normal po vegnir duvrà en il rom da sia valaivladad senza restricziuns tant en Svizra sco er en il stadis da la UE e da la AECL, po il certificat light vegnir duvrà mo en Svizra.Per motivs da la protecziun da datas sto il certificat light vegnir activà danovamain suenter 24 uras. El na porta nagins dretgs supplementars en cumparegliaziun cun il certificat COVID normal. ";
+"wallet_certificate_light_detail_text_2" = "Entant ch'il certificat COVID normal po vegnir duvrà en il rom da sia valaivladad senza restricziuns tant en Svizra sco er en il stadis da la UE e da la AECL, po il certificat light vegnir duvrà mo en Svizra.Per motivs da la protecziun da datas sto il certificat light vegnir activà danovamain suenter {LIGHT_CERT_VALIDITY_IN_H} uras. El na porta nagins dretgs supplementars en cumparegliaziun cun il certificat COVID normal. ";
 
 /*Wallet: Zertifikat Light Erklärungstext Bold*/
 "wallet_certificate_light_detail_text_2_bold" = "mo danovamain nagins";
@@ -892,9 +892,13 @@
 /*Wallet: Badge für Light-Zertifikate in Liste Zertifikate*/
 "wallet_certificate_list_light_certificate_badge" = "Light";
 "wallet_faq_questions_question_6" = "Tge è in certificat light?";
-"wallet_faq_questions_answer_6" = "L'app «COVID Certificate» permetta a las possessuras ed als possessurs da certificats COVID da generar ina copia dal certificat COVID che cuntegna ina quantitad minimala da datas. Quest «certificat light» mussa mo ch'i è avant maun in certificat COVID valaivel, na cuntegna però naginas datas da sanadad.\n\nL'alternativa al certificat COVID è vegnida sviluppada sin giavisch da l'Incumbensà federal per la protecziun da datas e per la transparenza (IFPDT), perquai che terzas persunas pudessan – en il rom da la verificaziun da certificats COVID e cun apps sviluppadas sez – prender invista da datas da sanadad, sco per exempel dal vaccin u da la data da la vaccinaziun. Cun agid dal «certificat COVID» vegn quai impedì.\n\nIl «certificat light» è disponibel mo en moda electronica entaifer l'app e vegn renconuschì mo en Svizra. Per motivs da la protecziun da datas ha il «certificat light» ina durada da valaivladad maximala da 24 uras e sto alura vegnir activà danovamain. Sch'il certificat normal vegn duvrà gia pli baud, po il certificat light simplamain vegnir deactivà.";
+
+/*there is a placeholder ({LIGHT_CERT_VALIDITY_IN_H}) which describes the number of hours a light certificate is valid. do NOT translate!*/
+"wallet_faq_questions_answer_6" = "L'app «COVID Certificate» permetta a las possessuras ed als possessurs da certificats COVID da generar ina copia dal certificat COVID che cuntegna ina quantitad minimala da datas. Quest «certificat light» mussa mo ch'i è avant maun in certificat COVID valaivel, na cuntegna però naginas datas da sanadad.\n\nL'alternativa al certificat COVID è vegnida sviluppada sin giavisch da l'Incumbensà federal per la protecziun da datas e per la transparenza (IFPDT), perquai che terzas persunas pudessan – en il rom da la verificaziun da certificats COVID e cun apps sviluppadas sez – prender invista da datas da sanadad, sco per exempel dal vaccin u da la data da la vaccinaziun. Cun agid dal «certificat COVID» vegn quai impedì.\n\nIl «certificat light» è disponibel mo en moda electronica entaifer l'app e vegn renconuschì mo en Svizra. Per motivs da la protecziun da datas ha il «certificat light» ina durada da valaivladad maximala da {LIGHT_CERT_VALIDITY_IN_H} uras e sto alura vegnir activà danovamain. Sch'il certificat normal vegn duvrà gia pli baud, po il certificat light simplamain vegnir deactivà.";
 "verifier_faq_works_question_8" = "Tge è in certificat light?";
-"verifier_faq_works_answer_8" = "L'app «COVID Certificate» permetta a las possessuras ed als possessurs da certificats COVID da generar ina copia dal certificat COVID che cuntegna ina quantitad minimala da datas. Quest «certificat light» mussa mo ch'i è avant maun in certificat COVID valaivel, na cuntegna però naginas datas da sanadad.\n\nL'alternativa al certificat COVID è vegnida sviluppada sin giavisch da l'Incumbensà federal per la protecziun da datas e per la transparenza (IFPDT), perquai che terzas persunas pudessan – en il rom da la verificaziun da certificats COVID e cun apps sviluppadas sez – prender invista da datas da sanadad, sco per exempel dal vaccin u da la data da la vaccinaziun. Cun agid dal «certificat COVID» vegn quai impedì.\n\nIl «certificat light» è disponibel mo en moda electronica entaifer l'app e vegn renconuschì mo en Svizra. Per motivs da la protecziun da datas ha il «certificat light» ina durada da valaivladad maximala da 24 uras e sto alura vegnir activà danovamain. Sch'il certificat normal vegn duvrà gia pli baud, po il certificat light simplamain vegnir deactivà.";
+
+/*there is a placeholder ({LIGHT_CERT_VALIDITY_IN_H}) which describes the number of hours a light certificate is valid. do NOT translate!*/
+"verifier_faq_works_answer_8" = "L'app «COVID Certificate» permetta a las possessuras ed als possessurs da certificats COVID da generar ina copia dal certificat COVID che cuntegna ina quantitad minimala da datas. Quest «certificat light» mussa mo ch'i è avant maun in certificat COVID valaivel, na cuntegna però naginas datas da sanadad.\n\nL'alternativa al certificat COVID è vegnida sviluppada sin giavisch da l'Incumbensà federal per la protecziun da datas e per la transparenza (IFPDT), perquai che terzas persunas pudessan – en il rom da la verificaziun da certificats COVID e cun apps sviluppadas sez – prender invista da datas da sanadad, sco per exempel dal vaccin u da la data da la vaccinaziun. Cun agid dal «certificat COVID» vegn quai impedì.\n\nIl «certificat light» è disponibel mo en moda electronica entaifer l'app e vegn renconuschì mo en Svizra. Per motivs da la protecziun da datas ha il «certificat light» ina durada da valaivladad maximala da {LIGHT_CERT_VALIDITY_IN_H} uras e sto alura vegnir activà danovamain. Sch'il certificat normal vegn duvrà gia pli baud, po il certificat light simplamain vegnir deactivà.";
 "verifier_faq_works_question_9" = "Co po in certificat light puspè vegnir transfurmà en in certificat COVID confurm a la UE/AECL?";
 "verifier_faq_works_answer_9" = "La possessura u il possessur po deactivar da tut temp il certificat light en l'app «COVID Certificate». Alura stat puspè a disposiziun il certificat COVID normal. ";
 
@@ -1226,7 +1230,93 @@
 "infobox_update_title" = "A disposiziun versiun nova";
 "infobox_update_text" = "Chargiai giu la nova versiun da l'app.";
 "infobox_update_button" = "Actualisar";
+
+/*vaccination booking  screen info about Impf-Check (impf-check.ch)*/
 "vaccination_impf_check_info_text" = "Il check da vaccinaziun COVID-19 As infurmescha davart las emprimas vaccinaziuns sco er davart las vaccinaziuns da rinfrestgament ed As maina al post da consultaziun correspundent da Voss chantun.  ";
+
+/*button title for link to impf-check.ch*/
 "vaccination_impf_check_action" = "Al check da vaccinaziun";
+
+/*URL to ImpfCheck*/
 "vaccination_impf_check_url" = "https://covid19.impf-check.ch/";
 "vaccination_impf_check_title" = "Reservar in termin ussa";
+"verifier_faq_works_linktext_1" = "Video explicativ";
+"verifier_faq_works_linkurl_1" = "https://www.youtube.com/watch?v=cVlAi184DU4";
+
+/*Title of button to choose verification mode*/
+"verifier_choose_mode_button_title" = "Tscherner";
+
+/*👍*/
+/*Verifier app scan button with indication of mode*/
+"verifier_homescreen_scan_button_with_mode" = "Verifitgar ({MODE})";
+
+/*error if scan was performed with a no longer existing mode*/
+"verifier_error_mode_no_longer_exists" = "Il modus da verificaziun che Vus avais tschernì n’exista betg pli.";
+
+/*👍*/
+/*title for info pop-up in wallet app describing the validation states for the different check modes*/
+"wallet_check_mode_info_title" = "Info";
+
+/*👍*/
+/*text for info pop-up in wallet app describing 2G OK state*/
+"wallet_check_mode_info_2g_ok_text" = "Per l’access a manaschis ed ad occurrenzas cun ina regla da 2G èn admess certificats COVID per persunas vaccinadas u per persunas guaridas. Certificats COVID per persunas cun in test negativ e certificats light na vegnan betg acceptads.";
+
+/*👍*/
+/*text for info pop-up in wallet app describing 2G NOT OK state*/
+"wallet_check_mode_info_2g_not_ok_text" = "Per l’access a manaschis ed ad occurrenzas cun ina regla da 2G èn admess certificats COVID per persunas vaccinadas u per persunas guaridas. Certificats COVID per persunas cun in test negativ e certificats light na vegnan betg acceptads.";
+
+/*👍*/
+/*check app -> check mode select pop-up -> display name of check mode 3G*/
+"verifier_check_mode_info_3g_title" = "3G";
+
+/*👍*/
+/*check app -> check mode select pop-up -> display name of check mode 2G*/
+"verifier_check_mode_info_2g_title" = "2G";
+
+/*👍*/
+/*check app -> check mode select pop-up -> info text for check mode 3g*/
+"verifier_check_mode_info_3g_text_1" = "Per manaschis ed occurrenzas cun ina regla da 3G.";
+
+/*👍*/
+/*check app -> check mode select pop-up -> info text for check mode 3g*/
+"verifier_check_mode_info_3g_text_2" = "En quest modus vegnan acceptads certificats COVID per persunas vaccinadas, per persunas guaridas u per persunas cun in test negativ.";
+
+/*👍*/
+/*check app -> check mode select pop-up -> info text for check mode 3g*/
+"verifier_check_mode_info_3g_text_3" = "En quest modus po vegnir verifitgà in certificat light.";
+
+/*👍*/
+/*check app -> check mode select pop-up -> info text for check mode 2g*/
+"verifier_check_mode_info_2g_text_1" = "Per manaschis ed occurrenzas cun ina regla da 2G.";
+
+/*👍*/
+/*check app -> check mode select pop-up -> info text for check mode 2g*/
+"verifier_check_mode_info_2g_text_2" = "En quest modus vegnan acceptads ils certificats COVID per persunas vaccinadas u per persunas guaridas.";
+
+/*👍*/
+/*check app -> check mode select pop-up -> info text for check mode 2g*/
+"verifier_check_mode_info_2g_text_3" = "Per motivs da la protecziun da datas na po in certificat light betg vegnir verifitgà en quest modus.";
+
+/*👍*/
+/*Verifier: Modus auswählen Titel*/
+"verifier_mode_title" = "Modus da verificaziun";
+
+/*👍*/
+/*text for info pop-up in wallet app describing 3G OK state*/
+"wallet_check_mode_info_3g_ok_text" = "Per l’access a manaschis ed ad occurrenzas cun ina regla da 3G èn admess certificats COVID per persunas vaccinadas, per persunas guaridas u per persunas cun in test negativ.";
+
+/*👍*/
+/*text for info pop-up in wallet app describing 3G NOT OK state*/
+"wallet_check_mode_info_3g_not_ok_text" = "Per l’access a manaschis ed ad occurrenzas cun ina regla da 3G èn admess certificats COVID per persunas vaccinadas, per persunas guaridas u per persunas cun in test negativ.";
+
+/*Titel für Fehler wenn Modus Light-Zertifikat nicht unterstützt*/
+"verifier_verify_light_not_supported_by_mode_title" = "Qua sa tracti d’in certificat light. In tal certificat na po betg vegnir verifitgà en il modus da verificaziun da {MODUS}.";
+
+/*Text für Fehler wenn Modus Light-Zertifikat nicht unterstützt*/
+"verifier_verify_light_not_supported_by_mode_text" = "Il certificat po en quest cas vegnir verifitgà mo, sch’il certificat light vegn midà enavos ad in certificat normal.";
+
+/*check app -> check mode select pop-up -> info text when no check mode is selected*/
+"verifier_check_mode_info_unselected_text_1" = "Tscherni il modus da verificaziun, en il qual Vus vulais verifitgar ils certificats COVID.";
+
+/*check app -> check mode select pop-up -> info text when no check mode is selected*/
+"verifier_check_mode_info_unselected_text_2" = "Il modus da verificaziun po vegnir midà da tut temp.";

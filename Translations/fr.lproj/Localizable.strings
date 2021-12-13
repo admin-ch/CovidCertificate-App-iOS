@@ -68,8 +68,9 @@
 /*Fehler Title bei Prüfung*/
 "verifier_verify_error_title" = "Certificat COVID invalide";
 
+/*👍*/
 /*Fehler Infotext bei Prüfung (Nationale Regeln)*/
-"verifier_verify_error_info_for_national_rules" = "Ne remplit pas les critères de validité de la Suisse";
+"verifier_verify_error_info_for_national_rules" = "Ne répond pas aux critères de validité applicables en Suisse ou à ceux du mode de contrôle ({MODUS})";
 
 /*Fehler Infotext bei Prüfung (Zertifikat Fehler)*/
 "verifier_verify_error_info_for_certificate_invalid" = "Le certificat COVID n'a pas de signature valide";
@@ -776,7 +777,7 @@
 "wallet_certificate_light_detail_summary_2" = "Ne contient que le nom, le prénom, la date de naissance et une signature électronique";
 
 /*Wallet: Zertifikat Light Summary Punkt 3*/
-"wallet_certificate_light_detail_summary_3" = "Valide pour 24h au maximum";
+"wallet_certificate_light_detail_summary_3" = "Valide pour {LIGHT_CERT_VALIDITY_IN_H} h au maximum";
 
 /*Wallet: Zertifikat Light Summary Punkt 4*/
 "wallet_certificate_light_detail_summary_4" = "Le certificat COVID est converti en certificat light en ligne.";
@@ -855,7 +856,7 @@
 "wallet_certificate_light_detail_text_1" = "Quand vous activez le certificat light, un nouveau code QR est créé à partir des données de votre certificat COVID. Ce nouveau code ne contient pas de données sur la santé.";
 
 /*Wallet: Zertifikat Light Erklärungstext 2*/
-"wallet_certificate_light_detail_text_2" = "Tant qu’il est valide, le certificat COVID normal est utilisable sans limitation en Suisse et dans l’UE/l’AELE. Par contre, le certificat light n’est utilisable qu’en Suisse. Pour des raisons de protection des données, le certificat light doit être réactivé après 24 heures. Il n’apporte aucun droit supplémentaire par rapport au certificat COVID normal.";
+"wallet_certificate_light_detail_text_2" = "Tant qu’il est valide, le certificat COVID normal est utilisable sans limitation en Suisse et dans l’UE/l’AELE. Par contre, le certificat light n’est utilisable qu’en Suisse. Pour des raisons de protection des données, le certificat light doit être réactivé après {LIGHT_CERT_VALIDITY_IN_H} heures. Il n’apporte aucun droit supplémentaire par rapport au certificat COVID normal.";
 
 /*Wallet: Zertifikat Light Erklärungstext Bold*/
 "wallet_certificate_light_detail_text_2_bold" = "n’est utilisable qu’en doit être aucun";
@@ -892,9 +893,13 @@
 /*Wallet: Badge für Light-Zertifikate in Liste Zertifikate*/
 "wallet_certificate_list_light_certificate_badge" = "Light";
 "wallet_faq_questions_question_6" = "Qu’est-ce que le certificat light ?";
-"wallet_faq_questions_answer_6" = "L’application « COVID Certificate » propose aux titulaires de certificats COVID la possibilité de générer une copie du certificat ne contenant que les données strictement nécessaires. Ce certificat « light » indique uniquement si le certificat présenté est valide, sans fournir de données sur la santé.\n\nL’alternative permettant de limiter les données du certificat COVID au strict minimum a été suggérée par le Préposé fédéral à la protection des données et à la transparence (PFPDT) ; en effet, des personnes tierces pourraient développer des applications leur donnant la possibilité de lire, lors de la vérification d’un certificat, les données sur la santé (p. ex. le type de vaccin et la date de la vaccination). Le certificat light empêche tout abus de ce genre.\n\nLe certificat light, reconnu uniquement en Suisse, n’est disponible que sous forme électronique. Pour des raisons de protection des données, il n’est valide que pendant 24 heures et doit ensuite être réactivé. Si le certificat normal est à nouveau nécessaire avant la fin de ce délai, il suffit de désactiver le certificat light.";
+
+/*there is a placeholder ({LIGHT_CERT_VALIDITY_IN_H}) which describes the number of hours a light certificate is valid. do NOT translate!*/
+"wallet_faq_questions_answer_6" = "L’application « COVID Certificate » propose aux titulaires de certificats COVID la possibilité de générer une copie du certificat ne contenant que les données strictement nécessaires. Ce certificat « light » indique uniquement si le certificat présenté est valide, sans fournir de données sur la santé.\n\nL’alternative permettant de limiter les données du certificat COVID au strict minimum a été suggérée par le Préposé fédéral à la protection des données et à la transparence (PFPDT) ; en effet, des personnes tierces pourraient développer des applications leur donnant la possibilité de lire, lors de la vérification d’un certificat, les données sur la santé (p. ex. le type de vaccin et la date de la vaccination). Le certificat light empêche tout abus de ce genre.\n\nLe certificat light, reconnu uniquement en Suisse, n’est disponible que sous forme électronique. Pour des raisons de protection des données, il n’est valide que pendant {LIGHT_CERT_VALIDITY_IN_H} heures et doit ensuite être réactivé. Si le certificat normal est à nouveau nécessaire avant la fin de ce délai, il suffit de désactiver le certificat light.";
 "verifier_faq_works_question_8" = "Qu’est-ce que le certificat light ?";
-"verifier_faq_works_answer_8" = "L’application « COVID Certificate » propose aux titulaires de certificats COVID la possibilité de générer une copie du certificat ne contenant que les données strictement nécessaires. Ce certificat « light » indique uniquement si le certificat présenté est valide, sans fournir de données sur la santé.\n\nL’alternative permettant de limiter les données du certificat COVID au strict minimum a été suggérée par le Préposé fédéral à la protection des données et à la transparence (PFPDT) ; en effet, des personnes tierces pourraient développer des applications leur donnant la possibilité de lire, lors de la vérification d’un certificat, les données sur la santé (p. ex. le type de vaccin et la date de la vaccination). Le certificat light empêche tout abus de ce genre.\n\nLe certificat light, reconnu uniquement en Suisse, n’est disponible que sous forme électronique. Pour des raisons de protection des données, il n’est valide que pendant 24 heures et doit ensuite être réactivé. Si le certificat normal est à nouveau nécessaire avant la fin de ce délai, il suffit de désactiver le certificat light.";
+
+/*there is a placeholder ({LIGHT_CERT_VALIDITY_IN_H}) which describes the number of hours a light certificate is valid. do NOT translate!*/
+"verifier_faq_works_answer_8" = "L’application « COVID Certificate » propose aux titulaires de certificats COVID la possibilité de générer une copie du certificat ne contenant que les données strictement nécessaires. Ce certificat « light » indique uniquement si le certificat présenté est valide, sans fournir de données sur la santé.\n\nL’alternative permettant de limiter les données du certificat COVID au strict minimum a été suggérée par le Préposé fédéral à la protection des données et à la transparence (PFPDT) ; en effet, des personnes tierces pourraient développer des applications leur donnant la possibilité de lire, lors de la vérification d’un certificat, les données sur la santé (p. ex. le type de vaccin et la date de la vaccination). Le certificat light empêche tout abus de ce genre.\n\nLe certificat light, reconnu uniquement en Suisse, n’est disponible que sous forme électronique. Pour des raisons de protection des données, il n’est valide que pendant {LIGHT_CERT_VALIDITY_IN_H} heures et doit ensuite être réactivé. Si le certificat normal est à nouveau nécessaire avant la fin de ce délai, il suffit de désactiver le certificat light.";
 "verifier_faq_works_question_9" = "Comment reconvertir un certificat light en certificat COVID conforme aux normes UE/AELE ?";
 "verifier_faq_works_answer_9" = "Le détenteur peut en tout temps désactiver le certificat light dans l’application «COVID Certificate». Le certificat COVID standard est alors à nouveau disponible.";
 
@@ -1227,7 +1232,97 @@
 "infobox_update_title" = "Nouvelle version disponible";
 "infobox_update_text" = "Téléchargez la nouvelle version de l'application.";
 "infobox_update_button" = "Mettre à jour";
+
+/*vaccination booking  screen info about Impf-Check (impf-check.ch)*/
 "vaccination_impf_check_info_text" = "COVID-19 Vac-check fournit des renseignements sur la première vaccination ainsi que sur la vaccination de rappel et vous guide vers le service compétent de votre canton.";
+
+/*button title for link to impf-check.ch*/
 "vaccination_impf_check_action" = "Vers COVID-19 Vac-check";
+
+/*URL to ImpfCheck*/
 "vaccination_impf_check_url" = "https://covid19-vac-check.ch/";
 "vaccination_impf_check_title" = "Prendre un rendez-vous maintenant";
+
+/*Fuzzy*/
+"verifier_faq_works_linktext_1" = "Vidéo explicative";
+"verifier_faq_works_linkurl_1" = "https://www.youtube.com/watch?v=mwrorCW39Nk";
+
+/*Title of button to choose verification mode*/
+"verifier_choose_mode_button_title" = "Choisir";
+
+/*👍*/
+/*Verifier app scan button with indication of mode*/
+"verifier_homescreen_scan_button_with_mode" = "Vérifier ({MODE})";
+
+/*error if scan was performed with a no longer existing mode*/
+"verifier_error_mode_no_longer_exists" = "Le mode de contrôle choisi n’existe plus.";
+
+/*👍*/
+/*title for info pop-up in wallet app describing the validation states for the different check modes*/
+"wallet_check_mode_info_title" = "Info";
+
+/*👍*/
+/*text for info pop-up in wallet app describing 2G OK state*/
+"wallet_check_mode_info_2g_ok_text" = "L'accès aux entreprises et aux manifestations appliquant la règle des «2G» est autorisé aux titulaires d'un certificat COVID des personnes vaccinées ou guéries. Les certificats COVID des personnes testées négatives et les certificats light ne sont pas acceptés.";
+
+/*👍*/
+/*text for info pop-up in wallet app describing 2G NOT OK state*/
+"wallet_check_mode_info_2g_not_ok_text" = "L'accès aux entreprises et aux manifestations appliquant la règle des «2G» est autorisé aux titulaires d'un certificat COVID des personnes vaccinées ou guéries. Les certificats COVID des personnes testées négatives et les certificats light ne sont pas acceptés.";
+
+/*👍*/
+/*check app -> check mode select pop-up -> display name of check mode 3G*/
+"verifier_check_mode_info_3g_title" = "3G";
+
+/*👍*/
+/*check app -> check mode select pop-up -> display name of check mode 2G*/
+"verifier_check_mode_info_2g_title" = "2G";
+
+/*👍*/
+/*check app -> check mode select pop-up -> info text for check mode 3g*/
+"verifier_check_mode_info_3g_text_1" = "Pour les entreprises et les manifestations où les contrôles se fondent sur la règle des «3G».";
+
+/*👍*/
+/*check app -> check mode select pop-up -> info text for check mode 3g*/
+"verifier_check_mode_info_3g_text_2" = "Ce mode de contrôle permet de vérifier les certificats COVID des personnes vaccinées, guéries ou testées négatives.";
+
+/*👍*/
+/*check app -> check mode select pop-up -> info text for check mode 3g*/
+"verifier_check_mode_info_3g_text_3" = "Il peut être également utilisé pour vérifier un «certificat light».";
+
+/*👍*/
+/*check app -> check mode select pop-up -> info text for check mode 2g*/
+"verifier_check_mode_info_2g_text_1" = "Pour les entreprises et les manifestations où les contrôles se fondent sur la règle des «2G».";
+
+/*👍*/
+/*check app -> check mode select pop-up -> info text for check mode 2g*/
+"verifier_check_mode_info_2g_text_2" = "Ce mode de contrôle permet de vérifier les certificats COVID des personnes vaccinées ou guéries.";
+
+/*👍*/
+/*check app -> check mode select pop-up -> info text for check mode 2g*/
+"verifier_check_mode_info_2g_text_3" = "Pour des questions de protection des données, il ne peut pas être utilisé pour vérifier un «certificat light».";
+
+/*👍*/
+/*Verifier: Modus auswählen Titel*/
+"verifier_mode_title" = "Mode de contrôle";
+
+/*👍*/
+/*text for info pop-up in wallet app describing 3G OK state*/
+"wallet_check_mode_info_3g_ok_text" = "L'accès aux entreprises et aux manifestations appliquant la règle des «3G» est autorisé aux titulaires d'un certificat COVID des personnes vaccinées, guéries ou testées négatives.";
+
+/*👍*/
+/*text for info pop-up in wallet app describing 3G NOT OK state*/
+"wallet_check_mode_info_3g_not_ok_text" = "L'accès aux entreprises et aux manifestations appliquant la règle des «3G» est autorisé aux titulaires d'un certificat COVID des personnes vaccinées, guéries ou testées négatives.";
+
+/*👍*/
+/*Titel für Fehler wenn Modus Light-Zertifikat nicht unterstützt*/
+"verifier_verify_light_not_supported_by_mode_title" = "Le certificat COVID à vérifier est un «certificat light». Il ne peut pas être vérifié sous le mode de contrôle «{MODUS}».";
+
+/*👍*/
+/*Text für Fehler wenn Modus Light-Zertifikat nicht unterstützt*/
+"verifier_verify_light_not_supported_by_mode_text" = "La vérification ne peut avoir lieu que si la conversion du certificat en un «certificat light» est annulée.";
+
+/*check app -> check mode select pop-up -> info text when no check mode is selected*/
+"verifier_check_mode_info_unselected_text_1" = "Choisissez le mode de contrôle correspondant aux certificats COVID à vérifier. ";
+
+/*check app -> check mode select pop-up -> info text when no check mode is selected*/
+"verifier_check_mode_info_unselected_text_2" = "Le mode de contrôle peut être changé en tout temps.";

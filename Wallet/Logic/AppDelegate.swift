@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             isFirstLaunch = false
         }
 
+        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
+
         // Reset keychain on first launch
         if isFirstLaunch {
             Keychain().deleteAll()
@@ -47,8 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // migrate transfer code expiry and fail dates
         Migration.migrateFailExpiryDatesOnTransferCodes()
-
-        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
 
         SDKOptionsManager.updateSDKOptions()
 

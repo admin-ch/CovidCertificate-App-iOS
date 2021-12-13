@@ -17,6 +17,8 @@ class VaccinationInformationViewController: StackScrollViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let config = ConfigManager.currentConfig
+
         self.title = UBLocalized.vaccination_appointment_header.uppercased()
         view.backgroundColor = .cc_background
         addDismissButton()
@@ -25,38 +27,40 @@ class VaccinationInformationViewController: StackScrollViewController {
 
         let title = Label(.title, textAlignment: .center)
         title.accessibilityTraits = .header
-        title.text = ConfigManager.currentConfig?.vaccinationBookingInfo.value?.title ?? ""
+        title.text = config?.vaccinationBookingInfo.value?.title ?? ""
         addArrangedView(title, insets: insets)
 
         stackScrollView.addSpacerView(40)
         let subtitle = Label(.text, textAlignment: .left)
-        subtitle.text = ConfigManager.currentConfig?.vaccinationBookingInfo.value?.text
+        subtitle.text = config?.vaccinationBookingInfo.value?.text
         addArrangedView(subtitle, insets: insets)
 
         stackScrollView.addSpacerView(30)
 
-        addArrangedView(RoundedBackgroundView(text: ConfigManager.currentConfig?.vaccinationBookingInfo.value?.info ?? ""), insets: insets)
+        addArrangedView(RoundedBackgroundView(text: config?.vaccinationBookingInfo.value?.info ?? ""), insets: insets)
 
         stackScrollView.addSpacerView(30)
-        let titleLabel = Label(.textBoldLarge, textAlignment: .left)
-        titleLabel.accessibilityTraits = .header
-        titleLabel.text = UBLocalized.vaccination_choose_your_canton
-        addArrangedView(titleLabel, insets: insets)
-        stackScrollView.addSpacerView(14)
-        stackScrollView.addSpacerView(2, color: .cc_blueish)
 
-        for canton in ConfigManager.currentConfig?.vaccinationBookingCantons.value ?? [] {
-            let cantonButton = VaccinationCantonButton(text: canton.name, iconName: canton.iconIos)
-            cantonButton.accessibilityTraits = .link
+        if config?.vaccinationBookingInfo.value?.hasAllImpfCheckValues ?? false {
+            let titleLabel = Label(.textBoldLarge, textAlignment: .left)
+            titleLabel.accessibilityTraits = .header
+            titleLabel.text = config?.vaccinationBookingInfo.value?.impfcheckTitle ?? UBLocalized.vaccination_impf_check_title
+            addArrangedView(titleLabel, insets: insets)
+            stackScrollView.addSpacerView(14)
 
-            cantonButton.touchUpCallback = {
-                guard let url = URL(string: canton.linkUrl) else { return }
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            let subtitleLabel = Label(.text, textAlignment: .left)
+            subtitleLabel.text = config?.vaccinationBookingInfo.value?.impfcheckText ?? UBLocalized.vaccination_impf_check_info_text
+            addArrangedView(subtitleLabel, insets: insets)
+            stackScrollView.addSpacerView(Padding.large)
+
+            let button = TrailingIconButton(title: config?.vaccinationBookingInfo.value?.impfcheckButton ?? UBLocalized.vaccination_impf_check_action, icon: UIImage(named: "ic-link-external")?.ub_image(with: .white))
+            button.touchUpCallback = { [weak self] in
+                self?.vaccinationCheckButtonPressed()
             }
-            addArrangedView(cantonButton)
-            stackScrollView.addSpacerView(2, color: .cc_blueish)
+            addArrangedView(button, insets: insets)
+
+            stackScrollView.addSpacerView(30)
         }
-        stackScrollView.addSpacerView(30)
 
         let button = IconButton(text: UBLocalized.vaccination_more_information_title, icon: UIImage(named: "ic-link-external")?.ub_image(with: .cc_blue))
         button.accessibilityTraits = .link
@@ -67,6 +71,13 @@ class VaccinationInformationViewController: StackScrollViewController {
 
         addArrangedView(button, insets: insets)
         stackScrollView.addSpacerView(40)
+    }
+
+    private func vaccinationCheckButtonPressed() {
+        let urlString = ConfigManager.currentConfig?.vaccinationBookingInfo.value?.impfcheckUrl ?? UBLocalized.vaccination_impf_check_url
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
+        }
     }
 }
 

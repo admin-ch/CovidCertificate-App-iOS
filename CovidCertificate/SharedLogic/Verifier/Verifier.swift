@@ -27,7 +27,9 @@ enum VerificationError: Equatable, Comparable {
     case expired(Date)
     case signatureExpired
     case notYetValid(Date)
-    case otherNationalRules
+    case otherNationalRules(String)
+    case lightUnsupported(String)
+    case unknownMode
     case unknown
 }
 
@@ -43,7 +45,7 @@ enum VerificationState: Equatable {
     // verification was skipped
     case skipped
     // validity as formatted date as String, whether the certificate is valid for switzerland only
-    case success(String?, Bool?)
+    case success(String?, Bool?, ModeResults?)
     // sorted errors, error codes, validity as formatted date as String
     case invalid(errors: [VerificationError], errorCodes: [String], validity: String?, wasRevocationSkipped: Bool)
     // retry error, error codes
@@ -112,6 +114,17 @@ enum VerificationState: Equatable {
         }
     }
 
+    public var wasModeUnknown: Bool {
+        return (verificationErrors()?.contains(where: { error in
+            switch error {
+            case .unknownMode:
+                return true
+            default:
+                return false
+            }
+        })) ?? false
+    }
+
     // get errors: (signature, revocation, nationalRuleError)
     // always show up to first error ->
     // (nil, error, error) --> show signature ok, show revocation error
@@ -133,6 +146,7 @@ enum VerificationState: Equatable {
 class Verifier: NSObject {
     private let holder: HolderModel?
     private var stateUpdate: ((VerificationState) -> Void)?
+    private var modes: [CheckMode]?
 
     // MARK: - Init
 
@@ -154,10 +168,17 @@ class Verifier: NSObject {
         super.init()
     }
 
+    // MARK: - Modes
+
+    public static func currentModes() -> [CheckMode] {
+        return CovidCertificateSDK.supportedModes
+    }
+
     // MARK: - Start
 
-    public func start(forceUpdate: Bool = false, stateUpdate: @escaping ((VerificationState) -> Void)) {
+    public func start(modes: [CheckMode], forceUpdate: Bool = false, stateUpdate: @escaping ((VerificationState) -> Void)) {
         self.stateUpdate = stateUpdate
+        self.modes = modes
 
         guard let holder = holder else {
             // should never happen
@@ -169,36 +190,52 @@ class Verifier: NSObject {
             self.stateUpdate?(.loading)
         }
 
-        SDKNamespace.check(holder: holder, forceUpdate: forceUpdate) { [weak self] results in
-            guard let self = self else { return }
-            let checkSignatureState = self.handleSignatureResult(results.signature)
-            let checkRevocationState = self.handleRevocationResult(results.revocationStatus)
-            let checkNationalRulesState = self.handleNationalRulesResult(results.nationalRules)
-
-            let states = [checkSignatureState, checkRevocationState, checkNationalRulesState]
-
-            var errors = states.compactMap { $0.verificationErrors() }.flatMap { $0 }
-            errors.sort()
-
-            var errorCodes = states.compactMap { $0.errorCodes() }.flatMap { $0 }
-            errorCodes.sort()
-
-            let retries = states.filter { $0.isRetry() }
-
-            if errors.count > 0 {
-                let validityString = checkNationalRulesState.validUntilDateString()
-                self.stateUpdate?(.invalid(errors: errors, errorCodes: errorCodes, validity: validityString, wasRevocationSkipped: results.revocationStatus == nil))
-            } else if let r = retries.first {
-                self.stateUpdate?(r)
-            } else if states.allSatisfy({ $0.isSuccess() }) {
-                self.stateUpdate?(checkNationalRulesState)
+        #if WALLET
+            SDKNamespace.check(holder: holder, forceUpdate: forceUpdate, modes: modes) { [weak self] results in
+                guard let strongSelf = self else { return }
+                strongSelf.updateState(with: results)
             }
+
+        #elseif VERIFIER
+            SDKNamespace.check(holder: holder, forceUpdate: forceUpdate, mode: modes.first) { [weak self] results in
+                guard let strongSelf = self else { return }
+                let modeResults = strongSelf.handleModeResult(results.modeResults, mode: modes.first)
+                strongSelf.updateState(with: results, modeResults: modeResults)
+            }
+        #endif
+    }
+
+    private func updateState(with results: CheckResults, modeResults: VerificationState? = nil) {
+        let checkSignatureState = handleSignatureResult(results.signature)
+        let checkRevocationState = handleRevocationResult(results.revocationStatus)
+        let checkNationalRulesState = handleNationalRulesResult(results.nationalRules, modeResults: results.modeResults)
+
+        var states = [checkSignatureState, checkRevocationState, checkNationalRulesState]
+        if let mr = modeResults {
+            states.append(mr)
+        }
+
+        var errors = states.compactMap { $0.verificationErrors() }.flatMap { $0 }
+        errors.sort()
+
+        var errorCodes = states.compactMap { $0.errorCodes() }.flatMap { $0 }
+        errorCodes.sort()
+
+        let retries = states.filter { $0.isRetry() }
+
+        if errors.count > 0 {
+            let validityString = checkNationalRulesState.validUntilDateString()
+            stateUpdate?(.invalid(errors: errors, errorCodes: errorCodes, validity: validityString, wasRevocationSkipped: results.revocationStatus == nil))
+        } else if let r = retries.first {
+            stateUpdate?(r)
+        } else if states.allSatisfy({ $0.isSuccess() }) {
+            stateUpdate?(checkNationalRulesState)
         }
     }
 
-    public func restart(forceUpdate: Bool = false) {
+    public func restart(modes: [CheckMode], forceUpdate: Bool = false) {
         guard let su = stateUpdate else { return }
-        start(forceUpdate: forceUpdate, stateUpdate: su)
+        start(modes: modes, forceUpdate: forceUpdate, stateUpdate: su)
     }
 
     // MARK: - Signature
@@ -207,7 +244,7 @@ class Verifier: NSObject {
         switch result {
         case let .success(result):
             if result.isValid {
-                return .success(nil, nil)
+                return .success(nil, nil, nil)
             } else {
                 // !: checked
                 let errorCodes = result.error != nil ? [result.error!.errorCode] : []
@@ -239,7 +276,7 @@ class Verifier: NSObject {
         switch result {
         case let .success(result):
             if result.isValid {
-                return .success(nil, nil)
+                return .success(nil, nil, nil)
             } else {
                 // !: checked
                 let errorCodes = result.error != nil ? [result.error!.errorCode] : []
@@ -261,7 +298,31 @@ class Verifier: NSObject {
         }
     }
 
-    private func handleNationalRulesResult(_ result: Result<VerificationResult, NationalRulesError>) -> VerificationState {
+    private func handleModeResult(_ result: ModeResults, mode: CheckMode?) -> VerificationState {
+        guard let mode = mode, let modeResult = result.getResult(for: mode) else {
+            return VerificationState.skipped
+        }
+
+        switch modeResult {
+        case let .success(r):
+            if r.isValid {
+                return .success(nil, nil, result)
+            } else {
+                if r.isModeUnknown() {
+                    return VerificationState.invalid(errors: [.unknownMode], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
+                } else if r.isLightUnsupported() {
+                    return VerificationState.invalid(errors: [.lightUnsupported(mode.displayName)], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
+                } else {
+                    return VerificationState.invalid(errors: [.otherNationalRules(mode.displayName)], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
+                }
+            }
+
+        case let .failure(error):
+            return handleNationalRulesError(err: error)
+        }
+    }
+
+    private func handleNationalRulesResult(_ result: Result<VerificationResult, NationalRulesError>, modeResults: ModeResults?) -> VerificationState {
         guard let holder = holder else {
             assertionFailure()
             return .invalid(errors: [.unknown], errorCodes: ["V|HN"], validity: nil, wasRevocationSkipped: false)
@@ -293,7 +354,7 @@ class Verifier: NSObject {
 
             // check for validity
             if result.isValid {
-                return .success(validUntil, isSwitzerlandOnly)
+                return .success(validUntil, isSwitzerlandOnly, modeResults)
             } else if let dateError = result.dateError {
                 switch dateError {
                 case .NOT_YET_VALID:
@@ -304,27 +365,32 @@ class Verifier: NSObject {
                     return .invalid(errors: [.typeInvalid], errorCodes: [], validity: validUntil, wasRevocationSkipped: false)
                 }
             } else {
-                return .invalid(errors: [.otherNationalRules], errorCodes: [], validity: validUntil, wasRevocationSkipped: false)
+                let displayName = modeResults?.results.first?.key.displayName ?? ""
+                return .invalid(errors: [.otherNationalRules(displayName)], errorCodes: [], validity: validUntil, wasRevocationSkipped: false)
             }
         case let .failure(err):
-            switch err {
-            case .NETWORK_NO_INTERNET_CONNECTION:
-                // retry possible
-                return .retry(.noInternetConnection, [err.errorCode])
-            case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
-                // retry possible
-                return .retry(.network, [err.errorCode])
-            case .TIME_INCONSISTENCY:
-                return .retry(.timeShift, [err.errorCode])
-            default:
-                // do not show the explicit error code on the verifier app, s.t.
-                // no information is shown about the checked user (e.g. certificate type)
-                #if WALLET
-                    return .invalid(errors: [.otherNationalRules], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false)
-                #elseif VERIFIER
-                    return .invalid(errors: [.otherNationalRules], errorCodes: [], validity: nil, wasRevocationSkipped: false)
-                #endif
-            }
+            return handleNationalRulesError(err: err)
+        }
+    }
+
+    private func handleNationalRulesError(err: NationalRulesError) -> VerificationState {
+        switch err {
+        case .NETWORK_NO_INTERNET_CONNECTION:
+            // retry possible
+            return .retry(.noInternetConnection, [err.errorCode])
+        case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
+            // retry possible
+            return .retry(.network, [err.errorCode])
+        case .TIME_INCONSISTENCY:
+            return .retry(.timeShift, [err.errorCode])
+        default:
+            // do not show the explicit error code on the verifier app, s.t.
+            // no information is shown about the checked user (e.g. certificate type)
+            #if WALLET
+                return .invalid(errors: [.otherNationalRules("")], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false)
+            #elseif VERIFIER
+                return .invalid(errors: [.otherNationalRules(modes?.first?.displayName ?? "")], errorCodes: [], validity: nil, wasRevocationSkipped: false)
+            #endif
         }
     }
 }

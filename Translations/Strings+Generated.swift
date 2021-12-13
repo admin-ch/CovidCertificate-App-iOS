@@ -302,6 +302,28 @@ import Foundation
      case verifier_apple_app_store_url_key = "verifier_apple_app_store_url"
     /// Gültigkeit des Zertifikats\nabgelaufen
      case verifier_certificate_light_error_expired_key = "verifier_certificate_light_error_expired"
+    /// Für Betriebe und Veranstaltungen, in welchen mit einer 2G-Regelung geprüft wird.
+     case verifier_check_mode_info_2g_text_1_key = "verifier_check_mode_info_2g_text_1"
+    /// In diesem Modus werden Covid-Zertifikate für Geimpfte oder Genesene akzeptiert.
+     case verifier_check_mode_info_2g_text_2_key = "verifier_check_mode_info_2g_text_2"
+    /// Die Prüfung von einem Zertifikat Light ist in diesem Modus aus Datenschutzgründen nicht möglich.
+     case verifier_check_mode_info_2g_text_3_key = "verifier_check_mode_info_2g_text_3"
+    /// 2G
+     case verifier_check_mode_info_2g_title_key = "verifier_check_mode_info_2g_title"
+    /// Für Betriebe und Veranstaltungen, in welchen mit einer 3G-Regelung geprüft wird.
+     case verifier_check_mode_info_3g_text_1_key = "verifier_check_mode_info_3g_text_1"
+    /// In diesem Modus werden Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete akzeptiert.
+     case verifier_check_mode_info_3g_text_2_key = "verifier_check_mode_info_3g_text_2"
+    /// Die Prüfung von einem Zertifikat Light ist in diesem Modus möglich.
+     case verifier_check_mode_info_3g_text_3_key = "verifier_check_mode_info_3g_text_3"
+    /// 3G
+     case verifier_check_mode_info_3g_title_key = "verifier_check_mode_info_3g_title"
+    /// Wählen Sie den Prüfmodus, in welchem Sie Covid-Zertifikate prüfen möchten.
+     case verifier_check_mode_info_unselected_text_1_key = "verifier_check_mode_info_unselected_text_1"
+    /// Der Prüfmodus kann jederzeit geändert werden.
+     case verifier_check_mode_info_unselected_text_2_key = "verifier_check_mode_info_unselected_text_2"
+    /// wählen
+     case verifier_choose_mode_button_title_key = "verifier_choose_mode_button_title"
     /// Geburtsdatum
      case verifier_covid_certificate_birthdate_key = "verifier_covid_certificate_birthdate"
     /// Nachname
@@ -310,6 +332,8 @@ import Foundation
      case verifier_covid_certificate_prename_key = "verifier_covid_certificate_prename"
     /// Das Format des Covid-Zertifikats ist ungültig.
      case verifier_error_invalid_format_key = "verifier_error_invalid_format"
+    /// Ihr gewählter Prüfmodus existiert nicht mehr.
+     case verifier_error_mode_no_longer_exists_key = "verifier_error_mode_no_longer_exists"
     /// Um ein Covid-Zertifikat zu prüfen, scannen Sie den QR-Code auf dem Papierzertifikat oder in der vorgewiesenen COVID Certificate App mit der dafür vorgesehenen COVID Certificate Check App.
      case verifier_faq_works_answer_1_key = "verifier_faq_works_answer_1"
     /// Beim Scannen werden drei Aspekte geprüft:\n– Enthält das Zertifikat eine gültige elektronische Signatur?\n– Ist das Zertifikat nicht widerrufen worden?\n– Entspricht das Zertifikat den Gültigkeitskriterien der Schweiz?\n\nWenn alle drei Aspekte positiv bewertet werden, wird das Covid-Zertifikat als gültig ausgewiesen.
@@ -326,12 +350,16 @@ import Foundation
      case verifier_faq_works_answer_6_key = "verifier_faq_works_answer_6"
     /// Grundsätzlich können Covid-Zertifikate auch ohne eine Internetverbindung geprüft werden. Dazu werden regelmässig aktualisierte Prüflisten von einem zentralen Server heruntergeladen. Diese lokal gespeicherten Prüflisten dürfen nicht älter als 48h sein. \n\nUm die Prüflisten zu aktualisieren muss die App mit dem Internet verbunden sein und geöffnet werden. Die Aktualisierung erfolgt unmittelbar und automatisch.
      case verifier_faq_works_answer_7_key = "verifier_faq_works_answer_7"
-    /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von 24 Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der 24 Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
+    /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von {LIGHT_CERT_VALIDITY_IN_H} Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der {LIGHT_CERT_VALIDITY_IN_H} Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
      case verifier_faq_works_answer_8_key = "verifier_faq_works_answer_8"
     /// Das Zertifikat Light kann durch die Halterin / den Halter jederzeit in der «COVID Certificate»-App deaktiviert werden. Danach steht das normale Covid-Zertifikat wieder zur Verfügung.
      case verifier_faq_works_answer_9_key = "verifier_faq_works_answer_9"
+    /// Erklärvideo
+     case verifier_faq_works_linktext_1_key = "verifier_faq_works_linktext_1"
     /// Weitere Informationen
      case verifier_faq_works_linktext_2_1_key = "verifier_faq_works_linktext_2_1"
+    /// https://www.youtube.com/watch?v=cVlAi184DU4
+     case verifier_faq_works_linkurl_1_key = "verifier_faq_works_linkurl_1"
     /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624
      case verifier_faq_works_linkurl_2_1_key = "verifier_faq_works_linkurl_2_1"
     /// Wie können Covid-Zertifikate geprüft werden?
@@ -366,10 +394,14 @@ import Foundation
      case verifier_homescreen_pager_description_2_key = "verifier_homescreen_pager_description_2"
     /// Prüfen
      case verifier_homescreen_scan_button_key = "verifier_homescreen_scan_button"
+    /// Prüfen ({MODE})
+     case verifier_homescreen_scan_button_with_mode_key = "verifier_homescreen_scan_button_with_mode"
     /// So funktioniert's
      case verifier_homescreen_support_button_key = "verifier_homescreen_support_button"
     /// Check
      case verifier_homescreen_title_key = "verifier_homescreen_title"
+    /// Prüfmodus
+     case verifier_mode_title_key = "verifier_mode_title"
     /// Ein unerwarteter Fehler ist aufgetreten.
      case verifier_network_error_text_key = "verifier_network_error_text"
     /// Prüfung fehlgeschlagen
@@ -406,7 +438,7 @@ import Foundation
      case verifier_verify_error_info_for_blacklist_key = "verifier_verify_error_info_for_blacklist"
     /// Das Covid-Zertifikat hat keine gültige Signatur
      case verifier_verify_error_info_for_certificate_invalid_key = "verifier_verify_error_info_for_certificate_invalid"
-    /// Entspricht nicht den Gültigkeitskriterien der Schweiz
+    /// Entspricht nicht den Gültigkeitskriterien der Schweiz oder des Prüfmodus ({MODUS})
      case verifier_verify_error_info_for_national_rules_key = "verifier_verify_error_info_for_national_rules"
     /// Ein unerwarteter Fehler ist aufgetreten.
      case verifier_verify_error_list_info_text_key = "verifier_verify_error_list_info_text"
@@ -416,6 +448,10 @@ import Foundation
      case verifier_verify_error_title_key = "verifier_verify_error_title"
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz.
      case verifier_verify_error_validity_range_bold_key = "verifier_verify_error_validity_range_bold"
+    /// Die Prüfung kann in diesem Fall nur erfolgen, wenn die Umwandlung in ein Zertifikat Light rückgängig gemacht wird.
+     case verifier_verify_light_not_supported_by_mode_text_key = "verifier_verify_light_not_supported_by_mode_text"
+    /// Beim zu prüfenden Covid-Zertifikat handelt es sich um ein Zertifikat Light. Dies kann im {MODUS}-Prüfmodus nicht geprüft werden.
+     case verifier_verify_light_not_supported_by_mode_title_key = "verifier_verify_light_not_supported_by_mode_title"
     /// Zertifikat wird geprüft
      case verifier_verify_loading_text_key = "verifier_verify_loading_text"
     /// Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig
@@ -516,7 +552,7 @@ import Foundation
      case wallet_certificate_light_detail_summary_1_key = "wallet_certificate_light_detail_summary_1"
     /// Enthält nur Namen, Vornamen, Geburtsdatum und eine elektronische Signatur
      case wallet_certificate_light_detail_summary_2_key = "wallet_certificate_light_detail_summary_2"
-    /// Gültig für max. 24 Stunden
+    /// Gültig für max. {LIGHT_CERT_VALIDITY_IN_H} Stunden
      case wallet_certificate_light_detail_summary_3_key = "wallet_certificate_light_detail_summary_3"
     /// Die Konvertierung des Covid-Zertifikats in ein Zertifikat Light erfolgt online.
      case wallet_certificate_light_detail_summary_4_key = "wallet_certificate_light_detail_summary_4"
@@ -526,7 +562,7 @@ import Foundation
      case wallet_certificate_light_detail_summary_title_key = "wallet_certificate_light_detail_summary_title"
     /// Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.
      case wallet_certificate_light_detail_text_1_key = "wallet_certificate_light_detail_text_1"
-    /// Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 24 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
+    /// Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach {LIGHT_CERT_VALIDITY_IN_H} Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
      case wallet_certificate_light_detail_text_2_key = "wallet_certificate_light_detail_text_2"
     /// nur muss keine
      case wallet_certificate_light_detail_text_2_bold_key = "wallet_certificate_light_detail_text_2_bold"
@@ -592,6 +628,16 @@ import Foundation
      case wallet_certificate_verify_success_key = "wallet_certificate_verify_success"
     /// Das Zertifikat wird geprüft
      case wallet_certificate_verifying_key = "wallet_certificate_verifying"
+    /// Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.
+     case wallet_check_mode_info_2g_not_ok_text_key = "wallet_check_mode_info_2g_not_ok_text"
+    /// Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.
+     case wallet_check_mode_info_2g_ok_text_key = "wallet_check_mode_info_2g_ok_text"
+    /// Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.
+     case wallet_check_mode_info_3g_not_ok_text_key = "wallet_check_mode_info_3g_not_ok_text"
+    /// Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.
+     case wallet_check_mode_info_3g_ok_text_key = "wallet_check_mode_info_3g_ok_text"
+    /// Info
+     case wallet_check_mode_info_title_key = "wallet_check_mode_info_title"
     /// Versuchen Sie es später erneut.
      case wallet_detail_network_error_text_key = "wallet_detail_network_error_text"
     /// Prüfung zur Zeit nicht möglich
@@ -634,7 +680,7 @@ import Foundation
      case wallet_faq_questions_answer_4_key = "wallet_faq_questions_answer_4"
     /// Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier deshalb sorgfältig auf. Bei Verlust müssen Sie das Covid-Zertifikat erneut bei der ausgebenden Stelle anfragen.
      case wallet_faq_questions_answer_5_key = "wallet_faq_questions_answer_5"
-    /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von 24 Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der 24 Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
+    /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von {LIGHT_CERT_VALIDITY_IN_H} Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der {LIGHT_CERT_VALIDITY_IN_H} Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
      case wallet_faq_questions_answer_6_key = "wallet_faq_questions_answer_6"
     /// Weitere Informationen
      case wallet_faq_questions_linktext_2_1_key = "wallet_faq_questions_linktext_2_1"
@@ -1236,6 +1282,28 @@ import Foundation
    static let verifier_apple_app_store_url = UBLocalized.tr(UBLocalizedKey.verifier_apple_app_store_url_key)
   /// Gültigkeit des Zertifikats\nabgelaufen
    static let verifier_certificate_light_error_expired = UBLocalized.tr(UBLocalizedKey.verifier_certificate_light_error_expired_key)
+  /// Für Betriebe und Veranstaltungen, in welchen mit einer 2G-Regelung geprüft wird.
+   static let verifier_check_mode_info_2g_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_text_1_key)
+  /// In diesem Modus werden Covid-Zertifikate für Geimpfte oder Genesene akzeptiert.
+   static let verifier_check_mode_info_2g_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_text_2_key)
+  /// Die Prüfung von einem Zertifikat Light ist in diesem Modus aus Datenschutzgründen nicht möglich.
+   static let verifier_check_mode_info_2g_text_3 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_text_3_key)
+  /// 2G
+   static let verifier_check_mode_info_2g_title = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_title_key)
+  /// Für Betriebe und Veranstaltungen, in welchen mit einer 3G-Regelung geprüft wird.
+   static let verifier_check_mode_info_3g_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_text_1_key)
+  /// In diesem Modus werden Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete akzeptiert.
+   static let verifier_check_mode_info_3g_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_text_2_key)
+  /// Die Prüfung von einem Zertifikat Light ist in diesem Modus möglich.
+   static let verifier_check_mode_info_3g_text_3 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_text_3_key)
+  /// 3G
+   static let verifier_check_mode_info_3g_title = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_title_key)
+  /// Wählen Sie den Prüfmodus, in welchem Sie Covid-Zertifikate prüfen möchten.
+   static let verifier_check_mode_info_unselected_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_unselected_text_1_key)
+  /// Der Prüfmodus kann jederzeit geändert werden.
+   static let verifier_check_mode_info_unselected_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_unselected_text_2_key)
+  /// wählen
+   static let verifier_choose_mode_button_title = UBLocalized.tr(UBLocalizedKey.verifier_choose_mode_button_title_key)
   /// Geburtsdatum
    static let verifier_covid_certificate_birthdate = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_birthdate_key)
   /// Nachname
@@ -1244,6 +1312,8 @@ import Foundation
    static let verifier_covid_certificate_prename = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_prename_key)
   /// Das Format des Covid-Zertifikats ist ungültig.
    static let verifier_error_invalid_format = UBLocalized.tr(UBLocalizedKey.verifier_error_invalid_format_key)
+  /// Ihr gewählter Prüfmodus existiert nicht mehr.
+   static let verifier_error_mode_no_longer_exists = UBLocalized.tr(UBLocalizedKey.verifier_error_mode_no_longer_exists_key)
   /// Um ein Covid-Zertifikat zu prüfen, scannen Sie den QR-Code auf dem Papierzertifikat oder in der vorgewiesenen COVID Certificate App mit der dafür vorgesehenen COVID Certificate Check App.
    static let verifier_faq_works_answer_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_1_key)
   /// Beim Scannen werden drei Aspekte geprüft:\n– Enthält das Zertifikat eine gültige elektronische Signatur?\n– Ist das Zertifikat nicht widerrufen worden?\n– Entspricht das Zertifikat den Gültigkeitskriterien der Schweiz?\n\nWenn alle drei Aspekte positiv bewertet werden, wird das Covid-Zertifikat als gültig ausgewiesen.
@@ -1260,12 +1330,16 @@ import Foundation
    static let verifier_faq_works_answer_6 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_6_key)
   /// Grundsätzlich können Covid-Zertifikate auch ohne eine Internetverbindung geprüft werden. Dazu werden regelmässig aktualisierte Prüflisten von einem zentralen Server heruntergeladen. Diese lokal gespeicherten Prüflisten dürfen nicht älter als 48h sein. \n\nUm die Prüflisten zu aktualisieren muss die App mit dem Internet verbunden sein und geöffnet werden. Die Aktualisierung erfolgt unmittelbar und automatisch.
    static let verifier_faq_works_answer_7 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_7_key)
-  /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von 24 Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der 24 Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
+  /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von {LIGHT_CERT_VALIDITY_IN_H} Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der {LIGHT_CERT_VALIDITY_IN_H} Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
    static let verifier_faq_works_answer_8 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_8_key)
   /// Das Zertifikat Light kann durch die Halterin / den Halter jederzeit in der «COVID Certificate»-App deaktiviert werden. Danach steht das normale Covid-Zertifikat wieder zur Verfügung.
    static let verifier_faq_works_answer_9 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_9_key)
+  /// Erklärvideo
+   static let verifier_faq_works_linktext_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linktext_1_key)
   /// Weitere Informationen
    static let verifier_faq_works_linktext_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linktext_2_1_key)
+  /// https://www.youtube.com/watch?v=cVlAi184DU4
+   static let verifier_faq_works_linkurl_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linkurl_1_key)
   /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624
    static let verifier_faq_works_linkurl_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linkurl_2_1_key)
   /// Wie können Covid-Zertifikate geprüft werden?
@@ -1300,10 +1374,14 @@ import Foundation
    static let verifier_homescreen_pager_description_2 = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_pager_description_2_key)
   /// Prüfen
    static let verifier_homescreen_scan_button = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_scan_button_key)
+  /// Prüfen ({MODE})
+   static let verifier_homescreen_scan_button_with_mode = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_scan_button_with_mode_key)
   /// So funktioniert's
    static let verifier_homescreen_support_button = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_support_button_key)
   /// Check
    static let verifier_homescreen_title = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_title_key)
+  /// Prüfmodus
+   static let verifier_mode_title = UBLocalized.tr(UBLocalizedKey.verifier_mode_title_key)
   /// Ein unerwarteter Fehler ist aufgetreten.
    static let verifier_network_error_text = UBLocalized.tr(UBLocalizedKey.verifier_network_error_text_key)
   /// Prüfung fehlgeschlagen
@@ -1340,7 +1418,7 @@ import Foundation
    static let verifier_verify_error_info_for_blacklist = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_info_for_blacklist_key)
   /// Das Covid-Zertifikat hat keine gültige Signatur
    static let verifier_verify_error_info_for_certificate_invalid = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_info_for_certificate_invalid_key)
-  /// Entspricht nicht den Gültigkeitskriterien der Schweiz
+  /// Entspricht nicht den Gültigkeitskriterien der Schweiz oder des Prüfmodus ({MODUS})
    static let verifier_verify_error_info_for_national_rules = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_info_for_national_rules_key)
   /// Ein unerwarteter Fehler ist aufgetreten.
    static let verifier_verify_error_list_info_text = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_list_info_text_key)
@@ -1350,6 +1428,10 @@ import Foundation
    static let verifier_verify_error_title = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_title_key)
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz.
    static let verifier_verify_error_validity_range_bold = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_validity_range_bold_key)
+  /// Die Prüfung kann in diesem Fall nur erfolgen, wenn die Umwandlung in ein Zertifikat Light rückgängig gemacht wird.
+   static let verifier_verify_light_not_supported_by_mode_text = UBLocalized.tr(UBLocalizedKey.verifier_verify_light_not_supported_by_mode_text_key)
+  /// Beim zu prüfenden Covid-Zertifikat handelt es sich um ein Zertifikat Light. Dies kann im {MODUS}-Prüfmodus nicht geprüft werden.
+   static let verifier_verify_light_not_supported_by_mode_title = UBLocalized.tr(UBLocalizedKey.verifier_verify_light_not_supported_by_mode_title_key)
   /// Zertifikat wird geprüft
    static let verifier_verify_loading_text = UBLocalized.tr(UBLocalizedKey.verifier_verify_loading_text_key)
   /// Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig
@@ -1450,7 +1532,7 @@ import Foundation
    static let wallet_certificate_light_detail_summary_1 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_1_key)
   /// Enthält nur Namen, Vornamen, Geburtsdatum und eine elektronische Signatur
    static let wallet_certificate_light_detail_summary_2 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_2_key)
-  /// Gültig für max. 24 Stunden
+  /// Gültig für max. {LIGHT_CERT_VALIDITY_IN_H} Stunden
    static let wallet_certificate_light_detail_summary_3 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_3_key)
   /// Die Konvertierung des Covid-Zertifikats in ein Zertifikat Light erfolgt online.
    static let wallet_certificate_light_detail_summary_4 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_4_key)
@@ -1460,7 +1542,7 @@ import Foundation
    static let wallet_certificate_light_detail_summary_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_title_key)
   /// Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.
    static let wallet_certificate_light_detail_text_1 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_1_key)
-  /// Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach 24 Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
+  /// Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach {LIGHT_CERT_VALIDITY_IN_H} Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
    static let wallet_certificate_light_detail_text_2 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_2_key)
   /// nur muss keine
    static let wallet_certificate_light_detail_text_2_bold = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_2_bold_key)
@@ -1526,6 +1608,16 @@ import Foundation
    static let wallet_certificate_verify_success = UBLocalized.tr(UBLocalizedKey.wallet_certificate_verify_success_key)
   /// Das Zertifikat wird geprüft
    static let wallet_certificate_verifying = UBLocalized.tr(UBLocalizedKey.wallet_certificate_verifying_key)
+  /// Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.
+   static let wallet_check_mode_info_2g_not_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_not_ok_text_key)
+  /// Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.
+   static let wallet_check_mode_info_2g_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_ok_text_key)
+  /// Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.
+   static let wallet_check_mode_info_3g_not_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_3g_not_ok_text_key)
+  /// Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.
+   static let wallet_check_mode_info_3g_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_3g_ok_text_key)
+  /// Info
+   static let wallet_check_mode_info_title = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_title_key)
   /// Versuchen Sie es später erneut.
    static let wallet_detail_network_error_text = UBLocalized.tr(UBLocalizedKey.wallet_detail_network_error_text_key)
   /// Prüfung zur Zeit nicht möglich
@@ -1568,7 +1660,7 @@ import Foundation
    static let wallet_faq_questions_answer_4 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_4_key)
   /// Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier deshalb sorgfältig auf. Bei Verlust müssen Sie das Covid-Zertifikat erneut bei der ausgebenden Stelle anfragen.
    static let wallet_faq_questions_answer_5 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_5_key)
-  /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von 24 Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der 24 Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
+  /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von {LIGHT_CERT_VALIDITY_IN_H} Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der {LIGHT_CERT_VALIDITY_IN_H} Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
    static let wallet_faq_questions_answer_6 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_6_key)
   /// Weitere Informationen
    static let wallet_faq_questions_linktext_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_linktext_2_1_key)

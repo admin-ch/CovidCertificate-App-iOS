@@ -29,8 +29,16 @@ class HomescreenBaseViewController: ViewController {
         }
     }
 
+    private var _infoBox: InfoBox?
+
     public var infoBox: InfoBox? {
-        didSet { updateInfoBox(true) }
+        get { _infoBox }
+        set(newValue) {
+            if infoBox != newValue {
+                _infoBox = newValue
+                updateInfoBox(true)
+            }
+        }
     }
 
     public var infoButtonCallback: (() -> Void)?
