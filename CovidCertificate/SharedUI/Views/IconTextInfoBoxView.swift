@@ -12,7 +12,7 @@
 import Foundation
 
 class IconTextInfoBoxView: PopupView {
-    private let stackView = UIStackView()
+    private let stackScrollView = StackScrollView(axis: .vertical)
 
     private let titleLabel = Label(.title, textAlignment: .center)
 
@@ -31,33 +31,41 @@ class IconTextInfoBoxView: PopupView {
     override internal func setup() {
         super.setup()
 
+        stackScrollView.scrollView.alwaysBounceVertical = false
+        stackScrollView.stackView.isLayoutMarginsRelativeArrangement = true
+        let p = Padding.small + Padding.medium
+        stackScrollView.stackView.layoutMargins = UIEdgeInsets(top: p, left: p, bottom: 0.0, right: p)
+
         contentView.backgroundColor = .cc_white
         contentView.layer.cornerRadius = 20.0
+        contentView.clipsToBounds = true
 
-        addSubview(contentView)
+        contentView.addSubview(stackScrollView)
+        contentView.addSubview(closeButtonView)
 
         contentView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Padding.large)
             make.centerY.equalToSuperview()
-            make.top.greaterThanOrEqualToSuperview().inset(2.0 * Padding.large)
-            make.bottom.lessThanOrEqualToSuperview().inset(2.0 * Padding.large)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.topMargin).inset(2.0 * Padding.large)
+            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottomMargin).inset(2.0 * Padding.large)
         }
 
-        contentView.addSubview(stackView)
-        stackView.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview().inset(Padding.large)
-            make.bottom.equalToSuperview().inset(Padding.medium)
+        closeButtonView.snp.makeConstraints { make in
+            make.bottom.left.right.equalToSuperview()
         }
 
-        stackView.axis = .vertical
+        stackScrollView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.bottom.equalTo(closeButtonView.snp.top)
+        }
 
         titleLabel.text = ConfigManager.currentConfig?.checkModesInfo?.value?.title ?? UBLocalized.accessibility_info_box
 
-        stackView.addArrangedView(titleLabel)
-        stackView.addSpacerView(Padding.medium + Padding.small - 2.0)
+        stackScrollView.addArrangedView(titleLabel)
+        stackScrollView.addSpacerView(Padding.medium + Padding.small - 2.0)
 
         iconTextSource.forEach {
-            stackView.addArrangedSubview(OnboardingInfoView(icon: $0.0, text: $0.1, alignment: .natural, leftRightInset: 0, height: self.imageHeight))
+            stackScrollView.addArrangedView(OnboardingInfoView(icon: $0.0, text: $0.1, alignment: .natural, leftRightInset: 0, height: self.imageHeight))
         }
 
         closeButtonView.addSubview(closeButton)
@@ -66,8 +74,6 @@ class IconTextInfoBoxView: PopupView {
             make.left.greaterThanOrEqualToSuperview()
             make.right.lessThanOrEqualToSuperview()
         }
-
-        stackView.addArrangedSubview(closeButtonView)
 
         closeButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
