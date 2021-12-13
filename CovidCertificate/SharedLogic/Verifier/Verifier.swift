@@ -288,7 +288,7 @@ class Verifier: NSObject {
             case .NETWORK_NO_INTERNET_CONNECTION:
                 // retry possible
                 return .retry(.noInternetConnection, [err.errorCode])
-            case .NETWORK_PARSE_ERROR, .NETWORK_ERROR:
+            case .NETWORK_PARSE_ERROR, .NETWORK_ERROR, .NETWORK_SERVER_ERROR:
                 return .retry(.network, [err.errorCode])
             case .TIME_INCONSISTENCY:
                 return .retry(.timeShift, [err.errorCode])
