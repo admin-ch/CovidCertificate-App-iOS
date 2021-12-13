@@ -240,7 +240,7 @@ class CertificateDetailViewController: ViewController {
             guard let strongSelf = self else { return }
             strongSelf.infoPopupView?.removeFromSuperview()
 
-            strongSelf.infoPopupView = IconTextInfoBoxView(iconTextStrs: strongSelf.modeView.infoImageTexts())
+            strongSelf.infoPopupView = IconTextInfoBoxView(iconTextSource: strongSelf.modeView.infoImageTexts(size: 24.0), imageHeight: 24.0)
             strongSelf.view.addSubview(strongSelf.infoPopupView!)
             // without autolayout this guarantees correct layout for animation
             strongSelf.infoPopupView?.frame = strongSelf.view.frame

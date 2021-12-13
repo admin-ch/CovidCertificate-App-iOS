@@ -17,12 +17,14 @@ class IconTextInfoBoxView: PopupView {
     private let titleLabel = Label(.title, textAlignment: .center)
 
     private let iconTextSource: [(UIImage, String)]
+    private let imageHeight: CGFloat
 
     private var closeButtonView = UIView()
     private let closeButton = Button(title: UBLocalized.close_button, style: .text(.cc_blue))
 
-    init(iconTextStrs: [(UIImage, String)]) {
-        iconTextSource = iconTextStrs
+    init(iconTextSource: [(UIImage, String)], imageHeight: CGFloat) {
+        self.imageHeight = imageHeight
+        self.iconTextSource = iconTextSource
         super.init()
     }
 
@@ -55,7 +57,7 @@ class IconTextInfoBoxView: PopupView {
         stackView.addSpacerView(Padding.medium + Padding.small - 2.0)
 
         iconTextSource.forEach {
-            stackView.addArrangedSubview(OnboardingInfoView(icon: $0.0, text: $0.1, alignment: .natural, leftRightInset: 0, height: 32.0))
+            stackView.addArrangedSubview(OnboardingInfoView(icon: $0.0, text: $0.1, alignment: .natural, leftRightInset: 0, height: self.imageHeight))
         }
 
         closeButtonView.addSubview(closeButton)
