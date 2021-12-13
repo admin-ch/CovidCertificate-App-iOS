@@ -308,12 +308,14 @@ class Verifier: NSObject {
             if r.isValid {
                 return .success(nil, nil, result)
             } else {
+                // if is invalid, check for unknown mode or unsupported light certificate,
+                // always remove all error codes afterwards as it shows mode error
                 if r.isModeUnknown() {
-                    return VerificationState.invalid(errors: [.unknownMode], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
+                    return VerificationState.invalid(errors: [.unknownMode], errorCodes: [], validity: nil, wasRevocationSkipped: false)
                 } else if r.isLightUnsupported() {
-                    return VerificationState.invalid(errors: [.lightUnsupported(mode.displayName)], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
+                    return VerificationState.invalid(errors: [.lightUnsupported(mode.displayName)], errorCodes: [], validity: nil, wasRevocationSkipped: false)
                 } else {
-                    return VerificationState.invalid(errors: [.otherNationalRules(mode.displayName)], errorCodes: [r.code], validity: nil, wasRevocationSkipped: false)
+                    return VerificationState.invalid(errors: [.otherNationalRules(mode.displayName)], errorCodes: [], validity: nil, wasRevocationSkipped: false)
                 }
             }
 
