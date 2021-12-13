@@ -293,7 +293,7 @@ class Verifier: NSObject {
             case .TIME_INCONSISTENCY:
                 return .retry(.timeShift, [err.errorCode])
             default:
-                return .invalid(errors: [.revocation], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false)
+                return .retry(.unknown, [err.errorCode])
             }
         }
     }
