@@ -32,7 +32,7 @@ class CertificateModeView: UIView {
         }
     }
 
-    public func infoImageTexts() -> [(UIImage, String)] {
+    public func infoImageTexts(size: CGFloat) -> [(UIImage, String)] {
         var result: [(UIImage, String)] = []
 
         let modes = Verifier.currentModes()
@@ -41,7 +41,7 @@ class CertificateModeView: UIView {
             if let r = modeResults?.getResult(for: m) {
                 switch r {
                 case let .success(r):
-                    let img = CheckModesHelper.image(for: m.id, isValid: r.isValid, size: 32, validColor: UIColor.cc_blue, invalidColor: UIColor.cc_grey)
+                    let img = CheckModesHelper.image(for: m.id, isValid: r.isValid, size: size, validColor: UIColor.cc_blue, invalidColor: UIColor.cc_grey)
                     let text = CheckModesHelper.text(for: m.id, isValid: r.isValid)
 
                     if let i = img, let t = text {

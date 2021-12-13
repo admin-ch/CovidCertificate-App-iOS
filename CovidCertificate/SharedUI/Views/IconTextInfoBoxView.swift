@@ -12,60 +12,73 @@
 import Foundation
 
 class IconTextInfoBoxView: PopupView {
-    private let stackView = UIStackView()
+    private let stackScrollView = StackScrollView(axis: .vertical)
 
     private let titleLabel = Label(.title, textAlignment: .center)
 
     private let iconTextSource: [(UIImage, String)]
+    private let imageHeight: CGFloat
 
-    private var closeButtonView = UIView()
+    private let buttonView = UIView()
     private let closeButton = Button(title: UBLocalized.close_button, style: .text(.cc_blue))
 
-    init(iconTextStrs: [(UIImage, String)]) {
-        iconTextSource = iconTextStrs
+    // MARK: - Init
+
+    init(iconTextSource: [(UIImage, String)], imageHeight: CGFloat) {
+        self.imageHeight = imageHeight
+        self.iconTextSource = iconTextSource
         super.init()
     }
+
+    // MARK: - Setup
 
     override internal func setup() {
         super.setup()
 
+        stackScrollView.stackView.isLayoutMarginsRelativeArrangement = true
+        let p = Padding.small + Padding.medium
+        stackScrollView.stackView.layoutMargins = UIEdgeInsets(top: 0.0, left: p, bottom: 0.0, right: p)
+
         contentView.backgroundColor = .cc_white
         contentView.layer.cornerRadius = 20.0
-
-        addSubview(contentView)
+        contentView.clipsToBounds = true
 
         contentView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Padding.large)
             make.centerY.equalToSuperview()
-            make.top.greaterThanOrEqualToSuperview().inset(2.0 * Padding.large)
-            make.bottom.lessThanOrEqualToSuperview().inset(2.0 * Padding.large)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.topMargin).inset(2.0 * Padding.large)
+            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottomMargin).inset(2.0 * Padding.large)
         }
 
-        contentView.addSubview(stackView)
-        stackView.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview().inset(Padding.large)
-            make.bottom.equalToSuperview().inset(Padding.medium)
+        contentView.addSubview(stackScrollView)
+        contentView.addSubview(buttonView)
+
+        buttonView.backgroundColor = .cc_white
+        buttonView.snp.makeConstraints { make in
+            make.bottom.left.right.equalToSuperview()
         }
 
-        stackView.axis = .vertical
+        buttonView.addSubview(closeButton)
+        closeButton.snp.makeConstraints { make in
+            make.left.greaterThanOrEqualToSuperview().inset(Padding.medium)
+            make.right.lessThanOrEqualToSuperview().inset(Padding.medium)
+            make.centerX.top.bottom.equalToSuperview().inset(Padding.medium)
+        }
+
+        buttonView.ub_addShadow(radius: 8, opacity: 0.14, xOffset: 0, yOffset: 0)
+
+        stackScrollView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.bottom.equalTo(buttonView.snp.top)
+        }
 
         titleLabel.text = ConfigManager.currentConfig?.checkModesInfo?.value?.title ?? UBLocalized.accessibility_info_box
 
-        stackView.addArrangedView(titleLabel)
-        stackView.addSpacerView(Padding.medium + Padding.small - 2.0)
+        stackScrollView.addArrangedView(titleLabel, inset: UIEdgeInsets(top: Padding.large + Padding.small, left: 0, bottom: Padding.large + Padding.small, right: 0))
 
         iconTextSource.forEach {
-            stackView.addArrangedSubview(OnboardingInfoView(icon: $0.0, text: $0.1, alignment: .natural, leftRightInset: 0, height: 32.0))
+            stackScrollView.addArrangedView(OnboardingInfoView(icon: $0.0, text: $0.1, alignment: .natural, leftRightInset: 0, height: self.imageHeight))
         }
-
-        closeButtonView.addSubview(closeButton)
-        closeButton.snp.makeConstraints { make in
-            make.top.bottom.centerX.equalToSuperview()
-            make.left.greaterThanOrEqualToSuperview()
-            make.right.lessThanOrEqualToSuperview()
-        }
-
-        stackView.addArrangedSubview(closeButtonView)
 
         closeButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
