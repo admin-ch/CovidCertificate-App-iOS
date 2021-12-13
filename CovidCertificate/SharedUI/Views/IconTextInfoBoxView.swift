@@ -19,8 +19,10 @@ class IconTextInfoBoxView: PopupView {
     private let iconTextSource: [(UIImage, String)]
     private let imageHeight: CGFloat
 
-    private var closeButtonView = UIView()
+    private let buttonView = UIView()
     private let closeButton = Button(title: UBLocalized.close_button, style: .text(.cc_blue))
+
+    // MARK: - Init
 
     init(iconTextSource: [(UIImage, String)], imageHeight: CGFloat) {
         self.imageHeight = imageHeight
@@ -28,20 +30,18 @@ class IconTextInfoBoxView: PopupView {
         super.init()
     }
 
+    // MARK: - Setup
+
     override internal func setup() {
         super.setup()
 
-        stackScrollView.scrollView.alwaysBounceVertical = false
         stackScrollView.stackView.isLayoutMarginsRelativeArrangement = true
         let p = Padding.small + Padding.medium
-        stackScrollView.stackView.layoutMargins = UIEdgeInsets(top: p, left: p, bottom: 0.0, right: p)
+        stackScrollView.stackView.layoutMargins = UIEdgeInsets(top: 0.0, left: p, bottom: 0.0, right: p)
 
         contentView.backgroundColor = .cc_white
         contentView.layer.cornerRadius = 20.0
         contentView.clipsToBounds = true
-
-        contentView.addSubview(stackScrollView)
-        contentView.addSubview(closeButtonView)
 
         contentView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(Padding.large)
@@ -50,29 +50,34 @@ class IconTextInfoBoxView: PopupView {
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottomMargin).inset(2.0 * Padding.large)
         }
 
-        closeButtonView.snp.makeConstraints { make in
+        contentView.addSubview(stackScrollView)
+        contentView.addSubview(buttonView)
+
+        buttonView.backgroundColor = .cc_white
+        buttonView.snp.makeConstraints { make in
             make.bottom.left.right.equalToSuperview()
         }
 
+        buttonView.addSubview(closeButton)
+        closeButton.snp.makeConstraints { make in
+            make.left.greaterThanOrEqualToSuperview().inset(Padding.medium)
+            make.right.lessThanOrEqualToSuperview().inset(Padding.medium)
+            make.centerX.top.bottom.equalToSuperview().inset(Padding.medium)
+        }
+
+        buttonView.ub_addShadow(radius: 8, opacity: 0.14, xOffset: 0, yOffset: 0)
+
         stackScrollView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
-            make.bottom.equalTo(closeButtonView.snp.top)
+            make.bottom.equalTo(buttonView.snp.top)
         }
 
         titleLabel.text = ConfigManager.currentConfig?.checkModesInfo?.value?.title ?? UBLocalized.accessibility_info_box
 
-        stackScrollView.addArrangedView(titleLabel)
-        stackScrollView.addSpacerView(Padding.medium + Padding.small - 2.0)
+        stackScrollView.addArrangedView(titleLabel, inset: UIEdgeInsets(top: Padding.large + Padding.small, left: 0, bottom: Padding.large + Padding.small, right: 0))
 
         iconTextSource.forEach {
             stackScrollView.addArrangedView(OnboardingInfoView(icon: $0.0, text: $0.1, alignment: .natural, leftRightInset: 0, height: self.imageHeight))
-        }
-
-        closeButtonView.addSubview(closeButton)
-        closeButton.snp.makeConstraints { make in
-            make.top.bottom.centerX.equalToSuperview()
-            make.left.greaterThanOrEqualToSuperview()
-            make.right.lessThanOrEqualToSuperview()
         }
 
         closeButton.touchUpCallback = { [weak self] in
