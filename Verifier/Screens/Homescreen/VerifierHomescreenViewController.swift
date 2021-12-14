@@ -56,16 +56,9 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
             }
 
             strongSelf.updateUI()
-
-            strongSelf.showModeSelectionIfNeeded()
         }
 
         NotificationCenter.default.addObserver(self, selector: #selector(userScannedWithUnknownMode), name: .userScannedWithUnknownMode, object: nil)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        showModeSelectionIfNeeded()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -194,14 +187,6 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
         let title = (mode == nil || CheckModesHelper.onlyOneMode()) ? UBLocalized.verifier_homescreen_scan_button : UBLocalized.verifier_homescreen_scan_button_with_mode
 
         checkButton.title = title.replacingOccurrences(of: "{MODE}", with: mode?.displayName ?? "")
-    }
-
-    private func showModeSelectionIfNeeded() {
-        if VerifierUserStorage.shared.lastCheckModeSetDate == nil || mode == nil, Verifier.currentModes().count > 1 {
-            if !modePopupIsShown {
-                modePopupView.presentFrom(view: view, point: view.center)
-            }
-        }
     }
 
     @objc private func userScannedWithUnknownMode() {

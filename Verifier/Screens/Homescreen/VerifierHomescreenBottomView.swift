@@ -24,7 +24,7 @@ class VerifierHomescreenBottomView: UIView {
     public var faqButtonGuide = UILayoutGuide()
 
     public func setMode(mode: CheckModeUIObject?) {
-        scanModeButton.alpha = (mode == nil || CheckModesHelper.onlyOneMode()) ? 0.0 : 1.0
+        scanModeButton.alpha = CheckModesHelper.onlyOneMode() ? 0.0 : 1.0
         scanModeButton.mode = mode
     }
 

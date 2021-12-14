@@ -20,6 +20,7 @@ class ScanModeButton: UBButton {
             labelView.backgroundColor = mode?.color
             label.backgroundColor = mode?.color
             label.text = mode?.displayName
+            labelView.ub_setHidden(mode == nil)
         }
     }
 
