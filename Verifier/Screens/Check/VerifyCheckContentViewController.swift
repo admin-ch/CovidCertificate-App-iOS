@@ -193,9 +193,9 @@ class VerifyCheckContentViewController: ViewController {
             loadingView.rotate()
         case let .success(_, _, modeResults):
             if let successCode = CheckModesHelper.successValidationCode(modeResults: modeResults, mode: mode),
-               successCode.is2GSuccess {
+               successCode.is2GPlusSuccess {
                 // 2G Plus Case
-                let isPlus = successCode.is2GTestSuccess
+                let isPlus = successCode.is2GPlusTestSuccess
 
                 let successText = isPlus ? UBLocalized.verifier_2g_plus_successplus : UBLocalized.verifier_2g_plus_success2g
                 let successImage = isPlus ? UIImage(named: "ic-plus-outline") : UIImage(named: "ic_2g")
