@@ -252,6 +252,8 @@ class VerifyCheckContentViewController: ViewController {
 
                 errorLabel.text = nil
             case .unknown:
+                statusView.set(text: UBLocalized.verifier_network_error_title.bold(), backgroundColor: .cc_orangish, icon: UIImage(named: "ic-error-orange"))
+
                 infoView.set(text: UBLocalized.verifier_error_app_store_text, backgroundColor: .cc_orangish, icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_orange), showReloadButton: true, buttonState: .url(Environment.current.appStoreURL))
 
                 errorLabel.text = nil
@@ -308,26 +310,22 @@ class VerifyCheckContentViewController: ViewController {
                 let (signatureError, revocationError, nationalError) = self.state?.getVerifierErrorState() ?? (nil, nil, nil)
 
                 var isError = true
-                var isUnknown = false
                 if let n = nationalError {
                     switch n {
-                    case .unknown:
-                        isError = false
-                        isUnknown = true
-                    case .lightUnsupported:
-                        isError = false
+                    case .unknown, .lightUnsupported:
+                        isError = true
                     default:
                         break
                     }
                 }
 
-                let showInfo1 = signatureError == nil && isError
-                let showInfo2 = showInfo1 && revocationError == nil && !(self.state?.wasRevocationSkipped ?? false) && isError
+                let showInfo1 = signatureError == nil && !isError
+                let showInfo2 = showInfo1 && revocationError == nil && !(self.state?.wasRevocationSkipped ?? false) && !isError
                 self.loadingView.stopRotation()
 
                 self.loadingView.ub_setHidden(true)
-                self.statusView.ub_setHidden(isUnknown)
-                self.infoView.ub_setHidden(isError)
+                self.statusView.ub_setHidden(false)
+                self.infoView.ub_setHidden(!isError)
                 self.infoErrorView1.ub_setHidden(!showInfo1)
                 self.infoErrorView2.ub_setHidden(!showInfo2)
                 self.errorLabel.ub_setHidden(false)
