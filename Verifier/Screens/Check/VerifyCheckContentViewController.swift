@@ -39,6 +39,10 @@ class VerifyCheckContentViewController: ViewController {
         didSet { update(true) }
     }
 
+    public var mode: CheckModeUIObject? {
+        didSet { update(true) }
+    }
+
     public var retryButtonCallback: (() -> Void)?
 
     override func viewDidLoad() {
@@ -187,7 +191,38 @@ class VerifyCheckContentViewController: ViewController {
         switch state {
         case .loading:
             loadingView.rotate()
-        case .success, .skipped:
+        case let .success(_, _, modeResults):
+            if let successCode = CheckModesHelper.successValidationCode(modeResults: modeResults, mode: mode),
+               CheckModesHelper.is2GPlusSuccessCode(successCode) {
+                // 2G Plus Case
+                let isPlus = successCode == "SUCCESS_PLUS"
+
+                let successText = isPlus ? UBLocalized.verifier_2g_plus_successplus : UBLocalized.verifier_2g_plus_success2g
+                let successImage = isPlus ? UIImage(named: "ic-plus-outline") : UIImage(named: "ic_2g")
+                statusView.set(text: successText.bold(), backgroundColor: .cc_greenish, icon: successImage?.ub_image(with: UIColor.cc_green))
+
+                let infoText = isPlus ? UBLocalized.verifier_2g_plus_infoplus : UBLocalized.verifier_2g_plus_info2g
+
+                let infoImage = !isPlus ? UIImage(named: "ic-plus-outline") : UIImage(named: "ic_2g")
+                infoView.set(text: infoText, backgroundColor: .cc_greyish, icon: infoImage?.ub_image(with: .cc_grey), showReloadButton: false)
+
+            } else {
+                // normal success
+                statusView.set(text: UBLocalized.verifier_verify_success_title.bold(), backgroundColor: .cc_greenish, icon: UIImage(named: "ic-check"))
+                switch holder?.certificateType {
+                case .lightCert:
+                    infoView.set(text: UBLocalized.verifier_verify_success_certificate_light_info,
+                                 backgroundColor: .cc_blueish,
+                                 icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_blue),
+                                 showReloadButton: false)
+                default:
+                    infoView.set(text: UBLocalized.verifier_verify_success_info,
+                                 backgroundColor: .cc_blueish,
+                                 icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_blue),
+                                 showReloadButton: false)
+                }
+            }
+        case .skipped:
             statusView.set(text: UBLocalized.verifier_verify_success_title.bold(), backgroundColor: .cc_greenish, icon: UIImage(named: "ic-check"))
             switch holder?.certificateType {
             case .lightCert:
@@ -201,6 +236,7 @@ class VerifyCheckContentViewController: ViewController {
                              icon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_blue),
                              showReloadButton: false)
             }
+
         case let .invalid(errors, errorCodes, _, _):
 
             let (signatureError, revocationError, nationalError) = state?.getVerifierErrorState() ?? (nil, nil, nil)
@@ -263,7 +299,8 @@ class VerifyCheckContentViewController: ViewController {
                 self.errorLabel.ub_setHidden(true)
                 self.infoErrorView1.ub_setHidden(true)
                 self.infoErrorView2.ub_setHidden(true)
-            case .success:
+
+            case .success, .skipped:
                 self.loadingView.stopRotation()
 
                 self.loadingView.ub_setHidden(true)
@@ -274,7 +311,6 @@ class VerifyCheckContentViewController: ViewController {
                 self.infoErrorView2.ub_setHidden(true)
 
             case .invalid:
-
                 let (signatureError, revocationError, nationalError) = self.state?.getVerifierErrorState() ?? (nil, nil, nil)
 
                 var isLightUnsupported = false

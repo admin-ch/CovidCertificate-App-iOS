@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CovidCertificateSDK
 import Foundation
 import UIKit
 
@@ -77,6 +78,27 @@ enum CheckModesHelper {
             return image?.ub_image(with: isValid ? validColor : invalidColor)
         }
     #endif
+
+    static func successValidationCode(modeResults: ModeResults?, mode: CheckModeUIObject?) -> String? {
+        guard let m = mode, let r = modeResults?.getResult(for: CheckMode(id: m.id, displayName: m.displayName)) else {
+            return nil
+        }
+
+        switch r {
+        case let .success(mcr):
+            return mcr.code
+        default:
+            return nil
+        }
+    }
+
+    static func is2GPlusSuccessCode(_ code: String) -> Bool {
+        return code == "SUCCESS_2G" || code == "SUCCESS_2G_PLUS"
+    }
+
+    static func is2GPlusPlusSuccessCode(_ code: String) -> Bool {
+        return code == "SUCCESS_PLUS"
+    }
 }
 
 private extension Label {
