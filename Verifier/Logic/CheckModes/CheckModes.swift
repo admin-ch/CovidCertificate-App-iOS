@@ -79,7 +79,7 @@ enum CheckModesHelper {
         }
     #endif
 
-    static func successValidationCode(modeResults: ModeResults?, mode: CheckModeUIObject?) -> String? {
+    static func successValidationCode(modeResults: ModeResults?, mode: CheckModeUIObject?) -> ModeCheckValidationCode? {
         guard let m = mode, let r = modeResults?.getResult(for: CheckMode(id: m.id, displayName: m.displayName)) else {
             return nil
         }
@@ -90,14 +90,6 @@ enum CheckModesHelper {
         default:
             return nil
         }
-    }
-
-    static func is2GPlusSuccessCode(_ code: String) -> Bool {
-        return code == "SUCCESS_2G" || code == "SUCCESS_2G_PLUS"
-    }
-
-    static func is2GPlusPlusSuccessCode(_ code: String) -> Bool {
-        return code == "SUCCESS_PLUS"
     }
 }
 

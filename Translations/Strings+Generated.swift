@@ -348,6 +348,10 @@ import Foundation
      case verifier_covid_certificate_name_key = "verifier_covid_certificate_name"
     /// Vorname
      case verifier_covid_certificate_prename_key = "verifier_covid_certificate_prename"
+    /// Zum App-Store
+     case verifier_error_app_store_button_key = "verifier_error_app_store_button"
+    /// Die Prüfung kann mit dieser App Version nicht durchgeführt werden. Laden Sie die neue Version der App.
+     case verifier_error_app_store_text_key = "verifier_error_app_store_text"
     /// Das Format des Covid-Zertifikats ist ungültig.
      case verifier_error_invalid_format_key = "verifier_error_invalid_format"
     /// Ihr gewählter Prüfmodus existiert nicht mehr.
@@ -1346,6 +1350,10 @@ import Foundation
    static let verifier_covid_certificate_name = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_name_key)
   /// Vorname
    static let verifier_covid_certificate_prename = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_prename_key)
+  /// Zum App-Store
+   static let verifier_error_app_store_button = UBLocalized.tr(UBLocalizedKey.verifier_error_app_store_button_key)
+  /// Die Prüfung kann mit dieser App Version nicht durchgeführt werden. Laden Sie die neue Version der App.
+   static let verifier_error_app_store_text = UBLocalized.tr(UBLocalizedKey.verifier_error_app_store_text_key)
   /// Das Format des Covid-Zertifikats ist ungültig.
    static let verifier_error_invalid_format = UBLocalized.tr(UBLocalizedKey.verifier_error_invalid_format_key)
   /// Ihr gewählter Prüfmodus existiert nicht mehr.

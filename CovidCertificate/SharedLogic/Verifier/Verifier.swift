@@ -318,6 +318,8 @@ class Verifier: NSObject {
                     return VerificationState.invalid(errors: [.unknownMode], errorCodes: [], validity: nil, wasRevocationSkipped: false)
                 } else if r.isLightUnsupported() {
                     return VerificationState.invalid(errors: [.lightUnsupported(mode.displayName)], errorCodes: [], validity: nil, wasRevocationSkipped: false)
+                } else if r.isUnknown() {
+                    return VerificationState.invalid(errors: [.unknown], errorCodes: [], validity: nil, wasRevocationSkipped: false)
                 } else {
                     return VerificationState.invalid(errors: [.otherNationalRules(mode.displayName)], errorCodes: [], validity: nil, wasRevocationSkipped: false)
                 }

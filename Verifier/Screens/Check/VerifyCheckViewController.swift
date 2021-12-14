@@ -186,9 +186,9 @@ class VerifyCheckViewController: ViewController {
                 self.imageView.rotate(time: 1.0)
                 self.backgroundView.backgroundColor = .cc_grey
             case let .success(_, _, modeResults):
-                if let successCode = CheckModesHelper.successValidationCode(modeResults: modeResults, mode: self.mode), CheckModesHelper.is2GPlusSuccessCode(successCode) {
+                if let successCode = CheckModesHelper.successValidationCode(modeResults: modeResults, mode: self.mode), successCode.is2GSuccess {
                     // 2G+ success
-                    if CheckModesHelper.is2GPlusPlusSuccessCode(successCode) {
+                    if successCode.is2GTestSuccess {
                         self.imageView.images = [UIImage(named: "ic-header-2-g-off"), UIImage(named: "ic-header-plus-on")]
                     } else {
                         self.imageView.images = [UIImage(named: "ic-header-2-g-on"), UIImage(named: "ic-header-plus-off")]
@@ -207,13 +207,18 @@ class VerifyCheckViewController: ViewController {
             case .invalid:
                 let (_, _, nationalError) = self.state.getVerifierErrorState() ?? (nil, nil, nil)
 
-                var isLightUnsupported = false
-                if let n = nationalError, case .lightUnsupported = n {
-                    isLightUnsupported = true
+                var isError = true
+                if let n = nationalError {
+                    switch n {
+                    case .unknown, .lightUnsupported:
+                        isError = false
+                    default:
+                        break
+                    }
                 }
 
-                self.imageView.image = UIImage(named: isLightUnsupported ? "ic-header-error" : "ic-header-invalid")
-                self.backgroundView.backgroundColor = isLightUnsupported ? .cc_orange : .cc_red
+                self.imageView.image = UIImage(named: isError ? "ic-header-invalid" : "ic-header-error")
+                self.backgroundView.backgroundColor = isError ? .cc_red : .cc_orange
             case let .retry(error, _):
                 let imageName: String
                 switch error {

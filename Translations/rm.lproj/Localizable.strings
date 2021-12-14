@@ -1347,3 +1347,9 @@
 
 /*Verifier: 2G+ Info dass noch 2G nötig*/
 "verifier_2g_plus_info2g" = "Für 2G+ nur in Kombination mit einem gültigen Covid-Zertifikat für Geimpfte oder Genesene zugelassen.";
+
+/*Prüfung fehlgeschlagen App update nötig*/
+"verifier_error_app_store_text" = "Die Prüfung kann mit dieser App Version nicht durchgeführt werden. Laden Sie die neue Version der App.";
+
+/*Button Text für Prüfung fehlgeschlagen App update nötig */
+"verifier_error_app_store_button" = "Zum App-Store";
