@@ -115,7 +115,11 @@ class CertificateTableViewCell: UITableViewCell {
         case let .success(holder):
             nameLabel.text = holder.certificate.displayFullName
             if let certificate = holder.certificate as? DCCCert {
-                stateLabel.type = .dccc(certificate.immunisationType)
+                if (certificate.tests?.contains { $0.isSerologicalTest } ?? false) {
+                    stateLabel.type = .dccc(.recovery)
+                } else {
+                    stateLabel.type = .dccc(certificate.immunisationType)
+                }
             } else if holder.certificate.type == .lightCert {
                 stateLabel.type = .light
             }
