@@ -171,7 +171,11 @@ class Verifier: NSObject {
     // MARK: - Modes
 
     public static func currentModes() -> [CheckMode] {
-        return CovidCertificateSDK.supportedModes
+        #if WALLET
+            return CovidCertificateSDK.Wallet.activeModes
+        #elseif VERIFIER
+            return CovidCertificateSDK.Verifier.activeModes
+        #endif
     }
 
     // MARK: - Start
