@@ -23,12 +23,16 @@ class VerifyCheckViewController: ViewController {
     private let checkContentViewController = VerifyCheckContentViewController()
     private var contentHeight: CGFloat = 0.0
 
-    private let imageView = UIImageView()
+    private let imageView = StackedImageView()
     private let backgroundView = UIView()
 
     // MARK: - Start Check
 
-    public var mode: CheckModeUIObject?
+    public var mode: CheckModeUIObject? {
+        didSet {
+            checkContentViewController.mode = mode
+        }
+    }
 
     public var holder: VerifierCertificateHolder? {
         didSet {
@@ -181,24 +185,41 @@ class VerifyCheckViewController: ViewController {
                 self.imageView.image = UIImage(named: "ic-header-load")
                 self.imageView.rotate(time: 1.0)
                 self.backgroundView.backgroundColor = .cc_grey
-            case .success, .skipped:
-                self.imageView.layer.removeAllAnimations()
+            case let .success(_, _, modeResults):
+                if let successCode = CheckModesHelper.successValidationCode(modeResults: modeResults, mode: self.mode), successCode.is2GPlusSuccess {
+                    // 2G+ success
+                    if successCode.is2GPlusTestSuccess {
+                        self.imageView.images = [UIImage(named: "ic-header-2-g-off"), UIImage(named: "ic-header-plus-on")]
+                    } else {
+                        self.imageView.images = [UIImage(named: "ic-header-2-g-on"), UIImage(named: "ic-header-plus-off")]
+                    }
+
+                } else {
+                    // normal success
+                    self.imageView.image = UIImage(named: "ic-header-valid")
+                }
+
+                self.backgroundView.backgroundColor = .cc_green
+
+            case .skipped:
                 self.imageView.image = UIImage(named: "ic-header-valid")
                 self.backgroundView.backgroundColor = .cc_green
             case .invalid:
                 let (_, _, nationalError) = self.state.getVerifierErrorState() ?? (nil, nil, nil)
 
-                var isLightUnsupported = false
-                if let n = nationalError, case .lightUnsupported = n {
-                    isLightUnsupported = true
+                var isError = true
+                if let n = nationalError {
+                    switch n {
+                    case .unknown, .lightUnsupported:
+                        isError = false
+                    default:
+                        break
+                    }
                 }
 
-                self.imageView.layer.removeAllAnimations()
-
-                self.imageView.image = UIImage(named: isLightUnsupported ? "ic-header-error" : "ic-header-invalid")
-                self.backgroundView.backgroundColor = isLightUnsupported ? .cc_orange : .cc_red
+                self.imageView.image = UIImage(named: isError ? "ic-header-invalid" : "ic-header-error")
+                self.backgroundView.backgroundColor = isError ? .cc_red : .cc_orange
             case let .retry(error, _):
-                self.imageView.layer.removeAllAnimations()
                 let imageName: String
                 switch error {
                 case .noInternetConnection:
@@ -217,6 +238,61 @@ class VerifyCheckViewController: ViewController {
             UIView.animate(withDuration: 0.2) { actions() }
         } else {
             actions()
+        }
+    }
+}
+
+private class StackedImageView: UIView {
+    // MARK: - Subviews
+
+    private let stackView = UIStackView()
+
+    // MARK: - Init
+
+    init() {
+        super.init(frame: .zero)
+        setup()
+    }
+
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - API
+
+    public var image: UIImage? {
+        didSet { setImages([image]) }
+    }
+
+    public var images: [UIImage?]? {
+        didSet { setImages(images) }
+    }
+
+    public func rotate(time: Double) {
+        for i in stackView.arrangedSubviews {
+            if let iv = i as? UIImageView {
+                iv.rotate(time: time)
+            }
+        }
+    }
+
+    // MARK: - Setup
+
+    private func setup() {
+        addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+
+    private func setImages(_ images: [UIImage?]?) {
+        for v in stackView.arrangedSubviews {
+            stackView.removeArrangedSubview(v)
+            v.removeFromSuperview()
+        }
+
+        for v in (images?.compactMap { $0 }.map { UIImageView(image: $0) } ?? []) {
+            stackView.addArrangedSubview(v)
         }
     }
 }

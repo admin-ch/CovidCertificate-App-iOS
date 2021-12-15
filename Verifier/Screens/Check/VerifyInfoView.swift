@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import UIKit
 
 class VerifyInfoView: UIView {
     // MARK: - Subviews
@@ -19,17 +20,21 @@ class VerifyInfoView: UIView {
     private let label = Label(.text, textColor: .cc_black)
 
     private let retryContainer = UIView()
-    private let retryButton = RetryButton()
+    private let retryButton = VerifyInfoButton()
 
     // MARK: - Public API
 
     public var retryTouchUpCallback: (() -> Void)?
 
-    public func set(text: String, backgroundColor: UIColor, icon: UIImage?, showReloadButton: Bool) {
+    public func set(text: String, backgroundColor: UIColor, icon: UIImage?, showReloadButton: Bool, buttonState: VerifyInfoButtonState = .retry) {
+        self.backgroundColor = backgroundColor
+
         imageView.image = icon
         label.text = text
-        self.backgroundColor = backgroundColor
+
+        retryButton.buttonState = buttonState
         retryContainer.ub_setHidden(!showReloadButton)
+
         layoutIfNeeded()
     }
 
@@ -87,7 +92,12 @@ class VerifyInfoView: UIView {
 
         retryButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.retryTouchUpCallback?()
+            switch strongSelf.retryButton.buttonState {
+            case let .url(url):
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            case .retry:
+                strongSelf.retryTouchUpCallback?()
+            }
         }
     }
 }

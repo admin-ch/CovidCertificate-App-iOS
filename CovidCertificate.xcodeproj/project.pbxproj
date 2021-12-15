@@ -61,6 +61,8 @@
 		6E173928267B330200813D30 /* TransferCodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E173927267B330200813D30 /* TransferCodeDetailViewController.swift */; };
 		6E17392A267B382900813D30 /* TransferCodeAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E173929267B382900813D30 /* TransferCodeAnimationView.swift */; };
 		6E17392E267B487900813D30 /* TransferCodeUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E17392D267B487900813D30 /* TransferCodeUpdateView.swift */; };
+		6E353CF92768C7D900A32516 /* ModeCheckValidationCode+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E353CF82768C7D900A32516 /* ModeCheckValidationCode+CC.swift */; };
+		6E353CFA2768C7D900A32516 /* ModeCheckValidationCode+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E353CF82768C7D900A32516 /* ModeCheckValidationCode+CC.swift */; };
 		6E361225267239A4008C0C86 /* ImportHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E361224267239A4008C0C86 /* ImportHandler.swift */; };
 		6E45C1DC2762841100D39553 /* TrailingIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45C1DB2762841100D39553 /* TrailingIconButton.swift */; };
 		6E45C1DD2762841100D39553 /* TrailingIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45C1DB2762841100D39553 /* TrailingIconButton.swift */; };
@@ -414,6 +416,7 @@
 		6E173927267B330200813D30 /* TransferCodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeDetailViewController.swift; sourceTree = "<group>"; };
 		6E173929267B382900813D30 /* TransferCodeAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeAnimationView.swift; sourceTree = "<group>"; };
 		6E17392D267B487900813D30 /* TransferCodeUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCodeUpdateView.swift; sourceTree = "<group>"; };
+		6E353CF82768C7D900A32516 /* ModeCheckValidationCode+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModeCheckValidationCode+CC.swift"; sourceTree = "<group>"; };
 		6E361224267239A4008C0C86 /* ImportHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportHandler.swift; sourceTree = "<group>"; };
 		6E45C1DB2762841100D39553 /* TrailingIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailingIconButton.swift; sourceTree = "<group>"; };
 		6E5A0F1E26430B99004718B4 /* Verifier-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Verifier-Info.plist"; sourceTree = "<group>"; };
@@ -1129,6 +1132,7 @@
 			children = (
 				6E6B1A912649D17400DB4A38 /* Verifier.swift */,
 				DCBF64D726774E3300450D51 /* VerifierManager.swift */,
+				6E353CF82768C7D900A32516 /* ModeCheckValidationCode+CC.swift */,
 			);
 			path = Verifier;
 			sourceTree = "<group>";
@@ -1813,6 +1817,7 @@
 				DCF9C35726562E5C00E34481 /* ExpandableViewHeader.swift in Sources */,
 				6EC1730026429E31002E27DB /* PhoneCallHelper.swift in Sources */,
 				4825D133273D5F3E00F4F71E /* SDKOptionsManager.swift in Sources */,
+				6E353CFA2768C7D900A32516 /* ModeCheckValidationCode+CC.swift in Sources */,
 				6E173918267AA0A800813D30 /* InAppDeliveryPayload.swift in Sources */,
 				6EA5C36E26444E5600EA066F /* VerifyViewController.swift in Sources */,
 				6EC173622642A1E8002E27DB /* VerifierUserStorage.swift in Sources */,
@@ -1999,6 +2004,7 @@
 				242D227B245D6557005DAEA8 /* Backend.swift in Sources */,
 				6EBF9C78267C807B00E86B45 /* SecureStorage.swift in Sources */,
 				6E17391E267B204700813D30 /* LoadingView.swift in Sources */,
+				6E353CF92768C7D900A32516 /* ModeCheckValidationCode+CC.swift in Sources */,
 				F8D5B155268B659C00C39836 /* TransformationService.swift in Sources */,
 				DC8ABDED264A62A800FDE0E1 /* OnboardingContentViewController.swift in Sources */,
 				8EB23D78245AF2C30073E83A /* RandomGenerators.swift in Sources */,

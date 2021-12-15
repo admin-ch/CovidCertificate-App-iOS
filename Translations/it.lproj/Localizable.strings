@@ -1244,7 +1244,7 @@
 
 /*Fuzzy*/
 "verifier_faq_works_linktext_1" = "Video esplicativo";
-"verifier_faq_works_linkurl_1" = "https://www.youtube.com/watch?v=Ix1s0PankKo&feature=emb_title";
+"verifier_faq_works_linkurl_1" = "https://youtu.be/pt8Sf5xOISU";
 
 /*Title of button to choose verification mode*/
 "verifier_choose_mode_button_title" = "Scegliere";
@@ -1298,7 +1298,7 @@
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 2g*/
-"verifier_check_mode_info_2g_text_3" = "Questa modalità non permette di verificare i certificati light per motivi legati alla protezione dei dati.";
+"verifier_check_mode_info_2g_text_3" = "Questa modalità non permette di verificare i certificati light.";
 
 /*👍*/
 /*Verifier: Modus auswählen Titel*/
@@ -1323,3 +1323,36 @@
 
 /*check app -> check mode select pop-up -> info text when no check mode is selected*/
 "verifier_check_mode_info_unselected_text_2" = "La modalità di verifica può essere cambiata in qualsiasi momento.";
+
+/*check app -> check mode select pop-up -> display name of check mode 2G+*/
+"verifier_check_mode_info_2g_plus_title" = "2G+";
+
+/*check app -> check mode select pop-up -> info text for check mode 2G+*/
+"verifier_check_mode_info_2g_plus_text_1" = "Für Betriebe und Veranstaltungen, in welchen mit einer Regelung nach 2G+ geprüft wird.";
+
+/*check app -> check mode select pop-up -> info text for check mode 2G+*/
+"verifier_check_mode_info_2g_plus_text_2" = "Zusätzlich zu einem Covid-Zertifikat für Geimpfte oder Genesene wird ein gültiger PCR- oder Antigen-Schnelltest benötigt.";
+
+/*check app -> check mode select pop-up -> info text for check mode 2G+*/
+"verifier_check_mode_info_2g_plus_text_3" = "In diesem Modus müssen zwei Covid-Zertifikate einzeln überprüft werden.";
+
+/*check app -> check mode select pop-up -> info text for check mode 2G+*/
+"verifier_check_mode_info_2g_plus_text_4" = "Die Prüfung von einem Zertifikat Light ist in diesem Modus nicht möglich.";
+
+/*2G+: Anzeige, dass Zertifikat 2G erfüllt*/
+"verifier_2g_plus_success2g" = "Gültiges Covid-Zertifikat nach 2G-Regelung";
+
+/*2G+: Info, dass Zertifikat + erfüllt*/
+"verifier_2g_plus_successplus" = "Gültiges Covid-Zertifikat für Getestete";
+
+/*Verifier: 2G+ Info, dass noch + nötig*/
+"verifier_2g_plus_infoplus" = "Für 2G+ nur in Kombination mit einem gültigen PCR- oder Antigentest zugelassen.";
+
+/*Verifier: 2G+ Info dass noch 2G nötig*/
+"verifier_2g_plus_info2g" = "Für 2G+ nur in Kombination mit einem gültigen Covid-Zertifikat für Geimpfte oder Genesene zugelassen.";
+
+/*Prüfung fehlgeschlagen App update nötig*/
+"verifier_error_app_store_text" = "Die Prüfung kann mit dieser App Version nicht durchgeführt werden. Laden Sie die neue Version der App.";
+
+/*Button Text für Prüfung fehlgeschlagen App update nötig */
+"verifier_error_app_store_button" = "Zum App-Store";
