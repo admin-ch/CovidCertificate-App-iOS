@@ -201,7 +201,7 @@ class VerifyCheckContentViewController: ViewController {
                 let successImage = isPlus ? UIImage(named: "ic-plus-outline") : UIImage(named: "ic_2g")
                 statusView.set(text: successText.bold(), backgroundColor: .cc_greenish, icon: successImage?.ub_image(with: UIColor.cc_green))
 
-                let infoText = isPlus ? UBLocalized.verifier_2g_plus_infoplus : UBLocalized.verifier_2g_plus_info2g
+                let infoText = !isPlus ? UBLocalized.verifier_2g_plus_infoplus : UBLocalized.verifier_2g_plus_info2g
 
                 let infoImage = !isPlus ? UIImage(named: "ic-plus-outline") : UIImage(named: "ic_2g")
                 infoView.set(text: infoText, backgroundColor: .cc_greyish, icon: infoImage?.ub_image(with: .cc_grey), showReloadButton: false)
