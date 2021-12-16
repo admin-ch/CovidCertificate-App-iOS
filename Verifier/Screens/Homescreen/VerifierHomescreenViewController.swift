@@ -114,8 +114,8 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
         checkContainer.addSubview(checkButton)
         checkButton.snp.makeConstraints { make in
             make.centerX.top.bottom.equalToSuperview()
-            make.left.greaterThanOrEqualToSuperview()
-            make.right.lessThanOrEqualToSuperview()
+            make.left.greaterThanOrEqualToSuperview().inset(Padding.medium)
+            make.right.lessThanOrEqualToSuperview().inset(Padding.medium)
         }
 
         stackView.addArrangedView(checkContainer)
