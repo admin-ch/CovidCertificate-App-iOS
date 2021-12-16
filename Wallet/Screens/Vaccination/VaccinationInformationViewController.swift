@@ -19,27 +19,33 @@ class VaccinationInformationViewController: StackScrollViewController {
 
         let config = ConfigManager.currentConfig
 
-        self.title = UBLocalized.vaccination_appointment_header.uppercased()
+        title = UBLocalized.vaccination_appointment_header.uppercased()
         view.backgroundColor = .cc_background
         addDismissButton()
 
         stackScrollView.stackView.alignment = .fill
 
-        let title = Label(.title, textAlignment: .center)
-        title.accessibilityTraits = .header
-        title.text = config?.vaccinationBookingInfo.value?.title ?? ""
-        addArrangedView(title, insets: insets)
+        if let titleText = config?.vaccinationBookingInfo.value?.title {
+            let title = Label(.title, textAlignment: .center)
+            title.accessibilityTraits = .header
+            title.text = titleText
+            addArrangedView(title, insets: insets)
 
-        stackScrollView.addSpacerView(40)
-        let subtitle = Label(.text, textAlignment: .left)
-        subtitle.text = config?.vaccinationBookingInfo.value?.text
-        addArrangedView(subtitle, insets: insets)
+            stackScrollView.addSpacerView(40)
+        }
 
-        stackScrollView.addSpacerView(30)
+        if let subtitleText = config?.vaccinationBookingInfo.value?.text {
+            let subtitle = Label(.text, textAlignment: .left)
+            subtitle.text = subtitleText
+            addArrangedView(subtitle, insets: insets)
 
-        addArrangedView(RoundedBackgroundView(text: config?.vaccinationBookingInfo.value?.info ?? ""), insets: insets)
+            stackScrollView.addSpacerView(30)
+        }
 
-        stackScrollView.addSpacerView(30)
+        if let vaccinationBookingInfoBlueBox = config?.vaccinationBookingInfo.value?.info {
+            addArrangedView(RoundedBackgroundView(text: vaccinationBookingInfoBlueBox), insets: insets)
+            stackScrollView.addSpacerView(30)
+        }
 
         if config?.vaccinationBookingInfo.value?.hasAllImpfCheckValues ?? false {
             let titleLabel = Label(.textBoldLarge, textAlignment: .left)
