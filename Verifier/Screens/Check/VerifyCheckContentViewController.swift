@@ -270,7 +270,7 @@ class VerifyCheckContentViewController: ViewController {
 
             statusView.set(text: NSAttributedString(string: error.displayTitle()), backgroundColor: color, icon: UIImage(named: imageName))
             let infoImage = error == .timeShift ? UIImage(named: "ic-timeerror") : UIImage(named: "ic-info-outline")
-            infoView.set(text: UBLocalized.verifier_verify_error_validity_range_bold, backgroundColor: color, icon: infoImage?.ub_image(with: .cc_orange), showReloadButton: true)
+            infoView.set(text: error.displayText(), backgroundColor: color, icon: infoImage?.ub_image(with: .cc_orange), showReloadButton: true)
 
             let codes = errorCodes.joined(separator: ", ")
             if codes.count > 0 {
