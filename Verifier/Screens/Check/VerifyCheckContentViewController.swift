@@ -201,7 +201,7 @@ class VerifyCheckContentViewController: ViewController {
                 let successImage = isPlus ? UIImage(named: "ic-plus-outline") : UIImage(named: "ic_2g")
                 statusView.set(text: successText.bold(), backgroundColor: .cc_greenish, icon: successImage?.ub_image(with: UIColor.cc_green))
 
-                let infoText = isPlus ? UBLocalized.verifier_2g_plus_infoplus : UBLocalized.verifier_2g_plus_info2g
+                let infoText = !isPlus ? UBLocalized.verifier_2g_plus_infoplus : UBLocalized.verifier_2g_plus_info2g
 
                 let infoImage = !isPlus ? UIImage(named: "ic-plus-outline") : UIImage(named: "ic_2g")
                 infoView.set(text: infoText, backgroundColor: .cc_greyish, icon: infoImage?.ub_image(with: .cc_grey), showReloadButton: false)
@@ -237,11 +237,9 @@ class VerifyCheckContentViewController: ViewController {
                              showReloadButton: false)
             }
 
-        case let .invalid(errors, errorCodes, _, _):
-            let (signatureError, revocationError, nationalError) = state?.getVerifierErrorState() ?? (nil, nil, nil)
+        case let .invalid(_, errorCodes, _, _):
+            let error = state?.getFirstError()
 
-            // errors can never be empty in invalid state, therefore one optional will always safely unwrap
-            let error: VerificationError? = signatureError ?? revocationError ?? nationalError ?? errors.first
             let text: NSAttributedString = error?.displayName() ?? NSAttributedString(string: "")
 
             switch error {
@@ -307,10 +305,11 @@ class VerifyCheckContentViewController: ViewController {
                 self.infoErrorView2.ub_setHidden(true)
 
             case .invalid:
-                let (signatureError, revocationError, nationalError) = self.state?.getVerifierErrorState() ?? (nil, nil, nil)
+                let (signatureError, revocationError, _) = self.state?.getVerifierErrorState() ?? (nil, nil, nil)
+                let error = self.state?.getFirstError()
 
-                var isError = true
-                if let n = nationalError {
+                var isError = false
+                if let n = error {
                     switch n {
                     case .unknown, .lightUnsupported:
                         isError = true

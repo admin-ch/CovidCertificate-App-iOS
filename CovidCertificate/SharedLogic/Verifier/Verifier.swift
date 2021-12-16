@@ -141,6 +141,16 @@ enum VerificationState: Equatable {
             return nil
         }
     }
+
+    public func getFirstError() -> VerificationError? {
+        switch self {
+        case let .invalid(errors, _, _, _):
+            let (signatureError, revocationError, nationalError) = getVerifierErrorState() ?? (nil, nil, nil)
+            return signatureError ?? revocationError ?? nationalError ?? errors.first
+        default:
+            return nil
+        }
+    }
 }
 
 class Verifier: NSObject {
