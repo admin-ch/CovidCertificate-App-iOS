@@ -205,10 +205,8 @@ class VerifyCheckViewController: ViewController {
                 self.imageView.image = UIImage(named: "ic-header-valid")
                 self.backgroundView.backgroundColor = .cc_green
             case .invalid:
-                let (_, _, nationalError) = self.state.getVerifierErrorState() ?? (nil, nil, nil)
-
                 var isError = true
-                if let n = nationalError {
+                if let n = self.state.getFirstError() {
                     switch n {
                     case .unknown, .lightUnsupported:
                         isError = false

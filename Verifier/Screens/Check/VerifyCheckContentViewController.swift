@@ -237,11 +237,9 @@ class VerifyCheckContentViewController: ViewController {
                              showReloadButton: false)
             }
 
-        case let .invalid(errors, errorCodes, _, _):
-            let (signatureError, revocationError, nationalError) = state?.getVerifierErrorState() ?? (nil, nil, nil)
+        case let .invalid(_, errorCodes, _, _):
+            let error = state?.getFirstError()
 
-            // errors can never be empty in invalid state, therefore one optional will always safely unwrap
-            let error: VerificationError? = signatureError ?? revocationError ?? nationalError ?? errors.first
             let text: NSAttributedString = error?.displayName() ?? NSAttributedString(string: "")
 
             switch error {
@@ -307,10 +305,11 @@ class VerifyCheckContentViewController: ViewController {
                 self.infoErrorView2.ub_setHidden(true)
 
             case .invalid:
-                let (signatureError, revocationError, nationalError) = self.state?.getVerifierErrorState() ?? (nil, nil, nil)
+                let (signatureError, revocationError, _) = self.state?.getVerifierErrorState() ?? (nil, nil, nil)
+                let error = self.state?.getFirstError()
 
                 var isError = false
-                if let n = nationalError {
+                if let n = error {
                     switch n {
                     case .unknown, .lightUnsupported:
                         isError = true
