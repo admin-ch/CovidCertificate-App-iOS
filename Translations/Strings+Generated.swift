@@ -292,9 +292,9 @@ import Foundation
      case vaccination_information_button_in_certificate_key = "vaccination_information_button_in_certificate"
     /// Weitere Informationen rund um die Covid-19-Impfung
      case vaccination_more_information_title_key = "vaccination_more_information_title"
-    /// Für 2G+ nur in Kombination mit einem gültigen Covid-Zertifikat für Geimpfte oder Genesene zugelassen.
+    /// Für 2G+ nur in Kombination mit der Prüfung eines Covid-Zertifikats für Geimpfte oder Genesene zugelassen.
      case verifier_2g_plus_info2g_key = "verifier_2g_plus_info2g"
-    /// Für 2G+ nur in Kombination mit einem gültigen PCR- oder Antigentest zugelassen.
+    /// Für 2G+ nur in Kombination mit der Prüfung eines gültigen Testzertifikats zugelassen.
      case verifier_2g_plus_infoplus_key = "verifier_2g_plus_infoplus"
     /// Gültiges Covid-Zertifikat nach 2G-Regelung
      case verifier_2g_plus_success2g_key = "verifier_2g_plus_success2g"
@@ -312,11 +312,11 @@ import Foundation
      case verifier_certificate_light_error_expired_key = "verifier_certificate_light_error_expired"
     /// Für Betriebe und Veranstaltungen, in welchen mit einer Regelung nach 2G+ geprüft wird.
      case verifier_check_mode_info_2g_plus_text_1_key = "verifier_check_mode_info_2g_plus_text_1"
-    /// Zusätzlich zu einem Covid-Zertifikat für Geimpfte oder Genesene wird ein gültiger PCR- oder Antigen-Schnelltest benötigt.
+    /// Zusätzlich zu einem Covid-Zertifikat für Geimpfte oder Genesene wird ein gültiges Testzertifikat benötigt, welches separat geprüft werden muss.
      case verifier_check_mode_info_2g_plus_text_2_key = "verifier_check_mode_info_2g_plus_text_2"
-    /// In diesem Modus müssen zwei Covid-Zertifikate einzeln überprüft werden.
+    /// Ausnahmen: Personen, welche vor weniger als 90 Tagen entweder eine Genesung durchgemacht oder ihre letzte Impfdosis erhalten haben, benötigen kein zusätzliches Testzertifikat.
      case verifier_check_mode_info_2g_plus_text_3_key = "verifier_check_mode_info_2g_plus_text_3"
-    /// Die Prüfung von einem Zertifikat Light ist in diesem Modus nicht möglich.
+    /// Die Prüfung von Zertifikate Light ist in diesem Modus nicht möglich.
      case verifier_check_mode_info_2g_plus_text_4_key = "verifier_check_mode_info_2g_plus_text_4"
     /// 2G+
      case verifier_check_mode_info_2g_plus_title_key = "verifier_check_mode_info_2g_plus_title"
@@ -336,6 +336,14 @@ import Foundation
      case verifier_check_mode_info_3g_text_3_key = "verifier_check_mode_info_3g_text_3"
     /// 3G
      case verifier_check_mode_info_3g_title_key = "verifier_check_mode_info_3g_title"
+    /// Für Bereiche, bei denen ein gültiges Testzertifikat notwendig ist.
+     case verifier_check_mode_info_test_cert_text_1_key = "verifier_check_mode_info_test_cert_text_1"
+    /// In diesem Modus werden Covid-Zertifikate für negativ Getestete basierend auf einem PCR- oder Antigen-Schnelltest akzeptiert.
+     case verifier_check_mode_info_test_cert_text_2_key = "verifier_check_mode_info_test_cert_text_2"
+    /// Die Prüfung von Zertifikate Light ist in diesem Modus nicht möglich.
+     case verifier_check_mode_info_test_cert_text_3_key = "verifier_check_mode_info_test_cert_text_3"
+    /// Testzertifikat
+     case verifier_check_mode_info_test_cert_title_key = "verifier_check_mode_info_test_cert_title"
     /// Wählen Sie den Prüfmodus, in welchem Sie Covid-Zertifikate prüfen möchten.
      case verifier_check_mode_info_unselected_text_1_key = "verifier_check_mode_info_unselected_text_1"
     /// Der Prüfmodus kann jederzeit geändert werden.
@@ -348,9 +356,9 @@ import Foundation
      case verifier_covid_certificate_name_key = "verifier_covid_certificate_name"
     /// Vorname
      case verifier_covid_certificate_prename_key = "verifier_covid_certificate_prename"
-    /// Zum App-Store
+    /// Zum App Store
      case verifier_error_app_store_button_key = "verifier_error_app_store_button"
-    /// Die Prüfung kann mit dieser App Version nicht durchgeführt werden. Laden Sie die neue Version der App.
+    /// Die Prüfung dieser Art des Covid-Zertifikats bedingt die neuste Version der Check-App. Bitte aktualisieren Sie Ihre App und wiederholen Sie den Prüfvorgang.
      case verifier_error_app_store_text_key = "verifier_error_app_store_text"
     /// Das Format des Covid-Zertifikats ist ungültig.
      case verifier_error_invalid_format_key = "verifier_error_invalid_format"
@@ -502,9 +510,9 @@ import Foundation
      case wallet_certificate_key = "wallet_certificate"
     /// Dieses Zertifikat ist bereits in der App gespeichert
      case wallet_certificate_already_exists_key = "wallet_certificate_already_exists"
-    /// Verantwortliche Stelle für Ausstellung
+    /// Für die Ausstellung verantwortliche Stelle
      case wallet_certificate_ausnahme_responsible_issuer_key = "wallet_certificate_ausnahme_responsible_issuer"
-    /// Startdatum des Attests
+    /// Beginn der Gültigkeit
      case wallet_certificate_ausnahme_test_attest_start_date_key = "wallet_certificate_ausnahme_test_attest_start_date"
     /// Zertifikat erstellt am\n{DATE}
      case wallet_certificate_date_key = "wallet_certificate_date"
@@ -1294,9 +1302,9 @@ import Foundation
    static let vaccination_information_button_in_certificate = UBLocalized.tr(UBLocalizedKey.vaccination_information_button_in_certificate_key)
   /// Weitere Informationen rund um die Covid-19-Impfung
    static let vaccination_more_information_title = UBLocalized.tr(UBLocalizedKey.vaccination_more_information_title_key)
-  /// Für 2G+ nur in Kombination mit einem gültigen Covid-Zertifikat für Geimpfte oder Genesene zugelassen.
+  /// Für 2G+ nur in Kombination mit der Prüfung eines Covid-Zertifikats für Geimpfte oder Genesene zugelassen.
    static let verifier_2g_plus_info2g = UBLocalized.tr(UBLocalizedKey.verifier_2g_plus_info2g_key)
-  /// Für 2G+ nur in Kombination mit einem gültigen PCR- oder Antigentest zugelassen.
+  /// Für 2G+ nur in Kombination mit der Prüfung eines gültigen Testzertifikats zugelassen.
    static let verifier_2g_plus_infoplus = UBLocalized.tr(UBLocalizedKey.verifier_2g_plus_infoplus_key)
   /// Gültiges Covid-Zertifikat nach 2G-Regelung
    static let verifier_2g_plus_success2g = UBLocalized.tr(UBLocalizedKey.verifier_2g_plus_success2g_key)
@@ -1314,11 +1322,11 @@ import Foundation
    static let verifier_certificate_light_error_expired = UBLocalized.tr(UBLocalizedKey.verifier_certificate_light_error_expired_key)
   /// Für Betriebe und Veranstaltungen, in welchen mit einer Regelung nach 2G+ geprüft wird.
    static let verifier_check_mode_info_2g_plus_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_plus_text_1_key)
-  /// Zusätzlich zu einem Covid-Zertifikat für Geimpfte oder Genesene wird ein gültiger PCR- oder Antigen-Schnelltest benötigt.
+  /// Zusätzlich zu einem Covid-Zertifikat für Geimpfte oder Genesene wird ein gültiges Testzertifikat benötigt, welches separat geprüft werden muss.
    static let verifier_check_mode_info_2g_plus_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_plus_text_2_key)
-  /// In diesem Modus müssen zwei Covid-Zertifikate einzeln überprüft werden.
+  /// Ausnahmen: Personen, welche vor weniger als 90 Tagen entweder eine Genesung durchgemacht oder ihre letzte Impfdosis erhalten haben, benötigen kein zusätzliches Testzertifikat.
    static let verifier_check_mode_info_2g_plus_text_3 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_plus_text_3_key)
-  /// Die Prüfung von einem Zertifikat Light ist in diesem Modus nicht möglich.
+  /// Die Prüfung von Zertifikate Light ist in diesem Modus nicht möglich.
    static let verifier_check_mode_info_2g_plus_text_4 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_plus_text_4_key)
   /// 2G+
    static let verifier_check_mode_info_2g_plus_title = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_plus_title_key)
@@ -1338,6 +1346,14 @@ import Foundation
    static let verifier_check_mode_info_3g_text_3 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_text_3_key)
   /// 3G
    static let verifier_check_mode_info_3g_title = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_title_key)
+  /// Für Bereiche, bei denen ein gültiges Testzertifikat notwendig ist.
+   static let verifier_check_mode_info_test_cert_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_test_cert_text_1_key)
+  /// In diesem Modus werden Covid-Zertifikate für negativ Getestete basierend auf einem PCR- oder Antigen-Schnelltest akzeptiert.
+   static let verifier_check_mode_info_test_cert_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_test_cert_text_2_key)
+  /// Die Prüfung von Zertifikate Light ist in diesem Modus nicht möglich.
+   static let verifier_check_mode_info_test_cert_text_3 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_test_cert_text_3_key)
+  /// Testzertifikat
+   static let verifier_check_mode_info_test_cert_title = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_test_cert_title_key)
   /// Wählen Sie den Prüfmodus, in welchem Sie Covid-Zertifikate prüfen möchten.
    static let verifier_check_mode_info_unselected_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_unselected_text_1_key)
   /// Der Prüfmodus kann jederzeit geändert werden.
@@ -1350,9 +1366,9 @@ import Foundation
    static let verifier_covid_certificate_name = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_name_key)
   /// Vorname
    static let verifier_covid_certificate_prename = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_prename_key)
-  /// Zum App-Store
+  /// Zum App Store
    static let verifier_error_app_store_button = UBLocalized.tr(UBLocalizedKey.verifier_error_app_store_button_key)
-  /// Die Prüfung kann mit dieser App Version nicht durchgeführt werden. Laden Sie die neue Version der App.
+  /// Die Prüfung dieser Art des Covid-Zertifikats bedingt die neuste Version der Check-App. Bitte aktualisieren Sie Ihre App und wiederholen Sie den Prüfvorgang.
    static let verifier_error_app_store_text = UBLocalized.tr(UBLocalizedKey.verifier_error_app_store_text_key)
   /// Das Format des Covid-Zertifikats ist ungültig.
    static let verifier_error_invalid_format = UBLocalized.tr(UBLocalizedKey.verifier_error_invalid_format_key)
@@ -1504,9 +1520,9 @@ import Foundation
    static let wallet_certificate = UBLocalized.tr(UBLocalizedKey.wallet_certificate_key)
   /// Dieses Zertifikat ist bereits in der App gespeichert
    static let wallet_certificate_already_exists = UBLocalized.tr(UBLocalizedKey.wallet_certificate_already_exists_key)
-  /// Verantwortliche Stelle für Ausstellung
+  /// Für die Ausstellung verantwortliche Stelle
    static let wallet_certificate_ausnahme_responsible_issuer = UBLocalized.tr(UBLocalizedKey.wallet_certificate_ausnahme_responsible_issuer_key)
-  /// Startdatum des Attests
+  /// Beginn der Gültigkeit
    static let wallet_certificate_ausnahme_test_attest_start_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_ausnahme_test_attest_start_date_key)
   /// Zertifikat erstellt am\n{DATE}
    static let wallet_certificate_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_date_key)
