@@ -1179,7 +1179,7 @@
 "vaccination_booking_info_text" = "La vaccination pourrait, par exemple, être proposée dans les lieux suivants situés à proximité de chez vous :\n\n- dans des centres de vaccination désignés\n- dans les hôpitaux\n- chez votre médecin de famille\n- dans les pharmacies\n\nIl est aussi possible de se faire vacciner sans rendez-vous dans de nombreux endroits.";
 
 /*vaccination booking info screen info box at bottom*/
-"vaccination_booking_info_info" = "Gratuite, la vaccination contre le COVID-19 est recommandée pour les personnes dès 12 ans.";
+"vaccination_booking_info_info" = "La vaccination contre le COVID-19 est recommandée pour les personnes dès 5 ans.";
 
 /*Header on vaccination appointment screen*/
 "vaccination_appointment_header" = "Rendez-vous de vaccination";
@@ -1349,7 +1349,7 @@
 "verifier_2g_plus_successplus" = "Certificat COVID de test valable";
 
 /*Verifier: 2G+ Info, dass noch + nötig*/
-"verifier_2g_plus_infoplus" = "Per la regola 2G+ accettato solo previa verifica di un certificato di test valido.";
+"verifier_2g_plus_infoplus" = "Pour répondre aux critères de validité du mode 2G+, doit être accompagné d'un certificat de test valable.";
 
 /*Verifier: 2G+ Info dass noch 2G nötig*/
 "verifier_2g_plus_info2g" = "Pour répondre aux critères de validité du mode 2G+, doit être accompagné d'un certificat de vaccination ou de guérison.";

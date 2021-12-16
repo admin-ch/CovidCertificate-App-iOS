@@ -1205,7 +1205,7 @@
 "vaccination_booking_info_text" = "Eine Impfung könnte zum Beispiel an diesen Orten in Ihrer Nähe stattfinden:\n\n- in spezifischen Impfzentren\n- in Spitälern\n- bei Ihrem Hausarzt oder Ihrer Hausärztin\n- in Impfapotheken\n\nViele Orte bieten auch Walk-in-Impfungen ohne Termine an.";
 
 /*vaccination booking info screen info box at bottom*/
-"vaccination_booking_info_info" = "Die Covid-19-Impfung ist für Personen ab 12 Jahren empfohlen. Die Impfung ist gratis.";
+"vaccination_booking_info_info" = "Die Covid-19-Impfung ist für Personen ab 5 Jahren empfohlen.";
 
 /*Header on vaccination appointment screen*/
 "vaccination_appointment_header" = "Impftermin";

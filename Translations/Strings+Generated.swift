@@ -168,7 +168,7 @@ import Foundation
      case vaccination_booking_gr_name_key = "vaccination_booking_gr_name"
     /// https://www.gr.ch/DE/institutionen/verwaltung/djsg/ga/coronavirus/info/impfen/Seiten/impfen.aspx
      case vaccination_booking_gr_url_key = "vaccination_booking_gr_url"
-    /// Die Covid-19-Impfung ist für Personen ab 12 Jahren empfohlen. Die Impfung ist gratis.
+    /// Die Covid-19-Impfung ist für Personen ab 5 Jahren empfohlen.
      case vaccination_booking_info_info_key = "vaccination_booking_info_info"
     /// Eine Impfung könnte zum Beispiel an diesen Orten in Ihrer Nähe stattfinden:\n\n- in spezifischen Impfzentren\n- in Spitälern\n- bei Ihrem Hausarzt oder Ihrer Hausärztin\n- in Impfapotheken\n\nViele Orte bieten auch Walk-in-Impfungen ohne Termine an.
      case vaccination_booking_info_text_key = "vaccination_booking_info_text"
@@ -1178,7 +1178,7 @@ import Foundation
    static let vaccination_booking_gr_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_gr_name_key)
   /// https://www.gr.ch/DE/institutionen/verwaltung/djsg/ga/coronavirus/info/impfen/Seiten/impfen.aspx
    static let vaccination_booking_gr_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_gr_url_key)
-  /// Die Covid-19-Impfung ist für Personen ab 12 Jahren empfohlen. Die Impfung ist gratis.
+  /// Die Covid-19-Impfung ist für Personen ab 5 Jahren empfohlen.
    static let vaccination_booking_info_info = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_info_key)
   /// Eine Impfung könnte zum Beispiel an diesen Orten in Ihrer Nähe stattfinden:\n\n- in spezifischen Impfzentren\n- in Spitälern\n- bei Ihrem Hausarzt oder Ihrer Hausärztin\n- in Impfapotheken\n\nViele Orte bieten auch Walk-in-Impfungen ohne Termine an.
    static let vaccination_booking_info_text = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_text_key)
