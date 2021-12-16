@@ -13,12 +13,11 @@ import UIKit
 
 class ScanModeButton: UBButton {
     private let labelView = UIView()
-    private let label = Label(.textExtraBold)
+    private let label = Label(.textExtraBold, numberOfLines: 1)
 
     public var mode: CheckModeUIObject? {
         didSet {
             labelView.backgroundColor = mode?.color
-            label.backgroundColor = mode?.color
             label.text = mode?.displayName
             labelView.ub_setHidden(mode == nil)
         }
@@ -46,8 +45,6 @@ class ScanModeButton: UBButton {
             make.left.right.equalToSuperview().inset(UIEdgeInsets(top: 0.0, left: 2 * Padding.small, bottom: 0.0, right: 2 * Padding.small))
             make.centerY.equalToSuperview()
         }
-
-        label.ub_setContentPriorityRequired()
 
         let size = label.font.pointSize
 
