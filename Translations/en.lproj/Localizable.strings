@@ -776,7 +776,7 @@
 "wallet_certificate_light_detail_summary_2" = "Only contains last name, first name, date of birth and electronic signature";
 
 /*Wallet: Zertifikat Light Summary Punkt 3*/
-"wallet_certificate_light_detail_summary_3" = "Only valid for {LIGHT_CERT_VALIDITY_IN_H} hours";
+"wallet_certificate_light_detail_summary_3" = "Only valid for a max of {LIGHT_CERT_VALIDITY_IN_H} hours";
 
 /*Wallet: Zertifikat Light Summary Punkt 4*/
 "wallet_certificate_light_detail_summary_4" = "Your COVID certificate is converted to the 'light' version online.";
@@ -1221,13 +1221,13 @@
 "covid_certificate_sero_positiv_test_befund_value" = "Sufficient";
 
 /*Ausnahme Test Zertifikat Detail: Titel für Startdatum des Attests*/
-"wallet_certificate_ausnahme_test_attest_start_date" = "Startdatum des Attests";
+"wallet_certificate_ausnahme_test_attest_start_date" = "Start of validity";
 
 /*Ausnahme Test Zertifikat Detail: Titel für verantwortliche Stelle für Ausstellung*/
-"wallet_certificate_ausnahme_responsible_issuer" = "Verantwortliche Stelle für Ausstellung";
+"wallet_certificate_ausnahme_responsible_issuer" = "Issuing office";
 
 /*Testname für Schweizer Ausnahme Zertifikat für Nicht-Testbare und Nicht-Impfbare Personen*/
-"covid_certificate_ch_ausnahme_test_title" = "Ausnahme Zertifikat";
+"covid_certificate_ch_ausnahme_test_title" = "Exemption certificate";
 "infobox_update_title" = "New version available";
 "infobox_update_text" = "Download the latest version of the app.";
 "infobox_update_button" = "Update";
@@ -1328,31 +1328,43 @@
 "verifier_check_mode_info_2g_plus_title" = "2G+";
 
 /*check app -> check mode select pop-up -> info text for check mode 2G+*/
-"verifier_check_mode_info_2g_plus_text_1" = "Für Betriebe und Veranstaltungen, in welchen mit einer Regelung nach 2G+ geprüft wird.";
+"verifier_check_mode_info_2g_plus_text_1" = "For organisations and events applying the 2G+ rule.";
 
 /*check app -> check mode select pop-up -> info text for check mode 2G+*/
-"verifier_check_mode_info_2g_plus_text_2" = "Zusätzlich zu einem Covid-Zertifikat für Geimpfte oder Genesene wird ein gültiger PCR- oder Antigen-Schnelltest benötigt.";
+"verifier_check_mode_info_2g_plus_text_2" = "In addition to a COVID certificate for people who have been vaccinated or who have recovered, a valid test certificate is required. This must be verified separately.";
 
 /*check app -> check mode select pop-up -> info text for check mode 2G+*/
-"verifier_check_mode_info_2g_plus_text_3" = "In diesem Modus müssen zwei Covid-Zertifikate einzeln überprüft werden.";
+"verifier_check_mode_info_2g_plus_text_3" = "Exceptions: no additional certificate is required for people who have received a vaccination or recovered less than 90 days ago.";
 
 /*check app -> check mode select pop-up -> info text for check mode 2G+*/
-"verifier_check_mode_info_2g_plus_text_4" = "Die Prüfung von einem Zertifikat Light ist in diesem Modus nicht möglich.";
+"verifier_check_mode_info_2g_plus_text_4" = "It is not possible to verify \"light\" certificates in this mode.";
 
 /*2G+: Anzeige, dass Zertifikat 2G erfüllt*/
-"verifier_2g_plus_success2g" = "Gültiges Covid-Zertifikat nach 2G-Regelung";
+"verifier_2g_plus_success2g" = "Valid COVID certificate under the 2G rule";
 
 /*2G+: Info, dass Zertifikat + erfüllt*/
-"verifier_2g_plus_successplus" = "Gültiges Covid-Zertifikat für Getestete";
+"verifier_2g_plus_successplus" = "Valid COVID certificate for people who have been tested.";
 
 /*Verifier: 2G+ Info, dass noch + nötig*/
-"verifier_2g_plus_infoplus" = "Für 2G+ nur in Kombination mit einem gültigen PCR- oder Antigentest zugelassen.";
+"verifier_2g_plus_infoplus" = "Permitted for 2G+ only when combined with a valid test certificate.";
 
 /*Verifier: 2G+ Info dass noch 2G nötig*/
-"verifier_2g_plus_info2g" = "Für 2G+ nur in Kombination mit einem gültigen Covid-Zertifikat für Geimpfte oder Genesene zugelassen.";
+"verifier_2g_plus_info2g" = "Permitted for 2G+ only when combined with verification of a COVID certificate for people who have been vaccinated or have recovered.";
 
 /*Prüfung fehlgeschlagen App update nötig*/
-"verifier_error_app_store_text" = "Die Prüfung kann mit dieser App Version nicht durchgeführt werden. Laden Sie die neue Version der App.";
+"verifier_error_app_store_text" = "To verify this type of COVID certificate, you must have the latest version of the app. Please update your app and repeat the verification process.";
 
 /*Button Text für Prüfung fehlgeschlagen App update nötig */
-"verifier_error_app_store_button" = "Zum App-Store";
+"verifier_error_app_store_button" = "To the App Store";
+
+/*check app -> check mode select pop-up -> display name of check mode Testzertifikat*/
+"verifier_check_mode_info_test_cert_title" = "Test certificate";
+
+/*check app -> check mode select pop-up -> info text for check mode Testzertifikat*/
+"verifier_check_mode_info_test_cert_text_1" = "For areas in which a valid test certificate is required.";
+
+/*check app -> check mode select pop-up -> info text for check mode Testzertifikat*/
+"verifier_check_mode_info_test_cert_text_2" = "In this mode, COVID certificates are accepted for people who have tested negative based on a PCR or rapid antigen test.";
+
+/*check app -> check mode select pop-up -> info text for check mode Testzertifikat*/
+"verifier_check_mode_info_test_cert_text_3" = "It is not possible to verify \"light\" certificates in this mode.";
