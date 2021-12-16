@@ -309,7 +309,7 @@ class VerifyCheckContentViewController: ViewController {
             case .invalid:
                 let (signatureError, revocationError, nationalError) = self.state?.getVerifierErrorState() ?? (nil, nil, nil)
 
-                var isError = true
+                var isError = false
                 if let n = nationalError {
                     switch n {
                     case .unknown, .lightUnsupported:
