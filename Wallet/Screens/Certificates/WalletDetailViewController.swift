@@ -106,10 +106,10 @@ class WalletDetailViewController: ViewController {
     // MARK: - Download
 
     private func startDownloadIfNeeded(forceUpdate: Bool = false) {
-        // only start if it's a valid transfercode (not expired or failed)
+        // only start if it's a not failed transfer-code
         guard certificate.type == .transferCode,
               let transferCode = certificate.transferCode,
-              transferCode.state == .valid
+              transferCode.state != .failed
         else { return }
 
         lightCertificateDetailVC.view.alpha = 0.0
@@ -152,7 +152,7 @@ class WalletDetailViewController: ViewController {
     private func updateLastLoad() {
         guard certificate.type == .transferCode,
               let transferCode = certificate.transferCode,
-              transferCode.state == .valid
+              transferCode.state != .failed
         else { return }
 
         if let lastLoad = TransferManager.shared.getLastLoad(code: transferCode.transferCode) {
