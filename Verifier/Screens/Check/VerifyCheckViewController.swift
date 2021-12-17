@@ -34,6 +34,11 @@ class VerifyCheckViewController: ViewController {
         }
     }
 
+    private var modes: [CheckMode] {
+        guard let m = mode else { return [] }
+        return [CheckMode(id: m.id, displayName: m.displayName)]
+    }
+
     public var holder: VerifierCertificateHolder? {
         didSet {
             checkContentViewController.holder = holder
@@ -53,7 +58,7 @@ class VerifyCheckViewController: ViewController {
             }
 
             updateBackground(true)
-            self.checkContentViewController.state = state
+            checkContentViewController.state = state
         }
     }
 
@@ -95,11 +100,6 @@ class VerifyCheckViewController: ViewController {
         } completion: { _ in }
 
         verifier = Verifier(holder: holder)
-
-        var modes: [CheckMode] = []
-        if let m = mode {
-            modes.append(CheckMode(id: m.id, displayName: m.displayName))
-        }
 
         verifier?.start(modes: modes) { [weak self] state in
             guard let strongSelf = self else { return }
@@ -166,9 +166,7 @@ class VerifyCheckViewController: ViewController {
 
         checkContentViewController.retryButtonCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            if let mode = strongSelf.mode {
-                strongSelf.verifier?.restart(modes: [CheckMode(id: mode.id, displayName: mode.displayName)])
-            }
+            strongSelf.verifier?.restart(modes: strongSelf.modes)
         }
     }
 
