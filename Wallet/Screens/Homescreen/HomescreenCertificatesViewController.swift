@@ -154,7 +154,7 @@ class HomescreenCertificatesViewController: ViewController {
                     i?.verificationState = state
                 }
             } else if let transferCode = i.certificate?.transferCode,
-                      transferCode.state == .valid // only start when still valid (not failed and not expired)
+                      transferCode.state != .failed // only start when not already failed
             {
                 TransferManager.shared.addObserver(self, for: transferCode.transferCode) { [weak i] result in
                     guard let strongI = i else { return }
