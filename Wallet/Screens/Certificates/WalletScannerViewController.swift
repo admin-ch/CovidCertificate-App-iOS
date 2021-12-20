@@ -35,6 +35,8 @@ class WalletScannerViewController: ViewController {
 
     private var cameraErrorView: CameraErrorView?
 
+    private var hideCompletion: (() -> Void)?
+
     // MARK: - Init
 
     override init() {
@@ -217,7 +219,10 @@ class WalletScannerViewController: ViewController {
         qrView?.stopScanning()
     }
 
-    private func showDetail() {
+    private func showDetail(certificate: UserCertificate) {
+        hideCompletion = nil
+        detailViewController.certificate = certificate
+
         showError(error: nil)
 
         UIView.animate(withDuration: 0.25) {
@@ -231,10 +236,18 @@ class WalletScannerViewController: ViewController {
     private func hideDetail() {
         startScanning()
 
+        // remove the certificate after animation, to remove
+        // it from memory, however another showDetail() will
+        // clear the completion because a new one is shown.
+        hideCompletion = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.detailViewController.certificate = nil
+        }
+
         UIView.animate(withDuration: 0.25) {
             self.detailViewController.view.alpha = 0.0
         } completion: { _ in
-            self.detailViewController.certificate = nil
+            self.hideCompletion?()
         }
 
         detailViewController.view.accessibilityViewIsModal = false
@@ -293,9 +306,8 @@ extension WalletScannerViewController: QRScannerViewDelegate {
 
                 qrView?.stopScanning()
 
-                let cert = UserCertificate(qrCode: s, transferCode: nil)
-                detailViewController.certificate = cert
-                showDetail()
+                showDetail(certificate: UserCertificate(qrCode: s, transferCode: nil))
+
                 WalletScanCounter.trackScan(date: Date())
                 showTooManyScansWarningIfNecessary()
 
