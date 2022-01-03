@@ -203,7 +203,7 @@ class HomescreenCertificateView: UIView {
             case let .success(holder):
                 guard let certificate = holder.certificate as? DCCCert else { break }
                 let vaccinations = certificate.vaccinations ?? []
-                if vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
+                if vaccinations.isComplete {
                     titleLabel.text = UBLocalized.wallet_certificate
                 } else {
                     titleLabel.text = UBLocalized.wallet_certificate_evidence_title
