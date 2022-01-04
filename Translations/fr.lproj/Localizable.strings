@@ -1245,7 +1245,7 @@
 
 /*Fuzzy*/
 "verifier_faq_works_linktext_1" = "Vidéo explicative";
-"verifier_faq_works_linkurl_1" = "https://youtu.be/90JHMToWPNM";
+"verifier_faq_works_linkurl_1" = "https://youtu.be/O-9YhJDI3ZI";
 
 /*Title of button to choose verification mode*/
 "verifier_choose_mode_button_title" = "Choisir";
@@ -1337,7 +1337,7 @@
 "verifier_check_mode_info_2g_plus_text_2" = "En plus d'un certificat COVID de vaccination ou de guérison, il faut présenter un certificat de test valable, qui doit être vérifié séparément.";
 
 /*check app -> check mode select pop-up -> info text for check mode 2G+*/
-"verifier_check_mode_info_2g_plus_text_3" = "Exceptions: les personnes qui, depuis moins de 90 jours, sont guéries ou vaccinées n'ont pas besoin d'un certificat de test en complément.";
+"verifier_check_mode_info_2g_plus_text_3" = "Exceptions: les personnes dont la vaccination, la vaccination de rappel ou la guérison datent de moins de 120 jours";
 
 /*check app -> check mode select pop-up -> info text for check mode 2G+*/
 "verifier_check_mode_info_2g_plus_text_4" = "Ce mode ne permet pas de vérifier les «certificats light».";
@@ -1371,3 +1371,33 @@
 
 /*check app -> check mode select pop-up -> info text for check mode Testzertifikat*/
 "verifier_check_mode_info_test_cert_text_3" = "Ce mode ne permet pas de vérifier les «certificats light».";
+
+/*wallet refresh button removal info box text*/
+"wallet_refresh_button_info_text_1" = "Die Funktion zur Selbstprüfung von Zertifikaten («Refresh-Button») wurde entfernt.";
+
+/*wallet refresh button removal info box text*/
+"wallet_refresh_button_info_text_2" = "Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt direkt auf dem Zertifikat angezeigt.";
+
+/*wallet refresh button removal info box text*/
+"wallet_refresh_button_info_text_3" = "Um Covid Zertifikate zu prüfen, muss der QR-Code mit einer Prüfapp gescannt werden.";
+
+/*wallet refresh button removal info box fat title above text 3*/
+"wallet_refresh_button_info_fat_title_3" = "Für Prüfende";
+
+/*wallet refresh button removal info box link text*/
+"wallet_refresh_button_info_link_text" = "Mehr erfahren";
+
+/*wallet refresh button removal info box link url*/
+"wallet_refresh_button_info_link_url" = "https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat/covid-zertifikat-pruefer-aussteller-technische-informationen.html#-1006172949";
+
+/*text for info pop-up in wallet app describing 2G+ OK state*/
+"wallet_check_mode_info_2g_plus_ok_text" = "Das Zertifikat ermöglicht den Zutritt zu Orten und Aktivitäten mit 2G+-Regelung. (Das Zertifikat für die Impfung oder Genesung ist weniger als 120 Tage alt.)";
+
+/*text for info pop-up in wallet app describing 2G+ NOT OK state*/
+"wallet_check_mode_info_2g_plus_not_ok_text" = "Für den Zutritt zu Orten und Aktivitäten mit einer 2G+-Regelung wird zusätzlich ein Zertifikat für ein negatives Testresultat benötigt.";
+
+/*wallet refresh button removal info box title*/
+"wallet_refresh_button_info_title" = "Info";
+
+/*Ausnahme-Zertifikat: Medizinisches Attest ausgestellt in*/
+"wallet_certificate_ausnahme_issued_country" = "Medizinisches Attest ausgestellt in";
