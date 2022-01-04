@@ -53,6 +53,7 @@
 		6E0281FA26565A8100582904 /* ScreenBrightness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0281F926565A8100582904 /* ScreenBrightness.swift */; };
 		6E0281FC26565AD200582904 /* BrightnessQRScanning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0281FB26565AD200582904 /* BrightnessQRScanning.swift */; };
 		6E0281FE265660E500582904 /* CertificateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0281FD265660E500582904 /* CertificateDetailView.swift */; };
+		6E07357927845540003993F0 /* RefreshInfoPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E07357827845540003993F0 /* RefreshInfoPopupView.swift */; };
 		6E173918267AA0A800813D30 /* InAppDeliveryPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273324672679D429002D0ED2 /* InAppDeliveryPayload.swift */; };
 		6E17391C267B193800813D30 /* TransferCodeErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E17391B267B193800813D30 /* TransferCodeErrorView.swift */; };
 		6E17391E267B204700813D30 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E17391D267B204700813D30 /* LoadingView.swift */; };
@@ -409,6 +410,7 @@
 		6E0281F926565A8100582904 /* ScreenBrightness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenBrightness.swift; sourceTree = "<group>"; };
 		6E0281FB26565AD200582904 /* BrightnessQRScanning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessQRScanning.swift; sourceTree = "<group>"; };
 		6E0281FD265660E500582904 /* CertificateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateDetailView.swift; sourceTree = "<group>"; };
+		6E07357827845540003993F0 /* RefreshInfoPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshInfoPopupView.swift; sourceTree = "<group>"; };
 		6E17391B267B193800813D30 /* TransferCodeErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeErrorView.swift; sourceTree = "<group>"; };
 		6E17391D267B204700813D30 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		6E173923267B31BB00813D30 /* TransferCodeErrorRetryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCodeErrorRetryViewController.swift; sourceTree = "<group>"; };
@@ -999,6 +1001,7 @@
 				6E8F52EB265EC33F00406430 /* CertificateNoteView.swift */,
 				F84E70B02714DFD700512A49 /* UserCertificate+UserActivity.swift */,
 				6EE55DAA276135CD001F9E1F /* CertificateModesView.swift */,
+				6E07357827845540003993F0 /* RefreshInfoPopupView.swift */,
 			);
 			path = Certificates;
 			sourceTree = "<group>";
@@ -1955,6 +1958,7 @@
 				F88DA6C4268CA82D001DB072 /* NetworkErrorRetryViewController.swift in Sources */,
 				DC702B0C243F6FAE0066C773 /* UBUserDefault.swift in Sources */,
 				F234B5B927610DA100B361DF /* IconTextInfoBoxView.swift in Sources */,
+				6E07357927845540003993F0 /* RefreshInfoPopupView.swift in Sources */,
 				6E8F52D9265BA94B00406430 /* CameraErrorView.swift in Sources */,
 				F88DA6D0268CC3AB001DB072 /* CertificateLightExpirationTimer.swift in Sources */,
 				DCBF64E82679B92C00450D51 /* StackScrollViewController.swift in Sources */,

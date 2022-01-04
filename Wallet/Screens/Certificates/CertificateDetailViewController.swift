@@ -29,6 +29,7 @@ class CertificateDetailViewController: ViewController {
 
     private let modeView = CertificateModeView()
     private var infoPopupView: IconTextInfoBoxView?
+    private var refreshInfoPopupView: RefreshInfoPopupView?
 
     private let removeButton = Button(title: UBLocalized.delete_button, style: .normal(.cc_bund))
 
@@ -239,14 +240,8 @@ class CertificateDetailViewController: ViewController {
         modeView.button.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.infoPopupView?.removeFromSuperview()
-
             strongSelf.infoPopupView = IconTextInfoBoxView(iconTextSource: strongSelf.modeView.infoImageTexts(size: 24.0), imageHeight: 24.0)
-            strongSelf.view.addSubview(strongSelf.infoPopupView!)
-            // without autolayout this guarantees correct layout for animation
-            strongSelf.infoPopupView?.frame = strongSelf.view.frame
-            strongSelf.infoPopupView?.layoutIfNeeded()
-
-            strongSelf.infoPopupView?.presentFrom(view: strongSelf.modeView.button)
+            strongSelf.infoPopupView?.addAndPresent(to: strongSelf.view, from: strongSelf.modeView.button)
         }
     }
 

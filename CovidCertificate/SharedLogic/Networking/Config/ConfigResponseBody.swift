@@ -78,6 +78,7 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     #endif
 
     class RefreshButtonInfo: UBCodable {
+        let title: String?
         let text1: String?
         let text2: String?
         let text3: String?

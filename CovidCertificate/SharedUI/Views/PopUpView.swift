@@ -43,6 +43,13 @@ class PopupView: UIView {
 
     // MARK: - Animation
 
+    public func addAndPresent(to add: UIView, from: UIView, isPresentedFromCloseButton: Bool = false, point: CGPoint = .zero) {
+        add.addSubview(self)
+        frame = add.frame
+        layoutIfNeeded()
+        presentFrom(view: from, isPresentedFromCloseButton: isPresentedFromCloseButton, point: point)
+    }
+
     public func presentFrom(view: UIView, isPresentedFromCloseButton: Bool = false, point: CGPoint = .zero) {
         accessibilityViewIsModal = true
 

@@ -50,10 +50,12 @@ class Button: UBButton {
     }
 
     private let customTextColor: UIColor?
+    private var useCircle = false
 
     // MARK: - Init
 
-    init(image: UIImage?, accessibilityName: String) {
+    init(image: UIImage?, accessibilityName: String, useCircle: Bool = true, highlightCornerRadius: CGFloat = 3.0) {
+        self.useCircle = useCircle
         style = .normal(.clear)
         customTextColor = nil
         super.init()
@@ -64,8 +66,14 @@ class Button: UBButton {
         highlightXInset = -Padding.small
         highlightYInset = -Padding.small
 
+        if !self.useCircle {
+            self.highlightCornerRadius = highlightCornerRadius
+        }
+
         snp.makeConstraints { make in
-            make.height.equalTo(self.snp.width)
+            if useCircle {
+                make.height.equalTo(self.snp.width)
+            }
             make.height.greaterThanOrEqualTo(44.0)
         }
     }
@@ -105,7 +113,7 @@ class Button: UBButton {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        if currentImage != nil {
+        if currentImage != nil, useCircle {
             highlightCornerRadius = frame.size.height * 0.5 + Padding.small
         }
     }
