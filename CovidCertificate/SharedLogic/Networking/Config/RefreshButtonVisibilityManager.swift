@@ -26,7 +26,7 @@ class RefreshButtonVisibilityManager {
     static var state: VisibilityState {
         let refreshButtonDisabled = ConfigManager.currentConfig?.refreshButtonDisabled ?? false
 
-        guard refreshButtonDisabled == true else {
+        guard refreshButtonDisabled else {
             // if the refreshbutton is not disabled we reset the last stored date
             Self.refreshButtonDisabledDate = nil
             // and the refreshButton should be visible
