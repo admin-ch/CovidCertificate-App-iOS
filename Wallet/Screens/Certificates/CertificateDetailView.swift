@@ -177,6 +177,8 @@ class CertificateDetailView: UIView {
 
         if tests[0].isSerologicalTest {
             addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_title_key))
+        } else if tests[0].isSwitzerlandException {
+            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_ch_ausnahme_test_title_key))
         } else {
             addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_test_title_key))
         }
@@ -211,9 +213,15 @@ class CertificateDetailView: UIView {
 
             addDividerLine()
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_sample_date_title_key), value: test.displaySampleDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displaySampleDateTime))
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_date_title_key), value: test.displayResultDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displayResultDateTime))
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_done_by_key), value: test.testCenter)
+            if test.isSwitzerlandException {
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_ausnahme_test_attest_start_date_key), value: test.displaySampleDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displaySampleDateTime))
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_ausnahme_responsible_issuer_key), value: test.testCenter)
+            } else {
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_sample_date_title_key), value: test.displaySampleDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displaySampleDateTime))
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_date_title_key), value: test.displayResultDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displayResultDateTime))
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_done_by_key), value: test.testCenter)
+            }
+            
             if showEnglishLabels, let displayCountryEnglish = test.displayCountryEnglish {
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_land_key), value: test.displayCountry + " / " + displayCountryEnglish)
             } else {
