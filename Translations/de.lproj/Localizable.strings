@@ -1431,4 +1431,8 @@
 "wallet_refresh_button_info_title" = "Info";
 
 /*Ausnahme-Zertifikat: Medizinisches Attest ausgestellt in*/
+/*Fuzzy*/
 "wallet_certificate_ausnahme_issued_country" = "Medizinisches Attest ausgestellt in";
+
+/*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
+"wallet_certificate_detail_note_ausnahme" = "Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen. \n\nDie Inhaberin oder der Inhaber kann entsprechend dem jeweils gültigen Schutzkonzept bei zertifikatspflichtigen Veranstaltungen und Einrichtungen verpflichtet sein, eine Gesichtsmaske zu tragen.";

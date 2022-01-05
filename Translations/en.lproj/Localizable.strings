@@ -1397,4 +1397,8 @@
 "wallet_refresh_button_info_title" = "Info";
 
 /*Ausnahme-Zertifikat: Medizinisches Attest ausgestellt in*/
+/*Fuzzy*/
 "wallet_certificate_ausnahme_issued_country" = "Medical certificate issued in";
+
+/*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
+"wallet_certificate_detail_note_ausnahme" = "This certificate is not a travel document. \n\nThis certificate is only valid for a limited period of time. You can check the current duration of validity in Switzerland at any time using the COVID Certificate app. \n\nThe holder may be required to wear a face mask at events and facilities requiring a certificate, in accordance with the applicable precautionary measures.";

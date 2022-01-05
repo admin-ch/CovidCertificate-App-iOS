@@ -528,6 +528,8 @@ import Foundation
      case wallet_certificate_detail_export_button_key = "wallet_certificate_detail_export_button"
     /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
      case wallet_certificate_detail_note_key = "wallet_certificate_detail_note"
+    /// Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen. \n\nDie Inhaberin oder der Inhaber kann entsprechend dem jeweils gültigen Schutzkonzept bei zertifikatspflichtigen Veranstaltungen und Einrichtungen verpflichtet sein, eine Gesichtsmaske zu tragen.
+     case wallet_certificate_detail_note_ausnahme_key = "wallet_certificate_detail_note_ausnahme"
     /// Nachweis erstellt am\n{DATE}
      case wallet_certificate_evidence_creation_date_key = "wallet_certificate_evidence_creation_date"
     /// Nachweis
@@ -1558,6 +1560,8 @@ import Foundation
    static let wallet_certificate_detail_export_button = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_export_button_key)
   /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
    static let wallet_certificate_detail_note = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_key)
+  /// Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen. \n\nDie Inhaberin oder der Inhaber kann entsprechend dem jeweils gültigen Schutzkonzept bei zertifikatspflichtigen Veranstaltungen und Einrichtungen verpflichtet sein, eine Gesichtsmaske zu tragen.
+   static let wallet_certificate_detail_note_ausnahme = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_ausnahme_key)
   /// Nachweis erstellt am\n{DATE}
    static let wallet_certificate_evidence_creation_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_evidence_creation_date_key)
   /// Nachweis

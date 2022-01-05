@@ -1400,4 +1400,7 @@
 "wallet_refresh_button_info_title" = "Info";
 
 /*Ausnahme-Zertifikat: Medizinisches Attest ausgestellt in*/
-"wallet_certificate_ausnahme_issued_country" = "Medizinisches Attest ausgestellt in";
+"wallet_certificate_ausnahme_issued_country" = "Attestation médicale délivrée en";
+
+/*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
+"wallet_certificate_detail_note_ausnahme" = "Le présent certificat n'est pas un document de voyage. \n\nCe certificat n'a qu'une durée de validité limitée. L'application «COVID Certificate» vous permet en tout temps de vérifier la durée de validité actuellement déterminante en Suisse. \n\nEn fonction des mesures de protection applicables, le ou la titulaire d'un certificat peut être tenu/e de porter un masque dans le cadre de manifestations et dans les lieux où la présentation d'un certificat COVID-19 est obligatoire.";

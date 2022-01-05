@@ -1394,4 +1394,7 @@
 "wallet_refresh_button_info_title" = "Info";
 
 /*Ausnahme-Zertifikat: Medizinisches Attest ausgestellt in*/
-"wallet_certificate_ausnahme_issued_country" = "Medizinisches Attest ausgestellt in";
+"wallet_certificate_ausnahme_issued_country" = "L'attest dal medi è vegnì emess a";
+
+/*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
+"wallet_certificate_detail_note_ausnahme" = "Quest attest n'è betg in document da viadi. \n\nQuest certificat è valaivel mo per in tschert temp. La durada da valaivladad actuala en Svizra pudais Vus verifitgar da tut temp cun l'app «Covid-Certificate». \n\nTut tenor il concept da protecziun respectiv sto la possessura u il possessur eventualmain purtar ina mascrina a chaschun d'occurrenzas u en instituziuns, nua ch'in certificat è obligatoric.";
