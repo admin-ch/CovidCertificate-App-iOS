@@ -323,7 +323,6 @@
 		F80E735A245AD7B400C934B8 /* URLSession+pinning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */; };
 		F80E7376245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */; };
 		F8118D6927847076007FC484 /* RefreshButtonVisibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */; };
-		F8118D6A27847076007FC484 /* RefreshButtonVisibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */; };
 		F8130CDC2685B46200A29326 /* URLSession+synchron.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDB2685B46200A29326 /* URLSession+synchron.swift */; };
 		F8130CDD2685B46200A29326 /* URLSession+synchron.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDB2685B46200A29326 /* URLSession+synchron.swift */; };
 		F8130CDF2685B99F00A29326 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDE2685B99F00A29326 /* Collection+Safe.swift */; };
@@ -1820,7 +1819,6 @@
 				6EC172FE26429E31002E27DB /* OSLogger.swift in Sources */,
 				F809AF372693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */,
 				6EC172FF26429E31002E27DB /* NavigationController.swift in Sources */,
-				F8118D6A27847076007FC484 /* RefreshButtonVisibilityManager.swift in Sources */,
 				6EE55DA02760A01F001F9E1F /* VerifierHomescreenBottomView.swift in Sources */,
 				DCF9C35726562E5C00E34481 /* ExpandableViewHeader.swift in Sources */,
 				6EC1730026429E31002E27DB /* PhoneCallHelper.swift in Sources */,
