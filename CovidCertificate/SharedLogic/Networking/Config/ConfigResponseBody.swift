@@ -67,10 +67,25 @@ class ConfigResponseBody: UBCodable, JWTExtension {
 
         let vaccinationHints: LocalizedValue<[VaccinationHint]>
         let vaccinationBookingInfo: LocalizedValue<VaccinationBookingInfo>
+
+        var refreshButtonDisabled = false
+
+        let refreshButtonInfo: LocalizedValue<RefreshButtonInfo>
+
     #elseif VERIFIER
         let checkModesInfos: LocalizedValue<CheckModeContainer>?
         let checkModeReselectAfterHours: Int
     #endif
+
+    class RefreshButtonInfo: UBCodable {
+        let title: String?
+        let text1: String?
+        let text2: String?
+        let text3: String?
+        let fatTitle: String?
+        let linkText: String?
+        let linkUrl: String?
+    }
 
     class FAQEntriesContainer: UBCodable {
         let faqTitle: String
