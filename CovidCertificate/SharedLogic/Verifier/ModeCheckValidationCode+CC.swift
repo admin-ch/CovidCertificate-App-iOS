@@ -12,7 +12,7 @@
 import CovidCertificateSDK
 
 public extension ModeCheckValidationCode {
-    var is2GPlusSuccess: Bool {
+    var is2GPlusSuccessWithAnotherCertificate: Bool {
         return self == .success2g || self == .success2gPlus
     }
 

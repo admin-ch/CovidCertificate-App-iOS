@@ -16,7 +16,7 @@ class OnboardingInfoView: UIView {
 
     private let leftRightInset: CGFloat
 
-    init(icon: UIImage?, text: String, alignment: NSTextAlignment, leftRightInset: CGFloat = 2 * Padding.medium, height: CGFloat? = nil) {
+    init(icon: UIImage?, text: String, alignment: NSTextAlignment, leftRightInset: CGFloat = 2 * Padding.medium, height: CGFloat? = nil, width: CGFloat? = nil) {
         self.leftRightInset = leftRightInset
 
         super.init(frame: .zero)
@@ -27,17 +27,19 @@ class OnboardingInfoView: UIView {
         addSubview(label)
 
         let imgView = UIImageView(image: icon)
+        imgView.contentMode = .center
         imgView.ub_setContentPriorityRequired()
 
-        if let icon = icon {
+        if icon != nil {
             addSubview(imgView)
             imgView.snp.makeConstraints { make in
                 make.top.equalToSuperview()
                 make.leading.equalToSuperview().inset(leftRightInset)
 
-                if let h = height {
+                if let h = height,
+                   let w = width {
                     make.height.equalTo(h)
-                    make.width.equalTo(imgView.snp.height).multipliedBy(icon.size.width / icon.size.height)
+                    make.width.equalTo(w)
                 }
             }
         }

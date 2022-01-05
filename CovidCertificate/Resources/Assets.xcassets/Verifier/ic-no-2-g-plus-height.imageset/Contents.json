@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic-2-g-plus-height.png",
+      "filename" : "ic-no-2-g-plus-height.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic-2-g-plus-height@2x.png",
+      "filename" : "ic-no-2-g-plus-height@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic-2-g-plus-height@3x.png",
+      "filename" : "ic-no-2-g-plus-height@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
