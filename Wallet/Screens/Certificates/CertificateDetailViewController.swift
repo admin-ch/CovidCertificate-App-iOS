@@ -30,6 +30,8 @@ class CertificateDetailViewController: ViewController {
     private let modeView = CertificateModeView()
     private var infoPopupView: IconTextInfoBoxView?
 
+    private let noteView = CertificateNoteView()
+
     private let removeButton = Button(title: UBLocalized.delete_button, style: .normal(.cc_bund))
 
     private let verifyButton = Button(image: UIImage(named: "ic-load")?.withRenderingMode(.alwaysTemplate), accessibilityName: UBLocalized.accessibility_refresh_button)
@@ -140,7 +142,7 @@ class CertificateDetailViewController: ViewController {
         stackScrollView.addArrangedView(detailView, inset: padding)
 
         stackScrollView.addSpacerView(2.0 * Padding.large + 2.0 * Padding.small)
-        stackScrollView.addArrangedView(CertificateNoteView(), inset: padding)
+        stackScrollView.addArrangedView(noteView, inset: padding)
 
         stackScrollView.addSpacerView(2.0 * Padding.large + 2.0 * Padding.small)
         stackScrollView.addSpacerView(2.0, color: .cc_blueish)
@@ -269,6 +271,9 @@ class CertificateDetailViewController: ViewController {
             if !vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
                 title = UBLocalized.wallet_certificate_evidence_title.uppercased()
             }
+
+            let tests = certificate.tests ?? []
+            noteView.isSwitzerlandException = tests.contains { $0.isSwitzerlandException }
         case .failure:
             break
         }

@@ -177,6 +177,8 @@ class CertificateDetailView: UIView {
 
         if tests[0].isSerologicalTest {
             addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_title_key))
+        } else if tests[0].isSwitzerlandException {
+            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_ch_ausnahme_test_title_key))
         } else {
             addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_test_title_key))
         }
@@ -188,37 +190,48 @@ class CertificateDetailView: UIView {
                 addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_target_disease_title_key), value: UBLocalized.target_disease_name)
             }
 
-            if !test.isSerologicalTest {
-                let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_positiv_key)
-                var text = [texts.0, texts.1].joined(separator: "\n")
-                if !showEnglishLabels {
-                    text = texts.0
-                }
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_title_key), value: text)
+            if test.isSwitzerlandException {
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_ausnahme_test_attest_start_date_key), value: test.displaySampleDateTime)
+
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_ausnahme_responsible_issuer_key), value: test.testCenter)
             } else {
-                let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_befund_value_key)
-                var text = [texts.0, texts.1].joined(separator: "\n")
-                if !showEnglishLabels {
-                    text = texts.0
+                if !test.isSerologicalTest {
+                    let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_positiv_key)
+                    var text = [texts.0, texts.1].joined(separator: "\n")
+                    if !showEnglishLabels {
+                        text = texts.0
+                    }
+                    addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_title_key), value: text)
+                } else {
+                    let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_befund_value_key)
+                    var text = [texts.0, texts.1].joined(separator: "\n")
+                    if !showEnglishLabels {
+                        text = texts.0
+                    }
+                    addValueItem(title: UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_befund_label_key), value: text)
                 }
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_befund_label_key), value: text)
+
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_type_key), value: test.testType)
+                if !test.isSerologicalTest {
+                    addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_holder_and_name_key), value: test.manufacturerAndTestName)
+                }
+
+                addDividerLine()
+
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_sample_date_title_key), value: test.displaySampleDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displaySampleDateTime))
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_date_title_key), value: test.displayResultDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displayResultDateTime))
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_done_by_key), value: test.testCenter)
             }
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_type_key), value: test.testType)
-            if !test.isSerologicalTest {
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_holder_and_name_key), value: test.manufacturerAndTestName)
-            }
+            let key: UBLocalized.UBLocalizedKey = test.isSwitzerlandException ? .wallet_certificate_ausnahme_issued_country_key : .wallet_certificate_test_land_key
+            let title = UBLocalized.translationWithEnglish(key: key)
 
-            addDividerLine()
-
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_sample_date_title_key), value: test.displaySampleDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displaySampleDateTime))
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_date_title_key), value: test.displayResultDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displayResultDateTime))
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_done_by_key), value: test.testCenter)
             if showEnglishLabels, let displayCountryEnglish = test.displayCountryEnglish {
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_land_key), value: test.displayCountry + " / " + displayCountryEnglish)
+                addValueItem(title: title, value: test.displayCountry + " / " + displayCountryEnglish)
             } else {
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_land_key), value: test.displayCountry)
+                addValueItem(title: title, value: test.displayCountry)
             }
+
             addDividerLine()
 
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title_key), value: test.certificateIssuer)

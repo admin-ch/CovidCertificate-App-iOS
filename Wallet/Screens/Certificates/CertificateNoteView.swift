@@ -16,13 +16,15 @@ class CertificateNoteView: UIView {
 
     private let label = Label(.text)
 
+    public var isSwitzerlandException: Bool = false {
+        didSet { updateText() }
+    }
+
     // MARK: - Init
 
     init() {
         super.init(frame: .zero)
         setup()
-
-        label.text = UBLocalized.wallet_certificate_detail_note
     }
 
     @available(*, unavailable)
@@ -47,5 +49,11 @@ class CertificateNoteView: UIView {
         label.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+
+        updateText()
+    }
+
+    private func updateText() {
+        label.text = isSwitzerlandException ? UBLocalized.wallet_certificate_detail_note_ausnahme : UBLocalized.wallet_certificate_detail_note
     }
 }
