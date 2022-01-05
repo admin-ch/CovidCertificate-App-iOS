@@ -88,7 +88,7 @@ class CertificateDetailView: UIView {
             addDividerLine()
         }
 
-        if vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
+        if vaccinations.isComplete {
             addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_vaccination_title_key))
         } else {
             addTitle(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_type_incomplete_vaccine_key))

@@ -105,6 +105,12 @@ extension Vaccination {
     }
 }
 
+extension Array where Element == Vaccination {
+    var isComplete: Bool {
+        allSatisfy { $0.doseNumber >= $0.totalDoses }
+    }
+}
+
 extension PastInfection {
     var displayCountry: String {
         return Locale.current.localizedString(forRegionCode: countryOfTest) ?? countryOfTest

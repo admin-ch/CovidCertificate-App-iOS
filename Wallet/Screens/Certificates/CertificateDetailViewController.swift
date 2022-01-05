@@ -268,7 +268,7 @@ class CertificateDetailViewController: ViewController {
         case let .success(holder):
             guard let certificate = holder.certificate as? DCCCert else { break }
             let vaccinations = certificate.vaccinations ?? []
-            if !vaccinations.allSatisfy({ $0.doseNumber == $0.totalDoses }) {
+            if !vaccinations.isComplete {
                 title = UBLocalized.wallet_certificate_evidence_title.uppercased()
             }
 
