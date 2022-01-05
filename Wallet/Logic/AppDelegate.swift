@@ -31,14 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             isFirstLaunch = false
         }
 
-        CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
-
         // Reset keychain on first launch
+        // the order in which we clear the keychain and initialized the SDK is important
         if isFirstLaunch {
             Keychain().deleteAll()
             Enclave.deleteAllKeys()
+            // The CovidCertificateSDK has to be initialized after the keychain is cleared
+            CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
+            // and before we remove all Certificates (removing certificates triggers a state)
             CertificateStorage.shared.removeAll()
             isFirstLaunch = false
+        } else {
+            CovidCertificateSDK.initialize(environment: Environment.current.sdkEnvironment, apiKey: Environment.current.appToken)
         }
 
         // migrates certificates from keychain to secure storage
