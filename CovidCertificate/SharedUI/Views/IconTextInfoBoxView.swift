@@ -76,8 +76,16 @@ class IconTextInfoBoxView: PopupView {
 
         stackScrollView.addArrangedView(titleLabel, inset: UIEdgeInsets(top: Padding.large + Padding.small, left: 0, bottom: Padding.large + Padding.small, right: 0))
 
+        var maxWidth: CGFloat = 0
+        for i in iconTextSource {
+            let w = i.0.size.width / (i.0.size.height / imageHeight)
+            if w > maxWidth {
+                maxWidth = w
+            }
+        }
+
         iconTextSource.forEach {
-            stackScrollView.addArrangedView(OnboardingInfoView(icon: $0.0, text: $0.1, alignment: .natural, leftRightInset: 0, height: self.imageHeight))
+            stackScrollView.addArrangedView(OnboardingInfoView(icon: $0.0, text: $0.1, alignment: .natural, leftRightInset: 0, height: self.imageHeight, width: maxWidth))
         }
 
         closeButton.touchUpCallback = { [weak self] in

@@ -41,8 +41,15 @@ class CertificateModeView: UIView {
             if let r = modeResults?.getResult(for: m) {
                 switch r {
                 case let .success(r):
-                    let img = CheckModesHelper.image(for: m.id, isValid: r.isValid, size: size, validColor: UIColor.cc_blue, invalidColor: UIColor.cc_grey)
-                    let text = CheckModesHelper.text(for: m.id, isValid: r.isValid)
+                    var isValid = r.isValid
+
+                    // 2G+: show "invalid" as a second certificate is needed
+                    if r.code.is2GPlusSuccessWithAnotherCertificate {
+                        isValid = false
+                    }
+
+                    let img = CheckModesHelper.image(for: m.id, isValid: isValid, size: size, validColor: UIColor.cc_blue, invalidColor: UIColor.cc_grey)
+                    let text = CheckModesHelper.text(for: m.id, isValid: isValid)
 
                     if let i = img, let t = text {
                         result.append((i, t))
@@ -185,7 +192,14 @@ public class ModeStackView: UIView {
             if let r = modeResults?.getResult(for: m) {
                 switch r {
                 case let .success(r):
-                    let view = ModeIconView(mode: m.id, isValid: r.isValid, size: itemHeight, validColor: validColor, invalidColor: invalidColor)
+                    var isValid = r.isValid
+
+                    // 2G+: show "invalid" as a second certificate is needed
+                    if r.code.is2GPlusSuccessWithAnotherCertificate {
+                        isValid = false
+                    }
+
+                    let view = ModeIconView(mode: m.id, isValid: isValid, size: itemHeight, validColor: validColor, invalidColor: invalidColor)
                     stackView.addArrangedSubview(view)
 
                     view.snp.makeConstraints { make in
