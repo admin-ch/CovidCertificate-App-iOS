@@ -50,7 +50,7 @@ import Foundation
      case close_button_key = "close_button"
     /// Weiter
      case continue_button_key = "continue_button"
-    /// Ausnahme Zertifikat
+    /// Ausnahmezertifikat
      case covid_certificate_ch_ausnahme_test_title_key = "covid_certificate_ch_ausnahme_test_title"
     /// Genesung
      case covid_certificate_recovery_title_key = "covid_certificate_recovery_title"
@@ -662,17 +662,17 @@ import Foundation
      case wallet_certificate_verify_success_key = "wallet_certificate_verify_success"
     /// Das Zertifikat wird geprüft
      case wallet_certificate_verifying_key = "wallet_certificate_verifying"
-    /// Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.
+    /// Kein Zutritt.
      case wallet_check_mode_info_2g_not_ok_text_key = "wallet_check_mode_info_2g_not_ok_text"
-    /// Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.
+    /// Zutritt zu Betrieben und Veranstaltungen für geimpfte oder genesene Personen.
      case wallet_check_mode_info_2g_ok_text_key = "wallet_check_mode_info_2g_ok_text"
-    /// Für den Zutritt zu Orten und Aktivitäten mit einer 2G+-Regelung wird zusätzlich ein Zertifikat für ein negatives Testresultat benötigt.
+    /// Für den Zutritt zu Betrieben und Veranstaltungen wird zusätzlich zum Covid-Zertifikat für geimpfte oder genesene Personen ein negatives Testresultat benötigt.
      case wallet_check_mode_info_2g_plus_not_ok_text_key = "wallet_check_mode_info_2g_plus_not_ok_text"
-    /// Das Zertifikat ermöglicht den Zutritt zu Orten und Aktivitäten mit 2G+-Regelung. (Das Zertifikat für die Impfung oder Genesung ist weniger als 120 Tage alt.)
+    /// Zutritt zu Betrieben und Veranstaltungen für Personen, deren vollständige Impfung, Auffrischimpfung oder Genesung (basierend auf PCR-Test) nicht länger als 120 Tage zurückliegt. Sie benötigen kein zusätzliches Testzertifikat.
      case wallet_check_mode_info_2g_plus_ok_text_key = "wallet_check_mode_info_2g_plus_ok_text"
-    /// Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.
+    /// Kein Zutritt.
      case wallet_check_mode_info_3g_not_ok_text_key = "wallet_check_mode_info_3g_not_ok_text"
-    /// Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.
+    /// Zutritt zu Betrieben und Veranstaltungen für geimpfte, genesene oder negativ getestete Personen.
      case wallet_check_mode_info_3g_ok_text_key = "wallet_check_mode_info_3g_ok_text"
     /// Info
      case wallet_check_mode_info_title_key = "wallet_check_mode_info_title"
@@ -750,7 +750,7 @@ import Foundation
      case wallet_faq_works_answer_2_key = "wallet_faq_works_answer_2"
     /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
      case wallet_faq_works_answer_2_1_key = "wallet_faq_works_answer_2_1"
-    /// In der COVID Certificate App wird ausgewiesen, wann Ihr Covid-Zertifikat in der Schweiz ablaufen wird. Sie können in der Detail-Ansicht zudem per Knopfdruck überprüfen, ob Ihr Covid-Zertifikat aktuell gültig ist.
+    /// Die App prüft automatisch, ob Ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht. Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt auf dem Zertifikat in der App angezeigt.
      case wallet_faq_works_answer_3_key = "wallet_faq_works_answer_3"
     /// Sie können die App ohne eine Internetverbindung verwenden. Auch im Offline-Modus können Zertifikate vorgewiesen und von den Prüfern gescannt und verifiziert werden.\n\nUm in der «COVID Certificate»-App anzeigen zu können, ob ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht und bis wann Ihr Zertifikat gültig ist, muss die App jedoch regelmässig online sein.
      case wallet_faq_works_answer_3_1_key = "wallet_faq_works_answer_3_1"
@@ -872,11 +872,11 @@ import Foundation
      case wallet_refresh_button_info_link_text_key = "wallet_refresh_button_info_link_text"
     /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat/covid-zertifikat-pruefer-aussteller-technische-informationen.html#1070048217
      case wallet_refresh_button_info_link_url_key = "wallet_refresh_button_info_link_url"
-    /// Die Funktion zur Selbstprüfung von Zertifikaten («Refresh-Button») wurde entfernt.
+    /// Der «Refresh-Button» wurde entfernt.
      case wallet_refresh_button_info_text_1_key = "wallet_refresh_button_info_text_1"
-    /// Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt direkt auf dem Zertifikat angezeigt.
+    /// Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt auf dem Zertifikat angezeigt.
      case wallet_refresh_button_info_text_2_key = "wallet_refresh_button_info_text_2"
-    /// Um Covid Zertifikate zu prüfen, muss der QR-Code mit einer Prüfapp gescannt werden.
+    /// Die Prüfung von Covid-Zertifikaten ist mit der App «COVID Certificate Check» vorzunehmen.
      case wallet_refresh_button_info_text_3_key = "wallet_refresh_button_info_text_3"
     /// Info
      case wallet_refresh_button_info_title_key = "wallet_refresh_button_info_title"
@@ -1082,7 +1082,7 @@ import Foundation
    static let close_button = UBLocalized.tr(UBLocalizedKey.close_button_key)
   /// Weiter
    static let continue_button = UBLocalized.tr(UBLocalizedKey.continue_button_key)
-  /// Ausnahme Zertifikat
+  /// Ausnahmezertifikat
    static let covid_certificate_ch_ausnahme_test_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_ch_ausnahme_test_title_key)
   /// Genesung
    static let covid_certificate_recovery_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_recovery_title_key)
@@ -1694,17 +1694,17 @@ import Foundation
    static let wallet_certificate_verify_success = UBLocalized.tr(UBLocalizedKey.wallet_certificate_verify_success_key)
   /// Das Zertifikat wird geprüft
    static let wallet_certificate_verifying = UBLocalized.tr(UBLocalizedKey.wallet_certificate_verifying_key)
-  /// Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.
+  /// Kein Zutritt.
    static let wallet_check_mode_info_2g_not_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_not_ok_text_key)
-  /// Für den Zutritt zu Betrieben und Veranstaltungen mit 2G-Regelung sind Covid-Zertifikate für Geimpfte oder Genesene zugelassen. Covid-Zertifikate für negativ Getestete und Zertifikate Light werden nicht akzeptiert.
+  /// Zutritt zu Betrieben und Veranstaltungen für geimpfte oder genesene Personen.
    static let wallet_check_mode_info_2g_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_ok_text_key)
-  /// Für den Zutritt zu Orten und Aktivitäten mit einer 2G+-Regelung wird zusätzlich ein Zertifikat für ein negatives Testresultat benötigt.
+  /// Für den Zutritt zu Betrieben und Veranstaltungen wird zusätzlich zum Covid-Zertifikat für geimpfte oder genesene Personen ein negatives Testresultat benötigt.
    static let wallet_check_mode_info_2g_plus_not_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_plus_not_ok_text_key)
-  /// Das Zertifikat ermöglicht den Zutritt zu Orten und Aktivitäten mit 2G+-Regelung. (Das Zertifikat für die Impfung oder Genesung ist weniger als 120 Tage alt.)
+  /// Zutritt zu Betrieben und Veranstaltungen für Personen, deren vollständige Impfung, Auffrischimpfung oder Genesung (basierend auf PCR-Test) nicht länger als 120 Tage zurückliegt. Sie benötigen kein zusätzliches Testzertifikat.
    static let wallet_check_mode_info_2g_plus_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_plus_ok_text_key)
-  /// Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.
+  /// Kein Zutritt.
    static let wallet_check_mode_info_3g_not_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_3g_not_ok_text_key)
-  /// Für den Zutritt zu Betrieben und Veranstaltungen mit 3G-Regelung sind Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete zugelassen.
+  /// Zutritt zu Betrieben und Veranstaltungen für geimpfte, genesene oder negativ getestete Personen.
    static let wallet_check_mode_info_3g_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_3g_ok_text_key)
   /// Info
    static let wallet_check_mode_info_title = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_title_key)
@@ -1782,7 +1782,7 @@ import Foundation
    static let wallet_faq_works_answer_2 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_2_key)
   /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
    static let wallet_faq_works_answer_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_2_1_key)
-  /// In der COVID Certificate App wird ausgewiesen, wann Ihr Covid-Zertifikat in der Schweiz ablaufen wird. Sie können in der Detail-Ansicht zudem per Knopfdruck überprüfen, ob Ihr Covid-Zertifikat aktuell gültig ist.
+  /// Die App prüft automatisch, ob Ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht. Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt auf dem Zertifikat in der App angezeigt.
    static let wallet_faq_works_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_3_key)
   /// Sie können die App ohne eine Internetverbindung verwenden. Auch im Offline-Modus können Zertifikate vorgewiesen und von den Prüfern gescannt und verifiziert werden.\n\nUm in der «COVID Certificate»-App anzeigen zu können, ob ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht und bis wann Ihr Zertifikat gültig ist, muss die App jedoch regelmässig online sein.
    static let wallet_faq_works_answer_3_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_3_1_key)
@@ -1904,11 +1904,11 @@ import Foundation
    static let wallet_refresh_button_info_link_text = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_link_text_key)
   /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat/covid-zertifikat-pruefer-aussteller-technische-informationen.html#1070048217
    static let wallet_refresh_button_info_link_url = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_link_url_key)
-  /// Die Funktion zur Selbstprüfung von Zertifikaten («Refresh-Button») wurde entfernt.
+  /// Der «Refresh-Button» wurde entfernt.
    static let wallet_refresh_button_info_text_1 = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_text_1_key)
-  /// Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt direkt auf dem Zertifikat angezeigt.
+  /// Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt auf dem Zertifikat angezeigt.
    static let wallet_refresh_button_info_text_2 = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_text_2_key)
-  /// Um Covid Zertifikate zu prüfen, muss der QR-Code mit einer Prüfapp gescannt werden.
+  /// Die Prüfung von Covid-Zertifikaten ist mit der App «COVID Certificate Check» vorzunehmen.
    static let wallet_refresh_button_info_text_3 = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_text_3_key)
   /// Info
    static let wallet_refresh_button_info_title = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_title_key)

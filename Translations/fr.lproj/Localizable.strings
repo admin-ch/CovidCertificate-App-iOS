@@ -197,7 +197,7 @@
 "wallet_faq_works_question_2" = "Puis-je ajouter plusieurs certificats COVID?";
 
 /*Frage 8 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_question_3" = "Comment savoir si mon certificat est valable?";
+"wallet_faq_works_question_3" = "Comment voir si mon certificat COVID est valable?";
 
 /*Frage 9 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_question_4" = "Comment mes données sont-elles protégées?";
@@ -230,7 +230,7 @@
 "wallet_faq_works_answer_2" = "Oui. Vous pouvez par exemple stocker dans l'app les certificats COVID de tous les membres de votre famille. À noter également dans ce cas qu'un certificat COVID n'est valable que si son détenteur présente une pièce d'identité.";
 
 /*Antwort 8 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_answer_3" = "L'app contient la date d'expiration de votre certificat COVID en Suisse. En pressant le bouton prévu à cet effet, vous pouvez en outre vérifier dans la vue détaillée si votre certificat COVID est encore valable.";
+"wallet_faq_works_answer_3" = "L’app verifica automaticamente se il certificato soddisfa i criteri di validità applicati in Svizzera. Se il certificato è scaduto o se non è valido per motivi tecnici, l’informazione compare direttamente nell’app.";
 
 /*Antwort 9 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_4" = "Vos données personnelles ne sont pas stockées dans un système central, mais ne sont sauvegardées que localement, sur votre appareil mobile ou dans le code QR figurant sur le certificat papier.";
@@ -1263,11 +1263,11 @@
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G OK state*/
-"wallet_check_mode_info_2g_ok_text" = "L'accès aux entreprises et aux manifestations appliquant la règle des «2G» est autorisé aux titulaires d'un certificat COVID des personnes vaccinées ou guéries. Les certificats COVID des personnes testées négatives et les certificats light ne sont pas acceptés.";
+"wallet_check_mode_info_2g_ok_text" = "Accès aux établissements et aux manifestations réservé aux personnes vaccinées ou guéries.";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G NOT OK state*/
-"wallet_check_mode_info_2g_not_ok_text" = "L'accès aux entreprises et aux manifestations appliquant la règle des «2G» est autorisé aux titulaires d'un certificat COVID des personnes vaccinées ou guéries. Les certificats COVID des personnes testées négatives et les certificats light ne sont pas acceptés.";
+"wallet_check_mode_info_2g_not_ok_text" = "Accès refusé.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> display name of check mode 3G*/
@@ -1307,11 +1307,11 @@
 
 /*👍*/
 /*text for info pop-up in wallet app describing 3G OK state*/
-"wallet_check_mode_info_3g_ok_text" = "L'accès aux entreprises et aux manifestations appliquant la règle des «3G» est autorisé aux titulaires d'un certificat COVID des personnes vaccinées, guéries ou testées négatives.";
+"wallet_check_mode_info_3g_ok_text" = "Accès aux établissements et aux manifestations réservé aux personnes vaccinées, guéries ou testées négatives.";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 3G NOT OK state*/
-"wallet_check_mode_info_3g_not_ok_text" = "L'accès aux entreprises et aux manifestations appliquant la règle des «3G» est autorisé aux titulaires d'un certificat COVID des personnes vaccinées, guéries ou testées négatives.";
+"wallet_check_mode_info_3g_not_ok_text" = "Accès refusé.";
 
 /*👍*/
 /*Titel für Fehler wenn Modus Light-Zertifikat nicht unterstützt*/
@@ -1373,31 +1373,31 @@
 "verifier_check_mode_info_test_cert_text_3" = "Ce mode ne permet pas de vérifier les «certificats light».";
 
 /*wallet refresh button removal info box text*/
-"wallet_refresh_button_info_text_1" = "Die Funktion zur Selbstprüfung von Zertifikaten («Refresh-Button») wurde entfernt.";
+"wallet_refresh_button_info_text_1" = "Le bouton «rafraîchir» a été supprimée.";
 
 /*wallet refresh button removal info box text*/
-"wallet_refresh_button_info_text_2" = "Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt direkt auf dem Zertifikat angezeigt.";
+"wallet_refresh_button_info_text_2" = "Si votre certificat COVID a expiré ou s'il n'est techniquement pas valable, cette information apparaît automatiquement sur le certificat.";
 
 /*wallet refresh button removal info box text*/
-"wallet_refresh_button_info_text_3" = "Um Covid Zertifikate zu prüfen, muss der QR-Code mit einer Prüfapp gescannt werden.";
+"wallet_refresh_button_info_text_3" = "La vérification des certificats COVID doit s'effectuer au moyen de l'application «COVID Certificate Check».";
 
 /*wallet refresh button removal info box fat title above text 3*/
-"wallet_refresh_button_info_fat_title_3" = "Für Prüfende";
+"wallet_refresh_button_info_fat_title_3" = "Pour les personnes chargées du contrôle";
 
 /*wallet refresh button removal info box link text*/
-"wallet_refresh_button_info_link_text" = "Mehr erfahren";
+"wallet_refresh_button_info_link_text" = "Pour en savoir plus";
 
 /*wallet refresh button removal info box link url*/
 "wallet_refresh_button_info_link_url" = "https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat/covid-zertifikat-pruefer-aussteller-technische-informationen.html#-1006172949";
 
 /*text for info pop-up in wallet app describing 2G+ OK state*/
-"wallet_check_mode_info_2g_plus_ok_text" = "Das Zertifikat ermöglicht den Zutritt zu Orten und Aktivitäten mit 2G+-Regelung. (Das Zertifikat für die Impfung oder Genesung ist weniger als 120 Tage alt.)";
+"wallet_check_mode_info_2g_plus_ok_text" = "L’accesso a strutture e manifestazioni è consentito alle persone per le quali sono trascorsi al massimo 120 giorni dal completamento del ciclo vaccinale, dalla somministrazione della dose di richiamo o dalla guarigione (sulla base di un test PCR). In questo caso non è necessario un ulteriore certificato di test.";
 
 /*text for info pop-up in wallet app describing 2G+ NOT OK state*/
-"wallet_check_mode_info_2g_plus_not_ok_text" = "Für den Zutritt zu Orten und Aktivitäten mit einer 2G+-Regelung wird zusätzlich ein Zertifikat für ein negatives Testresultat benötigt.";
+"wallet_check_mode_info_2g_plus_not_ok_text" = "Accès aux établissements et aux manifestations réservé aux personnes vaccinées ou guéries qui présentent, en plus d'un certificat COVID, un résultat de test négatif.";
 
 /*wallet refresh button removal info box title*/
-"wallet_refresh_button_info_title" = "Info";
+"wallet_refresh_button_info_title" = "Information";
 
 /*Ausnahme-Zertifikat: Medizinisches Attest ausgestellt in*/
 "wallet_certificate_ausnahme_issued_country" = "Attestation médicale délivrée en";
