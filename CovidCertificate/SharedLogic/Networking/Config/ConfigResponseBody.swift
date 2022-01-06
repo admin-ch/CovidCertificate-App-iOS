@@ -68,9 +68,9 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         let vaccinationHints: LocalizedValue<[VaccinationHint]>
         let vaccinationBookingInfo: LocalizedValue<VaccinationBookingInfo>
 
-        var refreshButtonDisabled = false
+        var refreshButtonDisabled: Bool? = false
 
-        let refreshButtonInfo: LocalizedValue<RefreshButtonInfo>
+        let refreshButtonInfo: LocalizedValue<RefreshButtonInfo>?
 
     #elseif VERIFIER
         let checkModesInfos: LocalizedValue<CheckModeContainer>?
