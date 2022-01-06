@@ -84,7 +84,7 @@ class RefreshInfoPopupView: PopupView {
     }
 
     private func updateInfos() {
-        guard let info = ConfigManager.currentConfig?.refreshButtonInfo.value else { return }
+        guard let info = ConfigManager.currentConfig?.refreshButtonInfo?.value else { return }
 
         // adds title
         if let title = info.title {
