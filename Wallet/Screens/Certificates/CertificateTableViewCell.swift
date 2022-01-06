@@ -117,6 +117,8 @@ class CertificateTableViewCell: UITableViewCell {
             if let certificate = holder.certificate as? DCCCert {
                 if (certificate.tests?.contains { $0.isSerologicalTest } ?? false) {
                     stateLabel.type = .dccc(.recovery)
+                } else if (certificate.tests?.contains { $0.isSwitzerlandException } ?? false) {
+                    stateLabel.type = .switzerlandException
                 } else {
                     stateLabel.type = .dccc(certificate.immunisationType)
                 }
@@ -206,6 +208,7 @@ private class StateLabel: UIView {
 
     enum CertType {
         case dccc(ImmunisationType?)
+        case switzerlandException
         case light
     }
 
@@ -262,6 +265,16 @@ private class StateLabel: UIView {
                 } else {
                     backgroundColor = .clear
                 }
+            } else {
+                backgroundColor = .cc_greyBackground
+                label.textColor = .cc_greyText
+            }
+        case .switzerlandException:
+            label.text = UBLocalized.covid_certificate_ch_ausnahme_list_label
+            accessibilityLabel = UBLocalized.covid_certificate_ch_ausnahme_list_label
+            if enabled {
+                backgroundColor = .cc_blue
+                label.textColor = .cc_white
             } else {
                 backgroundColor = .cc_greyBackground
                 label.textColor = .cc_greyText
