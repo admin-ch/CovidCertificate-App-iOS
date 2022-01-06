@@ -229,7 +229,7 @@
 "wallet_faq_works_answer_2" = "Gea, quai è pussaivel. Vus pudais p.ex. arcunar en Vossa app ils certificats COVID da tut Vossas confamigliaras e da tut Voss confamigliars. Er en quest cas vala: Il certificat COVID è valaivel mo en cumbinaziun cun in document da legitimaziun  da la possessura u dal possessur dal certificat.";
 
 /*Antwort 8 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_answer_3" = "En l'app COVID Certificate vegn inditgà cura che Voss certificat COVID spira en Svizra. Vus pudais ultra da quai verifitgar en la vista da detagls, sche Voss certificat COVID è actualmain valaivel.";
+"wallet_faq_works_answer_3" = "L’app verifitgescha automaticamain, sche Voss certificat correspunda als criteris da valaivladad da la Svizra. Sche Voss certificat COVID è spirà u n’è tecnicamain betg valaivel, vegn quai inditgà directamain sin il certificat en l’app.";
 
 /*Antwort 9 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_4" = "Vossas datas persunalas na vegnan betg arcunadas en in sistem central, mabain mo localmain sin Voss telefonin resp. en il code QR sin Voss certificat COVID en furma da palpiri.";
@@ -1259,11 +1259,11 @@
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G OK state*/
-"wallet_check_mode_info_2g_ok_text" = "Per l’access a manaschis ed ad occurrenzas cun ina regla da 2G èn admess certificats COVID per persunas vaccinadas u per persunas guaridas. Certificats COVID per persunas cun in test negativ e certificats light na vegnan betg acceptads.";
+"wallet_check_mode_info_2g_ok_text" = "Access en manaschis e d’As participar ad occurrenzas per persunas vaccinadas u guaridas.";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G NOT OK state*/
-"wallet_check_mode_info_2g_not_ok_text" = "Per l’access a manaschis ed ad occurrenzas cun ina regla da 2G èn admess certificats COVID per persunas vaccinadas u per persunas guaridas. Certificats COVID per persunas cun in test negativ e certificats light na vegnan betg acceptads.";
+"wallet_check_mode_info_2g_not_ok_text" = "Nagin access.";
 
 /*👍*/
 /*check app -> check mode select pop-up -> display name of check mode 3G*/
@@ -1303,11 +1303,11 @@
 
 /*👍*/
 /*text for info pop-up in wallet app describing 3G OK state*/
-"wallet_check_mode_info_3g_ok_text" = "Per l’access a manaschis ed ad occurrenzas cun ina regla da 3G èn admess certificats COVID per persunas vaccinadas, per persunas guaridas u per persunas cun in test negativ.";
+"wallet_check_mode_info_3g_ok_text" = "Access en manaschis e d’As participar ad occurrenzas per persunas vaccinadas, guaridas u cun in test negativ.";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 3G NOT OK state*/
-"wallet_check_mode_info_3g_not_ok_text" = "Per l’access a manaschis ed ad occurrenzas cun ina regla da 3G èn admess certificats COVID per persunas vaccinadas, per persunas guaridas u per persunas cun in test negativ.";
+"wallet_check_mode_info_3g_not_ok_text" = "Nagin access.";
 
 /*Titel für Fehler wenn Modus Light-Zertifikat nicht unterstützt*/
 "verifier_verify_light_not_supported_by_mode_title" = "Qua sa tracti d’in certificat light. In tal certificat na po betg vegnir verifitgà en il modus da verificaziun da {MODUS}.";
@@ -1367,31 +1367,31 @@
 "verifier_check_mode_info_test_cert_text_3" = "En quest modus na pon vegnir verifitgads nagins certificats light.";
 
 /*wallet refresh button removal info box text*/
-"wallet_refresh_button_info_text_1" = "Die Funktion zur Selbstprüfung von Zertifikaten («Refresh-Button») wurde entfernt.";
+"wallet_refresh_button_info_text_1" = "La «buttun da refresh» è vegnida stizzada.";
 
 /*wallet refresh button removal info box text*/
-"wallet_refresh_button_info_text_2" = "Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt direkt auf dem Zertifikat angezeigt.";
+"wallet_refresh_button_info_text_2" = "Sche Voss certificat COVID è spirà u sch’el n’è tecnicamain betg valaivel, vegn quai inditgà directamain sin il certificat.";
 
 /*wallet refresh button removal info box text*/
-"wallet_refresh_button_info_text_3" = "Um Covid Zertifikate zu prüfen, muss der QR-Code mit einer Prüfapp gescannt werden.";
+"wallet_refresh_button_info_text_3" = "Ils certificats COVID ston vegnir verifitgads cun l’app «COVID Certificate Check».";
 
 /*wallet refresh button removal info box fat title above text 3*/
-"wallet_refresh_button_info_fat_title_3" = "Für Prüfende";
+"wallet_refresh_button_info_fat_title_3" = "Per las persunas che verifitgeschan";
 
 /*wallet refresh button removal info box link text*/
-"wallet_refresh_button_info_link_text" = "Mehr erfahren";
+"wallet_refresh_button_info_link_text" = "Dapli infurmaziuns";
 
 /*wallet refresh button removal info box link url*/
 "wallet_refresh_button_info_link_url" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat/covid-zertifikat-pruefer-aussteller-technische-informationen.html#1070048217";
 
 /*text for info pop-up in wallet app describing 2G+ OK state*/
-"wallet_check_mode_info_2g_plus_ok_text" = "Das Zertifikat ermöglicht den Zutritt zu Orten und Aktivitäten mit 2G+-Regelung. (Das Zertifikat für die Impfung oder Genesung ist weniger als 120 Tage alt.)";
+"wallet_check_mode_info_2g_plus_ok_text" = "Access en manaschis e d’As participar ad occurrenzas per persunas ch’èn vaccinadas cumplettamain, che han laschà rinfrestgar la vaccinaziun u ch’èn guaridas (sin basa d’in test da PCR) avant maximalmain 120 dis. Vus na duvrais nagin certificat da test supplementar. ";
 
 /*text for info pop-up in wallet app describing 2G+ NOT OK state*/
-"wallet_check_mode_info_2g_plus_not_ok_text" = "Für den Zutritt zu Orten und Aktivitäten mit einer 2G+-Regelung wird zusätzlich ein Zertifikat für ein negatives Testresultat benötigt.";
+"wallet_check_mode_info_2g_plus_not_ok_text" = "Per l’access en manaschis e d’As participar ad occurrenzas dovri ultra dal certificat COVID per persunas vaccinadas u guaridas in test negativ.";
 
 /*wallet refresh button removal info box title*/
-"wallet_refresh_button_info_title" = "Info";
+"wallet_refresh_button_info_title" = "Infurmaziun";
 
 /*Ausnahme-Zertifikat: Medizinisches Attest ausgestellt in*/
 "wallet_certificate_ausnahme_issued_country" = "L'attest dal medi è vegnì emess a";
