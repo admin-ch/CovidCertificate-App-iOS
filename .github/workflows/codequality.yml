@@ -1,7 +1,7 @@
 name: Codequality
 
 env:
-  XCODE_VERSION: 'Xcode_13.1'
+  XCODE_VERSION: 'Xcode_13.2.1'
 
 on:
   push:
