@@ -355,7 +355,7 @@
 "wallet_certificate_already_exists" = "Quest certificat è gia arcunà en l'app";
 
 /*Titel Gültigkeit im Zertifikatsdetail*/
-"wallet_certificate_validity" = "Valaivladad en Svizra";
+"wallet_certificate_validity" = "Valaivladad \nen Svizra";
 
 /*"Bis" Label im Zertifikats-Detail*/
 "wallet_certificate_valid_until" = "fin ils";
@@ -1259,7 +1259,7 @@
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G OK state*/
-"wallet_check_mode_info_2g_ok_text" = "Access en manaschis e d’As participar ad occurrenzas per persunas vaccinadas u guaridas.";
+"wallet_check_mode_info_2g_ok_text" = "Access a manaschis ed ad occurrenzas per persunas vaccinadas u guaridas.";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G NOT OK state*/
@@ -1303,7 +1303,7 @@
 
 /*👍*/
 /*text for info pop-up in wallet app describing 3G OK state*/
-"wallet_check_mode_info_3g_ok_text" = "Access en manaschis e d’As participar ad occurrenzas per persunas vaccinadas, guaridas u cun in test negativ.";
+"wallet_check_mode_info_3g_ok_text" = "Access a manaschis ed ad occurrenzas per persunas vaccinadas, guaridas u cun in test negativ.";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 3G NOT OK state*/
@@ -1385,10 +1385,10 @@
 "wallet_refresh_button_info_link_url" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat/covid-zertifikat-pruefer-aussteller-technische-informationen.html#1070048217";
 
 /*text for info pop-up in wallet app describing 2G+ OK state*/
-"wallet_check_mode_info_2g_plus_ok_text" = "Access en manaschis e d’As participar ad occurrenzas per persunas ch’èn vaccinadas cumplettamain, che han laschà rinfrestgar la vaccinaziun u ch’èn guaridas (sin basa d’in test da PCR) avant maximalmain 120 dis. Vus na duvrais nagin certificat da test supplementar. ";
+"wallet_check_mode_info_2g_plus_ok_text" = "Access a manaschis ed ad occurrenzas per persunas ch’èn vaccinadas cumplettamain, che han laschà rinfrestgar la vaccinaziun u ch’èn guaridas (sin basa d’in test da PCR) avant maximalmain 120 dis. Vus na duvrais nagin certificat da test supplementar.";
 
 /*text for info pop-up in wallet app describing 2G+ NOT OK state*/
-"wallet_check_mode_info_2g_plus_not_ok_text" = "Per l’access en manaschis e d’As participar ad occurrenzas dovri ultra dal certificat COVID per persunas vaccinadas u guaridas in test negativ.";
+"wallet_check_mode_info_2g_plus_not_ok_text" = "Per l’access a manaschis ed ad occurrenzas dovri ultra dal certificat COVID per persunas vaccinadas u guaridas in test negativ.";
 
 /*wallet refresh button removal info box title*/
 "wallet_refresh_button_info_title" = "Infurmaziun";
@@ -1398,3 +1398,7 @@
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
 "wallet_certificate_detail_note_ausnahme" = "Quest attest n'è betg in document da viadi. \n\nQuest certificat è valaivel mo per in tschert temp. La durada da valaivladad actuala en Svizra pudais Vus verifitgar da tut temp cun l'app «Covid-Certificate». \n\nTut tenor il concept da protecziun respectiv sto la possessura u il possessur eventualmain purtar ina mascrina a chaschun d'occurrenzas u en instituziuns, nua ch'in certificat è obligatoric.";
+
+/*Wallet: Ausnahme Label für Liste*/
+/*Fuzzy*/
+"covid_certificate_ch_ausnahme_list_label" = "Excepziun";
