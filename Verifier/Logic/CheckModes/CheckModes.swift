@@ -64,6 +64,7 @@ enum CheckModesHelper {
 
             if let model = ConfigManager.currentConfig?.checkModesInfo?.value?.modes[id] {
                 image = UIImage(named: isValid ? model.ok.iconIos : model.notOk.iconIos)
+                image = image?.ub_image(byScaling: size / (image?.size.height ?? size))
             }
 
             if image == nil {
