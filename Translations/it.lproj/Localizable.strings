@@ -1401,3 +1401,7 @@
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
 "wallet_certificate_detail_note_ausnahme" = "La presente attestazione non costituisce un documento di viaggio. \n\nQuesto certificato ha soltanto una validità temporanea. L'applicazione «COVID Certificate» consente di verificare in qualsiasi momento l'attuale durata di validità in Svizzera. \n\nAlle manifestazioni e nelle strutture per le quali vige l’obbligo del certificato, il titolare può essere tenuto a portare una mascherina facciale, conformemente al piano di protezione applicabile.";
+
+/*Wallet: Ausnahme Label für Liste*/
+/*Fuzzy*/
+"covid_certificate_ch_ausnahme_list_label" = "Eccezione";

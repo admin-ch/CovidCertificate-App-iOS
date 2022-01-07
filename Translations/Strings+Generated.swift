@@ -50,6 +50,8 @@ import Foundation
      case close_button_key = "close_button"
     /// Weiter
      case continue_button_key = "continue_button"
+    /// Ausnahme
+     case covid_certificate_ch_ausnahme_list_label_key = "covid_certificate_ch_ausnahme_list_label"
     /// Ausnahmezertifikat
      case covid_certificate_ch_ausnahme_test_title_key = "covid_certificate_ch_ausnahme_test_title"
     /// Genesung
@@ -1082,6 +1084,8 @@ import Foundation
    static let close_button = UBLocalized.tr(UBLocalizedKey.close_button_key)
   /// Weiter
    static let continue_button = UBLocalized.tr(UBLocalizedKey.continue_button_key)
+  /// Ausnahme
+   static let covid_certificate_ch_ausnahme_list_label = UBLocalized.tr(UBLocalizedKey.covid_certificate_ch_ausnahme_list_label_key)
   /// Ausnahmezertifikat
    static let covid_certificate_ch_ausnahme_test_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_ch_ausnahme_test_title_key)
   /// Genesung
