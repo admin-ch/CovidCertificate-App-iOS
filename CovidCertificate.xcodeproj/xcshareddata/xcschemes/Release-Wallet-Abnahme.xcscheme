@@ -38,6 +38,34 @@
                ReferencedContainer = "container:CovidCertificate.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F811916E278888B8007FC484"
+               BuildableName = "CovidCertificateUITests.xctest"
+               BlueprintName = "CovidCertificateUITests"
+               ReferencedContainer = "container:CovidCertificate.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8E81CCAA241FCC7F006F2437"
+               BuildableName = "CovidCertificateTests.xctest"
+               BlueprintName = "CovidCertificateTests"
+               ReferencedContainer = "container:CovidCertificate.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -46,6 +74,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8E81CCAA241FCC7F006F2437"
+               BuildableName = "CovidCertificateTests.xctest"
+               BlueprintName = "CovidCertificateTests"
+               ReferencedContainer = "container:CovidCertificate.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F811916E278888B8007FC484"
+               BuildableName = "CovidCertificateUITests.xctest"
+               BlueprintName = "CovidCertificateUITests"
+               ReferencedContainer = "container:CovidCertificate.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
