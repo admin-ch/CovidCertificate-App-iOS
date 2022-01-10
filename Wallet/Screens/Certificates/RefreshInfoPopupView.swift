@@ -20,7 +20,7 @@ class RefreshInfoPopupView: PopupView {
     private let titleLabel = Label(.title, textAlignment: .center)
 
     private let buttonView = UIView()
-    private let closeButton = Button(title: UBLocalized.close_button, style: .text(.cc_blue))
+    private let closeButton = Button(titleKey: .close_button_key, style: .text(.cc_blue))
 
     private var infoView = UIStackView()
 

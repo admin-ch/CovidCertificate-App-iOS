@@ -23,6 +23,14 @@ class UBButton: UIButton {
 
     // MARK: - Title for button
 
+    var titleKey: UBLocalized.UBLocalizedKey? {
+        didSet {
+            let titleString = titleKey != nil ? UBLocalized.translate(titleKey!) : nil
+            accessibilityIdentifier = titleKey?.rawValue
+            title = titleString
+        }
+    }
+
     var title: String? {
         didSet {
             setTitle(title, for: .normal)

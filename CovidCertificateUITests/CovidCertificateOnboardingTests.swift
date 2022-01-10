@@ -21,20 +21,11 @@ class CovidCertificateUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = ["-wallet.user.hasCompletedOnboarding", "false"]
         app.launch()
-        XCTAssert(app.staticTexts["WEITER"].exists)
-        app.staticTexts["WEITER"].tap()
-        app.staticTexts["WEITER"].tap()
-        app.staticTexts["WEITER"].tap()
-        app.staticTexts["AKZEPTIEREN"].tap()
+        XCTAssert(app.buttons["continue_button"].exists)
+        app.buttons["continue_button"].tap()
+        app.buttons["continue_button"].tap()
+        app.buttons["continue_button"].tap()
+        app.buttons["wallet_onboarding_accept_button"].tap()
         app.terminate()
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
     }
 }

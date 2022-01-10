@@ -78,13 +78,17 @@ class Button: UBButton {
         }
     }
 
-    init(title: String, style: Style = .normal(UIColor.cc_blue), customTextColor: UIColor? = nil) {
+    init(titleKey: UBLocalized.UBLocalizedKey?, style: Style = .normal(UIColor.cc_blue), customTextColor: UIColor? = nil) {
         self.style = style
         self.customTextColor = customTextColor
 
         super.init()
 
-        let t = style.isUppercase ? title.uppercased() : title
+        let titleString = titleKey != nil ? UBLocalized.translate(titleKey!) : nil
+
+        accessibilityIdentifier = titleKey?.rawValue
+
+        let t = style.isUppercase ? (titleString?.uppercased() ?? "") : (titleString ?? "")
 
         let attributedString = NSAttributedString(string: t, attributes: [NSAttributedString.Key.kern: LabelType.button.letterSpacing ?? 0.0, NSAttributedString.Key.font: LabelType.button.font, NSAttributedString.Key.foregroundColor: customTextColor ?? style.textColor])
 
@@ -115,6 +119,14 @@ class Button: UBButton {
 
         if currentImage != nil, useCircle {
             highlightCornerRadius = frame.size.height * 0.5 + Padding.small
+        }
+    }
+
+    override var titleKey: UBLocalized.UBLocalizedKey? {
+        didSet {
+            let titleString = titleKey != nil ? UBLocalized.translate(titleKey!) : nil
+            self.title = titleString
+            accessibilityIdentifier = titleKey?.rawValue
         }
     }
 

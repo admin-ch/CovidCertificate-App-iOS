@@ -323,7 +323,7 @@
 		F80E735A245AD7B400C934B8 /* URLSession+pinning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */; };
 		F80E7376245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */; };
 		F8118D6927847076007FC484 /* RefreshButtonVisibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */; };
-		F8119172278888B8007FC484 /* CovidCertificateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8119171278888B8007FC484 /* CovidCertificateUITests.swift */; };
+		F8119172278888B8007FC484 /* CovidCertificateOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8119171278888B8007FC484 /* CovidCertificateOnboardingTests.swift */; };
 		F8130CDC2685B46200A29326 /* URLSession+synchron.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDB2685B46200A29326 /* URLSession+synchron.swift */; };
 		F8130CDD2685B46200A29326 /* URLSession+synchron.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDB2685B46200A29326 /* URLSession+synchron.swift */; };
 		F8130CDF2685B99F00A29326 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDE2685B99F00A29326 /* Collection+Safe.swift */; };
@@ -605,7 +605,7 @@
 		F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBPinnedCertificatesTrustEvaluator.swift; sourceTree = "<group>"; };
 		F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButtonVisibilityManager.swift; sourceTree = "<group>"; };
 		F811916F278888B8007FC484 /* CovidCertificateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidCertificateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8119171278888B8007FC484 /* CovidCertificateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidCertificateUITests.swift; sourceTree = "<group>"; };
+		F8119171278888B8007FC484 /* CovidCertificateOnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidCertificateOnboardingTests.swift; sourceTree = "<group>"; };
 		F8130CDB2685B46200A29326 /* URLSession+synchron.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+synchron.swift"; sourceTree = "<group>"; };
 		F8130CDE2685B99F00A29326 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		F84089EB2493695200A66CD1 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -1394,7 +1394,7 @@
 		F8119170278888B8007FC484 /* CovidCertificateUITests */ = {
 			isa = PBXGroup;
 			children = (
-				F8119171278888B8007FC484 /* CovidCertificateUITests.swift */,
+				F8119171278888B8007FC484 /* CovidCertificateOnboardingTests.swift */,
 			);
 			path = CovidCertificateUITests;
 			sourceTree = "<group>";
@@ -2152,7 +2152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8119172278888B8007FC484 /* CovidCertificateUITests.swift in Sources */,
+				F8119172278888B8007FC484 /* CovidCertificateOnboardingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

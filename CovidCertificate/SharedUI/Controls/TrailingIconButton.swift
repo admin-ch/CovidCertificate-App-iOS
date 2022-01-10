@@ -12,8 +12,16 @@
 import UIKit
 
 class TrailingIconButton: Button {
+    init(titleKey: UBLocalized.UBLocalizedKey, icon: UIImage?) {
+        super.init(titleKey: titleKey)
+
+        setImage(icon, for: .normal)
+    }
+
     init(title: String, icon: UIImage?) {
-        super.init(title: title)
+        super.init(titleKey: nil)
+
+        self.title = title
 
         setImage(icon, for: .normal)
     }
