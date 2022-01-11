@@ -319,6 +319,8 @@
 		F809AF342693B25700D16EED /* OnboardingDisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDFA264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift */; };
 		F809AF362693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */; };
 		F809AF372693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */; };
+		F80A1140278DE3C700E54FD2 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AC73C265291C0005A2543 /* Strings+Generated.swift */; };
+		F80A1143278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A1142278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift */; };
 		F80CB027268CD154004A12D1 /* TransformationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B156268B66A500C39836 /* TransformationPayload.swift */; };
 		F80E735A245AD7B400C934B8 /* URLSession+pinning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */; };
 		F80E7376245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */; };
@@ -601,6 +603,7 @@
 		F234B5B827610DA100B361DF /* IconTextInfoBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextInfoBoxView.swift; sourceTree = "<group>"; };
 		F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateManagerTests.swift; sourceTree = "<group>"; };
 		F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificateLightUpdateBoardingViewController.swift; sourceTree = "<group>"; };
+		F80A1142278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElementQuery+UBLocalizedKey.swift"; sourceTree = "<group>"; };
 		F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+pinning.swift"; sourceTree = "<group>"; };
 		F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBPinnedCertificatesTrustEvaluator.swift; sourceTree = "<group>"; };
 		F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButtonVisibilityManager.swift; sourceTree = "<group>"; };
@@ -1391,10 +1394,19 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		F80A1141278DE46800E54FD2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F80A1142278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F8119170278888B8007FC484 /* CovidCertificateUITests */ = {
 			isa = PBXGroup;
 			children = (
 				F8119171278888B8007FC484 /* CovidCertificateOnboardingTests.swift */,
+				F80A1141278DE46800E54FD2 /* Helpers */,
 			);
 			path = CovidCertificateUITests;
 			sourceTree = "<group>";
@@ -2152,6 +2164,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F80A1140278DE3C700E54FD2 /* Strings+Generated.swift in Sources */,
+				F80A1143278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift in Sources */,
 				F8119172278888B8007FC484 /* CovidCertificateOnboardingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,16 +21,16 @@ class CovidCertificateUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments = ["-wallet.user.hasCompletedOnboarding", "false"]
         app.launch()
-        XCTAssert(app.buttons["continue_button"].exists)
-        app.buttons["continue_button"].tap()
-        app.buttons["continue_button"].tap()
-        app.buttons["continue_button"].tap()
-        app.buttons["wallet_onboarding_accept_button"].tap()
+        XCTAssert(app.buttons[.continue_button_key].exists)
+        app.buttons[.continue_button_key].tap()
+        app.buttons[.continue_button_key].tap()
+        app.buttons[.continue_button_key].tap()
+        app.buttons[.wallet_onboarding_accept_button_key].tap()
         app.terminate()
 
         // on the next launch the onboarding should not be shown
         app.launchArguments = []
         app.launch()
-        XCTAssertFalse(app.buttons["continue_button"].exists)
+        XCTAssertFalse(app.buttons[.continue_button_key].exists)
     }
 }
