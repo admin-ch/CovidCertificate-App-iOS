@@ -321,6 +321,7 @@
 		F809AF372693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */; };
 		F80A1140278DE3C700E54FD2 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AC73C265291C0005A2543 /* Strings+Generated.swift */; };
 		F80A1143278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A1142278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift */; };
+		F80A1145278E2BDA00E54FD2 /* CovidCertificateHomescreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A1144278E2BDA00E54FD2 /* CovidCertificateHomescreenTests.swift */; };
 		F80CB027268CD154004A12D1 /* TransformationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B156268B66A500C39836 /* TransformationPayload.swift */; };
 		F80E735A245AD7B400C934B8 /* URLSession+pinning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */; };
 		F80E7376245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */; };
@@ -604,10 +605,11 @@
 		F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateManagerTests.swift; sourceTree = "<group>"; };
 		F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificateLightUpdateBoardingViewController.swift; sourceTree = "<group>"; };
 		F80A1142278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElementQuery+UBLocalizedKey.swift"; sourceTree = "<group>"; };
+		F80A1144278E2BDA00E54FD2 /* CovidCertificateHomescreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CovidCertificateHomescreenTests.swift; sourceTree = "<group>"; };
 		F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+pinning.swift"; sourceTree = "<group>"; };
 		F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBPinnedCertificatesTrustEvaluator.swift; sourceTree = "<group>"; };
 		F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButtonVisibilityManager.swift; sourceTree = "<group>"; };
-		F811916F278888B8007FC484 /* CovidCertificateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidCertificateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F811916F278888B8007FC484 /* CovidCertificateWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidCertificateWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8119171278888B8007FC484 /* CovidCertificateOnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidCertificateOnboardingTests.swift; sourceTree = "<group>"; };
 		F8130CDB2685B46200A29326 /* URLSession+synchron.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+synchron.swift"; sourceTree = "<group>"; };
 		F8130CDE2685B99F00A29326 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
@@ -1202,7 +1204,7 @@
 				6EC172E026429D51002E27DB /* Verifier */,
 				8E81CC97241FCC7D006F2437 /* CovidCertificate */,
 				8E81CCAE241FCC7F006F2437 /* CovidCertificateTests */,
-				F8119170278888B8007FC484 /* CovidCertificateUITests */,
+				F8119170278888B8007FC484 /* CovidCertificateWalletUITests */,
 				8E81CC96241FCC7D006F2437 /* Products */,
 				24780B3B2430BC00003BB26C /* Frameworks */,
 			);
@@ -1214,7 +1216,7 @@
 				8E81CC95241FCC7D006F2437 /* CovidCertificateWallet.app */,
 				8E81CCAB241FCC7F006F2437 /* CovidCertificateTests.xctest */,
 				6EC1733D26429E31002E27DB /* CovidCertificateVerifier.app */,
-				F811916F278888B8007FC484 /* CovidCertificateUITests.xctest */,
+				F811916F278888B8007FC484 /* CovidCertificateWalletUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1402,13 +1404,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		F8119170278888B8007FC484 /* CovidCertificateUITests */ = {
+		F8119170278888B8007FC484 /* CovidCertificateWalletUITests */ = {
 			isa = PBXGroup;
 			children = (
 				F8119171278888B8007FC484 /* CovidCertificateOnboardingTests.swift */,
+				F80A1144278E2BDA00E54FD2 /* CovidCertificateHomescreenTests.swift */,
 				F80A1141278DE46800E54FD2 /* Helpers */,
 			);
-			path = CovidCertificateUITests;
+			path = CovidCertificateWalletUITests;
 			sourceTree = "<group>";
 		};
 		F88DA6B5268C7885001DB072 /* CertificateLight */ = {
@@ -1538,9 +1541,9 @@
 			productReference = 8E81CCAB241FCC7F006F2437 /* CovidCertificateTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F811916E278888B8007FC484 /* CovidCertificateUITests */ = {
+		F811916E278888B8007FC484 /* CovidCertificateWalletUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F8119179278888B8007FC484 /* Build configuration list for PBXNativeTarget "CovidCertificateUITests" */;
+			buildConfigurationList = F8119179278888B8007FC484 /* Build configuration list for PBXNativeTarget "CovidCertificateWalletUITests" */;
 			buildPhases = (
 				F811916B278888B8007FC484 /* Sources */,
 				F811916C278888B8007FC484 /* Frameworks */,
@@ -1551,9 +1554,9 @@
 			dependencies = (
 				F811917B278888C4007FC484 /* PBXTargetDependency */,
 			);
-			name = CovidCertificateUITests;
+			name = CovidCertificateWalletUITests;
 			productName = CovidCertificateUITests;
-			productReference = F811916F278888B8007FC484 /* CovidCertificateUITests.xctest */;
+			productReference = F811916F278888B8007FC484 /* CovidCertificateWalletUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -1608,7 +1611,7 @@
 				8E81CC94241FCC7D006F2437 /* CovidCertificateWallet */,
 				6EC172E126429E31002E27DB /* CovidCertificateVerifier */,
 				8E81CCAA241FCC7F006F2437 /* CovidCertificateTests */,
-				F811916E278888B8007FC484 /* CovidCertificateUITests */,
+				F811916E278888B8007FC484 /* CovidCertificateWalletUITests */,
 				8E81CCC2241FD475006F2437 /* Translation */,
 			);
 		};
@@ -2164,6 +2167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F80A1145278E2BDA00E54FD2 /* CovidCertificateHomescreenTests.swift in Sources */,
 				F80A1140278DE3C700E54FD2 /* Strings+Generated.swift in Sources */,
 				F80A1143278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift in Sources */,
 				F8119172278888B8007FC484 /* CovidCertificateOnboardingTests.swift in Sources */,
@@ -3111,7 +3115,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		F8119179278888B8007FC484 /* Build configuration list for PBXNativeTarget "CovidCertificateUITests" */ = {
+		F8119179278888B8007FC484 /* Build configuration list for PBXNativeTarget "CovidCertificateWalletUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F8119175278888B8007FC484 /* Debug */,

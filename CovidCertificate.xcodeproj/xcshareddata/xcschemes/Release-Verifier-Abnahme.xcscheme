@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F811916E278888B8007FC484"
-               BuildableName = "CovidCertificateUITests.xctest"
-               BlueprintName = "CovidCertificateUITests"
+               BuildableName = "CovidCertificateWalletUITests.xctest"
+               BlueprintName = "CovidCertificateWalletUITests"
                ReferencedContainer = "container:CovidCertificate.xcodeproj">
             </BuildableReference>
          </TestableReference>
