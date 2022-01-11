@@ -12,6 +12,7 @@
 import XCTest
 
 class CovidCertificateUITests: XCTestCase {
+
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
@@ -26,5 +27,10 @@ class CovidCertificateUITests: XCTestCase {
         app.buttons["continue_button"].tap()
         app.buttons["wallet_onboarding_accept_button"].tap()
         app.terminate()
+
+        // on the next launch the onboarding should not be shown
+        app.launchArguments = []
+        app.launch()
+        XCTAssertFalse(app.buttons["continue_button"].exists)
     }
 }
