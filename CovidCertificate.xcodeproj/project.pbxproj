@@ -321,14 +321,16 @@
 		F809AF372693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */; };
 		F80A1140278DE3C700E54FD2 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AC73C265291C0005A2543 /* Strings+Generated.swift */; };
 		F80A1143278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A1142278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift */; };
-		F80A1145278E2BDA00E54FD2 /* CovidCertificateHomescreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A1144278E2BDA00E54FD2 /* CovidCertificateHomescreenTests.swift */; };
+		F80A1145278E2BDA00E54FD2 /* HomescreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A1144278E2BDA00E54FD2 /* HomescreenTests.swift */; };
 		F80A1147278E2D8000E54FD2 /* XCUIApplication+Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A1146278E2D8000E54FD2 /* XCUIApplication+Wallet.swift */; };
 		F80A1149278E311900E54FD2 /* XCUIElement+assert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A1148278E311900E54FD2 /* XCUIElement+assert.swift */; };
+		F80A114B278EBC0800E54FD2 /* TransfercodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A114A278EBC0800E54FD2 /* TransfercodeTests.swift */; };
+		F80A114C278EBD6B00E54FD2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC9A81A1242CE5E000AD1548 /* Localizable.strings */; };
 		F80CB027268CD154004A12D1 /* TransformationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B156268B66A500C39836 /* TransformationPayload.swift */; };
 		F80E735A245AD7B400C934B8 /* URLSession+pinning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */; };
 		F80E7376245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */; };
 		F8118D6927847076007FC484 /* RefreshButtonVisibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */; };
-		F8119172278888B8007FC484 /* CovidCertificateOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8119171278888B8007FC484 /* CovidCertificateOnboardingTests.swift */; };
+		F8119172278888B8007FC484 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8119171278888B8007FC484 /* OnboardingTests.swift */; };
 		F8130CDC2685B46200A29326 /* URLSession+synchron.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDB2685B46200A29326 /* URLSession+synchron.swift */; };
 		F8130CDD2685B46200A29326 /* URLSession+synchron.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDB2685B46200A29326 /* URLSession+synchron.swift */; };
 		F8130CDF2685B99F00A29326 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDE2685B99F00A29326 /* Collection+Safe.swift */; };
@@ -607,14 +609,15 @@
 		F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateManagerTests.swift; sourceTree = "<group>"; };
 		F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificateLightUpdateBoardingViewController.swift; sourceTree = "<group>"; };
 		F80A1142278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElementQuery+UBLocalizedKey.swift"; sourceTree = "<group>"; };
-		F80A1144278E2BDA00E54FD2 /* CovidCertificateHomescreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CovidCertificateHomescreenTests.swift; sourceTree = "<group>"; };
+		F80A1144278E2BDA00E54FD2 /* HomescreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomescreenTests.swift; sourceTree = "<group>"; };
 		F80A1146278E2D8000E54FD2 /* XCUIApplication+Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Wallet.swift"; sourceTree = "<group>"; };
 		F80A1148278E311900E54FD2 /* XCUIElement+assert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+assert.swift"; sourceTree = "<group>"; };
+		F80A114A278EBC0800E54FD2 /* TransfercodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfercodeTests.swift; sourceTree = "<group>"; };
 		F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+pinning.swift"; sourceTree = "<group>"; };
 		F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBPinnedCertificatesTrustEvaluator.swift; sourceTree = "<group>"; };
 		F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButtonVisibilityManager.swift; sourceTree = "<group>"; };
 		F811916F278888B8007FC484 /* CovidCertificateWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidCertificateWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8119171278888B8007FC484 /* CovidCertificateOnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidCertificateOnboardingTests.swift; sourceTree = "<group>"; };
+		F8119171278888B8007FC484 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		F8130CDB2685B46200A29326 /* URLSession+synchron.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+synchron.swift"; sourceTree = "<group>"; };
 		F8130CDE2685B99F00A29326 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		F84089EB2493695200A66CD1 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -1413,8 +1416,9 @@
 		F8119170278888B8007FC484 /* CovidCertificateWalletUITests */ = {
 			isa = PBXGroup;
 			children = (
-				F8119171278888B8007FC484 /* CovidCertificateOnboardingTests.swift */,
-				F80A1144278E2BDA00E54FD2 /* CovidCertificateHomescreenTests.swift */,
+				F8119171278888B8007FC484 /* OnboardingTests.swift */,
+				F80A1144278E2BDA00E54FD2 /* HomescreenTests.swift */,
+				F80A114A278EBC0800E54FD2 /* TransfercodeTests.swift */,
 				F80A1141278DE46800E54FD2 /* Helpers */,
 			);
 			path = CovidCertificateWalletUITests;
@@ -1695,6 +1699,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F80A114C278EBD6B00E54FD2 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2173,11 +2178,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F80A1145278E2BDA00E54FD2 /* CovidCertificateHomescreenTests.swift in Sources */,
+				F80A1145278E2BDA00E54FD2 /* HomescreenTests.swift in Sources */,
 				F80A1140278DE3C700E54FD2 /* Strings+Generated.swift in Sources */,
 				F80A1147278E2D8000E54FD2 /* XCUIApplication+Wallet.swift in Sources */,
 				F80A1143278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift in Sources */,
-				F8119172278888B8007FC484 /* CovidCertificateOnboardingTests.swift in Sources */,
+				F8119172278888B8007FC484 /* OnboardingTests.swift in Sources */,
+				F80A114B278EBC0800E54FD2 /* TransfercodeTests.swift in Sources */,
 				F80A1149278E311900E54FD2 /* XCUIElement+assert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

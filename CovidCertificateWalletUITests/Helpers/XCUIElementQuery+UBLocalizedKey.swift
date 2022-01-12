@@ -12,7 +12,11 @@
 import XCTest
 
 extension XCUIElementQuery {
-    subscript(key: UBLocalized.UBLocalizedKey) -> XCUIElement {
-        self[key.rawValue]
+    subscript(key: UBLocalized.UBLocalizedKey, localized: Bool = false) -> XCUIElement {
+        if localized {
+            return self[UBLocalized.translate(key)]
+        } else {
+            return self[key.rawValue]
+        }
     }
 }

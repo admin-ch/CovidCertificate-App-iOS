@@ -11,7 +11,7 @@
 
 import XCTest
 
-class CovidCertificateUITests: XCTestCase {
+class OnboardingTests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
     }

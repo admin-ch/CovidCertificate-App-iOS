@@ -13,19 +13,36 @@ import Foundation
 import XCTest
 
 extension XCUIElement {
-    func assertExists(_ timeout: TimeInterval = 10) {
+    @discardableResult
+    func assertExists(_ timeout: TimeInterval = 10) -> Self {
         guard !exists else {
             XCTAssert(exists)
-            return
+            return self
         }
         XCTAssert(waitForExistence(timeout: timeout))
+        return self
     }
 
-    func assertNotExist(_ timeout: TimeInterval = 10) {
+    @discardableResult
+    func assertNotExist(_ timeout: TimeInterval = 10) -> Self {
         guard exists else {
             XCTAssertFalse(exists)
-            return
+            return self
         }
         XCTAssertFalse(waitForExistence(timeout: timeout))
+        return self
+    }
+}
+
+extension XCUIElement {
+    func scrollToElement(element: XCUIElement) {
+        while !element.visible() {
+            swipeUp()
+        }
+    }
+
+    func visible() -> Bool {
+        guard exists, !frame.isEmpty else { return false }
+        return XCUIApplication().windows.element(boundBy: 0).frame.contains(frame)
     }
 }

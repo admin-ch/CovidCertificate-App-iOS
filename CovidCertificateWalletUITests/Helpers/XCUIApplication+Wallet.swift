@@ -15,6 +15,15 @@ extension XCUIApplication {
     @discardableResult
     func setOnboarding(completed: Bool) -> Self {
         launchArguments += ["-wallet.user.hasCompletedOnboarding", "\(completed ? "YES" : "NO")"]
+        launchArguments += ["-wallet.user.hasCompletedLightCertificateUpdateBoarding", "\(completed ? "YES" : "NO")"]
         return self
+    }
+
+    static func allowNotificationPermission() {
+        let app = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let button = app.alerts.firstMatch.buttons["Allow"]
+        if button.waitForExistence(timeout: 2) {
+            button.tap()
+        }
     }
 }
