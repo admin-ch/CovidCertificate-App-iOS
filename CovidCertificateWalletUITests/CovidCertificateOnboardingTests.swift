@@ -12,25 +12,25 @@
 import XCTest
 
 class CovidCertificateUITests: XCTestCase {
-
     override func setUpWithError() throws {
         continueAfterFailure = false
     }
 
     func testShowOnboardingFirstLaunch() throws {
         let app = XCUIApplication()
-        app.launchArguments = ["-wallet.user.hasCompletedOnboarding", "false"]
+        app.setOnboarding(completed: false)
         app.launch()
-        XCTAssert(app.buttons[.continue_button_key].exists)
+        app.buttons[.continue_button_key].assertExists()
         app.buttons[.continue_button_key].tap()
         app.buttons[.continue_button_key].tap()
         app.buttons[.continue_button_key].tap()
+        app.links[.wallet_onboarding_external_privacy_button_key].assertExists()
         app.buttons[.wallet_onboarding_accept_button_key].tap()
         app.terminate()
 
         // on the next launch the onboarding should not be shown
-        app.launchArguments = []
+        app.launchArguments.removeAll()
         app.launch()
-        XCTAssertFalse(app.buttons[.continue_button_key].exists)
+        app.buttons[.continue_button_key].assertNotExist()
     }
 }
