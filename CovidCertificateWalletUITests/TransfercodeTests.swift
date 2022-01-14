@@ -17,6 +17,8 @@ class TransfercodeTests: XCTestCase {
     }
 
     func testCreateTransfercode() throws {
+        guard TestEnviroment.networkCondition != .airplane else { return }
+
         let app = XCUIApplication()
         app.setOnboarding(completed: true)
         app.launch()
