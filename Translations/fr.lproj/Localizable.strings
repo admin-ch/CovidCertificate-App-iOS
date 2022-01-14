@@ -68,7 +68,6 @@
 /*Fehler Title bei Prüfung*/
 "verifier_verify_error_title" = "Certificat COVID invalide";
 
-/*👍*/
 /*Fehler Infotext bei Prüfung (Nationale Regeln)*/
 "verifier_verify_error_info_for_national_rules" = "Ne répond pas aux critères de validité applicables en Suisse ou à ceux du mode de contrôle ({MODUS})";
 
@@ -533,7 +532,6 @@
 "wallet_transfer_code_faq_questions_answer_1" = "Si vous effectuez un test COVID (test PCR ou test rapide antigénique), le code de transfert peut être utilisé pour transmettre rapidement le certificat COVID.\n\nRenseignez-vous auprès de votre centre de test, de votre pharmacie ou de votre médecin pour savoir si cette option est proposée.";
 
 /*Wallet: Transfer Code FAQ Antwort 2*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_answer_2" = "Actuellement, la transmission du certificat par code de transfert est réservée aux tests COVID. Pour savoir comment obtenir un certificat COVID après une vaccination, cliquez ici :";
 
 /*Wallet: Transfer Code FAQ Antwort 3*/
@@ -713,8 +711,6 @@
 
 /*Wallet: Accessibility Name für Refresh Button*/
 "accessibility_refresh_button" = "Mettre à jour";
-
-/*Fuzzy*/
 "wallet_transfer_delete_confirm_text" = "Voulez-vous vraiment supprimer le transfer ?";
 "wallet_notification_transfer_title" = "Transfert réussi";
 "wallet_notification_transfer_text" = "Le certificat COVID est arrivé";
@@ -751,11 +747,7 @@
 
 /*Label für das Erstellungsdatum eines Nachweises (mit Platzhalter für Datum und Uhrzeit)*/
 "wallet_certificate_evidence_creation_date" = "Justificatif établi le\n{DATE}";
-
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_linktext_2" = "Informations supplémentaires";
-
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_linkurl_2" = "https://ofsp-coronavirus.ch/certificat/comment-obtenir-le-certificat-covid-et-comment-men-servir/";
 
 /*Wallet: Zertifikat Light Button im Zertifikat Detail*/
@@ -862,11 +854,9 @@
 "wallet_certificate_light_detail_text_2_bold" = "n’est utilisable qu’en doit être aucun";
 
 /*VoiceOver reads this when the expandable box is reduced*/
-/*Fuzzy*/
 "accessibility_expandable_box_reduced_state" = "réduit";
 
 /*VoiceOver reads this when the expandable box is expanded*/
-/*Fuzzy*/
 "accessibility_expandable_box_expanded_state" = "étendu";
 
 /*Header im Update Boarding-Screen*/
@@ -945,7 +935,6 @@
 "language_title" = "Langue";
 
 /*Information about the date format (always english)*/
-/*Fuzzy*/
 "wallet_certificate_detail_date_format_info" = "Date format used: dd.mm.yyyy";
 "wallet_certificate_test_holder_and_name" = "Fabricant et Nom";
 
@@ -974,28 +963,24 @@
 "vaccination_booking_ai_name" = "Appenzell Rhodes-Intérieures";
 
 /*url for booking an appointment for vaccination for canton ai*/
-/*Fuzzy*/
 "vaccination_booking_ai_url" = "https://www.ai.ch/coronavirus-impfung";
 
 /*canton name bl*/
 "vaccination_booking_bl_name" = "Bâle-Campagne";
 
 /*url for booking an appointment for vaccination for canton bl*/
-/*Fuzzy*/
 "vaccination_booking_bl_url" = "https://www.baselland.ch/politik-und-behorden/direktionen/volkswirtschafts-und-gesundheitsdirektion/amt-fur-gesundheit/medizinische-dienste/kantonsarztlicher-dienst/aktuelles/corona-impfung/franzoesisch-francais";
 
 /*canton name bs*/
 "vaccination_booking_bs_name" = "Bâle-Ville";
 
 /*url for booking an appointment for vaccination for canton bs*/
-/*Fuzzy*/
 "vaccination_booking_bs_url" = "http://www.coronaimpfzentrumbasel.ch";
 
 /*canton name be*/
 "vaccination_booking_be_name" = "Berne";
 
 /*url for booking an appointment for vaccination for canton be*/
-/*Fuzzy*/
 "vaccination_booking_be_url" = "https://www.gsi.be.ch/fr/start/themen/coronavirus/impfen.html";
 
 /*canton name fr*/
@@ -1214,8 +1199,6 @@
 "wallet_info_box_certificate_scan_text" = "Pour un contrôle rapide respectant la protection des données, utilisez l’application «COVID Certificate Check».";
 "wallet_info_box_certificate_scan_button_check_app" = "Vers Check-App";
 "wallet_info_box_certificate_scan_close" = "Compris";
-
-/*Fuzzy*/
 "wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";
 "wallet_only_valid_in_switzerland" = "Valide uniquement en Suisse et avec un document d’identité";
 "covid_certificate_sero_positiv_test_befund_label" = "Résultat";
@@ -1242,8 +1225,6 @@
 /*URL to ImpfCheck*/
 "vaccination_impf_check_url" = "https://covid19-vac-check.ch/";
 "vaccination_impf_check_title" = "Prendre un rendez-vous maintenant";
-
-/*Fuzzy*/
 "verifier_faq_works_linktext_1" = "Vidéo explicative";
 "verifier_faq_works_linkurl_1" = "https://youtu.be/O-9YhJDI3ZI";
 
@@ -1313,11 +1294,9 @@
 /*text for info pop-up in wallet app describing 3G NOT OK state*/
 "wallet_check_mode_info_3g_not_ok_text" = "Accès refusé.";
 
-/*👍*/
 /*Titel für Fehler wenn Modus Light-Zertifikat nicht unterstützt*/
 "verifier_verify_light_not_supported_by_mode_title" = "Le certificat COVID à vérifier est un «certificat light». Il ne peut pas être vérifié sous le mode de contrôle «{MODUS}».";
 
-/*👍*/
 /*Text für Fehler wenn Modus Light-Zertifikat nicht unterstützt*/
 "verifier_verify_light_not_supported_by_mode_text" = "La vérification ne peut avoir lieu que si la conversion du certificat en un «certificat light» est annulée.";
 
@@ -1391,7 +1370,7 @@
 "wallet_refresh_button_info_link_url" = "https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat/covid-zertifikat-pruefer-aussteller-technische-informationen.html#-1006172949";
 
 /*text for info pop-up in wallet app describing 2G+ OK state*/
-"wallet_check_mode_info_2g_plus_ok_text" = "L’accesso a strutture e manifestazioni è consentito alle persone per le quali sono trascorsi al massimo 120 giorni dal completamento del ciclo vaccinale, dalla somministrazione della dose di richiamo o dalla guarigione (sulla base di un test PCR). In questo caso non è necessario un ulteriore certificato di test.";
+"wallet_check_mode_info_2g_plus_ok_text" = "Accès aux établissements et aux manifestations réservé aux personnes dont la vaccination complète, la vaccination de rappel ou la guérison (confirmée par un test PCR) ne date pas de plus de 120 jours. Vous n'avez pas besoin de présenter un certificat de test supplémentaire.";
 
 /*text for info pop-up in wallet app describing 2G+ NOT OK state*/
 "wallet_check_mode_info_2g_plus_not_ok_text" = "Accès aux établissements et aux manifestations réservé aux personnes vaccinées ou guéries qui présentent, en plus d'un certificat COVID, un résultat de test négatif.";
@@ -1406,5 +1385,4 @@
 "wallet_certificate_detail_note_ausnahme" = "Le présent certificat n'est pas un document de voyage. \n\nCe certificat n'a qu'une durée de validité limitée. L'application «COVID Certificate» vous permet en tout temps de vérifier la durée de validité actuellement déterminante en Suisse. \n\nEn fonction des mesures de protection applicables, le ou la titulaire d'un certificat peut être tenu/e de porter un masque dans le cadre de manifestations et dans les lieux où la présentation d'un certificat COVID-19 est obligatoire.";
 
 /*Wallet: Ausnahme Label für Liste*/
-/*Fuzzy*/
 "covid_certificate_ch_ausnahme_list_label" = "Exception";

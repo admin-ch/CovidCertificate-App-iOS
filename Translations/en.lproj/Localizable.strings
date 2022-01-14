@@ -532,7 +532,6 @@
 "wallet_transfer_code_faq_questions_answer_1" = "If you perform a COVID test (PCR test or rapid antigen test), the transfer code can be used to quickly transmit the COVID certificate.\n\nAsk your test centre, pharmacy or doctor if this option is available.";
 
 /*Wallet: Transfer Code FAQ Antwort 2*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_answer_2" = "Currently, the transmission of the certificate by transfer code is reserved for COVID tests. To find out how to obtain a COVID certificate after vaccination, click here:";
 
 /*Wallet: Transfer Code FAQ Antwort 3*/
@@ -712,8 +711,6 @@
 
 /*Wallet: Accessibility Name für Refresh Button*/
 "accessibility_refresh_button" = "Update";
-
-/*Fuzzy*/
 "wallet_transfer_delete_confirm_text" = "Are you sure you want to delete the transfer?";
 "wallet_notification_transfer_title" = "Transfer successful";
 "wallet_notification_transfer_text" = "The COVID certificate has been delivered";
@@ -750,11 +747,7 @@
 
 /*Label für das Erstellungsdatum eines Nachweises (mit Platzhalter für Datum und Uhrzeit)*/
 "wallet_certificate_evidence_creation_date" = "Evidence created on\n{DATE}";
-
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_linktext_2" = "Further information";
-
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_linkurl_2" = "https://foph-coronavirus.ch/certificate/how-do-i-get-a-covid-certificate-and-how-do-i-use-it/";
 
 /*Wallet: Zertifikat Light Button im Zertifikat Detail*/
@@ -861,11 +854,9 @@
 "wallet_certificate_light_detail_text_2_bold" = "only has to does not";
 
 /*VoiceOver reads this when the expandable box is reduced*/
-/*Fuzzy*/
 "accessibility_expandable_box_reduced_state" = "reduced";
 
 /*VoiceOver reads this when the expandable box is expanded*/
-/*Fuzzy*/
 "accessibility_expandable_box_expanded_state" = "expanded";
 
 /*Header im Update Boarding-Screen*/
@@ -944,7 +935,6 @@
 "language_title" = "Language";
 
 /*Information about the date format (always english)*/
-/*Fuzzy*/
 "wallet_certificate_detail_date_format_info" = "Date format used: dd.mm.yyyy";
 "wallet_certificate_test_holder_and_name" = "Manufacturer and Name";
 
@@ -973,28 +963,24 @@
 "vaccination_booking_ai_name" = "Appenzell Innerrhoden";
 
 /*url for booking an appointment for vaccination for canton ai*/
-/*Fuzzy*/
 "vaccination_booking_ai_url" = "https://www.ai.ch/coronavirus-impfung";
 
 /*canton name bl*/
 "vaccination_booking_bl_name" = "Basel-Country";
 
 /*url for booking an appointment for vaccination for canton bl*/
-/*Fuzzy*/
 "vaccination_booking_bl_url" = "https://www.baselland.ch/politik-und-behorden/direktionen/volkswirtschafts-und-gesundheitsdirektion/amt-fur-gesundheit/medizinische-dienste/kantonsarztlicher-dienst/aktuelles/corona-impfung/englisch-english";
 
 /*canton name bs*/
 "vaccination_booking_bs_name" = "Basel-City";
 
 /*url for booking an appointment for vaccination for canton bs*/
-/*Fuzzy*/
 "vaccination_booking_bs_url" = "http://www.coronaimpfzentrumbasel.ch";
 
 /*canton name be*/
 "vaccination_booking_be_name" = "Berne";
 
 /*url for booking an appointment for vaccination for canton be*/
-/*Fuzzy*/
 "vaccination_booking_be_url" = "http://www.be.ch/corona-impfung";
 
 /*canton name fr*/
@@ -1213,8 +1199,6 @@
 "wallet_info_box_certificate_scan_text" = "For quicker checking that is data privacy compliant, use the COVID Certificate Check app";
 "wallet_info_box_certificate_scan_button_check_app" = "To the Check-App";
 "wallet_info_box_certificate_scan_close" = "Understood";
-
-/*Fuzzy*/
 "wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";
 "wallet_only_valid_in_switzerland" = "Only valid within Switzerland and in combination with an identity document";
 "covid_certificate_sero_positiv_test_befund_label" = "Finding";
@@ -1241,8 +1225,6 @@
 /*URL to ImpfCheck*/
 "vaccination_impf_check_url" = "https://covid19.impf-check.ch/";
 "vaccination_impf_check_title" = "Book an appointment now";
-
-/*Fuzzy*/
 "verifier_faq_works_linktext_1" = "Explanatory video";
 "verifier_faq_works_linkurl_1" = "https://youtu.be/spfVPMqukjM";
 
@@ -1397,12 +1379,10 @@
 "wallet_refresh_button_info_title" = "Info";
 
 /*Ausnahme-Zertifikat: Medizinisches Attest ausgestellt in*/
-/*Fuzzy*/
 "wallet_certificate_ausnahme_issued_country" = "Medical certificate issued in";
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
 "wallet_certificate_detail_note_ausnahme" = "This certificate is not a travel document. \n\nThis certificate is only valid for a limited period of time. You can check the current duration of validity in Switzerland at any time using the COVID Certificate app. \n\nThe holder may be required to wear a face mask at events and facilities requiring a certificate, in accordance with the applicable precautionary measures.";
 
 /*Wallet: Ausnahme Label für Liste*/
-/*Fuzzy*/
 "covid_certificate_ch_ausnahme_list_label" = "Exception";

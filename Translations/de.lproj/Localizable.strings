@@ -511,69 +511,52 @@
 
 /*prüfen*/
 /*Wallet: Transfer Code: FAQ Titel*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_title" = "Covid-Zertifikate direkt in die App geliefert";
 
 /*Wallet: Transfer Code FAQ Text*/
 "wallet_transfer_code_faq_questions_subtitle" = "Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.";
 
 /*Wallet: Transfer Code FAQ Frage 1*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_question_1" = "Wer bietet die Übermittlung per Transfer-Code an?";
 
 /*Wallet: Transfer Code FAQ Frage 2*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_question_2" = "Können Transfer-Codes auch zur Übermittlung von Impfzertifikaten verwendet werden?";
 
 /*Wallet: Transfer Code FAQ Frage 3*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_question_3" = "Wie funktioniert die Übermittlung per Transfer-Code?";
 
 /*Wallet: Transfer Code FAQ Frage 4*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_question_4" = "Kann ich den Transfer-Code mehrmals benutzen?";
 
 /*Wallet: Transfer Code FAQ Antwort 1*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_answer_1" = "Wenn Sie einen Covid-Test machen (PCR-Test oder Antigen-Schnelltest), kann der Transfer-Code zur schnellen Übermittlung von Covid-Zertifikaten zum Einsatz kommen.\n\nInformieren Sie sich bei Ihrem Testcenter, in der Apotheke oder bei Ihrem Arzt, ob die Übermittlung per Transfer-Code angeboten wird.";
 
 /*Wallet: Transfer Code FAQ Antwort 2*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_answer_2" = "Aktuell ist die Übermittlung per Transfer-Code auf Covid-Tests ausgelegt. Wie Sie ein Covid-Zertifikat nach einer Impfung erhalten erfahren Sie hier:";
 
 /*Wallet: Transfer Code FAQ Antwort 3*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_answer_3" = "Falls die Stelle, die den Covid-Test durchführt, die Übermittlung per Transfer-Code anbietet, werden Sie bereits bei der Anmeldung oder der Testentnahme nach einem Transfer-Code gefragt.\n\nDen Transfer-Code können Sie in der «COVID Certificate»-App erstellen. Tippen Sie dazu auf dem Startbildschirm auf «Hinzufügen» resp. auf das «Plus»-Symbol unten rechts. Danach tippen Sie auf «Transfer-Code erstellen».\n\nDie App zeigt Ihnen einen 9-stelligen Code an. Diesen können Sie entweder bei der Anmeldung in ein Formular eintragen oder direkt bei der Testentnahme angeben.";
 
 /*Wallet: Transfer Code FAQ Antwort 4*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_answer_4" = "Nein, ein Transfer-Code kann nur einmal verwendet werden. Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie bitte für jedes Zertifikat einen neuen Code.";
-
-/*Fuzzy*/
 "wallet_transfer_code_faq_works_title" = "So funktioniert der Transfer";
 
 /*Wallet: Tranfser Code FAQ 2 Frage 1*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_works_question_1" = "Wie sind meine Daten beim Transfer geschützt?";
 
 /*Wallet: Tranfser Code FAQ 2 Frage 2*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_works_question_2" = "Was kann ich tun, wenn das Zertifikat nicht ankommt?";
 
 /*Wallet: Tranfser Code FAQ 2 Frage 3*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_works_question_3" = "Was passiert bei einem positiven Testresultat?";
 
 /*Wallet: Transfer Code FAQ 2 Antwort 1*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_works_answer_1" = "Für den Transfer wird Ihr Covid-Zertifikat verschlüsselt bereitgestellt. Der Transfer-Code stellt sicher, dass nur Ihre App das Covid-Zertifikat empfangen kann. Unmittelbar nach dem Transfer werden die Daten wieder vom Server gelöscht.";
 
 /*Wallet: Transfer Code FAQ 2 Antwort 2*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_works_answer_2" = "Sobald das Zertifikat vom Labor oder Testcenter generiert wurde, steht es zum Transfer zur Verfügung. Stellen Sie sicher, dass Ihr Smartphone mit dem Internet verbunden ist, um Zertifikate empfangen zu können.\n\nSollte ihr Covid-Zertifikat dennoch nicht eintreffen, fragen Sie bei der Stelle nach, die den Test durchgeführt hat (Testcenter, Apotheke, Ärztin / Arzt).";
 
 /*Wallet: Transfer Code FAQ 2 Antwort 3*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_works_answer_3" = "Bei einem positiven Antigen-Schnelltest erhalten Sie vom Labor kein Covid-Zertifikat. \n\nBei einem positiven PCR-Test erhalten Sie ein Covid-Zertifikat für Genesene. Es ist ab dem 11. Tag nach der Testentnahme gültig.";
 
 /*Wallet: Transfer Code erstellt Titel*/
@@ -661,15 +644,12 @@
 "wallet_homescreen_network_error" = "Gültigkeit konnte nicht ermittelt werden";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_works_intro_1" = "Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist.";
 
 /*Wallet: Transfer Code So Funktionierts Text 2*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_works_intro_2" = "Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.";
 
 /*Wallet: Transfer Code So Funktionierts Text 1*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_works_intro_3" = "Nach {TRANSFER_CODE_VALIDITY} Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.";
 
 /*Wallet: Titel im Custom-Popup Notification Permission*/
@@ -709,7 +689,6 @@
 "wallet_transfer_code_error_title" = "Transfer-Code konnte nicht erstellt werden";
 
 /*Wallet: Erstellen Fehler Titel*/
-/*Fuzzy*/
 "wallet_transfer_code_no_internet_title" = "Keine Verbindung zum Internet";
 
 /*Wallet: Erstellen anderer Fehler Titel*/
@@ -719,7 +698,6 @@
 "wallet_transfer_code_update_error_title" = "Aktualisierung zur Zeit nicht möglich";
 
 /*Wallet: Transfer Code Update Fehler Text*/
-/*Fuzzy*/
 "wallet_transfer_code_update_no_internet_error_text" = "Um den Transfer empfangen zu können, muss die App online sein.";
 
 /*Wallet Transfer Code Update Fehler Text*/
@@ -729,14 +707,10 @@
 "wallet_transfer_code_generate_error_text" = "Versuchen Sie es später erneut.";
 
 /*Wallet: Transfer Code Fehlertext bei Generieren ohne Internet*/
-/*Fuzzy*/
 "wallet_transfer_code_generate_no_internet_error_text" = "Um einen Transfer-Code erstellen zu können, muss die App online sein.";
 
 /*Wallet: Accessibility Name für Refresh Button*/
-/*Fuzzy*/
 "accessibility_refresh_button" = "Aktualisieren";
-
-/*Fuzzy*/
 "wallet_transfer_delete_confirm_text" = "Wollen Sie den Transfer-Code wirklich löschen?";
 "wallet_notification_transfer_title" = "Transfer erfolgreich";
 "wallet_notification_transfer_text" = "Das Covid-Zertifikat ist eingetroffen";
@@ -773,11 +747,7 @@
 
 /*Label für das Erstellungsdatum eines Nachweises (mit Platzhalter für Datum und Uhrzeit)*/
 "wallet_certificate_evidence_creation_date" = "Nachweis erstellt am\n{DATE}";
-
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_linktext_2" = "Weitere Informationen";
-
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_linkurl_2" = "https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/";
 
 /*Wallet: Zertifikat Light Button im Zertifikat Detail*/
@@ -817,7 +787,6 @@
 "wallet_certificate_light_detail_activation_error" = "Zertifikat Light\nkonnte nicht aktiviert werden";
 
 /*Wallet: Zertifikat Light Aktivation Netzwerk Fehler Titel*/
-/*Fuzzy*/
 "wallet_certificate_light_detail_activation_network_error_text" = "Um das Zertifikat Light aktivieren zu können, muss die App online sein.";
 
 /*Info Text bei erfolgreicher Prüfung einers Zertifikate Light*/
@@ -836,11 +805,9 @@
 "wallet_certificate_export_button" = "Exportieren";
 
 /*Wallet: Zertifikat Export Error Title*/
-/*Fuzzy*/
 "wallet_certificate_export_detail_error_title" = "PDF konnte nicht\nerstellt werden";
 
 /*Wallet: Zertifikat Export Netzwerk Error*/
-/*Fuzzy*/
 "wallet_certificate_export_detail_network_error_text" = "Um das PDF erstellen zu können, muss die App online sein.";
 "accessibility_qr_code" = "QR-Code";
 
@@ -887,11 +854,9 @@
 "wallet_certificate_light_detail_text_2_bold" = "nur muss keine";
 
 /*VoiceOver reads this when the expandable box is reduced*/
-/*Fuzzy*/
 "accessibility_expandable_box_reduced_state" = "reduziert";
 
 /*VoiceOver reads this when the expandable box is expanded*/
-/*Fuzzy*/
 "accessibility_expandable_box_expanded_state" = "erweitert";
 
 /*Header im Update Boarding-Screen*/
@@ -916,7 +881,6 @@
 "verifier_certificate_light_error_expired" = "Gültigkeit des Zertifikats\nabgelaufen";
 
 /*Wallet: Badge für Light-Zertifikate in Liste Zertifikate*/
-/*Fuzzy*/
 "wallet_certificate_list_light_certificate_badge" = "Light";
 "wallet_faq_questions_question_6" = "Was ist das Zertifikat Light?";
 
@@ -971,7 +935,6 @@
 "language_title" = "Sprache";
 
 /*Information about the date format (always english)*/
-/*Fuzzy*/
 "wallet_certificate_detail_date_format_info" = "Date format used: dd.mm.yyyy";
 "wallet_certificate_test_holder_and_name" = "Hersteller und Name";
 
@@ -1000,28 +963,24 @@
 "vaccination_booking_ai_name" = "Appenzell Innerrhoden";
 
 /*url for booking an appointment for vaccination for canton ai*/
-/*Fuzzy*/
 "vaccination_booking_ai_url" = "https://www.ai.ch/coronavirus-impfung";
 
 /*canton name bl*/
 "vaccination_booking_bl_name" = "Basel-Landschaft";
 
 /*url for booking an appointment for vaccination for canton bl*/
-/*Fuzzy*/
 "vaccination_booking_bl_url" = "https://www.bl.ch/impfen";
 
 /*canton name bs*/
 "vaccination_booking_bs_name" = "Basel-Stadt";
 
 /*url for booking an appointment for vaccination for canton bs*/
-/*Fuzzy*/
 "vaccination_booking_bs_url" = "http://www.coronaimpfzentrumbasel.ch";
 
 /*canton name be*/
 "vaccination_booking_be_name" = "Bern";
 
 /*url for booking an appointment for vaccination for canton be*/
-/*Fuzzy*/
 "vaccination_booking_be_url" = "http://www.be.ch/corona-impfung";
 
 /*canton name fr*/
@@ -1240,8 +1199,6 @@
 "wallet_info_box_certificate_scan_text" = "Für eine Datenschutzkonforme und schnellere Prüfung nutzen Sie die \"COVID Certificate Check\"-App.";
 "wallet_info_box_certificate_scan_button_check_app" = "Zur Check-App";
 "wallet_info_box_certificate_scan_close" = "Verstanden";
-
-/*Fuzzy*/
 "wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";
 "wallet_only_valid_in_switzerland" = "Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig";
 "covid_certificate_sero_positiv_test_befund_label" = "Befund";
@@ -1268,8 +1225,6 @@
 /*URL to ImpfCheck*/
 "vaccination_impf_check_url" = "https://covid19.impf-check.ch/";
 "vaccination_impf_check_title" = "Jetzt Termin buchen";
-
-/*Fuzzy*/
 "verifier_faq_works_linktext_1" = "Erklärvideo";
 "verifier_faq_works_linkurl_1" = "https://youtu.be/DClLZIUjr3w";
 
@@ -1289,12 +1244,10 @@
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G OK state*/
-/*Fuzzy*/
 "wallet_check_mode_info_2g_ok_text" = "Zutritt zu Betrieben und Veranstaltungen für geimpfte oder genesene Personen.";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G NOT OK state*/
-/*Fuzzy*/
 "wallet_check_mode_info_2g_not_ok_text" = "Kein Zutritt.";
 
 /*👍*/
@@ -1327,7 +1280,6 @@
 
 /*👍*/
 /*check app -> check mode select pop-up -> info text for check mode 2g*/
-/*Fuzzy*/
 "verifier_check_mode_info_2g_text_3" = "Die Prüfung von einem Zertifikat Light ist in diesem Modus nicht möglich.";
 
 /*👍*/
@@ -1349,7 +1301,6 @@
 "verifier_verify_light_not_supported_by_mode_text" = "Die Prüfung kann in diesem Fall nur erfolgen, wenn die Umwandlung in ein Zertifikat Light rückgängig gemacht wird.";
 
 /*check app -> check mode select pop-up -> info text when no check mode is selected*/
-/*Fuzzy*/
 "verifier_check_mode_info_unselected_text_1" = "Wählen Sie den Prüfmodus, in welchem Sie Covid-Zertifikate prüfen möchten.";
 
 /*check app -> check mode select pop-up -> info text when no check mode is selected*/
@@ -1374,7 +1325,6 @@
 "verifier_2g_plus_success2g" = "Gültiges Covid-Zertifikat nach 2G-Regelung";
 
 /*2G+: Info, dass Zertifikat + erfüllt*/
-/*Fuzzy*/
 "verifier_2g_plus_successplus" = "Gültiges Covid-Zertifikat für Getestete";
 
 /*Verifier: 2G+ Info, dass noch + nötig*/
@@ -1411,11 +1361,9 @@
 "wallet_refresh_button_info_text_3" = "Die Prüfung von Covid-Zertifikaten ist mit der App «COVID Certificate Check» vorzunehmen.";
 
 /*wallet refresh button removal info box fat title above text 3*/
-/*Fuzzy*/
 "wallet_refresh_button_info_fat_title_3" = "Für Prüfende";
 
 /*wallet refresh button removal info box link text*/
-/*Fuzzy*/
 "wallet_refresh_button_info_link_text" = "Mehr erfahren";
 
 /*wallet refresh button removal info box link url*/
@@ -1431,12 +1379,10 @@
 "wallet_refresh_button_info_title" = "Info";
 
 /*Ausnahme-Zertifikat: Medizinisches Attest ausgestellt in*/
-/*Fuzzy*/
 "wallet_certificate_ausnahme_issued_country" = "Medizinisches Attest ausgestellt in";
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
 "wallet_certificate_detail_note_ausnahme" = "Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen. \n\nDie Inhaberin oder der Inhaber kann entsprechend dem jeweils gültigen Schutzkonzept bei zertifikatspflichtigen Veranstaltungen und Einrichtungen verpflichtet sein, eine Gesichtsmaske zu tragen.";
 
 /*Wallet: Ausnahme Label für Liste*/
-/*Fuzzy*/
 "covid_certificate_ch_ausnahme_list_label" = "Ausnahme";

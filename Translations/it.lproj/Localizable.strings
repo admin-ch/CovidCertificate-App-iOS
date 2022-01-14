@@ -532,7 +532,6 @@
 "wallet_transfer_code_faq_questions_answer_1" = "Quando fai un test COVID (test PCR o test antigenico rapido), è possibile impiegare il codice di trasferimento per la trasmissione rapida dei certificati COVID.\n\nChiedi al centro di test, alla farmacia o al medico se offrono la trasmissione mediante codice di trasferimento.\n\n";
 
 /*Wallet: Transfer Code FAQ Antwort 2*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_answer_2" = "Attualmente la trasmissione mediante codice di trasferimento funziona solo per i test COVID. Qui trovi maggiori informazioni su come ottenere un certificato COVID dopo una vaccinazione:";
 
 /*Wallet: Transfer Code FAQ Antwort 3*/
@@ -712,8 +711,6 @@
 
 /*Wallet: Accessibility Name für Refresh Button*/
 "accessibility_refresh_button" = "Aggiorna";
-
-/*Fuzzy*/
 "wallet_transfer_delete_confirm_text" = "Eliminare il trasferimento?";
 "wallet_notification_transfer_title" = "Trasferimento riuscito";
 "wallet_notification_transfer_text" = "Il certificato COVID è pervenuto";
@@ -750,11 +747,7 @@
 
 /*Label für das Erstellungsdatum eines Nachweises (mit Platzhalter für Datum und Uhrzeit)*/
 "wallet_certificate_evidence_creation_date" = "Documentazione emessa il\n{DATE}";
-
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_linktext_2" = "Ulteriori informazioni";
-
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_linkurl_2" = "https://ufsp-coronavirus.ch/certificato/come-si-ottiene-il-certificato-covid-e-come-si-impiega/";
 
 /*Wallet: Zertifikat Light Button im Zertifikat Detail*/
@@ -861,11 +854,9 @@
 "wallet_certificate_light_detail_text_2_bold" = "solamente deve alcun";
 
 /*VoiceOver reads this when the expandable box is reduced*/
-/*Fuzzy*/
 "accessibility_expandable_box_reduced_state" = "compressa";
 
 /*VoiceOver reads this when the expandable box is expanded*/
-/*Fuzzy*/
 "accessibility_expandable_box_expanded_state" = "espansa";
 
 /*Header im Update Boarding-Screen*/
@@ -944,7 +935,6 @@
 "language_title" = "Lingua";
 
 /*Information about the date format (always english)*/
-/*Fuzzy*/
 "wallet_certificate_detail_date_format_info" = "Date format used: dd.mm.yyyy";
 "wallet_certificate_test_holder_and_name" = "Fabbricante e Nome";
 
@@ -973,28 +963,24 @@
 "vaccination_booking_ai_name" = "Appenzello Interno";
 
 /*url for booking an appointment for vaccination for canton ai*/
-/*Fuzzy*/
 "vaccination_booking_ai_url" = "https://www.ai.ch/coronavirus-impfung";
 
 /*canton name bl*/
 "vaccination_booking_bl_name" = "Basilea Campagna";
 
 /*url for booking an appointment for vaccination for canton bl*/
-/*Fuzzy*/
 "vaccination_booking_bl_url" = "https://www.baselland.ch/politik-und-behorden/direktionen/volkswirtschafts-und-gesundheitsdirektion/amt-fur-gesundheit/medizinische-dienste/kantonsarztlicher-dienst/aktuelles/corona-impfung/italienisch-italiano";
 
 /*canton name bs*/
 "vaccination_booking_bs_name" = "Basilea Città";
 
 /*url for booking an appointment for vaccination for canton bs*/
-/*Fuzzy*/
 "vaccination_booking_bs_url" = "http://www.coronaimpfzentrumbasel.ch";
 
 /*canton name be*/
 "vaccination_booking_be_name" = "Berna";
 
 /*url for booking an appointment for vaccination for canton be*/
-/*Fuzzy*/
 "vaccination_booking_be_url" = "http://www.be.ch/corona-impfung";
 
 /*canton name fr*/
@@ -1213,8 +1199,6 @@
 "wallet_info_box_certificate_scan_text" = "Per una verifica più rapida e conforme alla protezione dei dati, utilizzare l'app \"COVID Certificate Check\"";
 "wallet_info_box_certificate_scan_button_check_app" = "All'app Check";
 "wallet_info_box_certificate_scan_close" = "Capito";
-
-/*Fuzzy*/
 "wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";
 "wallet_only_valid_in_switzerland" = "Valido solo in Svizzera con un documento di legittimazione";
 "covid_certificate_sero_positiv_test_befund_label" = "Risultati";
@@ -1241,8 +1225,6 @@
 /*URL to ImpfCheck*/
 "vaccination_impf_check_url" = "https://covid19-vac-check.ch/";
 "vaccination_impf_check_title" = "Prendi appuntamento ora";
-
-/*Fuzzy*/
 "verifier_faq_works_linktext_1" = "Video esplicativo";
 "verifier_faq_works_linkurl_1" = "https://youtu.be/b4JXnfr2Ugg";
 
@@ -1403,5 +1385,4 @@
 "wallet_certificate_detail_note_ausnahme" = "La presente attestazione non costituisce un documento di viaggio. \n\nQuesto certificato ha soltanto una validità temporanea. L'applicazione «COVID Certificate» consente di verificare in qualsiasi momento l'attuale durata di validità in Svizzera. \n\nAlle manifestazioni e nelle strutture per le quali vige l’obbligo del certificato, il titolare può essere tenuto a portare una mascherina facciale, conformemente al piano di protezione applicabile.";
 
 /*Wallet: Ausnahme Label für Liste*/
-/*Fuzzy*/
 "covid_certificate_ch_ausnahme_list_label" = "Eccezione";
