@@ -14,7 +14,7 @@ import XCTest
 
 extension XCUIElement {
     @discardableResult
-    func assertExists(_ timeout: TimeInterval = 10) -> Self {
+    func assertExists(_ timeout: TimeInterval = TestEnviroment.networkCondition == .slow ? 60 : 10) -> Self {
         guard !exists else {
             XCTAssert(exists)
             return self
