@@ -339,6 +339,8 @@
 		F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089ED2493696500A66CD1 /* KeychainPersisted.swift */; };
 		F84089F024936D8700A66CD1 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089EF24936D8700A66CD1 /* MockKeychain.swift */; };
 		F8454AA3263983B8005CF491 /* NSMutableAttributedString+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8454AA2263983B8005CF491 /* NSMutableAttributedString+CC.swift */; };
+		F84D80E927918CC90052455A /* FAQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84D80E827918CC90052455A /* FAQTests.swift */; };
+		F84D80EB27918D030052455A /* TestEnviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84D80EA27918D030052455A /* TestEnviroment.swift */; };
 		F84E70B12714DFD700512A49 /* UserCertificate+UserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E70B02714DFD700512A49 /* UserCertificate+UserActivity.swift */; };
 		F85ED9A32499EF93007EBC49 /* Bundle+BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85ED9A22499EF93007EBC49 /* Bundle+BuildInfo.swift */; };
 		F86A6A832637F93D003CAC1B /* UICollection+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86A6A822637F93D003CAC1B /* UICollection+CC.swift */; };
@@ -624,6 +626,8 @@
 		F84089ED2493696500A66CD1 /* KeychainPersisted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPersisted.swift; sourceTree = "<group>"; };
 		F84089EF24936D8700A66CD1 /* MockKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeychain.swift; sourceTree = "<group>"; };
 		F8454AA2263983B8005CF491 /* NSMutableAttributedString+CC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+CC.swift"; sourceTree = "<group>"; };
+		F84D80E827918CC90052455A /* FAQTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTests.swift; sourceTree = "<group>"; };
+		F84D80EA27918D030052455A /* TestEnviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEnviroment.swift; sourceTree = "<group>"; };
 		F84E70B02714DFD700512A49 /* UserCertificate+UserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserCertificate+UserActivity.swift"; sourceTree = "<group>"; };
 		F85ED9A22499EF93007EBC49 /* Bundle+BuildInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+BuildInfo.swift"; sourceTree = "<group>"; };
 		F86A6A822637F93D003CAC1B /* UICollection+CC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollection+CC.swift"; sourceTree = "<group>"; };
@@ -1409,6 +1413,7 @@
 				F80A1142278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift */,
 				F80A1146278E2D8000E54FD2 /* XCUIApplication+Wallet.swift */,
 				F80A1148278E311900E54FD2 /* XCUIElement+assert.swift */,
+				F84D80EA27918D030052455A /* TestEnviroment.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1419,6 +1424,7 @@
 				F8119171278888B8007FC484 /* OnboardingTests.swift */,
 				F80A1144278E2BDA00E54FD2 /* HomescreenTests.swift */,
 				F80A114A278EBC0800E54FD2 /* TransfercodeTests.swift */,
+				F84D80E827918CC90052455A /* FAQTests.swift */,
 				F80A1141278DE46800E54FD2 /* Helpers */,
 			);
 			path = CovidCertificateWalletUITests;
@@ -2181,7 +2187,9 @@
 				F80A1145278E2BDA00E54FD2 /* HomescreenTests.swift in Sources */,
 				F80A1140278DE3C700E54FD2 /* Strings+Generated.swift in Sources */,
 				F80A1147278E2D8000E54FD2 /* XCUIApplication+Wallet.swift in Sources */,
+				F84D80EB27918D030052455A /* TestEnviroment.swift in Sources */,
 				F80A1143278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift in Sources */,
+				F84D80E927918CC90052455A /* FAQTests.swift in Sources */,
 				F8119172278888B8007FC484 /* OnboardingTests.swift in Sources */,
 				F80A114B278EBC0800E54FD2 /* TransfercodeTests.swift in Sources */,
 				F80A1149278E311900E54FD2 /* XCUIElement+assert.swift in Sources */,

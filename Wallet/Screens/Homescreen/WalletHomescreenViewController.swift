@@ -32,7 +32,7 @@ class WalletHomescreenViewController: HomescreenBaseViewController {
     let bottomView = HomescreenBottomView()
     let loadingView = LoadingView(center: true, white: true)
 
-    let addCertificateButton = Button(image: UIImage(named: "ic-add-certificate"), accessibilityName: UBLocalized.accessibility_add_button)
+    let addCertificateButton = Button(image: UIImage(named: "ic-add-certificate"), accessibilityKey: .accessibility_add_button_key)
     private var actionViewIsShown = false
 
     let actionPopupView = WalletHomescreenActionPopupView()

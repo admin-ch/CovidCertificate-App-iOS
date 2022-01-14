@@ -26,4 +26,18 @@ class HomescreenTests: XCTestCase {
         app.buttons[.wallet_homescreen_add_transfer_code_key].assertExists()
         app.buttons[.vaccination_homescreen_button_title_key].assertExists()
     }
+
+
+    func testShowHomescreenSlowNetwork() {
+        guard TestEnviroment.networkCondition == .slow else { return }
+
+        let app = XCUIApplication()
+        app.setOnboarding(completed: true)
+        app.launch()
+        app.buttons[.wallet_homescreen_qr_code_scannen_key].assertExists()
+        app.buttons[.wallet_homescreen_pdf_import_key].assertExists()
+        app.buttons[.wallet_homescreen_add_transfer_code_key].assertExists()
+        app.buttons[.wallet_homescreen_add_transfer_code_key].assertExists()
+        app.buttons[.vaccination_homescreen_button_title_key].assertExists()
+    }
 }

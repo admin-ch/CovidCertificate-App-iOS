@@ -19,7 +19,7 @@ class VerifierHomescreenBottomView: UIView {
     public var modeButtonCallback: ((ScanModeButton) -> Void)?
 
     private let faqRoundView = UIView()
-    private let faqButton = Button(image: UIImage(named: "ic-faq-verifier"), accessibilityName: UBLocalized.verifier_homescreen_support_button)
+    private let faqButton = Button(image: UIImage(named: "ic-faq-verifier"), accessibilityKey: .verifier_homescreen_support_button_key)
 
     public var faqButtonGuide = UILayoutGuide()
 

@@ -54,7 +54,7 @@ class Button: UBButton {
 
     // MARK: - Init
 
-    init(image: UIImage?, accessibilityName: String, useCircle: Bool = true, highlightCornerRadius: CGFloat = 3.0) {
+    init(image: UIImage?, accessibilityKey: UBLocalized.UBLocalizedKey, useCircle: Bool = true, highlightCornerRadius: CGFloat = 3.0) {
         self.useCircle = useCircle
         style = .normal(.clear)
         customTextColor = nil
@@ -62,7 +62,8 @@ class Button: UBButton {
         setImage(image, for: .normal)
         highlightedBackgroundColor = UIColor.black.withAlphaComponent(0.2)
 
-        accessibilityLabel = accessibilityName
+        accessibilityLabel = UBLocalized.translate(accessibilityKey)
+        accessibilityIdentifier = accessibilityKey.rawValue
         highlightXInset = -Padding.small
         highlightYInset = -Padding.small
 

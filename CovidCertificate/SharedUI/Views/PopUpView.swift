@@ -86,7 +86,7 @@ class PopupView: UIView {
     private func setupCloseButton(from button: Button) {
         accessibilityCloseButton?.removeFromSuperview()
 
-        accessibilityCloseButton = Button(image: nil, accessibilityName: UBLocalized.accessibility_close_button)
+        accessibilityCloseButton = Button(image: nil, accessibilityKey: .accessibility_close_button_key)
         // !: intiailized above
         addSubview(accessibilityCloseButton!)
 
