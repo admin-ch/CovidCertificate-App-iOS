@@ -20,20 +20,6 @@
                ReferencedContainer = "container:CovidCertificate.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F811916E278888B8007FC484"
-               BuildableName = "CovidCertificateWalletUITests.xctest"
-               BlueprintName = "CovidCertificateWalletUITests"
-               ReferencedContainer = "container:CovidCertificate.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -42,16 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F811916E278888B8007FC484"
-               BuildableName = "CovidCertificateWalletUITests.xctest"
-               BlueprintName = "CovidCertificateWalletUITests"
-               ReferencedContainer = "container:CovidCertificate.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
