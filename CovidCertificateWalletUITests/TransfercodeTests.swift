@@ -23,23 +23,63 @@ class TransfercodeTests: XCTestCase {
         app.setOnboarding(completed: true)
         app.launch()
 
-        app.buttons[.wallet_homescreen_add_transfer_code_key].assertExists().tap()
-        app.buttons[.wallet_transfer_code_create_code_button_key].assertExists().tap()
-        app.staticTexts[.wallet_transfer_code_code_created_title_key, true].assertExists()
-        app.buttons[.wallet_transfer_code_done_button_key].assertExists().tap()
+        XCTAssertEqual(app.countTransfercodes, 0)
+        app.createTransfercode()
+        XCTAssertEqual(app.countTransfercodes, 1)
+        app.deleteVisibleTransfercode()
+        XCTAssertEqual(app.countTransfercodes, 0)
+    }
 
-        if app.staticTexts[.wallet_notification_permission_text_key, true].waitForExistence(timeout: 1.0) {
-            app.buttons[.continue_button_key].assertExists().tap()
+    func testCreateMultipleTransfercodes() {
+        guard TestEnviroment.networkCondition != .airplane else { return }
+
+        let app = XCUIApplication()
+        app.setOnboarding(completed: true)
+        app.launch()
+
+        XCTAssertEqual(app.countTransfercodes, 0)
+        app.createTransfercode()
+        XCTAssertEqual(app.countTransfercodes, 1)
+        app.createTransfercode()
+        XCTAssertEqual(app.countTransfercodes, 2)
+        app.deleteVisibleTransfercode()
+        XCTAssertEqual(app.countTransfercodes, 1)
+        app.deleteVisibleTransfercode()
+        XCTAssertEqual(app.countTransfercodes, 0)
+    }
+
+}
+
+extension XCUIApplication {
+    func createTransfercode() {
+        let isFirst = countTransfercodes == 0
+        if isFirst {
+            buttons[.wallet_homescreen_add_transfer_code_key].assertExists().tap()
+        } else {
+            buttons[.accessibility_add_button_key].assertExists().tap()
+            buttons[.wallet_homescreen_add_transfer_code_key].assertExists().tap()
+        }
+        
+        buttons[.wallet_transfer_code_create_code_button_key].assertExists().tap()
+
+        staticTexts[.wallet_transfer_code_code_created_title_key, true].assertExists()
+        buttons[.wallet_transfer_code_done_button_key].assertExists().tap()
+
+        if staticTexts[.wallet_notification_permission_text_key, true].waitForExistence(timeout: 1.0) {
+            buttons[.continue_button_key].assertExists().tap()
             XCUIApplication.allowNotificationPermission()
         }
+    }
 
-        // Delete transfercode
-        app.scrollViews.firstMatch.tap()
-        app.scrollViews.firstMatch.scrollToElement(element: app.buttons[.delete_button_key])
-        app.buttons[.delete_button_key].assertExists().tap()
-        app.sheets.firstMatch.buttons[.delete_button_key, true].assertExists().tap()
+    func deleteVisibleTransfercode(){
+        scrollViews.firstMatch.tap()
+        scrollViews.firstMatch.scrollToElement(element: buttons[.delete_button_key])
+        buttons[.delete_button_key].assertExists().tap()
+        sheets.firstMatch.buttons[.delete_button_key, true].assertExists().tap()
+    }
 
-        // No transfercode should be visible
-        app.buttons[.wallet_homescreen_add_transfer_code_key].assertExists()
+    var countTransfercodes: Int {
+        _ = otherElements["HomescreenCertificateView.TransferView"].waitForExistence(timeout: 1.0)
+        return otherElements.matching(identifier: "HomescreenCertificateView.TransferView").count
     }
 }
