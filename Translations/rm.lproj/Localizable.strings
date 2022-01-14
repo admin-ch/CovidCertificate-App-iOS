@@ -532,7 +532,6 @@
 "wallet_transfer_code_faq_questions_answer_1" = "Sche Vus faschais in test dal coronavirus (test da PCR u test svelt d'antigens), po il code da transfer vegnir en funcziun per transmetter sveltamain ils certificats COVID.\n\nAs infurmai tar Voss center da test, en l'apoteca u tar Vossa media u Voss medi, sche la transmissiun cun in code da transfer è pussaivla.";
 
 /*Wallet: Transfer Code FAQ Antwort 2*/
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_answer_2" = "Actualmain è la transmissiun cun in code da transfer concepì per tests dal coronavirus. Co che Vus survegnis in certificat COVID suenter ina vaccinaziun, vegnis Vus a savair qua:";
 
 /*Wallet: Transfer Code FAQ Antwort 3*/
@@ -712,8 +711,6 @@
 
 /*Wallet: Accessibility Name für Refresh Button*/
 "accessibility_refresh_button" = "Actualisar";
-
-/*Fuzzy*/
 "wallet_transfer_delete_confirm_text" = "Vulais Vus propi stizzar il transfer?";
 "wallet_notification_transfer_title" = "Transfer reussì";
 "wallet_notification_transfer_text" = "Il certificat COVID è arrivà";
@@ -750,11 +747,7 @@
 
 /*Label für das Erstellungsdatum eines Nachweises (mit Platzhalter für Datum und Uhrzeit)*/
 "wallet_certificate_evidence_creation_date" = "Cumprova emessa ils\n{DATE}";
-
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_linktext_2" = "Ulteriuras infurmaziuns";
-
-/*Fuzzy*/
 "wallet_transfer_code_faq_questions_linkurl_2" = "https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/";
 
 /*Wallet: Zertifikat Light Button im Zertifikat Detail*/
@@ -861,11 +854,9 @@
 "wallet_certificate_light_detail_text_2_bold" = "mo danovamain nagins";
 
 /*VoiceOver reads this when the expandable box is reduced*/
-/*Fuzzy*/
 "accessibility_expandable_box_reduced_state" = "reducì";
 
 /*VoiceOver reads this when the expandable box is expanded*/
-/*Fuzzy*/
 "accessibility_expandable_box_expanded_state" = "extendì";
 
 /*Header im Update Boarding-Screen*/
@@ -944,7 +935,6 @@
 "language_title" = "Lingua";
 
 /*Information about the date format (always english)*/
-/*Fuzzy*/
 "wallet_certificate_detail_date_format_info" = "Date format used: dd.mm.yyyy";
 "wallet_certificate_test_holder_and_name" = "Producent e Num";
 
@@ -973,7 +963,6 @@
 "vaccination_booking_ai_name" = "Appenzell Dadens";
 
 /*url for booking an appointment for vaccination for canton ai*/
-/*Fuzzy*/
 "vaccination_booking_ai_url" = "https://www.ai.ch/coronavirus-impfung";
 
 /*canton name bl*/
@@ -986,14 +975,12 @@
 "vaccination_booking_bs_name" = "Basilea-Citad";
 
 /*url for booking an appointment for vaccination for canton bs*/
-/*Fuzzy*/
 "vaccination_booking_bs_url" = "http://www.coronaimpfzentrumbasel.ch";
 
 /*canton name be*/
 "vaccination_booking_be_name" = "Berna";
 
 /*url for booking an appointment for vaccination for canton be*/
-/*Fuzzy*/
 "vaccination_booking_be_url" = "http://www.be.ch/corona-impfung";
 
 /*canton name fr*/
@@ -1212,8 +1199,6 @@
 "wallet_info_box_certificate_scan_text" = "Per ina verificaziun pli svelta e confurma a la protecziun da datas, utilisai l'app «COVID Certificate Check».";
 "wallet_info_box_certificate_scan_button_check_app" = "Tar l'app «COVID Certificate Check»";
 "wallet_info_box_certificate_scan_close" = "Chapì";
-
-/*Fuzzy*/
 "wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";
 "wallet_only_valid_in_switzerland" = "Valaivel mo cun in document da legitimaziun e mo en Svizra";
 "covid_certificate_sero_positiv_test_befund_label" = "Diagnosa";
@@ -1400,5 +1385,4 @@
 "wallet_certificate_detail_note_ausnahme" = "Quest attest n'è betg in document da viadi. \n\nQuest certificat è valaivel mo per in tschert temp. La durada da valaivladad actuala en Svizra pudais Vus verifitgar da tut temp cun l'app «Covid-Certificate». \n\nTut tenor il concept da protecziun respectiv sto la possessura u il possessur eventualmain purtar ina mascrina a chaschun d'occurrenzas u en instituziuns, nua ch'in certificat è obligatoric.";
 
 /*Wallet: Ausnahme Label für Liste*/
-/*Fuzzy*/
 "covid_certificate_ch_ausnahme_list_label" = "Excepziun";
