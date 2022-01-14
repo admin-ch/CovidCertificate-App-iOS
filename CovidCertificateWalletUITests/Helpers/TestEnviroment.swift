@@ -17,10 +17,11 @@ enum TestEnviroment {
     }
 
     static var networkCondition: NetworkCondition {
-        if CommandLine.arguments.contains("AIRPLANE_MODE") {
+        let enviromentKeys = ProcessInfo.processInfo.environment.keys
+        if enviromentKeys.contains("AIRPLANE_MODE") {
             return .airplane
         }
-        if CommandLine.arguments.contains("SLOW_NETWORK") {
+        if enviromentKeys.contains("SLOW_NETWORK") {
             return .slow
         }
         return .normal
