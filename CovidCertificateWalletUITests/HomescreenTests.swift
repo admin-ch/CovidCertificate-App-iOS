@@ -27,7 +27,6 @@ class HomescreenTests: XCTestCase {
         app.buttons[.vaccination_homescreen_button_title_key].assertExists()
     }
 
-
     func testShowHomescreenSlowNetwork() {
         guard TestEnviroment.networkCondition == .slow else { return }
 
