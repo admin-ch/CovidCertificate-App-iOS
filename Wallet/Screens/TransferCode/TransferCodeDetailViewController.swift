@@ -48,7 +48,7 @@ class TransferCodeDetailViewController: ViewController {
 
     public var refreshCallback: (() -> Void)?
 
-    public var cachedResult: TransferCodeResult?
+    private var cachedResult: TransferCodeResult?
 
     // MARK: - Init
 
@@ -58,8 +58,8 @@ class TransferCodeDetailViewController: ViewController {
 
         title = UBLocalized.wallet_transfer_code_card_title.uppercased()
 
-        if let code = certificate.transferCode?.transferCode {
-            TransferManager.shared.addObserver(self, for: code) { [weak self] result in
+        if let tc = certificate.transferCode, tc.state != .failed {
+            TransferManager.shared.addObserver(self, for: tc.transferCode) { [weak self] result in
                 guard let self = self else { return }
                 self.cachedResult = result
                 self.update()

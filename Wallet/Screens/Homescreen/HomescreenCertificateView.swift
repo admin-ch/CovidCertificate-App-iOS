@@ -428,8 +428,8 @@ private class TransferView: UIView {
         let p = UILayoutPriority(rawValue: UILayoutPriority.defaultHigh.rawValue - 100.0)
         nameView.setContentCompressionResistancePriority(p, for: .vertical)
 
-        if let code = certificate?.transferCode?.transferCode {
-            TransferManager.shared.addObserver(self, for: code) { [weak self] result in
+        if let tf = certificate?.transferCode, tf.state != .failed {
+            TransferManager.shared.addObserver(self, for: tf.transferCode) { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case let .failure(error) where !error.isRecovarable:
