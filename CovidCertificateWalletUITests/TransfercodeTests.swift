@@ -53,6 +53,7 @@ extension XCUIApplication {
     func createTransfercode() {
         let isFirst = countTransfercodes == 0
         if isFirst {
+            // TODO: this button is not found when info popup is on
             buttons[.wallet_homescreen_add_transfer_code_key].assertExists().tap()
         } else {
             buttons[.accessibility_add_button_key].assertExists().tap()
