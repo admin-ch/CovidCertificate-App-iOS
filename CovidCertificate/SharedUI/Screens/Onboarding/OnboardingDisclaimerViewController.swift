@@ -16,13 +16,13 @@ class OnboardingDisclaimerViewController: StaticContentViewController {
 
     init(model: StaticContentViewModel) {
         super.init(models: [model])
-        continueButtonText = UBLocalized.wallet_onboarding_accept_button
+        continueButtonTextKey = .wallet_onboarding_accept_button_key
     }
 
     override func setupViews(addBottomSpacer _: Bool = true) {
         super.setupViews(addBottomSpacer: false)
 
-        let button = ExternalLinkButton(title: UBLocalized.wallet_onboarding_external_privacy_button)
+        let button = ExternalLinkButton(titleKey: .wallet_onboarding_external_privacy_button_key)
         button.touchUpCallback = {
             let url = Environment.current.privacyURL
             UIApplication.shared.open(url, options: [:], completionHandler: nil)

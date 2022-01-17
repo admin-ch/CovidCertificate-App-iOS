@@ -17,7 +17,7 @@ class OnboardingContentViewController: ViewController {
     private let defaultAnimationOffset: CGFloat = 200
     private let imageAnimationOffset: CGFloat = 400
 
-    internal var continueButtonText = UBLocalized.continue_button
+    internal var continueButtonTextKey: UBLocalized.UBLocalizedKey = .continue_button_key
 
     override func viewDidLoad() {
         super.viewDidLoad()

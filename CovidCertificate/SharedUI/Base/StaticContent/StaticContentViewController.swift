@@ -32,11 +32,12 @@ class StaticContentViewController: OnboardingContentViewController {
     }
 
     static func setupViews(models: [StaticContentViewModel], stackView: UIStackView, addBottomSpacer: Bool = true, showAllViews: Bool = false) {
-        for model in models {
+        for (modelIndex, model) in models.enumerated() {
             if model.heading != nil {
                 let headingLabel = Label(.uppercaseBold)
                 headingLabel.text = model.heading
                 headingLabel.accessibilityTraits = [.header, .tabBar]
+                headingLabel.accessibilityIdentifier = "StaticContentViewModel_Header_\(modelIndex)"
                 let headingContainer = UIView()
                 headingContainer.addSubview(headingLabel)
                 headingLabel.snp.makeConstraints { make in
@@ -54,6 +55,7 @@ class StaticContentViewController: OnboardingContentViewController {
             let titleLabel = Label(.title, textAlignment: model.alignment)
             titleLabel.text = model.title
             titleLabel.accessibilityTraits = .header
+            titleLabel.accessibilityIdentifier = "StaticContentViewModel_Titel_Label_\(modelIndex)"
             let titleContainer = UIView()
             titleContainer.addSubview(titleLabel)
             titleLabel.snp.makeConstraints { make in

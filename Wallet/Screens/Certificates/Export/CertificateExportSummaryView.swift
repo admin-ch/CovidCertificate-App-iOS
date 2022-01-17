@@ -13,7 +13,7 @@ import Foundation
 
 class CertificateExportSummaryView: UIView {
     private let stackView = UIStackView()
-    private let exportButton: Button = Button(title: UBLocalized.wallet_certificate_export_button)
+    private let exportButton: Button = Button(titleKey: .wallet_certificate_export_button_key)
 
     var exportCallback: (() -> Void)? {
         didSet {

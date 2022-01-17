@@ -8,12 +8,19 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import SwiftUI
 import UIKit
 
 class ExternalLinkButton: UBButton {
     // MARK: - Init
 
     enum Mode { case link, phone }
+
+    convenience init(titleKey: UBLocalized.UBLocalizedKey, mode: Mode = .link, tintColor: UIColor = .cc_blue) {
+        let titleString = UBLocalized.translate(titleKey)
+        self.init(title: titleString, mode: mode, tintColor: tintColor)
+        self.titleKey = titleKey
+    }
 
     init(title: String, mode: Mode = .link, tintColor: UIColor = .cc_blue) {
         super.init()
@@ -65,11 +72,11 @@ class SimpleTextButton: UBButton {
 
     // MARK: - Init
 
-    init(title: String, color: UIColor) {
+    init(titleKey: UBLocalized.UBLocalizedKey, color: UIColor) {
         self.color = color
         super.init()
 
-        self.title = title
+        self.titleKey = titleKey
 
         backgroundColor = .clear
         highlightedBackgroundColor = color.withAlphaComponent(0.15)

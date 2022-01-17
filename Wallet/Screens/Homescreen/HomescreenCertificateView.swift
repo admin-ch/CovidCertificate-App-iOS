@@ -462,6 +462,7 @@ private class TransferView: UIView {
         }
 
         accessibilityLabel = [nameView.text, transferCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+        accessibilityIdentifier = "HomescreenCertificateView.TransferView"
     }
 
     private func setWaitingState() {
@@ -556,6 +557,7 @@ private class QRCodeView: UIView {
         nameView.certificate = certificate
 
         accessibilityLabel = [nameView.accessibilityLabel, stateView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+        accessibilityIdentifier = "HomescreenCertificateView.QRCodeView"
     }
 }
 
@@ -620,5 +622,6 @@ private class LightQRCodeView: UIView {
         nameView.certificate = certificate
 
         accessibilityLabel = [nameView.accessibilityLabel, stateView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+        accessibilityIdentifier = "HomescreenCertificateView.LightQRCodeView"
     }
 }

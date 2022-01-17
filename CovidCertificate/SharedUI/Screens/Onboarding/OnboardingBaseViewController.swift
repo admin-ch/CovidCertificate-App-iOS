@@ -42,7 +42,7 @@ class OnboardingBaseViewController: ViewController {
     }
 
     private let continueContainer = UIView()
-    private let continueButton = Button(title: UBLocalized.continue_button, style: .normal(.cc_blue))
+    private let continueButton = Button(titleKey: .continue_button_key, style: .normal(.cc_blue))
 
     private var currentStep: Int = 0
 
@@ -143,7 +143,7 @@ class OnboardingBaseViewController: ViewController {
         }
 
         if step > 0, forward {
-            continueButton.title = stepViewControllers[step].continueButtonText
+            continueButton.titleKey = stepViewControllers[step].continueButtonTextKey
 
             let vcToHide = stepViewControllers[step - 1]
             vcToHide.fadeAnimation(fromFactor: 0, toFactor: -1, delay: 0.0, completion: { completed in
@@ -153,7 +153,7 @@ class OnboardingBaseViewController: ViewController {
                 }
             })
         } else if step < stepViewControllers.count - 1, !forward {
-            continueButton.title = stepViewControllers[step].continueButtonText
+            continueButton.titleKey = stepViewControllers[step].continueButtonTextKey
             let vcToHide = stepViewControllers[step + 1]
             vcToHide.fadeAnimation(fromFactor: 0, toFactor: 1, delay: 0.0, completion: { completed in
                 if completed {
@@ -162,7 +162,7 @@ class OnboardingBaseViewController: ViewController {
                 }
             })
         } else {
-            continueButton.title = vcToShow.continueButtonText
+            continueButton.titleKey = vcToShow.continueButtonTextKey
             continueButton.isUserInteractionEnabled = true
         }
 
@@ -226,8 +226,8 @@ class OnboardingBaseViewController: ViewController {
         }
 
         // initialize continue button to first text
-        if let cbt = stepViewControllers.first?.continueButtonText {
-            continueButton.title = cbt
+        if let cbt = stepViewControllers.first?.continueButtonTextKey {
+            continueButton.titleKey = cbt
         }
     }
 

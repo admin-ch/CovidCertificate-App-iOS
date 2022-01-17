@@ -15,7 +15,7 @@ class TransferCodeUpdateView: UIView {
     // MARK: Views
 
     private let textLabel = Label(.text)
-    public let refreshButton = Button(image: UIImage(named: "ic-refresh-blue"), accessibilityName: UBLocalized.accessibility_refresh_button)
+    public let refreshButton = Button(image: UIImage(named: "ic-refresh-blue"), accessibilityKey: .accessibility_refresh_button_key)
 
     public var date: Date? {
         didSet { update() }
