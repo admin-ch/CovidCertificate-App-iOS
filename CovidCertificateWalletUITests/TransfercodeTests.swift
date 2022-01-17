@@ -47,7 +47,6 @@ class TransfercodeTests: XCTestCase {
         app.deleteVisibleTransfercode()
         XCTAssertEqual(app.countTransfercodes, 0)
     }
-
 }
 
 extension XCUIApplication {
@@ -59,7 +58,7 @@ extension XCUIApplication {
             buttons[.accessibility_add_button_key].assertExists().tap()
             buttons[.wallet_homescreen_add_transfer_code_key].assertExists().tap()
         }
-        
+
         buttons[.wallet_transfer_code_create_code_button_key].assertExists().tap()
 
         staticTexts[.wallet_transfer_code_code_created_title_key, true].assertExists()
@@ -71,7 +70,7 @@ extension XCUIApplication {
         }
     }
 
-    func deleteVisibleTransfercode(){
+    func deleteVisibleTransfercode() {
         scrollViews.firstMatch.tap()
         scrollViews.firstMatch.scrollToElement(element: buttons[.delete_button_key])
         buttons[.delete_button_key].assertExists().tap()
