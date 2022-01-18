@@ -29,11 +29,12 @@ class CertificateModeView: UIView {
         didSet {
             modeView.modeResults = modeResults
             button.isHidden = modeResults == nil || (modeResults?.results.count ?? 0) <= 1
+            isAccessibilityElement = !button.isHidden
         }
     }
 
-    public func infoImageTexts(size: CGFloat) -> [(UIImage, String)] {
-        var result: [(UIImage, String)] = []
+    public func infoImageTexts(size: CGFloat) -> [IconText] {
+        var result: [IconText] = []
 
         let modes = Verifier.currentModes()
 
@@ -52,7 +53,8 @@ class CertificateModeView: UIView {
                     let text = CheckModesHelper.text(for: m.id, isValid: isValid)
 
                     if let i = img, let t = text {
-                        result.append((i, t))
+                        let acc = Verifier.currentModes().first { $0.id == m.id }?.displayName
+                        result.append(IconText(text: t, icon: i, iconAccessibility: acc))
                     }
                 case .failure:
                     break
@@ -68,10 +70,20 @@ class CertificateModeView: UIView {
     init() {
         super.init(frame: .zero)
         setup()
+
+        isAccessibilityElement = true
+        accessibilityTraits = .button
     }
 
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Accessibility
+
+    override public var accessibilityLabel: String? {
+        set(value) { super.accessibilityLabel = value }
+        get { return modeView.accessibilityLabel }
     }
 
     // MARK: - Setup
@@ -183,10 +195,13 @@ public class ModeStackView: UIView {
         }
 
         if (modeResults?.results.count ?? 0) <= 1 {
+            accessibilityLabel = ""
             return
         }
 
         let modes = Verifier.currentModes()
+
+        var accessibilityLabels: [String] = []
 
         for m in modes {
             if let r = modeResults?.getResult(for: m) {
@@ -202,6 +217,10 @@ public class ModeStackView: UIView {
                     let view = ModeIconView(mode: m.id, isValid: isValid, size: itemHeight, validColor: validColor, invalidColor: invalidColor)
                     stackView.addArrangedSubview(view)
 
+                    if let t = Verifier.currentModes().first(where: { $0.id == m.id })?.displayName {
+                        accessibilityLabels.append(t)
+                    }
+
                     view.snp.makeConstraints { make in
                         make.height.equalTo(itemHeight)
                     }
@@ -210,6 +229,9 @@ public class ModeStackView: UIView {
                 }
             }
         }
+
+        accessibilityLabel = accessibilityLabels.joined(separator: ",")
+        accessibilityTraits = .button
     }
 
     private func setup() {

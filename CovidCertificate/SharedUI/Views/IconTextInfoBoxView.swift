@@ -11,12 +11,18 @@
 
 import Foundation
 
+struct IconText {
+    public let text: String
+    public let icon: UIImage
+    public let iconAccessibility: String?
+}
+
 class IconTextInfoBoxView: PopupView {
     private let stackScrollView = StackScrollView(axis: .vertical)
 
     private let titleLabel = Label(.title, textAlignment: .center)
 
-    private let iconTextSource: [(UIImage, String)]
+    private let iconTextSource: [IconText]
     private let imageHeight: CGFloat
 
     private let buttonView = UIView()
@@ -24,7 +30,7 @@ class IconTextInfoBoxView: PopupView {
 
     // MARK: - Init
 
-    init(iconTextSource: [(UIImage, String)], imageHeight: CGFloat) {
+    init(iconTextSource: [IconText], imageHeight: CGFloat) {
         self.imageHeight = imageHeight
         self.iconTextSource = iconTextSource
         super.init()
@@ -78,14 +84,14 @@ class IconTextInfoBoxView: PopupView {
 
         var maxWidth: CGFloat = 0
         for i in iconTextSource {
-            let w = i.0.size.width / (i.0.size.height / imageHeight)
+            let w = i.icon.size.width / (i.icon.size.height / imageHeight)
             if w > maxWidth {
                 maxWidth = w
             }
         }
 
         iconTextSource.forEach {
-            stackScrollView.addArrangedView(OnboardingInfoView(icon: $0.0, text: $0.1, alignment: .natural, leftRightInset: 0, height: self.imageHeight, width: maxWidth))
+            stackScrollView.addArrangedView(OnboardingInfoView(icon: $0.icon, text: $0.text, alignment: .natural, leftRightInset: 0, height: self.imageHeight, width: maxWidth, imageAccessibilityText: $0.iconAccessibility))
         }
 
         closeButton.touchUpCallback = { [weak self] in

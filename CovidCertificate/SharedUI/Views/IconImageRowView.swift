@@ -24,6 +24,9 @@ class IconImageRowView: UIControl {
         super.init(frame: .zero)
         setupLayout()
         addTarget(self, action: #selector(didTouchUp), for: .touchUpInside)
+
+        isAccessibilityElement = true
+        accessibilityLabel = text
     }
 
     required init?(coder _: NSCoder) {
@@ -85,5 +88,10 @@ class IconImageRowView: UIControl {
             iconView.image = iconView.image?.ub_image(with: enabled ? .cc_blue : .cc_grey)
             label.textColor = enabled ? .cc_blue : .cc_grey
         }
+    }
+
+    override var accessibilityTraits: UIAccessibilityTraits {
+        set(value) { super.accessibilityTraits = value }
+        get { isEnabled ? [.button] : [.button, .notEnabled] }
     }
 }

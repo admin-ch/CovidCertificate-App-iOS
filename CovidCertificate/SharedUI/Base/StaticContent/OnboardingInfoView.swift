@@ -16,7 +16,7 @@ class OnboardingInfoView: UIView {
 
     private let leftRightInset: CGFloat
 
-    init(icon: UIImage?, text: String, alignment: NSTextAlignment, leftRightInset: CGFloat = 2 * Padding.medium, height: CGFloat? = nil, width: CGFloat? = nil) {
+    init(icon: UIImage?, text: String, alignment: NSTextAlignment, leftRightInset: CGFloat = 2 * Padding.medium, height: CGFloat? = nil, width: CGFloat? = nil, imageAccessibilityText: String? = nil) {
         self.leftRightInset = leftRightInset
 
         super.init(frame: .zero)
@@ -55,7 +55,8 @@ class OnboardingInfoView: UIView {
             make.trailing.equalToSuperview().inset(leftRightInset)
         }
 
-        accessibilityLabel = text
+        isAccessibilityElement = true
+        accessibilityLabel = [imageAccessibilityText, text].compactMap { $0 }.joined(separator: ",")
     }
 
     @available(*, unavailable)
