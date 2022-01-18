@@ -370,10 +370,9 @@ class Verifier: NSObject {
                     isSwitzerlandOnly = chOnly
                 }
 
-                // TODO: get eolBannerIdentifier from result
-                /* if let identifier = result.eolBannerIdentifier {
-                     eolBannerIdentifier = identifier
-                 } */
+                if let identifier = result.eolBannerIdentifier {
+                    eolBannerIdentifier = identifier
+                }
             #endif
 
             // check for validity
