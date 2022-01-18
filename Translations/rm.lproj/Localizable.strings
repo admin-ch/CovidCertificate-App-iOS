@@ -1386,3 +1386,12 @@
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Excepziun";
+
+/*Wallet: Titel von einem positivem Antigen-Test*/
+"covid_certificate_antigen_positive_test" = "Guariziun (Test svelt d'antigens)";
+
+/*Wallet: Antigen Positive Titel von Testdatum*/
+"wallet_certificate_antigen_positive_date" = "Data da l'emprim resultat positiv";
+
+/*Wallet: Blaue Box für positiven Antigen-Test*/
+"wallet_certificate_detail_note_positive_antigen" = "Quest attest n'è betg in document da viadi.\n\nQuest certificat è valaivel mo per in tschert temp. La durada da valaivladad actuala en Svizra pudais Vus verifitgar da tut temp cun l'app «Covid-Certificate».";

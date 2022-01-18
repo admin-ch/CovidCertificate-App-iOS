@@ -229,7 +229,7 @@
 "wallet_faq_works_answer_2" = "Oui. Vous pouvez par exemple stocker dans l'app les certificats COVID de tous les membres de votre famille. À noter également dans ce cas qu'un certificat COVID n'est valable que si son détenteur présente une pièce d'identité.";
 
 /*Antwort 8 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_answer_3" = "L’app verifica automaticamente se il certificato soddisfa i criteri di validità applicati in Svizzera. Se il certificato è scaduto o se non è valido per motivi tecnici, l’informazione compare direttamente nell’app.";
+"wallet_faq_works_answer_3" = "L'application vérifie automatiquement si votre certificat remplit les critères de validité en vigueur en Suisse. Si votre certificat COVID a expiré ou s'il n'est techniquement pas valable, cette information apparaît automatiquement sur le certificat dans l'application.";
 
 /*Antwort 9 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_4" = "Vos données personnelles ne sont pas stockées dans un système central, mais ne sont sauvegardées que localement, sur votre appareil mobile ou dans le code QR figurant sur le certificat papier.";
@@ -1301,7 +1301,7 @@
 "verifier_verify_light_not_supported_by_mode_text" = "La vérification ne peut avoir lieu que si la conversion du certificat en un «certificat light» est annulée.";
 
 /*check app -> check mode select pop-up -> info text when no check mode is selected*/
-"verifier_check_mode_info_unselected_text_1" = "Choisissez le mode de contrôle correspondant aux certificats COVID à vérifier. ";
+"verifier_check_mode_info_unselected_text_1" = "Choisissez le mode de contrôle correspondant aux certificats COVID à vérifier.";
 
 /*check app -> check mode select pop-up -> info text when no check mode is selected*/
 "verifier_check_mode_info_unselected_text_2" = "Le mode de contrôle peut être changé en tout temps.";
@@ -1352,7 +1352,7 @@
 "verifier_check_mode_info_test_cert_text_3" = "Ce mode ne permet pas de vérifier les «certificats light».";
 
 /*wallet refresh button removal info box text*/
-"wallet_refresh_button_info_text_1" = "Le bouton «rafraîchir» a été supprimée.";
+"wallet_refresh_button_info_text_1" = "Le bouton «rafraîchir» a été supprimé.";
 
 /*wallet refresh button removal info box text*/
 "wallet_refresh_button_info_text_2" = "Si votre certificat COVID a expiré ou s'il n'est techniquement pas valable, cette information apparaît automatiquement sur le certificat.";
@@ -1386,3 +1386,12 @@
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Exception";
+
+/*Wallet: Titel von einem positivem Antigen-Test*/
+"covid_certificate_antigen_positive_test" = "Guérison (Test Rapide Antigénique)";
+
+/*Wallet: Antigen Positive Titel von Testdatum*/
+"wallet_certificate_antigen_positive_date" = "Date du premier résultat positif";
+
+/*Wallet: Blaue Box für positiven Antigen-Test*/
+"wallet_certificate_detail_note_positive_antigen" = "Le présent certificat n'est pas un document de voyage.\n\nCe certificat n'a qu'une durée de validité limitée. L'application «COVID Certificate» vous permet en tout temps de vérifier la durée de validité actuellement déterminante en Suisse.";

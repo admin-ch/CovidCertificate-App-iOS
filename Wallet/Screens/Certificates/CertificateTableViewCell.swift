@@ -115,10 +115,12 @@ class CertificateTableViewCell: UITableViewCell {
         case let .success(holder):
             nameLabel.text = holder.certificate.displayFullName
             if let certificate = holder.certificate as? DCCCert {
-                if (certificate.tests?.contains { $0.isSerologicalTest } ?? false) {
-                    stateLabel.type = .dccc(.recovery)
-                } else if (certificate.tests?.contains { $0.isSwitzerlandException } ?? false) {
-                    stateLabel.type = .switzerlandException
+                if let tests = certificate.tests {
+                    if (tests.contains { $0.isSerologicalTest || $0.isPositiveAntigenTest }) {
+                        stateLabel.type = .dccc(.recovery)
+                    } else if (tests.contains { $0.isSwitzerlandException }) {
+                        stateLabel.type = .switzerlandException
+                    }
                 } else {
                     stateLabel.type = .dccc(certificate.immunisationType)
                 }

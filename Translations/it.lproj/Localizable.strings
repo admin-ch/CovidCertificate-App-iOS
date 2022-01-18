@@ -1244,7 +1244,7 @@
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G OK state*/
-"wallet_check_mode_info_2g_ok_text" = "L’accesso  a strutture e manifestazioni è consentito alle persone vaccinate o guarite.";
+"wallet_check_mode_info_2g_ok_text" = "L’accesso a strutture e manifestazioni è consentito alle persone vaccinate o guarite.";
 
 /*👍*/
 /*text for info pop-up in wallet app describing 2G NOT OK state*/
@@ -1386,3 +1386,12 @@
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Eccezione";
+
+/*Wallet: Titel von einem positivem Antigen-Test*/
+"covid_certificate_antigen_positive_test" = "Recovery (Antigen Rapid Test)";
+
+/*Wallet: Antigen Positive Titel von Testdatum*/
+"wallet_certificate_antigen_positive_date" = "Data del primo risultato positivo";
+
+/*Wallet: Blaue Box für positiven Antigen-Test*/
+"wallet_certificate_detail_note_positive_antigen" = "La presente attestazione non costituisce un documento di viaggio.\n\nQuesto certificato ha soltanto una validità temporanea. L'applicazione «COVID Certificate» consente di verificare in qualsiasi momento l'attuale durata di validità in Svizzera.";
