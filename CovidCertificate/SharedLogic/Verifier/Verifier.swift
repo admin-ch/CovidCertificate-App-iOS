@@ -44,8 +44,8 @@ enum VerificationState: Equatable {
     case loading
     // verification was skipped
     case skipped
-    // validity as formatted date as String, whether the certificate is valid for switzerland only
-    case success(String?, Bool?, ModeResults?)
+    // validity as formatted date as String, whether the certificate is valid for switzerland only, mode results, eolBannerIdentifier
+    case success(validityDate: String?, switzerlandOnly: Bool?, modeResults: ModeResults?, eolBannerIdentifier: String?)
     // sorted errors, error codes, validity as formatted date as String
     case invalid(errors: [VerificationError], errorCodes: [String], validity: String?, wasRevocationSkipped: Bool)
     // retry error, error codes
@@ -258,7 +258,7 @@ class Verifier: NSObject {
         switch result {
         case let .success(result):
             if result.isValid {
-                return .success(nil, nil, nil)
+                return .success(validityDate: nil, switzerlandOnly: nil, modeResults: nil, eolBannerIdentifier: nil)
             } else {
                 // !: checked
                 let errorCodes = result.error != nil ? [result.error!.errorCode] : []
@@ -290,7 +290,7 @@ class Verifier: NSObject {
         switch result {
         case let .success(result):
             if result.isValid {
-                return .success(nil, nil, nil)
+                return .success(validityDate: nil, switzerlandOnly: nil, modeResults: nil, eolBannerIdentifier: nil)
             } else {
                 // !: checked
                 let errorCodes = result.error != nil ? [result.error!.errorCode] : []
@@ -320,7 +320,7 @@ class Verifier: NSObject {
         switch modeResult {
         case let .success(r):
             if r.isValid {
-                return .success(nil, nil, result)
+                return .success(validityDate: nil, switzerlandOnly: nil, modeResults: result, eolBannerIdentifier: nil)
             } else {
                 // if is invalid, check for unknown mode or unsupported light certificate,
                 // always remove all error codes afterwards as it shows mode error
@@ -349,6 +349,7 @@ class Verifier: NSObject {
         case let .success(result):
             var validUntil: String?
             var isSwitzerlandOnly: Bool?
+            var eolBannerIdentifier: String?
 
             #if WALLET
                 // get expired date string
@@ -368,11 +369,16 @@ class Verifier: NSObject {
                 if let chOnly = result.isSwitzerlandOnly {
                     isSwitzerlandOnly = chOnly
                 }
+
+                // TODO: get eolBannerIdentifier from result
+                /* if let identifier = result.eolBannerIdentifier {
+                     eolBannerIdentifier = identifier
+                 } */
             #endif
 
             // check for validity
             if result.isValid {
-                return .success(validUntil, isSwitzerlandOnly, modeResults)
+                return .success(validityDate: validUntil, switzerlandOnly: isSwitzerlandOnly, modeResults: modeResults, eolBannerIdentifier: eolBannerIdentifier)
             } else if let dateError = result.dateError {
                 switch dateError {
                 case .NOT_YET_VALID:

@@ -41,6 +41,9 @@ class WalletUserStorage {
 
     @UBUserDefault(key: "wallet.user.lastScanDates", defaultValue: [])
     var lastScanDates: [Date]
+
+    @UBUserDefault(key: "wallet.user.dismissedEOLBanners", defaultValue: [])
+    var dismissedEOLBanners: [String]
 }
 
 class CertificateStorage {

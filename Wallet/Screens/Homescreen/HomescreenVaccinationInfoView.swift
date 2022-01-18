@@ -119,7 +119,7 @@ class HomescreenVaccinationInfoView: UIView {
     }
 }
 
-private class AccessibilityContainer: UIView {
+class AccessibilityContainer: UIView {
     public var action: (() -> Void)?
 
     override func accessibilityActivate() -> Bool {
@@ -128,7 +128,7 @@ private class AccessibilityContainer: UIView {
     }
 }
 
-private class TitleIconButton: UBButton {
+class TitleIconButton: UBButton {
     // MARK: - Subviews
 
     public var titleText: String? {
@@ -140,12 +140,13 @@ private class TitleIconButton: UBButton {
         }
     }
 
-    private let textLabel = Label(.textBoldLarge)
+    private let textLabel: Label
     private let iconView = UIImageView()
 
     // MARK: - Init
 
-    init(text: String?, icon: UIImage?) {
+    init(text: String?, icon: UIImage?, labelType: LabelType = .textBoldLarge, textColor: UIColor = .cc_blue) {
+        textLabel = Label(labelType, textColor: textColor)
         super.init()
 
         titleText = text
@@ -164,7 +165,6 @@ private class TitleIconButton: UBButton {
 
     private func setup() {
         addSubview(textLabel)
-        textLabel.textColor = .cc_blue
         textLabel.textAlignment = .left
         textLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview()
