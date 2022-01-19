@@ -242,17 +242,14 @@ class HomescreenCertificateView: UIView {
                 var showBanner = false
                 var banner: ConfigResponseBody.EOLBannerInfo?
 
-                guard let uvci: String = certificate.vaccinations?.first?.certificateIdentifier ??
+                let uvci: String = certificate.vaccinations?.first?.certificateIdentifier ??
                     certificate.pastInfections?.first?.certificateIdentifier ??
-                    certificate.tests?.first?.certificateIdentifier else { return }
+                    certificate.tests?.first?.certificateIdentifier ?? ""
 
                 if case let .success(_, _, _, eolIdentifierOpt) = verificationState,
                    let eolIdentifier = eolIdentifierOpt,
                    let eolBanner = ConfigManager.currentConfig?.eolBannerInfo?.value?[eolIdentifier],
-                   shouldShowBanner(certificateIdentifier: uvci, eolIdentifier: eolIdentifier),
-                   certificate.immunisationType == .vaccination ||
-                   certificate.immunisationType == .recovery ||
-                   certificate.tests?.first?.isSerologicalTest ?? false {
+                   shouldShowBanner(certificateIdentifier: uvci, eolIdentifier: eolIdentifier) {
                     showBanner = true
                     banner = eolBanner
                 }

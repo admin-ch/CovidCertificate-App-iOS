@@ -427,10 +427,7 @@ class CertificateDetailViewController: ViewController {
             if let cert = holder.certificate as? DCCCert,
                case let .success(_, _, _, eolIdentifierOpt) = state,
                let eolIdentifier = eolIdentifierOpt,
-               let banner = ConfigManager.currentConfig?.eolBannerInfo?.value?[eolIdentifier],
-               cert.immunisationType == .vaccination ||
-               cert.immunisationType == .recovery ||
-               cert.tests?.first?.isSerologicalTest ?? false {
+               let banner = ConfigManager.currentConfig?.eolBannerInfo?.value?[eolIdentifier] {
                 bannerView.banner = banner
                 bannerView.superview?.isHidden = false
             } else {
