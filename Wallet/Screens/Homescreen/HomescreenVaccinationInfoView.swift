@@ -155,7 +155,7 @@ class TitleIconButton: UBButton {
         highlightedBackgroundColor = UIColor.cc_blue.withAlphaComponent(0.15)
 
         highlightXInset = -2.0 * Padding.small
-        highlightYInset = -Padding.medium
+        highlightYInset = -Padding.small
         highlightCornerRadius = -Padding.small
 
         setup()

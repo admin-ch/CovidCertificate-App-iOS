@@ -18,7 +18,7 @@ class CertificateDetailEOLView: UIView {
         }
     }
 
-    private let insets = UIEdgeInsets(top: 13, left: 13, bottom: 17, right: 10)
+    private let insets = UIEdgeInsets(top: 13, left: 13, bottom: 13, right: 10)
 
     private var container = AccessibilityContainer()
     private let titleLabel = Label(.textBoldLarge, textAlignment: .left)
