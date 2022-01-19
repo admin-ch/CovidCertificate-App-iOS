@@ -329,6 +329,9 @@
 		F80CB027268CD154004A12D1 /* TransformationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B156268B66A500C39836 /* TransformationPayload.swift */; };
 		F80E735A245AD7B400C934B8 /* URLSession+pinning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */; };
 		F80E7376245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */; };
+		F80FA8B52797159200172880 /* HomescreenEOLBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FA8B42797159200172880 /* HomescreenEOLBannerView.swift */; };
+		F80FA8B72797221700172880 /* CertificateDetailEOLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FA8B62797221700172880 /* CertificateDetailEOLView.swift */; };
+		F80FA8B92797297D00172880 /* EOLBannerPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FA8B82797297D00172880 /* EOLBannerPopupView.swift */; };
 		F8118D6927847076007FC484 /* RefreshButtonVisibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */; };
 		F8119172278888B8007FC484 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8119171278888B8007FC484 /* OnboardingTests.swift */; };
 		F8130CDC2685B46200A29326 /* URLSession+synchron.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDB2685B46200A29326 /* URLSession+synchron.swift */; };
@@ -617,6 +620,9 @@
 		F80A114A278EBC0800E54FD2 /* TransfercodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfercodeTests.swift; sourceTree = "<group>"; };
 		F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+pinning.swift"; sourceTree = "<group>"; };
 		F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBPinnedCertificatesTrustEvaluator.swift; sourceTree = "<group>"; };
+		F80FA8B42797159200172880 /* HomescreenEOLBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomescreenEOLBannerView.swift; sourceTree = "<group>"; };
+		F80FA8B62797221700172880 /* CertificateDetailEOLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateDetailEOLView.swift; sourceTree = "<group>"; };
+		F80FA8B82797297D00172880 /* EOLBannerPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOLBannerPopupView.swift; sourceTree = "<group>"; };
 		F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButtonVisibilityManager.swift; sourceTree = "<group>"; };
 		F811916F278888B8007FC484 /* CovidCertificateWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidCertificateWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8119171278888B8007FC484 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
@@ -1002,6 +1008,7 @@
 				6E87E3852669744D000C5517 /* WalletHomescreenActionPopupView.swift */,
 				F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */,
 				B61114DE27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift */,
+				F80FA8B42797159200172880 /* HomescreenEOLBannerView.swift */,
 			);
 			path = Homescreen;
 			sourceTree = "<group>";
@@ -1037,6 +1044,7 @@
 				F84E70B02714DFD700512A49 /* UserCertificate+UserActivity.swift */,
 				6EE55DAA276135CD001F9E1F /* CertificateModesView.swift */,
 				6E07357827845540003993F0 /* RefreshInfoPopupView.swift */,
+				F80FA8B62797221700172880 /* CertificateDetailEOLView.swift */,
 			);
 			path = Certificates;
 			sourceTree = "<group>";
@@ -1362,6 +1370,7 @@
 				6E87E383266971E5000C5517 /* PopUpView.swift */,
 				F8D5B158268C400B00C39836 /* IconImageRowView.swift */,
 				F234B5B827610DA100B361DF /* IconTextInfoBoxView.swift */,
+				F80FA8B82797297D00172880 /* EOLBannerPopupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2095,6 +2104,7 @@
 				6E6036032678792000EB57E7 /* UserTransferCode.swift in Sources */,
 				6E0281FE265660E500582904 /* CertificateDetailView.swift in Sources */,
 				6E17391C267B193800813D30 /* TransferCodeErrorView.swift in Sources */,
+				F80FA8B92797297D00172880 /* EOLBannerPopupView.swift in Sources */,
 				6E0281FC26565AD200582904 /* BrightnessQRScanning.swift in Sources */,
 				F88DA6C1268CA60A001DB072 /* TransformationManager.swift in Sources */,
 				6EA5C35C2643E8DD00EA066F /* CertificateTableViewCell.swift in Sources */,
@@ -2140,6 +2150,7 @@
 				F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */,
 				F88DA6CB268CAD2A001DB072 /* TransformationError.swift in Sources */,
 				B68FDBFA2702FFE000E853D8 /* VaccinationInformationViewController.swift in Sources */,
+				F80FA8B72797221700172880 /* CertificateDetailEOLView.swift in Sources */,
 				F8A259512684A07A0087D86E /* TransferCodeNotificationDisabledView.swift in Sources */,
 				6E70145C265421940097BBC8 /* CertificateAlreadyAddedView.swift in Sources */,
 				6ED916302681D932006D9E7C /* LocalPush.swift in Sources */,
@@ -2164,6 +2175,7 @@
 				DCBF64E62678D8AE00450D51 /* TransferCodeViewController.swift in Sources */,
 				F8454AA3263983B8005CF491 /* NSMutableAttributedString+CC.swift in Sources */,
 				6EF166AF264BB18800426985 /* Verifier.swift in Sources */,
+				F80FA8B52797159200172880 /* HomescreenEOLBannerView.swift in Sources */,
 				6E87E382266950D1000C5517 /* WalletHomescreenActionView.swift in Sources */,
 				6EC172BF26407EBF002E27DB /* WalletHomescreenViewController.swift in Sources */,
 			);
