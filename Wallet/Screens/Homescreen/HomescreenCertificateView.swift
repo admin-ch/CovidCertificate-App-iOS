@@ -238,7 +238,6 @@ class HomescreenCertificateView: UIView {
                     titleLabel.text = UBLocalized.wallet_certificate_evidence_title
                 }
 
-                // only display banner for valid vaccinations and recoveries
                 var showBanner = false
                 var banner: ConfigResponseBody.EOLBannerInfo?
 

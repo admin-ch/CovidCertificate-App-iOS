@@ -423,9 +423,8 @@ class CertificateDetailViewController: ViewController {
                     }
                 }
             }
-            // only display banner for valid vaccinations and recoveries
-            if let cert = holder.certificate as? DCCCert,
-               case let .success(_, _, _, eolIdentifierOpt) = state,
+
+            if case let .success(_, _, _, eolIdentifierOpt) = state,
                let eolIdentifier = eolIdentifierOpt,
                let banner = ConfigManager.currentConfig?.eolBannerInfo?.value?[eolIdentifier] {
                 bannerView.banner = banner
