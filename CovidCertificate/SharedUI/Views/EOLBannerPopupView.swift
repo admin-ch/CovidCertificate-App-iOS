@@ -72,11 +72,14 @@ class EOLBannerPopupView: PopupView {
 
         titleLabel.text = banner.popupTitle
 
-        stackScrollView.addArrangedView(titleLabel, inset: UIEdgeInsets(top: Padding.large + Padding.small, left: 0, bottom: Padding.medium, right: 0))
+        stackScrollView.addArrangedView(titleLabel, inset: UIEdgeInsets(top: Padding.large + Padding.small, left: 0, bottom: 2.0 * Padding.medium, right: 0))
 
-        if let text = banner.popupText {
-            stackScrollView.addSpacerView(Padding.medium)
-            stackScrollView.addArrangedView(OnboardingInfoView(icon: nil, text: text, alignment: .natural, leftRightInset: 0))
+        let bottomPadding = Padding.medium + Padding.small
+
+        if let text = banner.popupText1 {
+            let label = Label(.text)
+            label.text = text
+            stackScrollView.addArrangedView(label, inset: UIEdgeInsets(top: 0.0, left: 0.0, bottom: bottomPadding, right: 0.0))
         }
 
         if let boldText = banner.popupBoldText {
@@ -90,8 +93,14 @@ class EOLBannerPopupView: PopupView {
 
             wrapper.layer.cornerRadius = 10.0
             wrapper.backgroundColor = .cc_blueish
-            stackScrollView.addSpacerView(Padding.medium)
-            stackScrollView.addArrangedView(wrapper)
+            stackScrollView.addArrangedView(wrapper, inset: UIEdgeInsets(top: 0.0, left: 0.0, bottom: bottomPadding, right: 0.0))
+        }
+
+        if let text = banner.popupText2 {
+            let label = Label(.text)
+            label.text = text
+
+            stackScrollView.addArrangedView(label, inset: UIEdgeInsets(top: 0.0, left: 0.0, bottom: bottomPadding, right: 0.0))
         }
 
         if let urlText = banner.popupLinkText,
@@ -110,8 +119,7 @@ class EOLBannerPopupView: PopupView {
                 make.right.lessThanOrEqualToSuperview()
             }
 
-            stackScrollView.addSpacerView(Padding.medium)
-            stackScrollView.addArrangedView(wrapper, inset: UIEdgeInsets(top: Padding.medium + Padding.small, left: 0, bottom: 0, right: 0))
+            stackScrollView.addArrangedView(wrapper, inset: UIEdgeInsets(top: 0.0, left: 0.0, bottom: bottomPadding, right: 0))
         }
 
         closeButton.touchUpCallback = { [weak self] in

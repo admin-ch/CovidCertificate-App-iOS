@@ -150,7 +150,8 @@ class ConfigResponseBody: UBCodable, JWTExtension {
             let detailMoreInfo: String
             let detailHexColor: String
             let popupTitle: String
-            let popupText: String?
+            let popupText1: String?
+            let popupText2: String?
             let popupBoldText: String?
             let popupLinkText: String?
             let popupLinkUrl: String?
