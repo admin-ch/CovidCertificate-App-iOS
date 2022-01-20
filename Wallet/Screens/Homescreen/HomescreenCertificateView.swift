@@ -256,7 +256,7 @@ class HomescreenCertificateView: UIView {
                 if showBanner {
                     certificateBannerView?.banner = banner
 
-                    contentView.accessibilityLabel = [certificateBannerView?.accessibilityLabel ?? "", titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+                    accessibilityLabel = [certificateBannerView?.container.accessibilityLabel ?? "", titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
                 } else {
                     accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
                 }
