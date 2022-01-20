@@ -26,4 +26,10 @@ extension XCUIApplication {
             button.tap()
         }
     }
+
+    func closeInfoboxIfVisible() {
+        if otherElements["InfoBoxView"].buttons[.close_button_key].waitForExistence(timeout: 1.0) {
+            otherElements["InfoBoxView"].buttons[.close_button_key].tap()
+        }
+    }
 }

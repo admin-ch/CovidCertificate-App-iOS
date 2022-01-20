@@ -37,3 +37,16 @@ jobs:
     # Compile "Release-Wallet-Prod" for iOS Simulator (no signing)
     - name: Compile Release-Wallet-Prod
       run: fastlane gym --scheme "Release-Wallet-Prod" --skip_package_ipa true --disable_package_automatic_updates true --destination "generic/platform=iOS Simulator"
+
+
+  run_tests:
+    runs-on: macos-11
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Switch to Xcode ${{ env.XCODE_VERSION }}
+      run: sudo xcode-select --switch /Applications/${{ env.XCODE_VERSION }}.app
+
+    - name: Run Tests
+      run: fastlane scan --scheme "Debug-Wallet" --device "iPhone 11 Pro"
