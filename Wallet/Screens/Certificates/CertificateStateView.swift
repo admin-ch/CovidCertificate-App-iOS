@@ -203,7 +203,7 @@ class CertificateStateView: UIView {
                     self.validityView.textColor = .cc_black
                     self.validityView.untilText = nil
 
-                case let .success(validUntil, isSwitzerlandOnly, _):
+                case let .success(validUntil, isSwitzerlandOnly, _, _):
                     let chOnly = isSwitzerlandOnly ?? false
                     self.setRedBorder(enabled: chOnly)
                     self.roundImageBackgroundView.ub_setHidden(chOnly)

@@ -29,6 +29,7 @@ class HomescreenCertificateView: UIView {
     private let lightQrCodeView: LightQRCodeView
     private let transferView: TransferView
     private var vaccinationInfoView: HomescreenVaccinationInfoView?
+    private var certificateBannerView: HomescreenEOLBannerView?
     private var topViewLayoutGuide = UILayoutGuide()
     private let backgroundButton = BackgroundButton()
 
@@ -41,8 +42,11 @@ class HomescreenCertificateView: UIView {
 
     private var vaccinationHint: ConfigResponseBody.VaccinationHint?
 
+    private var currentEOLBannerKey: String?
+
     private(set) var certificate: UserCertificate? {
         didSet {
+            currentEOLBannerKey = nil
             qrCodeView.certificate = certificate
             lightQrCodeView.certificate = certificate
             transferView.certificate = certificate
@@ -121,6 +125,19 @@ class HomescreenCertificateView: UIView {
                 guard let strongSelf = self else { return }
                 strongSelf.vaccinationButtonTouchUpCallback?()
             }
+        } else if certificate?.type == .certificate {
+            certificateBannerView = HomescreenEOLBannerView()
+            contentView.addSubview(certificateBannerView!)
+            backgroundButton.certificateBannerView = certificateBannerView
+            certificateBannerView?.snp.makeConstraints { make in
+                make.top.left.right.equalToSuperview().inset(10)
+            }
+
+            certificateBannerView?.dismissButtonTouchUpCallback = { [weak self] in
+                guard let strongSelf = self else { return }
+                UIAccessibility.post(notification: .layoutChanged, argument: strongSelf)
+                strongSelf.dismissCertificateBanner()
+            }
         }
 
         contentView.addSubview(titleLabel)
@@ -181,6 +198,18 @@ class HomescreenCertificateView: UIView {
         update(animated: false)
     }
 
+    private func shouldShowBanner(certificateIdentifier: String, eolIdentifier: String) -> Bool {
+        let key = certificateIdentifier + "_" + eolIdentifier
+        currentEOLBannerKey = key
+        return !WalletUserStorage.shared.dismissedEOLBanners.contains(key)
+    }
+
+    private func dismissCertificateBanner() {
+        guard let key = currentEOLBannerKey else { return }
+        WalletUserStorage.shared.dismissedEOLBanners.append(key)
+        update(animated: true)
+    }
+
     private func update(animated: Bool) {
         guard let cert = certificate else { return }
 
@@ -208,10 +237,56 @@ class HomescreenCertificateView: UIView {
                 } else {
                     titleLabel.text = UBLocalized.wallet_certificate_evidence_title
                 }
+
+                var showBanner = false
+                var banner: ConfigResponseBody.EOLBannerInfo?
+
+                let uvci: String = certificate.vaccinations?.first?.certificateIdentifier ??
+                    certificate.pastInfections?.first?.certificateIdentifier ??
+                    certificate.tests?.first?.certificateIdentifier ?? ""
+
+                if case let .success(_, _, _, eolIdentifierOpt) = verificationState,
+                   let eolIdentifier = eolIdentifierOpt,
+                   let eolBanner = ConfigManager.currentConfig?.eolBannerInfo?.value?[eolIdentifier],
+                   shouldShowBanner(certificateIdentifier: uvci, eolIdentifier: eolIdentifier) {
+                    showBanner = true
+                    banner = eolBanner
+                }
+
+                if showBanner {
+                    certificateBannerView?.banner = banner
+
+                    contentView.accessibilityLabel = [certificateBannerView?.accessibilityLabel ?? "", titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+                } else {
+                    accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+                }
+
+                if animated {
+                    UIView.animate(withDuration: 0.3) {
+                        self.topViewLayoutGuide.snp.remakeConstraints { make in
+                            if showBanner {
+                                make.bottom.equalTo(self.certificateBannerView!.snp.bottom)
+                            } else {
+                                make.bottom.equalTo(self.titleLabel.snp.bottom)
+                            }
+                        }
+                        self.certificateBannerView?.alpha = showBanner ? 1.0 : 0.0
+                        self.titleLabel.alpha = showBanner ? 0.0 : 1.0
+                        self.superview?.layoutIfNeeded()
+                    }
+                } else {
+                    topViewLayoutGuide.snp.remakeConstraints { make in
+                        make.bottom.equalTo(showBanner ? self.certificateBannerView!.snp.bottom : self.titleLabel.snp.bottom)
+                    }
+                    certificateBannerView?.alpha = showBanner ? 1.0 : 0.0
+                    titleLabel.alpha = showBanner ? 0.0 : 1.0
+                    superview?.layoutIfNeeded()
+                }
+
             case .failure:
-                break
+                accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
             }
-            accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+
         case .transferCode:
             titleLabel.text = UBLocalized.wallet_transfer_code_card_title
             qrCodeView.alpha = 0.0
@@ -260,6 +335,7 @@ class HomescreenCertificateView: UIView {
 private class BackgroundButton: UBButton {
     weak var transferView: TransferView?
     weak var vaccinationInfoView: HomescreenVaccinationInfoView?
+    weak var certificateBannerView: HomescreenEOLBannerView?
 
     var type: CertificateType = .certificate
 
@@ -275,6 +351,12 @@ private class BackgroundButton: UBButton {
         if let infoView = vaccinationInfoView {
             if infoView.frame.contains(point) {
                 return infoView.hitTest(point, with: event)
+            }
+        }
+
+        if let certificateBannerView = certificateBannerView {
+            if certificateBannerView.frame.contains(point) {
+                return certificateBannerView.hitTest(point, with: event)
             }
         }
 

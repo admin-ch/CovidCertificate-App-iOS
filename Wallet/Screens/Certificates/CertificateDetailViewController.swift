@@ -25,11 +25,14 @@ class CertificateDetailViewController: ViewController {
     private let stackScrollView = StackScrollView()
     private let qrCodeNameView = QRCodeNameView()
 
+    private let bannerView = CertificateDetailEOLView()
+
     private lazy var stateView = CertificateStateView(isHomescreen: false, showValidity: true)
     private lazy var detailView = CertificateDetailView(showEnglishLabelsIfNeeded: true, addTopDivider: false)
 
     private let modeView = CertificateModeView()
     private var infoPopupView: IconTextInfoBoxView?
+    private var bannerPopupView: EOLBannerPopupView?
     private var refreshInfoPopupView: RefreshInfoPopupView?
 
     private let noteView = CertificateNoteView()
@@ -146,6 +149,9 @@ class CertificateDetailViewController: ViewController {
         stackScrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+
+        stackScrollView.addArrangedView(bannerView,
+                                        inset: UIEdgeInsets(top: Padding.medium, left: Padding.medium, bottom: 0, right: Padding.medium))
 
         stackScrollView.addSpacerView(Padding.large)
         stackScrollView.addArrangedView(qrCodeNameView, inset: padding)
@@ -278,6 +284,18 @@ class CertificateDetailViewController: ViewController {
             strongSelf.infoPopupView = IconTextInfoBoxView(iconTextSource: strongSelf.modeView.infoImageTexts(size: 24.0), imageHeight: 24.0)
             strongSelf.infoPopupView?.addAndPresent(to: strongSelf.view, from: strongSelf.modeView.button)
         }
+
+        bannerView.moreInfoTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.bannerPopupView?.removeFromSuperview()
+
+            guard case let .success(_, _, _, eolIdentifierOpt) = strongSelf.state,
+                  let eolIdentifier = eolIdentifierOpt,
+                  let banner = ConfigManager.currentConfig?.eolBannerInfo?.value?[eolIdentifier] else { return }
+
+            strongSelf.bannerPopupView = EOLBannerPopupView(banner: banner)
+            strongSelf.bannerPopupView?.addAndPresent(to: strongSelf.view, from: strongSelf.bannerView.moreInfoButton)
+        }
     }
 
     private func updateCertificate() {
@@ -341,7 +359,7 @@ class CertificateDetailViewController: ViewController {
                 switch state {
                 case .loading: self.temporaryVerifierState = .verifying
                 case .skipped: self.temporaryVerifierState = .idle
-                case let .success(validUntil, _, modesResult): self.temporaryVerifierState = .success(validUntil, modesResult)
+                case let .success(validUntil, _, modesResult, _): self.temporaryVerifierState = .success(validUntil, modesResult)
                 case .invalid: self.temporaryVerifierState = .failure
                 case let .retry(error, errorCodes): self.temporaryVerifierState = .retry(error, errorCodes)
                 }
@@ -406,9 +424,21 @@ class CertificateDetailViewController: ViewController {
                     }
                 }
             }
+
+            if case let .success(_, _, _, eolIdentifierOpt) = state,
+               let eolIdentifier = eolIdentifierOpt,
+               let banner = ConfigManager.currentConfig?.eolBannerInfo?.value?[eolIdentifier] {
+                bannerView.banner = banner
+                bannerView.superview?.isHidden = false
+            } else {
+                bannerView.superview?.isHidden = true
+            }
+
         case .failure:
             exportRow.isEnabled = false
             certificateLightRow.isEnabled = false
+
+            bannerView.superview?.isHidden = true
         }
     }
 

@@ -72,6 +72,8 @@ class ConfigResponseBody: UBCodable, JWTExtension {
 
         let refreshButtonInfo: LocalizedValue<RefreshButtonInfo>?
 
+        let eolBannerInfo: LocalizedValue<[String: EOLBannerInfo]>?
+
     #elseif VERIFIER
         let checkModesInfos: LocalizedValue<CheckModeContainer>?
         let checkModeReselectAfterHours: Int
@@ -138,6 +140,21 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         class CheckModeEntriesContainer: UBCodable {
             let ok: CheckModeInfo
             let notOk: CheckModeInfo
+        }
+
+        class EOLBannerInfo: UBCodable {
+            let homescreenTitle: String
+            let homescreenHexColor: String
+            let detailTitle: String
+            let detailText: String
+            let detailMoreInfo: String
+            let detailHexColor: String
+            let popupTitle: String
+            let popupText1: String?
+            let popupText2: String?
+            let popupBoldText: String?
+            let popupLinkText: String?
+            let popupLinkUrl: String?
         }
 
     #elseif VERIFIER
