@@ -18,7 +18,7 @@ class HomescreenEOLBannerView: UIView {
     private let insets = UIEdgeInsets(top: 13, left: 13, bottom: 13, right: 10)
 
     private var container = AccessibilityContainer()
-    private let titleLabel = Label(.textBoldLarge, textAlignment: .left)
+    private let titleLabel = Label(.textBoldLarge, numberOfLines: 1, textAlignment: .left)
 
     private let dismissButton = Button(image: UIImage(named: "ic-close")?.ub_image(with: .black), accessibilityKey: .accessibility_close_button_key)
 
