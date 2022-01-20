@@ -20,6 +20,10 @@ class CertificateNoteView: UIView {
         didSet { updateText() }
     }
 
+    public var isPositiveAntigenTest: Bool = false {
+        didSet { updateText() }
+    }
+
     // MARK: - Init
 
     init() {
@@ -54,6 +58,12 @@ class CertificateNoteView: UIView {
     }
 
     private func updateText() {
-        label.text = isSwitzerlandException ? UBLocalized.wallet_certificate_detail_note_ausnahme : UBLocalized.wallet_certificate_detail_note
+        if isPositiveAntigenTest {
+            label.text = UBLocalized.wallet_certificate_detail_note_positive_antigen
+        } else if isSwitzerlandException {
+            label.text = UBLocalized.wallet_certificate_detail_note_ausnahme
+        } else {
+            label.text = UBLocalized.wallet_certificate_detail_note
+        }
     }
 }

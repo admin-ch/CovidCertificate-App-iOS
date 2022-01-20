@@ -1386,3 +1386,12 @@
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Ausnahme";
+
+/*Wallet: Titel von einem positivem Antigen-Test*/
+"covid_certificate_antigen_positive_test" = "Genesung (Antigen-Schnelltest)";
+
+/*Wallet: Antigen Positive Titel von Testdatum*/
+"wallet_certificate_antigen_positive_date" = "Datum des ersten positiven Resultats";
+
+/*Wallet: Blaue Box für positiven Antigen-Test*/
+"wallet_certificate_detail_note_positive_antigen" = "Dieses Zertifikat ist kein Reisedokument.\n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.";

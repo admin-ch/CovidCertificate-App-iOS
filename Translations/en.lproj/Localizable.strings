@@ -1386,3 +1386,12 @@
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Exception";
+
+/*Wallet: Titel von einem positivem Antigen-Test*/
+"covid_certificate_antigen_positive_test" = "Recovery (Antigen Rapid Test)";
+
+/*Wallet: Antigen Positive Titel von Testdatum*/
+"wallet_certificate_antigen_positive_date" = "Date of first positive test result";
+
+/*Wallet: Blaue Box für positiven Antigen-Test*/
+"wallet_certificate_detail_note_positive_antigen" = "This certificate is not a travel document.\n\nThis certificate is only valid for a limited period of time. You can check the current duration of validity in Switzerland at any time using the COVID Certificate app.";

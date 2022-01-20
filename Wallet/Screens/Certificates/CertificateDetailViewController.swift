@@ -320,6 +320,7 @@ class CertificateDetailViewController: ViewController {
 
             let tests = certificate.tests ?? []
             noteView.isSwitzerlandException = tests.contains { $0.isSwitzerlandException }
+            noteView.isPositiveAntigenTest = tests.contains { $0.isPositiveAntigenTest }
         case .failure:
             break
         }

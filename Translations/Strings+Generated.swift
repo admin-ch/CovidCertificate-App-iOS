@@ -50,6 +50,8 @@ import Foundation
      case close_button_key = "close_button"
     /// Weiter
      case continue_button_key = "continue_button"
+    /// Genesung (Antigen-Schnelltest)
+     case covid_certificate_antigen_positive_test_key = "covid_certificate_antigen_positive_test"
     /// Ausnahme
      case covid_certificate_ch_ausnahme_list_label_key = "covid_certificate_ch_ausnahme_list_label"
     /// Ausnahmezertifikat
@@ -512,6 +514,8 @@ import Foundation
      case wallet_certificate_key = "wallet_certificate"
     /// Dieses Zertifikat ist bereits in der App gespeichert
      case wallet_certificate_already_exists_key = "wallet_certificate_already_exists"
+    /// Datum des ersten positiven Resultats
+     case wallet_certificate_antigen_positive_date_key = "wallet_certificate_antigen_positive_date"
     /// Medizinisches Attest ausgestellt in
      case wallet_certificate_ausnahme_issued_country_key = "wallet_certificate_ausnahme_issued_country"
     /// Für die Ausstellung verantwortliche Stelle
@@ -532,6 +536,8 @@ import Foundation
      case wallet_certificate_detail_note_key = "wallet_certificate_detail_note"
     /// Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen. \n\nDie Inhaberin oder der Inhaber kann entsprechend dem jeweils gültigen Schutzkonzept bei zertifikatspflichtigen Veranstaltungen und Einrichtungen verpflichtet sein, eine Gesichtsmaske zu tragen.
      case wallet_certificate_detail_note_ausnahme_key = "wallet_certificate_detail_note_ausnahme"
+    /// Dieses Zertifikat ist kein Reisedokument.\n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
+     case wallet_certificate_detail_note_positive_antigen_key = "wallet_certificate_detail_note_positive_antigen"
     /// Nachweis erstellt am\n{DATE}
      case wallet_certificate_evidence_creation_date_key = "wallet_certificate_evidence_creation_date"
     /// Nachweis
@@ -1084,6 +1090,8 @@ import Foundation
    static let close_button = UBLocalized.tr(UBLocalizedKey.close_button_key)
   /// Weiter
    static let continue_button = UBLocalized.tr(UBLocalizedKey.continue_button_key)
+  /// Genesung (Antigen-Schnelltest)
+   static let covid_certificate_antigen_positive_test = UBLocalized.tr(UBLocalizedKey.covid_certificate_antigen_positive_test_key)
   /// Ausnahme
    static let covid_certificate_ch_ausnahme_list_label = UBLocalized.tr(UBLocalizedKey.covid_certificate_ch_ausnahme_list_label_key)
   /// Ausnahmezertifikat
@@ -1546,6 +1554,8 @@ import Foundation
    static let wallet_certificate = UBLocalized.tr(UBLocalizedKey.wallet_certificate_key)
   /// Dieses Zertifikat ist bereits in der App gespeichert
    static let wallet_certificate_already_exists = UBLocalized.tr(UBLocalizedKey.wallet_certificate_already_exists_key)
+  /// Datum des ersten positiven Resultats
+   static let wallet_certificate_antigen_positive_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_antigen_positive_date_key)
   /// Medizinisches Attest ausgestellt in
    static let wallet_certificate_ausnahme_issued_country = UBLocalized.tr(UBLocalizedKey.wallet_certificate_ausnahme_issued_country_key)
   /// Für die Ausstellung verantwortliche Stelle
@@ -1566,6 +1576,8 @@ import Foundation
    static let wallet_certificate_detail_note = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_key)
   /// Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen. \n\nDie Inhaberin oder der Inhaber kann entsprechend dem jeweils gültigen Schutzkonzept bei zertifikatspflichtigen Veranstaltungen und Einrichtungen verpflichtet sein, eine Gesichtsmaske zu tragen.
    static let wallet_certificate_detail_note_ausnahme = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_ausnahme_key)
+  /// Dieses Zertifikat ist kein Reisedokument.\n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
+   static let wallet_certificate_detail_note_positive_antigen = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_positive_antigen_key)
   /// Nachweis erstellt am\n{DATE}
    static let wallet_certificate_evidence_creation_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_evidence_creation_date_key)
   /// Nachweis
