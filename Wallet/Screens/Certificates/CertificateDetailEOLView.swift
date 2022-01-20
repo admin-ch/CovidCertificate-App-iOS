@@ -54,6 +54,7 @@ class CertificateDetailEOLView: UIView {
         titleLabel.text = banner.detailTitle
         textLabel.text = banner.detailText
         moreInfoButton.titleText = banner.detailMoreInfo
+        container.accessibilityLabel = [titleLabel.text, textLabel.text, moreInfoButton.titleText].compactMap { $0 }.joined(separator: ", ")
         backgroundColor = UIColor(ub_hexString: banner.detailHexColor) ?? UIColor.cc_yellow
     }
 

@@ -17,7 +17,7 @@ class HomescreenEOLBannerView: UIView {
 
     private let insets = UIEdgeInsets(top: 13, left: 13, bottom: 13, right: 10)
 
-    private var container = AccessibilityContainer()
+    private(set) var container = AccessibilityContainer()
     private let titleLabel = Label(.textBoldLarge, numberOfLines: 1, textAlignment: .left)
 
     private let dismissButton = Button(image: UIImage(named: "ic-close")?.ub_image(with: .black), accessibilityKey: .accessibility_close_button_key)
@@ -44,6 +44,7 @@ class HomescreenEOLBannerView: UIView {
             return
         }
         titleLabel.text = banner.homescreenTitle
+        container.accessibilityLabel = [titleLabel.text].compactMap { $0 }.joined(separator: ", ")
         backgroundColor = UIColor(ub_hexString: banner.homescreenHexColor) ?? UIColor.cc_yellow
     }
 
