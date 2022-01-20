@@ -50,3 +50,9 @@ jobs:
 
     - name: Run Tests
       run: fastlane scan --scheme "Debug-Wallet" --device "iPhone 11 Pro"
+
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action/composite@bffeee8009970dbb7444de4027c06333c97a8a54
+      if: always()
+      with:
+        files: test_output/*.junit
