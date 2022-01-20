@@ -120,6 +120,8 @@ class CertificateTableViewCell: UITableViewCell {
                         stateLabel.type = .dccc(.recovery)
                     } else if (tests.contains { $0.isSwitzerlandException }) {
                         stateLabel.type = .switzerlandException
+                    } else {
+                        stateLabel.type = .dccc(certificate.immunisationType)
                     }
                 } else {
                     stateLabel.type = .dccc(certificate.immunisationType)
