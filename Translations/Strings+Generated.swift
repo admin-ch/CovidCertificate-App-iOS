@@ -694,9 +694,9 @@ import Foundation
      case wallet_eol_banner_invalid_from_first_february_detail_more_info_key = "wallet_eol_banner_invalid_from_first_february_detail_more_info"
     /// Dieses Zertifikat wird bald ablaufen.
      case wallet_eol_banner_invalid_from_first_february_detail_text_key = "wallet_eol_banner_invalid_from_first_february_detail_text"
-    /// Verkürzte Gültigkeit
+    /// Verkürzte Gültigkeitsdauer
      case wallet_eol_banner_invalid_from_first_february_detail_title_key = "wallet_eol_banner_invalid_from_first_february_detail_title"
-    /// Verkürzte Gültigkeit
+    /// Verkürzte Gültigkeitsdauer
      case wallet_eol_banner_invalid_from_first_february_homescreen_title_key = "wallet_eol_banner_invalid_from_first_february_homescreen_title"
     /// Dieses Covid-Zertifikat kann ab dem 31. Jan. 2022 nicht mehr verwendet werden, da die Gültigkeitsdauer dann bereits abgelaufen sein wird.
      case wallet_eol_banner_invalid_from_first_february_popup_bold_text_key = "wallet_eol_banner_invalid_from_first_february_popup_bold_text"
@@ -704,7 +704,7 @@ import Foundation
      case wallet_eol_banner_invalid_from_first_february_popup_link_text_key = "wallet_eol_banner_invalid_from_first_february_popup_link_text"
     /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine
      case wallet_eol_banner_invalid_from_first_february_popup_link_url_key = "wallet_eol_banner_invalid_from_first_february_popup_link_url"
-    /// Per 1.2.2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:
+    /// Per 31. Jan. 2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:
      case wallet_eol_banner_invalid_from_first_february_popup_text1_key = "wallet_eol_banner_invalid_from_first_february_popup_text1"
     /// Info
      case wallet_eol_banner_invalid_from_first_february_popup_title_key = "wallet_eol_banner_invalid_from_first_february_popup_title"
@@ -712,9 +712,9 @@ import Foundation
      case wallet_eol_banner_invalid_in_three_weeks_detail_more_info_key = "wallet_eol_banner_invalid_in_three_weeks_detail_more_info"
     /// Dieses Zertifikat wird bald ablaufen.
      case wallet_eol_banner_invalid_in_three_weeks_detail_text_key = "wallet_eol_banner_invalid_in_three_weeks_detail_text"
-    /// Verkürzte Gültigkeit
+    /// Verkürzte Gültigkeitsdauer
      case wallet_eol_banner_invalid_in_three_weeks_detail_title_key = "wallet_eol_banner_invalid_in_three_weeks_detail_title"
-    /// Verkürzte Gültigkeit
+    /// Verkürzte Gültigkeitsdauer
      case wallet_eol_banner_invalid_in_three_weeks_homescreen_title_key = "wallet_eol_banner_invalid_in_three_weeks_homescreen_title"
     /// Dieses Covid-Zertifikat ist ab dem 31. Jan. 2022 nur noch wenige Tage gültig.
      case wallet_eol_banner_invalid_in_three_weeks_popup_bold_text_key = "wallet_eol_banner_invalid_in_three_weeks_popup_bold_text"
@@ -1772,9 +1772,9 @@ import Foundation
    static let wallet_eol_banner_invalid_from_first_february_detail_more_info = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_detail_more_info_key)
   /// Dieses Zertifikat wird bald ablaufen.
    static let wallet_eol_banner_invalid_from_first_february_detail_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_detail_text_key)
-  /// Verkürzte Gültigkeit
+  /// Verkürzte Gültigkeitsdauer
    static let wallet_eol_banner_invalid_from_first_february_detail_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_detail_title_key)
-  /// Verkürzte Gültigkeit
+  /// Verkürzte Gültigkeitsdauer
    static let wallet_eol_banner_invalid_from_first_february_homescreen_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_homescreen_title_key)
   /// Dieses Covid-Zertifikat kann ab dem 31. Jan. 2022 nicht mehr verwendet werden, da die Gültigkeitsdauer dann bereits abgelaufen sein wird.
    static let wallet_eol_banner_invalid_from_first_february_popup_bold_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_popup_bold_text_key)
@@ -1782,7 +1782,7 @@ import Foundation
    static let wallet_eol_banner_invalid_from_first_february_popup_link_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_popup_link_text_key)
   /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine
    static let wallet_eol_banner_invalid_from_first_february_popup_link_url = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_popup_link_url_key)
-  /// Per 1.2.2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:
+  /// Per 31. Jan. 2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:
    static let wallet_eol_banner_invalid_from_first_february_popup_text1 = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_popup_text1_key)
   /// Info
    static let wallet_eol_banner_invalid_from_first_february_popup_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_popup_title_key)
@@ -1790,9 +1790,9 @@ import Foundation
    static let wallet_eol_banner_invalid_in_three_weeks_detail_more_info = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_detail_more_info_key)
   /// Dieses Zertifikat wird bald ablaufen.
    static let wallet_eol_banner_invalid_in_three_weeks_detail_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_detail_text_key)
-  /// Verkürzte Gültigkeit
+  /// Verkürzte Gültigkeitsdauer
    static let wallet_eol_banner_invalid_in_three_weeks_detail_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_detail_title_key)
-  /// Verkürzte Gültigkeit
+  /// Verkürzte Gültigkeitsdauer
    static let wallet_eol_banner_invalid_in_three_weeks_homescreen_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_homescreen_title_key)
   /// Dieses Covid-Zertifikat ist ab dem 31. Jan. 2022 nur noch wenige Tage gültig.
    static let wallet_eol_banner_invalid_in_three_weeks_popup_bold_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_bold_text_key)
