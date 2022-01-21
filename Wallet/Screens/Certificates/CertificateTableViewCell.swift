@@ -131,7 +131,13 @@ class CertificateTableViewCell: UITableViewCell {
             }
 
             VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes()) { [weak self] state in
-                guard let strongSelf = self else { return }
+                // cells are reused, verification is asynchronous,
+                // check if still the same qr-code
+                guard let strongSelf = self,
+                      let qr = strongSelf.certificate?.lightCertificate?.certificate ?? strongSelf.certificate?.qrCode,
+                      qrCode == qr
+                else { return }
+
                 strongSelf.state = state
             }
 
