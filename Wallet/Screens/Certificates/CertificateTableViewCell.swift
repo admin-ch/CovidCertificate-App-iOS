@@ -134,7 +134,7 @@ class CertificateTableViewCell: UITableViewCell {
                 // cells are reused, verification is asynchronous,
                 // check if still the same qr-code
                 guard let strongSelf = self,
-                      let qr = strongSelf.certificate?.qrCode,
+                      let qr = strongSelf.certificate?.lightCertificate?.certificate ?? strongSelf.certificate?.qrCode,
                       qrCode == qr
                 else { return }
 
