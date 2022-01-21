@@ -23,6 +23,8 @@ class TransfercodeTests: XCTestCase {
         app.setOnboarding(completed: true)
         app.launch()
 
+        app.closeInfoboxIfVisible()
+
         XCTAssertEqual(app.countTransfercodes, 0)
         app.createTransfercode()
         XCTAssertEqual(app.countTransfercodes, 1)
@@ -36,6 +38,8 @@ class TransfercodeTests: XCTestCase {
         let app = XCUIApplication()
         app.setOnboarding(completed: true)
         app.launch()
+
+        app.closeInfoboxIfVisible()
 
         XCTAssertEqual(app.countTransfercodes, 0)
         app.createTransfercode()

@@ -23,7 +23,7 @@ class UIStateManagerTests: XCTestCase {
             ex.fulfill()
         })
         waitForExpectations(timeout: 1, handler: nil)
-        XCTAssertEqual(observerCalls, 1)
+        XCTAssertEqual(observerCalls, 2) // two because one call is triggered on addObserver and one on init
     }
 
     func testObserverMultithreaded() throws {
@@ -32,14 +32,14 @@ class UIStateManagerTests: XCTestCase {
         var observerCalls = 100
         uistateManager.addObserver(self, block: { _ in
             observerCalls -= 1
-            if observerCalls == -1 {
+            if observerCalls == -2 {
                 ex.fulfill()
             }
         })
         DispatchQueue.concurrentPerform(iterations: observerCalls) { _ in
             uistateManager.stateChanged(forceRefresh: true)
         }
-        waitForExpectations(timeout: 1, handler: nil)
-        XCTAssertEqual(observerCalls, -1) // -1 because one call is triggered on addObserver
+        waitForExpectations(timeout: 5.0, handler: nil)
+        XCTAssertEqual(observerCalls, -2) // -2 because one call is triggered on addObserver and one on init
     }
 }

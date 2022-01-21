@@ -47,6 +47,7 @@ class InfoBoxView: PopupView {
     override internal func setup() {
         super.setup()
 
+        accessibilityIdentifier = "InfoBoxView"
         contentView.backgroundColor = .cc_white
         contentView.layer.cornerRadius = 20.0
 
@@ -110,7 +111,7 @@ class InfoBoxView: PopupView {
         textLabel.text = infoBox?.msg
         buttonView.ub_setHidden(infoBox?.url == nil)
         button.title = infoBox?.urlTitle
-        closeButton.title = button.isHidden ? UBLocalized.ok_button : UBLocalized.close_button
+        closeButton.titleKey = button.isHidden ? .ok_button_key : .close_button_key
         layoutIfNeeded()
     }
 }
