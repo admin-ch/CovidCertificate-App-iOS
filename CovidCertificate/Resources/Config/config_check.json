@@ -724,7 +724,7 @@
           {
             "iconAndroid": "ic_expire_i",
             "iconIos": "ic-expire-i",
-            "text": "Choisissez le mode de contrôle correspondant aux certificats COVID à vérifier. "
+            "text": "Choisissez le mode de contrôle correspondant aux certificats COVID à vérifier."
           },
           {
             "iconAndroid": "ic_settings",

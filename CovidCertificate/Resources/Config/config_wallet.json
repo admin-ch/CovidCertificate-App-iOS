@@ -564,7 +564,7 @@
         },
         {
           "title": "Comment voir si mon certificat COVID est valable?",
-          "text": "L’app verifica automaticamente se il certificato soddisfa i criteri di validità applicati in Svizzera. Se il certificato è scaduto o se non è valido per motivi tecnici, l’informazione compare direttamente nell’app.",
+          "text": "L'application vérifie automatiquement si votre certificat remplit les critères de validité en vigueur en Suisse. Si votre certificat COVID a expiré ou s'il n'est techniquement pas valable, cette information apparaît automatiquement sur le certificat dans l'application.",
           "iconAndroid": null,
           "iconIos": null,
           "linkTitle": null,
@@ -2379,7 +2379,7 @@
           "ok": {
             "iconAndroid": "ic_2g_plus",
             "iconIos": "ic-2-g-plus",
-            "text": "L’accesso a strutture e manifestazioni è consentito alle persone per le quali sono trascorsi al massimo 120 giorni dal completamento del ciclo vaccinale, dalla somministrazione della dose di richiamo o dalla guarigione (sulla base di un test PCR). In questo caso non è necessario un ulteriore certificato di test."
+            "text": "Accès aux établissements et aux manifestations réservé aux personnes dont la vaccination complète, la vaccination de rappel ou la guérison (confirmée par un test PCR) ne date pas de plus de 120 jours. Vous n'avez pas besoin de présenter un certificat de test supplémentaire."
           },
           "notOk": {
             "iconAndroid": "ic_no_2_g_plus_height",
@@ -2408,7 +2408,7 @@
           "ok": {
             "iconAndroid": "ic_2g",
             "iconIos": "ic_2g",
-            "text": "L’accesso  a strutture e manifestazioni è consentito alle persone vaccinate o guarite."
+            "text": "L’accesso a strutture e manifestazioni è consentito alle persone vaccinate o guarite."
           },
           "notOk": {
             "iconAndroid": "ic_no2g",
@@ -2437,7 +2437,7 @@
           "ok": {
             "iconAndroid": "ic_3g",
             "iconIos": "ic_3g",
-            "text": "Access en manaschis e d’As participar ad occurrenzas per persunas vaccinadas, guaridas u cun in test negativ."
+            "text": "Access a manaschis ed ad occurrenzas per persunas vaccinadas, guaridas u cun in test negativ."
           },
           "notOk": {
             "iconAndroid": "ic_no3g",
@@ -2449,7 +2449,7 @@
           "ok": {
             "iconAndroid": "ic_2g",
             "iconIos": "ic_2g",
-            "text": "Access en manaschis e d’As participar ad occurrenzas per persunas vaccinadas u guaridas."
+            "text": "Access a manaschis ed ad occurrenzas per persunas vaccinadas u guaridas."
           },
           "notOk": {
             "iconAndroid": "ic_no2g",
@@ -2461,12 +2461,12 @@
           "ok": {
             "iconAndroid": "ic_2g_plus",
             "iconIos": "ic-2-g-plus",
-            "text": "Access en manaschis e d’As participar ad occurrenzas per persunas ch’èn vaccinadas cumplettamain, che han laschà rinfrestgar la vaccinaziun u ch’èn guaridas (sin basa d’in test da PCR) avant maximalmain 120 dis. Vus na duvrais nagin certificat da test supplementar. "
+            "text": "Access a manaschis ed ad occurrenzas per persunas ch’èn vaccinadas cumplettamain, che han laschà rinfrestgar la vaccinaziun u ch’èn guaridas (sin basa d’in test da PCR) avant maximalmain 120 dis. Vus na duvrais nagin certificat da test supplementar."
           },
           "notOk": {
             "iconAndroid": "ic_no_2_g_plus_height",
             "iconIos": "ic-no-2-g-plus-height",
-            "text": "Per l’access en manaschis e d’As participar ad occurrenzas dovri ultra dal certificat COVID per persunas vaccinadas u guaridas in test negativ."
+            "text": "Per l’access a manaschis ed ad occurrenzas dovri ultra dal certificat COVID per persunas vaccinadas u guaridas in test negativ."
           }
         }
       }
@@ -2476,7 +2476,7 @@
   "showVaccinationHintHomescreen": true,
   "showVaccinationHintDetail": true,
   "showVaccinationHintTransfer": true,
-  "refreshButtonDisabled": false,
+  "refreshButtonDisabled": true,
   "refreshButtonInfo": {
     "de": {
       "title": "Info",
@@ -2498,7 +2498,7 @@
     },
     "fr": {
       "title": "Information",
-      "text1": "Le bouton «rafraîchir» a été supprimée.",
+      "text1": "Le bouton «rafraîchir» a été supprimé.",
       "text2": "Si votre certificat COVID a expiré ou s'il n'est techniquement pas valable, cette information apparaît automatiquement sur le certificat.",
       "fatTitle": "Pour les personnes chargées du contrôle",
       "text3": "La vérification des certificats COVID doit s'effectuer au moyen de l'application «COVID Certificate Check».",
@@ -2522,6 +2522,158 @@
       "text3": "Ils certificats COVID ston vegnir verifitgads cun l’app «COVID Certificate Check».",
       "linkText": "Dapli infurmaziuns",
       "linkUrl": "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat/covid-zertifikat-pruefer-aussteller-technische-informationen.html#1070048217"
+    }
+  },
+  "eolBannerInfo": {
+    "de": {
+      "invalidFromFirstFebruary": {
+        "homescreenHexColor": "#ffde27",
+        "homescreenTitle": "Verkürzte Gültigkeit",
+        "detailHexColor": "#ffde27",
+        "detailTitle": "Verkürzte Gültigkeit",
+        "detailText": "Dieses Zertifikat wird bald ablaufen.",
+        "detailMoreInfo": "Mehr erfahren",
+        "popupTitle": "Info",
+        "popupText1": "Per 1.2.2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:",
+        "popupBoldText": "Dieses Covid-Zertifikat kann ab dem 31. Jan. 2022 nicht mehr verwendet werden, da die Gültigkeitsdauer dann bereits abgelaufen sein wird.",
+        "popupText2": null,
+        "popupLinkText": "Mehr erfahren",
+        "popupLinkUrl": "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine"
+      },
+      "invalidInThreeWeeks": {
+        "homescreenHexColor": "#ffde27",
+        "homescreenTitle": "Verkürzte Gültigkeit",
+        "detailHexColor": "#ffde27",
+        "detailTitle": "Verkürzte Gültigkeit",
+        "detailText": "Dieses Zertifikat wird bald ablaufen.",
+        "detailMoreInfo": "Mehr erfahren",
+        "popupTitle": "Info",
+        "popupText1": "Per 31. Jan. 2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:",
+        "popupBoldText": "Dieses Covid-Zertifikat ist ab dem 31. Jan. 2022 nur noch wenige Tage gültig.",
+        "popupText2": "Bitte beachten Sie das auf dem Zertifikat ausgewiesene Ablaufdatum, welches ab dem 31.1.2022 mit der reduzierten Gültigkeitsdauer von 270 Tagen berechnet wird.",
+        "popupLinkText": "Mehr erfahren",
+        "popupLinkUrl": "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine"
+      }
+    },
+    "en": {
+      "invalidFromFirstFebruary": {
+        "homescreenHexColor": "#ffde27",
+        "homescreenTitle": "Shortened period of validity",
+        "detailHexColor": "#ffde27",
+        "detailTitle": "Shortened period of validity",
+        "detailText": "This certificate will soon expire.",
+        "detailMoreInfo": "More information",
+        "popupTitle": "Info",
+        "popupText1": "As of 31 Jan 2022 a shortened period of validity of 270 instead of 365 days applies to COVID vaccination or recovery certificates in Switzerland. This certificate is directly affected by the shortened period of validity:",
+        "popupBoldText": "This COVID certificate can no longer be used after 31 Jan 2022 as the period of validity will already have expired.",
+        "popupText2": null,
+        "popupLinkText": "More information",
+        "popupLinkUrl": "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/why-period-validity-certificates-vaccination-or-recovery-being-shortened-365-270"
+      },
+      "invalidInThreeWeeks": {
+        "homescreenHexColor": "#ffde27",
+        "homescreenTitle": "Shortened period of validity",
+        "detailHexColor": "#ffde27",
+        "detailTitle": "Shortened period of validity",
+        "detailText": "This certificate will soon expire.",
+        "detailMoreInfo": "More information",
+        "popupTitle": "Info",
+        "popupText1": "As of 31 Jan 2022 a shortened period of validity of 270 instead of 365 days applies to COVID vaccination or recovery certificates in Switzerland. This certificate is directly affected by the shortened period of validity:",
+        "popupBoldText": "This COVID certificate will only be valid for a few days after 31 Jan 2022.",
+        "popupText2": "Please note the expiry date shown on your certificate, which from 31 Jan 2022 is calculated based on the shortened period of validity of 270 days.",
+        "popupLinkText": "More information",
+        "popupLinkUrl": "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/why-period-validity-certificates-vaccination-or-recovery-being-shortened-365-270"
+      }
+    },
+    "fr": {
+      "invalidFromFirstFebruary": {
+        "homescreenHexColor": "#ffde27",
+        "homescreenTitle": "Durée de validité réduite",
+        "detailHexColor": "#ffde27",
+        "detailTitle": "Durée de validité réduite",
+        "detailText": "Ce certificat expirera bientôt.",
+        "detailMoreInfo": "En savoir plus",
+        "popupTitle": "Info",
+        "popupText1": "À partir du 31 janvier 2022, la durée de validité en Suisse des certificats COVID pour les personnes vaccinées ou guéries est réduite de 365 à 270 jours. Ce certificat est directement concerné:",
+        "popupBoldText": "Ce certificat COVID ne peut plus être utilisé à partir du 31 janvier 2022.",
+        "popupText2": null,
+        "popupLinkText": "En savoir plus",
+        "popupLinkUrl": "https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/fr/certificat-covid/pourquoi-la-duree-de-validite-des-certificats-de-vaccination-ou-de-guerison-t-elle"
+      },
+      "invalidInThreeWeeks": {
+        "homescreenHexColor": "#ffde27",
+        "homescreenTitle": "Durée de validité réduite",
+        "detailHexColor": "#ffde27",
+        "detailTitle": "Durée de validité réduite",
+        "detailText": "Ce certificat expirera bientôt.",
+        "detailMoreInfo": "En savoir plus",
+        "popupTitle": "Info",
+        "popupText1": "À partir du 31 janvier 2022, la durée de validité en Suisse des certificats COVID pour les personnes vaccinées ou guéries est réduite de 365 à 270 jours. Ce certificat est directement concerné:",
+        "popupBoldText": "Ce certificat COVID est valable encore seulement quelques jours à partir du 31 janvier 2022.",
+        "popupText2": "Veuillez noter la date d’expiration indiquée sur le certificat, calculée à partir du 31 janvier 2022 avec la durée de validité réduite de 270 jours.",
+        "popupLinkText": "En savoir plus",
+        "popupLinkUrl": "https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/fr/certificat-covid/pourquoi-la-duree-de-validite-des-certificats-de-vaccination-ou-de-guerison-t-elle"
+      }
+    },
+    "it": {
+      "invalidFromFirstFebruary": {
+        "homescreenHexColor": "#ffde27",
+        "homescreenTitle": "Durata di validità abbreviata",
+        "detailHexColor": "#ffde27",
+        "detailTitle": "Durata di validità abbreviata",
+        "detailText": "Questo certificato sta per scadere.",
+        "detailMoreInfo": "Per saperne di più",
+        "popupTitle": "Info",
+        "popupText1": "Dal 31 gennaio 2022 in Svizzera vige una durata di validità del certificato COVID per persone vaccinate o guarite di 270 anziché di 365 giorni. Questo certificato è interessato direttamente dall’abbreviazione della durata di validità:",
+        "popupBoldText": "La scadenza della durata di validità di questo certificato COVID è il 31 gennaio 2022. Pertanto il certificato non è più utilizzabile dopo quella data.",
+        "popupText2": null,
+        "popupLinkText": "Per saperne di più",
+        "popupLinkUrl": "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/perche-la-durata-di-validita-dei-certificati-di-vaccinazione-o-di-guarigione-e"
+      },
+      "invalidInThreeWeeks": {
+        "homescreenHexColor": "#ffde27",
+        "homescreenTitle": "Durata di validità abbreviata",
+        "detailHexColor": "#ffde27",
+        "detailTitle": "Durata di validità abbreviata",
+        "detailText": "Questo certificato sta per scadere.",
+        "detailMoreInfo": "Per saperne di più",
+        "popupTitle": "Info",
+        "popupText1": "Dal 31 gennaio 2022 in Svizzera vige una durata di validità del certificato COVID per persone vaccinate o guarite di 270 anziché di 365 giorni. Questo certificato è interessato direttamente dall’abbreviazione della durata di validità:",
+        "popupBoldText": "Questo certificato COVID scade pochi giorni dopo il 31 gennaio 2022.",
+        "popupText2": "Verifichi la data di scadenza indicata sul certificato, che dal 31 gennaio 2022 è calcolata su una durata di validità ridotta a 270 giorni.",
+        "popupLinkText": "Per saperne di più",
+        "popupLinkUrl": "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/perche-la-durata-di-validita-dei-certificati-di-vaccinazione-o-di-guarigione-e"
+      }
+    },
+    "rm": {
+      "invalidFromFirstFebruary": {
+        "homescreenHexColor": "#ffde27",
+        "homescreenTitle": "Valaivladad pli curta",
+        "detailHexColor": "#ffde27",
+        "detailTitle": "Valaivladad pli curta",
+        "detailText": "Quest certificat scada bainbaud.",
+        "detailMoreInfo": "Dapli infurmaziuns",
+        "popupTitle": "Info",
+        "popupText1": "A partir dals 31-01-2022 valan en Svizra duradas da valaivladad reducidas da 270 dis empè da 365 dis per certificats COVID per persunas vaccinadas u guaridas. Quest certificat è pertutgà directamain da la valaivladad pli curta:",
+        "popupBoldText": "Quest certificat COVID na po betg pli vegnir duvrà a partir dals 31-01-2022, perquai che la durada da valaivladad è lura gia scadida.",
+        "popupText2": null,
+        "popupLinkText": "Dapli infurmaziuns",
+        "popupLinkUrl": "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine"
+      },
+      "invalidInThreeWeeks": {
+        "homescreenHexColor": "#ffde27",
+        "homescreenTitle": "Valaivladad pli curta",
+        "detailHexColor": "#ffde27",
+        "detailTitle": "Valaivladad pli curta",
+        "detailText": "Quest certificat scada bainbaud.",
+        "detailMoreInfo": "Dapli infurmaziuns",
+        "popupTitle": "Info",
+        "popupText1": "A partir dals 31-01-2022 valan en Svizra duradas da valaivladad reducidas da 270 dis empè da 365 dis per certificats COVID per persunas vaccinadas u guaridas. Quest certificat è pertutgà directamain da la valaivladad pli curta:",
+        "popupBoldText": "Quest certificat COVID è valaivel mo pli per intgins dis a partir dals 31-01-2022.",
+        "popupText2": "Resguardai per plaschair la data da scadenza inditgada sin il certificat. A partir dals 31-01-2022 vegn questa data calculada sin basa da la valaivladad pli curta da 270 dis.",
+        "popupLinkText": "Dapli infurmaziuns",
+        "popupLinkUrl": "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine"
+      }
     }
   }
 }
