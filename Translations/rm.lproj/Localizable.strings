@@ -1413,10 +1413,10 @@
 "wallet_eol_banner_invalid_in_three_weeks_popup_title" = "Info";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text1" = "A partir dals 31-01-2022 valan en Svizra duradas da valaivladad reducidas da 270 dis empè da 365 dis per certificats COVID per persunas vaccinadas u guaridas. Quest certificat è pertutgà directamain da la valaivladad pli curta:";
+"wallet_eol_banner_invalid_in_three_weeks_popup_text1" = "Dapi ils 31 da schaner 2022 valan en Svizra duradas da valaivladad reducidas da 270 empè da 365 dis per ils certificats COVID da persunas vaccinadas u guaridas. Quest certificat è pertutgà directamain da la durada da valaivladad reducida:";
 
 /*bold text box for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_bold_text" = "Quest certificat COVID è valaivel mo pli per intgins dis a partir dals 31-01-2022.";
+"wallet_eol_banner_invalid_in_three_weeks_popup_bold_text" = "Quest certificat COVID vala mo pli durant paucs dis.";
 
 /*link text for pop up. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_popup_link_text" = "Dapli infurmaziuns";
@@ -1452,4 +1452,4 @@
 "wallet_eol_banner_invalid_from_first_february_popup_link_url" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Resguardai per plaschair la data da scadenza inditgada sin il certificat. A partir dals 31-01-2022 vegn questa data calculada sin basa da la valaivladad pli curta da 270 dis.";
+"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Resguardai per plaschair la nova data da scadenza sin il certificat. Dapi ils 31 da schaner 2022 vegn questa data calculada sin basa da la durada da valaivladad reducida da 270 dis.";

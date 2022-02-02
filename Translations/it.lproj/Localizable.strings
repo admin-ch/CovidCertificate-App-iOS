@@ -1413,10 +1413,10 @@
 "wallet_eol_banner_invalid_in_three_weeks_popup_title" = "Info";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text1" = "Dal 31 gennaio 2022 in Svizzera vige una durata di validità del certificato COVID per persone vaccinate o guarite di 270 anziché di 365 giorni. Questo certificato è interessato direttamente dall’abbreviazione della durata di validità:";
+"wallet_eol_banner_invalid_in_three_weeks_popup_text1" = "Dal 31 gennaio 2022 in Svizzera si applica una durata di validità abbreviata da 365 a 270 giorni per i certificati COVID per persone vaccinate o guarite. Questo certificato è direttamente interessato dalla durata di validità abbreviata:";
 
 /*bold text box for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_bold_text" = "Questo certificato COVID scade pochi giorni dopo il 31 gennaio 2022.";
+"wallet_eol_banner_invalid_in_three_weeks_popup_bold_text" = "Questo certificato COVID è ancora valido soltanto per pochi giorni.";
 
 /*link text for pop up. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_popup_link_text" = "Per saperne di più";
@@ -1452,4 +1452,4 @@
 "wallet_eol_banner_invalid_from_first_february_popup_link_url" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/perche-la-durata-di-validita-dei-certificati-di-vaccinazione-o-di-guarigione-e";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Verifichi la data di scadenza indicata sul certificato, che dal 31 gennaio 2022 è calcolata su una durata di validità ridotta a 270 giorni.";
+"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Si prega di notare la nuova data di scadenza indicata sul certificato, che dal 31 gennaio 2022 è calcolata sulla base della durata di validità abbreviata di 270 giorni.";

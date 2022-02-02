@@ -1413,10 +1413,10 @@
 "wallet_eol_banner_invalid_in_three_weeks_popup_title" = "Info";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text1" = "À partir du 31 janvier 2022, la durée de validité en Suisse des certificats COVID pour les personnes vaccinées ou guéries est réduite de 365 à 270 jours. Ce certificat est directement concerné:";
+"wallet_eol_banner_invalid_in_three_weeks_popup_text1" = "Depuis le 31 janvier 2022, la durée de validité des certificats COVID pour personnes vaccinées ou guéries a été raccourcie de 365 à 270 jours en Suisse. La nouvelle durée de validité réduite a été directement appliquée à ce certificat:";
 
 /*bold text box for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_bold_text" = "Ce certificat COVID est valable encore seulement quelques jours à partir du 31 janvier 2022.";
+"wallet_eol_banner_invalid_in_three_weeks_popup_bold_text" = "Ce certificat COVID est encore valable quelques jours.";
 
 /*link text for pop up. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_popup_link_text" = "En savoir plus";
@@ -1452,4 +1452,4 @@
 "wallet_eol_banner_invalid_from_first_february_popup_link_url" = "https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/fr/certificat-covid/pourquoi-la-duree-de-validite-des-certificats-de-vaccination-ou-de-guerison-t-elle";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Veuillez noter la date d’expiration indiquée sur le certificat, calculée à partir du 31 janvier 2022 avec la durée de validité réduite de 270 jours.";
+"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Nous attirons votre attention sur la nouvelle date de fin de validité affichée qui correspond à la durée réduite de 270 jours en vigueur depuis le 31 janvier 2022.";

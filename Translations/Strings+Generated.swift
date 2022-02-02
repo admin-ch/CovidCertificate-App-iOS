@@ -716,15 +716,15 @@ import Foundation
      case wallet_eol_banner_invalid_in_three_weeks_detail_title_key = "wallet_eol_banner_invalid_in_three_weeks_detail_title"
     /// Verkürzte Gültigkeitsdauer
      case wallet_eol_banner_invalid_in_three_weeks_homescreen_title_key = "wallet_eol_banner_invalid_in_three_weeks_homescreen_title"
-    /// Dieses Covid-Zertifikat ist ab dem 31. Jan. 2022 nur noch wenige Tage gültig.
+    /// Dieses Covid-Zertifikat ist nur noch wenige Tage gültig.
      case wallet_eol_banner_invalid_in_three_weeks_popup_bold_text_key = "wallet_eol_banner_invalid_in_three_weeks_popup_bold_text"
     /// Mehr erfahren
      case wallet_eol_banner_invalid_in_three_weeks_popup_link_text_key = "wallet_eol_banner_invalid_in_three_weeks_popup_link_text"
     /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine
      case wallet_eol_banner_invalid_in_three_weeks_popup_link_url_key = "wallet_eol_banner_invalid_in_three_weeks_popup_link_url"
-    /// Per 31. Jan. 2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:
+    /// Seit dem 31. Jan. 2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:
      case wallet_eol_banner_invalid_in_three_weeks_popup_text1_key = "wallet_eol_banner_invalid_in_three_weeks_popup_text1"
-    /// Bitte beachten Sie das auf dem Zertifikat ausgewiesene Ablaufdatum, welches ab dem 31.1.2022 mit der reduzierten Gültigkeitsdauer von 270 Tagen berechnet wird.
+    /// Bitte beachten Sie das auf dem Zertifikat ausgewiesene neue Ablaufdatum, welches seit dem 31. Jan. 2022 mit einer reduzierten Gültigkeitsdauer von 270 Tagen berechnet wird.
      case wallet_eol_banner_invalid_in_three_weeks_popup_text2_key = "wallet_eol_banner_invalid_in_three_weeks_popup_text2"
     /// Info
      case wallet_eol_banner_invalid_in_three_weeks_popup_title_key = "wallet_eol_banner_invalid_in_three_weeks_popup_title"
@@ -1794,15 +1794,15 @@ import Foundation
    static let wallet_eol_banner_invalid_in_three_weeks_detail_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_detail_title_key)
   /// Verkürzte Gültigkeitsdauer
    static let wallet_eol_banner_invalid_in_three_weeks_homescreen_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_homescreen_title_key)
-  /// Dieses Covid-Zertifikat ist ab dem 31. Jan. 2022 nur noch wenige Tage gültig.
+  /// Dieses Covid-Zertifikat ist nur noch wenige Tage gültig.
    static let wallet_eol_banner_invalid_in_three_weeks_popup_bold_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_bold_text_key)
   /// Mehr erfahren
    static let wallet_eol_banner_invalid_in_three_weeks_popup_link_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_link_text_key)
   /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine
    static let wallet_eol_banner_invalid_in_three_weeks_popup_link_url = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_link_url_key)
-  /// Per 31. Jan. 2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:
+  /// Seit dem 31. Jan. 2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:
    static let wallet_eol_banner_invalid_in_three_weeks_popup_text1 = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_text1_key)
-  /// Bitte beachten Sie das auf dem Zertifikat ausgewiesene Ablaufdatum, welches ab dem 31.1.2022 mit der reduzierten Gültigkeitsdauer von 270 Tagen berechnet wird.
+  /// Bitte beachten Sie das auf dem Zertifikat ausgewiesene neue Ablaufdatum, welches seit dem 31. Jan. 2022 mit einer reduzierten Gültigkeitsdauer von 270 Tagen berechnet wird.
    static let wallet_eol_banner_invalid_in_three_weeks_popup_text2 = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_text2_key)
   /// Info
    static let wallet_eol_banner_invalid_in_three_weeks_popup_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_title_key)
