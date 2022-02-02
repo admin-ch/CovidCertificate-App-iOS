@@ -19,6 +19,17 @@
 			name = Translation;
 			productName = Translation;
 		};
+		F829A75627AA841A00AE7FA2 /* Update Configs */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F829A75B27AA841A00AE7FA2 /* Build configuration list for PBXAggregateTarget "Update Configs" */;
+			buildPhases = (
+				F829A75C27AA842300AE7FA2 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Update Configs";
+			productName = "Update Configs";
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -1610,6 +1621,9 @@
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 8E81CC94241FCC7D006F2437;
 					};
+					F829A75627AA841A00AE7FA2 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 				};
 			};
 			buildConfigurationList = 8E81CC90241FCC7D006F2437 /* Build configuration list for PBXProject "CovidCertificate" */;
@@ -1638,6 +1652,7 @@
 				8E81CCAA241FCC7F006F2437 /* CovidCertificateTests */,
 				F811916E278888B8007FC484 /* CovidCertificateWalletUITests */,
 				8E81CCC2241FD475006F2437 /* Translation */,
+				F829A75627AA841A00AE7FA2 /* Update Configs */,
 			);
 		};
 /* End PBXProject section */
@@ -1864,6 +1879,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "PATH=${PATH}:/usr/local/bin:/opt/homebrew/bin # Pick up swiftgen from Homebrew\n\nif ! [ -x \"$(command -v swiftgen)\" ]; then\n  echo 'Error: swiftgen not installed. Download it via Homebrew `brew install swiftgen` or directly from https://github.com/SwiftGen/SwiftGen' >&2\n  exit 1\nfi\necho \"Generating strings...\"\npwd\nswiftgen\n";
+		};
+		F829A75C27AA842300AE7FA2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "curl \"https://www.cc-a.bit.admin.ch/app/verifier/v1/config?appversion=ios-$MARKETING_VERSION&buildnr=ios-20200000.0.0&osversion=ios15.1\" | jq > $SRCROOT/CovidCertificate/Resources/Config/config_check.json\n\ncurl \"https://www.cc-a.bit.admin.ch/app/wallet/v1/config?appversion=ios-$MARKETING_VERSION&buildnr=ios-20200000.0.0&osversion=ios15.1\" | jq > $SRCROOT/CovidCertificate/Resources/Config/config_wallet.json\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3091,6 +3123,42 @@
 			};
 			name = "Release-Prod";
 		};
+		F829A75727AA841A00AE7FA2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JH7CQD4MLU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F829A75827AA841A00AE7FA2 /* Release-Abnahme */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JH7CQD4MLU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "Release-Abnahme";
+		};
+		F829A75927AA841A00AE7FA2 /* Release-Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JH7CQD4MLU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "Release-Dev";
+		};
+		F829A75A27AA841A00AE7FA2 /* Release-Prod */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JH7CQD4MLU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = "Release-Prod";
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3156,6 +3224,17 @@
 				F8119176278888B8007FC484 /* Release-Abnahme */,
 				F8119177278888B8007FC484 /* Release-Dev */,
 				F8119178278888B8007FC484 /* Release-Prod */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F829A75B27AA841A00AE7FA2 /* Build configuration list for PBXAggregateTarget "Update Configs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F829A75727AA841A00AE7FA2 /* Debug */,
+				F829A75827AA841A00AE7FA2 /* Release-Abnahme */,
+				F829A75927AA841A00AE7FA2 /* Release-Dev */,
+				F829A75A27AA841A00AE7FA2 /* Release-Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
