@@ -220,7 +220,7 @@
 "wallet_faq_questions_answer_4" = "Il codice QR sul certificato COVID contiene una firma elettronica. Questa firma è un elemento di sicurezza importante e garantisce che il certificato non possa essere falsificato. Inoltre, il certificato COVID è valido solo con un documento di legittimazione.";
 
 /*Antwort 5 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_5" = "Il Suo certificato COVID non è salvato su un sistema centrale. Lei ne ha il possesso esclusivo. Conservi quindi con cura il certificato COVID su carta. In caso di smarrimento, dovrà richiedere un nuovo certificato presso l'ufficio che lo ha emesso.";
+"wallet_faq_questions_answer_5" = "Il Suo certificato COVID non è salvato su un sistema centrale, Lei ne ha il possesso esclusivo. Conservi quindi con cura il certificato COVID su carta e/o in formato PDF. In caso di smarrimento e sostituzione potrà essere riscosso un emolumento.";
 
 /*Antwort 6 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_1" = "Per inserire sull'app un certificato COVID serve il certificato originale rilasciatole su carta o in formato PDF. Utilizzando l'app COVID Certificate può aggiungere il certificato inquadrando il codice QR raffigurato sul certificato. In questo modo, il certificato COVID appare direttamente sull'app.";
@@ -1035,7 +1035,7 @@
 "vaccination_booking_ow_name" = "Obvaldo";
 
 /*url for booking an appointment for vaccination for canton ow*/
-"vaccination_booking_ow_url" = "https://www.ow.ch/de/verwaltung/dienstleistungen/?dienst_id=5962#Impfung";
+"vaccination_booking_ow_url" = "https://www.ow.ch/dienstleistungen/7129";
 
 /*canton name sg*/
 "vaccination_booking_sg_name" = "San Gallo";
@@ -1104,12 +1104,6 @@
 "vaccination_booking_zh_url" = "http://www.zh.ch/coronaimpfung";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_1" = "Fatti vaccinare ora!";
-
-/*vaccination hint box text*/
-"vaccination_hint_text_1" = "Con la vaccinazione anti-COVID-19 puoi rinunciare ai test ripetuti.";
-
-/*vaccination hint box title*/
 "vaccination_hint_title_2" = "Fatti vaccinare ora!";
 
 /*vaccination hint box text*/
@@ -1150,12 +1144,6 @@
 
 /*vaccination hint box text*/
 "vaccination_hint_text_8" = "Con la vaccinazione anti-COVID-19 puoi contribuire a sgravare il sistema sanitario.";
-
-/*vaccination hint box title*/
-"vaccination_hint_title_9" = "Fatti vaccinare ora!";
-
-/*vaccination hint box text*/
-"vaccination_hint_text_9" = "Con la vaccinazione anti-COVID-19 puoi contribuire a fare in modo che tornino le libertà della vita quotidiana.";
 
 /*vaccination booking info screen title*/
 "vaccination_booking_info_title" = "Prendi appuntamento per la vaccinazione nelle tue vicinanze";
@@ -1382,7 +1370,7 @@
 "wallet_certificate_ausnahme_issued_country" = "Certificato medico rilasciato in";
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
-"wallet_certificate_detail_note_ausnahme" = "La presente attestazione non costituisce un documento di viaggio. \n\nQuesto certificato ha soltanto una validità temporanea. L'applicazione «COVID Certificate» consente di verificare in qualsiasi momento l'attuale durata di validità in Svizzera. \n\nAlle manifestazioni e nelle strutture per le quali vige l’obbligo del certificato, il titolare può essere tenuto a portare una mascherina facciale, conformemente al piano di protezione applicabile.";
+"wallet_certificate_detail_note_ausnahme" = "La presente attestazione non costituisce un documento di viaggio. \n\nQuesto certificato ha soltanto una validità temporanea. L'applicazione «COVID Certificate» consente di verificare in qualsiasi momento l'attuale durata di validità in Svizzera.";
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Eccezione";
@@ -1453,3 +1441,18 @@
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Si prega di notare la nuova data di scadenza indicata sul certificato, che dal 31 gennaio 2022 è calcolata sulla base della durata di validità abbreviata di 270 giorni.";
+
+/*Fuzzy*/
+"infobox_generic_title" = "Mettete al sicuro il vostro certificato!";
+
+/*Fuzzy*/
+"infobox_generic_text" = "Se cancellate l’app, cambiate o smarrite il vostro smartphone, anche i vostri certificati COVID andranno persi. \nConservate quindi i vostri certificati anche al di fuori dell’app esportandoli in formato PDF.";
+
+/*Fuzzy*/
+"infobox_generic_button" = "Per maggiori informazioni";
+
+/*Fuzzy*/
+"infobox_generic_url_android" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/ho-il-certificato-covid-esclusivamente-formato-elettronico-nellapp-covid";
+
+/*Fuzzy*/
+"infobox_generic_url_ios" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/ho-il-certificato-covid-esclusivamente-formato-elettronico-nellapp-covid";

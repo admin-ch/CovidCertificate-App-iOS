@@ -220,7 +220,7 @@
 "wallet_faq_questions_answer_4" = "Le code QR figurant sur le certificat COVID contient une signature électronique. Celle-ci est une caractéristique de sécurité importante qui rend le certificat infalsifiable. En outre, le certificat COVID n'est valable que sur présentation d'une pièce d'identité.";
 
 /*Antwort 5 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_5" = "Votre certificat COVID n'est pas stocké dans un système central. Vous en êtes le seul détenteur. Veuillez donc conserver soigneusement le document papier. En cas de perte, vous devrez demander au service émetteur de vous délivrer un nouveau certificat.";
+"wallet_faq_questions_answer_5" = "Votre certificat COVID n'est pas stocké dans un système central; il est exclusivement en votre possession. Par conséquent, nous vous recommandons de le conserver sur papier ou au format PDF dans un endroit sûr. En cas de perte ou de remplacement, le paiement d'un émolument peut être exigé.";
 
 /*Antwort 6 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_1" = "Pour ajouter un certificat COVID à l'app, vous avez besoin du certificat original qui vous a été délivré sur papier ou par voie électronique, au format PDF. Au moyen de l'app, vous pouvez scanner le code QR figurant sur ce document. Ensuite, le certificat COVID apparaît directement dans l'app.";
@@ -1035,7 +1035,7 @@
 "vaccination_booking_ow_name" = "Obwald";
 
 /*url for booking an appointment for vaccination for canton ow*/
-"vaccination_booking_ow_url" = "https://www.ow.ch/de/verwaltung/dienstleistungen/?dienst_id=5962#Impfung";
+"vaccination_booking_ow_url" = "https://www.ow.ch/dienstleistungen/7129";
 
 /*canton name sg*/
 "vaccination_booking_sg_name" = "Saint-Gall";
@@ -1104,12 +1104,6 @@
 "vaccination_booking_zh_url" = "http://www.zh.ch/coronaimpfung";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_1" = "Faites-vous vacciner sans plus attendre !";
-
-/*vaccination hint box text*/
-"vaccination_hint_text_1" = "La vaccination contre le COVID-19 vous permet d’éviter les tests répétés.";
-
-/*vaccination hint box title*/
 "vaccination_hint_title_2" = "Faites-vous vacciner sans plus attendre !";
 
 /*vaccination hint box text*/
@@ -1150,12 +1144,6 @@
 
 /*vaccination hint box text*/
 "vaccination_hint_text_8" = "Grâce à la vaccination contre le COVID-19, vous pouvez contribuer à décharger le système de santé.";
-
-/*vaccination hint box title*/
-"vaccination_hint_title_9" = "Faites-vous vacciner sans plus attendre !";
-
-/*vaccination hint box text*/
-"vaccination_hint_text_9" = "Grâce à la vaccination contre le COVID-19, vous pouvez contribuer à rétablir les libertés de la vie quotidienne.";
 
 /*vaccination booking info screen title*/
 "vaccination_booking_info_title" = "Prendre un rendez-vous de vaccination près de chez vous";
@@ -1382,7 +1370,7 @@
 "wallet_certificate_ausnahme_issued_country" = "Attestation médicale délivrée en";
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
-"wallet_certificate_detail_note_ausnahme" = "Le présent certificat n'est pas un document de voyage. \n\nCe certificat n'a qu'une durée de validité limitée. L'application «COVID Certificate» vous permet en tout temps de vérifier la durée de validité actuellement déterminante en Suisse. \n\nEn fonction des mesures de protection applicables, le ou la titulaire d'un certificat peut être tenu/e de porter un masque dans le cadre de manifestations et dans les lieux où la présentation d'un certificat COVID-19 est obligatoire.";
+"wallet_certificate_detail_note_ausnahme" = "Le présent certificat n'est pas un document de voyage. \n\nCe certificat n'a qu'une durée de validité limitée. L'application «COVID Certificate» vous permet en tout temps de vérifier la durée de validité actuellement déterminante en Suisse.";
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Exception";
@@ -1453,3 +1441,18 @@
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Nous attirons votre attention sur la nouvelle date de fin de validité affichée qui correspond à la durée réduite de 270 jours en vigueur depuis le 31 janvier 2022.";
+
+/*Fuzzy*/
+"infobox_generic_title" = "Sauvegardez vos certificats!";
+
+/*Fuzzy*/
+"infobox_generic_text" = "Si vous supprimez l’application, changez de smartphone ou le perdez, vos certificats COVID seront également perdus.\nConservez donc vos certificats en dehors de l’application en les exportant au format PDF.";
+
+/*Fuzzy*/
+"infobox_generic_button" = "Plus d’informations";
+
+/*Fuzzy*/
+"infobox_generic_url_android" = "https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/fr/certificat-covid/mon-certificat-covid-nest-disponible-quau-format-electronique-dans-lapplication";
+
+/*Fuzzy*/
+"infobox_generic_url_ios" = "https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/fr/certificat-covid/mon-certificat-covid-nest-disponible-quau-format-electronique-dans-lapplication";
