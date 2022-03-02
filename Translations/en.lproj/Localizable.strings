@@ -220,7 +220,7 @@
 "wallet_faq_questions_answer_4" = "The COVID certificate QR code contains an electronic signature. This is an important security feature and makes the COVID certificate forgery-proof. Moreover, the COVID certificate is valid only in combination with an identification document (passport or ID card).";
 
 /*Antwort 5 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_5" = "Your COVID certificate is not stored in any central system. It is solely in your possession. Therefore, keep your paper COVID certificate in a safe place. If you lose the COVID certificate, you will have to request it again from the issuing office";
+"wallet_faq_questions_answer_5" = "Your COVID-19 certificate is not stored in any central system. It is solely in your possession. Therefore, keep your paper and/or PDF COVID-19 certificate in a safe place. If you lose your certificate and need to replace it, a fee may be charged.";
 
 /*Antwort 6 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_1" = "To add a COVID certificate to the app, you need the original certificate issued to you on paper or as a PDF document. You can use the COVID certificate app to scan the QR code on the original and add it to the app. The COVID certificate will then appear directly in the app.";
@@ -1035,7 +1035,7 @@
 "vaccination_booking_ow_name" = "Obwalden";
 
 /*url for booking an appointment for vaccination for canton ow*/
-"vaccination_booking_ow_url" = "https://www.ow.ch/de/verwaltung/dienstleistungen/?dienst_id=5962#Impfung";
+"vaccination_booking_ow_url" = "https://www.ow.ch/dienstleistungen/7129";
 
 /*canton name sg*/
 "vaccination_booking_sg_name" = "St. Gallen";
@@ -1104,12 +1104,6 @@
 "vaccination_booking_zh_url" = "http://www.zh.ch/coronaimpfung";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_1" = "Get vaccinated today!";
-
-/*vaccination hint box text*/
-"vaccination_hint_text_1" = "Being vaccinated against COVID-19 means no more repeat testing. ";
-
-/*vaccination hint box title*/
 "vaccination_hint_title_2" = "Get vaccinated today!";
 
 /*vaccination hint box text*/
@@ -1150,12 +1144,6 @@
 
 /*vaccination hint box text*/
 "vaccination_hint_text_8" = "Being vaccinated against COVID-19 means helping to relieve the pressure on the health system.";
-
-/*vaccination hint box title*/
-"vaccination_hint_title_9" = "Get vaccinated today!";
-
-/*vaccination hint box text*/
-"vaccination_hint_text_9" = "Being vaccinated against COVID-19 means helping us get our everyday freedoms back.";
 
 /*vaccination booking info screen title*/
 "vaccination_booking_info_title" = "Book a vaccination appointment near you";
@@ -1382,7 +1370,7 @@
 "wallet_certificate_ausnahme_issued_country" = "Medical certificate issued in";
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
-"wallet_certificate_detail_note_ausnahme" = "This certificate is not a travel document. \n\nThis certificate is only valid for a limited period of time. You can check the current duration of validity in Switzerland at any time using the COVID Certificate app. \n\nThe holder may be required to wear a face mask at events and facilities requiring a certificate, in accordance with the applicable precautionary measures.";
+"wallet_certificate_detail_note_ausnahme" = "This certificate is not a travel document. \n\nThis certificate is only valid for a limited period of time. You can check the current duration of validity in Switzerland at any time using the COVID Certificate app.";
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Exception";
@@ -1453,3 +1441,18 @@
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Please note the new expiry date shown on the certificate, which since 31 January 2022 has been calculated on the basis of the reduced period of validity of 270 days.";
+
+/*Fuzzy*/
+"infobox_generic_title" = "Back up your certificate!";
+
+/*Fuzzy*/
+"infobox_generic_text" = "If you uninstall the app or change or lose your smartphone, you will also lose your COVID certificates.\nThis means you should also keep a copy of your certificates outside the app by exporting them as PDFs.";
+
+/*Fuzzy*/
+"infobox_generic_button" = "Find out more";
+
+/*Fuzzy*/
+"infobox_generic_url_android" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/i-only-have-my-covid-certificate-electronically-covid-certificate-app-how-can-i";
+
+/*Fuzzy*/
+"infobox_generic_url_ios" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/i-only-have-my-covid-certificate-electronically-covid-certificate-app-how-can-i";

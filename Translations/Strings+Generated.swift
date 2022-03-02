@@ -106,6 +106,16 @@ import Foundation
      case force_update_title_key = "force_update_title"
     /// Impressum
      case impressum_title_key = "impressum_title"
+    /// Mehr erfahren
+     case infobox_generic_button_key = "infobox_generic_button"
+    /// Wenn Sie die App löschen, Ihr Smartphone wechseln oder verlieren, gehen auch Ihre Covid-Zertifikate verloren.\nBewahren Sie Ihre Zertifikate daher auch ausserhalb der App auf, indem Sie diese als PDF exportieren.
+     case infobox_generic_text_key = "infobox_generic_text"
+    /// Zertifikat sichern!
+     case infobox_generic_title_key = "infobox_generic_title"
+    /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate
+     case infobox_generic_url_android_key = "infobox_generic_url_android"
+    /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate
+     case infobox_generic_url_ios_key = "infobox_generic_url_ios"
     /// Aktualisieren
      case infobox_update_button_key = "infobox_update_button"
     /// Laden Sie die neue Version der App.
@@ -198,7 +208,7 @@ import Foundation
      case vaccination_booking_nw_url_key = "vaccination_booking_nw_url"
     /// Obwalden
      case vaccination_booking_ow_name_key = "vaccination_booking_ow_name"
-    /// https://www.ow.ch/de/verwaltung/dienstleistungen/?dienst_id=5962#Impfung
+    /// https://www.ow.ch/dienstleistungen/7129
      case vaccination_booking_ow_url_key = "vaccination_booking_ow_url"
     /// St. Gallen
      case vaccination_booking_sg_name_key = "vaccination_booking_sg_name"
@@ -246,8 +256,6 @@ import Foundation
      case vaccination_booking_zh_url_key = "vaccination_booking_zh_url"
     /// Wählen Sie Ihren Kanton
      case vaccination_choose_your_canton_key = "vaccination_choose_your_canton"
-    /// Mit der Covid-19-Impfung können Sie auf das wiederholte Testen verzichten.
-     case vaccination_hint_text_1_key = "vaccination_hint_text_1"
     /// Mit der Covid-19-Impfung können Sie unbeschwert in die meisten Länder reisen.
      case vaccination_hint_text_2_key = "vaccination_hint_text_2"
     /// Mit der Covid-19-Impfung können Sie sich vor Erkrankung und einem allfälligen schweren Verlauf schützen.
@@ -262,10 +270,6 @@ import Foundation
      case vaccination_hint_text_7_key = "vaccination_hint_text_7"
     /// Mit der Covid-19-Impfung können Sie dazu beitragen, das Gesundheitswesen zu entlasten.
      case vaccination_hint_text_8_key = "vaccination_hint_text_8"
-    /// Mit der Covid-19-Impfung können Sie dazu beitragen, die Freiheiten des Alltags zurückzubringen.
-     case vaccination_hint_text_9_key = "vaccination_hint_text_9"
-    /// Jetzt impfen lassen!
-     case vaccination_hint_title_1_key = "vaccination_hint_title_1"
     /// Jetzt impfen lassen!
      case vaccination_hint_title_2_key = "vaccination_hint_title_2"
     /// Jetzt impfen lassen!
@@ -280,8 +284,6 @@ import Foundation
      case vaccination_hint_title_7_key = "vaccination_hint_title_7"
     /// Jetzt impfen lassen!
      case vaccination_hint_title_8_key = "vaccination_hint_title_8"
-    /// Jetzt impfen lassen!
-     case vaccination_hint_title_9_key = "vaccination_hint_title_9"
     /// Impftermin buchen
      case vaccination_homescreen_button_title_key = "vaccination_homescreen_button_title"
     /// Zum Impf-Check
@@ -534,7 +536,7 @@ import Foundation
      case wallet_certificate_detail_export_button_key = "wallet_certificate_detail_export_button"
     /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
      case wallet_certificate_detail_note_key = "wallet_certificate_detail_note"
-    /// Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen. \n\nDie Inhaberin oder der Inhaber kann entsprechend dem jeweils gültigen Schutzkonzept bei zertifikatspflichtigen Veranstaltungen und Einrichtungen verpflichtet sein, eine Gesichtsmaske zu tragen.
+    /// Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
      case wallet_certificate_detail_note_ausnahme_key = "wallet_certificate_detail_note_ausnahme"
     /// Dieses Zertifikat ist kein Reisedokument.\n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
      case wallet_certificate_detail_note_positive_antigen_key = "wallet_certificate_detail_note_positive_antigen"
@@ -762,7 +764,7 @@ import Foundation
      case wallet_faq_questions_answer_3_key = "wallet_faq_questions_answer_3"
     /// Der QR-Code auf dem Covid-Zertifikat enthält eine elektronische Signatur. Die Signatur ist ein wichtiges Sicherheitsmerkmal und macht das Covid-Zertifikat fälschungssicher. Das Covid-Zertifikat ist zudem nur in Kombination mit einem Ausweisdokument gültig.
      case wallet_faq_questions_answer_4_key = "wallet_faq_questions_answer_4"
-    /// Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier deshalb sorgfältig auf. Bei Verlust müssen Sie das Covid-Zertifikat erneut bei der ausgebenden Stelle anfragen.
+    /// Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier und/oder als PDF deshalb sorgfältig auf. Bei Verlust und Bedarf nach einem Ersatz kann eine Gebühr erhoben werden.
      case wallet_faq_questions_answer_5_key = "wallet_faq_questions_answer_5"
     /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von {LIGHT_CERT_VALIDITY_IN_H} Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der {LIGHT_CERT_VALIDITY_IN_H} Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
      case wallet_faq_questions_answer_6_key = "wallet_faq_questions_answer_6"
@@ -804,7 +806,7 @@ import Foundation
      case wallet_faq_works_answer_4_key = "wallet_faq_works_answer_4"
     /// Der QR-Code enthält alle Informationen, die Sie auf Ihrem Covid-Zertifikat in Papierform im Klartext finden. Weiter befindet sich im QR-Code eine elektronische Signatur, mit der sich die Echtheit des Covid-Zertifikats überprüfen lässt. Dadurch wird das Covid-Zertifikat fälschungssicher.
      case wallet_faq_works_answer_5_key = "wallet_faq_works_answer_5"
-    /// In der «COVID Certificate»-App finden Sie in der Detailansicht des elektronische Covid-Zertifikats die Funktion «Exportieren». Damit können Sie ein PDF erstellen, dieses speichern und ausdrucken.
+    /// In der «COVID Certificate»-App finden Sie in der Detailansicht des elektronischen Covid-Zertifikats die Funktion «Exportieren». Damit können Sie ein PDF erstellen, dieses speichern und ausdrucken.
      case wallet_faq_works_answer_5_1_key = "wallet_faq_works_answer_5_1"
     /// Sie können Ihr Covid-Zertifikat einfach wieder auf Ihrem Mobilgerät speichern. Laden Sie dazu die App erneut herunter und scannen Sie anschliessend den QR-Code auf Ihrem Covid-Zertifikat auf Papier oder als PDF.
      case wallet_faq_works_answer_6_key = "wallet_faq_works_answer_6"
@@ -1184,6 +1186,16 @@ import Foundation
    static let force_update_title = UBLocalized.tr(UBLocalizedKey.force_update_title_key)
   /// Impressum
    static let impressum_title = UBLocalized.tr(UBLocalizedKey.impressum_title_key)
+  /// Mehr erfahren
+   static let infobox_generic_button = UBLocalized.tr(UBLocalizedKey.infobox_generic_button_key)
+  /// Wenn Sie die App löschen, Ihr Smartphone wechseln oder verlieren, gehen auch Ihre Covid-Zertifikate verloren.\nBewahren Sie Ihre Zertifikate daher auch ausserhalb der App auf, indem Sie diese als PDF exportieren.
+   static let infobox_generic_text = UBLocalized.tr(UBLocalizedKey.infobox_generic_text_key)
+  /// Zertifikat sichern!
+   static let infobox_generic_title = UBLocalized.tr(UBLocalizedKey.infobox_generic_title_key)
+  /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate
+   static let infobox_generic_url_android = UBLocalized.tr(UBLocalizedKey.infobox_generic_url_android_key)
+  /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate
+   static let infobox_generic_url_ios = UBLocalized.tr(UBLocalizedKey.infobox_generic_url_ios_key)
   /// Aktualisieren
    static let infobox_update_button = UBLocalized.tr(UBLocalizedKey.infobox_update_button_key)
   /// Laden Sie die neue Version der App.
@@ -1276,7 +1288,7 @@ import Foundation
    static let vaccination_booking_nw_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_nw_url_key)
   /// Obwalden
    static let vaccination_booking_ow_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ow_name_key)
-  /// https://www.ow.ch/de/verwaltung/dienstleistungen/?dienst_id=5962#Impfung
+  /// https://www.ow.ch/dienstleistungen/7129
    static let vaccination_booking_ow_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ow_url_key)
   /// St. Gallen
    static let vaccination_booking_sg_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sg_name_key)
@@ -1324,8 +1336,6 @@ import Foundation
    static let vaccination_booking_zh_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_zh_url_key)
   /// Wählen Sie Ihren Kanton
    static let vaccination_choose_your_canton = UBLocalized.tr(UBLocalizedKey.vaccination_choose_your_canton_key)
-  /// Mit der Covid-19-Impfung können Sie auf das wiederholte Testen verzichten.
-   static let vaccination_hint_text_1 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_1_key)
   /// Mit der Covid-19-Impfung können Sie unbeschwert in die meisten Länder reisen.
    static let vaccination_hint_text_2 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_2_key)
   /// Mit der Covid-19-Impfung können Sie sich vor Erkrankung und einem allfälligen schweren Verlauf schützen.
@@ -1340,10 +1350,6 @@ import Foundation
    static let vaccination_hint_text_7 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_7_key)
   /// Mit der Covid-19-Impfung können Sie dazu beitragen, das Gesundheitswesen zu entlasten.
    static let vaccination_hint_text_8 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_8_key)
-  /// Mit der Covid-19-Impfung können Sie dazu beitragen, die Freiheiten des Alltags zurückzubringen.
-   static let vaccination_hint_text_9 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_9_key)
-  /// Jetzt impfen lassen!
-   static let vaccination_hint_title_1 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_1_key)
   /// Jetzt impfen lassen!
    static let vaccination_hint_title_2 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_2_key)
   /// Jetzt impfen lassen!
@@ -1358,8 +1364,6 @@ import Foundation
    static let vaccination_hint_title_7 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_7_key)
   /// Jetzt impfen lassen!
    static let vaccination_hint_title_8 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_8_key)
-  /// Jetzt impfen lassen!
-   static let vaccination_hint_title_9 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_9_key)
   /// Impftermin buchen
    static let vaccination_homescreen_button_title = UBLocalized.tr(UBLocalizedKey.vaccination_homescreen_button_title_key)
   /// Zum Impf-Check
@@ -1612,7 +1616,7 @@ import Foundation
    static let wallet_certificate_detail_export_button = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_export_button_key)
   /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
    static let wallet_certificate_detail_note = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_key)
-  /// Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen. \n\nDie Inhaberin oder der Inhaber kann entsprechend dem jeweils gültigen Schutzkonzept bei zertifikatspflichtigen Veranstaltungen und Einrichtungen verpflichtet sein, eine Gesichtsmaske zu tragen.
+  /// Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
    static let wallet_certificate_detail_note_ausnahme = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_ausnahme_key)
   /// Dieses Zertifikat ist kein Reisedokument.\n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
    static let wallet_certificate_detail_note_positive_antigen = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_positive_antigen_key)
@@ -1840,7 +1844,7 @@ import Foundation
    static let wallet_faq_questions_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_3_key)
   /// Der QR-Code auf dem Covid-Zertifikat enthält eine elektronische Signatur. Die Signatur ist ein wichtiges Sicherheitsmerkmal und macht das Covid-Zertifikat fälschungssicher. Das Covid-Zertifikat ist zudem nur in Kombination mit einem Ausweisdokument gültig.
    static let wallet_faq_questions_answer_4 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_4_key)
-  /// Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier deshalb sorgfältig auf. Bei Verlust müssen Sie das Covid-Zertifikat erneut bei der ausgebenden Stelle anfragen.
+  /// Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier und/oder als PDF deshalb sorgfältig auf. Bei Verlust und Bedarf nach einem Ersatz kann eine Gebühr erhoben werden.
    static let wallet_faq_questions_answer_5 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_5_key)
   /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von {LIGHT_CERT_VALIDITY_IN_H} Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der {LIGHT_CERT_VALIDITY_IN_H} Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
    static let wallet_faq_questions_answer_6 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_6_key)
@@ -1882,7 +1886,7 @@ import Foundation
    static let wallet_faq_works_answer_4 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_4_key)
   /// Der QR-Code enthält alle Informationen, die Sie auf Ihrem Covid-Zertifikat in Papierform im Klartext finden. Weiter befindet sich im QR-Code eine elektronische Signatur, mit der sich die Echtheit des Covid-Zertifikats überprüfen lässt. Dadurch wird das Covid-Zertifikat fälschungssicher.
    static let wallet_faq_works_answer_5 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_5_key)
-  /// In der «COVID Certificate»-App finden Sie in der Detailansicht des elektronische Covid-Zertifikats die Funktion «Exportieren». Damit können Sie ein PDF erstellen, dieses speichern und ausdrucken.
+  /// In der «COVID Certificate»-App finden Sie in der Detailansicht des elektronischen Covid-Zertifikats die Funktion «Exportieren». Damit können Sie ein PDF erstellen, dieses speichern und ausdrucken.
    static let wallet_faq_works_answer_5_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_5_1_key)
   /// Sie können Ihr Covid-Zertifikat einfach wieder auf Ihrem Mobilgerät speichern. Laden Sie dazu die App erneut herunter und scannen Sie anschliessend den QR-Code auf Ihrem Covid-Zertifikat auf Papier oder als PDF.
    static let wallet_faq_works_answer_6 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_6_key)

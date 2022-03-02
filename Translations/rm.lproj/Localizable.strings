@@ -220,7 +220,7 @@
 "wallet_faq_questions_answer_4" = "Il code QR sin Voss certificat COVID cuntegna ina signatura digitala. La signatura è ina impurtanta caracteristica da segirezza che impedescha da falsifitgar il certificat COVID. Il certificat COVID è ultra da quai valaivel mo en cumbinaziun cun in document da legitimaziun.";
 
 /*Antwort 5 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_5" = "Voss certificat COVID na vegn betg arcunà en in sistem central. El è unicamain en Voss agen possess. Tegnai perquai en salv cun quità il certificat COVIDsin palpiri. En cas da perdita, stuais Vus dumandar in nov certificat COVID tar il post che l'ha emess.";
+"wallet_faq_questions_answer_5" = "Voss certificat COVID na vegn betg arcunà en in sistem central. El è unicamain en Voss agen possess. Tegnai perquai en salv cun quità il certificat COVIDsin palpiri e/u sco PDF. En cas ch’il certificat va a perder e sto vegnir remplazzà, po vegnir incassada ina taxa.";
 
 /*Antwort 6 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_1" = "Per agiuntar in certificat COVID a l'app, duvrais Vus il certificat original ch'è vegnì emess per Vus sin palpiri u en furma da PDF. Cun l'app COVID Certificate pudais Vus alura scannar il code QR sin il certificat ed al agiuntar a l'app. Silsuenter cumpara il certificat COVID directamain en l'app.";
@@ -1035,7 +1035,7 @@
 "vaccination_booking_ow_name" = "Sursilvania";
 
 /*url for booking an appointment for vaccination for canton ow*/
-"vaccination_booking_ow_url" = "https://www.ow.ch/de/verwaltung/dienstleistungen/?dienst_id=5962#Impfung";
+"vaccination_booking_ow_url" = "https://www.ow.ch/dienstleistungen/7129";
 
 /*canton name sg*/
 "vaccination_booking_sg_name" = "Son Gagl";
@@ -1104,12 +1104,6 @@
 "vaccination_booking_zh_url" = "http://www.zh.ch/coronaimpfung";
 
 /*vaccination hint box title*/
-"vaccination_hint_title_1" = "Sa laschar vaccinar ussa!";
-
-/*vaccination hint box text*/
-"vaccination_hint_text_1" = "Cun la vaccinaziun cunter COVID-19 pudais Vus desister da far tests repetitivs.";
-
-/*vaccination hint box title*/
 "vaccination_hint_title_2" = "Sa laschar vaccinar ussa!";
 
 /*vaccination hint box text*/
@@ -1150,12 +1144,6 @@
 
 /*vaccination hint box text*/
 "vaccination_hint_text_8" = "Cun la vaccinaziun cunter COVID-19 pudais Vus gidar a distgargiar il sistem da sanadad.";
-
-/*vaccination hint box title*/
-"vaccination_hint_title_9" = "Sa laschar vaccinar ussa!";
-
-/*vaccination hint box text*/
-"vaccination_hint_text_9" = "Cun la vaccinaziun cunter COVID-19 pudais Vus gidar a purtar enavos las libertads dal mintgadi.";
 
 /*vaccination booking info screen title*/
 "vaccination_booking_info_title" = "Reservar in termin da vaccinaziun en Vossa vischinanza";
@@ -1382,7 +1370,7 @@
 "wallet_certificate_ausnahme_issued_country" = "L'attest dal medi è vegnì emess a";
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
-"wallet_certificate_detail_note_ausnahme" = "Quest attest n'è betg in document da viadi. \n\nQuest certificat è valaivel mo per in tschert temp. La durada da valaivladad actuala en Svizra pudais Vus verifitgar da tut temp cun l'app «Covid-Certificate». \n\nTut tenor il concept da protecziun respectiv sto la possessura u il possessur eventualmain purtar ina mascrina a chaschun d'occurrenzas u en instituziuns, nua ch'in certificat è obligatoric.";
+"wallet_certificate_detail_note_ausnahme" = "Quest attest n'è betg in document da viadi. \n\nQuest certificat è valaivel mo per in tschert temp. La durada da valaivladad actuala en Svizra pudais Vus verifitgar da tut temp cun l'app «Covid-Certificate».";
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Excepziun";
@@ -1453,3 +1441,18 @@
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Resguardai per plaschair la nova data da scadenza sin il certificat. Dapi ils 31 da schaner 2022 vegn questa data calculada sin basa da la durada da valaivladad reducida da 270 dis.";
+
+/*Fuzzy*/
+"infobox_generic_title" = "Tegnair en salv il certificat!";
+
+/*Fuzzy*/
+"infobox_generic_text" = "Sche Vus stizzais l'app, midais u perdais Voss smartphone, van er a perder Voss certificats COVID. \nTegnai perquai en salv Voss certificats er ordaifer l'app cun exportar quels sco PDF.";
+
+/*Fuzzy*/
+"infobox_generic_button" = "Dapli infurmaziuns";
+
+/*Fuzzy*/
+"infobox_generic_url_android" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate";
+
+/*Fuzzy*/
+"infobox_generic_url_ios" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate";
