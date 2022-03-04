@@ -932,6 +932,12 @@ import Foundation
      case wallet_scan_again_key = "wallet_scan_again"
     /// Scannen Sie den QR-Code auf dem Covid-Zertifikat.
      case wallet_scanner_explanation_key = "wallet_scanner_explanation"
+    /// Erstens
+     case wallet_scanner_how_it_works_accessibility_icon1_key = "wallet_scanner_how_it_works_accessibility_icon1"
+    /// Zweitens
+     case wallet_scanner_how_it_works_accessibility_icon2_key = "wallet_scanner_how_it_works_accessibility_icon2"
+    /// Drittens
+     case wallet_scanner_how_it_works_accessibility_icon3_key = "wallet_scanner_how_it_works_accessibility_icon3"
     /// Ein Covid-Zertifikat können Sie nach einer vollständigen Covid-19-Impfung, nach einer durchgemachten Erkrankung oder nach einem negativen Testergebnis erhalten. Das Zertifikat stellt Ihnen in der Regel das Gesundheitsfachpersonal vor Ort auf Anfrage aus.
      case wallet_scanner_howitworks_answer1_key = "wallet_scanner_howitworks_answer1"
     /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/
@@ -2012,6 +2018,12 @@ import Foundation
    static let wallet_scan_again = UBLocalized.tr(UBLocalizedKey.wallet_scan_again_key)
   /// Scannen Sie den QR-Code auf dem Covid-Zertifikat.
    static let wallet_scanner_explanation = UBLocalized.tr(UBLocalizedKey.wallet_scanner_explanation_key)
+  /// Erstens
+   static let wallet_scanner_how_it_works_accessibility_icon1 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_how_it_works_accessibility_icon1_key)
+  /// Zweitens
+   static let wallet_scanner_how_it_works_accessibility_icon2 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_how_it_works_accessibility_icon2_key)
+  /// Drittens
+   static let wallet_scanner_how_it_works_accessibility_icon3 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_how_it_works_accessibility_icon3_key)
   /// Ein Covid-Zertifikat können Sie nach einer vollständigen Covid-19-Impfung, nach einer durchgemachten Erkrankung oder nach einem negativen Testergebnis erhalten. Das Zertifikat stellt Ihnen in der Regel das Gesundheitsfachpersonal vor Ort auf Anfrage aus.
    static let wallet_scanner_howitworks_answer1 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_answer1_key)
   /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/
