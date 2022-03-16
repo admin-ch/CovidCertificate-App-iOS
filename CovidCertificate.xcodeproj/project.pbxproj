@@ -326,6 +326,7 @@
 		F20E4F31268208DB00D14609 /* PushNotificationPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */; };
 		F234B5B927610DA100B361DF /* IconTextInfoBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F234B5B827610DA100B361DF /* IconTextInfoBoxView.swift */; };
 		F249B8F427D21DC700DBF78F /* UIImage+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F249B8F327D21DC700DBF78F /* UIImage+CC.swift */; };
+		F2F568B627E1D825005D28A7 /* UIImage+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F249B8F327D21DC700DBF78F /* UIImage+CC.swift */; };
 		F803F4DC26A9731A0068311C /* UIStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */; };
 		F809AF322693B21D00D16EED /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDEA264A5C5600FDE0E1 /* OnboardingBaseViewController.swift */; };
 		F809AF342693B25700D16EED /* OnboardingDisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDFA264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift */; };
@@ -2018,6 +2019,7 @@
 				6EF166DD264E638200426985 /* CertificateState.swift in Sources */,
 				6EB988732714DBD400DFFA17 /* QRCodeImageCache.swift in Sources */,
 				6EA5C36C2644310D00EA066F /* VerifierImprintViewController.swift in Sources */,
+				F2F568B627E1D825005D28A7 /* UIImage+CC.swift in Sources */,
 				6EA5C3742644500C00EA066F /* VerifyQRScannerOverlay.swift in Sources */,
 				6EC1732426429E31002E27DB /* Keychain.swift in Sources */,
 				6E701453265404640097BBC8 /* VerifierErrors+CC.swift in Sources */,
