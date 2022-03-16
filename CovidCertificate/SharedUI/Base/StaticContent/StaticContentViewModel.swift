@@ -24,8 +24,7 @@ struct StaticContentViewModel: Equatable {
          title: String,
          alignment: NSTextAlignment = .left,
          textGroups: [(UIImage?, String)] = [],
-         expandableTextGroups: [(String, String, String?, URL?)] = [])
-    {
+         expandableTextGroups: [(String, String, String?, URL?)] = []) {
         self.heading = heading
         self.foregroundImage = foregroundImage
         self.title = title

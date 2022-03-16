@@ -25,8 +25,7 @@ struct Backend {
 
     func endpoint(_ path: String, method: Endpoint.Method = .get,
                   queryParameters: [String: String]? = nil,
-                  headers: [String: String]? = nil, body: Encodable? = nil) -> Endpoint
-    {
+                  headers: [String: String]? = nil, body: Encodable? = nil) -> Endpoint {
         var components = URLComponents(url: versionedURL.appendingPathComponent(path), resolvingAgainstBaseURL: true)!
         if let queryParameters = queryParameters {
             let sortedKeys = Array(queryParameters.keys).sorted()

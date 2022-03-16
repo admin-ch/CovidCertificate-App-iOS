@@ -159,8 +159,7 @@ extension QRScannerView {
 extension QRScannerView: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_: AVCaptureMetadataOutput,
                         didOutput metadataObjects: [AVMetadataObject],
-                        from _: AVCaptureConnection)
-    {
+                        from _: AVCaptureConnection) {
         guard !isScanningPaused else { return } // Don't process any input if scanning is paused
 
         if let metadataObject = metadataObjects.first {
