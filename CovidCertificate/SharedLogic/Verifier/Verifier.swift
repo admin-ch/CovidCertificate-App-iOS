@@ -28,6 +28,8 @@ enum VerificationError: Equatable, Comparable {
     case signatureExpired
     case notYetValid(Date)
     case otherNationalRules(String)
+    case noValidRule
+    case countryNotSupported
     case lightUnsupported(String)
     case unknownMode
     case unknown
@@ -406,6 +408,10 @@ class Verifier: NSObject {
             return .retry(.network, [err.errorCode])
         case .TIME_INCONSISTENCY:
             return .retry(.timeShift, [err.errorCode])
+        case .NO_VALID_RULE_FOR_SPECIFIC_DATE:
+            return .invalid(errors: [.noValidRule], errorCodes: [], validity: nil, wasRevocationSkipped: false)
+        case .COUNTRY_CODE_NOT_SUPPORTED:
+            return .invalid(errors: [.countryNotSupported], errorCodes: [], validity: nil, wasRevocationSkipped: false)
         default:
             // do not show the explicit error code on the verifier app, s.t.
             // no information is shown about the checked user (e.g. certificate type)
