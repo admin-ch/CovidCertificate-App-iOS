@@ -840,6 +840,36 @@ import Foundation
      case wallet_faq_works_subtitle_key = "wallet_faq_works_subtitle"
     /// Wie funktioniert \ndie App?
      case wallet_faq_works_title_key = "wallet_faq_works_title"
+    /// Gültigkeit im Ausland
+     case wallet_foreign_rules_check_button_key = "wallet_foreign_rules_check_button"
+    /// Wählen
+     case wallet_foreign_rules_check_country_empty_label_key = "wallet_foreign_rules_check_country_empty_label"
+    /// Land
+     case wallet_foreign_rules_check_country_label_key = "wallet_foreign_rules_check_country_label"
+    /// Land auswählen
+     case wallet_foreign_rules_check_country_picker_title_key = "wallet_foreign_rules_check_country_picker_title"
+    /// Die angegebene Uhrzeit liegt in der Vergangenheit
+     case wallet_foreign_rules_check_date_in_past_error_key = "wallet_foreign_rules_check_date_in_past_error"
+    /// Datum
+     case wallet_foreign_rules_check_date_label_key = "wallet_foreign_rules_check_date_label"
+    /// Zertifikat prüfen für
+     case wallet_foreign_rules_check_form_title_key = "wallet_foreign_rules_check_form_title"
+    /// Mehr Informationen finden Sie unter
+     case wallet_foreign_rules_check_hints_more_info_label_key = "wallet_foreign_rules_check_hints_more_info_label"
+    /// Hinweise
+     case wallet_foreign_rules_check_hints_title_key = "wallet_foreign_rules_check_hints_title"
+    /// in {COUNTRY} am {DATE}
+     case wallet_foreign_rules_check_state_country_and_date_key = "wallet_foreign_rules_check_state_country_and_date"
+    /// Bitte wählen Sie ein Land und den Einreisezeitpunkt aus.
+     case wallet_foreign_rules_check_state_empty_key = "wallet_foreign_rules_check_state_empty"
+    /// Das Zertifikat ist nicht gültig
+     case wallet_foreign_rules_check_state_invalid_key = "wallet_foreign_rules_check_state_invalid"
+    /// Das Zertifikat ist gültig
+     case wallet_foreign_rules_check_state_valid_key = "wallet_foreign_rules_check_state_valid"
+    /// Prüfen Sie vor einer Reise, ob Ihr Zertifikat für die Einreise in das gewählte Reiseland gültig ist.
+     case wallet_foreign_rules_check_subtitle_key = "wallet_foreign_rules_check_subtitle"
+    /// Gültigkeit im Ausland prüfen
+     case wallet_foreign_rules_check_title_key = "wallet_foreign_rules_check_title"
     /// Sie haben ein Covid-Zertifikat auf Papier oder als PDF und möchten es zur App hinzufügen.
      case wallet_homescreen_add_certificate_description_key = "wallet_homescreen_add_certificate_description"
     /// Zertifikat hinzufügen
@@ -920,7 +950,7 @@ import Foundation
      case wallet_onboarding_store_text2_key = "wallet_onboarding_store_text2"
     /// Covid-Zertifikate digital aufbewahren
      case wallet_onboarding_store_title_key = "wallet_onboarding_store_title"
-    /// Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig
+    /// Ausserhalb der Schweiz nicht gültig
      case wallet_only_valid_in_switzerland_key = "wallet_only_valid_in_switzerland"
     /// Für Prüfende
      case wallet_refresh_button_info_fat_title_3_key = "wallet_refresh_button_info_fat_title_3"
@@ -1934,6 +1964,36 @@ import Foundation
    static let wallet_faq_works_subtitle = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_subtitle_key)
   /// Wie funktioniert \ndie App?
    static let wallet_faq_works_title = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_title_key)
+  /// Gültigkeit im Ausland
+   static let wallet_foreign_rules_check_button = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_button_key)
+  /// Wählen
+   static let wallet_foreign_rules_check_country_empty_label = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_country_empty_label_key)
+  /// Land
+   static let wallet_foreign_rules_check_country_label = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_country_label_key)
+  /// Land auswählen
+   static let wallet_foreign_rules_check_country_picker_title = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_country_picker_title_key)
+  /// Die angegebene Uhrzeit liegt in der Vergangenheit
+   static let wallet_foreign_rules_check_date_in_past_error = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_date_in_past_error_key)
+  /// Datum
+   static let wallet_foreign_rules_check_date_label = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_date_label_key)
+  /// Zertifikat prüfen für
+   static let wallet_foreign_rules_check_form_title = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_form_title_key)
+  /// Mehr Informationen finden Sie unter
+   static let wallet_foreign_rules_check_hints_more_info_label = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_hints_more_info_label_key)
+  /// Hinweise
+   static let wallet_foreign_rules_check_hints_title = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_hints_title_key)
+  /// in {COUNTRY} am {DATE}
+   static let wallet_foreign_rules_check_state_country_and_date = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_state_country_and_date_key)
+  /// Bitte wählen Sie ein Land und den Einreisezeitpunkt aus.
+   static let wallet_foreign_rules_check_state_empty = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_state_empty_key)
+  /// Das Zertifikat ist nicht gültig
+   static let wallet_foreign_rules_check_state_invalid = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_state_invalid_key)
+  /// Das Zertifikat ist gültig
+   static let wallet_foreign_rules_check_state_valid = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_state_valid_key)
+  /// Prüfen Sie vor einer Reise, ob Ihr Zertifikat für die Einreise in das gewählte Reiseland gültig ist.
+   static let wallet_foreign_rules_check_subtitle = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_subtitle_key)
+  /// Gültigkeit im Ausland prüfen
+   static let wallet_foreign_rules_check_title = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_title_key)
   /// Sie haben ein Covid-Zertifikat auf Papier oder als PDF und möchten es zur App hinzufügen.
    static let wallet_homescreen_add_certificate_description = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_add_certificate_description_key)
   /// Zertifikat hinzufügen
@@ -2014,7 +2074,7 @@ import Foundation
    static let wallet_onboarding_store_text2 = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_store_text2_key)
   /// Covid-Zertifikate digital aufbewahren
    static let wallet_onboarding_store_title = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_store_title_key)
-  /// Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig
+  /// Ausserhalb der Schweiz nicht gültig
    static let wallet_only_valid_in_switzerland = UBLocalized.tr(UBLocalizedKey.wallet_only_valid_in_switzerland_key)
   /// Für Prüfende
    static let wallet_refresh_button_info_fat_title_3 = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_fat_title_3_key)
