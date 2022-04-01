@@ -86,8 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication,
                      continue userActivity: NSUserActivity,
-                     restorationHandler _: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool
-    {
+                     restorationHandler _: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         if let url = userActivity.webpageURL {
             return linkHandler.handle(url: url)
         }
@@ -157,10 +156,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Refresh config
             startConfigRequest()
 
-            // Refresh trust list (public keys, revocation list, business rules,...)
+            var holders = [CertificateHolder]()
+
+            for cert in CertificateStorage.shared.userCertificates {
+                let c = CovidCertificateSDK.Wallet.decode(encodedData: cert.qrCode ?? "")
+                switch c {
+                case let .success(holder):
+                    holders.append(holder)
+                case .failure:
+                    continue
+                }
+            }
+
+            // Refresh trust list (public keys, revocation list (for all certificates currently in the wallet), business rules,...)
             CovidCertificateSDK.restartTrustListUpdate(completionHandler: {
                 UIStateManager.shared.stateChanged(forceRefresh: true)
-            }, updateTimeInterval: TimeInterval(60 * 60))
+            }, updateTimeInterval: TimeInterval(60 * 60), holders: holders)
         }
     }
 
