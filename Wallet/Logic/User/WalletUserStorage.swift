@@ -44,6 +44,12 @@ class WalletUserStorage {
 
     @UBUserDefault(key: "wallet.user.dismissedEOLBanners", defaultValue: [])
     var dismissedEOLBanners: [String]
+
+    @UBUserDefault(key: "wallet.user.foreignRulesCheckSelectedCountryCode", defaultValue: nil)
+    var foreignRulesCheckSelectedCountryCode: String?
+
+    @UBUserDefault(key: "wallet.user.foreignRulesCheckSelectedDate", defaultValue: Date())
+    var foreignRulesCheckSelectedDate: Date
 }
 
 class CertificateStorage {

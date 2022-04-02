@@ -13,18 +13,27 @@ import CovidCertificateSDK
 import Foundation
 
 class CertificateCheckAbroadSelectionView: UIView {
-    
     public var countries: [ArrivalCountry] = [] {
         didSet {
             countrySelectionPicker.reloadAllComponents()
         }
     }
 
+    func setCountry(country: ArrivalCountry) {
+        guard let index = countries.firstIndex(of: country) else { return }
+        countrySelectionPicker.selectRow(index, inComponent: 0, animated: true)
+        countrySelectionButton.valueString = country.localizedString
+    }
+
+    func setDate(date: Date) {
+        dateSelectionPicker.setDate(date, animated: true)
+        dateSelectionButton.valueString = DateFormatter.ub_dayTimeString(from: date)
+    }
+
     public var didSelectCountry: ((ArrivalCountry) -> Void)?
 
     public var didSelectDate: ((Date) -> Void)?
 
-    
     private let stackView = UIStackView()
     private let countrySelectionButton = SelectionButton(title: UBLocalized.wallet_foreign_rules_check_country_label)
     private let countrySelectionPicker = UIPickerView()
@@ -33,14 +42,14 @@ class CertificateCheckAbroadSelectionView: UIView {
 
     init() {
         super.init(frame: .zero)
-        
+
         backgroundColor = .cc_greyish
         layer.cornerRadius = 10
         clipsToBounds = false
 
         stackView.axis = .vertical
         stackView.alignment = .fill
-        
+
         addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 13, left: Padding.medium, bottom: Padding.large, right: Padding.medium))
@@ -48,7 +57,6 @@ class CertificateCheckAbroadSelectionView: UIView {
 
         let title = Label(.textBoldLarge, textAlignment: .center)
         title.text = UBLocalized.wallet_foreign_rules_check_form_title
-
 
         stackView.addArrangedView(title)
         stackView.addSpacerView(10)
@@ -60,15 +68,15 @@ class CertificateCheckAbroadSelectionView: UIView {
             dateSelectionPicker.preferredDatePickerStyle = .inline
             dateSelectionPicker.locale = Locale.current
         }
-        
+
         countrySelectionButton.valueString = UBLocalized.wallet_foreign_rules_check_country_empty_label
-        
+
         countrySelectionPicker.delegate = self
         countrySelectionPicker.dataSource = self
 
         dateSelectionPicker.minimumDate = Date()
         dateSelectionPicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
-        
+
         dateSelectionButton.valueString = DateFormatter.ub_dayTimeString(from: Date())
     }
 
