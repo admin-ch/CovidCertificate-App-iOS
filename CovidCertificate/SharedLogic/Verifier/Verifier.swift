@@ -28,8 +28,6 @@ enum VerificationError: Equatable, Comparable {
     case signatureExpired
     case notYetValid(Date)
     case otherNationalRules(String)
-    case noValidRule
-    case countryNotSupported
     case lightUnsupported(String)
     case unknownMode
     case unknown
@@ -192,7 +190,7 @@ class Verifier: NSObject {
 
     // MARK: - Start
 
-    public func start(modes: [CheckMode], forceUpdate: Bool = false, stateUpdate: @escaping ((VerificationState) -> Void)) {
+    public func start(modes: [CheckMode], forceUpdate: Bool = false, countryCode: String = CountryCodes.Switzerland, checkDate: Date = Date(), stateUpdate: @escaping ((VerificationState) -> Void)) {
         self.stateUpdate = stateUpdate
         self.modes = modes
 
@@ -207,7 +205,7 @@ class Verifier: NSObject {
         }
 
         #if WALLET
-            SDKNamespace.check(holder: holder, forceUpdate: forceUpdate, modes: modes) { [weak self] results in
+            SDKNamespace.check(holder: holder, forceUpdate: forceUpdate, modes: modes, countryCode: countryCode, checkDate: checkDate) { [weak self] results in
                 guard let strongSelf = self else { return }
                 strongSelf.updateState(with: results)
             }
@@ -408,10 +406,6 @@ class Verifier: NSObject {
             return .retry(.network, [err.errorCode])
         case .TIME_INCONSISTENCY:
             return .retry(.timeShift, [err.errorCode])
-        case .NO_VALID_RULE_FOR_SPECIFIC_DATE:
-            return .invalid(errors: [.noValidRule], errorCodes: [], validity: nil, wasRevocationSkipped: false)
-        case .COUNTRY_CODE_NOT_SUPPORTED:
-            return .invalid(errors: [.countryNotSupported], errorCodes: [], validity: nil, wasRevocationSkipped: false)
         default:
             // do not show the explicit error code on the verifier app, s.t.
             // no information is shown about the checked user (e.g. certificate type)

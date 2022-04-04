@@ -13,24 +13,26 @@ import CovidCertificateSDK
 import Foundation
 
 class CertificateCheckValidityAbroadDetailViewController: StackScrollViewController {
-    struct SelectionObject {
+    private struct SelectionObject {
         var date: Date?
         var country: ArrivalCountry?
 
         var isValid: Bool {
-            return date != nil && date! >= Date() && country != nil
+            // We allow the selected time to be 10 minutes in the past
+            return date != nil && date!.addingTimeInterval(10 * 60) >= Date() && country != nil
         }
     }
 
-    private var currentSelection = SelectionObject()
-
     private let summary = CertificateLightSummaryView(isActive: false)
     private let loadingView = LoadingView()
-    private let errorRetryVC = NetworkErrorRetryViewController(title: UBLocalized.wallet_certificate_light_detail_activation_error)
+    private let errorRetryVC = NetworkErrorRetryViewController(title: UBLocalized.wallet_foreign_rules_check_error_title)
     private let selectionView = CertificateCheckAbroadSelectionView()
-    private let stateView = CertificateStateView(showValidity: true)
+    private let stateView = CertificateCheckAbroadVerificationStateView()
 
     private let certificate: UserCertificate
+    private var currentSelection = SelectionObject()
+
+    // MARK: - Init
 
     init(certificate: UserCertificate) {
         self.certificate = certificate
@@ -97,28 +99,35 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
 
         selectionView.didSelectCountry = { [weak self] country in
             guard let self = self else { return }
-            WalletUserStorage.shared.foreignRulesCheckSelectedCountryCode = country.id
+            WalletUserStorage.shared.foreignRulesCheckSelectedCountryCode = country?.id
             self.currentSelection.country = country
             self.startCheckIfSelectionIsValid()
         }
+
+        errorRetryVC.retryCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.loadCountries(forceUpdate: true)
+        }
     }
 
-    private func loadCountries() {
+    private func loadCountries(forceUpdate: Bool = false) {
         loadingView.startLoading()
-        errorRetryVC.view.alpha = 0.0
+        UIView.animate(withDuration: 0.25, delay: 0, options: .beginFromCurrentState, animations: {
+            self.errorRetryVC.view.alpha = 0.0
+        }, completion: nil)
 
-        CovidCertificateSDK.Wallet.foreignRulesCountryCodes { result in
+        CovidCertificateSDK.Wallet.foreignRulesCountryCodes(forceUpdate: forceUpdate) { result in
             switch result {
             case let .success(countryCodes):
                 self.loadingView.stopLoading()
-                self.selectionView.countries = countryCodes.map { ArrivalCountry(countryCode: $0) }.compactMap { $0 }
+                self.selectionView.countries = countryCodes.map { ArrivalCountry(countryCode: $0) }.compactMap { $0 }.sortedByLocalizedName
                 self.showStoredSelection()
             case let .failure(error):
-                // TODO: IZ-954 Conform NetworkError to ErrorViewModel
-                // self.errorRetryVC.error = error
-                self.loadingView.stopLoading()
+                self.errorRetryVC.error = error
                 UIView.animate(withDuration: 0.25) {
                     self.errorRetryVC.view.alpha = 1.0
+                } completion: { _ in
+                    self.loadingView.stopLoading()
                 }
             }
         }
@@ -127,16 +136,15 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
     private func showStoredSelection() {
         if WalletUserStorage.shared.foreignRulesCheckSelectedDate >= Date() {
             currentSelection.date = WalletUserStorage.shared.foreignRulesCheckSelectedDate
-            selectionView.setDate(date: WalletUserStorage.shared.foreignRulesCheckSelectedDate)
+            selectionView.setSelectedDate(WalletUserStorage.shared.foreignRulesCheckSelectedDate)
         } else {
             currentSelection.date = Date()
+            selectionView.setSelectedDate(Date())
         }
 
         if let selectedCountryCode = WalletUserStorage.shared.foreignRulesCheckSelectedCountryCode, let country = ArrivalCountry(countryCode: selectedCountryCode) {
             currentSelection.country = country
-            selectionView.setCountry(country: country)
-        } else {
-            currentSelection.date = Date()
+            selectionView.setSelectedCountry(country)
         }
 
         startCheckIfSelectionIsValid()
@@ -144,42 +152,69 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
 
     private func startCheckIfSelectionIsValid() {
         if currentSelection.isValid {
-            guard let date = currentSelection.date, let countryCode = currentSelection.country?.id else { return }
+            guard let date = currentSelection.date, let country = currentSelection.country else { return }
+            guard let qrCode = certificate.qrCode else { return }
 
-            let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate.qrCode ?? "")
-            switch c {
-            case let .success(holder):
-                // TODO: IZ-954 Temporary
-                CovidCertificateSDK.Wallet.check(countryCode: countryCode, checkDate: date, holder: holder, forceUpdate: false, modes: []) { results in
-                    print(results)
-                }
-            default:
-                break
+            state = (.loading, country, date)
+
+            VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes(), countryCode: country.id, checkDate: date) { [weak self] state in
+                guard let self = self else { return }
+                self.state = (state, country, date)
             }
-
-            // TODO: IZ-954 Adapt VerifierManager so that we can pass country and date
-            //        guard let qrCode = certificate.qrCode else { return }
-
-            //        state = .loading
-            //
-            //        VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes()) { [weak self] state in
-            //            guard let self = self else { return }
-            //            self.state = state
-            //        }
+        } else {
+            state = nil
         }
     }
 
-    // TODO: IZ-954 Probably need to add a new state for "Bitte wählen Sie ein Land und den Einreisezeitpunkt aus."
-
-    private var state: VerificationState = .loading {
+    var state: (state: VerificationState, country: ArrivalCountry, checkDate: Date)? {
         didSet {
-            if oldValue != state {
-                update()
+            stateView.state = state
+        }
+    }
+}
+
+extension NetworkError: ErrorViewError {
+    func icon(color: UIColor?) -> UIImage? {
+        switch self {
+        case .NETWORK_NO_INTERNET_CONNECTION:
+            var image = UIImage(named: "ic-offline")
+            image = image?.ub_image(with: color ?? .cc_orange)
+            return image
+        default:
+            var image = UIImage(named: "ic-error")
+            if let c = color {
+                image = image?.ub_image(with: c)
             }
+
+            return image
         }
     }
 
-    private func update() {
-        stateView.states = (state, .idle)
+    var errorTitle: String {
+        switch self {
+        case .NETWORK_NO_INTERNET_CONNECTION:
+            return UBLocalized.wallet_certificate_light_detail_activation_network_error_title
+        default:
+            return UBLocalized.wallet_certificate_light_detail_activation_general_error_title
+        }
+    }
+
+    var errorText: String {
+        switch self {
+        case .NETWORK_NO_INTERNET_CONNECTION:
+            return UBLocalized.wallet_foreign_rules_check_network_error_text
+        default:
+            return UBLocalized.wallet_certificate_light_detail_activation_general_error_text
+        }
+    }
+
+    var errorCode: String {
+        switch self {
+        case let .NETWORK_ERROR(code): return code.count > 0 ? "NE|\(code)" : "NE"
+        case .NETWORK_PARSE_ERROR: return "NE|PE"
+        case let .NETWORK_SERVER_ERROR(statusCode): return "NE|SE-\(statusCode)"
+        case let .NETWORK_NO_INTERNET_CONNECTION(code): return code.count > 0 ? "NE|\(code)" : "NE|NIC"
+        case .TIME_INCONSISTENCY: return "NE|TI"
+        }
     }
 }

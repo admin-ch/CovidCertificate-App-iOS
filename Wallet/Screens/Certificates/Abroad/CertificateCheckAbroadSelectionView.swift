@@ -13,32 +13,41 @@ import CovidCertificateSDK
 import Foundation
 
 class CertificateCheckAbroadSelectionView: UIView {
-    public var countries: [ArrivalCountry] = [] {
+    // MARK: - Public API
+
+    var countries: [ArrivalCountry] = [] {
         didSet {
             countrySelectionPicker.reloadAllComponents()
         }
     }
 
-    func setCountry(country: ArrivalCountry) {
+    func setSelectedCountry(_ country: ArrivalCountry) {
         guard let index = countries.firstIndex(of: country) else { return }
         countrySelectionPicker.selectRow(index, inComponent: 0, animated: true)
         countrySelectionButton.valueString = country.localizedString
+        didSelectCountry?(country)
+        countrySelectionButton.valueLabelTextColor = .cc_text
     }
 
-    func setDate(date: Date) {
+    func setSelectedDate(_ date: Date) {
         dateSelectionPicker.setDate(date, animated: true)
         dateSelectionButton.valueString = DateFormatter.ub_dayTimeString(from: date)
+        didSelectDate?(date)
     }
 
-    public var didSelectCountry: ((ArrivalCountry) -> Void)?
+    public var didSelectCountry: ((ArrivalCountry?) -> Void)?
 
     public var didSelectDate: ((Date) -> Void)?
+
+    // MARK: - Subviews
 
     private let stackView = UIStackView()
     private let countrySelectionButton = SelectionButton(title: UBLocalized.wallet_foreign_rules_check_country_label)
     private let countrySelectionPicker = UIPickerView()
     private let dateSelectionButton = SelectionButton(title: UBLocalized.wallet_foreign_rules_check_date_label)
     private let dateSelectionPicker = UIDatePicker()
+
+    // MARK: - Init
 
     init() {
         super.init(frame: .zero)
@@ -70,14 +79,13 @@ class CertificateCheckAbroadSelectionView: UIView {
         }
 
         countrySelectionButton.valueString = UBLocalized.wallet_foreign_rules_check_country_empty_label
+        countrySelectionButton.valueLabelTextColor = .cc_grey
 
         countrySelectionPicker.delegate = self
         countrySelectionPicker.dataSource = self
 
         dateSelectionPicker.minimumDate = Date()
         dateSelectionPicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
-
-        dateSelectionButton.valueString = DateFormatter.ub_dayTimeString(from: Date())
     }
 
     required init?(coder _: NSCoder) {
@@ -111,11 +119,15 @@ extension CertificateCheckAbroadSelectionView: UIPickerViewDataSource {
     }
 
     func pickerView(_: UIPickerView, numberOfRowsInComponent _: Int) -> Int {
-        return countries.count
+        return countries.count + 1 // +1 for empty label
     }
 
     func pickerView(_: UIPickerView, titleForRow row: Int, forComponent _: Int) -> String? {
-        return countries[row].localizedString
+        if row == 0 {
+            return ""
+        } else {
+            return countries[row - 1].localizedString
+        }
     }
 }
 
@@ -123,7 +135,14 @@ extension CertificateCheckAbroadSelectionView: UIPickerViewDataSource {
 
 extension CertificateCheckAbroadSelectionView: UIPickerViewDelegate {
     func pickerView(_: UIPickerView, didSelectRow row: Int, inComponent _: Int) {
-        didSelectCountry?(countries[row])
-        countrySelectionButton.valueString = countries[row].localizedString
+        if row == 0 {
+            didSelectCountry?(nil)
+            countrySelectionButton.valueString = UBLocalized.wallet_foreign_rules_check_country_empty_label
+            countrySelectionButton.valueLabelTextColor = .cc_grey
+        } else {
+            didSelectCountry?(countries[row - 1])
+            countrySelectionButton.valueString = countries[row - 1].localizedString
+            countrySelectionButton.valueLabelTextColor = .cc_text
+        }
     }
 }

@@ -1466,18 +1466,6 @@
 /*accessibilityLabel for the "3"-icon*/
 "wallet_scanner_how_it_works_accessibility_icon3" = "Terz";
 
-/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde, für das keine Rule existiert, die zu einem gegebenen Zeitpunkt valid ist.*/
-"wallet_error_no_valid_rule" = "";
-
-/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde,  das nicht unterstützt wird.*/
-"wallet_error_country_not_supported" = "";
-
-/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde, für das keine Rule existiert, die zu einem gegebenen Zeitpunkt valid ist. (Fetter Text)*/
-"wallet_error_no_valid_rule_bold" = "";
-
-/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde,  das nicht unterstützt wird. (Fetter Text)*/
-"wallet_error_country_not_supported_bold" = "";
-
 /*Reise-Check: Label des Buttons um Gültigkeit im Ausland zu prüfen*/
 "wallet_foreign_rules_check_button" = "Gültigkeit im Ausland";
 
@@ -1522,3 +1510,9 @@
 
 /*Reise-Check: Zweite Zeile des Prüfstatus wenn Zertifikat (un-)gültig ist. {COUNTRY} und {DATE} nicht übersetzen*/
 "wallet_foreign_rules_check_state_country_and_date" = "in {COUNTRY} am {DATE}";
+
+/*Error-Titel falls das Reisefeature ("Gültigkeit im Ausland") im Offline-Modus gestartet wurde*/
+"wallet_foreign_rules_check_error_title" = "Fehler beim Laden der verfügbaren Länder.";
+
+/*Error-Text falls das Reisefeature ("Gültigkeit im Ausland") im Offline-Modus gestartet wurde*/
+"wallet_foreign_rules_check_network_error_text" = "Um die Gültigkeit im Ausland zu überprüfen, muss die App online sein.";
