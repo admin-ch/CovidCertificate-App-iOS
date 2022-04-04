@@ -78,15 +78,36 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
                         insets: UIEdgeInsets(top: 0, left: p, bottom: 0, right: p))
 
         addArrangedView(stateView,
-                        spacing: 50,
+                        spacing: 0,
                         insets: UIEdgeInsets(top: 0, left: p, bottom: 0, right: p))
 
-        let hintsTitle = Label(.textBoldLarge)
-        hintsTitle.text = UBLocalized.wallet_foreign_rules_check_hints_title
+        guard let currentConfig = ConfigManager.currentConfig else { return }
+        if let hints = currentConfig.foreignRulesHints?.value, !hints.isEmpty {
+            let hintsTitle = Label(.textBoldLarge)
+            hintsTitle.text = UBLocalized.wallet_foreign_rules_check_hints_title
 
-        addArrangedView(hintsTitle,
-                        spacing: Padding.large,
-                        insets: UIEdgeInsets(top: Padding.large, left: p, bottom: 0, right: p))
+            addArrangedView(hintsTitle,
+                            spacing: Padding.large,
+                            insets: UIEdgeInsets(top: Padding.large, left: p, bottom: 0, right: p))
+
+            for hint in hints {
+                addArrangedView(OnboardingInfoView(icon: UIImage(named: hint.iconIos), text: hint.text, alignment: .left))
+            }
+        }
+
+        if let linkText = currentConfig.foreignRulesLinkText, let linkUrl = currentConfig.foreignRulesLinkUrl, let url = URL(string: linkUrl) {
+            let t = Label(.text)
+            t.text = UBLocalized.wallet_foreign_rules_check_hints_more_info_label
+            addArrangedView(t,
+                            spacing: Padding.large,
+                            insets: UIEdgeInsets(top: Padding.large, left: p, bottom: 0, right: p))
+
+            let linkButton = ExternalLinkButton(title: linkText)
+            linkButton.touchUpCallback = {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+            addArrangedView(linkButton)
+        }
     }
 
     private func setupInteractions() {
@@ -157,7 +178,7 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
 
             state = (.loading, country, date)
 
-            VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes(), countryCode: country.id, checkDate: date) { [weak self] state in
+            VerifierManager.shared.addObserver(self, for: qrCode, modes: [], countryCode: country.id, checkDate: date) { [weak self] state in
                 guard let self = self else { return }
                 self.state = (state, country, date)
             }

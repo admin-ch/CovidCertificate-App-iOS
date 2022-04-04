@@ -23,16 +23,19 @@ class CertificateCheckAbroadSelectionView: UIView {
 
     func setSelectedCountry(_ country: ArrivalCountry) {
         guard let index = countries.firstIndex(of: country) else { return }
-        countrySelectionPicker.selectRow(index, inComponent: 0, animated: true)
+        countrySelectionPicker.selectRow(index + 1, inComponent: 0, animated: true)
         countrySelectionButton.valueString = country.localizedString
         didSelectCountry?(country)
         countrySelectionButton.valueLabelTextColor = .cc_text
     }
 
     func setSelectedDate(_ date: Date) {
-        dateSelectionPicker.setDate(date, animated: true)
-        dateSelectionButton.valueString = DateFormatter.ub_dayTimeString(from: date)
-        didSelectDate?(date)
+        // We do not allow dates in the past
+        let d = max(Date(), date)
+        dateSelectionPicker.minimumDate = Date()
+        dateSelectionPicker.setDate(d, animated: true)
+        dateSelectionButton.valueString = DateFormatter.ub_dayTimeString(from: d)
+        didSelectDate?(d)
     }
 
     public var didSelectCountry: ((ArrivalCountry?) -> Void)?
@@ -106,8 +109,11 @@ class CertificateCheckAbroadSelectionView: UIView {
     // MARK: - Date Picker
 
     @objc func datePickerValueChanged(_ sender: UIDatePicker) {
-        didSelectDate?(sender.date)
-        dateSelectionButton.valueString = DateFormatter.ub_dayTimeString(from: sender.date)
+        // We do not allow dates in the past
+        let date = max(Date(), sender.date)
+        dateSelectionPicker.minimumDate = Date()
+        didSelectDate?(date)
+        dateSelectionButton.valueString = DateFormatter.ub_dayTimeString(from: date)
     }
 }
 
