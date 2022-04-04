@@ -32,6 +32,13 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
     private let certificate: UserCertificate
     private var currentSelection = SelectionObject()
 
+    private var useDateAndTime = false {
+        didSet {
+            selectionView.useDateAndTime = useDateAndTime
+            stateView.useDateAndTime = useDateAndTime
+        }
+    }
+
     // MARK: - Init
 
     init(certificate: UserCertificate) {
@@ -45,10 +52,11 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
         view.backgroundColor = .cc_background
         setupLayout()
         setupInteractions()
+        setupDayAndTime()
         loadCountries()
     }
 
-    func setupLayout() {
+    private func setupLayout() {
         view.addSubview(loadingView)
         loadingView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -113,8 +121,12 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
     private func setupInteractions() {
         selectionView.didSelectDate = { [weak self] date in
             guard let self = self else { return }
-            self.currentSelection.date = date
-            WalletUserStorage.shared.foreignRulesCheckSelectedDate = date
+            var d = date
+            if !self.useDateAndTime {
+                d = date.endOfDay
+            }
+            self.currentSelection.date = d
+            WalletUserStorage.shared.foreignRulesCheckSelectedDate = d
             self.startCheckIfSelectionIsValid()
         }
 
@@ -128,6 +140,18 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
         errorRetryVC.retryCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.loadCountries(forceUpdate: true)
+        }
+    }
+
+    private func setupDayAndTime() {
+        let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate.qrCode ?? "")
+        switch c {
+        case let .success(holder):
+            guard let certificate = holder.certificate as? DCCCert else { break }
+            // TODO: Check for positiveRatTest
+            useDateAndTime = certificate.immunisationType == .test
+        default:
+            break
         }
     }
 
@@ -157,15 +181,15 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
     private func showStoredSelection() {
         if WalletUserStorage.shared.foreignRulesCheckSelectedDate >= Date() {
             currentSelection.date = WalletUserStorage.shared.foreignRulesCheckSelectedDate
-            selectionView.setSelectedDate(WalletUserStorage.shared.foreignRulesCheckSelectedDate)
+            selectionView.selectedDate = WalletUserStorage.shared.foreignRulesCheckSelectedDate
         } else {
             currentSelection.date = Date()
-            selectionView.setSelectedDate(Date())
+            selectionView.selectedDate = Date()
         }
 
         if let selectedCountryCode = WalletUserStorage.shared.foreignRulesCheckSelectedCountryCode, let country = ArrivalCountry(countryCode: selectedCountryCode) {
             currentSelection.country = country
-            selectionView.setSelectedCountry(country)
+            selectionView.selectedCountry = country
         }
 
         startCheckIfSelectionIsValid()

@@ -20,6 +20,12 @@ class CertificateCheckAbroadVerificationStateView: UIView {
         }
     }
 
+    var useDateAndTime: Bool = false {
+        didSet {
+            update(animated: false)
+        }
+    }
+
     // MARK: - Subviews
 
     private let backgroundView = UIView()
@@ -128,7 +134,7 @@ class CertificateCheckAbroadVerificationStateView: UIView {
             case .success:
                 let text = UBLocalized.wallet_foreign_rules_check_state_valid.bold()
                 text.append(NSAttributedString(string: "\n"))
-                text.append(UBLocalized.wallet_foreign_rules_check_state_country_and_date.replacingOccurrences(of: "{COUNTRY}", with: state.country.localizedString).replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: state.checkDate)).regular())
+                text.append(UBLocalized.wallet_foreign_rules_check_state_country_and_date.replacingOccurrences(of: "{COUNTRY}", with: state.country.localizedString).replacingOccurrences(of: "{DATE}", with: self.useDateAndTime ? DateFormatter.ub_dayTimeString(from: state.checkDate) : DateFormatter.ub_dayString(from: state.checkDate)).regular())
                 self.textLabel.attributedText = text
                 self.imageView.image = UIImage(named: "ic-check-filled")
                 self.backgroundView.backgroundColor = .cc_greenish
@@ -136,7 +142,7 @@ class CertificateCheckAbroadVerificationStateView: UIView {
                 self.imageView.image = errors.first?.icon(with: .cc_red)
                 let text = UBLocalized.wallet_foreign_rules_check_state_invalid.bold()
                 text.append(NSMutableAttributedString(string: "\n"))
-                text.append(UBLocalized.wallet_foreign_rules_check_state_country_and_date.replacingOccurrences(of: "{COUNTRY}", with: state.country.localizedString).replacingOccurrences(of: "{DATE}", with: DateFormatter.ub_dayTimeString(from: state.checkDate)).regular())
+                text.append(UBLocalized.wallet_foreign_rules_check_state_country_and_date.replacingOccurrences(of: "{COUNTRY}", with: state.country.localizedString).replacingOccurrences(of: "{DATE}", with: self.useDateAndTime ? DateFormatter.ub_dayTimeString(from: state.checkDate) : DateFormatter.ub_dayString(from: state.checkDate)).regular())
                 self.textLabel.attributedText = text
                 self.backgroundView.backgroundColor = .cc_redish
 
