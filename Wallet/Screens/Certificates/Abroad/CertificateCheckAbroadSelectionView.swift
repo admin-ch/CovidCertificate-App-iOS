@@ -15,27 +15,52 @@ import Foundation
 class CertificateCheckAbroadSelectionView: UIView {
     // MARK: - Public API
 
+    var useDateAndTime: Bool = false {
+        didSet {
+            dateSelectionPicker.datePickerMode = useDateAndTime ? .dateAndTime : .date
+            dateSelectionButton.valueString = useDateAndTime ? DateFormatter.ub_dayTimeString(from: selectedDate) : DateFormatter.ub_dayString(from: selectedDate)
+        }
+    }
+
     var countries: [ArrivalCountry] = [] {
         didSet {
             countrySelectionPicker.reloadAllComponents()
         }
     }
 
-    func setSelectedCountry(_ country: ArrivalCountry) {
-        guard let index = countries.firstIndex(of: country) else { return }
-        countrySelectionPicker.selectRow(index + 1, inComponent: 0, animated: true)
-        countrySelectionButton.valueString = country.localizedString
-        didSelectCountry?(country)
-        countrySelectionButton.valueLabelTextColor = .cc_text
+    var selectedCountry: ArrivalCountry? {
+        set {
+            guard let newValue = newValue else {
+                return
+            }
+
+            guard let index = countries.firstIndex(of: newValue) else { return }
+            countrySelectionPicker.selectRow(index + 1, inComponent: 0, animated: true)
+            countrySelectionButton.valueString = newValue.localizedString
+            didSelectCountry?(newValue)
+            countrySelectionButton.valueLabelTextColor = .cc_text
+        }
+        get {
+            let row = countrySelectionPicker.selectedRow(inComponent: 0)
+            if row == 0 {
+                return nil
+            } else {
+                return countries[row - 1]
+            }
+        }
     }
 
-    func setSelectedDate(_ date: Date) {
-        // We do not allow dates in the past
-        let d = max(Date(), date)
-        dateSelectionPicker.minimumDate = Date()
-        dateSelectionPicker.setDate(d, animated: true)
-        dateSelectionButton.valueString = DateFormatter.ub_dayTimeString(from: d)
-        didSelectDate?(d)
+    var selectedDate: Date {
+        set {
+            let d = max(Date(), newValue)
+            dateSelectionPicker.minimumDate = Date()
+            dateSelectionPicker.setDate(d, animated: true)
+            dateSelectionButton.valueString = useDateAndTime ? DateFormatter.ub_dayTimeString(from: d) : DateFormatter.ub_dayString(from: d)
+            didSelectDate?(d)
+        }
+        get {
+            return dateSelectionPicker.date
+        }
     }
 
     public var didSelectCountry: ((ArrivalCountry?) -> Void)?
@@ -113,7 +138,7 @@ class CertificateCheckAbroadSelectionView: UIView {
         let date = max(Date(), sender.date)
         dateSelectionPicker.minimumDate = Date()
         didSelectDate?(date)
-        dateSelectionButton.valueString = DateFormatter.ub_dayTimeString(from: date)
+        dateSelectionButton.valueString = useDateAndTime ? DateFormatter.ub_dayTimeString(from: date) : DateFormatter.ub_dayString(from: date)
     }
 }
 
