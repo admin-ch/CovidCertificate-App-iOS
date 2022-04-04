@@ -11,6 +11,7 @@
 
 import CovidCertificateSDK
 import Foundation
+import SnapKit
 import UIKit
 
 enum TemporaryVerifierState: Equatable {
@@ -28,7 +29,10 @@ class CertificateDetailViewController: ViewController {
     private let bannerView = CertificateDetailEOLView()
 
     private lazy var stateView = CertificateStateView(isHomescreen: false, showValidity: true)
+    private lazy var checkValidityAbroadButtonWrapper = UIStackView()
     private lazy var checkValidityAbroadButton = LeadingTrailingIconButton(text: UBLocalized.wallet_foreign_rules_check_button, leadingIcon: UIImage(named: "ic-travel")!, trailingIcon: UIImage(named: "ic-arrow-forward")!)
+
+    private var checkValidityAbroadButtonHeightConstraint: Constraint!
 
     private lazy var detailView = CertificateDetailView(showEnglishLabelsIfNeeded: true, addTopDivider: false)
 
@@ -168,9 +172,15 @@ class CertificateDetailViewController: ViewController {
         stackScrollView.addArrangedView(stateView, inset: padding)
         stackScrollView.addSpacerView(Padding.medium)
 
-        stackScrollView.addArrangedView(checkValidityAbroadButton, inset: padding)
-        stackScrollView.addSpacerView(Padding.large)
+        checkValidityAbroadButtonWrapper.axis = .vertical
+        checkValidityAbroadButtonWrapper.addArrangedView(checkValidityAbroadButton)
+        checkValidityAbroadButtonWrapper.addSpacerView(Padding.large)
 
+        checkValidityAbroadButtonWrapper.snp.makeConstraints { make in
+            checkValidityAbroadButtonHeightConstraint = make.height.equalTo(0).constraint
+        }
+
+        stackScrollView.addArrangedView(checkValidityAbroadButtonWrapper, inset: padding)
         stackScrollView.addArrangedView(modeView, inset: padding)
 
         stackScrollView.addSpacerView(Padding.medium)
@@ -416,6 +426,17 @@ class CertificateDetailViewController: ViewController {
         exportRow.isEnabled = false
         certificateLightRow.isEnabled = false
 
+        let isSuccessState = state.isSuccess()
+        let errors: (signatureError: VerificationError?, revocationError: VerificationError?, nationalRuleError: VerificationError?)? = state.getVerifierErrorState()
+        let isOnlyNationalRulesInvalid = errors?.revocationError == nil && (errors?.revocationError == nil || state.wasRevocationSkipped)
+
+        let showCheckValidityAbroadButton = ConfigManager.currentConfig?.foreignRulesCheckEnabled ?? false && (isSuccessState || isOnlyNationalRulesInvalid)
+
+        if showCheckValidityAbroadButton {
+            checkValidityAbroadButtonHeightConstraint.deactivate()
+        } else {
+            checkValidityAbroadButtonHeightConstraint.activate()
+        }
         let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate?.qrCode ?? "")
         switch c {
         case let .success(holder):
