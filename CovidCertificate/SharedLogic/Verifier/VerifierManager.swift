@@ -57,7 +57,7 @@ final class VerifierManager {
         }
 
         if let v = verifiers[key(qrString, modes, countryCode, checkDate)] {
-            v.restart(modes: modes, forceUpdate: forceUpdate)
+            v.restart(modes: modes, forceUpdate: forceUpdate, countryCode: countryCode, checkDate: checkDate ?? Date())
         } else {
             let v = Verifier(qrString: qrString)
             verifiers[key(qrString, modes, countryCode, checkDate)] = v
