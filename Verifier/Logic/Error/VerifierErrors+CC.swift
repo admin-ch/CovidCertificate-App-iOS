@@ -28,10 +28,6 @@ extension VerificationError {
             return UBLocalized.verifier_verifiy_error_notyetvalid.formattingOccurrenceBold(UBLocalized.verifier_verify_error_validity_range_bold)
         case .typeInvalid:
             return UBLocalized.verifier_error_invalid_format.bold()
-        case .countryNotSupported
-             return UBLocalized.wallet_error_country_not_supported
-             case .noValidRule:
-            return UBLocalized.wallet_error_no_valid_rule
         case .unknownMode:
             // never used
             return "".bold()
