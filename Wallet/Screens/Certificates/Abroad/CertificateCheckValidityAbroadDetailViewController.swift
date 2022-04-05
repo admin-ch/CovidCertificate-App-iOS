@@ -204,7 +204,12 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
 
             VerifierManager.shared.addObserver(self, for: qrCode, modes: [], countryCode: country.id, checkDate: date) { [weak self] state in
                 guard let self = self else { return }
-                self.state = (state, country, date)
+                if self.state?.state == .loading {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
+                        guard let self = self else { return }
+                        self.state = (state, country, date)
+                    }
+                }
             }
         } else {
             state = nil
@@ -213,6 +218,11 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
 
     var state: (state: VerificationState, country: ArrivalCountry, checkDate: Date)? {
         didSet {
+            if state?.state == .loading {
+                selectionView.isUserInteractionEnabled = false
+            } else {
+                selectionView.isUserInteractionEnabled = true
+            }
             stateView.state = state
         }
     }
