@@ -85,7 +85,6 @@ class CertificateCheckAbroadSelectionView: UIView {
         clipsToBounds = false
 
         stackView.axis = .vertical
-        stackView.alignment = .fill
 
         addSubview(stackView)
         stackView.snp.makeConstraints { make in
@@ -122,11 +121,22 @@ class CertificateCheckAbroadSelectionView: UIView {
 
     private func addExpandableButton(button: SelectionButton, expandedView: UIView) {
         stackView.addArrangedView(button)
-        stackView.addArrangedView(expandedView)
 
-        expandedView.isHidden = true
+        let wrapper = UIView()
+        wrapper.clipsToBounds = true
+        wrapper.addSubview(expandedView)
+        expandedView.snp.makeConstraints { make in
+            make.leading.top.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().priority(.low)
+        }
+        wrapper.alpha = 0.0
+
+        stackView.addArrangedView(wrapper)
+
+        wrapper.isHidden = true
         button.didExpand = { expanded in
-            expandedView.isHidden = !expanded
+            wrapper.isHidden = !expanded
+            wrapper.alpha = expanded ? 1.0 : 0.0
             self.stackView.superview?.layoutIfNeeded()
         }
     }
