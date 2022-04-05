@@ -247,9 +247,9 @@ class Verifier: NSObject {
         }
     }
 
-    public func restart(modes: [CheckMode], forceUpdate: Bool = false) {
+    public func restart(modes: [CheckMode], forceUpdate: Bool = false, countryCode: String = CountryCodes.Switzerland, checkDate: Date = Date()) {
         guard let su = stateUpdate else { return }
-        start(modes: modes, forceUpdate: forceUpdate, stateUpdate: su)
+        start(modes: modes, forceUpdate: forceUpdate, countryCode: countryCode, checkDate: checkDate, stateUpdate: su)
     }
 
     // MARK: - Signature
