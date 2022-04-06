@@ -1486,4 +1486,52 @@
 
 /*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde,  das nicht unterstützt wird. (Fetter Text)*/
 "wallet_error_country_not_supported_bold" = "";
+<<<<<<< HEAD
 >>>>>>> 4afebe1 (Adds new reisefeature errors)
+=======
+
+/*Reise-Check: Label des Buttons um Gültigkeit im Ausland zu prüfen*/
+"wallet_foreign_rules_check_button" = "Gültigkeit im Ausland";
+
+/*Reise-Check: Titel des Reise-Check Screens*/
+"wallet_foreign_rules_check_title" = "Gültigkeit im Ausland prüfen";
+
+/*Reise-Check: Untertitel des Reise-Check Screens*/
+"wallet_foreign_rules_check_subtitle" = "Prüfen Sie vor einer Reise, ob Ihr Zertifikat für die Einreise in das gewählte Reiseland gültig ist.";
+
+/*Reise-Check: Titel der Länder- und Datumsauswahl*/
+"wallet_foreign_rules_check_form_title" = "Zertifikat prüfen für";
+
+/*Reise-Check: Label des Länder Eingabefeldes*/
+"wallet_foreign_rules_check_country_label" = "Land";
+
+/*Reise-Check: Wert wenn kein Land ausgewählt*/
+"wallet_foreign_rules_check_country_empty_label" = "Wählen";
+
+/*Reise-Check: Label des Datum Eingabefeldes*/
+"wallet_foreign_rules_check_date_label" = "Datum";
+
+/*Reise-Check: Fehlermeldung wenn Datum in der Vergangenheit liegt*/
+"wallet_foreign_rules_check_date_in_past_error" = "Die angegebene Uhrzeit liegt in der Vergangenheit";
+
+/*Reise-Check: Titel des Hinweise Abschnittes*/
+"wallet_foreign_rules_check_hints_title" = "Hinweise";
+
+/*Reise-Check: Label für den Mehr Informationen Button*/
+"wallet_foreign_rules_check_hints_more_info_label" = "Mehr Informationen finden Sie unter";
+
+/*Reise-Check: Prüfstatus wenn noch kein Land ausgewählt wurde*/
+"wallet_foreign_rules_check_state_empty" = "Bitte wählen Sie ein Land und den Einreisezeitpunkt aus.";
+
+/*Reise-Check: Titel des Auswahldialoges für das Land*/
+"wallet_foreign_rules_check_country_picker_title" = "Land auswählen";
+
+/*Reise-Check: Erste Zeile des Prüfstatus wenn Zertifikat gültig ist*/
+"wallet_foreign_rules_check_state_valid" = "Das Zertifikat ist gültig";
+
+/*Reise-Check: Erste Zeile des Prüfstatus wenn Zertifikat ungültig ist*/
+"wallet_foreign_rules_check_state_invalid" = "Das Zertifikat ist nicht gültig";
+
+/*Reise-Check: Zweite Zeile des Prüfstatus wenn Zertifikat (un-)gültig ist. {COUNTRY} und {DATE} nicht übersetzen*/
+"wallet_foreign_rules_check_state_country_and_date" = "in {COUNTRY} am {DATE}";
+>>>>>>> 90a53b8 (Adds foreign country check (wip))

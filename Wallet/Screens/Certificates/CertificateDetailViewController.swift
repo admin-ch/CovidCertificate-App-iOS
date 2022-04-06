@@ -28,6 +28,8 @@ class CertificateDetailViewController: ViewController {
     private let bannerView = CertificateDetailEOLView()
 
     private lazy var stateView = CertificateStateView(isHomescreen: false, showValidity: true)
+    private lazy var checkValidityAbroadButton = TitleIconButton(text: "Gültigkeit im Ausland", icon: UIImage(named: "ic-arrow-forward"))
+
     private lazy var detailView = CertificateDetailView(showEnglishLabelsIfNeeded: true, addTopDivider: false)
 
     private let modeView = CertificateModeView()
@@ -166,6 +168,9 @@ class CertificateDetailViewController: ViewController {
         stackScrollView.addArrangedView(stateView, inset: padding)
         stackScrollView.addSpacerView(Padding.medium)
 
+        stackScrollView.addArrangedView(checkValidityAbroadButton, inset: padding)
+        stackScrollView.addSpacerView(Padding.large)
+
         stackScrollView.addArrangedView(modeView, inset: padding)
 
         stackScrollView.addSpacerView(Padding.medium)
@@ -295,6 +300,13 @@ class CertificateDetailViewController: ViewController {
 
             strongSelf.bannerPopupView = EOLBannerPopupView(banner: banner)
             strongSelf.bannerPopupView?.addAndPresent(to: strongSelf.view, from: strongSelf.bannerView.moreInfoButton)
+        }
+
+        checkValidityAbroadButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self,
+                  let certificate = strongSelf.certificate else { return }
+
+            strongSelf.navigationController?.pushViewController(CertificateCheckValidityAbroadDetailViewController(certificate: certificate), animated: true)
         }
     }
 
