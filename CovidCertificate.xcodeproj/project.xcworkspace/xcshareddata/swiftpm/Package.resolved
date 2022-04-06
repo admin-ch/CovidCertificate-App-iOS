@@ -1,150 +1,12 @@
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d94af6 (adds correct branch)
   "pins" : [
     {
       "identity" : "base45-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ehn-digital-green-development/base45-swift",
       "state" : {
-<<<<<<< HEAD
         "revision" : "b2fd6c1ff48f6ea1d2877368afd326700427f261",
         "version" : "1.0.1"
-=======
-  "object": {
-    "pins": [
-      {
-        "package": "base45-swift",
-        "repositoryURL": "https://github.com/ehn-digital-green-development/base45-swift",
-        "state": {
-          "branch": null,
-          "revision": "b2fd6c1ff48f6ea1d2877368afd326700427f261",
-          "version": "1.0.1"
-        }
-      },
-      {
-        "package": "Cryptor",
-        "repositoryURL": "https://github.com/Kitura/BlueCryptor.git",
-        "state": {
-          "branch": null,
-          "revision": "88fc6e132f41ece53e49acc0e4f67b0331c15b90",
-          "version": "2.0.1"
-        }
-      },
-      {
-        "package": "CryptorECC",
-        "repositoryURL": "https://github.com/Kitura/BlueECC.git",
-        "state": {
-          "branch": null,
-          "revision": "baf6ed3fc1a622675f0041b4aff7c02dd1a93818",
-          "version": "1.2.200"
-        }
-      },
-      {
-        "package": "CryptorRSA",
-        "repositoryURL": "https://github.com/Kitura/BlueRSA.git",
-        "state": {
-          "branch": null,
-          "revision": "440f78db26d8bb073f29590f1c7bd31004da09ae",
-          "version": "1.0.201"
-        }
-      },
-      {
-        "package": "CovidCertificateSDK",
-        "repositoryURL": "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
-        "state": {
-          "branch": "main",
-          "revision": "9c27c5b7fe74c024cd257c95658711e569c4084d",
-          "version": null
-        }
-      },
-      {
-        "package": "Gzip",
-        "repositoryURL": "https://github.com/1024jp/GzipSwift",
-        "state": {
-          "branch": null,
-          "revision": "ba0b6cb51cc6202f896e469b87d2889a46b10d1b",
-          "version": "5.1.1"
-        }
-      },
-      {
-        "package": "jsonlogic",
-        "repositoryURL": "https://github.com/eu-digital-green-certificates/json-logic-swift",
-        "state": {
-          "branch": null,
-          "revision": "c830f34a35753f4d441bd291e40e4a4feee9ede0",
-          "version": "1.1.9"
-        }
-      },
-      {
-        "package": "KituraContracts",
-        "repositoryURL": "https://github.com/Kitura/KituraContracts.git",
-        "state": {
-          "branch": null,
-          "revision": "8a4778c3aa7833e9e1af884e8819d436c237cd70",
-          "version": "1.2.201"
-        }
-      },
-      {
-        "package": "LoggerAPI",
-        "repositoryURL": "https://github.com/Kitura/LoggerAPI.git",
-        "state": {
-          "branch": null,
-          "revision": "e82d34eab3f0b05391082b11ea07d3b70d2f65bb",
-          "version": "1.9.200"
-        }
-      },
-      {
-        "package": "SnapKit",
-        "repositoryURL": "https://github.com/SnapKit/SnapKit",
-        "state": {
-          "branch": null,
-          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
-          "version": "5.0.1"
-        }
-      },
-      {
-        "package": "SQLite.swift",
-        "repositoryURL": "https://github.com/stephencelis/SQLite.swift.git",
-        "state": {
-          "branch": null,
-          "revision": "4d543d811ee644fa4cc4bfa0be996b4dd6ba0f54",
-          "version": "0.13.3"
-        }
-      },
-      {
-        "package": "SwiftJWT",
-        "repositoryURL": "https://github.com/Kitura/Swift-JWT.git",
-        "state": {
-          "branch": null,
-          "revision": "47c6384b6923e9bb1f214d2ba4bd52af39440588",
-          "version": "3.6.201"
-        }
-      },
-      {
-        "package": "swift-log",
-        "repositoryURL": "https://github.com/apple/swift-log.git",
-        "state": {
-          "branch": null,
-          "revision": "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
-          "version": "1.4.2"
-        }
-      },
-      {
-        "package": "SwiftCBOR",
-        "repositoryURL": "https://github.com/eu-digital-green-certificates/SwiftCBOR",
-        "state": {
-          "branch": null,
-          "revision": "0209a2d1a30b1b42334c4ad3f8bd221b977b2273",
-          "version": "0.4.4"
-        }
->>>>>>> 90a53b8 (Adds foreign country check (wip))
-=======
-        "revision" : "c1db97d793d02a1c3d56d50a738c8fd8c34372f8",
-        "version" : "1.1.0"
->>>>>>> 7d94af6 (adds correct branch)
       }
     },
     {
@@ -180,15 +42,7 @@
       "location" : "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
       "state" : {
         "branch" : "feature/reisefeature",
-<<<<<<< HEAD
-<<<<<<< HEAD
         "revision" : "182b21a403fbb5700d3148f69605bb9ec38b03d2"
-=======
-        "revision" : "37a494c7cf3bdc7f44c427eb38eb6a00290da630"
->>>>>>> 7d94af6 (adds correct branch)
-=======
-        "revision" : "182b21a403fbb5700d3148f69605bb9ec38b03d2"
->>>>>>> 9f8876d (fixes abroad detail design)
       }
     },
     {
@@ -196,13 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/1024jp/GzipSwift",
       "state" : {
-<<<<<<< HEAD
         "revision" : "ba0b6cb51cc6202f896e469b87d2889a46b10d1b",
         "version" : "5.1.1"
-=======
-        "revision" : "7a7f17761c76a932662ab77028a4329f67d645a4",
-        "version" : "5.2.0"
->>>>>>> 7d94af6 (adds correct branch)
       }
     },
     {
