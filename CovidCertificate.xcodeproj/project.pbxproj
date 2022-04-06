@@ -1249,7 +1249,6 @@
 		8E81CC8C241FCC7D006F2437 = {
 			isa = PBXGroup;
 			children = (
-				B6D898BB27EC729200E7D735 /* CovidCertificate-SDK-iOS */,
 				2443947D2445F8A1003ED582 /* README.md */,
 				2443947C2445F8A1003ED582 /* LICENSE */,
 				6EC172DF26429D43002E27DB /* Wallet */,
@@ -3289,7 +3288,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/admin-ch/CovidCertificate-SDK-iOS";
 			requirement = {
-				branch = main;
+				branch = feature/reisefeature;
 				kind = branch;
 			};
 		};

@@ -1,11 +1,15 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d94af6 (adds correct branch)
   "pins" : [
     {
       "identity" : "base45-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ehn-digital-green-development/base45-swift",
       "state" : {
+<<<<<<< HEAD
         "revision" : "b2fd6c1ff48f6ea1d2877368afd326700427f261",
         "version" : "1.0.1"
 =======
@@ -137,6 +141,10 @@
           "version": "0.4.4"
         }
 >>>>>>> 90a53b8 (Adds foreign country check (wip))
+=======
+        "revision" : "c1db97d793d02a1c3d56d50a738c8fd8c34372f8",
+        "version" : "1.1.0"
+>>>>>>> 7d94af6 (adds correct branch)
       }
     },
     {
@@ -172,7 +180,11 @@
       "location" : "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
       "state" : {
         "branch" : "feature/reisefeature",
+<<<<<<< HEAD
         "revision" : "182b21a403fbb5700d3148f69605bb9ec38b03d2"
+=======
+        "revision" : "37a494c7cf3bdc7f44c427eb38eb6a00290da630"
+>>>>>>> 7d94af6 (adds correct branch)
       }
     },
     {
@@ -180,8 +192,13 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/1024jp/GzipSwift",
       "state" : {
+<<<<<<< HEAD
         "revision" : "ba0b6cb51cc6202f896e469b87d2889a46b10d1b",
         "version" : "5.1.1"
+=======
+        "revision" : "7a7f17761c76a932662ab77028a4329f67d645a4",
+        "version" : "5.2.0"
+>>>>>>> 7d94af6 (adds correct branch)
       }
     },
     {
