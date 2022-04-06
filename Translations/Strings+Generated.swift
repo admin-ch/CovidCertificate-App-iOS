@@ -730,10 +730,6 @@ import Foundation
      case wallet_eol_banner_invalid_in_three_weeks_popup_text2_key = "wallet_eol_banner_invalid_in_three_weeks_popup_text2"
     /// Info
      case wallet_eol_banner_invalid_in_three_weeks_popup_title_key = "wallet_eol_banner_invalid_in_three_weeks_popup_title"
-    /// 
-     case wallet_error_country_not_supported_key = "wallet_error_country_not_supported"
-    /// 
-     case wallet_error_country_not_supported_bold_key = "wallet_error_country_not_supported_bold"
     /// Gültigkeit des Zertifikats\nabgelaufen
      case wallet_error_expired_key = "wallet_error_expired"
     /// abgelaufen
@@ -748,10 +744,6 @@ import Foundation
      case wallet_error_invalid_signature_bold_key = "wallet_error_invalid_signature_bold"
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz
      case wallet_error_national_rules_key = "wallet_error_national_rules"
-    /// 
-     case wallet_error_no_valid_rule_key = "wallet_error_no_valid_rule"
-    /// 
-     case wallet_error_no_valid_rule_bold_key = "wallet_error_no_valid_rule_bold"
     /// Zertifikat wurde\nwiderrufen
      case wallet_error_revocation_key = "wallet_error_revocation"
     /// widerrufen
@@ -852,12 +844,16 @@ import Foundation
      case wallet_foreign_rules_check_date_in_past_error_key = "wallet_foreign_rules_check_date_in_past_error"
     /// Datum
      case wallet_foreign_rules_check_date_label_key = "wallet_foreign_rules_check_date_label"
+    /// Fehler beim Laden der verfügbaren Länder.
+     case wallet_foreign_rules_check_error_title_key = "wallet_foreign_rules_check_error_title"
     /// Zertifikat prüfen für
      case wallet_foreign_rules_check_form_title_key = "wallet_foreign_rules_check_form_title"
     /// Mehr Informationen finden Sie unter
      case wallet_foreign_rules_check_hints_more_info_label_key = "wallet_foreign_rules_check_hints_more_info_label"
     /// Hinweise
      case wallet_foreign_rules_check_hints_title_key = "wallet_foreign_rules_check_hints_title"
+    /// Um die Gültigkeit im Ausland zu überprüfen, muss die App online sein.
+     case wallet_foreign_rules_check_network_error_text_key = "wallet_foreign_rules_check_network_error_text"
     /// in {COUNTRY} am {DATE}
      case wallet_foreign_rules_check_state_country_and_date_key = "wallet_foreign_rules_check_state_country_and_date"
     /// Bitte wählen Sie ein Land und den Einreisezeitpunkt aus.
@@ -1854,10 +1850,6 @@ import Foundation
    static let wallet_eol_banner_invalid_in_three_weeks_popup_text2 = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_text2_key)
   /// Info
    static let wallet_eol_banner_invalid_in_three_weeks_popup_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_title_key)
-  /// 
-   static let wallet_error_country_not_supported = UBLocalized.tr(UBLocalizedKey.wallet_error_country_not_supported_key)
-  /// 
-   static let wallet_error_country_not_supported_bold = UBLocalized.tr(UBLocalizedKey.wallet_error_country_not_supported_bold_key)
   /// Gültigkeit des Zertifikats\nabgelaufen
    static let wallet_error_expired = UBLocalized.tr(UBLocalizedKey.wallet_error_expired_key)
   /// abgelaufen
@@ -1872,10 +1864,6 @@ import Foundation
    static let wallet_error_invalid_signature_bold = UBLocalized.tr(UBLocalizedKey.wallet_error_invalid_signature_bold_key)
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz
    static let wallet_error_national_rules = UBLocalized.tr(UBLocalizedKey.wallet_error_national_rules_key)
-  /// 
-   static let wallet_error_no_valid_rule = UBLocalized.tr(UBLocalizedKey.wallet_error_no_valid_rule_key)
-  /// 
-   static let wallet_error_no_valid_rule_bold = UBLocalized.tr(UBLocalizedKey.wallet_error_no_valid_rule_bold_key)
   /// Zertifikat wurde\nwiderrufen
    static let wallet_error_revocation = UBLocalized.tr(UBLocalizedKey.wallet_error_revocation_key)
   /// widerrufen
@@ -1976,12 +1964,16 @@ import Foundation
    static let wallet_foreign_rules_check_date_in_past_error = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_date_in_past_error_key)
   /// Datum
    static let wallet_foreign_rules_check_date_label = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_date_label_key)
+  /// Fehler beim Laden der verfügbaren Länder.
+   static let wallet_foreign_rules_check_error_title = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_error_title_key)
   /// Zertifikat prüfen für
    static let wallet_foreign_rules_check_form_title = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_form_title_key)
   /// Mehr Informationen finden Sie unter
    static let wallet_foreign_rules_check_hints_more_info_label = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_hints_more_info_label_key)
   /// Hinweise
    static let wallet_foreign_rules_check_hints_title = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_hints_title_key)
+  /// Um die Gültigkeit im Ausland zu überprüfen, muss die App online sein.
+   static let wallet_foreign_rules_check_network_error_text = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_network_error_text_key)
   /// in {COUNTRY} am {DATE}
    static let wallet_foreign_rules_check_state_country_and_date = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_state_country_and_date_key)
   /// Bitte wählen Sie ein Land und den Einreisezeitpunkt aus.

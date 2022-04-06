@@ -1470,6 +1470,7 @@
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 /*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde, für das keine Rule existiert, die zu einem gegebenen Zeitpunkt valid ist.*/
 "wallet_error_no_valid_rule" = "";
 
@@ -1485,6 +1486,8 @@
 >>>>>>> 4afebe1 (Adds new reisefeature errors)
 =======
 
+=======
+>>>>>>> 064cdcc (Adds reisefeature view (wip))
 /*Reise-Check: Label des Buttons um Gültigkeit im Ausland zu prüfen*/
 "wallet_foreign_rules_check_button" = "Gültigkeit im Ausland";
 
@@ -1529,4 +1532,13 @@
 
 /*Reise-Check: Zweite Zeile des Prüfstatus wenn Zertifikat (un-)gültig ist. {COUNTRY} und {DATE} nicht übersetzen*/
 "wallet_foreign_rules_check_state_country_and_date" = "in {COUNTRY} am {DATE}";
+<<<<<<< HEAD
 >>>>>>> 90a53b8 (Adds foreign country check (wip))
+=======
+
+/*Error-Titel falls das Reisefeature ("Gültigkeit im Ausland") im Offline-Modus gestartet wurde*/
+"wallet_foreign_rules_check_error_title" = "Fehler beim Laden der verfügbaren Länder.";
+
+/*Error-Text falls das Reisefeature ("Gültigkeit im Ausland") im Offline-Modus gestartet wurde*/
+"wallet_foreign_rules_check_network_error_text" = "Um die Gültigkeit im Ausland zu überprüfen, muss die App online sein.";
+>>>>>>> 064cdcc (Adds reisefeature view (wip))

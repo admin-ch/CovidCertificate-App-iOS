@@ -12,6 +12,8 @@
 import Foundation
 
 class SelectionButton: UBButton {
+    // MARK: - Public API
+
     public var valueString: String? {
         set {
             valueLabel.text = newValue
@@ -21,13 +23,26 @@ class SelectionButton: UBButton {
         }
     }
 
-    var isExpanded: Bool = false
+    public var valueLabelTextColor: UIColor {
+        get {
+            return valueLabel.textColor
+        }
+        set {
+            valueLabel.textColor = newValue
+        }
+    }
 
     // Note: this will be called inside a animation block
     var didExpand: ((Bool) -> Void)?
 
+    private var isExpanded: Bool = false
+
+    // MARK: - Subviews
+
     private let textLabel = Label(.text)
     private let valueLabel = Label(.textBold)
+
+    // MARK: - Init
 
     init(title: String) {
         super.init()

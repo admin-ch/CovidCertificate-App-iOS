@@ -32,12 +32,12 @@ final class VerifierManager {
 
     private var observers: [String: [Observer]] = [:]
 
-    private func updateObservers(for qrString: String, modes: [CheckMode], state: VerificationState) {
-        guard let list = observers[key(qrString, modes)] else { return }
+    private func updateObservers(for qrString: String, modes: [CheckMode], state: VerificationState, countryCode: String = CountryCodes.Switzerland, checkDate: Date?) {
+        guard let list = observers[key(qrString, modes, countryCode, checkDate)] else { return }
         let newList = list.filter { $0.object != nil }
 
         guard !newList.isEmpty else {
-            verifiers[key(qrString, modes)] = nil
+            verifiers[key(qrString, modes, countryCode, checkDate)] = nil
             return
         }
 
@@ -48,26 +48,30 @@ final class VerifierManager {
 
     // MARK: - Public API
 
-    func addObserver(_ object: AnyObject, for qrString: String, modes: [CheckMode], forceUpdate: Bool = false, block: @escaping (VerificationState) -> Void) {
-        if observers[key(qrString, modes)] != nil {
-            observers[key(qrString, modes)] = observers[key(qrString, modes)]!.filter { $0.object != nil && !$0.object!.isEqual(object) }
-            observers[key(qrString, modes)]?.append(Observer(object: object, block: block))
+    func addObserver(_ object: AnyObject, for qrString: String, modes: [CheckMode], forceUpdate: Bool = false, countryCode: String = CountryCodes.Switzerland, checkDate: Date? = nil, block: @escaping (VerificationState) -> Void) {
+        if observers[key(qrString, modes, countryCode, checkDate)] != nil {
+            observers[key(qrString, modes, countryCode, checkDate)] = observers[key(qrString, modes, countryCode, checkDate)]!.filter { $0.object != nil && !$0.object!.isEqual(object) }
+            observers[key(qrString, modes, countryCode, checkDate)]?.append(Observer(object: object, block: block))
         } else {
-            observers[key(qrString, modes)] = [Observer(object: object, block: block)]
+            observers[key(qrString, modes, countryCode, checkDate)] = [Observer(object: object, block: block)]
         }
 
-        if let v = verifiers[key(qrString, modes)] {
+        if let v = verifiers[key(qrString, modes, countryCode, checkDate)] {
             v.restart(modes: modes, forceUpdate: forceUpdate)
         } else {
             let v = Verifier(qrString: qrString)
-            verifiers[key(qrString, modes)] = v
-            v.start(modes: modes, forceUpdate: forceUpdate) { state in
-                self.updateObservers(for: qrString, modes: modes, state: state)
+            verifiers[key(qrString, modes, countryCode, checkDate)] = v
+            v.start(modes: modes, forceUpdate: forceUpdate, countryCode: countryCode, checkDate: checkDate ?? Date()) { state in
+                self.updateObservers(for: qrString, modes: modes, state: state, countryCode: countryCode, checkDate: checkDate)
             }
         }
     }
 
-    private func key(_ qrString: String, _ modes: [CheckMode]) -> String {
-        return modes.reduce(qrString) { partialResult, mode in partialResult + mode.id }
+    private func key(_ qrString: String, _ modes: [CheckMode], _ countryCode: String, _ checkDate: Date?) -> String {
+        if let checkDate = checkDate {
+            return modes.reduce(qrString + countryCode + DateFormatter.ub_string(from: checkDate)) { partialResult, mode in partialResult + mode.id }
+        } else {
+            return modes.reduce(qrString + countryCode) { partialResult, mode in partialResult + mode.id }
+        }
     }
 }

@@ -28,7 +28,7 @@ class CertificateDetailViewController: ViewController {
     private let bannerView = CertificateDetailEOLView()
 
     private lazy var stateView = CertificateStateView(isHomescreen: false, showValidity: true)
-    private lazy var checkValidityAbroadButton = TitleIconButton(text: "Gültigkeit im Ausland", icon: UIImage(named: "ic-arrow-forward"))
+    private lazy var checkValidityAbroadButton = LeadingTrailingIconButton(text: UBLocalized.wallet_foreign_rules_check_button, leadingIcon: UIImage(named: "ic-travel")!, trailingIcon: UIImage(named: "ic-arrow-forward")!)
 
     private lazy var detailView = CertificateDetailView(showEnglishLabelsIfNeeded: true, addTopDivider: false)
 

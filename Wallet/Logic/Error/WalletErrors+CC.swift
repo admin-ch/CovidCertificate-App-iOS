@@ -34,12 +34,6 @@ extension VerificationError {
         case .typeInvalid:
             let bold = UBLocalized.wallet_error_invalid_format_bold
             return UBLocalized.wallet_error_invalid_format.formattingOccurrenceBold(bold)
-        case .countryNotSupported:
-            let bold = UBLocalized.wallet_error_country_not_supported_bold
-            return UBLocalized.wallet_error_country_not_supported.formattingOccurrenceBold(bold)
-        case .noValidRule:
-            let bold = UBLocalized.wallet_error_no_valid_rule_bold
-            return UBLocalized.wallet_error_no_valid_rule.formattingOccurrenceBold(bold)
         case .unknown:
             return UBLocalized.unknown_error.formattingOccurrenceBold("")
         case .lightUnsupported, .unknownMode:
@@ -51,7 +45,7 @@ extension VerificationError {
         switch self {
         case .signature, .typeInvalid, .unknownMode, .lightUnsupported: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .revocation: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
-        case .otherNationalRules, .noValidRule, .countryNotSupported: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
+        case .otherNationalRules: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
         case .expired, .signatureExpired:
             if let c = color {
                 return UIImage(named: "ic-invalid")?.ub_image(with: c)
