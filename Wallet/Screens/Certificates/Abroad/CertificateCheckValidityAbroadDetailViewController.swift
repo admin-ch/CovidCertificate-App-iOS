@@ -68,7 +68,7 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
         errorRetryVC.view.backgroundColor = .cc_background
         errorRetryVC.view.alpha = 0
 
-        let p = Padding.medium
+        let p = 2.0 * Padding.medium
 
         let title = Label(.title, textAlignment: .center)
         title.text = UBLocalized.wallet_foreign_rules_check_title
@@ -81,13 +81,14 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
                         spacing: Padding.large,
                         insets: UIEdgeInsets(top: Padding.large, left: p, bottom: 0, right: p))
 
+        let boxPadding = Padding.medium
         addArrangedView(selectionView,
                         spacing: 6,
-                        insets: UIEdgeInsets(top: 0, left: p, bottom: 0, right: p))
+                        insets: UIEdgeInsets(top: 0, left: boxPadding, bottom: 0, right: boxPadding))
 
         addArrangedView(stateView,
                         spacing: 0,
-                        insets: UIEdgeInsets(top: 0, left: p, bottom: 0, right: p))
+                        insets: UIEdgeInsets(top: 0, left: boxPadding, bottom: 0, right: boxPadding))
 
         guard let currentConfig = ConfigManager.currentConfig else { return }
         if let hints = currentConfig.foreignRulesHints?.value, !hints.isEmpty {
@@ -96,10 +97,10 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
 
             addArrangedView(hintsTitle,
                             spacing: Padding.large,
-                            insets: UIEdgeInsets(top: Padding.large, left: p, bottom: 0, right: p))
+                            insets: UIEdgeInsets(top: 2.0 * Padding.large, left: p, bottom: 0, right: p))
 
             for hint in hints {
-                addArrangedView(OnboardingInfoView(icon: UIImage(named: hint.iconIos), text: hint.text, alignment: .left))
+                addArrangedView(OnboardingInfoView(icon: UIImage(named: hint.iconIos)?.ub_image(with: UIColor.cc_blue), text: hint.text, alignment: .left))
             }
         }
 

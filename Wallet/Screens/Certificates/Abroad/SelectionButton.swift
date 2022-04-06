@@ -68,6 +68,8 @@ class SelectionButton: UBButton {
         textLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
 
         layer.cornerRadius = 10
+        highlightCornerRadius = 10
+        highlightedBackgroundColor = .cc_touchState
         clipsToBounds = false
 
         touchUpCallback = { [weak self] in
@@ -80,6 +82,4 @@ class SelectionButton: UBButton {
             })
         }
     }
-
-    private func setup(_: Bool) {}
 }

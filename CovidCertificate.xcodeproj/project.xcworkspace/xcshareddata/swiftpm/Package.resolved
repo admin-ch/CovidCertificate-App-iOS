@@ -181,10 +181,14 @@
       "state" : {
         "branch" : "feature/reisefeature",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "revision" : "182b21a403fbb5700d3148f69605bb9ec38b03d2"
 =======
         "revision" : "37a494c7cf3bdc7f44c427eb38eb6a00290da630"
 >>>>>>> 7d94af6 (adds correct branch)
+=======
+        "revision" : "182b21a403fbb5700d3148f69605bb9ec38b03d2"
+>>>>>>> 9f8876d (fixes abroad detail design)
       }
     },
     {
