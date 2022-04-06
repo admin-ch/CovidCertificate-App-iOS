@@ -26,6 +26,8 @@ class CertificateCheckAbroadVerificationStateView: UIView {
         }
     }
 
+    var touchUpCallback: (() -> Void)?
+
     // MARK: - Subviews
 
     private let backgroundView = UIView()
@@ -34,6 +36,8 @@ class CertificateCheckAbroadVerificationStateView: UIView {
     private let loadingView = UIActivityIndicatorView(style: .gray)
     private let textLabel = Label(.textBold, textAlignment: .center)
     private let errorLabel = Label(.smallErrorLight, textAlignment: .center)
+
+    private let reloadButton = UBButton()
 
     // MARK: - Init
 
@@ -94,6 +98,21 @@ class CertificateCheckAbroadVerificationStateView: UIView {
             make.top.equalTo(backgroundView.snp.bottom).offset(Padding.medium)
             make.leading.trailing.equalTo(backgroundView).inset(Padding.medium)
             make.bottom.equalToSuperview()
+        }
+
+        backgroundView.addSubview(reloadButton)
+
+        reloadButton.layer.cornerRadius = backgroundView.layer.cornerRadius
+        reloadButton.highlightCornerRadius = backgroundView.layer.cornerRadius
+        reloadButton.highlightedBackgroundColor = .cc_touchState
+
+        reloadButton.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        reloadButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.touchUpCallback?()
         }
     }
 

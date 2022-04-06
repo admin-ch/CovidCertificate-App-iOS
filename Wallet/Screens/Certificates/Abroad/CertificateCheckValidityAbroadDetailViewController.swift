@@ -142,6 +142,11 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
             guard let strongSelf = self else { return }
             strongSelf.loadCountries(forceUpdate: true)
         }
+
+        stateView.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.startCheckIfSelectionIsValid()
+        }
     }
 
     private func setupDayAndTime() {
