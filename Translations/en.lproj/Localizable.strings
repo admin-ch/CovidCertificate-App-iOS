@@ -1386,31 +1386,31 @@
 "wallet_certificate_detail_note_positive_antigen" = "This certificate is not a travel document.\n\nThis certificate is only valid for a limited period of time. You can check the current duration of validity in Switzerland at any time using the COVID Certificate app.";
 
 /*banner title on homescreen. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_homescreen_title" = "Shortened period of validity";
+"wallet_eol_banner_invalid_in_three_weeks_homescreen_title" = "Imminent expiry";
 
 /*banner title in certificate detail view. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_detail_title" = "Shortened period of validity";
+"wallet_eol_banner_invalid_in_three_weeks_detail_title" = "Info";
 
 /*banner text in certificate detail view. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_detail_text" = "This certificate will soon expire.";
 
 /*more info 'button' text in banner in certicate detail view. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_detail_more_info" = "More information";
+"wallet_eol_banner_invalid_in_three_weeks_detail_more_info" = "More information?";
 
 /*title for pop up. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_popup_title" = "Info";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text1" = "As of 31 Jan 2022 a shortened period of validity of 270 instead of 365 days applies to COVID vaccination or recovery certificates in Switzerland. This certificate is directly affected by the shortened period of validity:";
+"wallet_eol_banner_invalid_in_three_weeks_popup_text1" = "";
 
 /*bold text box for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_bold_text" = "This COVID certificate is valid for only a few more days.";
+"wallet_eol_banner_invalid_in_three_weeks_popup_bold_text" = "This COVID certificate is valid for only a few more days. Please note the expiry date shown on the certificate.";
 
 /*link text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_link_text" = "More information";
+"wallet_eol_banner_invalid_in_three_weeks_popup_link_text" = "And now?";
 
 /*link url for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_link_url" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/why-period-validity-certificates-vaccination-or-recovery-being-shortened-365-270";
+"wallet_eol_banner_invalid_in_three_weeks_popup_link_url" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/what-should-i-do-if-my-covid-certificate-about-expire-under-swiss-rules-validity";
 
 /*banner title on homescreen. case: certificate will be invalid at time of validity change.*/
 "wallet_eol_banner_invalid_from_first_february_homescreen_title" = "Shortened period of validity";
@@ -1440,7 +1440,7 @@
 "wallet_eol_banner_invalid_from_first_february_popup_link_url" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/why-period-validity-certificates-vaccination-or-recovery-being-shortened-365-270";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Please note the new expiry date shown on the certificate, which since 31 January 2022 has been calculated on the basis of the reduced period of validity of 270 days.";
+"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "";
 
 /*Fuzzy*/
 "infobox_generic_title" = "Back up your certificate!";
@@ -1458,6 +1458,7 @@
 "infobox_generic_url_ios" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/i-only-have-my-covid-certificate-electronically-covid-certificate-app-how-can-i";
 
 /*accessibilityLabel for the "1"-icon*/
+<<<<<<< HEAD
 "wallet_scanner_how_it_works_accessibility_icon1" = "Erstens";
 
 /*accessibilityLabel for the "2"-icon*/
@@ -1465,3 +1466,24 @@
 
 /*accessibilityLabel for the "3"-icon*/
 "wallet_scanner_how_it_works_accessibility_icon3" = "Drittens";
+=======
+"wallet_scanner_how_it_works_accessibility_icon1" = "First";
+
+/*accessibilityLabel for the "2"-icon*/
+"wallet_scanner_how_it_works_accessibility_icon2" = "Second";
+
+/*accessibilityLabel for the "3"-icon*/
+"wallet_scanner_how_it_works_accessibility_icon3" = "Third";
+
+/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde, für das keine Rule existiert, die zu einem gegebenen Zeitpunkt valid ist.*/
+"wallet_error_no_valid_rule" = "";
+
+/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde,  das nicht unterstützt wird.*/
+"wallet_error_country_not_supported" = "";
+
+/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde, für das keine Rule existiert, die zu einem gegebenen Zeitpunkt valid ist. (Fetter Text)*/
+"wallet_error_no_valid_rule_bold" = "";
+
+/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde,  das nicht unterstützt wird. (Fetter Text)*/
+"wallet_error_country_not_supported_bold" = "";
+>>>>>>> 4afebe1 (Adds new reisefeature errors)

@@ -710,26 +710,30 @@ import Foundation
      case wallet_eol_banner_invalid_from_first_february_popup_text1_key = "wallet_eol_banner_invalid_from_first_february_popup_text1"
     /// Info
      case wallet_eol_banner_invalid_from_first_february_popup_title_key = "wallet_eol_banner_invalid_from_first_february_popup_title"
-    /// Mehr erfahren
+    /// Mehr erfahren?
      case wallet_eol_banner_invalid_in_three_weeks_detail_more_info_key = "wallet_eol_banner_invalid_in_three_weeks_detail_more_info"
-    /// Dieses Zertifikat wird bald ablaufen.
+    /// Dieses Zertifikat läuft bald ab.
      case wallet_eol_banner_invalid_in_three_weeks_detail_text_key = "wallet_eol_banner_invalid_in_three_weeks_detail_text"
-    /// Verkürzte Gültigkeitsdauer
+    /// Info
      case wallet_eol_banner_invalid_in_three_weeks_detail_title_key = "wallet_eol_banner_invalid_in_three_weeks_detail_title"
-    /// Verkürzte Gültigkeitsdauer
+    /// Bald abgelaufen
      case wallet_eol_banner_invalid_in_three_weeks_homescreen_title_key = "wallet_eol_banner_invalid_in_three_weeks_homescreen_title"
-    /// Dieses Covid-Zertifikat ist nur noch wenige Tage gültig.
+    /// Dieses Covid-Zertifikat ist nur noch wenige Tage gültig. Bitte beachten Sie das auf dem Zertifikat ausgewiesene Ablaufdatum.
      case wallet_eol_banner_invalid_in_three_weeks_popup_bold_text_key = "wallet_eol_banner_invalid_in_three_weeks_popup_bold_text"
-    /// Mehr erfahren
+    /// Und nun?
      case wallet_eol_banner_invalid_in_three_weeks_popup_link_text_key = "wallet_eol_banner_invalid_in_three_weeks_popup_link_text"
-    /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine
+    /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald
      case wallet_eol_banner_invalid_in_three_weeks_popup_link_url_key = "wallet_eol_banner_invalid_in_three_weeks_popup_link_url"
-    /// Seit dem 31. Jan. 2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:
+    /// 
      case wallet_eol_banner_invalid_in_three_weeks_popup_text1_key = "wallet_eol_banner_invalid_in_three_weeks_popup_text1"
-    /// Bitte beachten Sie das auf dem Zertifikat ausgewiesene neue Ablaufdatum, welches seit dem 31. Jan. 2022 mit einer reduzierten Gültigkeitsdauer von 270 Tagen berechnet wird.
+    /// 
      case wallet_eol_banner_invalid_in_three_weeks_popup_text2_key = "wallet_eol_banner_invalid_in_three_weeks_popup_text2"
     /// Info
      case wallet_eol_banner_invalid_in_three_weeks_popup_title_key = "wallet_eol_banner_invalid_in_three_weeks_popup_title"
+    /// 
+     case wallet_error_country_not_supported_key = "wallet_error_country_not_supported"
+    /// 
+     case wallet_error_country_not_supported_bold_key = "wallet_error_country_not_supported_bold"
     /// Gültigkeit des Zertifikats\nabgelaufen
      case wallet_error_expired_key = "wallet_error_expired"
     /// abgelaufen
@@ -744,6 +748,10 @@ import Foundation
      case wallet_error_invalid_signature_bold_key = "wallet_error_invalid_signature_bold"
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz
      case wallet_error_national_rules_key = "wallet_error_national_rules"
+    /// 
+     case wallet_error_no_valid_rule_key = "wallet_error_no_valid_rule"
+    /// 
+     case wallet_error_no_valid_rule_bold_key = "wallet_error_no_valid_rule_bold"
     /// Zertifikat wurde\nwiderrufen
      case wallet_error_revocation_key = "wallet_error_revocation"
     /// widerrufen
@@ -1796,26 +1804,30 @@ import Foundation
    static let wallet_eol_banner_invalid_from_first_february_popup_text1 = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_popup_text1_key)
   /// Info
    static let wallet_eol_banner_invalid_from_first_february_popup_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_popup_title_key)
-  /// Mehr erfahren
+  /// Mehr erfahren?
    static let wallet_eol_banner_invalid_in_three_weeks_detail_more_info = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_detail_more_info_key)
-  /// Dieses Zertifikat wird bald ablaufen.
+  /// Dieses Zertifikat läuft bald ab.
    static let wallet_eol_banner_invalid_in_three_weeks_detail_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_detail_text_key)
-  /// Verkürzte Gültigkeitsdauer
+  /// Info
    static let wallet_eol_banner_invalid_in_three_weeks_detail_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_detail_title_key)
-  /// Verkürzte Gültigkeitsdauer
+  /// Bald abgelaufen
    static let wallet_eol_banner_invalid_in_three_weeks_homescreen_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_homescreen_title_key)
-  /// Dieses Covid-Zertifikat ist nur noch wenige Tage gültig.
+  /// Dieses Covid-Zertifikat ist nur noch wenige Tage gültig. Bitte beachten Sie das auf dem Zertifikat ausgewiesene Ablaufdatum.
    static let wallet_eol_banner_invalid_in_three_weeks_popup_bold_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_bold_text_key)
-  /// Mehr erfahren
+  /// Und nun?
    static let wallet_eol_banner_invalid_in_three_weeks_popup_link_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_link_text_key)
-  /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine
+  /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald
    static let wallet_eol_banner_invalid_in_three_weeks_popup_link_url = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_link_url_key)
-  /// Seit dem 31. Jan. 2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:
+  /// 
    static let wallet_eol_banner_invalid_in_three_weeks_popup_text1 = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_text1_key)
-  /// Bitte beachten Sie das auf dem Zertifikat ausgewiesene neue Ablaufdatum, welches seit dem 31. Jan. 2022 mit einer reduzierten Gültigkeitsdauer von 270 Tagen berechnet wird.
+  /// 
    static let wallet_eol_banner_invalid_in_three_weeks_popup_text2 = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_text2_key)
   /// Info
    static let wallet_eol_banner_invalid_in_three_weeks_popup_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_title_key)
+  /// 
+   static let wallet_error_country_not_supported = UBLocalized.tr(UBLocalizedKey.wallet_error_country_not_supported_key)
+  /// 
+   static let wallet_error_country_not_supported_bold = UBLocalized.tr(UBLocalizedKey.wallet_error_country_not_supported_bold_key)
   /// Gültigkeit des Zertifikats\nabgelaufen
    static let wallet_error_expired = UBLocalized.tr(UBLocalizedKey.wallet_error_expired_key)
   /// abgelaufen
@@ -1830,6 +1842,10 @@ import Foundation
    static let wallet_error_invalid_signature_bold = UBLocalized.tr(UBLocalizedKey.wallet_error_invalid_signature_bold_key)
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz
    static let wallet_error_national_rules = UBLocalized.tr(UBLocalizedKey.wallet_error_national_rules_key)
+  /// 
+   static let wallet_error_no_valid_rule = UBLocalized.tr(UBLocalizedKey.wallet_error_no_valid_rule_key)
+  /// 
+   static let wallet_error_no_valid_rule_bold = UBLocalized.tr(UBLocalizedKey.wallet_error_no_valid_rule_bold_key)
   /// Zertifikat wurde\nwiderrufen
    static let wallet_error_revocation = UBLocalized.tr(UBLocalizedKey.wallet_error_revocation_key)
   /// widerrufen
