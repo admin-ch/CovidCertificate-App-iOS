@@ -74,8 +74,8 @@ class ConfigResponseBody: UBCodable, JWTExtension {
 
         let eolBannerInfo: LocalizedValue<[String: EOLBannerInfo]>?
         var foreignRulesCheckEnabled = false
-        let foreignRulesLinkText: String?
-        let foreignRulesLinkUrl: String?
+        let foreignRulesLinkText: LocalizedValue<String>?
+        let foreignRulesLinkUrl: LocalizedValue<String>?
         let foreignRulesHints: LocalizedValue<[ForeignRulesHint]>?
     #elseif VERIFIER
         let checkModesInfos: LocalizedValue<CheckModeContainer>?

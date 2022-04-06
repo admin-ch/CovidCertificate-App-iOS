@@ -104,7 +104,9 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
             }
         }
 
-        if let linkText = currentConfig.foreignRulesLinkText, let linkUrl = currentConfig.foreignRulesLinkUrl, let url = URL(string: linkUrl) {
+        if let linkText = currentConfig.foreignRulesLinkText?.value,
+           let linkUrl = currentConfig.foreignRulesLinkUrl?.value,
+           let url = URL(string: linkUrl) {
             let t = Label(.text)
             t.text = UBLocalized.wallet_foreign_rules_check_hints_more_info_label
             addArrangedView(t,
@@ -115,7 +117,15 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
             linkButton.touchUpCallback = {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
-            addArrangedView(linkButton)
+
+            let v = UIView()
+            v.addSubview(linkButton)
+            linkButton.snp.makeConstraints { make in
+                make.top.left.bottom.equalToSuperview()
+                make.right.lessThanOrEqualToSuperview()
+            }
+
+            addArrangedView(v, insets: UIEdgeInsets(top: 0.0, left: p, bottom: Padding.large, right: p))
         }
     }
 
