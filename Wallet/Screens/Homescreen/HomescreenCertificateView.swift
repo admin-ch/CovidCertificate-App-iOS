@@ -637,27 +637,26 @@ private class QRCodeView: UIView {
         let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate?.qrCode ?? "")
         var isTest = false
         var isSignatureOrRevocationError = false
+
         switch c {
         case let .success(holder):
-            guard let dccCert = holder.certificate as? DCCCert else { break }
-            isTest = dccCert.immunisationType == .test
+            if let dccCert = holder.certificate as? DCCCert {
+                isTest = dccCert.immunisationType == .test
+            }
         default:
             break
         }
+
         switch state {
         case let .invalid(errors, _, _, _):
-            if errors.first != nil {
-                switch errors.first {
-                case .signature, .revocation:
-                    isSignatureOrRevocationError = true
-                case .otherNationalRules, .unknown, .typeInvalid, .lightUnsupported, .unknownMode, .expired, .signatureExpired, .notYetValid, .none:
-                    isSignatureOrRevocationError = false
-                }
+            if let err = errors.first {
+                isSignatureOrRevocationError = (err == .signature) || (err == .revocation)
             }
-        case .loading, .success, .skipped, .retry:
-            isSignatureOrRevocationError = false
+        default:
+            break
         }
         let isInvalid = (isTest || isSignatureOrRevocationError) ? state.isInvalid() : false
+
         nameView.enabled = !isInvalid
         nameView.certificate = certificate
 
