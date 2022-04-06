@@ -1467,47 +1467,27 @@
 
 /*accessibilityLabel for the "3"-icon*/
 "wallet_scanner_how_it_works_accessibility_icon3" = "Drittens";
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde, für das keine Rule existiert, die zu einem gegebenen Zeitpunkt valid ist.*/
-"wallet_error_no_valid_rule" = "";
-
-/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde,  das nicht unterstützt wird.*/
-"wallet_error_country_not_supported" = "";
-
-/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde, für das keine Rule existiert, die zu einem gegebenen Zeitpunkt valid ist. (Fetter Text)*/
-"wallet_error_no_valid_rule_bold" = "";
-
-/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde,  das nicht unterstützt wird. (Fetter Text)*/
-"wallet_error_country_not_supported_bold" = "";
-<<<<<<< HEAD
->>>>>>> 4afebe1 (Adds new reisefeature errors)
-=======
-
-=======
->>>>>>> 064cdcc (Adds reisefeature view (wip))
 /*Reise-Check: Label des Buttons um Gültigkeit im Ausland zu prüfen*/
-"wallet_foreign_rules_check_button" = "Gültigkeit im Ausland";
+"wallet_foreign_rules_check_button" = "Gültigkeit bei Reisen";
 
 /*Reise-Check: Titel des Reise-Check Screens*/
-"wallet_foreign_rules_check_title" = "Gültigkeit im Ausland prüfen";
+"wallet_foreign_rules_check_title" = "Gültigkeit für Reisen ins Ausland";
 
 /*Reise-Check: Untertitel des Reise-Check Screens*/
-"wallet_foreign_rules_check_subtitle" = "Prüfen Sie vor einer Reise, ob Ihr Zertifikat für die Einreise in das gewählte Reiseland gültig ist.";
+"wallet_foreign_rules_check_subtitle" = "Finden Sie vor einer Auslandreise heraus, ob Ihr Covid-Zertifikat zum Zeitpunkt der Einreise ins Zielland gültig ist.";
 
 /*Reise-Check: Titel der Länder- und Datumsauswahl*/
-"wallet_foreign_rules_check_form_title" = "Zertifikat prüfen für";
+"wallet_foreign_rules_check_form_title" = "Prüfen für:";
 
 /*Reise-Check: Label des Länder Eingabefeldes*/
-"wallet_foreign_rules_check_country_label" = "Land";
+"wallet_foreign_rules_check_country_label" = "Land:";
 
 /*Reise-Check: Wert wenn kein Land ausgewählt*/
 "wallet_foreign_rules_check_country_empty_label" = "Wählen";
 
 /*Reise-Check: Label des Datum Eingabefeldes*/
-"wallet_foreign_rules_check_date_label" = "Datum";
+"wallet_foreign_rules_check_date_label" = "Einreise am:";
 
 /*Reise-Check: Fehlermeldung wenn Datum in der Vergangenheit liegt*/
 "wallet_foreign_rules_check_date_in_past_error" = "Die angegebene Uhrzeit liegt in der Vergangenheit";
@@ -1525,20 +1505,34 @@
 "wallet_foreign_rules_check_country_picker_title" = "Land auswählen";
 
 /*Reise-Check: Erste Zeile des Prüfstatus wenn Zertifikat gültig ist*/
-"wallet_foreign_rules_check_state_valid" = "Das Zertifikat ist gültig";
+"wallet_foreign_rules_check_state_valid" = "Gültig für die Einreise nach:";
 
 /*Reise-Check: Erste Zeile des Prüfstatus wenn Zertifikat ungültig ist*/
-"wallet_foreign_rules_check_state_invalid" = "Das Zertifikat ist nicht gültig";
+"wallet_foreign_rules_check_state_invalid" = "Ungültig für die Einreise nach:";
 
 /*Reise-Check: Zweite Zeile des Prüfstatus wenn Zertifikat (un-)gültig ist. {COUNTRY} und {DATE} nicht übersetzen*/
-"wallet_foreign_rules_check_state_country_and_date" = "in {COUNTRY} am {DATE}";
-<<<<<<< HEAD
->>>>>>> 90a53b8 (Adds foreign country check (wip))
-=======
+"wallet_foreign_rules_check_state_country_and_date" = "{COUNTRY}, {DATE}";
 
 /*Error-Titel falls das Reisefeature ("Gültigkeit im Ausland") im Offline-Modus gestartet wurde*/
-"wallet_foreign_rules_check_error_title" = "Fehler beim Laden der verfügbaren Länder.";
+"wallet_foreign_rules_check_error_title" = "Fehler beim Laden der verfügbaren Länder";
 
 /*Error-Text falls das Reisefeature ("Gültigkeit im Ausland") im Offline-Modus gestartet wurde*/
-"wallet_foreign_rules_check_network_error_text" = "Um die Gültigkeit im Ausland zu überprüfen, muss die App online sein.";
->>>>>>> 064cdcc (Adds reisefeature view (wip))
+"wallet_foreign_rules_check_network_error_text" = "Um die Gültigkeit zu überprüfen, muss Ihr Smartphone mit dem Internet verbunden sein.";
+
+/*Reisefeature: Hinweis 1*/
+"wallet_foreign_rules_check_hint_1" = "Die Einreiseregeln können sich ändern. Prüfen Sie daher die Gültigkeit kurz vor der Abreise und informieren Sie sich zusätzlich online über die aktuellen Einreiseregeln des Ziellandes.";
+
+/*Reisefeature: Hinweis 2*/
+"wallet_foreign_rules_check_hint_2" = "Die oben genannten Angaben beziehen sich nur auf die Einreiseregeln des Ziellandes. Für allfällige zertifikatspflichtige Bereiche innerhalb des Landes können andere Regeln gelten.";
+
+/*Reisefeature: Hinweis 3*/
+"wallet_foreign_rules_check_hint_3" = "Für die Aktualität und Vollständigkeit der gegebenen Informationen übernimmt der Bund keine Haftung.";
+
+/*Reisefeature: Hinweis 4*/
+"wallet_foreign_rules_check_hint_4" = "Land nicht gefunden? Nicht alle Länder akzeptieren Covid-Zertifikate oder es wurden keine Einreiseregeln verfügbar gemacht.";
+
+/*Reisefeature: Text des Mehr Infos Buttons*/
+"wallet_foreign_rules_check_hints_more_info_link_text" = "reopen.europa.eu";
+
+/*Reisefeature: URL die geöffnet wird wenn auf den Mehr Info Button geklickt wird*/
+"wallet_foreign_rules_check_hints_more_info_link_url" = "https://reopen.europa.eu/";

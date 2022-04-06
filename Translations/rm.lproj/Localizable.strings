@@ -1188,7 +1188,7 @@
 "wallet_info_box_certificate_scan_button_check_app" = "Tar l'app «COVID Certificate Check»";
 "wallet_info_box_certificate_scan_close" = "Chapì";
 "wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";
-"wallet_only_valid_in_switzerland" = "Valaivel mo cun in document da legitimaziun e mo en Svizra";
+"wallet_only_valid_in_switzerland" = "Betg valaivel ordaifer la Svizra";
 "covid_certificate_sero_positiv_test_befund_label" = "Diagnosa";
 "covid_certificate_sero_positiv_test_befund_value" = "Suffizient";
 
@@ -1458,15 +1458,6 @@
 "infobox_generic_url_ios" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate";
 
 /*accessibilityLabel for the "1"-icon*/
-<<<<<<< HEAD
-"wallet_scanner_how_it_works_accessibility_icon1" = "Erstens";
-
-/*accessibilityLabel for the "2"-icon*/
-"wallet_scanner_how_it_works_accessibility_icon2" = "Zweitens";
-
-/*accessibilityLabel for the "3"-icon*/
-"wallet_scanner_how_it_works_accessibility_icon3" = "Drittens";
-=======
 "wallet_scanner_how_it_works_accessibility_icon1" = "Emprim";
 
 /*accessibilityLabel for the "2"-icon*/
@@ -1475,75 +1466,71 @@
 /*accessibilityLabel for the "3"-icon*/
 "wallet_scanner_how_it_works_accessibility_icon3" = "Terz";
 
-<<<<<<< HEAD
-/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde, für das keine Rule existiert, die zu einem gegebenen Zeitpunkt valid ist.*/
-"wallet_error_no_valid_rule" = "";
-
-/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde,  das nicht unterstützt wird.*/
-"wallet_error_country_not_supported" = "";
-
-/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde, für das keine Rule existiert, die zu einem gegebenen Zeitpunkt valid ist. (Fetter Text)*/
-"wallet_error_no_valid_rule_bold" = "";
-
-/*Errorcode, falls (im Reisefeature) ein Land ausgewählt wurde,  das nicht unterstützt wird. (Fetter Text)*/
-"wallet_error_country_not_supported_bold" = "";
-<<<<<<< HEAD
->>>>>>> 4afebe1 (Adds new reisefeature errors)
-=======
-
-=======
->>>>>>> 064cdcc (Adds reisefeature view (wip))
 /*Reise-Check: Label des Buttons um Gültigkeit im Ausland zu prüfen*/
-"wallet_foreign_rules_check_button" = "Gültigkeit im Ausland";
+"wallet_foreign_rules_check_button" = "Valaivladad per viadis";
 
 /*Reise-Check: Titel des Reise-Check Screens*/
-"wallet_foreign_rules_check_title" = "Gültigkeit im Ausland prüfen";
+"wallet_foreign_rules_check_title" = "Valaivladad per viadis a l'exteriur";
 
 /*Reise-Check: Untertitel des Reise-Check Screens*/
-"wallet_foreign_rules_check_subtitle" = "Prüfen Sie vor einer Reise, ob Ihr Zertifikat für die Einreise in das gewählte Reiseland gültig ist.";
+"wallet_foreign_rules_check_subtitle" = "Vegni a savair avant in viadi a l'exteriur, sche Voss certificat COVID è valaivel il mument da l'entrada en il pajais da destinaziun.";
 
 /*Reise-Check: Titel der Länder- und Datumsauswahl*/
-"wallet_foreign_rules_check_form_title" = "Zertifikat prüfen für";
+"wallet_foreign_rules_check_form_title" = "Verifitgar per:";
 
 /*Reise-Check: Label des Länder Eingabefeldes*/
-"wallet_foreign_rules_check_country_label" = "Land";
+"wallet_foreign_rules_check_country_label" = "Pajais:";
 
 /*Reise-Check: Wert wenn kein Land ausgewählt*/
-"wallet_foreign_rules_check_country_empty_label" = "Wählen";
+"wallet_foreign_rules_check_country_empty_label" = "Selecziunar";
 
 /*Reise-Check: Label des Datum Eingabefeldes*/
-"wallet_foreign_rules_check_date_label" = "Datum";
+"wallet_foreign_rules_check_date_label" = "Entrada ils:";
 
 /*Reise-Check: Fehlermeldung wenn Datum in der Vergangenheit liegt*/
-"wallet_foreign_rules_check_date_in_past_error" = "Die angegebene Uhrzeit liegt in der Vergangenheit";
+"wallet_foreign_rules_check_date_in_past_error" = "Las uras inditgadas èn en il passà";
 
 /*Reise-Check: Titel des Hinweise Abschnittes*/
-"wallet_foreign_rules_check_hints_title" = "Hinweise";
+"wallet_foreign_rules_check_hints_title" = "Infurmaziuns";
 
 /*Reise-Check: Label für den Mehr Informationen Button*/
-"wallet_foreign_rules_check_hints_more_info_label" = "Mehr Informationen finden Sie unter";
+"wallet_foreign_rules_check_hints_more_info_label" = "Dapli infurmaziuns chattais Vus sut";
 
 /*Reise-Check: Prüfstatus wenn noch kein Land ausgewählt wurde*/
-"wallet_foreign_rules_check_state_empty" = "Bitte wählen Sie ein Land und den Einreisezeitpunkt aus.";
+"wallet_foreign_rules_check_state_empty" = "Tscherni per plaschair in pajais e la data d'entrada.";
 
 /*Reise-Check: Titel des Auswahldialoges für das Land*/
-"wallet_foreign_rules_check_country_picker_title" = "Land auswählen";
+"wallet_foreign_rules_check_country_picker_title" = "Tscherner in pajais";
 
 /*Reise-Check: Erste Zeile des Prüfstatus wenn Zertifikat gültig ist*/
-"wallet_foreign_rules_check_state_valid" = "Das Zertifikat ist gültig";
+"wallet_foreign_rules_check_state_valid" = "Valaivel per entrar en:";
 
 /*Reise-Check: Erste Zeile des Prüfstatus wenn Zertifikat ungültig ist*/
-"wallet_foreign_rules_check_state_invalid" = "Das Zertifikat ist nicht gültig";
+"wallet_foreign_rules_check_state_invalid" = "Betg valaivel per entrar en:";
 
 /*Reise-Check: Zweite Zeile des Prüfstatus wenn Zertifikat (un-)gültig ist. {COUNTRY} und {DATE} nicht übersetzen*/
-"wallet_foreign_rules_check_state_country_and_date" = "in {COUNTRY} am {DATE}";
-<<<<<<< HEAD
->>>>>>> 90a53b8 (Adds foreign country check (wip))
-=======
+"wallet_foreign_rules_check_state_country_and_date" = "{COUNTRY}, {DATE}";
 
 /*Error-Titel falls das Reisefeature ("Gültigkeit im Ausland") im Offline-Modus gestartet wurde*/
-"wallet_foreign_rules_check_error_title" = "Fehler beim Laden der verfügbaren Länder.";
+"wallet_foreign_rules_check_error_title" = "Sbagl cun chargiar ils pajais disponibels";
 
 /*Error-Text falls das Reisefeature ("Gültigkeit im Ausland") im Offline-Modus gestartet wurde*/
-"wallet_foreign_rules_check_network_error_text" = "Um die Gültigkeit im Ausland zu überprüfen, muss die App online sein.";
->>>>>>> 064cdcc (Adds reisefeature view (wip))
+"wallet_foreign_rules_check_network_error_text" = "Per verifitgar la valaivladad sto Voss smartphone esser collià cun l’internet.";
+
+/*Reisefeature: Hinweis 1*/
+"wallet_foreign_rules_check_hint_1" = "Las reglas d'entrada pon sa midar. Verifitgai perquai la valaivladad curt avant che Vus partis ed As infurmai ultra da quai online davart las reglas d'entrada actualas dal pajais da destinaziun.";
+
+/*Reisefeature: Hinweis 2*/
+"wallet_foreign_rules_check_hint_2" = "Las infurmaziuns qua survart sa refereschan mo a las reglas d'entrada dal pajais da destinaziun. Per secturs che pretendan eventualmain in certificat entaifer il pajais pon valair autras reglas.";
+
+/*Reisefeature: Hinweis 3*/
+"wallet_foreign_rules_check_hint_3" = "Per l'actualitad e la cumplettadad da las infurmaziuns na surpiglia la Confederaziun nagina responsabladad.";
+
+/*Reisefeature: Hinweis 4*/
+"wallet_foreign_rules_check_hint_4" = "N'avais Vus betg chattà Voss pajais da destinaziun? Betg tut ils pajais n'acceptan certificats COVID, u i n'èn vegnidas messas a disposiziun naginas infurmaziuns davart eventualas reglas d'entrada.";
+
+/*Reisefeature: Text des Mehr Infos Buttons*/
+"wallet_foreign_rules_check_hints_more_info_link_text" = "reopen.europa.eu";
+
+/*Reisefeature: URL die geöffnet wird wenn auf den Mehr Info Button geklickt wird*/
+"wallet_foreign_rules_check_hints_more_info_link_url" = "https://reopen.europa.eu/";
