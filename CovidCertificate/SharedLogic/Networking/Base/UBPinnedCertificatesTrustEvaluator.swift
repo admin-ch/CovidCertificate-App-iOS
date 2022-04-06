@@ -88,8 +88,7 @@ public final class UBPinnedCertificatesTrustEvaluator: UBServerTrustEvaluator {
     public init(certificates: [SecCertificate] = Bundle.main.ub_certificates,
                 acceptSelfSignedCertificates: Bool = false,
                 performDefaultValidation: Bool = true,
-                validateHost: Bool = true)
-    {
+                validateHost: Bool = true) {
         precondition(certificates.isEmpty == false, "This is the case when the framework cannot find certificates in the main bundle of the application. Make sure you copy the certificates.")
         self.certificates = certificates
         self.acceptSelfSignedCertificates = acceptSelfSignedCertificates

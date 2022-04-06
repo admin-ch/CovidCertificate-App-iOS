@@ -1456,3 +1456,12 @@
 
 /*Fuzzy*/
 "infobox_generic_url_ios" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/ho-il-certificato-covid-esclusivamente-formato-elettronico-nellapp-covid";
+
+/*accessibilityLabel for the "1"-icon*/
+"wallet_scanner_how_it_works_accessibility_icon1" = "Erstens";
+
+/*accessibilityLabel for the "2"-icon*/
+"wallet_scanner_how_it_works_accessibility_icon2" = "Zweitens";
+
+/*accessibilityLabel for the "3"-icon*/
+"wallet_scanner_how_it_works_accessibility_icon3" = "Drittens";

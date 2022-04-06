@@ -24,8 +24,7 @@ struct StaticContentViewModel: Equatable {
          title: String,
          alignment: NSTextAlignment = .left,
          textGroups: [(UIImage?, String)] = [],
-         expandableTextGroups: [(String, String, String?, URL?)] = [])
-    {
+         expandableTextGroups: [(String, String, String?, URL?)] = []) {
         self.heading = heading
         self.foregroundImage = foregroundImage
         self.title = title
@@ -74,9 +73,9 @@ struct StaticContentViewModel: Equatable {
     static let howItWorks = StaticContentViewModel(foregroundImage: UIImage(named: "illu-how-it-works"),
                                                    title: UBLocalized.wallet_scanner_howitworks_title,
                                                    textGroups: [(UIImage(named: "ic-bund-small"), UBLocalized.wallet_scanner_howitworks_text1),
-                                                                (UIImage(named: "ic-one"), UBLocalized.wallet_scanner_howitworks_text2),
-                                                                (UIImage(named: "ic-two"), UBLocalized.wallet_scanner_howitworks_text3),
-                                                                (UIImage(named: "ic-three"), UBLocalized.wallet_scanner_howitworks_text4)],
+                                                                (UIImage.icon(named: "ic-one", withAccessibilityLabel: UBLocalized.wallet_scanner_how_it_works_accessibility_icon1), UBLocalized.wallet_scanner_howitworks_text2),
+                                                                (UIImage.icon(named: "ic-two", withAccessibilityLabel: UBLocalized.wallet_scanner_how_it_works_accessibility_icon2), UBLocalized.wallet_scanner_howitworks_text3),
+                                                                (UIImage.icon(named: "ic-three", withAccessibilityLabel: UBLocalized.wallet_scanner_how_it_works_accessibility_icon3), UBLocalized.wallet_scanner_howitworks_text4)],
                                                    expandableTextGroups: [(UBLocalized.wallet_scanner_howitworks_question1, UBLocalized.wallet_scanner_howitworks_answer1, UBLocalized.wallet_scanner_howitworks_external_link_title, URL(string: UBLocalized.wallet_scanner_howitworks_external_link))])
 
     #if WALLET
