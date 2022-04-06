@@ -95,7 +95,7 @@ class CertificateCheckAbroadVerificationStateView: UIView {
         }
 
         errorLabel.snp.makeConstraints { make in
-            make.top.equalTo(backgroundView.snp.bottom).offset(Padding.medium)
+            make.top.equalTo(backgroundView.snp.bottom).offset(Padding.small)
             make.leading.trailing.equalTo(backgroundView).inset(Padding.medium)
             make.bottom.equalToSuperview()
         }
@@ -157,13 +157,26 @@ class CertificateCheckAbroadVerificationStateView: UIView {
                 self.textLabel.attributedText = text
                 self.imageView.image = UIImage(named: "ic-check-filled")
                 self.backgroundView.backgroundColor = .cc_greenish
-            case let .invalid(errors, _, _, _):
+            case let .invalid(errors, errorCodes, _, _):
                 self.imageView.image = errors.first?.icon(with: .cc_red)
                 let text = UBLocalized.wallet_foreign_rules_check_state_invalid.bold()
                 text.append(NSMutableAttributedString(string: "\n"))
                 text.append(UBLocalized.wallet_foreign_rules_check_state_country_and_date.replacingOccurrences(of: "{COUNTRY}", with: state.country.localizedString).replacingOccurrences(of: "{DATE}", with: self.useDateAndTime ? DateFormatter.ub_dayTimeString(from: state.checkDate) : DateFormatter.ub_dayString(from: state.checkDate)).regular())
                 self.textLabel.attributedText = text
                 self.backgroundView.backgroundColor = .cc_redish
+
+                let hasNationalError = errors.contains { e in
+                    switch e {
+                    case .otherNationalRules: return true
+                    default: return false
+                    }
+                }
+
+                let codes = errorCodes.joined(separator: ", ")
+                if codes.count > 0, hasNationalError {
+                    self.errorLabel.ub_setHidden(false)
+                    self.errorLabel.text = codes
+                }
 
             case let .retry(error, errorCodes):
                 self.imageView.image = error.icon(with: .cc_orange)
