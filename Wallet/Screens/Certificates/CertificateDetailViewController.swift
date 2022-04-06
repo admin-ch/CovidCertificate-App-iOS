@@ -421,7 +421,6 @@ class CertificateDetailViewController: ViewController {
         stateView.states = (state, temporaryVerifierState)
         modeView.states = (state, temporaryVerifierState)
         detailView.updateLabelColors(for: (state, temporaryVerifierState), animated: true)
-        qrCodeNameView.enabled = temporaryVerifierState != .idle || !state.isInvalid()
 
         exportRow.isEnabled = false
         certificateLightRow.isEnabled = false
@@ -437,13 +436,15 @@ class CertificateDetailViewController: ViewController {
         } else {
             checkValidityAbroadButtonHeightConstraint.activate()
         }
+        var isTest = false
         let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate?.qrCode ?? "")
         switch c {
         case let .success(holder):
             let issuedBySwitzerland = ["CH", "CH BAG"].contains(holder.issuer)
             // Light certificates can only be created from "CH" and "CH BAG" issuer where the state is valid
             certificateLightRow.isEnabled = issuedBySwitzerland && !state.isInvalid()
-
+            guard let dccCert = holder.certificate as? DCCCert else { break }
+            isTest = dccCert.immunisationType == .test
             // PDF export is enabled for certificates that were issed by switzerland and have a valid signature
             if issuedBySwitzerland {
                 CovidCertificateSDK.Wallet.check(holder: holder, forceUpdate: false, modes: Verifier.currentModes()) { [weak self] results in
@@ -473,6 +474,30 @@ class CertificateDetailViewController: ViewController {
 
             bannerView.superview?.isHidden = true
         }
+
+        var isSignatureOrRevocationError = false
+        switch c {
+        case let .success(holder):
+            guard let dccCert = holder.certificate as? DCCCert else { break }
+            isTest = dccCert.immunisationType == .test
+        default:
+            break
+        }
+        switch state {
+        case let .invalid(errors, _, _, _):
+            if errors.first != nil {
+                switch errors.first {
+                case .signature, .revocation:
+                    isSignatureOrRevocationError = true
+                case .otherNationalRules, .unknown, .typeInvalid, .lightUnsupported, .unknownMode, .expired, .signatureExpired, .notYetValid, .none:
+                    isSignatureOrRevocationError = false
+                }
+            }
+        case .loading, .success, .skipped, .retry:
+            isSignatureOrRevocationError = false
+        }
+        let isInvalid = (isTest || isSignatureOrRevocationError) ? state.isInvalid() : false
+        qrCodeNameView.enabled = temporaryVerifierState != .idle || !isInvalid
     }
 
     deinit {
