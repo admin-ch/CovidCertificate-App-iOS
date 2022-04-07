@@ -407,10 +407,17 @@ class Verifier: NSObject {
         case .TIME_INCONSISTENCY:
             return .retry(.timeShift, [err.errorCode])
         default:
+            // for unknown rules, just show the rule identifier
+            // (only used for checking foreign rules)
+            var error = [err.errorCode]
+            if case let .UNKNOWN_RULE_FAILED(ruleName) = err {
+                error = [ruleName]
+            }
+
             // do not show the explicit error code on the verifier app, s.t.
             // no information is shown about the checked user (e.g. certificate type)
             #if WALLET
-                return .invalid(errors: [.otherNationalRules("")], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false)
+                return .invalid(errors: [.otherNationalRules("")], errorCodes: error, validity: nil, wasRevocationSkipped: false)
             #elseif VERIFIER
                 return .invalid(errors: [.otherNationalRules(modes?.first?.displayName ?? "")], errorCodes: [], validity: nil, wasRevocationSkipped: false)
             #endif
