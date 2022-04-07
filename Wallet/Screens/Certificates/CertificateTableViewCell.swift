@@ -28,10 +28,10 @@ class CertificateTableViewCell: UITableViewCell {
     private let stateLabel = StateLabel()
 
     private var state: VerificationState = .loading {
-        didSet { self.updateState(animated: true) }
+        didSet { updateState(animated: true) }
     }
 
-    private var isTest : Bool = false
+    private var isTest: Bool = false
 
     // MARK: - Init
 
@@ -103,12 +103,12 @@ class CertificateTableViewCell: UITableViewCell {
     }
 
     private func update() {
+        isTest = false
 
         guard let qrCode = certificate?.lightCertificate?.certificate ?? certificate?.qrCode else {
             updateState(animated: false)
             nameLabel.text = nil
             qrCodeStateImageView.image = nil
-            isTest = false
             return
         }
 
