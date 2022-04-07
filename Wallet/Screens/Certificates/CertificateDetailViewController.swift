@@ -430,7 +430,17 @@ class CertificateDetailViewController: ViewController {
         let errors: (signatureError: VerificationError?, revocationError: VerificationError?, nationalRuleError: VerificationError?)? = state.getVerifierErrorState()
         let isOnlyNationalRulesInvalid = errors?.revocationError == nil && (errors?.revocationError == nil || state.wasRevocationSkipped)
 
-        let showCheckValidityAbroadButton = ConfigManager.currentConfig?.foreignRulesCheckEnabled ?? false && (isSuccessState || isOnlyNationalRulesInvalid)
+        var isSwitzerlandOnly = false
+        switch state {
+        case let .success(_, switzerlandOnly, _, _):
+            isSwitzerlandOnly = switzerlandOnly ?? false
+        default:
+            break
+        }
+
+        let foreignEnabled = ConfigManager.currentConfig?.foreignRulesCheckEnabled ?? false
+        let notInvalid = (isSuccessState || isOnlyNationalRulesInvalid)
+        let showCheckValidityAbroadButton = foreignEnabled && notInvalid && !isSwitzerlandOnly
 
         if showCheckValidityAbroadButton {
             checkValidityAbroadButtonHeightConstraint.deactivate()
