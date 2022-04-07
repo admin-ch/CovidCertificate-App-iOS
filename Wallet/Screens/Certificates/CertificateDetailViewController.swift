@@ -421,7 +421,6 @@ class CertificateDetailViewController: ViewController {
         stateView.states = (state, temporaryVerifierState)
         modeView.states = (state, temporaryVerifierState)
         detailView.updateLabelColors(for: (state, temporaryVerifierState), animated: true)
-        qrCodeNameView.enabled = temporaryVerifierState != .idle || !state.isInvalid()
 
         exportRow.isEnabled = false
         certificateLightRow.isEnabled = false
@@ -453,7 +452,9 @@ class CertificateDetailViewController: ViewController {
         } else {
             checkValidityAbroadButtonHeightConstraint.activate()
         }
+
         let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate?.qrCode ?? "")
+
         switch c {
         case let .success(holder):
             let issuedBySwitzerland = ["CH", "CH BAG"].contains(holder.issuer)
@@ -482,13 +483,37 @@ class CertificateDetailViewController: ViewController {
             } else {
                 bannerView.superview?.isHidden = true
             }
-
         case .failure:
             exportRow.isEnabled = false
             certificateLightRow.isEnabled = false
 
             bannerView.superview?.isHidden = true
         }
+
+        // check certificate color
+        var isTest = false
+
+        switch c {
+        case let .success(holder):
+            if let dccCert = holder.certificate as? DCCCert {
+                isTest = dccCert.immunisationType == .test
+            }
+        default:
+            break
+        }
+
+        var isSignatureOrRevocationError = false
+        switch state {
+        case let .invalid(errors, _, _, _):
+            if let e = errors.first {
+                isSignatureOrRevocationError = e == .revocation || e == .signature
+            }
+        default:
+            isSignatureOrRevocationError = false
+        }
+
+        let isInvalid = (isTest || isSignatureOrRevocationError) ? state.isInvalid() : false
+        qrCodeNameView.enabled = temporaryVerifierState != .idle || !isInvalid
     }
 
     deinit {
