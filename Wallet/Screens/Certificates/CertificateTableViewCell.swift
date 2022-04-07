@@ -31,6 +31,8 @@ class CertificateTableViewCell: UITableViewCell {
         didSet { self.updateState(animated: true) }
     }
 
+    private var isTest : Bool = false
+
     // MARK: - Init
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -101,11 +103,12 @@ class CertificateTableViewCell: UITableViewCell {
     }
 
     private func update() {
-        updateState(animated: false)
 
         guard let qrCode = certificate?.lightCertificate?.certificate ?? certificate?.qrCode else {
+            updateState(animated: false)
             nameLabel.text = nil
             qrCodeStateImageView.image = nil
+            isTest = false
             return
         }
 
@@ -115,6 +118,8 @@ class CertificateTableViewCell: UITableViewCell {
         case let .success(holder):
             nameLabel.text = holder.certificate.displayFullName
             if let certificate = holder.certificate as? DCCCert {
+                isTest = certificate.immunisationType == .test
+
                 if let tests = certificate.tests {
                     if (tests.contains { $0.isSerologicalTest || $0.isPositiveAntigenTest }) {
                         stateLabel.type = .dccc(.recovery)
@@ -146,6 +151,8 @@ class CertificateTableViewCell: UITableViewCell {
         }
 
         accessibilityLabel = [nameLabel.accessibilityLabel, stateLabel.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+
+        updateState(animated: false)
     }
 
     private func updateState(animated: Bool) {
@@ -158,13 +165,13 @@ class CertificateTableViewCell: UITableViewCell {
 
         let actions = {
             let normal = UIImage(named: "ic-qrcode-small")
-            let notYetValid = UIImage(named: "ic-qrcode-small-temporary")
             let invalid = UIImage(named: "ic-qrcode-small-invalid")
-            let expired = UIImage(named: "ic-qrcode-small-expired")
             let load = UIImage(named: "ic-qrcode-small-load")
             let networkError = UIImage(named: "ic-qrcode-small-network-error")
             let noInternetError = UIImage(named: "ic-qrcode-small-nointernet-error")
             let timeshiftError = UIImage(named: "ic-qrcode-small-timeerror")
+
+            var isSignatureOrRevocationError = false
 
             switch self.state {
             case .loading:
@@ -183,19 +190,18 @@ class CertificateTableViewCell: UITableViewCell {
             case let .invalid(errors, _, _, _):
                 if let e = errors.first {
                     switch e {
-                    case .signature, .revocation, .otherNationalRules, .unknown, .typeInvalid, .lightUnsupported, .unknownMode:
+                    case .otherNationalRules, .unknown, .typeInvalid, .lightUnsupported, .unknownMode, .expired, .signatureExpired, .notYetValid:
+                        self.qrCodeStateImageView.image = normal
+                    case .signature, .revocation:
                         self.qrCodeStateImageView.image = invalid
-                    case .expired, .signatureExpired:
-                        self.qrCodeStateImageView.image = expired
-                    case .notYetValid:
-                        self.qrCodeStateImageView.image = notYetValid
+                        isSignatureOrRevocationError = true
                     }
                 }
             }
 
-            let isInvalid = self.state.isInvalid()
-            self.nameLabel.alpha = isInvalid ? UIColor.cc_disabledAlpha : 1.0
+            let isInvalid = (self.isTest || isSignatureOrRevocationError) ? self.state.isInvalid() : false
 
+            self.nameLabel.alpha = isInvalid ? UIColor.cc_disabledAlpha : 1.0
             self.stateLabel.enabled = !isInvalid
         }
 
