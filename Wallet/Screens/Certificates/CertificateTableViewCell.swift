@@ -190,9 +190,9 @@ class CertificateTableViewCell: UITableViewCell {
             case let .invalid(errors, _, _, _):
                 if let e = errors.first {
                     switch e {
-                    case .otherNationalRules, .unknown, .typeInvalid, .lightUnsupported, .unknownMode, .expired, .signatureExpired, .notYetValid:
+                    case .otherNationalRules, .unknown, .typeInvalid, .lightUnsupported, .unknownMode, .expired, .notYetValid:
                         self.qrCodeStateImageView.image = normal
-                    case .signature, .revocation:
+                    case .signature, .signatureExpired, .revocation:
                         self.qrCodeStateImageView.image = invalid
                         isSignatureOrRevocationError = true
                     }

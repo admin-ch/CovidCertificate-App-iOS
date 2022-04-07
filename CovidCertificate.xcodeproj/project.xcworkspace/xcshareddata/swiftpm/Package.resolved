@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ehn-digital-green-development/base45-swift",
       "state" : {
-        "revision" : "b2fd6c1ff48f6ea1d2877368afd326700427f261",
-        "version" : "1.0.1"
+        "revision" : "c1db97d793d02a1c3d56d50a738c8fd8c34372f8",
+        "version" : "1.1.0"
       }
     },
     {
@@ -42,7 +42,7 @@
       "location" : "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
       "state" : {
         "branch" : "feature/reisefeature",
-        "revision" : "182b21a403fbb5700d3148f69605bb9ec38b03d2"
+        "revision" : "2dafe0b8f2f933517b7f3fe5043d33d5b2903064"
       }
     },
     {
@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/1024jp/GzipSwift",
       "state" : {
-        "revision" : "ba0b6cb51cc6202f896e469b87d2889a46b10d1b",
-        "version" : "5.1.1"
+        "revision" : "7a7f17761c76a932662ab77028a4329f67d645a4",
+        "version" : "5.2.0"
       }
     },
     {
