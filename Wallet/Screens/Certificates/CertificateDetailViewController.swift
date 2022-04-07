@@ -428,7 +428,13 @@ class CertificateDetailViewController: ViewController {
 
         let isSuccessState = state.isSuccess()
         let errors: (signatureError: VerificationError?, revocationError: VerificationError?, nationalRuleError: VerificationError?)? = state.getVerifierErrorState()
-        let isOnlyNationalRulesInvalid = errors?.revocationError == nil && (errors?.revocationError == nil || state.wasRevocationSkipped)
+
+        var isOnlyNationalRulesInvalid = false
+        if let e = errors {
+            let noRevocationError = (e.revocationError == nil) || state.wasRevocationSkipped
+            let noSignatureError = e.signatureError == nil
+            isOnlyNationalRulesInvalid = (e.nationalRuleError != nil) && noRevocationError && noSignatureError
+        }
 
         var isSwitzerlandOnly = false
         switch state {
