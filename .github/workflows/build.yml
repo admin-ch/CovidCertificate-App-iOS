@@ -1,7 +1,7 @@
 name: build
 
 env:
-  XCODE_VERSION: 'Xcode_13.3'
+  XCODE_VERSION: 'Xcode_13.2.1'
 
 on:
   push:
@@ -13,7 +13,7 @@ on:
 jobs:
 
   build_verifier:
-    runs-on: macos-12
+    runs-on: macos-11
 
     steps:
     - uses: actions/checkout@v2
