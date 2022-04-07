@@ -42,4 +42,17 @@ extension String {
     func bold() -> NSMutableAttributedString {
         return formattingOccurrenceBold(self)
     }
+
+    func formattingOccurrenceRegular(_ occurrence: String) -> NSMutableAttributedString {
+        let range = (self as NSString).range(of: occurrence)
+        let attributedText = NSMutableAttributedString(string: self)
+        attributedText.addAttributes([
+            .font: LabelType.text.font,
+        ], range: range)
+        return attributedText
+    }
+
+    func regular() -> NSMutableAttributedString {
+        return formattingOccurrenceRegular(self)
+    }
 }

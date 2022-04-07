@@ -73,7 +73,10 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         let refreshButtonInfo: LocalizedValue<RefreshButtonInfo>?
 
         let eolBannerInfo: LocalizedValue<[String: EOLBannerInfo]>?
-
+        var foreignRulesCheckEnabled = false
+        let foreignRulesLinkText: LocalizedValue<String>?
+        let foreignRulesLinkUrl: LocalizedValue<String>?
+        let foreignRulesHints: LocalizedValue<[ForeignRulesHint]>?
     #elseif VERIFIER
         let checkModesInfos: LocalizedValue<CheckModeContainer>?
         let checkModeReselectAfterHours: Int
@@ -155,6 +158,11 @@ class ConfigResponseBody: UBCodable, JWTExtension {
             let popupBoldText: String?
             let popupLinkText: String?
             let popupLinkUrl: String?
+        }
+
+        class ForeignRulesHint: UBCodable {
+            let iconIos: String
+            let text: String
         }
 
     #elseif VERIFIER

@@ -20,7 +20,7 @@ jobs:
 
     - name: Switch to Xcode ${{ env.XCODE_VERSION }}
       run: sudo xcode-select --switch /Applications/${{ env.XCODE_VERSION }}.app
-    
+
     # Compile "Release-Verifier-Prod" for iOS Simulator (no signing)
     - name: Compile Release-Verifier-Prod
       run: fastlane gym --scheme "Release-Verifier-Prod" --skip_package_ipa true --disable_package_automatic_updates true --destination "generic/platform=iOS Simulator"

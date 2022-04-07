@@ -42,7 +42,7 @@
         "repositoryURL": "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
         "state": {
           "branch": "main",
-          "revision": "9c27c5b7fe74c024cd257c95658711e569c4084d",
+          "revision": "efd5b757d3978821340ed708ecaa205b5674364a",
           "version": null
         }
       },
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/1024jp/GzipSwift",
         "state": {
           "branch": null,
-          "revision": "ba0b6cb51cc6202f896e469b87d2889a46b10d1b",
-          "version": "5.1.1"
+          "revision": "7a7f17761c76a932662ab77028a4329f67d645a4",
+          "version": "5.2.0"
         }
       },
       {
@@ -89,6 +89,15 @@
           "branch": null,
           "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
           "version": "5.0.1"
+        }
+      },
+      {
+        "package": "SQLite.swift",
+        "repositoryURL": "https://github.com/stephencelis/SQLite.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "4d543d811ee644fa4cc4bfa0be996b4dd6ba0f54",
+          "version": "0.13.3"
         }
       },
       {

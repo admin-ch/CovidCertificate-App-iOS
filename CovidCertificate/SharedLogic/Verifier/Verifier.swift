@@ -190,7 +190,7 @@ class Verifier: NSObject {
 
     // MARK: - Start
 
-    public func start(modes: [CheckMode], forceUpdate: Bool = false, stateUpdate: @escaping ((VerificationState) -> Void)) {
+    public func start(modes: [CheckMode], forceUpdate: Bool = false, countryCode: String = CountryCodes.Switzerland, checkDate: Date = Date(), stateUpdate: @escaping ((VerificationState) -> Void)) {
         self.stateUpdate = stateUpdate
         self.modes = modes
 
@@ -205,7 +205,7 @@ class Verifier: NSObject {
         }
 
         #if WALLET
-            SDKNamespace.check(holder: holder, forceUpdate: forceUpdate, modes: modes) { [weak self] results in
+            SDKNamespace.check(holder: holder, forceUpdate: forceUpdate, modes: modes, countryCode: countryCode, checkDate: checkDate) { [weak self] results in
                 guard let strongSelf = self else { return }
                 strongSelf.updateState(with: results)
             }
@@ -247,9 +247,9 @@ class Verifier: NSObject {
         }
     }
 
-    public func restart(modes: [CheckMode], forceUpdate: Bool = false) {
+    public func restart(modes: [CheckMode], forceUpdate: Bool = false, countryCode: String = CountryCodes.Switzerland, checkDate: Date = Date()) {
         guard let su = stateUpdate else { return }
-        start(modes: modes, forceUpdate: forceUpdate, stateUpdate: su)
+        start(modes: modes, forceUpdate: forceUpdate, countryCode: countryCode, checkDate: checkDate, stateUpdate: su)
     }
 
     // MARK: - Signature
@@ -407,10 +407,17 @@ class Verifier: NSObject {
         case .TIME_INCONSISTENCY:
             return .retry(.timeShift, [err.errorCode])
         default:
+            // for unknown rules, just show the rule identifier
+            // (only used for checking foreign rules)
+            var error = [err.errorCode]
+            if case let .UNKNOWN_RULE_FAILED(ruleName) = err {
+                error = [ruleName]
+            }
+
             // do not show the explicit error code on the verifier app, s.t.
             // no information is shown about the checked user (e.g. certificate type)
             #if WALLET
-                return .invalid(errors: [.otherNationalRules("")], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false)
+                return .invalid(errors: [.otherNationalRules("")], errorCodes: error, validity: nil, wasRevocationSkipped: false)
             #elseif VERIFIER
                 return .invalid(errors: [.otherNationalRules(modes?.first?.displayName ?? "")], errorCodes: [], validity: nil, wasRevocationSkipped: false)
             #endif

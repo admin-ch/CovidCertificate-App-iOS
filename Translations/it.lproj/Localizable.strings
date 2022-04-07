@@ -1188,7 +1188,7 @@
 "wallet_info_box_certificate_scan_button_check_app" = "All'app Check";
 "wallet_info_box_certificate_scan_close" = "Capito";
 "wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";
-"wallet_only_valid_in_switzerland" = "Valido solo in Svizzera con un documento di legittimazione";
+"wallet_only_valid_in_switzerland" = "Non valido al di fuori della Svizzera";
 "covid_certificate_sero_positiv_test_befund_label" = "Risultati";
 "covid_certificate_sero_positiv_test_befund_value" = "Sufficiente";
 
@@ -1386,10 +1386,10 @@
 "wallet_certificate_detail_note_positive_antigen" = "La presente attestazione non costituisce un documento di viaggio.\n\nQuesto certificato ha soltanto una validità temporanea. L'applicazione «COVID Certificate» consente di verificare in qualsiasi momento l'attuale durata di validità in Svizzera.";
 
 /*banner title on homescreen. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_homescreen_title" = "Durata di validità abbreviata";
+"wallet_eol_banner_invalid_in_three_weeks_homescreen_title" = "Scadenza imminente";
 
 /*banner title in certificate detail view. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_detail_title" = "Durata di validità abbreviata";
+"wallet_eol_banner_invalid_in_three_weeks_detail_title" = "Info";
 
 /*banner text in certificate detail view. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_detail_text" = "Questo certificato sta per scadere.";
@@ -1401,16 +1401,16 @@
 "wallet_eol_banner_invalid_in_three_weeks_popup_title" = "Info";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text1" = "Dal 31 gennaio 2022 in Svizzera si applica una durata di validità abbreviata da 365 a 270 giorni per i certificati COVID per persone vaccinate o guarite. Questo certificato è direttamente interessato dalla durata di validità abbreviata:";
+"wallet_eol_banner_invalid_in_three_weeks_popup_text1" = "";
 
 /*bold text box for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_bold_text" = "Questo certificato COVID è ancora valido soltanto per pochi giorni.";
+"wallet_eol_banner_invalid_in_three_weeks_popup_bold_text" = "Questo certificato COVID è valido ancora per pochi giorni. Si prega di tenere conto della data di scadenza indicata sullo stesso.";
 
 /*link text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_link_text" = "Per saperne di più";
+"wallet_eol_banner_invalid_in_three_weeks_popup_link_text" = "E ora?";
 
 /*link url for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_link_url" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/perche-la-durata-di-validita-dei-certificati-di-vaccinazione-o-di-guarigione-e";
+"wallet_eol_banner_invalid_in_three_weeks_popup_link_url" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/cosa-devo-fare-se-il-mio-certificato-covid-sta-scadere-secondo-le-regole-di";
 
 /*banner title on homescreen. case: certificate will be invalid at time of validity change.*/
 "wallet_eol_banner_invalid_from_first_february_homescreen_title" = "Durata di validità abbreviata";
@@ -1440,7 +1440,7 @@
 "wallet_eol_banner_invalid_from_first_february_popup_link_url" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/perche-la-durata-di-validita-dei-certificati-di-vaccinazione-o-di-guarigione-e";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Si prega di notare la nuova data di scadenza indicata sul certificato, che dal 31 gennaio 2022 è calcolata sulla base della durata di validità abbreviata di 270 giorni.";
+"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "";
 
 /*Fuzzy*/
 "infobox_generic_title" = "Mettete al sicuro il vostro certificato!";
@@ -1458,10 +1458,79 @@
 "infobox_generic_url_ios" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/ho-il-certificato-covid-esclusivamente-formato-elettronico-nellapp-covid";
 
 /*accessibilityLabel for the "1"-icon*/
-"wallet_scanner_how_it_works_accessibility_icon1" = "Erstens";
+"wallet_scanner_how_it_works_accessibility_icon1" = "Primo";
 
 /*accessibilityLabel for the "2"-icon*/
-"wallet_scanner_how_it_works_accessibility_icon2" = "Zweitens";
+"wallet_scanner_how_it_works_accessibility_icon2" = "Secondo";
 
 /*accessibilityLabel for the "3"-icon*/
-"wallet_scanner_how_it_works_accessibility_icon3" = "Drittens";
+"wallet_scanner_how_it_works_accessibility_icon3" = "Terzo";
+
+/*Reise-Check: Label des Buttons um Gültigkeit im Ausland zu prüfen*/
+"wallet_foreign_rules_check_button" = "Validità per i viaggi";
+
+/*Reise-Check: Titel des Reise-Check Screens*/
+"wallet_foreign_rules_check_title" = "Validità per i viaggi all’estero";
+
+/*Reise-Check: Untertitel des Reise-Check Screens*/
+"wallet_foreign_rules_check_subtitle" = "Prima di un viaggio all’estero, informatevi sulla validità del vostro certificato al momento dell’entrata nel Paese di destinazione.  ";
+
+/*Reise-Check: Titel der Länder- und Datumsauswahl*/
+"wallet_foreign_rules_check_form_title" = "Verificare per:";
+
+/*Reise-Check: Label des Länder Eingabefeldes*/
+"wallet_foreign_rules_check_country_label" = "Paese:";
+
+/*Reise-Check: Wert wenn kein Land ausgewählt*/
+"wallet_foreign_rules_check_country_empty_label" = "Seleziona";
+
+/*Reise-Check: Label des Datum Eingabefeldes*/
+"wallet_foreign_rules_check_date_label" = "Entrata in data:";
+
+/*Reise-Check: Fehlermeldung wenn Datum in der Vergangenheit liegt*/
+"wallet_foreign_rules_check_date_in_past_error" = "L’ora indicata è già passat";
+
+/*Reise-Check: Titel des Hinweise Abschnittes*/
+"wallet_foreign_rules_check_hints_title" = "Avvertenze";
+
+/*Reise-Check: Label für den Mehr Informationen Button*/
+"wallet_foreign_rules_check_hints_more_info_label" = "Maggiori informazioni sono disponibili su";
+
+/*Reise-Check: Prüfstatus wenn noch kein Land ausgewählt wurde*/
+"wallet_foreign_rules_check_state_empty" = "Vogliate scegliere un Paese e una data di entrata.";
+
+/*Reise-Check: Titel des Auswahldialoges für das Land*/
+"wallet_foreign_rules_check_country_picker_title" = "Seleziona un Paese";
+
+/*Reise-Check: Erste Zeile des Prüfstatus wenn Zertifikat gültig ist*/
+"wallet_foreign_rules_check_state_valid" = "Valido per l’entrata in:";
+
+/*Reise-Check: Erste Zeile des Prüfstatus wenn Zertifikat ungültig ist*/
+"wallet_foreign_rules_check_state_invalid" = "Non valido per l’entrata in:";
+
+/*Reise-Check: Zweite Zeile des Prüfstatus wenn Zertifikat (un-)gültig ist. {COUNTRY} und {DATE} nicht übersetzen*/
+"wallet_foreign_rules_check_state_country_and_date" = "{COUNTRY}, {DATE}";
+
+/*Error-Titel falls das Reisefeature ("Gültigkeit im Ausland") im Offline-Modus gestartet wurde*/
+"wallet_foreign_rules_check_error_title" = "Si è verificato un errore durante il caricamento dei Paesi disponibili";
+
+/*Error-Text falls das Reisefeature ("Gültigkeit im Ausland") im Offline-Modus gestartet wurde*/
+"wallet_foreign_rules_check_network_error_text" = "Per poter verificare la validità, lo smartphone deve essere collegato a Internet.";
+
+/*Reisefeature: Hinweis 1*/
+"wallet_foreign_rules_check_hint_1" = "Le disposizioni d’entrata possono cambiare. Verificate poco prima della partenza se il vostro certificato è valido e informatevi ulteriormente online sulle disposizioni d’entrata attuali del Paese di destinazione.";
+
+/*Reisefeature: Hinweis 2*/
+"wallet_foreign_rules_check_hint_2" = "Le informazioni sopra indicate si riferiscono solo alle disposizioni d’entrata del Paese di destinazione. Per eventuali settori soggetti all’obbligo di certificato all’interno del Paese possono vigere altre regole.";
+
+/*Reisefeature: Hinweis 3*/
+"wallet_foreign_rules_check_hint_3" = "La Confederazione non si assume la responsabilità per l’attualità e la completezza delle informazioni fornite.";
+
+/*Reisefeature: Hinweis 4*/
+"wallet_foreign_rules_check_hint_4" = "Non avete trovato un Paese? Non tutti i Paesi accettano i certificati COVID o rendono disponibili le regole d’entrata.";
+
+/*Reisefeature: Text des Mehr Infos Buttons*/
+"wallet_foreign_rules_check_hints_more_info_link_text" = "reopen.europa.eu";
+
+/*Reisefeature: URL die geöffnet wird wenn auf den Mehr Info Button geklickt wird*/
+"wallet_foreign_rules_check_hints_more_info_link_url" = "https://reopen.europa.eu/";
