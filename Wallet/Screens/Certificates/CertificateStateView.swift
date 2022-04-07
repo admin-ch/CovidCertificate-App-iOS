@@ -233,7 +233,7 @@ class CertificateStateView: UIView {
                     self.validityView.untilText = validUntil
 
                     // Hide validity view if there is a signature error
-                    self.validityView.isHidden = errors.contains(.signature)
+                    self.validityView.ub_setHidden(errors.contains(.signature))
 
                     let codes = errorCodes.joined(separator: ", ")
                     if codes.count > 0 {
