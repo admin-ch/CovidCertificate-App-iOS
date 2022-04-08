@@ -237,7 +237,7 @@ class VerifyCheckContentViewController: ViewController {
                              showReloadButton: false)
             }
 
-        case let .invalid(_, errorCodes, _, _):
+        case let .invalid(_, errorCodes, _, _, _):
             let error = state?.getFirstError()
 
             let text: NSAttributedString = error?.displayName() ?? NSAttributedString(string: "")

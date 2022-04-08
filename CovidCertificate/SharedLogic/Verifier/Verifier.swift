@@ -435,7 +435,7 @@ class Verifier: NSObject {
             #if WALLET
                 return .invalid(errors: [.otherNationalRules("")], errorCodes: error, validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
             #elseif VERIFIER
-                return .invalid(errors: [.otherNationalRules(modes?.first?.displayName ?? "")], errorCodes: [], validity: nil, wasRevocationSkipped: false)
+                return .invalid(errors: [.otherNationalRules(modes?.first?.displayName ?? "")], errorCodes: [], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
             #endif
         }
     }
