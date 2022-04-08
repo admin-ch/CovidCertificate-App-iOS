@@ -241,7 +241,7 @@ class Verifier: NSObject {
         var errorCodes = states.compactMap { $0.errorCodes() }.flatMap { $0 }
         errorCodes.sort()
 
-        var isSwitzerlandOnly: Bool? = nil
+        var isSwitzerlandOnly: Bool?
         switch checkNationalRulesState {
         case let .success(_, switzerlandOnly, _, _):
             isSwitzerlandOnly = switzerlandOnly
