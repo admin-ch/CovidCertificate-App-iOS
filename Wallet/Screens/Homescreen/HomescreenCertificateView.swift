@@ -636,7 +636,6 @@ private class QRCodeView: UIView {
     public func update(animated _: Bool) {
         let c = CovidCertificateSDK.Wallet.decode(encodedData: certificate?.qrCode ?? "")
         var isTest = false
-        var isSignatureOrRevocationError = false
 
         switch c {
         case let .success(holder):
@@ -647,14 +646,8 @@ private class QRCodeView: UIView {
             break
         }
 
-        switch state {
-        case let .invalid(errors, _, _, _):
-            if let err = errors.first {
-                isSignatureOrRevocationError = (err == .signature) || (err == .revocation)
-            }
-        default:
-            break
-        }
+        let isSignatureOrRevocationError = state.isSignatureOrRevocationError()
+
         let isInvalid = (isTest || isSignatureOrRevocationError) ? state.isInvalid() : false
 
         nameView.enabled = !isInvalid

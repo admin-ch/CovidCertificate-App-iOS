@@ -158,7 +158,9 @@ class CertificateCheckAbroadVerificationStateView: UIView {
                 self.imageView.image = UIImage(named: "ic-check-filled")
                 self.backgroundView.backgroundColor = .cc_greenish
             case let .invalid(errors, errorCodes, _, _):
-                self.imageView.image = errors.first?.icon(with: .cc_red)
+                let first = state.state.getFirstError()
+
+                self.imageView.image = first?.icon(with: .cc_red)
                 let text = UBLocalized.wallet_foreign_rules_check_state_invalid.bold()
                 text.append(NSMutableAttributedString(string: "\n"))
                 text.append(UBLocalized.wallet_foreign_rules_check_state_country_and_date.replacingOccurrences(of: "{COUNTRY}", with: state.country.localizedString).replacingOccurrences(of: "{DATE}", with: self.useDateAndTime ? DateFormatter.ub_dayTimeString(from: state.checkDate) : DateFormatter.ub_dayString(from: state.checkDate)).regular())

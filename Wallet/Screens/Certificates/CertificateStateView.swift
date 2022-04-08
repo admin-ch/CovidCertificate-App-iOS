@@ -148,8 +148,10 @@ class CertificateStateView: UIView {
                 self.validityView.untilText = validUntil
             case .failure:
                 if case let .invalid(errors, errorCodes, validUntil, _) = self.states.state {
-                    self.imageView.image = errors.first?.icon(with: .cc_red)
-                    self.textLabel.attributedText = errors.first?.displayName()
+                    let first = self.states.state.getFirstError()
+
+                    self.imageView.image = first?.icon(with: .cc_red)
+                    self.textLabel.attributedText = first?.displayName()
                     self.backgroundView.backgroundColor = .cc_redish
                     self.validityView.backgroundColor = .cc_redish
                     self.validityView.textColor = .cc_grey
@@ -220,9 +222,11 @@ class CertificateStateView: UIView {
                     self.validityView.untilText = validUntil
 
                 case let .invalid(errors, errorCodes, validUntil, _):
-                    self.imageView.image = errors.first?.icon()
-                    self.textLabel.attributedText = errors.first?.displayName()
-                    if let e = errors.first, case .expired = e {
+                    let first = self.states.state.getFirstError()
+
+                    self.imageView.image = first?.icon()
+                    self.textLabel.attributedText = first?.displayName()
+                    if let e = first, case .expired = e {
                         self.backgroundView.backgroundColor = .cc_blueish
                         self.validityView.backgroundColor = .cc_blueish
                     } else {
@@ -233,7 +237,7 @@ class CertificateStateView: UIView {
                     self.validityView.untilText = validUntil
 
                     // Hide validity view if there is a signature error
-                    self.validityView.ub_setHidden(errors.contains(.signature))
+                    self.validityView.ub_setHidden(errors.contains(.signature) || errors.contains(.signatureExpired))
 
                     let codes = errorCodes.joined(separator: ", ")
                     if codes.count > 0 {
