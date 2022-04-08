@@ -437,6 +437,8 @@ class CertificateDetailViewController: ViewController {
         switch state {
         case let .success(_, switzerlandOnly, _, _):
             isSwitzerlandOnly = switzerlandOnly ?? false
+        case let .invalid(_, _, _, _, switzerlandOnly):
+            isSwitzerlandOnly = switzerlandOnly ?? false
         default:
             break
         }
