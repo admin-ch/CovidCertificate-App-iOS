@@ -105,6 +105,12 @@ enum VerificationState: Equatable {
         }
     }
 
+    public func isSignatureOrRevocationError() -> Bool {
+        guard let (signatureErr, revocationErr, _) = getVerifierErrorState() else { return false }
+
+        return signatureErr != nil || revocationErr != nil
+    }
+
     public var wasRevocationSkipped: Bool {
         switch self {
         case let .invalid(_, _, _, wasRevocationSkipped):
@@ -132,9 +138,9 @@ enum VerificationState: Equatable {
     public func getVerifierErrorState() -> (VerificationError?, VerificationError?, VerificationError?)? {
         switch self {
         case let .invalid(errors, _, _, _):
-            let signatureError = errors.filter { $0 == .signature || $0 == .typeInvalid }.first
-            let revocationError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 == .revocation }.first
-            let nationalError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 != .revocation }.first
+            let signatureError = errors.filter { $0 == .signature || $0 == .typeInvalid || $0 == .signatureExpired }.first
+            let revocationError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 != .signatureExpired && $0 == .revocation }.first
+            let nationalError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 != .signatureExpired && $0 != .revocation }.first
 
             return (signatureError, revocationError, nationalError)
         default:

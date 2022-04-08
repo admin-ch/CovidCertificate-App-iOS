@@ -430,9 +430,7 @@ class CertificateDetailViewController: ViewController {
 
         var isOnlyNationalRulesInvalid = false
         if let e = errors {
-            let noRevocationError = (e.revocationError == nil) || state.wasRevocationSkipped
-            let noSignatureError = e.signatureError == nil
-            isOnlyNationalRulesInvalid = (e.nationalRuleError != nil) && noRevocationError && noSignatureError
+            isOnlyNationalRulesInvalid = (e.nationalRuleError != nil) && !state.isSignatureOrRevocationError()
         }
 
         var isSwitzerlandOnly = false
@@ -502,15 +500,7 @@ class CertificateDetailViewController: ViewController {
             break
         }
 
-        var isSignatureOrRevocationError = false
-        switch state {
-        case let .invalid(errors, _, _, _):
-            if let e = errors.first {
-                isSignatureOrRevocationError = e == .revocation || e == .signature
-            }
-        default:
-            isSignatureOrRevocationError = false
-        }
+        let isSignatureOrRevocationError = state.isSignatureOrRevocationError()
 
         let isInvalid = (isTest || isSignatureOrRevocationError) ? state.isInvalid() : false
         qrCodeNameView.enabled = temporaryVerifierState != .idle || !isInvalid
