@@ -19,8 +19,16 @@ public class ArrivalCountry: Codable, UBUserDefaultValue {
     public let localizedString: String
 
     init?(countryCode: ID) {
-        // TODO: IZ-954 Check identifiers
-        guard let name = Locale.current.localizedString(forRegionCode: countryCode.lowercased()) else { return nil }
+        var identifier: String
+        switch countryCode.lowercased() {
+        case "el":
+            identifier = "gr"
+        default:
+            identifier = countryCode
+        }
+        guard let name = Locale.current.localizedString(forRegionCode: identifier.lowercased()) else {
+            return nil
+        }
 
         id = countryCode
         localizedString = name
