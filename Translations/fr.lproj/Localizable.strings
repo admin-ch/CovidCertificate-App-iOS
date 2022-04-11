@@ -1518,13 +1518,16 @@
 "wallet_foreign_rules_check_network_error_text" = "Pour vérifier la validité, votre smartphone doit être connecté à Internet.";
 
 /*Reisefeature: Hinweis 1*/
-"wallet_foreign_rules_check_hint_1" = "Les dispositions d’entrée peuvent changer. Vérifiez donc la validité de votre certificat avant votre départ et renseignez-vous également en ligne sur les dispositions d’entrée en vigueur dans votre pays de destination.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_2" = "Les dispositions d’entrée peuvent changer. Vérifiez donc la validité de votre certificat avant votre départ et renseignez-vous également en ligne sur les dispositions d’entrée en vigueur dans votre pays de destination.";
 
 /*Reisefeature: Hinweis 2*/
-"wallet_foreign_rules_check_hint_2" = "Les informations ci-dessus ne concernent que les dispositions d’entrée du pays de destination. Dans le pays, d’autres règles peuvent s’appliquer aux éventuels domaines soumis à l’obligation de présenter un certificat.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_3" = "Les informations ci-dessus ne concernent que les dispositions d’entrée du pays de destination. Dans le pays, d’autres règles peuvent s’appliquer aux éventuels domaines soumis à l’obligation de présenter un certificat.";
 
 /*Reisefeature: Hinweis 3*/
-"wallet_foreign_rules_check_hint_3" = "La Confédération décline toute responsabilité en ce qui concerne l’actualité et l’exhaustivité des informations fournies.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_1" = "La Confédération décline toute responsabilité en ce qui concerne l’actualité et l’exhaustivité des informations fournies.";
 
 /*Reisefeature: Hinweis 4*/
 "wallet_foreign_rules_check_hint_4" = "Vous n’avez pas trouvé votre pays de destination ? Il se peut que certains pays ne reconnaissent pas le certificat COVID ou qu’aucune disposition d’entrée ne soit disponible.";

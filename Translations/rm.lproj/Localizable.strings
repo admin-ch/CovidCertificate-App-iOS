@@ -1518,13 +1518,16 @@
 "wallet_foreign_rules_check_network_error_text" = "Per verifitgar la valaivladad sto Voss smartphone esser collià cun l’internet.";
 
 /*Reisefeature: Hinweis 1*/
-"wallet_foreign_rules_check_hint_1" = "Las reglas d'entrada pon sa midar. Verifitgai perquai la valaivladad curt avant che Vus partis ed As infurmai ultra da quai online davart las reglas d'entrada actualas dal pajais da destinaziun.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_2" = "Las reglas d'entrada pon sa midar. Verifitgai perquai la valaivladad curt avant che Vus partis ed As infurmai ultra da quai online davart las reglas d'entrada actualas dal pajais da destinaziun.";
 
 /*Reisefeature: Hinweis 2*/
-"wallet_foreign_rules_check_hint_2" = "Las infurmaziuns qua survart sa refereschan mo a las reglas d'entrada dal pajais da destinaziun. Per secturs che pretendan eventualmain in certificat entaifer il pajais pon valair autras reglas.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_3" = "Las infurmaziuns qua survart sa refereschan mo a las reglas d'entrada dal pajais da destinaziun. Per secturs che pretendan eventualmain in certificat entaifer il pajais pon valair autras reglas.";
 
 /*Reisefeature: Hinweis 3*/
-"wallet_foreign_rules_check_hint_3" = "Per l'actualitad e la cumplettadad da las infurmaziuns na surpiglia la Confederaziun nagina responsabladad.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_1" = "Per l'actualitad e la cumplettadad da las infurmaziuns na surpiglia la Confederaziun nagina responsabladad.";
 
 /*Reisefeature: Hinweis 4*/
 "wallet_foreign_rules_check_hint_4" = "N'avais Vus betg chattà Voss pajais da destinaziun? Betg tut ils pajais n'acceptan certificats COVID, u i n'èn vegnidas messas a disposiziun naginas infurmaziuns davart eventualas reglas d'entrada.";

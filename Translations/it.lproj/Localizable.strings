@@ -1518,13 +1518,16 @@
 "wallet_foreign_rules_check_network_error_text" = "Per poter verificare la validità, lo smartphone deve essere collegato a Internet.";
 
 /*Reisefeature: Hinweis 1*/
-"wallet_foreign_rules_check_hint_1" = "Le disposizioni d’entrata possono cambiare. Verificate poco prima della partenza se il vostro certificato è valido e informatevi ulteriormente online sulle disposizioni d’entrata attuali del Paese di destinazione.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_2" = "Le disposizioni d’entrata possono cambiare. Verificate poco prima della partenza se il vostro certificato è valido e informatevi ulteriormente online sulle disposizioni d’entrata attuali del Paese di destinazione.";
 
 /*Reisefeature: Hinweis 2*/
-"wallet_foreign_rules_check_hint_2" = "Le informazioni sopra indicate si riferiscono solo alle disposizioni d’entrata del Paese di destinazione. Per eventuali settori soggetti all’obbligo di certificato all’interno del Paese possono vigere altre regole.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_3" = "Le informazioni sopra indicate si riferiscono solo alle disposizioni d’entrata del Paese di destinazione. Per eventuali settori soggetti all’obbligo di certificato all’interno del Paese possono vigere altre regole.";
 
 /*Reisefeature: Hinweis 3*/
-"wallet_foreign_rules_check_hint_3" = "La Confederazione non si assume la responsabilità per l’attualità e la completezza delle informazioni fornite.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_1" = "La Confederazione non si assume la responsabilità per l’attualità e la completezza delle informazioni fornite.";
 
 /*Reisefeature: Hinweis 4*/
 "wallet_foreign_rules_check_hint_4" = "Non avete trovato un Paese? Non tutti i Paesi accettano i certificati COVID o rendono disponibili le regole d’entrata.";
