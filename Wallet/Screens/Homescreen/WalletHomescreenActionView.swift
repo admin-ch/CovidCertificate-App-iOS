@@ -30,8 +30,8 @@ class WalletHomescreenActionView: UIView {
     private let stackView = UIStackView()
 
     private let addCertificateView = AddCertificateView()
-    private let addTransferCodeButton = RoundedButton(titleKey: .wallet_homescreen_add_transfer_code_key)
-    private lazy var showVaccinationAppointmentInformationButton = RoundedButton(titleKey: .vaccination_homescreen_button_title_key)
+    private let addTransferCodeButton = RoundedButton(titleKey: .wallet_homescreen_add_transfer_code)
+    private lazy var showVaccinationAppointmentInformationButton = RoundedButton(titleKey: .vaccination_homescreen_button_title)
 
     // MARK: - Init
 
@@ -98,8 +98,8 @@ class AddCertificateView: UIView {
     private let topLabel = Label(.textBoldLarge)
     private let textLabel = Label(.text)
 
-    private let qrButton = IconButton(textKey: .wallet_homescreen_qr_code_scannen_key, icon: UIImage(named: "ic-qrcode-scan"))
-    private let pdfButton = IconButton(textKey: .wallet_homescreen_pdf_import_key, icon: UIImage(named: "ic-pdf"))
+    private let qrButton = IconButton(textKey: .wallet_homescreen_qr_code_scannen, icon: UIImage(named: "ic-qrcode-scan"))
+    private let pdfButton = IconButton(textKey: .wallet_homescreen_pdf_import, icon: UIImage(named: "ic-pdf"))
 
     // MARK: - Init
 
@@ -186,14 +186,14 @@ class RoundedButton: UBButton {
 
     // MARK: - Init
 
-    init(titleKey: UBLocalized.UBLocalizedKey) {
+    init(titleKey: UBLocalized.Key) {
         super.init()
         setup(titleKey: titleKey)
     }
 
     // MARK: - Setup
 
-    private func setup(titleKey: UBLocalized.UBLocalizedKey) {
+    private func setup(titleKey: UBLocalized.Key) {
         highlightedBackgroundColor = UIColor.cc_touchState
         backgroundColor = UIColor.cc_white
         layer.cornerRadius = 20
@@ -224,7 +224,7 @@ class IconButton: UBButton {
 
     // MARK: - Init
 
-    init(textKey: UBLocalized.UBLocalizedKey, icon: UIImage?) {
+    init(textKey: UBLocalized.Key, icon: UIImage?) {
         super.init()
 
         textLabel.text = UBLocalized.translate(textKey)

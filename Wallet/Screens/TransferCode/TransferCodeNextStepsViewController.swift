@@ -17,7 +17,7 @@ class TransferCodeNextStepsViewController: StackScrollViewController {
     private let insets = UIEdgeInsets(top: 0, left: 2 * Padding.medium, bottom: 0, right: 2 * Padding.medium)
 
     private let doneContainer = UIView()
-    private let doneButton = Button(titleKey: .wallet_transfer_code_done_button_key)
+    private let doneButton = Button(titleKey: .wallet_transfer_code_done_button)
 
     public var transferCode: UserTransferCode? {
         didSet {

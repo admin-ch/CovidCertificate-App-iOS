@@ -17,7 +17,7 @@ class EOLBannerPopupView: PopupView {
     private let titleLabel = Label(.title, textAlignment: .center)
 
     private let buttonView = UIView()
-    private let closeButton = Button(titleKey: .close_button_key, style: .text(.cc_blue))
+    private let closeButton = Button(titleKey: .close_button, style: .text(.cc_blue))
 
     let banner: ConfigResponseBody.EOLBannerInfo
 

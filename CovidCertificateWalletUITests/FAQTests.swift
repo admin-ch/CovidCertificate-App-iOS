@@ -23,7 +23,7 @@ class FAQTests: XCTestCase {
         app.setOnboarding(completed: true)
         app.launch()
 
-        app.buttons[.accessibility_faq_button_key].tap()
+        app.buttons[UBLocalized.Key.accessibility_faq_button].tap()
         app.staticTexts["StaticContentViewModel_Titel_Label_0"].assertExists()
     }
 }

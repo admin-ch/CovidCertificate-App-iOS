@@ -111,7 +111,7 @@ class InfoBoxView: PopupView {
         textLabel.text = infoBox?.msg
         buttonView.ub_setHidden(infoBox?.url == nil)
         button.title = infoBox?.urlTitle
-        closeButton.titleKey = button.isHidden ? .ok_button_key : .close_button_key
+        closeButton.titleKey = button.isHidden ? .ok_button : .close_button
         layoutIfNeeded()
     }
 }

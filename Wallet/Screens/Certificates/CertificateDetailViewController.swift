@@ -43,9 +43,9 @@ class CertificateDetailViewController: ViewController {
 
     private let noteView = CertificateNoteView()
 
-    private let removeButton = Button(titleKey: .delete_button_key, style: .normal(.cc_bund))
+    private let removeButton = Button(titleKey: .delete_button, style: .normal(.cc_bund))
 
-    private let floatingButton = Button(image: UIImage(named: "ic-load")?.withRenderingMode(.alwaysTemplate), accessibilityKey: .accessibility_refresh_button_key)
+    private let floatingButton = Button(image: UIImage(named: "ic-load")?.withRenderingMode(.alwaysTemplate), accessibilityKey: .accessibility_refresh_button)
 
     private lazy var qrCodeStateView = CertificateQRCodeStateView(initialState: temporaryVerifierState)
 

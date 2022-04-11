@@ -32,7 +32,7 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
 
     private let titleLabel = Label(.hero, textAlignment: .center)
 
-    private let checkButton = Button(titleKey: .verifier_homescreen_scan_button_key, style: .normal(.cc_blue))
+    private let checkButton = Button(titleKey: .verifier_homescreen_scan_button, style: .normal(.cc_blue))
 
     private let modePopupView = VerifyModePopUpView()
     private var modePopupIsShown: Bool = false

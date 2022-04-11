@@ -17,7 +17,7 @@ class TransferCodeRefreshView: UIView {
     private let titleLabel = Label(.textBold)
     private let textLabel = Label(.text)
 
-    public let refreshButton = Button(image: UIImage(named: "ic-refresh"), accessibilityKey: .accessibility_refresh_button_key)
+    public let refreshButton = Button(image: UIImage(named: "ic-refresh"), accessibilityKey: .accessibility_refresh_button)
 
     public var error: TransferError? {
         didSet { update() }

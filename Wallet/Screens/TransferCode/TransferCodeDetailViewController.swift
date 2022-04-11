@@ -31,7 +31,7 @@ class TransferCodeDetailViewController: ViewController {
 
     private let notificationDisabledView = TransferCodeNotificationDisabledView()
 
-    private let deleteButton = Button(titleKey: .delete_button_key, style: .normal(.cc_bund))
+    private let deleteButton = Button(titleKey: .delete_button, style: .normal(.cc_bund))
 
     // MARK: - Variables
 

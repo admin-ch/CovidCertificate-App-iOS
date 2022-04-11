@@ -9,2267 +9,2306 @@ import Foundation
 
 // swiftlint:disable function_parameter_count identifier_name line_length type_body_length
  enum UBLocalized {
-   enum UBLocalizedKey : String {
+   enum Key : String {
     /// Zertifikat hinzufügen
-     case accessibility_add_button_key = "accessibility_add_button"
+     case accessibility_add_button
     /// Schliessen
-     case accessibility_close_button_key = "accessibility_close_button"
+     case accessibility_close_button
     /// erweitert
-     case accessibility_expandable_box_expanded_state_key = "accessibility_expandable_box_expanded_state"
+     case accessibility_expandable_box_expanded_state
     /// reduziert
-     case accessibility_expandable_box_reduced_state_key = "accessibility_expandable_box_reduced_state"
+     case accessibility_expandable_box_reduced_state
     /// Häufige Fragen
-     case accessibility_faq_button_key = "accessibility_faq_button"
+     case accessibility_faq_button
     /// Information
-     case accessibility_info_box_key = "accessibility_info_box"
+     case accessibility_info_box
     /// Impressum
-     case accessibility_info_button_key = "accessibility_info_button"
+     case accessibility_info_button
     /// Taschenlampe ausschalten
-     case accessibility_lamp_off_button_key = "accessibility_lamp_off_button"
+     case accessibility_lamp_off_button
     /// Taschenlampe einschalten
-     case accessibility_lamp_on_button_key = "accessibility_lamp_on_button"
+     case accessibility_lamp_on_button
     /// Zertifikate Liste
-     case accessibility_list_button_key = "accessibility_list_button"
+     case accessibility_list_button
     /// QR-Code
-     case accessibility_qr_code_key = "accessibility_qr_code"
+     case accessibility_qr_code
     /// Aktualisieren
-     case accessibility_refresh_button_key = "accessibility_refresh_button"
+     case accessibility_refresh_button
     /// Zugriff auf Kamera erlauben
-     case camera_permission_dialog_action_key = "camera_permission_dialog_action"
+     case camera_permission_dialog_action
     /// Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können.
-     case camera_permission_dialog_text_key = "camera_permission_dialog_text"
+     case camera_permission_dialog_text
     /// Abbrechen
-     case cancel_button_key = "cancel_button"
+     case cancel_button
     /// Genesen
-     case certificate_reason_recovered_key = "certificate_reason_recovered"
+     case certificate_reason_recovered
     /// Test
-     case certificate_reason_tested_key = "certificate_reason_tested"
+     case certificate_reason_tested
     /// Impfung
-     case certificate_reason_vaccinated_key = "certificate_reason_vaccinated"
+     case certificate_reason_vaccinated
     /// Schliessen
-     case close_button_key = "close_button"
+     case close_button
     /// Weiter
-     case continue_button_key = "continue_button"
+     case continue_button
     /// Genesung (Antigen-Schnelltest)
-     case covid_certificate_antigen_positive_test_key = "covid_certificate_antigen_positive_test"
+     case covid_certificate_antigen_positive_test
     /// Ausnahme
-     case covid_certificate_ch_ausnahme_list_label_key = "covid_certificate_ch_ausnahme_list_label"
+     case covid_certificate_ch_ausnahme_list_label
     /// Ausnahmezertifikat
-     case covid_certificate_ch_ausnahme_test_title_key = "covid_certificate_ch_ausnahme_test_title"
+     case covid_certificate_ch_ausnahme_test_title
     /// Genesung
-     case covid_certificate_recovery_title_key = "covid_certificate_recovery_title"
+     case covid_certificate_recovery_title
     /// Befund
-     case covid_certificate_sero_positiv_test_befund_label_key = "covid_certificate_sero_positiv_test_befund_label"
+     case covid_certificate_sero_positiv_test_befund_label
     /// Genügend
-     case covid_certificate_sero_positiv_test_befund_value_key = "covid_certificate_sero_positiv_test_befund_value"
+     case covid_certificate_sero_positiv_test_befund_value
     /// Genesung (Antikörper)
-     case covid_certificate_sero_positiv_test_title_key = "covid_certificate_sero_positiv_test_title"
+     case covid_certificate_sero_positiv_test_title
     /// Test
-     case covid_certificate_test_title_key = "covid_certificate_test_title"
+     case covid_certificate_test_title
     /// Covid-Zertifikat
-     case covid_certificate_title_key = "covid_certificate_title"
+     case covid_certificate_title
     /// Impfung
-     case covid_certificate_vaccination_title_key = "covid_certificate_vaccination_title"
+     case covid_certificate_vaccination_title
     /// Löschen
-     case delete_button_key = "delete_button"
+     case delete_button
     /// Einstellungen ändern
-     case error_action_change_settings_key = "error_action_change_settings"
+     case error_action_change_settings
     /// Erneut versuchen
-     case error_action_retry_key = "error_action_retry"
+     case error_action_retry
     /// Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können.
-     case error_camera_permission_text_key = "error_camera_permission_text"
+     case error_camera_permission_text
     /// Kein Zugriff auf Kamera
-     case error_camera_permission_title_key = "error_camera_permission_title"
+     case error_camera_permission_title
     /// Ein Speicher der App konnte nicht entschlüsselt werden. Um die App weiter zu benutzen muss der Speicher gelöscht und neu erstellt werden. Dabei gehen Daten verloren.
-     case error_corrupt_sharedprefs_text_key = "error_corrupt_sharedprefs_text"
+     case error_corrupt_sharedprefs_text
     /// Entschlüsselungsfehler
-     case error_corrupt_sharedprefs_title_key = "error_corrupt_sharedprefs_title"
+     case error_corrupt_sharedprefs_title
     /// Zurücksetzen
-     case error_decryption_reset_button_key = "error_decryption_reset_button"
+     case error_decryption_reset_button
     /// Zertifikate konnten nicht geladen werden\n\nCode: {ERROR_CODE}
-     case error_decryption_text_key = "error_decryption_text"
+     case error_decryption_text
     /// Die Datei enthält entweder keinen gültigen QR-Code oder der QR-Code konnte nicht erkannt werden.
-     case error_file_import_text_key = "error_file_import_text"
+     case error_file_import_text
     /// Import fehlgeschlagen
-     case error_file_import_title_key = "error_file_import_title"
+     case error_file_import_title
     /// Überprüfen Sie Ihre Internet Verbindung.
-     case error_network_text_key = "error_network_text"
+     case error_network_text
     /// Netzwerkfehler
-     case error_network_title_key = "error_network_title"
+     case error_network_title
     /// Fehler
-     case error_title_key = "error_title"
+     case error_title
     /// Aktualisieren
-     case force_update_button_key = "force_update_button"
+     case force_update_button
     /// Laden Sie die neue Version der App.
-     case force_update_text_key = "force_update_text"
+     case force_update_text
     /// Update benötigt
-     case force_update_title_key = "force_update_title"
+     case force_update_title
     /// Impressum
-     case impressum_title_key = "impressum_title"
+     case impressum_title
     /// Mehr erfahren
-     case infobox_generic_button_key = "infobox_generic_button"
+     case infobox_generic_button
     /// Wenn Sie die App löschen, Ihr Smartphone wechseln oder verlieren, gehen auch Ihre Covid-Zertifikate verloren.\nBewahren Sie Ihre Zertifikate daher auch ausserhalb der App auf, indem Sie diese als PDF exportieren.
-     case infobox_generic_text_key = "infobox_generic_text"
+     case infobox_generic_text
     /// Zertifikat sichern!
-     case infobox_generic_title_key = "infobox_generic_title"
+     case infobox_generic_title
     /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate
-     case infobox_generic_url_android_key = "infobox_generic_url_android"
+     case infobox_generic_url_android
     /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate
-     case infobox_generic_url_ios_key = "infobox_generic_url_ios"
+     case infobox_generic_url_ios
     /// Aktualisieren
-     case infobox_update_button_key = "infobox_update_button"
+     case infobox_update_button
     /// Laden Sie die neue Version der App.
-     case infobox_update_text_key = "infobox_update_text"
+     case infobox_update_text
     /// Neue Version verfügbar
-     case infobox_update_title_key = "infobox_update_title"
+     case infobox_update_title
     /// Einstellungen
-     case ios_settings_open_key = "ios_settings_open"
+     case ios_settings_open
     /// de
-     case language_key_key = "language_key"
+     case language_key
     /// Sprache
-     case language_title_key = "language_title"
+     case language_title
     /// Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können.
-     case NSCameraUsageDescription_key = "NSCameraUsageDescription"
+     case NSCameraUsageDescription
     /// OK
-     case ok_button_key = "ok_button"
+     case ok_button
     /// Kein gültiger Code
-     case qr_scanner_error_key = "qr_scanner_error"
+     case qr_scanner_error
     /// Einstellungen
-     case settings_title_key = "settings_title"
+     case settings_title
     /// Covid-19
-     case target_disease_name_key = "target_disease_name"
+     case target_disease_name
     /// Ein unbekannter Fehler ist aufgetreten.
-     case unknown_error_key = "unknown_error"
+     case unknown_error
     /// Impftermin
-     case vaccination_appointment_header_key = "vaccination_appointment_header"
+     case vaccination_appointment_header
     /// Aargau
-     case vaccination_booking_ag_name_key = "vaccination_booking_ag_name"
+     case vaccination_booking_ag_name
     /// https://www.ag.ch/coronavirus-impfung
-     case vaccination_booking_ag_url_key = "vaccination_booking_ag_url"
+     case vaccination_booking_ag_url
     /// Appenzell Innerrhoden
-     case vaccination_booking_ai_name_key = "vaccination_booking_ai_name"
+     case vaccination_booking_ai_name
     /// https://www.ai.ch/coronavirus-impfung
-     case vaccination_booking_ai_url_key = "vaccination_booking_ai_url"
+     case vaccination_booking_ai_url
     /// Appenzell Ausserrhoden
-     case vaccination_booking_ar_name_key = "vaccination_booking_ar_name"
+     case vaccination_booking_ar_name
     /// https://www.ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/informationsseite-coronavirus/coronaimpfung/
-     case vaccination_booking_ar_url_key = "vaccination_booking_ar_url"
+     case vaccination_booking_ar_url
     /// Bern
-     case vaccination_booking_be_name_key = "vaccination_booking_be_name"
+     case vaccination_booking_be_name
     /// http://www.be.ch/corona-impfung
-     case vaccination_booking_be_url_key = "vaccination_booking_be_url"
+     case vaccination_booking_be_url
     /// Basel-Landschaft
-     case vaccination_booking_bl_name_key = "vaccination_booking_bl_name"
+     case vaccination_booking_bl_name
     /// https://www.bl.ch/impfen
-     case vaccination_booking_bl_url_key = "vaccination_booking_bl_url"
+     case vaccination_booking_bl_url
     /// Basel-Stadt
-     case vaccination_booking_bs_name_key = "vaccination_booking_bs_name"
+     case vaccination_booking_bs_name
     /// http://www.coronaimpfzentrumbasel.ch
-     case vaccination_booking_bs_url_key = "vaccination_booking_bs_url"
+     case vaccination_booking_bs_url
     /// Freiburg
-     case vaccination_booking_fr_name_key = "vaccination_booking_fr_name"
+     case vaccination_booking_fr_name
     /// https://www.fr.ch/de/gesundheit/covid-19/covid-19-impfung-in-ihrer-naehe-durch-impfteams-in-den-impfzentren-in-der-apotheke-oder-bei-ihrem-arzt
-     case vaccination_booking_fr_url_key = "vaccination_booking_fr_url"
+     case vaccination_booking_fr_url
     /// Genf
-     case vaccination_booking_ge_name_key = "vaccination_booking_ge_name"
+     case vaccination_booking_ge_name
     /// https://www.ge.ch/se-faire-vacciner-contre-covid-19
-     case vaccination_booking_ge_url_key = "vaccination_booking_ge_url"
+     case vaccination_booking_ge_url
     /// Glarus
-     case vaccination_booking_gl_name_key = "vaccination_booking_gl_name"
+     case vaccination_booking_gl_name
     /// https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/coronavirus.html/4817#Impfung
-     case vaccination_booking_gl_url_key = "vaccination_booking_gl_url"
+     case vaccination_booking_gl_url
     /// Graubünden
-     case vaccination_booking_gr_name_key = "vaccination_booking_gr_name"
+     case vaccination_booking_gr_name
     /// https://www.gr.ch/DE/institutionen/verwaltung/djsg/ga/coronavirus/info/impfen/Seiten/impfen.aspx
-     case vaccination_booking_gr_url_key = "vaccination_booking_gr_url"
+     case vaccination_booking_gr_url
     /// Die Covid-19-Impfung ist für Personen ab 5 Jahren empfohlen.
-     case vaccination_booking_info_info_key = "vaccination_booking_info_info"
+     case vaccination_booking_info_info
     /// Eine Impfung könnte zum Beispiel an diesen Orten in Ihrer Nähe stattfinden:\n\n- in spezifischen Impfzentren\n- in Spitälern\n- bei Ihrem Hausarzt oder Ihrer Hausärztin\n- in Impfapotheken\n\nViele Orte bieten auch Walk-in-Impfungen ohne Termine an.
-     case vaccination_booking_info_text_key = "vaccination_booking_info_text"
+     case vaccination_booking_info_text
     /// Impftermin in Ihrer Nähe buchen
-     case vaccination_booking_info_title_key = "vaccination_booking_info_title"
+     case vaccination_booking_info_title
     /// https://bag-coronavirus.ch/impfung/
-     case vaccination_booking_info_url_key = "vaccination_booking_info_url"
+     case vaccination_booking_info_url
     /// Jura
-     case vaccination_booking_ju_name_key = "vaccination_booking_ju_name"
+     case vaccination_booking_ju_name
     /// https://www.jura.ch/fr/Autorites/Coronavirus/Vaccination.html
-     case vaccination_booking_ju_url_key = "vaccination_booking_ju_url"
+     case vaccination_booking_ju_url
     /// Luzern
-     case vaccination_booking_lu_name_key = "vaccination_booking_lu_name"
+     case vaccination_booking_lu_name
     /// http://www.lu.ch/covid_impfung
-     case vaccination_booking_lu_url_key = "vaccination_booking_lu_url"
+     case vaccination_booking_lu_url
     /// Neuenburg
-     case vaccination_booking_ne_name_key = "vaccination_booking_ne_name"
+     case vaccination_booking_ne_name
     /// https://www.ne.ch/autorites/DFS/SCSP/medecin-cantonal/maladies-vaccinations/covid-19-vaccination/Pages/accueil.aspx
-     case vaccination_booking_ne_url_key = "vaccination_booking_ne_url"
+     case vaccination_booking_ne_url
     /// Nidwalden
-     case vaccination_booking_nw_name_key = "vaccination_booking_nw_name"
+     case vaccination_booking_nw_name
     /// https://www.nw.ch/gesundheitsamtdienste/6044#Impfung
-     case vaccination_booking_nw_url_key = "vaccination_booking_nw_url"
+     case vaccination_booking_nw_url
     /// Obwalden
-     case vaccination_booking_ow_name_key = "vaccination_booking_ow_name"
+     case vaccination_booking_ow_name
     /// https://www.ow.ch/dienstleistungen/7129
-     case vaccination_booking_ow_url_key = "vaccination_booking_ow_url"
+     case vaccination_booking_ow_url
     /// St. Gallen
-     case vaccination_booking_sg_name_key = "vaccination_booking_sg_name"
+     case vaccination_booking_sg_name
     /// https://www.sg.ch/coronavirus/impfen
-     case vaccination_booking_sg_url_key = "vaccination_booking_sg_url"
+     case vaccination_booking_sg_url
     /// Schaffhausen
-     case vaccination_booking_sh_name_key = "vaccination_booking_sh_name"
+     case vaccination_booking_sh_name
     /// https://sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Verwaltung/Departement-des-Innern/Gesundheitsamt-7126057-DE.html
-     case vaccination_booking_sh_url_key = "vaccination_booking_sh_url"
+     case vaccination_booking_sh_url
     /// Solothurn
-     case vaccination_booking_so_name_key = "vaccination_booking_so_name"
+     case vaccination_booking_so_name
     /// https://so.ch/coronaimpfung
-     case vaccination_booking_so_url_key = "vaccination_booking_so_url"
+     case vaccination_booking_so_url
     /// Schwyz
-     case vaccination_booking_sz_name_key = "vaccination_booking_sz_name"
+     case vaccination_booking_sz_name
     /// https://www.sz.ch/corona-impfen
-     case vaccination_booking_sz_url_key = "vaccination_booking_sz_url"
+     case vaccination_booking_sz_url
     /// Thurgau
-     case vaccination_booking_tg_name_key = "vaccination_booking_tg_name"
+     case vaccination_booking_tg_name
     /// https://gesundheit.tg.ch/aktuelles/impfung-fuer-covid-19.html/11590
-     case vaccination_booking_tg_url_key = "vaccination_booking_tg_url"
+     case vaccination_booking_tg_url
     /// Tessin
-     case vaccination_booking_ti_name_key = "vaccination_booking_ti_name"
+     case vaccination_booking_ti_name
     /// http://www.ti.ch/vaccinazione
-     case vaccination_booking_ti_url_key = "vaccination_booking_ti_url"
+     case vaccination_booking_ti_url
     /// Uri
-     case vaccination_booking_ur_name_key = "vaccination_booking_ur_name"
+     case vaccination_booking_ur_name
     /// https://www.ur.ch/themen/3673
-     case vaccination_booking_ur_url_key = "vaccination_booking_ur_url"
+     case vaccination_booking_ur_url
     /// Waadt
-     case vaccination_booking_vd_name_key = "vaccination_booking_vd_name"
+     case vaccination_booking_vd_name
     /// https://vd.ch/coronavirus-vaccins
-     case vaccination_booking_vd_url_key = "vaccination_booking_vd_url"
+     case vaccination_booking_vd_url
     /// Wallis
-     case vaccination_booking_vs_name_key = "vaccination_booking_vs_name"
+     case vaccination_booking_vs_name
     /// https://www.vs.ch/de/web/coronavirus#ancre_vaccination
-     case vaccination_booking_vs_url_key = "vaccination_booking_vs_url"
+     case vaccination_booking_vs_url
     /// Zug
-     case vaccination_booking_zg_name_key = "vaccination_booking_zg_name"
+     case vaccination_booking_zg_name
     /// https://www.corona-impfung-zug.ch/
-     case vaccination_booking_zg_url_key = "vaccination_booking_zg_url"
+     case vaccination_booking_zg_url
     /// Zürich
-     case vaccination_booking_zh_name_key = "vaccination_booking_zh_name"
+     case vaccination_booking_zh_name
     /// http://www.zh.ch/coronaimpfung
-     case vaccination_booking_zh_url_key = "vaccination_booking_zh_url"
+     case vaccination_booking_zh_url
     /// Wählen Sie Ihren Kanton
-     case vaccination_choose_your_canton_key = "vaccination_choose_your_canton"
+     case vaccination_choose_your_canton
     /// Mit der Covid-19-Impfung können Sie unbeschwert in die meisten Länder reisen.
-     case vaccination_hint_text_2_key = "vaccination_hint_text_2"
+     case vaccination_hint_text_2
     /// Mit der Covid-19-Impfung können Sie sich vor Erkrankung und einem allfälligen schweren Verlauf schützen.
-     case vaccination_hint_text_3_key = "vaccination_hint_text_3"
+     case vaccination_hint_text_3
     /// Mit der Covid-19-Impfung können Sie auf sichere Art immun werden.
-     case vaccination_hint_text_4_key = "vaccination_hint_text_4"
+     case vaccination_hint_text_4
     /// Mit der Covid-19-Impfung können Sie mithelfen, die Krankheitslast zu reduzieren.
-     case vaccination_hint_text_5_key = "vaccination_hint_text_5"
+     case vaccination_hint_text_5
     /// Mit der Covid-19-Impfung können Sie helfen, die Auswirkungen der Pandemie zu bekämpfen.
-     case vaccination_hint_text_6_key = "vaccination_hint_text_6"
+     case vaccination_hint_text_6
     /// Mit der Covid-19-Impfung können Sie die Langzeitfolgen einer Covid-19-Erkrankung vermeiden.
-     case vaccination_hint_text_7_key = "vaccination_hint_text_7"
+     case vaccination_hint_text_7
     /// Mit der Covid-19-Impfung können Sie dazu beitragen, das Gesundheitswesen zu entlasten.
-     case vaccination_hint_text_8_key = "vaccination_hint_text_8"
+     case vaccination_hint_text_8
     /// Jetzt impfen lassen!
-     case vaccination_hint_title_2_key = "vaccination_hint_title_2"
+     case vaccination_hint_title_2
     /// Jetzt impfen lassen!
-     case vaccination_hint_title_3_key = "vaccination_hint_title_3"
+     case vaccination_hint_title_3
     /// Jetzt impfen lassen!
-     case vaccination_hint_title_4_key = "vaccination_hint_title_4"
+     case vaccination_hint_title_4
     /// Jetzt impfen lassen!
-     case vaccination_hint_title_5_key = "vaccination_hint_title_5"
+     case vaccination_hint_title_5
     /// Jetzt impfen lassen!
-     case vaccination_hint_title_6_key = "vaccination_hint_title_6"
+     case vaccination_hint_title_6
     /// Jetzt impfen lassen!
-     case vaccination_hint_title_7_key = "vaccination_hint_title_7"
+     case vaccination_hint_title_7
     /// Jetzt impfen lassen!
-     case vaccination_hint_title_8_key = "vaccination_hint_title_8"
+     case vaccination_hint_title_8
     /// Impftermin buchen
-     case vaccination_homescreen_button_title_key = "vaccination_homescreen_button_title"
+     case vaccination_homescreen_button_title
     /// Zum Impf-Check
-     case vaccination_impf_check_action_key = "vaccination_impf_check_action"
+     case vaccination_impf_check_action
     /// Der Covid-19 Impf-Check gibt Auskunft über Erst- sowie Auffrischimpfungen und führt Sie zur entsprechenden Anlaufstelle in Ihrem Kanton.
-     case vaccination_impf_check_info_text_key = "vaccination_impf_check_info_text"
+     case vaccination_impf_check_info_text
     /// Jetzt Termin buchen
-     case vaccination_impf_check_title_key = "vaccination_impf_check_title"
+     case vaccination_impf_check_title
     /// https://covid19.impf-check.ch/
-     case vaccination_impf_check_url_key = "vaccination_impf_check_url"
+     case vaccination_impf_check_url
     /// Informationen zur Impfung
-     case vaccination_information_button_in_certificate_key = "vaccination_information_button_in_certificate"
+     case vaccination_information_button_in_certificate
     /// Weitere Informationen rund um die Covid-19-Impfung
-     case vaccination_more_information_title_key = "vaccination_more_information_title"
+     case vaccination_more_information_title
     /// Für 2G+ nur in Kombination mit der Prüfung eines Covid-Zertifikats für Geimpfte oder Genesene zugelassen.
-     case verifier_2g_plus_info2g_key = "verifier_2g_plus_info2g"
+     case verifier_2g_plus_info2g
     /// Für 2G+ nur in Kombination mit der Prüfung eines gültigen Testzertifikats zugelassen.
-     case verifier_2g_plus_infoplus_key = "verifier_2g_plus_infoplus"
+     case verifier_2g_plus_infoplus
     /// Gültiges Covid-Zertifikat nach 2G-Regelung
-     case verifier_2g_plus_success2g_key = "verifier_2g_plus_success2g"
+     case verifier_2g_plus_success2g
     /// Gültiges Covid-Zertifikat für Getestete
-     case verifier_2g_plus_successplus_key = "verifier_2g_plus_successplus"
+     case verifier_2g_plus_successplus
     /// market://details?id=ch.admin.bag.covidcertificate.verifier
-     case verifier_android_app_google_play_store_url_key = "verifier_android_app_google_play_store_url"
+     case verifier_android_app_google_play_store_url
     /// Covid Check
-     case verifier_app_name_key = "verifier_app_name"
+     case verifier_app_name
     /// COVID Certificate Check
-     case verifier_app_title_key = "verifier_app_title"
+     case verifier_app_title
     /// http://itunes.apple.com/app/id1565917510
-     case verifier_apple_app_store_url_key = "verifier_apple_app_store_url"
+     case verifier_apple_app_store_url
     /// Gültigkeit des Zertifikats\nabgelaufen
-     case verifier_certificate_light_error_expired_key = "verifier_certificate_light_error_expired"
+     case verifier_certificate_light_error_expired
     /// Für Betriebe und Veranstaltungen, in welchen mit einer Regelung nach 2G+ geprüft wird.
-     case verifier_check_mode_info_2g_plus_text_1_key = "verifier_check_mode_info_2g_plus_text_1"
+     case verifier_check_mode_info_2g_plus_text_1
     /// Zusätzlich zu einem Covid-Zertifikat für Geimpfte oder Genesene wird ein gültiges Testzertifikat benötigt, welches separat geprüft werden muss.
-     case verifier_check_mode_info_2g_plus_text_2_key = "verifier_check_mode_info_2g_plus_text_2"
+     case verifier_check_mode_info_2g_plus_text_2
     /// Ausnahmen: Personen, deren vollständige Impfung, Auffrischimpfung oder Genesung nicht länger als 120 Tage zurückliegt.
-     case verifier_check_mode_info_2g_plus_text_3_key = "verifier_check_mode_info_2g_plus_text_3"
+     case verifier_check_mode_info_2g_plus_text_3
     /// Die Prüfung von Zertifikate Light ist in diesem Modus nicht möglich.
-     case verifier_check_mode_info_2g_plus_text_4_key = "verifier_check_mode_info_2g_plus_text_4"
+     case verifier_check_mode_info_2g_plus_text_4
     /// 2G+
-     case verifier_check_mode_info_2g_plus_title_key = "verifier_check_mode_info_2g_plus_title"
+     case verifier_check_mode_info_2g_plus_title
     /// Für Betriebe und Veranstaltungen, in welchen mit einer 2G-Regelung geprüft wird.
-     case verifier_check_mode_info_2g_text_1_key = "verifier_check_mode_info_2g_text_1"
+     case verifier_check_mode_info_2g_text_1
     /// In diesem Modus werden Covid-Zertifikate für Geimpfte oder Genesene akzeptiert.
-     case verifier_check_mode_info_2g_text_2_key = "verifier_check_mode_info_2g_text_2"
+     case verifier_check_mode_info_2g_text_2
     /// Die Prüfung von einem Zertifikat Light ist in diesem Modus nicht möglich.
-     case verifier_check_mode_info_2g_text_3_key = "verifier_check_mode_info_2g_text_3"
+     case verifier_check_mode_info_2g_text_3
     /// 2G
-     case verifier_check_mode_info_2g_title_key = "verifier_check_mode_info_2g_title"
+     case verifier_check_mode_info_2g_title
     /// Für Betriebe und Veranstaltungen, in welchen mit einer 3G-Regelung geprüft wird.
-     case verifier_check_mode_info_3g_text_1_key = "verifier_check_mode_info_3g_text_1"
+     case verifier_check_mode_info_3g_text_1
     /// In diesem Modus werden Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete akzeptiert.
-     case verifier_check_mode_info_3g_text_2_key = "verifier_check_mode_info_3g_text_2"
+     case verifier_check_mode_info_3g_text_2
     /// Die Prüfung von einem Zertifikat Light ist in diesem Modus möglich.
-     case verifier_check_mode_info_3g_text_3_key = "verifier_check_mode_info_3g_text_3"
+     case verifier_check_mode_info_3g_text_3
     /// 3G
-     case verifier_check_mode_info_3g_title_key = "verifier_check_mode_info_3g_title"
+     case verifier_check_mode_info_3g_title
     /// Für Bereiche, bei denen ein gültiges Testzertifikat notwendig ist.
-     case verifier_check_mode_info_test_cert_text_1_key = "verifier_check_mode_info_test_cert_text_1"
+     case verifier_check_mode_info_test_cert_text_1
     /// In diesem Modus werden Covid-Zertifikate für negativ Getestete basierend auf einem PCR- oder Antigen-Schnelltest akzeptiert.
-     case verifier_check_mode_info_test_cert_text_2_key = "verifier_check_mode_info_test_cert_text_2"
+     case verifier_check_mode_info_test_cert_text_2
     /// Die Prüfung von Zertifikate Light ist in diesem Modus nicht möglich.
-     case verifier_check_mode_info_test_cert_text_3_key = "verifier_check_mode_info_test_cert_text_3"
+     case verifier_check_mode_info_test_cert_text_3
     /// Testzertifikat
-     case verifier_check_mode_info_test_cert_title_key = "verifier_check_mode_info_test_cert_title"
+     case verifier_check_mode_info_test_cert_title
     /// Wählen Sie den Prüfmodus, in welchem Sie Covid-Zertifikate prüfen möchten.
-     case verifier_check_mode_info_unselected_text_1_key = "verifier_check_mode_info_unselected_text_1"
+     case verifier_check_mode_info_unselected_text_1
     /// Der Prüfmodus kann jederzeit geändert werden.
-     case verifier_check_mode_info_unselected_text_2_key = "verifier_check_mode_info_unselected_text_2"
+     case verifier_check_mode_info_unselected_text_2
     /// wählen
-     case verifier_choose_mode_button_title_key = "verifier_choose_mode_button_title"
+     case verifier_choose_mode_button_title
     /// Geburtsdatum
-     case verifier_covid_certificate_birthdate_key = "verifier_covid_certificate_birthdate"
+     case verifier_covid_certificate_birthdate
     /// Nachname
-     case verifier_covid_certificate_name_key = "verifier_covid_certificate_name"
+     case verifier_covid_certificate_name
     /// Vorname
-     case verifier_covid_certificate_prename_key = "verifier_covid_certificate_prename"
+     case verifier_covid_certificate_prename
     /// Zum App Store
-     case verifier_error_app_store_button_key = "verifier_error_app_store_button"
+     case verifier_error_app_store_button
     /// Die Prüfung dieser Art des Covid-Zertifikats bedingt die neuste Version der Check-App. Bitte aktualisieren Sie Ihre App und wiederholen Sie den Prüfvorgang.
-     case verifier_error_app_store_text_key = "verifier_error_app_store_text"
+     case verifier_error_app_store_text
     /// Das Format des Covid-Zertifikats ist ungültig.
-     case verifier_error_invalid_format_key = "verifier_error_invalid_format"
+     case verifier_error_invalid_format
     /// Ihr gewählter Prüfmodus existiert nicht mehr.
-     case verifier_error_mode_no_longer_exists_key = "verifier_error_mode_no_longer_exists"
+     case verifier_error_mode_no_longer_exists
     /// Um ein Covid-Zertifikat zu prüfen, scannen Sie den QR-Code auf dem Papierzertifikat oder in der vorgewiesenen COVID Certificate App mit der dafür vorgesehenen COVID Certificate Check App.
-     case verifier_faq_works_answer_1_key = "verifier_faq_works_answer_1"
+     case verifier_faq_works_answer_1
     /// Beim Scannen werden drei Aspekte geprüft:\n– Enthält das Zertifikat eine gültige elektronische Signatur?\n– Ist das Zertifikat nicht widerrufen worden?\n– Entspricht das Zertifikat den Gültigkeitskriterien der Schweiz?\n\nWenn alle drei Aspekte positiv bewertet werden, wird das Covid-Zertifikat als gültig ausgewiesen.
-     case verifier_faq_works_answer_2_key = "verifier_faq_works_answer_2"
+     case verifier_faq_works_answer_2
     /// Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:
-     case verifier_faq_works_answer_2_1_key = "verifier_faq_works_answer_2_1"
+     case verifier_faq_works_answer_2_1
     /// Neben Pass oder ID werden auch andere Ausweisdokumente akzeptiert, die die Identität der betreffenden Person mit einem Foto belegen (z.B. Führerausweis). Das Covid-Zertifikat ist zwar fälschungssicher, mit der Überprüfung der Personalien wird aber erst sichergestellt, dass das vorgezeigte Zertifikat auch auf den Vorweisenden ausgestellt wurde.
-     case verifier_faq_works_answer_3_key = "verifier_faq_works_answer_3"
+     case verifier_faq_works_answer_3
     /// Ja, Covid-Zertifikate, die mit dem digitalen COVID-Zertifikat der EU kompatibel sind, können mit der COVID Certificate Check App gegen die Gültigkeitskriterien der Schweiz geprüft werden.
-     case verifier_faq_works_answer_4_key = "verifier_faq_works_answer_4"
+     case verifier_faq_works_answer_4
     /// Beim Prüfvorgang sehen Sie nur den Namen und das Geburtsdatum der Zertifikatsinhaberin oder des Zertifikatsinhabers und ob das Covid-Zertifikat gültig ist.
-     case verifier_faq_works_answer_5_key = "verifier_faq_works_answer_5"
+     case verifier_faq_works_answer_5
     /// Nein, beim Prüfvorgang werden keine Daten gespeichert - weder in der COVID Certificate Check App noch in einem zentralen System. Es ist somit nicht möglich nachzuvollziehen, welches Covid-Zertifikat von wem, wann und wo überprüft wurde.
-     case verifier_faq_works_answer_6_key = "verifier_faq_works_answer_6"
+     case verifier_faq_works_answer_6
     /// Grundsätzlich können Covid-Zertifikate auch ohne eine Internetverbindung geprüft werden. Dazu werden regelmässig aktualisierte Prüflisten von einem zentralen Server heruntergeladen. Diese lokal gespeicherten Prüflisten dürfen nicht älter als 48h sein. \n\nUm die Prüflisten zu aktualisieren muss die App mit dem Internet verbunden sein und geöffnet werden. Die Aktualisierung erfolgt unmittelbar und automatisch.
-     case verifier_faq_works_answer_7_key = "verifier_faq_works_answer_7"
+     case verifier_faq_works_answer_7
     /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von {LIGHT_CERT_VALIDITY_IN_H} Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der {LIGHT_CERT_VALIDITY_IN_H} Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
-     case verifier_faq_works_answer_8_key = "verifier_faq_works_answer_8"
+     case verifier_faq_works_answer_8
     /// Das Zertifikat Light kann durch die Halterin / den Halter jederzeit in der «COVID Certificate»-App deaktiviert werden. Danach steht das normale Covid-Zertifikat wieder zur Verfügung.
-     case verifier_faq_works_answer_9_key = "verifier_faq_works_answer_9"
+     case verifier_faq_works_answer_9
     /// Erklärvideo
-     case verifier_faq_works_linktext_1_key = "verifier_faq_works_linktext_1"
+     case verifier_faq_works_linktext_1
     /// Weitere Informationen
-     case verifier_faq_works_linktext_2_1_key = "verifier_faq_works_linktext_2_1"
+     case verifier_faq_works_linktext_2_1
     /// https://youtu.be/DClLZIUjr3w
-     case verifier_faq_works_linkurl_1_key = "verifier_faq_works_linkurl_1"
+     case verifier_faq_works_linkurl_1
     /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624
-     case verifier_faq_works_linkurl_2_1_key = "verifier_faq_works_linkurl_2_1"
+     case verifier_faq_works_linkurl_2_1
     /// Wie können Covid-Zertifikate geprüft werden?
-     case verifier_faq_works_question_1_key = "verifier_faq_works_question_1"
+     case verifier_faq_works_question_1
     /// Was wird genau geprüft?
-     case verifier_faq_works_question_2_key = "verifier_faq_works_question_2"
+     case verifier_faq_works_question_2
     /// Was sind die aktuellen Gültigkeitskriterien der Schweiz?
-     case verifier_faq_works_question_2_1_key = "verifier_faq_works_question_2_1"
+     case verifier_faq_works_question_2_1
     /// Welche Ausweisdokumente sind gültig? Weshalb müssen die Personalien überprüft werden?
-     case verifier_faq_works_question_3_key = "verifier_faq_works_question_3"
+     case verifier_faq_works_question_3
     /// Können auch ausländische Zertifikate geprüft werden?
-     case verifier_faq_works_question_4_key = "verifier_faq_works_question_4"
+     case verifier_faq_works_question_4
     /// Welche Daten sehe ich beim Prüfvorgang?
-     case verifier_faq_works_question_5_key = "verifier_faq_works_question_5"
+     case verifier_faq_works_question_5
     /// Werden beim Prüfvorgang in der COVID Certificate Check App oder in einem zentralen System Daten gespeichert?
-     case verifier_faq_works_question_6_key = "verifier_faq_works_question_6"
+     case verifier_faq_works_question_6
     /// Können Zertifikate auch offline geprüft werden?
-     case verifier_faq_works_question_7_key = "verifier_faq_works_question_7"
+     case verifier_faq_works_question_7
     /// Was ist das Zertifikat Light?
-     case verifier_faq_works_question_8_key = "verifier_faq_works_question_8"
+     case verifier_faq_works_question_8
     /// Wie kann ein Zertifikat Light wieder in ein EU/EFTA-konformes Covid-Zertifikat umgewandelt werden?
-     case verifier_faq_works_question_9_key = "verifier_faq_works_question_9"
+     case verifier_faq_works_question_9
     /// Mit der COVID Certificate Check App können QR-Codes auf Covid-Zertifikaten gescannt und die Zertifikate auf Echtheit und Gültigkeit überprüft werden.
-     case verifier_faq_works_subtitle_key = "verifier_faq_works_subtitle"
+     case verifier_faq_works_subtitle
     /// So werden Covid-Zertifikate geprüft
-     case verifier_faq_works_title_key = "verifier_faq_works_title"
+     case verifier_faq_works_title
     /// Covid Certificate
-     case verifier_homescreen_header_title_key = "verifier_homescreen_header_title"
+     case verifier_homescreen_header_title
     /// Vorgewiesenes Zertifikat scannen
-     case verifier_homescreen_pager_description_1_key = "verifier_homescreen_pager_description_1"
+     case verifier_homescreen_pager_description_1
     /// Zertifikate werden automatisch geprüft
-     case verifier_homescreen_pager_description_2_key = "verifier_homescreen_pager_description_2"
+     case verifier_homescreen_pager_description_2
     /// Prüfen
-     case verifier_homescreen_scan_button_key = "verifier_homescreen_scan_button"
+     case verifier_homescreen_scan_button
     /// Prüfen ({MODE})
-     case verifier_homescreen_scan_button_with_mode_key = "verifier_homescreen_scan_button_with_mode"
+     case verifier_homescreen_scan_button_with_mode
     /// So funktioniert's
-     case verifier_homescreen_support_button_key = "verifier_homescreen_support_button"
+     case verifier_homescreen_support_button
     /// Check
-     case verifier_homescreen_title_key = "verifier_homescreen_title"
+     case verifier_homescreen_title
     /// Prüfmodus
-     case verifier_mode_title_key = "verifier_mode_title"
+     case verifier_mode_title
     /// Ein unerwarteter Fehler ist aufgetreten.
-     case verifier_network_error_text_key = "verifier_network_error_text"
+     case verifier_network_error_text
     /// Prüfung fehlgeschlagen
-     case verifier_network_error_title_key = "verifier_network_error_title"
+     case verifier_network_error_title
     /// Eine Internetverbindung wird benötigt, um die Prüflisten zu aktualisieren
-     case verifier_offline_error_text_key = "verifier_offline_error_text"
+     case verifier_offline_error_text
     /// Offline-Prüfung nicht möglich
-     case verifier_offline_error_title_key = "verifier_offline_error_title"
+     case verifier_offline_error_title
     /// Externer Hardwarescanner erkannt
-     case verifier_qr_scanner_external_hardware_detected_key = "verifier_qr_scanner_external_hardware_detected"
+     case verifier_qr_scanner_external_hardware_detected
     /// QR-Code scannen\nzum Prüfen
-     case verifier_qr_scanner_scan_qr_text_key = "verifier_qr_scanner_scan_qr_text"
+     case verifier_qr_scanner_scan_qr_text
     /// Das Gerät befindet sich im Flugmodus.
-     case verifier_retry_flightmode_error_key = "verifier_retry_flightmode_error"
+     case verifier_retry_flightmode_error
     /// Ein Netzwerkfehler ist aufgetreten.
-     case verifier_retry_network_error_key = "verifier_retry_network_error"
+     case verifier_retry_network_error
     /// So funktioniert's
-     case verifier_support_header_key = "verifier_support_header"
+     case verifier_support_header
     /// https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-check-app.html
-     case verifier_terms_privacy_link_key = "verifier_terms_privacy_link"
+     case verifier_terms_privacy_link
     /// Prüfen
-     case verifier_title_qr_scan_key = "verifier_title_qr_scan"
+     case verifier_title_qr_scan
     /// Mit diesem Update können Sie in der App auch die Zertifikatskopie ohne Gesundheitsdaten prüfen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.
-     case verifier_update_boarding_certificate_light_text_key = "verifier_update_boarding_certificate_light_text"
+     case verifier_update_boarding_certificate_light_text
     /// Zertifikat Light
-     case verifier_update_boarding_certificate_light_title_key = "verifier_update_boarding_certificate_light_title"
+     case verifier_update_boarding_certificate_light_title
     /// Update
-     case verifier_update_boarding_header_key = "verifier_update_boarding_header"
+     case verifier_update_boarding_header
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDie Gültigkeit des Zertifikat ist abgelaufen.
-     case verifier_verifiy_error_expired_key = "verifier_verifiy_error_expired"
+     case verifier_verifiy_error_expired
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDas Zertifikat ist noch nicht gültig.
-     case verifier_verifiy_error_notyetvalid_key = "verifier_verifiy_error_notyetvalid"
+     case verifier_verifiy_error_notyetvalid
     /// Das Covid-Zertifikat wurde widerrufen
-     case verifier_verify_error_info_for_blacklist_key = "verifier_verify_error_info_for_blacklist"
+     case verifier_verify_error_info_for_blacklist
     /// Das Covid-Zertifikat hat keine gültige Signatur
-     case verifier_verify_error_info_for_certificate_invalid_key = "verifier_verify_error_info_for_certificate_invalid"
+     case verifier_verify_error_info_for_certificate_invalid
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz oder des Prüfmodus ({MODUS})
-     case verifier_verify_error_info_for_national_rules_key = "verifier_verify_error_info_for_national_rules"
+     case verifier_verify_error_info_for_national_rules
     /// Ein unerwarteter Fehler ist aufgetreten.
-     case verifier_verify_error_list_info_text_key = "verifier_verify_error_list_info_text"
+     case verifier_verify_error_list_info_text
     /// Prüfung fehlgeschlagen
-     case verifier_verify_error_list_title_key = "verifier_verify_error_list_title"
+     case verifier_verify_error_list_title
     /// Covid-Zertifikat ungültig
-     case verifier_verify_error_title_key = "verifier_verify_error_title"
+     case verifier_verify_error_title
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz.
-     case verifier_verify_error_validity_range_bold_key = "verifier_verify_error_validity_range_bold"
+     case verifier_verify_error_validity_range_bold
     /// Die Prüfung kann in diesem Fall nur erfolgen, wenn die Umwandlung in ein Zertifikat Light rückgängig gemacht wird.
-     case verifier_verify_light_not_supported_by_mode_text_key = "verifier_verify_light_not_supported_by_mode_text"
+     case verifier_verify_light_not_supported_by_mode_text
     /// Beim zu prüfenden Covid-Zertifikat handelt es sich um ein Zertifikat Light. Dies kann im {MODUS}-Prüfmodus nicht geprüft werden.
-     case verifier_verify_light_not_supported_by_mode_title_key = "verifier_verify_light_not_supported_by_mode_title"
+     case verifier_verify_light_not_supported_by_mode_title
     /// Zertifikat wird geprüft
-     case verifier_verify_loading_text_key = "verifier_verify_loading_text"
+     case verifier_verify_loading_text
     /// Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig
-     case verifier_verify_success_certificate_light_info_key = "verifier_verify_success_certificate_light_info"
+     case verifier_verify_success_certificate_light_info
     /// Nur mit einem \nAusweisdokument gültig
-     case verifier_verify_success_info_key = "verifier_verify_success_info"
+     case verifier_verify_success_info
     /// Nicht widerrufen
-     case verifier_verify_success_info_for_blacklist_key = "verifier_verify_success_info_for_blacklist"
+     case verifier_verify_success_info_for_blacklist
     /// Signatur gültig
-     case verifier_verify_success_info_for_certificate_valid_key = "verifier_verify_success_info_for_certificate_valid"
+     case verifier_verify_success_info_for_certificate_valid
     /// Prüfung erfolgreich
-     case verifier_verify_success_title_key = "verifier_verify_success_title"
+     case verifier_verify_success_title
     /// Noch {TIMESPAN} gültig
-     case wallet_accessibility_light_certificate_expiration_timer_key = "wallet_accessibility_light_certificate_expiration_timer"
+     case wallet_accessibility_light_certificate_expiration_timer
     /// Hinzufügen
-     case wallet_add_certificate_key = "wallet_add_certificate"
+     case wallet_add_certificate
     /// Hinzufügen
-     case wallet_add_certificate_button_key = "wallet_add_certificate_button"
+     case wallet_add_certificate_button
     /// market://details?id=ch.admin.bag.covidcertificate.wallet
-     case wallet_android_app_google_play_store_url_key = "wallet_android_app_google_play_store_url"
+     case wallet_android_app_google_play_store_url
     /// Covid Cert
-     case wallet_app_name_key = "wallet_app_name"
+     case wallet_app_name
     /// http://itunes.apple.com/app/id1565917320
-     case wallet_apple_app_store_url_key = "wallet_apple_app_store_url"
+     case wallet_apple_app_store_url
     /// Covid-Zertifikat
-     case wallet_certificate_key = "wallet_certificate"
+     case wallet_certificate
     /// Dieses Zertifikat ist bereits in der App gespeichert
-     case wallet_certificate_already_exists_key = "wallet_certificate_already_exists"
+     case wallet_certificate_already_exists
     /// Datum des ersten positiven Resultats
-     case wallet_certificate_antigen_positive_date_key = "wallet_certificate_antigen_positive_date"
+     case wallet_certificate_antigen_positive_date
     /// Medizinisches Attest ausgestellt in
-     case wallet_certificate_ausnahme_issued_country_key = "wallet_certificate_ausnahme_issued_country"
+     case wallet_certificate_ausnahme_issued_country
     /// Für die Ausstellung verantwortliche Stelle
-     case wallet_certificate_ausnahme_responsible_issuer_key = "wallet_certificate_ausnahme_responsible_issuer"
+     case wallet_certificate_ausnahme_responsible_issuer
     /// Beginn der Gültigkeit
-     case wallet_certificate_ausnahme_test_attest_start_date_key = "wallet_certificate_ausnahme_test_attest_start_date"
+     case wallet_certificate_ausnahme_test_attest_start_date
     /// Zertifikat erstellt am\n{DATE}
-     case wallet_certificate_date_key = "wallet_certificate_date"
+     case wallet_certificate_date
     /// Wollen Sie das Zertifikat wirklich löschen?
-     case wallet_certificate_delete_confirm_text_key = "wallet_certificate_delete_confirm_text"
+     case wallet_certificate_delete_confirm_text
     /// Zertifikat Light
-     case wallet_certificate_detail_certificate_light_button_key = "wallet_certificate_detail_certificate_light_button"
+     case wallet_certificate_detail_certificate_light_button
     /// Date format used: dd.mm.yyyy
-     case wallet_certificate_detail_date_format_info_key = "wallet_certificate_detail_date_format_info"
+     case wallet_certificate_detail_date_format_info
     /// Exportieren
-     case wallet_certificate_detail_export_button_key = "wallet_certificate_detail_export_button"
+     case wallet_certificate_detail_export_button
     /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
-     case wallet_certificate_detail_note_key = "wallet_certificate_detail_note"
+     case wallet_certificate_detail_note
     /// Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
-     case wallet_certificate_detail_note_ausnahme_key = "wallet_certificate_detail_note_ausnahme"
+     case wallet_certificate_detail_note_ausnahme
     /// Dieses Zertifikat ist kein Reisedokument.\n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
-     case wallet_certificate_detail_note_positive_antigen_key = "wallet_certificate_detail_note_positive_antigen"
+     case wallet_certificate_detail_note_positive_antigen
     /// Nachweis erstellt am\n{DATE}
-     case wallet_certificate_evidence_creation_date_key = "wallet_certificate_evidence_creation_date"
+     case wallet_certificate_evidence_creation_date
     /// Nachweis
-     case wallet_certificate_evidence_title_key = "wallet_certificate_evidence_title"
+     case wallet_certificate_evidence_title
     /// Exportieren
-     case wallet_certificate_export_button_key = "wallet_certificate_export_button"
+     case wallet_certificate_export_button
     /// PDF konnte nicht\nerstellt werden
-     case wallet_certificate_export_detail_error_title_key = "wallet_certificate_export_detail_error_title"
+     case wallet_certificate_export_detail_error_title
     /// Exportieren
-     case wallet_certificate_export_detail_export_button_key = "wallet_certificate_export_detail_export_button"
+     case wallet_certificate_export_detail_export_button
     /// Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.
-     case wallet_certificate_export_detail_general_error_text_key = "wallet_certificate_export_detail_general_error_text"
+     case wallet_certificate_export_detail_general_error_text
     /// Ein unerwarteter Fehler ist aufgetreten.
-     case wallet_certificate_export_detail_general_error_title_key = "wallet_certificate_export_detail_general_error_title"
+     case wallet_certificate_export_detail_general_error_title
     /// Um das PDF erstellen zu können, muss die App online sein.
-     case wallet_certificate_export_detail_network_error_text_key = "wallet_certificate_export_detail_network_error_text"
+     case wallet_certificate_export_detail_network_error_text
     /// Keine Verbindung zum Internet
-     case wallet_certificate_export_detail_network_error_title_key = "wallet_certificate_export_detail_network_error_title"
+     case wallet_certificate_export_detail_network_error_title
     /// Aus den Daten Ihres Covid-Zertifikats wird ein PDF erstellt, das Sie drucken oder teilen können.
-     case wallet_certificate_export_detail_summary_1_key = "wallet_certificate_export_detail_summary_1"
+     case wallet_certificate_export_detail_summary_1
     /// Die Erstellung des PDF-Dokuments erfolgt online.
-     case wallet_certificate_export_detail_summary_2_key = "wallet_certificate_export_detail_summary_2"
+     case wallet_certificate_export_detail_summary_2
     /// Exportieren
-     case wallet_certificate_export_detail_title_key = "wallet_certificate_export_detail_title"
+     case wallet_certificate_export_detail_title
     /// Aus den Daten Ihres Covid-Zertifikats wird ein PDF erstellt, das Sie drucken oder teilen können.
-     case wallet_certificate_export_summary_1_key = "wallet_certificate_export_summary_1"
+     case wallet_certificate_export_summary_1
     /// Die Erstellung des PDF-Dokuments erfolgt online.
-     case wallet_certificate_export_summary_2_key = "wallet_certificate_export_summary_2"
+     case wallet_certificate_export_summary_2
     /// Covid-Zertifikat exportieren
-     case wallet_certificate_export_title_key = "wallet_certificate_export_title"
+     case wallet_certificate_export_title
     /// UVCI
-     case wallet_certificate_identifier_key = "wallet_certificate_identifier"
+     case wallet_certificate_identifier
     /// Impfdosis
-     case wallet_certificate_impfdosis_title_key = "wallet_certificate_impfdosis_title"
+     case wallet_certificate_impfdosis_title
     /// Hersteller
-     case wallet_certificate_impfstoff_holder_key = "wallet_certificate_impfstoff_holder"
+     case wallet_certificate_impfstoff_holder
     /// Produkt
-     case wallet_certificate_impfstoff_product_name_title_key = "wallet_certificate_impfstoff_product_name_title"
+     case wallet_certificate_impfstoff_product_name_title
     /// Aktivieren
-     case wallet_certificate_light_detail_activate_button_key = "wallet_certificate_light_detail_activate_button"
+     case wallet_certificate_light_detail_activate_button
     /// Zertifikat Light\nkonnte nicht aktiviert werden
-     case wallet_certificate_light_detail_activation_error_key = "wallet_certificate_light_detail_activation_error"
+     case wallet_certificate_light_detail_activation_error
     /// Versuchen Sie es später erneut.
-     case wallet_certificate_light_detail_activation_general_error_text_key = "wallet_certificate_light_detail_activation_general_error_text"
+     case wallet_certificate_light_detail_activation_general_error_text
     /// Ein unerwarteter Fehler ist aufgetreten.
-     case wallet_certificate_light_detail_activation_general_error_title_key = "wallet_certificate_light_detail_activation_general_error_title"
+     case wallet_certificate_light_detail_activation_general_error_title
     /// Um das Zertifikat Light aktivieren zu können, muss die App online sein.
-     case wallet_certificate_light_detail_activation_network_error_text_key = "wallet_certificate_light_detail_activation_network_error_text"
+     case wallet_certificate_light_detail_activation_network_error_text
     /// Keine Verbindung zum Internet
-     case wallet_certificate_light_detail_activation_network_error_title_key = "wallet_certificate_light_detail_activation_network_error_title"
+     case wallet_certificate_light_detail_activation_network_error_title
     /// Deaktivieren
-     case wallet_certificate_light_detail_deactivate_button_key = "wallet_certificate_light_detail_deactivate_button"
+     case wallet_certificate_light_detail_deactivate_button
     /// Kann nur innerhalb der Schweiz verwendet werden
-     case wallet_certificate_light_detail_summary_1_key = "wallet_certificate_light_detail_summary_1"
+     case wallet_certificate_light_detail_summary_1
     /// Enthält nur Namen, Vornamen, Geburtsdatum und eine elektronische Signatur
-     case wallet_certificate_light_detail_summary_2_key = "wallet_certificate_light_detail_summary_2"
+     case wallet_certificate_light_detail_summary_2
     /// Gültig für max. {LIGHT_CERT_VALIDITY_IN_H} Stunden
-     case wallet_certificate_light_detail_summary_3_key = "wallet_certificate_light_detail_summary_3"
+     case wallet_certificate_light_detail_summary_3
     /// Die Konvertierung des Covid-Zertifikats in ein Zertifikat Light erfolgt online.
-     case wallet_certificate_light_detail_summary_4_key = "wallet_certificate_light_detail_summary_4"
+     case wallet_certificate_light_detail_summary_4
     /// Sie können das Zertifikat Light jederzeit deaktivieren, um wieder zum normalen Covid-Zertifikat zu wechseln.
-     case wallet_certificate_light_detail_summary_5_key = "wallet_certificate_light_detail_summary_5"
+     case wallet_certificate_light_detail_summary_5
     /// Zertifikat Light
-     case wallet_certificate_light_detail_summary_title_key = "wallet_certificate_light_detail_summary_title"
+     case wallet_certificate_light_detail_summary_title
     /// Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.
-     case wallet_certificate_light_detail_text_1_key = "wallet_certificate_light_detail_text_1"
+     case wallet_certificate_light_detail_text_1
     /// Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach {LIGHT_CERT_VALIDITY_IN_H} Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
-     case wallet_certificate_light_detail_text_2_key = "wallet_certificate_light_detail_text_2"
+     case wallet_certificate_light_detail_text_2
     /// nur muss keine
-     case wallet_certificate_light_detail_text_2_bold_key = "wallet_certificate_light_detail_text_2_bold"
+     case wallet_certificate_light_detail_text_2_bold
     /// Was ist ein \nZertifikat Light?
-     case wallet_certificate_light_detail_title_key = "wallet_certificate_light_detail_title"
+     case wallet_certificate_light_detail_title
     /// Das Zertifikat Light wurde in den letzten 24h bereits zu oft aktiviert.
-     case wallet_certificate_light_rate_limit_text_key = "wallet_certificate_light_rate_limit_text"
+     case wallet_certificate_light_rate_limit_text
     /// 24h-Limite erreicht
-     case wallet_certificate_light_rate_limit_title_key = "wallet_certificate_light_rate_limit_title"
+     case wallet_certificate_light_rate_limit_title
     /// Zertifikat Light
-     case wallet_certificate_light_title_key = "wallet_certificate_light_title"
+     case wallet_certificate_light_title
     /// Light
-     case wallet_certificate_list_light_certificate_badge_key = "wallet_certificate_list_light_certificate_badge"
+     case wallet_certificate_list_light_certificate_badge
     /// Zertifikate
-     case wallet_certificate_list_title_key = "wallet_certificate_list_title"
+     case wallet_certificate_list_title
     /// Datum des ersten positiven Resultats
-     case wallet_certificate_recovery_first_positiv_result_key = "wallet_certificate_recovery_first_positiv_result"
+     case wallet_certificate_recovery_first_positiv_result
     /// Gültig ab
-     case wallet_certificate_recovery_from_key = "wallet_certificate_recovery_from"
+     case wallet_certificate_recovery_from
     /// Gültig bis
-     case wallet_certificate_recovery_until_key = "wallet_certificate_recovery_until"
+     case wallet_certificate_recovery_until
     /// Krankheit oder Erreger
-     case wallet_certificate_target_disease_title_key = "wallet_certificate_target_disease_title"
+     case wallet_certificate_target_disease_title
     /// Testcenter
-     case wallet_certificate_test_done_by_key = "wallet_certificate_test_done_by"
+     case wallet_certificate_test_done_by
     /// Hersteller
-     case wallet_certificate_test_holder_key = "wallet_certificate_test_holder"
+     case wallet_certificate_test_holder
     /// Hersteller und Name
-     case wallet_certificate_test_holder_and_name_key = "wallet_certificate_test_holder_and_name"
+     case wallet_certificate_test_holder_and_name
     /// Land des Tests
-     case wallet_certificate_test_land_key = "wallet_certificate_test_land"
+     case wallet_certificate_test_land
     /// Name
-     case wallet_certificate_test_name_key = "wallet_certificate_test_name"
+     case wallet_certificate_test_name
     /// Datum Resultat
-     case wallet_certificate_test_result_date_title_key = "wallet_certificate_test_result_date_title"
+     case wallet_certificate_test_result_date_title
     /// Nicht erkannt (Negativ)
-     case wallet_certificate_test_result_negativ_key = "wallet_certificate_test_result_negativ"
+     case wallet_certificate_test_result_negativ
     /// Erkannt (Positiv)
-     case wallet_certificate_test_result_positiv_key = "wallet_certificate_test_result_positiv"
+     case wallet_certificate_test_result_positiv
     /// Ergebnis
-     case wallet_certificate_test_result_title_key = "wallet_certificate_test_result_title"
+     case wallet_certificate_test_result_title
     /// Datum der Probenentnahme
-     case wallet_certificate_test_sample_date_title_key = "wallet_certificate_test_sample_date_title"
+     case wallet_certificate_test_sample_date_title
     /// Typ
-     case wallet_certificate_test_type_key = "wallet_certificate_test_type"
+     case wallet_certificate_test_type
     /// Unvollständige Impfung
-     case wallet_certificate_type_incomplete_vaccine_key = "wallet_certificate_type_incomplete_vaccine"
+     case wallet_certificate_type_incomplete_vaccine
     /// Land der Impfung
-     case wallet_certificate_vaccination_country_title_key = "wallet_certificate_vaccination_country_title"
+     case wallet_certificate_vaccination_country_title
     /// Impfdatum
-     case wallet_certificate_vaccination_date_title_key = "wallet_certificate_vaccination_date_title"
+     case wallet_certificate_vaccination_date_title
     /// Herausgeber
-     case wallet_certificate_vaccination_issuer_title_key = "wallet_certificate_vaccination_issuer_title"
+     case wallet_certificate_vaccination_issuer_title
     /// Art des Impfstoffs
-     case wallet_certificate_vaccine_prophylaxis_key = "wallet_certificate_vaccine_prophylaxis"
+     case wallet_certificate_vaccine_prophylaxis
     /// In der Schweiz gültig ab:\n{DATE}
-     case wallet_certificate_valid_from_key = "wallet_certificate_valid_from"
+     case wallet_certificate_valid_from
     /// bis
-     case wallet_certificate_valid_until_key = "wallet_certificate_valid_until"
+     case wallet_certificate_valid_until
     /// Gültigkeit in der\nSchweiz
-     case wallet_certificate_validity_key = "wallet_certificate_validity"
+     case wallet_certificate_validity
     /// Prüfung erfolgreich
-     case wallet_certificate_verify_success_key = "wallet_certificate_verify_success"
+     case wallet_certificate_verify_success
     /// Das Zertifikat wird geprüft
-     case wallet_certificate_verifying_key = "wallet_certificate_verifying"
+     case wallet_certificate_verifying
     /// Kein Zutritt.
-     case wallet_check_mode_info_2g_not_ok_text_key = "wallet_check_mode_info_2g_not_ok_text"
+     case wallet_check_mode_info_2g_not_ok_text
     /// Zutritt zu Betrieben und Veranstaltungen für geimpfte oder genesene Personen.
-     case wallet_check_mode_info_2g_ok_text_key = "wallet_check_mode_info_2g_ok_text"
+     case wallet_check_mode_info_2g_ok_text
     /// Für den Zutritt zu Betrieben und Veranstaltungen wird zusätzlich zum Covid-Zertifikat für geimpfte oder genesene Personen ein negatives Testresultat benötigt.
-     case wallet_check_mode_info_2g_plus_not_ok_text_key = "wallet_check_mode_info_2g_plus_not_ok_text"
+     case wallet_check_mode_info_2g_plus_not_ok_text
     /// Zutritt zu Betrieben und Veranstaltungen für Personen, deren vollständige Impfung, Auffrischimpfung oder Genesung (basierend auf PCR-Test) nicht länger als 120 Tage zurückliegt. Sie benötigen kein zusätzliches Testzertifikat.
-     case wallet_check_mode_info_2g_plus_ok_text_key = "wallet_check_mode_info_2g_plus_ok_text"
+     case wallet_check_mode_info_2g_plus_ok_text
     /// Kein Zutritt.
-     case wallet_check_mode_info_3g_not_ok_text_key = "wallet_check_mode_info_3g_not_ok_text"
+     case wallet_check_mode_info_3g_not_ok_text
     /// Zutritt zu Betrieben und Veranstaltungen für geimpfte, genesene oder negativ getestete Personen.
-     case wallet_check_mode_info_3g_ok_text_key = "wallet_check_mode_info_3g_ok_text"
+     case wallet_check_mode_info_3g_ok_text
     /// Info
-     case wallet_check_mode_info_title_key = "wallet_check_mode_info_title"
+     case wallet_check_mode_info_title
     /// Versuchen Sie es später erneut.
-     case wallet_detail_network_error_text_key = "wallet_detail_network_error_text"
+     case wallet_detail_network_error_text
     /// Prüfung zur Zeit nicht möglich
-     case wallet_detail_network_error_title_key = "wallet_detail_network_error_title"
+     case wallet_detail_network_error_title
     /// Prüfung offline nicht möglich
-     case wallet_detail_offline_retry_title_key = "wallet_detail_offline_retry_title"
+     case wallet_detail_offline_retry_title
     /// Mehr erfahren
-     case wallet_eol_banner_invalid_from_first_february_detail_more_info_key = "wallet_eol_banner_invalid_from_first_february_detail_more_info"
+     case wallet_eol_banner_invalid_from_first_february_detail_more_info
     /// Dieses Zertifikat wird bald ablaufen.
-     case wallet_eol_banner_invalid_from_first_february_detail_text_key = "wallet_eol_banner_invalid_from_first_february_detail_text"
+     case wallet_eol_banner_invalid_from_first_february_detail_text
     /// Verkürzte Gültigkeitsdauer
-     case wallet_eol_banner_invalid_from_first_february_detail_title_key = "wallet_eol_banner_invalid_from_first_february_detail_title"
+     case wallet_eol_banner_invalid_from_first_february_detail_title
     /// Verkürzte Gültigkeitsdauer
-     case wallet_eol_banner_invalid_from_first_february_homescreen_title_key = "wallet_eol_banner_invalid_from_first_february_homescreen_title"
+     case wallet_eol_banner_invalid_from_first_february_homescreen_title
     /// Dieses Covid-Zertifikat kann ab dem 31. Jan. 2022 nicht mehr verwendet werden, da die Gültigkeitsdauer dann bereits abgelaufen sein wird.
-     case wallet_eol_banner_invalid_from_first_february_popup_bold_text_key = "wallet_eol_banner_invalid_from_first_february_popup_bold_text"
+     case wallet_eol_banner_invalid_from_first_february_popup_bold_text
     /// Mehr erfahren
-     case wallet_eol_banner_invalid_from_first_february_popup_link_text_key = "wallet_eol_banner_invalid_from_first_february_popup_link_text"
+     case wallet_eol_banner_invalid_from_first_february_popup_link_text
     /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine
-     case wallet_eol_banner_invalid_from_first_february_popup_link_url_key = "wallet_eol_banner_invalid_from_first_february_popup_link_url"
+     case wallet_eol_banner_invalid_from_first_february_popup_link_url
     /// Per 31. Jan. 2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:
-     case wallet_eol_banner_invalid_from_first_february_popup_text1_key = "wallet_eol_banner_invalid_from_first_february_popup_text1"
+     case wallet_eol_banner_invalid_from_first_february_popup_text1
     /// Info
-     case wallet_eol_banner_invalid_from_first_february_popup_title_key = "wallet_eol_banner_invalid_from_first_february_popup_title"
+     case wallet_eol_banner_invalid_from_first_february_popup_title
     /// Mehr erfahren?
-     case wallet_eol_banner_invalid_in_three_weeks_detail_more_info_key = "wallet_eol_banner_invalid_in_three_weeks_detail_more_info"
+     case wallet_eol_banner_invalid_in_three_weeks_detail_more_info
     /// Dieses Zertifikat läuft bald ab.
-     case wallet_eol_banner_invalid_in_three_weeks_detail_text_key = "wallet_eol_banner_invalid_in_three_weeks_detail_text"
+     case wallet_eol_banner_invalid_in_three_weeks_detail_text
     /// Info
-     case wallet_eol_banner_invalid_in_three_weeks_detail_title_key = "wallet_eol_banner_invalid_in_three_weeks_detail_title"
+     case wallet_eol_banner_invalid_in_three_weeks_detail_title
     /// Bald abgelaufen
-     case wallet_eol_banner_invalid_in_three_weeks_homescreen_title_key = "wallet_eol_banner_invalid_in_three_weeks_homescreen_title"
+     case wallet_eol_banner_invalid_in_three_weeks_homescreen_title
     /// Dieses Covid-Zertifikat ist nur noch wenige Tage gültig. Bitte beachten Sie das auf dem Zertifikat ausgewiesene Ablaufdatum.
-     case wallet_eol_banner_invalid_in_three_weeks_popup_bold_text_key = "wallet_eol_banner_invalid_in_three_weeks_popup_bold_text"
+     case wallet_eol_banner_invalid_in_three_weeks_popup_bold_text
     /// Und nun?
-     case wallet_eol_banner_invalid_in_three_weeks_popup_link_text_key = "wallet_eol_banner_invalid_in_three_weeks_popup_link_text"
+     case wallet_eol_banner_invalid_in_three_weeks_popup_link_text
     /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald
-     case wallet_eol_banner_invalid_in_three_weeks_popup_link_url_key = "wallet_eol_banner_invalid_in_three_weeks_popup_link_url"
+     case wallet_eol_banner_invalid_in_three_weeks_popup_link_url
     /// 
-     case wallet_eol_banner_invalid_in_three_weeks_popup_text1_key = "wallet_eol_banner_invalid_in_three_weeks_popup_text1"
+     case wallet_eol_banner_invalid_in_three_weeks_popup_text1
     /// 
-     case wallet_eol_banner_invalid_in_three_weeks_popup_text2_key = "wallet_eol_banner_invalid_in_three_weeks_popup_text2"
+     case wallet_eol_banner_invalid_in_three_weeks_popup_text2
     /// Info
-     case wallet_eol_banner_invalid_in_three_weeks_popup_title_key = "wallet_eol_banner_invalid_in_three_weeks_popup_title"
+     case wallet_eol_banner_invalid_in_three_weeks_popup_title
     /// Gültigkeit des Zertifikats\nabgelaufen
-     case wallet_error_expired_key = "wallet_error_expired"
+     case wallet_error_expired
     /// abgelaufen
-     case wallet_error_expired_bold_key = "wallet_error_expired_bold"
+     case wallet_error_expired_bold
     /// Format des Zertifikat\nungültig
-     case wallet_error_invalid_format_key = "wallet_error_invalid_format"
+     case wallet_error_invalid_format
     /// ungültig
-     case wallet_error_invalid_format_bold_key = "wallet_error_invalid_format_bold"
+     case wallet_error_invalid_format_bold
     /// Zertifikat mit\nungültiger Signatur
-     case wallet_error_invalid_signature_key = "wallet_error_invalid_signature"
+     case wallet_error_invalid_signature
     /// ungültiger Signatur
-     case wallet_error_invalid_signature_bold_key = "wallet_error_invalid_signature_bold"
+     case wallet_error_invalid_signature_bold
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz
-     case wallet_error_national_rules_key = "wallet_error_national_rules"
+     case wallet_error_national_rules
     /// Zertifikat wurde\nwiderrufen
-     case wallet_error_revocation_key = "wallet_error_revocation"
+     case wallet_error_revocation
     /// widerrufen
-     case wallet_error_revocation_bold_key = "wallet_error_revocation_bold"
+     case wallet_error_revocation_bold
     /// In der Schweiz gültig ab:\n{DATE}
-     case wallet_error_valid_from_key = "wallet_error_valid_from"
+     case wallet_error_valid_from
     /// Häufige Fragen
-     case wallet_faq_header_key = "wallet_faq_header"
+     case wallet_faq_header
     /// Ein Covid-Zertifikat können Sie nach einer vollständigen Covid-19-Impfung, nach einer durchgemachten Erkrankung oder nach einem negativen Testergebnis erhalten. Das Zertifikat stellt Ihnen in der Regel das Gesundheitsfachpersonal vor Ort auf Anfrage aus.
-     case wallet_faq_questions_answer_1_key = "wallet_faq_questions_answer_1"
+     case wallet_faq_questions_answer_1
     /// Von Covid-19 genesene Personen können das Covid-Zertifikat über ein Online-Formular auf der Webseite des Kantons beantragen. Das Covid-Zertifikat wird anschliessend per Post zugeschickt.
-     case wallet_faq_questions_answer_1_1_key = "wallet_faq_questions_answer_1_1"
+     case wallet_faq_questions_answer_1_1
     /// Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass Sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.
-     case wallet_faq_questions_answer_2_key = "wallet_faq_questions_answer_2"
+     case wallet_faq_questions_answer_2
     /// Die Gültigkeitsdauer unterscheidet sich je nachdem, ob Sie eine Covid-19-Impfung, eine durchgemachte Erkrankung oder ein negatives Testergebnis haben. Aufgrund neuer wissenschaftlicher Erkenntnisse kann sich die Gültigkeitsdauer verändern. Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:
-     case wallet_faq_questions_answer_2_1_key = "wallet_faq_questions_answer_2_1"
+     case wallet_faq_questions_answer_2_1
     /// Ihre Daten werden nicht in einem zentralen System gespeichert, sondern nur lokal auf Ihrem Mobilgerät, respektive im QR-Code auf dem Covid-Zertifikat in Papierform.
-     case wallet_faq_questions_answer_3_key = "wallet_faq_questions_answer_3"
+     case wallet_faq_questions_answer_3
     /// Der QR-Code auf dem Covid-Zertifikat enthält eine elektronische Signatur. Die Signatur ist ein wichtiges Sicherheitsmerkmal und macht das Covid-Zertifikat fälschungssicher. Das Covid-Zertifikat ist zudem nur in Kombination mit einem Ausweisdokument gültig.
-     case wallet_faq_questions_answer_4_key = "wallet_faq_questions_answer_4"
+     case wallet_faq_questions_answer_4
     /// Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier und/oder als PDF deshalb sorgfältig auf. Bei Verlust und Bedarf nach einem Ersatz kann eine Gebühr erhoben werden.
-     case wallet_faq_questions_answer_5_key = "wallet_faq_questions_answer_5"
+     case wallet_faq_questions_answer_5
     /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von {LIGHT_CERT_VALIDITY_IN_H} Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der {LIGHT_CERT_VALIDITY_IN_H} Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
-     case wallet_faq_questions_answer_6_key = "wallet_faq_questions_answer_6"
+     case wallet_faq_questions_answer_6
     /// Weitere Informationen
-     case wallet_faq_questions_linktext_2_1_key = "wallet_faq_questions_linktext_2_1"
+     case wallet_faq_questions_linktext_2_1
     /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/#contents2
-     case wallet_faq_questions_linkurl_2_1_key = "wallet_faq_questions_linkurl_2_1"
+     case wallet_faq_questions_linkurl_2_1
     /// Wann und wo kann ich ein Covid-Zertifikat erhalten?
-     case wallet_faq_questions_question_1_key = "wallet_faq_questions_question_1"
+     case wallet_faq_questions_question_1
     /// Wie erhalte ich nach einer durchgemachten Covid-19-Erkrankung ein Covid-Zertifikat?
-     case wallet_faq_questions_question_1_1_key = "wallet_faq_questions_question_1_1"
+     case wallet_faq_questions_question_1_1
     /// Wie kann ich ein Covid-Zertifikat vorweisen?
-     case wallet_faq_questions_question_2_key = "wallet_faq_questions_question_2"
+     case wallet_faq_questions_question_2
     /// Wie lange ist das Covid-Zertifikat gültig?
-     case wallet_faq_questions_question_2_1_key = "wallet_faq_questions_question_2_1"
+     case wallet_faq_questions_question_2_1
     /// Wo sind meine Daten gespeichert?
-     case wallet_faq_questions_question_3_key = "wallet_faq_questions_question_3"
+     case wallet_faq_questions_question_3
     /// Wie werden Missbrauch und Fälschung verhindert?
-     case wallet_faq_questions_question_4_key = "wallet_faq_questions_question_4"
+     case wallet_faq_questions_question_4
     /// Was passiert, wenn ich mein Covid-Zertifikat verliere?
-     case wallet_faq_questions_question_5_key = "wallet_faq_questions_question_5"
+     case wallet_faq_questions_question_5
     /// Was ist das Zertifikat Light?
-     case wallet_faq_questions_question_6_key = "wallet_faq_questions_question_6"
+     case wallet_faq_questions_question_6
     /// Das Covid-Zertifikat bietet die Möglichkeit, eine Covid-19-Impfung, eine durchgemachte Erkrankung oder ein negatives Testergebnis fälschungssicher zu dokumentieren.
-     case wallet_faq_questions_subtitle_key = "wallet_faq_questions_subtitle"
+     case wallet_faq_questions_subtitle
     /// Was sind Covid-Zertifikate?
-     case wallet_faq_questions_title_key = "wallet_faq_questions_title"
+     case wallet_faq_questions_title
     /// Um ein Covid-Zertifikat zur App hinzuzufügen, benötigen Sie das Ihnen ausgestellte Originalzertifikat auf Papier oder als PDF-Dokument. Den darauf abgebildeten QR-Code können Sie mit der COVID Certificate App scannen und hinzufügen. Anschliessend erscheint das Covid-Zertifikat direkt in der App.
-     case wallet_faq_works_answer_1_key = "wallet_faq_works_answer_1"
+     case wallet_faq_works_answer_1
     /// Ja das ist möglich. So können Sie z. B. alle Covid-Zertifikate von Familienangehörigen in Ihrer App speichern. Auch in diesem Fall gilt: Das Covid-Zertifikat ist nur in Kombination mit einem Ausweisdokument des Zertifikatsinhabers / der Zertifikatsinhaberin gültig.
-     case wallet_faq_works_answer_2_key = "wallet_faq_works_answer_2"
+     case wallet_faq_works_answer_2
     /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
-     case wallet_faq_works_answer_2_1_key = "wallet_faq_works_answer_2_1"
+     case wallet_faq_works_answer_2_1
     /// Die App prüft automatisch, ob Ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht. Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt auf dem Zertifikat in der App angezeigt.
-     case wallet_faq_works_answer_3_key = "wallet_faq_works_answer_3"
+     case wallet_faq_works_answer_3
     /// Sie können die App ohne eine Internetverbindung verwenden. Auch im Offline-Modus können Zertifikate vorgewiesen und von den Prüfern gescannt und verifiziert werden.\n\nUm in der «COVID Certificate»-App anzeigen zu können, ob ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht und bis wann Ihr Zertifikat gültig ist, muss die App jedoch regelmässig online sein.
-     case wallet_faq_works_answer_3_1_key = "wallet_faq_works_answer_3_1"
+     case wallet_faq_works_answer_3_1
     /// Ihre persönlichen Daten werden in keinem zentralen System gespeichert, sondern befinden sich ausschliesslich bei Ihnen lokal auf dem Mobilgerät, respektive im QR-Code auf dem Covid-Zertifikat in Papierform.
-     case wallet_faq_works_answer_4_key = "wallet_faq_works_answer_4"
+     case wallet_faq_works_answer_4
     /// Der QR-Code enthält alle Informationen, die Sie auf Ihrem Covid-Zertifikat in Papierform im Klartext finden. Weiter befindet sich im QR-Code eine elektronische Signatur, mit der sich die Echtheit des Covid-Zertifikats überprüfen lässt. Dadurch wird das Covid-Zertifikat fälschungssicher.
-     case wallet_faq_works_answer_5_key = "wallet_faq_works_answer_5"
+     case wallet_faq_works_answer_5
     /// In der «COVID Certificate»-App finden Sie in der Detailansicht des elektronischen Covid-Zertifikats die Funktion «Exportieren». Damit können Sie ein PDF erstellen, dieses speichern und ausdrucken.
-     case wallet_faq_works_answer_5_1_key = "wallet_faq_works_answer_5_1"
+     case wallet_faq_works_answer_5_1
     /// Sie können Ihr Covid-Zertifikat einfach wieder auf Ihrem Mobilgerät speichern. Laden Sie dazu die App erneut herunter und scannen Sie anschliessend den QR-Code auf Ihrem Covid-Zertifikat auf Papier oder als PDF.
-     case wallet_faq_works_answer_6_key = "wallet_faq_works_answer_6"
+     case wallet_faq_works_answer_6
     /// Wie kann ich ein Covid-Zertifikat zur App hinzufügen?
-     case wallet_faq_works_question_1_key = "wallet_faq_works_question_1"
+     case wallet_faq_works_question_1
     /// Können auch mehrere Covid-Zertifikate hinzugefügt werden?
-     case wallet_faq_works_question_2_key = "wallet_faq_works_question_2"
+     case wallet_faq_works_question_2
     /// Was ist ein Transfer-Code?
-     case wallet_faq_works_question_2_1_key = "wallet_faq_works_question_2_1"
+     case wallet_faq_works_question_2_1
     /// Wie sehe ich, ob mein Covid-Zertifikat gültig ist?
-     case wallet_faq_works_question_3_key = "wallet_faq_works_question_3"
+     case wallet_faq_works_question_3
     /// Kann ich die App auch offline verwenden?
-     case wallet_faq_works_question_3_1_key = "wallet_faq_works_question_3_1"
+     case wallet_faq_works_question_3_1
     /// Wie sind meine Daten geschützt?
-     case wallet_faq_works_question_4_key = "wallet_faq_works_question_4"
+     case wallet_faq_works_question_4
     /// Welche Daten sind im QR-Code enthalten?
-     case wallet_faq_works_question_5_key = "wallet_faq_works_question_5"
+     case wallet_faq_works_question_5
     /// Ich habe das Covid-Zertifikat ausschliesslich elektronisch in der App. Wie komme ich zum Zertifikat als PDF oder auf Papier?
-     case wallet_faq_works_question_5_1_key = "wallet_faq_works_question_5_1"
+     case wallet_faq_works_question_5_1
     /// Was muss ich tun, wenn ich das Covid-Zertifikat oder die App lösche?
-     case wallet_faq_works_question_6_key = "wallet_faq_works_question_6"
+     case wallet_faq_works_question_6
     /// Mit der COVID Certificate App können Sie Covid-Zertifikate einfach und sicher auf Ihrem Mobilgerät abspeichern und vorweisen.
-     case wallet_faq_works_subtitle_key = "wallet_faq_works_subtitle"
+     case wallet_faq_works_subtitle
     /// Wie funktioniert \ndie App?
-     case wallet_faq_works_title_key = "wallet_faq_works_title"
-    /// Gültigkeit im Ausland
-     case wallet_foreign_rules_check_button_key = "wallet_foreign_rules_check_button"
+     case wallet_faq_works_title
+    /// Gültigkeit bei Reisen
+     case wallet_foreign_rules_check_button
     /// Wählen
-     case wallet_foreign_rules_check_country_empty_label_key = "wallet_foreign_rules_check_country_empty_label"
-    /// Land
-     case wallet_foreign_rules_check_country_label_key = "wallet_foreign_rules_check_country_label"
+     case wallet_foreign_rules_check_country_empty_label
+    /// Land:
+     case wallet_foreign_rules_check_country_label
     /// Land auswählen
-     case wallet_foreign_rules_check_country_picker_title_key = "wallet_foreign_rules_check_country_picker_title"
+     case wallet_foreign_rules_check_country_picker_title
     /// Die angegebene Uhrzeit liegt in der Vergangenheit
-     case wallet_foreign_rules_check_date_in_past_error_key = "wallet_foreign_rules_check_date_in_past_error"
-    /// Datum
-     case wallet_foreign_rules_check_date_label_key = "wallet_foreign_rules_check_date_label"
-    /// Fehler beim Laden der verfügbaren Länder.
-     case wallet_foreign_rules_check_error_title_key = "wallet_foreign_rules_check_error_title"
-    /// Zertifikat prüfen für
-     case wallet_foreign_rules_check_form_title_key = "wallet_foreign_rules_check_form_title"
+     case wallet_foreign_rules_check_date_in_past_error
+    /// Einreise am:
+     case wallet_foreign_rules_check_date_label
+    /// Fehler beim Laden der verfügbaren Länder
+     case wallet_foreign_rules_check_error_title
+    /// Prüfen für:
+     case wallet_foreign_rules_check_form_title
+    /// Für die Aktualität und Vollständigkeit der gegebenen Informationen übernimmt der Bund keine Haftung.
+     case wallet_foreign_rules_check_hint_1
+    /// Die Einreiseregeln können sich ändern. Prüfen Sie daher die Gültigkeit kurz vor der Abreise und informieren Sie sich zusätzlich online über die aktuellen Einreiseregeln des Ziellandes.
+     case wallet_foreign_rules_check_hint_2
+    /// Die oben genannten Angaben beziehen sich nur auf die Einreiseregeln des Ziellandes. Für allfällige zertifikatspflichtige Bereiche innerhalb des Landes können andere Regeln gelten.
+     case wallet_foreign_rules_check_hint_3
+    /// Land nicht gefunden? Nicht alle Länder akzeptieren Covid-Zertifikate oder es wurden keine Einreiseregeln verfügbar gemacht.
+     case wallet_foreign_rules_check_hint_4
     /// Mehr Informationen finden Sie unter
-     case wallet_foreign_rules_check_hints_more_info_label_key = "wallet_foreign_rules_check_hints_more_info_label"
+     case wallet_foreign_rules_check_hints_more_info_label
+    /// reopen.europa.eu
+     case wallet_foreign_rules_check_hints_more_info_link_text
+    /// https://reopen.europa.eu/
+     case wallet_foreign_rules_check_hints_more_info_link_url
     /// Hinweise
-     case wallet_foreign_rules_check_hints_title_key = "wallet_foreign_rules_check_hints_title"
-    /// Um die Gültigkeit im Ausland zu überprüfen, muss die App online sein.
-     case wallet_foreign_rules_check_network_error_text_key = "wallet_foreign_rules_check_network_error_text"
-    /// in {COUNTRY} am {DATE}
-     case wallet_foreign_rules_check_state_country_and_date_key = "wallet_foreign_rules_check_state_country_and_date"
+     case wallet_foreign_rules_check_hints_title
+    /// Um die Gültigkeit zu überprüfen, muss Ihr Smartphone mit dem Internet verbunden sein.
+     case wallet_foreign_rules_check_network_error_text
+    /// {COUNTRY}, {DATE}
+     case wallet_foreign_rules_check_state_country_and_date
     /// Bitte wählen Sie ein Land und den Einreisezeitpunkt aus.
-     case wallet_foreign_rules_check_state_empty_key = "wallet_foreign_rules_check_state_empty"
-    /// Das Zertifikat ist nicht gültig
-     case wallet_foreign_rules_check_state_invalid_key = "wallet_foreign_rules_check_state_invalid"
-    /// Das Zertifikat ist gültig
-     case wallet_foreign_rules_check_state_valid_key = "wallet_foreign_rules_check_state_valid"
-    /// Prüfen Sie vor einer Reise, ob Ihr Zertifikat für die Einreise in das gewählte Reiseland gültig ist.
-     case wallet_foreign_rules_check_subtitle_key = "wallet_foreign_rules_check_subtitle"
-    /// Gültigkeit im Ausland prüfen
-     case wallet_foreign_rules_check_title_key = "wallet_foreign_rules_check_title"
+     case wallet_foreign_rules_check_state_empty
+    /// Ungültig für die Einreise nach:
+     case wallet_foreign_rules_check_state_invalid
+    /// Gültig für die Einreise nach:
+     case wallet_foreign_rules_check_state_valid
+    /// Finden Sie vor einer Auslandreise heraus, ob Ihr Covid-Zertifikat zum Zeitpunkt der Einreise ins Zielland gültig ist.
+     case wallet_foreign_rules_check_subtitle
+    /// Gültigkeit für Reisen ins Ausland
+     case wallet_foreign_rules_check_title
     /// Sie haben ein Covid-Zertifikat auf Papier oder als PDF und möchten es zur App hinzufügen.
-     case wallet_homescreen_add_certificate_description_key = "wallet_homescreen_add_certificate_description"
+     case wallet_homescreen_add_certificate_description
     /// Zertifikat hinzufügen
-     case wallet_homescreen_add_title_key = "wallet_homescreen_add_title"
+     case wallet_homescreen_add_title
     /// Transfer-Code erstellen
-     case wallet_homescreen_add_transfer_code_key = "wallet_homescreen_add_transfer_code"
+     case wallet_homescreen_add_transfer_code
     /// Scannen Sie den QR-Code auf dem Covid-Zertifikat, um es zur App hinzuzufügen.
-     case wallet_homescreen_explanation_key = "wallet_homescreen_explanation"
+     case wallet_homescreen_explanation
     /// Gültigkeit konnte nicht ermittelt werden
-     case wallet_homescreen_network_error_key = "wallet_homescreen_network_error"
+     case wallet_homescreen_network_error
     /// Offline Modus
-     case wallet_homescreen_offline_key = "wallet_homescreen_offline"
+     case wallet_homescreen_offline
     /// PDF importieren
-     case wallet_homescreen_pdf_import_key = "wallet_homescreen_pdf_import"
+     case wallet_homescreen_pdf_import
     /// QR-Code scannen
-     case wallet_homescreen_qr_code_scannen_key = "wallet_homescreen_qr_code_scannen"
+     case wallet_homescreen_qr_code_scannen
     /// Nächsten Schritt wählen
-     case wallet_homescreen_what_to_do_key = "wallet_homescreen_what_to_do"
+     case wallet_homescreen_what_to_do
     /// Zur Check-App
-     case wallet_info_box_certificate_scan_button_check_app_key = "wallet_info_box_certificate_scan_button_check_app"
+     case wallet_info_box_certificate_scan_button_check_app
     /// Verstanden
-     case wallet_info_box_certificate_scan_close_key = "wallet_info_box_certificate_scan_close"
+     case wallet_info_box_certificate_scan_close
     /// Für eine Datenschutzkonforme und schnellere Prüfung nutzen Sie die "COVID Certificate Check"-App.
-     case wallet_info_box_certificate_scan_text_key = "wallet_info_box_certificate_scan_text"
+     case wallet_info_box_certificate_scan_text
     /// «COVID Certificate Check»-App.
-     case wallet_info_box_certificate_scan_text_bold_key = "wallet_info_box_certificate_scan_text_bold"
+     case wallet_info_box_certificate_scan_text_bold
     /// Wollen Sie Zertifikate überprüfen?
-     case wallet_info_box_certificate_scan_title_key = "wallet_info_box_certificate_scan_title"
+     case wallet_info_box_certificate_scan_title
     /// Aktivieren
-     case wallet_notification_disabled_button_key = "wallet_notification_disabled_button"
+     case wallet_notification_disabled_button
     /// Tipp: Mitteilungen aktivieren
-     case wallet_notification_disabled_titel_key = "wallet_notification_disabled_titel"
+     case wallet_notification_disabled_titel
     /// Weiter
-     case wallet_notification_permission_button_key = "wallet_notification_permission_button"
+     case wallet_notification_permission_button
     /// Die App kann Sie informieren, sobald das Zertifikat eingetroffen ist.  Erlauben Sie dazu der App, Ihnen Mitteilungen zu senden.
-     case wallet_notification_permission_text_key = "wallet_notification_permission_text"
+     case wallet_notification_permission_text
     /// Mitteilungen erlauben
-     case wallet_notification_permission_title_key = "wallet_notification_permission_title"
+     case wallet_notification_permission_title
     /// Das Covid-Zertifikat ist eingetroffen
-     case wallet_notification_transfer_text_key = "wallet_notification_transfer_text"
+     case wallet_notification_transfer_text
     /// Transfer erfolgreich
-     case wallet_notification_transfer_title_key = "wallet_notification_transfer_title"
+     case wallet_notification_transfer_title
     /// Um die aktuelle Gültigkeit anzeigen zu können, muss die App regelmässig online sein.
-     case wallet_offline_description_key = "wallet_offline_description"
+     case wallet_offline_description
     /// Akzeptieren
-     case wallet_onboarding_accept_button_key = "wallet_onboarding_accept_button"
+     case wallet_onboarding_accept_button
     /// Die App
-     case wallet_onboarding_app_header_key = "wallet_onboarding_app_header"
+     case wallet_onboarding_app_header
     /// Mit der App können Sie Covid-Zertifikate sicher auf dem Smartphone aufbewahren und einfach vorweisen.
-     case wallet_onboarding_app_text_key = "wallet_onboarding_app_text"
+     case wallet_onboarding_app_text
     /// COVID Certificate
-     case wallet_onboarding_app_title_key = "wallet_onboarding_app_title"
+     case wallet_onboarding_app_title
     /// Datenschutzerklärung &\nNutzungsbedingungen
-     case wallet_onboarding_external_privacy_button_key = "wallet_onboarding_external_privacy_button"
+     case wallet_onboarding_external_privacy_button
     /// Nutzungsbedingungen
-     case wallet_onboarding_privacy_conditionsofuse_title_key = "wallet_onboarding_privacy_conditionsofuse_title"
+     case wallet_onboarding_privacy_conditionsofuse_title
     /// Datenschutz
-     case wallet_onboarding_privacy_header_key = "wallet_onboarding_privacy_header"
+     case wallet_onboarding_privacy_header
     /// Datenschutzerklärung
-     case wallet_onboarding_privacy_privacypolicy_title_key = "wallet_onboarding_privacy_privacypolicy_title"
+     case wallet_onboarding_privacy_privacypolicy_title
     /// Die Zertifikate sind nur lokal auf Ihrem Smartphone hinterlegt. Die Daten werden nicht in einem zentralen System gespeichert.
-     case wallet_onboarding_privacy_text_key = "wallet_onboarding_privacy_text"
+     case wallet_onboarding_privacy_text
     /// Ihre Daten bleiben \nin der App
-     case wallet_onboarding_privacy_title_key = "wallet_onboarding_privacy_title"
+     case wallet_onboarding_privacy_title
     /// Vorteile
-     case wallet_onboarding_show_header_key = "wallet_onboarding_show_header"
+     case wallet_onboarding_show_header
     /// Die auf dem Covid-Zertifikat dargestellten Daten sind auch im QR-Code enthalten.
-     case wallet_onboarding_show_text1_key = "wallet_onboarding_show_text1"
+     case wallet_onboarding_show_text1
     /// Beim Vorweisen wird der QR-Code mit einer Prüf-App gescannt. Die enthaltenen Daten werden dabei automatisch auf Echtheit und Gültigkeit überprüft.
-     case wallet_onboarding_show_text2_key = "wallet_onboarding_show_text2"
+     case wallet_onboarding_show_text2
     /// Zertifikate einfach vorweisen
-     case wallet_onboarding_show_title_key = "wallet_onboarding_show_title"
+     case wallet_onboarding_show_title
     /// Vorteile
-     case wallet_onboarding_store_header_key = "wallet_onboarding_store_header"
+     case wallet_onboarding_store_header
     /// Covid-Zertifikate können einfach zur App hinzugefügt und digital aufbewahrt werden.
-     case wallet_onboarding_store_text1_key = "wallet_onboarding_store_text1"
+     case wallet_onboarding_store_text1
     /// Die App prüft die Zertifikate auf ihre Gültigkeit in der Schweiz. So können Sie sich versichern, dass Ihre Zertifikate gültig sind.
-     case wallet_onboarding_store_text2_key = "wallet_onboarding_store_text2"
+     case wallet_onboarding_store_text2
     /// Covid-Zertifikate digital aufbewahren
-     case wallet_onboarding_store_title_key = "wallet_onboarding_store_title"
+     case wallet_onboarding_store_title
     /// Ausserhalb der Schweiz nicht gültig
-     case wallet_only_valid_in_switzerland_key = "wallet_only_valid_in_switzerland"
+     case wallet_only_valid_in_switzerland
     /// Für Prüfende
-     case wallet_refresh_button_info_fat_title_3_key = "wallet_refresh_button_info_fat_title_3"
+     case wallet_refresh_button_info_fat_title_3
     /// Mehr erfahren
-     case wallet_refresh_button_info_link_text_key = "wallet_refresh_button_info_link_text"
+     case wallet_refresh_button_info_link_text
     /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat/covid-zertifikat-pruefer-aussteller-technische-informationen.html#1070048217
-     case wallet_refresh_button_info_link_url_key = "wallet_refresh_button_info_link_url"
+     case wallet_refresh_button_info_link_url
     /// Der «Refresh-Button» wurde entfernt.
-     case wallet_refresh_button_info_text_1_key = "wallet_refresh_button_info_text_1"
+     case wallet_refresh_button_info_text_1
     /// Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt auf dem Zertifikat angezeigt.
-     case wallet_refresh_button_info_text_2_key = "wallet_refresh_button_info_text_2"
+     case wallet_refresh_button_info_text_2
     /// Die Prüfung von Covid-Zertifikaten ist mit der App «COVID Certificate Check» vorzunehmen.
-     case wallet_refresh_button_info_text_3_key = "wallet_refresh_button_info_text_3"
+     case wallet_refresh_button_info_text_3
     /// Info
-     case wallet_refresh_button_info_title_key = "wallet_refresh_button_info_title"
+     case wallet_refresh_button_info_title
     /// Erneut scannen
-     case wallet_scan_again_key = "wallet_scan_again"
+     case wallet_scan_again
     /// Scannen Sie den QR-Code auf dem Covid-Zertifikat.
-     case wallet_scanner_explanation_key = "wallet_scanner_explanation"
+     case wallet_scanner_explanation
     /// Erstens
-     case wallet_scanner_how_it_works_accessibility_icon1_key = "wallet_scanner_how_it_works_accessibility_icon1"
+     case wallet_scanner_how_it_works_accessibility_icon1
     /// Zweitens
-     case wallet_scanner_how_it_works_accessibility_icon2_key = "wallet_scanner_how_it_works_accessibility_icon2"
+     case wallet_scanner_how_it_works_accessibility_icon2
     /// Drittens
-     case wallet_scanner_how_it_works_accessibility_icon3_key = "wallet_scanner_how_it_works_accessibility_icon3"
+     case wallet_scanner_how_it_works_accessibility_icon3
     /// Ein Covid-Zertifikat können Sie nach einer vollständigen Covid-19-Impfung, nach einer durchgemachten Erkrankung oder nach einem negativen Testergebnis erhalten. Das Zertifikat stellt Ihnen in der Regel das Gesundheitsfachpersonal vor Ort auf Anfrage aus.
-     case wallet_scanner_howitworks_answer1_key = "wallet_scanner_howitworks_answer1"
+     case wallet_scanner_howitworks_answer1
     /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/
-     case wallet_scanner_howitworks_external_link_key = "wallet_scanner_howitworks_external_link"
+     case wallet_scanner_howitworks_external_link
     /// Weitere Informationen
-     case wallet_scanner_howitworks_external_link_title_key = "wallet_scanner_howitworks_external_link_title"
+     case wallet_scanner_howitworks_external_link_title
     /// So funktioniert's
-     case wallet_scanner_howitworks_header_key = "wallet_scanner_howitworks_header"
+     case wallet_scanner_howitworks_header
     /// Wann und wo kann ich ein Covid-Zertifikat erhalten?
-     case wallet_scanner_howitworks_question1_key = "wallet_scanner_howitworks_question1"
+     case wallet_scanner_howitworks_question1
     /// Um ein Covid-Zertifikat zur App hinzufügen zu können, benötigen Sie das Originalzertifikat auf Papier oder als PDF.
-     case wallet_scanner_howitworks_text1_key = "wallet_scanner_howitworks_text1"
+     case wallet_scanner_howitworks_text1
     /// Tippen Sie in der App auf «Hinzufügen», um ein neues Zertifikat zur App hinzuzufügen.
-     case wallet_scanner_howitworks_text2_key = "wallet_scanner_howitworks_text2"
+     case wallet_scanner_howitworks_text2
     /// Halten Sie nun die Kamera des Smartphones über den QR-Code auf dem Originalzertifikat, um den Code einzuscannen.
-     case wallet_scanner_howitworks_text3_key = "wallet_scanner_howitworks_text3"
+     case wallet_scanner_howitworks_text3
     /// Es erscheint eine Vorschau des Covid-Zertifikats. Tippen Sie auf «Hinzufügen» um das Zertifikat sicher in der App zu speichern.
-     case wallet_scanner_howitworks_text4_key = "wallet_scanner_howitworks_text4"
+     case wallet_scanner_howitworks_text4
     /// Covid-Zertifikate\nhinzufügen
-     case wallet_scanner_howitworks_title_key = "wallet_scanner_howitworks_title"
+     case wallet_scanner_howitworks_title
     /// So funktioniert's
-     case wallet_scanner_info_button_key = "wallet_scanner_info_button"
+     case wallet_scanner_info_button
     /// Hinzufügen
-     case wallet_scanner_title_key = "wallet_scanner_title"
+     case wallet_scanner_title
     /// https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html
-     case wallet_terms_privacy_link_key = "wallet_terms_privacy_link"
+     case wallet_terms_privacy_link
     /// Datum, Uhrzeit oder Zeitzone auf dem Gerät sind falsch eingestellt.
-     case wallet_time_inconsistency_error_text_key = "wallet_time_inconsistency_error_text"
+     case wallet_time_inconsistency_error_text
     /// Prüfung nicht möglich
-     case wallet_time_inconsistency_error_title_key = "wallet_time_inconsistency_error_title"
+     case wallet_time_inconsistency_error_title
     /// Transfer
-     case wallet_transfer_code_card_title_key = "wallet_transfer_code_card_title"
+     case wallet_transfer_code_card_title
     /// Ihr Transfer-Code wurde erstellt
-     case wallet_transfer_code_code_created_title_key = "wallet_transfer_code_code_created_title"
+     case wallet_transfer_code_code_created_title
     /// Transfer Code kopiert
-     case wallet_transfer_code_copied_key = "wallet_transfer_code_copied"
+     case wallet_transfer_code_copied
     /// Code erstellen
-     case wallet_transfer_code_create_code_button_key = "wallet_transfer_code_create_code_button"
+     case wallet_transfer_code_create_code_button
     /// Erstellt am {DATE}
-     case wallet_transfer_code_createdat_key = "wallet_transfer_code_createdat"
+     case wallet_transfer_code_createdat
     /// Fertig
-     case wallet_transfer_code_done_button_key = "wallet_transfer_code_done_button"
+     case wallet_transfer_code_done_button
     /// Transfer-Code konnte nicht erstellt werden
-     case wallet_transfer_code_error_title_key = "wallet_transfer_code_error_title"
+     case wallet_transfer_code_error_title
     /// Noch {DAYS} Tage gültig
-     case wallet_transfer_code_expire_plural_key = "wallet_transfer_code_expire_plural"
+     case wallet_transfer_code_expire_plural
     /// {DAYS} Tage
-     case wallet_transfer_code_expire_plural_bold_key = "wallet_transfer_code_expire_plural_bold"
+     case wallet_transfer_code_expire_plural_bold
     /// Noch 1 Tag gültig
-     case wallet_transfer_code_expire_singular_key = "wallet_transfer_code_expire_singular"
+     case wallet_transfer_code_expire_singular
     /// 1 Tag
-     case wallet_transfer_code_expire_singular_bold_key = "wallet_transfer_code_expire_singular_bold"
+     case wallet_transfer_code_expire_singular_bold
     /// Wenn Sie einen Covid-Test machen (PCR-Test oder Antigen-Schnelltest), kann der Transfer-Code zur schnellen Übermittlung von Covid-Zertifikaten zum Einsatz kommen.\n\nInformieren Sie sich bei Ihrem Testcenter, in der Apotheke oder bei Ihrem Arzt, ob die Übermittlung per Transfer-Code angeboten wird.
-     case wallet_transfer_code_faq_questions_answer_1_key = "wallet_transfer_code_faq_questions_answer_1"
+     case wallet_transfer_code_faq_questions_answer_1
     /// Aktuell ist die Übermittlung per Transfer-Code auf Covid-Tests ausgelegt. Wie Sie ein Covid-Zertifikat nach einer Impfung erhalten erfahren Sie hier:
-     case wallet_transfer_code_faq_questions_answer_2_key = "wallet_transfer_code_faq_questions_answer_2"
+     case wallet_transfer_code_faq_questions_answer_2
     /// Falls die Stelle, die den Covid-Test durchführt, die Übermittlung per Transfer-Code anbietet, werden Sie bereits bei der Anmeldung oder der Testentnahme nach einem Transfer-Code gefragt.\n\nDen Transfer-Code können Sie in der «COVID Certificate»-App erstellen. Tippen Sie dazu auf dem Startbildschirm auf «Hinzufügen» resp. auf das «Plus»-Symbol unten rechts. Danach tippen Sie auf «Transfer-Code erstellen».\n\nDie App zeigt Ihnen einen 9-stelligen Code an. Diesen können Sie entweder bei der Anmeldung in ein Formular eintragen oder direkt bei der Testentnahme angeben.
-     case wallet_transfer_code_faq_questions_answer_3_key = "wallet_transfer_code_faq_questions_answer_3"
+     case wallet_transfer_code_faq_questions_answer_3
     /// Nein, ein Transfer-Code kann nur einmal verwendet werden. Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie bitte für jedes Zertifikat einen neuen Code.
-     case wallet_transfer_code_faq_questions_answer_4_key = "wallet_transfer_code_faq_questions_answer_4"
+     case wallet_transfer_code_faq_questions_answer_4
     /// Weitere Informationen
-     case wallet_transfer_code_faq_questions_linktext_2_key = "wallet_transfer_code_faq_questions_linktext_2"
+     case wallet_transfer_code_faq_questions_linktext_2
     /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/
-     case wallet_transfer_code_faq_questions_linkurl_2_key = "wallet_transfer_code_faq_questions_linkurl_2"
+     case wallet_transfer_code_faq_questions_linkurl_2
     /// Wer bietet die Übermittlung per Transfer-Code an?
-     case wallet_transfer_code_faq_questions_question_1_key = "wallet_transfer_code_faq_questions_question_1"
+     case wallet_transfer_code_faq_questions_question_1
     /// Können Transfer-Codes auch zur Übermittlung von Impfzertifikaten verwendet werden?
-     case wallet_transfer_code_faq_questions_question_2_key = "wallet_transfer_code_faq_questions_question_2"
+     case wallet_transfer_code_faq_questions_question_2
     /// Wie funktioniert die Übermittlung per Transfer-Code?
-     case wallet_transfer_code_faq_questions_question_3_key = "wallet_transfer_code_faq_questions_question_3"
+     case wallet_transfer_code_faq_questions_question_3
     /// Kann ich den Transfer-Code mehrmals benutzen?
-     case wallet_transfer_code_faq_questions_question_4_key = "wallet_transfer_code_faq_questions_question_4"
+     case wallet_transfer_code_faq_questions_question_4
     /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
-     case wallet_transfer_code_faq_questions_subtitle_key = "wallet_transfer_code_faq_questions_subtitle"
+     case wallet_transfer_code_faq_questions_subtitle
     /// Covid-Zertifikate direkt in die App geliefert
-     case wallet_transfer_code_faq_questions_title_key = "wallet_transfer_code_faq_questions_title"
+     case wallet_transfer_code_faq_questions_title
     /// Für den Transfer wird Ihr Covid-Zertifikat verschlüsselt bereitgestellt. Der Transfer-Code stellt sicher, dass nur Ihre App das Covid-Zertifikat empfangen kann. Unmittelbar nach dem Transfer werden die Daten wieder vom Server gelöscht.
-     case wallet_transfer_code_faq_works_answer_1_key = "wallet_transfer_code_faq_works_answer_1"
+     case wallet_transfer_code_faq_works_answer_1
     /// Sobald das Zertifikat vom Labor oder Testcenter generiert wurde, steht es zum Transfer zur Verfügung. Stellen Sie sicher, dass Ihr Smartphone mit dem Internet verbunden ist, um Zertifikate empfangen zu können.\n\nSollte ihr Covid-Zertifikat dennoch nicht eintreffen, fragen Sie bei der Stelle nach, die den Test durchgeführt hat (Testcenter, Apotheke, Ärztin / Arzt).
-     case wallet_transfer_code_faq_works_answer_2_key = "wallet_transfer_code_faq_works_answer_2"
+     case wallet_transfer_code_faq_works_answer_2
     /// Bei einem positiven Antigen-Schnelltest erhalten Sie vom Labor kein Covid-Zertifikat. \n\nBei einem positiven PCR-Test erhalten Sie ein Covid-Zertifikat für Genesene. Es ist ab dem 11. Tag nach der Testentnahme gültig.
-     case wallet_transfer_code_faq_works_answer_3_key = "wallet_transfer_code_faq_works_answer_3"
+     case wallet_transfer_code_faq_works_answer_3
     /// Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist.
-     case wallet_transfer_code_faq_works_intro_1_key = "wallet_transfer_code_faq_works_intro_1"
+     case wallet_transfer_code_faq_works_intro_1
     /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
-     case wallet_transfer_code_faq_works_intro_2_key = "wallet_transfer_code_faq_works_intro_2"
+     case wallet_transfer_code_faq_works_intro_2
     /// Nach {TRANSFER_CODE_VALIDITY} Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
-     case wallet_transfer_code_faq_works_intro_3_key = "wallet_transfer_code_faq_works_intro_3"
+     case wallet_transfer_code_faq_works_intro_3
     /// Wie sind meine Daten beim Transfer geschützt?
-     case wallet_transfer_code_faq_works_question_1_key = "wallet_transfer_code_faq_works_question_1"
+     case wallet_transfer_code_faq_works_question_1
     /// Was kann ich tun, wenn das Zertifikat nicht ankommt?
-     case wallet_transfer_code_faq_works_question_2_key = "wallet_transfer_code_faq_works_question_2"
+     case wallet_transfer_code_faq_works_question_2
     /// Was passiert bei einem positiven Testresultat?
-     case wallet_transfer_code_faq_works_question_3_key = "wallet_transfer_code_faq_works_question_3"
+     case wallet_transfer_code_faq_works_question_3
     /// So funktioniert der Transfer
-     case wallet_transfer_code_faq_works_title_key = "wallet_transfer_code_faq_works_title"
+     case wallet_transfer_code_faq_works_title
     /// Versuchen Sie es später erneut.
-     case wallet_transfer_code_generate_error_text_key = "wallet_transfer_code_generate_error_text"
+     case wallet_transfer_code_generate_error_text
     /// Ein unerwarteter Fehler ist aufgetreten.
-     case wallet_transfer_code_generate_error_title_key = "wallet_transfer_code_generate_error_title"
+     case wallet_transfer_code_generate_error_title
     /// Um einen Transfer-Code erstellen zu können, muss die App online sein.
-     case wallet_transfer_code_generate_no_internet_error_text_key = "wallet_transfer_code_generate_no_internet_error_text"
+     case wallet_transfer_code_generate_no_internet_error_text
     /// Nächste Schritte
-     case wallet_transfer_code_next_steps_key = "wallet_transfer_code_next_steps"
+     case wallet_transfer_code_next_steps
     /// Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.
-     case wallet_transfer_code_next_steps1_key = "wallet_transfer_code_next_steps1"
+     case wallet_transfer_code_next_steps1
     /// Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
-     case wallet_transfer_code_next_steps2_key = "wallet_transfer_code_next_steps2"
+     case wallet_transfer_code_next_steps2
     /// Keine Verbindung zum Internet
-     case wallet_transfer_code_no_internet_title_key = "wallet_transfer_code_no_internet_title"
+     case wallet_transfer_code_no_internet_title
     /// Code abgelaufen
-     case wallet_transfer_code_old_code_key = "wallet_transfer_code_old_code"
+     case wallet_transfer_code_old_code
     /// Code erstellen
-     case wallet_transfer_code_onboarding_button_key = "wallet_transfer_code_onboarding_button"
+     case wallet_transfer_code_onboarding_button
     /// So funktioniert's
-     case wallet_transfer_code_onboarding_howto_key = "wallet_transfer_code_onboarding_howto"
+     case wallet_transfer_code_onboarding_howto
     /// Sie können Transfer-Codes z. B. bei Covid-Tests angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.
-     case wallet_transfer_code_onboarding_text_key = "wallet_transfer_code_onboarding_text"
+     case wallet_transfer_code_onboarding_text
     /// Transfer Codes
-     case wallet_transfer_code_onboarding_title_key = "wallet_transfer_code_onboarding_title"
+     case wallet_transfer_code_onboarding_title
     /// Transfer fehlgeschlagen
-     case wallet_transfer_code_state_expired_key = "wallet_transfer_code_state_expired"
+     case wallet_transfer_code_state_expired
     /// Mit diesem Transfer kann kein Zertifikat mehr empfangen werden.
-     case wallet_transfer_code_state_no_certificate_key = "wallet_transfer_code_state_no_certificate"
+     case wallet_transfer_code_state_no_certificate
     /// Zuletzt aktualisiert\n{DATE}
-     case wallet_transfer_code_state_updated_key = "wallet_transfer_code_state_updated"
+     case wallet_transfer_code_state_updated
     /// Warten auf Transfer
-     case wallet_transfer_code_state_waiting_key = "wallet_transfer_code_state_waiting"
+     case wallet_transfer_code_state_waiting
     /// Die Uhrzeit muss richtig eingestellt sein, damit Transfer-Codes funktionieren. Passen Sie Ihre Uhrzeit an und versuchen sie es erneut.
-     case wallet_transfer_code_time_inconsistency_text_key = "wallet_transfer_code_time_inconsistency_text"
+     case wallet_transfer_code_time_inconsistency_text
     /// Uhrzeit Fehler
-     case wallet_transfer_code_time_inconsistency_title_key = "wallet_transfer_code_time_inconsistency_title"
+     case wallet_transfer_code_time_inconsistency_title
     /// Transfer-Code
-     case wallet_transfer_code_title_key = "wallet_transfer_code_title"
+     case wallet_transfer_code_title
     /// +41 58 466 07 99
-     case wallet_transfer_code_unexpected_error_phone_number_key = "wallet_transfer_code_unexpected_error_phone_number"
+     case wallet_transfer_code_unexpected_error_phone_number
     /// Kontaktieren Sie den Support
-     case wallet_transfer_code_unexpected_error_text_key = "wallet_transfer_code_unexpected_error_text"
+     case wallet_transfer_code_unexpected_error_text
     /// Unerwarteter Fehler
-     case wallet_transfer_code_unexpected_error_title_key = "wallet_transfer_code_unexpected_error_title"
+     case wallet_transfer_code_unexpected_error_title
     /// Aktualisierung zur Zeit nicht möglich
-     case wallet_transfer_code_update_error_title_key = "wallet_transfer_code_update_error_title"
+     case wallet_transfer_code_update_error_title
     /// Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.
-     case wallet_transfer_code_update_general_error_text_key = "wallet_transfer_code_update_general_error_text"
+     case wallet_transfer_code_update_general_error_text
     /// Um den Transfer empfangen zu können, muss die App online sein.
-     case wallet_transfer_code_update_no_internet_error_text_key = "wallet_transfer_code_update_no_internet_error_text"
+     case wallet_transfer_code_update_no_internet_error_text
     /// Wollen Sie den Transfer-Code wirklich löschen?
-     case wallet_transfer_delete_confirm_text_key = "wallet_transfer_delete_confirm_text"
+     case wallet_transfer_delete_confirm_text
     /// Mit diesem Update können Sie in der App eine Zertifikatskopie ohne Gesundheitsdaten für die Verwendung in der Schweiz generieren lassen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.
-     case wallet_update_boarding_certificate_light_text_key = "wallet_update_boarding_certificate_light_text"
+     case wallet_update_boarding_certificate_light_text
     /// Zertifikat Light
-     case wallet_update_boarding_certificate_light_title_key = "wallet_update_boarding_certificate_light_title"
+     case wallet_update_boarding_certificate_light_title
     /// Update
-     case wallet_update_boarding_header_key = "wallet_update_boarding_header"
+     case wallet_update_boarding_header
     /// UVCI kopiert
-     case wallet_uvci_copied_key = "wallet_uvci_copied"
+     case wallet_uvci_copied
   }
 
   /// Zertifikat hinzufügen
-   static let accessibility_add_button = UBLocalized.tr(UBLocalizedKey.accessibility_add_button_key)
+   static var accessibility_add_button: String { return UBLocalized.tr(Key.accessibility_add_button) }
   /// Schliessen
-   static let accessibility_close_button = UBLocalized.tr(UBLocalizedKey.accessibility_close_button_key)
+   static var accessibility_close_button: String { return UBLocalized.tr(Key.accessibility_close_button) }
   /// erweitert
-   static let accessibility_expandable_box_expanded_state = UBLocalized.tr(UBLocalizedKey.accessibility_expandable_box_expanded_state_key)
+   static var accessibility_expandable_box_expanded_state: String { return UBLocalized.tr(Key.accessibility_expandable_box_expanded_state) }
   /// reduziert
-   static let accessibility_expandable_box_reduced_state = UBLocalized.tr(UBLocalizedKey.accessibility_expandable_box_reduced_state_key)
+   static var accessibility_expandable_box_reduced_state: String { return UBLocalized.tr(Key.accessibility_expandable_box_reduced_state) }
   /// Häufige Fragen
-   static let accessibility_faq_button = UBLocalized.tr(UBLocalizedKey.accessibility_faq_button_key)
+   static var accessibility_faq_button: String { return UBLocalized.tr(Key.accessibility_faq_button) }
   /// Information
-   static let accessibility_info_box = UBLocalized.tr(UBLocalizedKey.accessibility_info_box_key)
+   static var accessibility_info_box: String { return UBLocalized.tr(Key.accessibility_info_box) }
   /// Impressum
-   static let accessibility_info_button = UBLocalized.tr(UBLocalizedKey.accessibility_info_button_key)
+   static var accessibility_info_button: String { return UBLocalized.tr(Key.accessibility_info_button) }
   /// Taschenlampe ausschalten
-   static let accessibility_lamp_off_button = UBLocalized.tr(UBLocalizedKey.accessibility_lamp_off_button_key)
+   static var accessibility_lamp_off_button: String { return UBLocalized.tr(Key.accessibility_lamp_off_button) }
   /// Taschenlampe einschalten
-   static let accessibility_lamp_on_button = UBLocalized.tr(UBLocalizedKey.accessibility_lamp_on_button_key)
+   static var accessibility_lamp_on_button: String { return UBLocalized.tr(Key.accessibility_lamp_on_button) }
   /// Zertifikate Liste
-   static let accessibility_list_button = UBLocalized.tr(UBLocalizedKey.accessibility_list_button_key)
+   static var accessibility_list_button: String { return UBLocalized.tr(Key.accessibility_list_button) }
   /// QR-Code
-   static let accessibility_qr_code = UBLocalized.tr(UBLocalizedKey.accessibility_qr_code_key)
+   static var accessibility_qr_code: String { return UBLocalized.tr(Key.accessibility_qr_code) }
   /// Aktualisieren
-   static let accessibility_refresh_button = UBLocalized.tr(UBLocalizedKey.accessibility_refresh_button_key)
+   static var accessibility_refresh_button: String { return UBLocalized.tr(Key.accessibility_refresh_button) }
   /// Zugriff auf Kamera erlauben
-   static let camera_permission_dialog_action = UBLocalized.tr(UBLocalizedKey.camera_permission_dialog_action_key)
+   static var camera_permission_dialog_action: String { return UBLocalized.tr(Key.camera_permission_dialog_action) }
   /// Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können.
-   static let camera_permission_dialog_text = UBLocalized.tr(UBLocalizedKey.camera_permission_dialog_text_key)
+   static var camera_permission_dialog_text: String { return UBLocalized.tr(Key.camera_permission_dialog_text) }
   /// Abbrechen
-   static let cancel_button = UBLocalized.tr(UBLocalizedKey.cancel_button_key)
+   static var cancel_button: String { return UBLocalized.tr(Key.cancel_button) }
   /// Genesen
-   static let certificate_reason_recovered = UBLocalized.tr(UBLocalizedKey.certificate_reason_recovered_key)
+   static var certificate_reason_recovered: String { return UBLocalized.tr(Key.certificate_reason_recovered) }
   /// Test
-   static let certificate_reason_tested = UBLocalized.tr(UBLocalizedKey.certificate_reason_tested_key)
+   static var certificate_reason_tested: String { return UBLocalized.tr(Key.certificate_reason_tested) }
   /// Impfung
-   static let certificate_reason_vaccinated = UBLocalized.tr(UBLocalizedKey.certificate_reason_vaccinated_key)
+   static var certificate_reason_vaccinated: String { return UBLocalized.tr(Key.certificate_reason_vaccinated) }
   /// Schliessen
-   static let close_button = UBLocalized.tr(UBLocalizedKey.close_button_key)
+   static var close_button: String { return UBLocalized.tr(Key.close_button) }
   /// Weiter
-   static let continue_button = UBLocalized.tr(UBLocalizedKey.continue_button_key)
+   static var continue_button: String { return UBLocalized.tr(Key.continue_button) }
   /// Genesung (Antigen-Schnelltest)
-   static let covid_certificate_antigen_positive_test = UBLocalized.tr(UBLocalizedKey.covid_certificate_antigen_positive_test_key)
+   static var covid_certificate_antigen_positive_test: String { return UBLocalized.tr(Key.covid_certificate_antigen_positive_test) }
   /// Ausnahme
-   static let covid_certificate_ch_ausnahme_list_label = UBLocalized.tr(UBLocalizedKey.covid_certificate_ch_ausnahme_list_label_key)
+   static var covid_certificate_ch_ausnahme_list_label: String { return UBLocalized.tr(Key.covid_certificate_ch_ausnahme_list_label) }
   /// Ausnahmezertifikat
-   static let covid_certificate_ch_ausnahme_test_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_ch_ausnahme_test_title_key)
+   static var covid_certificate_ch_ausnahme_test_title: String { return UBLocalized.tr(Key.covid_certificate_ch_ausnahme_test_title) }
   /// Genesung
-   static let covid_certificate_recovery_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_recovery_title_key)
+   static var covid_certificate_recovery_title: String { return UBLocalized.tr(Key.covid_certificate_recovery_title) }
   /// Befund
-   static let covid_certificate_sero_positiv_test_befund_label = UBLocalized.tr(UBLocalizedKey.covid_certificate_sero_positiv_test_befund_label_key)
+   static var covid_certificate_sero_positiv_test_befund_label: String { return UBLocalized.tr(Key.covid_certificate_sero_positiv_test_befund_label) }
   /// Genügend
-   static let covid_certificate_sero_positiv_test_befund_value = UBLocalized.tr(UBLocalizedKey.covid_certificate_sero_positiv_test_befund_value_key)
+   static var covid_certificate_sero_positiv_test_befund_value: String { return UBLocalized.tr(Key.covid_certificate_sero_positiv_test_befund_value) }
   /// Genesung (Antikörper)
-   static let covid_certificate_sero_positiv_test_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_sero_positiv_test_title_key)
+   static var covid_certificate_sero_positiv_test_title: String { return UBLocalized.tr(Key.covid_certificate_sero_positiv_test_title) }
   /// Test
-   static let covid_certificate_test_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_test_title_key)
+   static var covid_certificate_test_title: String { return UBLocalized.tr(Key.covid_certificate_test_title) }
   /// Covid-Zertifikat
-   static let covid_certificate_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_title_key)
+   static var covid_certificate_title: String { return UBLocalized.tr(Key.covid_certificate_title) }
   /// Impfung
-   static let covid_certificate_vaccination_title = UBLocalized.tr(UBLocalizedKey.covid_certificate_vaccination_title_key)
+   static var covid_certificate_vaccination_title: String { return UBLocalized.tr(Key.covid_certificate_vaccination_title) }
   /// Löschen
-   static let delete_button = UBLocalized.tr(UBLocalizedKey.delete_button_key)
+   static var delete_button: String { return UBLocalized.tr(Key.delete_button) }
   /// Einstellungen ändern
-   static let error_action_change_settings = UBLocalized.tr(UBLocalizedKey.error_action_change_settings_key)
+   static var error_action_change_settings: String { return UBLocalized.tr(Key.error_action_change_settings) }
   /// Erneut versuchen
-   static let error_action_retry = UBLocalized.tr(UBLocalizedKey.error_action_retry_key)
+   static var error_action_retry: String { return UBLocalized.tr(Key.error_action_retry) }
   /// Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können.
-   static let error_camera_permission_text = UBLocalized.tr(UBLocalizedKey.error_camera_permission_text_key)
+   static var error_camera_permission_text: String { return UBLocalized.tr(Key.error_camera_permission_text) }
   /// Kein Zugriff auf Kamera
-   static let error_camera_permission_title = UBLocalized.tr(UBLocalizedKey.error_camera_permission_title_key)
+   static var error_camera_permission_title: String { return UBLocalized.tr(Key.error_camera_permission_title) }
   /// Ein Speicher der App konnte nicht entschlüsselt werden. Um die App weiter zu benutzen muss der Speicher gelöscht und neu erstellt werden. Dabei gehen Daten verloren.
-   static let error_corrupt_sharedprefs_text = UBLocalized.tr(UBLocalizedKey.error_corrupt_sharedprefs_text_key)
+   static var error_corrupt_sharedprefs_text: String { return UBLocalized.tr(Key.error_corrupt_sharedprefs_text) }
   /// Entschlüsselungsfehler
-   static let error_corrupt_sharedprefs_title = UBLocalized.tr(UBLocalizedKey.error_corrupt_sharedprefs_title_key)
+   static var error_corrupt_sharedprefs_title: String { return UBLocalized.tr(Key.error_corrupt_sharedprefs_title) }
   /// Zurücksetzen
-   static let error_decryption_reset_button = UBLocalized.tr(UBLocalizedKey.error_decryption_reset_button_key)
+   static var error_decryption_reset_button: String { return UBLocalized.tr(Key.error_decryption_reset_button) }
   /// Zertifikate konnten nicht geladen werden\n\nCode: {ERROR_CODE}
-   static let error_decryption_text = UBLocalized.tr(UBLocalizedKey.error_decryption_text_key)
+   static var error_decryption_text: String { return UBLocalized.tr(Key.error_decryption_text) }
   /// Die Datei enthält entweder keinen gültigen QR-Code oder der QR-Code konnte nicht erkannt werden.
-   static let error_file_import_text = UBLocalized.tr(UBLocalizedKey.error_file_import_text_key)
+   static var error_file_import_text: String { return UBLocalized.tr(Key.error_file_import_text) }
   /// Import fehlgeschlagen
-   static let error_file_import_title = UBLocalized.tr(UBLocalizedKey.error_file_import_title_key)
+   static var error_file_import_title: String { return UBLocalized.tr(Key.error_file_import_title) }
   /// Überprüfen Sie Ihre Internet Verbindung.
-   static let error_network_text = UBLocalized.tr(UBLocalizedKey.error_network_text_key)
+   static var error_network_text: String { return UBLocalized.tr(Key.error_network_text) }
   /// Netzwerkfehler
-   static let error_network_title = UBLocalized.tr(UBLocalizedKey.error_network_title_key)
+   static var error_network_title: String { return UBLocalized.tr(Key.error_network_title) }
   /// Fehler
-   static let error_title = UBLocalized.tr(UBLocalizedKey.error_title_key)
+   static var error_title: String { return UBLocalized.tr(Key.error_title) }
   /// Aktualisieren
-   static let force_update_button = UBLocalized.tr(UBLocalizedKey.force_update_button_key)
+   static var force_update_button: String { return UBLocalized.tr(Key.force_update_button) }
   /// Laden Sie die neue Version der App.
-   static let force_update_text = UBLocalized.tr(UBLocalizedKey.force_update_text_key)
+   static var force_update_text: String { return UBLocalized.tr(Key.force_update_text) }
   /// Update benötigt
-   static let force_update_title = UBLocalized.tr(UBLocalizedKey.force_update_title_key)
+   static var force_update_title: String { return UBLocalized.tr(Key.force_update_title) }
   /// Impressum
-   static let impressum_title = UBLocalized.tr(UBLocalizedKey.impressum_title_key)
+   static var impressum_title: String { return UBLocalized.tr(Key.impressum_title) }
   /// Mehr erfahren
-   static let infobox_generic_button = UBLocalized.tr(UBLocalizedKey.infobox_generic_button_key)
+   static var infobox_generic_button: String { return UBLocalized.tr(Key.infobox_generic_button) }
   /// Wenn Sie die App löschen, Ihr Smartphone wechseln oder verlieren, gehen auch Ihre Covid-Zertifikate verloren.\nBewahren Sie Ihre Zertifikate daher auch ausserhalb der App auf, indem Sie diese als PDF exportieren.
-   static let infobox_generic_text = UBLocalized.tr(UBLocalizedKey.infobox_generic_text_key)
+   static var infobox_generic_text: String { return UBLocalized.tr(Key.infobox_generic_text) }
   /// Zertifikat sichern!
-   static let infobox_generic_title = UBLocalized.tr(UBLocalizedKey.infobox_generic_title_key)
+   static var infobox_generic_title: String { return UBLocalized.tr(Key.infobox_generic_title) }
   /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate
-   static let infobox_generic_url_android = UBLocalized.tr(UBLocalizedKey.infobox_generic_url_android_key)
+   static var infobox_generic_url_android: String { return UBLocalized.tr(Key.infobox_generic_url_android) }
   /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate
-   static let infobox_generic_url_ios = UBLocalized.tr(UBLocalizedKey.infobox_generic_url_ios_key)
+   static var infobox_generic_url_ios: String { return UBLocalized.tr(Key.infobox_generic_url_ios) }
   /// Aktualisieren
-   static let infobox_update_button = UBLocalized.tr(UBLocalizedKey.infobox_update_button_key)
+   static var infobox_update_button: String { return UBLocalized.tr(Key.infobox_update_button) }
   /// Laden Sie die neue Version der App.
-   static let infobox_update_text = UBLocalized.tr(UBLocalizedKey.infobox_update_text_key)
+   static var infobox_update_text: String { return UBLocalized.tr(Key.infobox_update_text) }
   /// Neue Version verfügbar
-   static let infobox_update_title = UBLocalized.tr(UBLocalizedKey.infobox_update_title_key)
+   static var infobox_update_title: String { return UBLocalized.tr(Key.infobox_update_title) }
   /// Einstellungen
-   static let ios_settings_open = UBLocalized.tr(UBLocalizedKey.ios_settings_open_key)
+   static var ios_settings_open: String { return UBLocalized.tr(Key.ios_settings_open) }
   /// de
-   static let language_key = UBLocalized.tr(UBLocalizedKey.language_key_key)
+   static var language_key: String { return UBLocalized.tr(Key.language_key) }
   /// Sprache
-   static let language_title = UBLocalized.tr(UBLocalizedKey.language_title_key)
+   static var language_title: String { return UBLocalized.tr(Key.language_title) }
   /// Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können.
-   static let NSCameraUsageDescription = UBLocalized.tr(UBLocalizedKey.NSCameraUsageDescription_key)
+   static var NSCameraUsageDescription: String { return UBLocalized.tr(Key.NSCameraUsageDescription) }
   /// OK
-   static let ok_button = UBLocalized.tr(UBLocalizedKey.ok_button_key)
+   static var ok_button: String { return UBLocalized.tr(Key.ok_button) }
   /// Kein gültiger Code
-   static let qr_scanner_error = UBLocalized.tr(UBLocalizedKey.qr_scanner_error_key)
+   static var qr_scanner_error: String { return UBLocalized.tr(Key.qr_scanner_error) }
   /// Einstellungen
-   static let settings_title = UBLocalized.tr(UBLocalizedKey.settings_title_key)
+   static var settings_title: String { return UBLocalized.tr(Key.settings_title) }
   /// Covid-19
-   static let target_disease_name = UBLocalized.tr(UBLocalizedKey.target_disease_name_key)
+   static var target_disease_name: String { return UBLocalized.tr(Key.target_disease_name) }
   /// Ein unbekannter Fehler ist aufgetreten.
-   static let unknown_error = UBLocalized.tr(UBLocalizedKey.unknown_error_key)
+   static var unknown_error: String { return UBLocalized.tr(Key.unknown_error) }
   /// Impftermin
-   static let vaccination_appointment_header = UBLocalized.tr(UBLocalizedKey.vaccination_appointment_header_key)
+   static var vaccination_appointment_header: String { return UBLocalized.tr(Key.vaccination_appointment_header) }
   /// Aargau
-   static let vaccination_booking_ag_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ag_name_key)
+   static var vaccination_booking_ag_name: String { return UBLocalized.tr(Key.vaccination_booking_ag_name) }
   /// https://www.ag.ch/coronavirus-impfung
-   static let vaccination_booking_ag_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ag_url_key)
+   static var vaccination_booking_ag_url: String { return UBLocalized.tr(Key.vaccination_booking_ag_url) }
   /// Appenzell Innerrhoden
-   static let vaccination_booking_ai_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ai_name_key)
+   static var vaccination_booking_ai_name: String { return UBLocalized.tr(Key.vaccination_booking_ai_name) }
   /// https://www.ai.ch/coronavirus-impfung
-   static let vaccination_booking_ai_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ai_url_key)
+   static var vaccination_booking_ai_url: String { return UBLocalized.tr(Key.vaccination_booking_ai_url) }
   /// Appenzell Ausserrhoden
-   static let vaccination_booking_ar_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ar_name_key)
+   static var vaccination_booking_ar_name: String { return UBLocalized.tr(Key.vaccination_booking_ar_name) }
   /// https://www.ar.ch/verwaltung/departement-gesundheit-und-soziales/amt-fuer-gesundheit/informationsseite-coronavirus/coronaimpfung/
-   static let vaccination_booking_ar_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ar_url_key)
+   static var vaccination_booking_ar_url: String { return UBLocalized.tr(Key.vaccination_booking_ar_url) }
   /// Bern
-   static let vaccination_booking_be_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_be_name_key)
+   static var vaccination_booking_be_name: String { return UBLocalized.tr(Key.vaccination_booking_be_name) }
   /// http://www.be.ch/corona-impfung
-   static let vaccination_booking_be_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_be_url_key)
+   static var vaccination_booking_be_url: String { return UBLocalized.tr(Key.vaccination_booking_be_url) }
   /// Basel-Landschaft
-   static let vaccination_booking_bl_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_bl_name_key)
+   static var vaccination_booking_bl_name: String { return UBLocalized.tr(Key.vaccination_booking_bl_name) }
   /// https://www.bl.ch/impfen
-   static let vaccination_booking_bl_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_bl_url_key)
+   static var vaccination_booking_bl_url: String { return UBLocalized.tr(Key.vaccination_booking_bl_url) }
   /// Basel-Stadt
-   static let vaccination_booking_bs_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_bs_name_key)
+   static var vaccination_booking_bs_name: String { return UBLocalized.tr(Key.vaccination_booking_bs_name) }
   /// http://www.coronaimpfzentrumbasel.ch
-   static let vaccination_booking_bs_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_bs_url_key)
+   static var vaccination_booking_bs_url: String { return UBLocalized.tr(Key.vaccination_booking_bs_url) }
   /// Freiburg
-   static let vaccination_booking_fr_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_fr_name_key)
+   static var vaccination_booking_fr_name: String { return UBLocalized.tr(Key.vaccination_booking_fr_name) }
   /// https://www.fr.ch/de/gesundheit/covid-19/covid-19-impfung-in-ihrer-naehe-durch-impfteams-in-den-impfzentren-in-der-apotheke-oder-bei-ihrem-arzt
-   static let vaccination_booking_fr_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_fr_url_key)
+   static var vaccination_booking_fr_url: String { return UBLocalized.tr(Key.vaccination_booking_fr_url) }
   /// Genf
-   static let vaccination_booking_ge_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ge_name_key)
+   static var vaccination_booking_ge_name: String { return UBLocalized.tr(Key.vaccination_booking_ge_name) }
   /// https://www.ge.ch/se-faire-vacciner-contre-covid-19
-   static let vaccination_booking_ge_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ge_url_key)
+   static var vaccination_booking_ge_url: String { return UBLocalized.tr(Key.vaccination_booking_ge_url) }
   /// Glarus
-   static let vaccination_booking_gl_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_gl_name_key)
+   static var vaccination_booking_gl_name: String { return UBLocalized.tr(Key.vaccination_booking_gl_name) }
   /// https://www.gl.ch/verwaltung/finanzen-und-gesundheit/gesundheit/coronavirus.html/4817#Impfung
-   static let vaccination_booking_gl_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_gl_url_key)
+   static var vaccination_booking_gl_url: String { return UBLocalized.tr(Key.vaccination_booking_gl_url) }
   /// Graubünden
-   static let vaccination_booking_gr_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_gr_name_key)
+   static var vaccination_booking_gr_name: String { return UBLocalized.tr(Key.vaccination_booking_gr_name) }
   /// https://www.gr.ch/DE/institutionen/verwaltung/djsg/ga/coronavirus/info/impfen/Seiten/impfen.aspx
-   static let vaccination_booking_gr_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_gr_url_key)
+   static var vaccination_booking_gr_url: String { return UBLocalized.tr(Key.vaccination_booking_gr_url) }
   /// Die Covid-19-Impfung ist für Personen ab 5 Jahren empfohlen.
-   static let vaccination_booking_info_info = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_info_key)
+   static var vaccination_booking_info_info: String { return UBLocalized.tr(Key.vaccination_booking_info_info) }
   /// Eine Impfung könnte zum Beispiel an diesen Orten in Ihrer Nähe stattfinden:\n\n- in spezifischen Impfzentren\n- in Spitälern\n- bei Ihrem Hausarzt oder Ihrer Hausärztin\n- in Impfapotheken\n\nViele Orte bieten auch Walk-in-Impfungen ohne Termine an.
-   static let vaccination_booking_info_text = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_text_key)
+   static var vaccination_booking_info_text: String { return UBLocalized.tr(Key.vaccination_booking_info_text) }
   /// Impftermin in Ihrer Nähe buchen
-   static let vaccination_booking_info_title = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_title_key)
+   static var vaccination_booking_info_title: String { return UBLocalized.tr(Key.vaccination_booking_info_title) }
   /// https://bag-coronavirus.ch/impfung/
-   static let vaccination_booking_info_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_info_url_key)
+   static var vaccination_booking_info_url: String { return UBLocalized.tr(Key.vaccination_booking_info_url) }
   /// Jura
-   static let vaccination_booking_ju_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ju_name_key)
+   static var vaccination_booking_ju_name: String { return UBLocalized.tr(Key.vaccination_booking_ju_name) }
   /// https://www.jura.ch/fr/Autorites/Coronavirus/Vaccination.html
-   static let vaccination_booking_ju_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ju_url_key)
+   static var vaccination_booking_ju_url: String { return UBLocalized.tr(Key.vaccination_booking_ju_url) }
   /// Luzern
-   static let vaccination_booking_lu_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_lu_name_key)
+   static var vaccination_booking_lu_name: String { return UBLocalized.tr(Key.vaccination_booking_lu_name) }
   /// http://www.lu.ch/covid_impfung
-   static let vaccination_booking_lu_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_lu_url_key)
+   static var vaccination_booking_lu_url: String { return UBLocalized.tr(Key.vaccination_booking_lu_url) }
   /// Neuenburg
-   static let vaccination_booking_ne_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ne_name_key)
+   static var vaccination_booking_ne_name: String { return UBLocalized.tr(Key.vaccination_booking_ne_name) }
   /// https://www.ne.ch/autorites/DFS/SCSP/medecin-cantonal/maladies-vaccinations/covid-19-vaccination/Pages/accueil.aspx
-   static let vaccination_booking_ne_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ne_url_key)
+   static var vaccination_booking_ne_url: String { return UBLocalized.tr(Key.vaccination_booking_ne_url) }
   /// Nidwalden
-   static let vaccination_booking_nw_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_nw_name_key)
+   static var vaccination_booking_nw_name: String { return UBLocalized.tr(Key.vaccination_booking_nw_name) }
   /// https://www.nw.ch/gesundheitsamtdienste/6044#Impfung
-   static let vaccination_booking_nw_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_nw_url_key)
+   static var vaccination_booking_nw_url: String { return UBLocalized.tr(Key.vaccination_booking_nw_url) }
   /// Obwalden
-   static let vaccination_booking_ow_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ow_name_key)
+   static var vaccination_booking_ow_name: String { return UBLocalized.tr(Key.vaccination_booking_ow_name) }
   /// https://www.ow.ch/dienstleistungen/7129
-   static let vaccination_booking_ow_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ow_url_key)
+   static var vaccination_booking_ow_url: String { return UBLocalized.tr(Key.vaccination_booking_ow_url) }
   /// St. Gallen
-   static let vaccination_booking_sg_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sg_name_key)
+   static var vaccination_booking_sg_name: String { return UBLocalized.tr(Key.vaccination_booking_sg_name) }
   /// https://www.sg.ch/coronavirus/impfen
-   static let vaccination_booking_sg_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sg_url_key)
+   static var vaccination_booking_sg_url: String { return UBLocalized.tr(Key.vaccination_booking_sg_url) }
   /// Schaffhausen
-   static let vaccination_booking_sh_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sh_name_key)
+   static var vaccination_booking_sh_name: String { return UBLocalized.tr(Key.vaccination_booking_sh_name) }
   /// https://sh.ch/CMS/Webseite/Kanton-Schaffhausen/Beh-rde/Verwaltung/Departement-des-Innern/Gesundheitsamt-7126057-DE.html
-   static let vaccination_booking_sh_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sh_url_key)
+   static var vaccination_booking_sh_url: String { return UBLocalized.tr(Key.vaccination_booking_sh_url) }
   /// Solothurn
-   static let vaccination_booking_so_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_so_name_key)
+   static var vaccination_booking_so_name: String { return UBLocalized.tr(Key.vaccination_booking_so_name) }
   /// https://so.ch/coronaimpfung
-   static let vaccination_booking_so_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_so_url_key)
+   static var vaccination_booking_so_url: String { return UBLocalized.tr(Key.vaccination_booking_so_url) }
   /// Schwyz
-   static let vaccination_booking_sz_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sz_name_key)
+   static var vaccination_booking_sz_name: String { return UBLocalized.tr(Key.vaccination_booking_sz_name) }
   /// https://www.sz.ch/corona-impfen
-   static let vaccination_booking_sz_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_sz_url_key)
+   static var vaccination_booking_sz_url: String { return UBLocalized.tr(Key.vaccination_booking_sz_url) }
   /// Thurgau
-   static let vaccination_booking_tg_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_tg_name_key)
+   static var vaccination_booking_tg_name: String { return UBLocalized.tr(Key.vaccination_booking_tg_name) }
   /// https://gesundheit.tg.ch/aktuelles/impfung-fuer-covid-19.html/11590
-   static let vaccination_booking_tg_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_tg_url_key)
+   static var vaccination_booking_tg_url: String { return UBLocalized.tr(Key.vaccination_booking_tg_url) }
   /// Tessin
-   static let vaccination_booking_ti_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ti_name_key)
+   static var vaccination_booking_ti_name: String { return UBLocalized.tr(Key.vaccination_booking_ti_name) }
   /// http://www.ti.ch/vaccinazione
-   static let vaccination_booking_ti_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ti_url_key)
+   static var vaccination_booking_ti_url: String { return UBLocalized.tr(Key.vaccination_booking_ti_url) }
   /// Uri
-   static let vaccination_booking_ur_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ur_name_key)
+   static var vaccination_booking_ur_name: String { return UBLocalized.tr(Key.vaccination_booking_ur_name) }
   /// https://www.ur.ch/themen/3673
-   static let vaccination_booking_ur_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_ur_url_key)
+   static var vaccination_booking_ur_url: String { return UBLocalized.tr(Key.vaccination_booking_ur_url) }
   /// Waadt
-   static let vaccination_booking_vd_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_vd_name_key)
+   static var vaccination_booking_vd_name: String { return UBLocalized.tr(Key.vaccination_booking_vd_name) }
   /// https://vd.ch/coronavirus-vaccins
-   static let vaccination_booking_vd_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_vd_url_key)
+   static var vaccination_booking_vd_url: String { return UBLocalized.tr(Key.vaccination_booking_vd_url) }
   /// Wallis
-   static let vaccination_booking_vs_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_vs_name_key)
+   static var vaccination_booking_vs_name: String { return UBLocalized.tr(Key.vaccination_booking_vs_name) }
   /// https://www.vs.ch/de/web/coronavirus#ancre_vaccination
-   static let vaccination_booking_vs_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_vs_url_key)
+   static var vaccination_booking_vs_url: String { return UBLocalized.tr(Key.vaccination_booking_vs_url) }
   /// Zug
-   static let vaccination_booking_zg_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_zg_name_key)
+   static var vaccination_booking_zg_name: String { return UBLocalized.tr(Key.vaccination_booking_zg_name) }
   /// https://www.corona-impfung-zug.ch/
-   static let vaccination_booking_zg_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_zg_url_key)
+   static var vaccination_booking_zg_url: String { return UBLocalized.tr(Key.vaccination_booking_zg_url) }
   /// Zürich
-   static let vaccination_booking_zh_name = UBLocalized.tr(UBLocalizedKey.vaccination_booking_zh_name_key)
+   static var vaccination_booking_zh_name: String { return UBLocalized.tr(Key.vaccination_booking_zh_name) }
   /// http://www.zh.ch/coronaimpfung
-   static let vaccination_booking_zh_url = UBLocalized.tr(UBLocalizedKey.vaccination_booking_zh_url_key)
+   static var vaccination_booking_zh_url: String { return UBLocalized.tr(Key.vaccination_booking_zh_url) }
   /// Wählen Sie Ihren Kanton
-   static let vaccination_choose_your_canton = UBLocalized.tr(UBLocalizedKey.vaccination_choose_your_canton_key)
+   static var vaccination_choose_your_canton: String { return UBLocalized.tr(Key.vaccination_choose_your_canton) }
   /// Mit der Covid-19-Impfung können Sie unbeschwert in die meisten Länder reisen.
-   static let vaccination_hint_text_2 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_2_key)
+   static var vaccination_hint_text_2: String { return UBLocalized.tr(Key.vaccination_hint_text_2) }
   /// Mit der Covid-19-Impfung können Sie sich vor Erkrankung und einem allfälligen schweren Verlauf schützen.
-   static let vaccination_hint_text_3 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_3_key)
+   static var vaccination_hint_text_3: String { return UBLocalized.tr(Key.vaccination_hint_text_3) }
   /// Mit der Covid-19-Impfung können Sie auf sichere Art immun werden.
-   static let vaccination_hint_text_4 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_4_key)
+   static var vaccination_hint_text_4: String { return UBLocalized.tr(Key.vaccination_hint_text_4) }
   /// Mit der Covid-19-Impfung können Sie mithelfen, die Krankheitslast zu reduzieren.
-   static let vaccination_hint_text_5 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_5_key)
+   static var vaccination_hint_text_5: String { return UBLocalized.tr(Key.vaccination_hint_text_5) }
   /// Mit der Covid-19-Impfung können Sie helfen, die Auswirkungen der Pandemie zu bekämpfen.
-   static let vaccination_hint_text_6 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_6_key)
+   static var vaccination_hint_text_6: String { return UBLocalized.tr(Key.vaccination_hint_text_6) }
   /// Mit der Covid-19-Impfung können Sie die Langzeitfolgen einer Covid-19-Erkrankung vermeiden.
-   static let vaccination_hint_text_7 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_7_key)
+   static var vaccination_hint_text_7: String { return UBLocalized.tr(Key.vaccination_hint_text_7) }
   /// Mit der Covid-19-Impfung können Sie dazu beitragen, das Gesundheitswesen zu entlasten.
-   static let vaccination_hint_text_8 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_text_8_key)
+   static var vaccination_hint_text_8: String { return UBLocalized.tr(Key.vaccination_hint_text_8) }
   /// Jetzt impfen lassen!
-   static let vaccination_hint_title_2 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_2_key)
+   static var vaccination_hint_title_2: String { return UBLocalized.tr(Key.vaccination_hint_title_2) }
   /// Jetzt impfen lassen!
-   static let vaccination_hint_title_3 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_3_key)
+   static var vaccination_hint_title_3: String { return UBLocalized.tr(Key.vaccination_hint_title_3) }
   /// Jetzt impfen lassen!
-   static let vaccination_hint_title_4 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_4_key)
+   static var vaccination_hint_title_4: String { return UBLocalized.tr(Key.vaccination_hint_title_4) }
   /// Jetzt impfen lassen!
-   static let vaccination_hint_title_5 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_5_key)
+   static var vaccination_hint_title_5: String { return UBLocalized.tr(Key.vaccination_hint_title_5) }
   /// Jetzt impfen lassen!
-   static let vaccination_hint_title_6 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_6_key)
+   static var vaccination_hint_title_6: String { return UBLocalized.tr(Key.vaccination_hint_title_6) }
   /// Jetzt impfen lassen!
-   static let vaccination_hint_title_7 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_7_key)
+   static var vaccination_hint_title_7: String { return UBLocalized.tr(Key.vaccination_hint_title_7) }
   /// Jetzt impfen lassen!
-   static let vaccination_hint_title_8 = UBLocalized.tr(UBLocalizedKey.vaccination_hint_title_8_key)
+   static var vaccination_hint_title_8: String { return UBLocalized.tr(Key.vaccination_hint_title_8) }
   /// Impftermin buchen
-   static let vaccination_homescreen_button_title = UBLocalized.tr(UBLocalizedKey.vaccination_homescreen_button_title_key)
+   static var vaccination_homescreen_button_title: String { return UBLocalized.tr(Key.vaccination_homescreen_button_title) }
   /// Zum Impf-Check
-   static let vaccination_impf_check_action = UBLocalized.tr(UBLocalizedKey.vaccination_impf_check_action_key)
+   static var vaccination_impf_check_action: String { return UBLocalized.tr(Key.vaccination_impf_check_action) }
   /// Der Covid-19 Impf-Check gibt Auskunft über Erst- sowie Auffrischimpfungen und führt Sie zur entsprechenden Anlaufstelle in Ihrem Kanton.
-   static let vaccination_impf_check_info_text = UBLocalized.tr(UBLocalizedKey.vaccination_impf_check_info_text_key)
+   static var vaccination_impf_check_info_text: String { return UBLocalized.tr(Key.vaccination_impf_check_info_text) }
   /// Jetzt Termin buchen
-   static let vaccination_impf_check_title = UBLocalized.tr(UBLocalizedKey.vaccination_impf_check_title_key)
+   static var vaccination_impf_check_title: String { return UBLocalized.tr(Key.vaccination_impf_check_title) }
   /// https://covid19.impf-check.ch/
-   static let vaccination_impf_check_url = UBLocalized.tr(UBLocalizedKey.vaccination_impf_check_url_key)
+   static var vaccination_impf_check_url: String { return UBLocalized.tr(Key.vaccination_impf_check_url) }
   /// Informationen zur Impfung
-   static let vaccination_information_button_in_certificate = UBLocalized.tr(UBLocalizedKey.vaccination_information_button_in_certificate_key)
+   static var vaccination_information_button_in_certificate: String { return UBLocalized.tr(Key.vaccination_information_button_in_certificate) }
   /// Weitere Informationen rund um die Covid-19-Impfung
-   static let vaccination_more_information_title = UBLocalized.tr(UBLocalizedKey.vaccination_more_information_title_key)
+   static var vaccination_more_information_title: String { return UBLocalized.tr(Key.vaccination_more_information_title) }
   /// Für 2G+ nur in Kombination mit der Prüfung eines Covid-Zertifikats für Geimpfte oder Genesene zugelassen.
-   static let verifier_2g_plus_info2g = UBLocalized.tr(UBLocalizedKey.verifier_2g_plus_info2g_key)
+   static var verifier_2g_plus_info2g: String { return UBLocalized.tr(Key.verifier_2g_plus_info2g) }
   /// Für 2G+ nur in Kombination mit der Prüfung eines gültigen Testzertifikats zugelassen.
-   static let verifier_2g_plus_infoplus = UBLocalized.tr(UBLocalizedKey.verifier_2g_plus_infoplus_key)
+   static var verifier_2g_plus_infoplus: String { return UBLocalized.tr(Key.verifier_2g_plus_infoplus) }
   /// Gültiges Covid-Zertifikat nach 2G-Regelung
-   static let verifier_2g_plus_success2g = UBLocalized.tr(UBLocalizedKey.verifier_2g_plus_success2g_key)
+   static var verifier_2g_plus_success2g: String { return UBLocalized.tr(Key.verifier_2g_plus_success2g) }
   /// Gültiges Covid-Zertifikat für Getestete
-   static let verifier_2g_plus_successplus = UBLocalized.tr(UBLocalizedKey.verifier_2g_plus_successplus_key)
+   static var verifier_2g_plus_successplus: String { return UBLocalized.tr(Key.verifier_2g_plus_successplus) }
   /// market://details?id=ch.admin.bag.covidcertificate.verifier
-   static let verifier_android_app_google_play_store_url = UBLocalized.tr(UBLocalizedKey.verifier_android_app_google_play_store_url_key)
+   static var verifier_android_app_google_play_store_url: String { return UBLocalized.tr(Key.verifier_android_app_google_play_store_url) }
   /// Covid Check
-   static let verifier_app_name = UBLocalized.tr(UBLocalizedKey.verifier_app_name_key)
+   static var verifier_app_name: String { return UBLocalized.tr(Key.verifier_app_name) }
   /// COVID Certificate Check
-   static let verifier_app_title = UBLocalized.tr(UBLocalizedKey.verifier_app_title_key)
+   static var verifier_app_title: String { return UBLocalized.tr(Key.verifier_app_title) }
   /// http://itunes.apple.com/app/id1565917510
-   static let verifier_apple_app_store_url = UBLocalized.tr(UBLocalizedKey.verifier_apple_app_store_url_key)
+   static var verifier_apple_app_store_url: String { return UBLocalized.tr(Key.verifier_apple_app_store_url) }
   /// Gültigkeit des Zertifikats\nabgelaufen
-   static let verifier_certificate_light_error_expired = UBLocalized.tr(UBLocalizedKey.verifier_certificate_light_error_expired_key)
+   static var verifier_certificate_light_error_expired: String { return UBLocalized.tr(Key.verifier_certificate_light_error_expired) }
   /// Für Betriebe und Veranstaltungen, in welchen mit einer Regelung nach 2G+ geprüft wird.
-   static let verifier_check_mode_info_2g_plus_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_plus_text_1_key)
+   static var verifier_check_mode_info_2g_plus_text_1: String { return UBLocalized.tr(Key.verifier_check_mode_info_2g_plus_text_1) }
   /// Zusätzlich zu einem Covid-Zertifikat für Geimpfte oder Genesene wird ein gültiges Testzertifikat benötigt, welches separat geprüft werden muss.
-   static let verifier_check_mode_info_2g_plus_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_plus_text_2_key)
+   static var verifier_check_mode_info_2g_plus_text_2: String { return UBLocalized.tr(Key.verifier_check_mode_info_2g_plus_text_2) }
   /// Ausnahmen: Personen, deren vollständige Impfung, Auffrischimpfung oder Genesung nicht länger als 120 Tage zurückliegt.
-   static let verifier_check_mode_info_2g_plus_text_3 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_plus_text_3_key)
+   static var verifier_check_mode_info_2g_plus_text_3: String { return UBLocalized.tr(Key.verifier_check_mode_info_2g_plus_text_3) }
   /// Die Prüfung von Zertifikate Light ist in diesem Modus nicht möglich.
-   static let verifier_check_mode_info_2g_plus_text_4 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_plus_text_4_key)
+   static var verifier_check_mode_info_2g_plus_text_4: String { return UBLocalized.tr(Key.verifier_check_mode_info_2g_plus_text_4) }
   /// 2G+
-   static let verifier_check_mode_info_2g_plus_title = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_plus_title_key)
+   static var verifier_check_mode_info_2g_plus_title: String { return UBLocalized.tr(Key.verifier_check_mode_info_2g_plus_title) }
   /// Für Betriebe und Veranstaltungen, in welchen mit einer 2G-Regelung geprüft wird.
-   static let verifier_check_mode_info_2g_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_text_1_key)
+   static var verifier_check_mode_info_2g_text_1: String { return UBLocalized.tr(Key.verifier_check_mode_info_2g_text_1) }
   /// In diesem Modus werden Covid-Zertifikate für Geimpfte oder Genesene akzeptiert.
-   static let verifier_check_mode_info_2g_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_text_2_key)
+   static var verifier_check_mode_info_2g_text_2: String { return UBLocalized.tr(Key.verifier_check_mode_info_2g_text_2) }
   /// Die Prüfung von einem Zertifikat Light ist in diesem Modus nicht möglich.
-   static let verifier_check_mode_info_2g_text_3 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_text_3_key)
+   static var verifier_check_mode_info_2g_text_3: String { return UBLocalized.tr(Key.verifier_check_mode_info_2g_text_3) }
   /// 2G
-   static let verifier_check_mode_info_2g_title = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_2g_title_key)
+   static var verifier_check_mode_info_2g_title: String { return UBLocalized.tr(Key.verifier_check_mode_info_2g_title) }
   /// Für Betriebe und Veranstaltungen, in welchen mit einer 3G-Regelung geprüft wird.
-   static let verifier_check_mode_info_3g_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_text_1_key)
+   static var verifier_check_mode_info_3g_text_1: String { return UBLocalized.tr(Key.verifier_check_mode_info_3g_text_1) }
   /// In diesem Modus werden Covid-Zertifikate für Geimpfte, Genesene oder negativ Getestete akzeptiert.
-   static let verifier_check_mode_info_3g_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_text_2_key)
+   static var verifier_check_mode_info_3g_text_2: String { return UBLocalized.tr(Key.verifier_check_mode_info_3g_text_2) }
   /// Die Prüfung von einem Zertifikat Light ist in diesem Modus möglich.
-   static let verifier_check_mode_info_3g_text_3 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_text_3_key)
+   static var verifier_check_mode_info_3g_text_3: String { return UBLocalized.tr(Key.verifier_check_mode_info_3g_text_3) }
   /// 3G
-   static let verifier_check_mode_info_3g_title = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_3g_title_key)
+   static var verifier_check_mode_info_3g_title: String { return UBLocalized.tr(Key.verifier_check_mode_info_3g_title) }
   /// Für Bereiche, bei denen ein gültiges Testzertifikat notwendig ist.
-   static let verifier_check_mode_info_test_cert_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_test_cert_text_1_key)
+   static var verifier_check_mode_info_test_cert_text_1: String { return UBLocalized.tr(Key.verifier_check_mode_info_test_cert_text_1) }
   /// In diesem Modus werden Covid-Zertifikate für negativ Getestete basierend auf einem PCR- oder Antigen-Schnelltest akzeptiert.
-   static let verifier_check_mode_info_test_cert_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_test_cert_text_2_key)
+   static var verifier_check_mode_info_test_cert_text_2: String { return UBLocalized.tr(Key.verifier_check_mode_info_test_cert_text_2) }
   /// Die Prüfung von Zertifikate Light ist in diesem Modus nicht möglich.
-   static let verifier_check_mode_info_test_cert_text_3 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_test_cert_text_3_key)
+   static var verifier_check_mode_info_test_cert_text_3: String { return UBLocalized.tr(Key.verifier_check_mode_info_test_cert_text_3) }
   /// Testzertifikat
-   static let verifier_check_mode_info_test_cert_title = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_test_cert_title_key)
+   static var verifier_check_mode_info_test_cert_title: String { return UBLocalized.tr(Key.verifier_check_mode_info_test_cert_title) }
   /// Wählen Sie den Prüfmodus, in welchem Sie Covid-Zertifikate prüfen möchten.
-   static let verifier_check_mode_info_unselected_text_1 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_unselected_text_1_key)
+   static var verifier_check_mode_info_unselected_text_1: String { return UBLocalized.tr(Key.verifier_check_mode_info_unselected_text_1) }
   /// Der Prüfmodus kann jederzeit geändert werden.
-   static let verifier_check_mode_info_unselected_text_2 = UBLocalized.tr(UBLocalizedKey.verifier_check_mode_info_unselected_text_2_key)
+   static var verifier_check_mode_info_unselected_text_2: String { return UBLocalized.tr(Key.verifier_check_mode_info_unselected_text_2) }
   /// wählen
-   static let verifier_choose_mode_button_title = UBLocalized.tr(UBLocalizedKey.verifier_choose_mode_button_title_key)
+   static var verifier_choose_mode_button_title: String { return UBLocalized.tr(Key.verifier_choose_mode_button_title) }
   /// Geburtsdatum
-   static let verifier_covid_certificate_birthdate = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_birthdate_key)
+   static var verifier_covid_certificate_birthdate: String { return UBLocalized.tr(Key.verifier_covid_certificate_birthdate) }
   /// Nachname
-   static let verifier_covid_certificate_name = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_name_key)
+   static var verifier_covid_certificate_name: String { return UBLocalized.tr(Key.verifier_covid_certificate_name) }
   /// Vorname
-   static let verifier_covid_certificate_prename = UBLocalized.tr(UBLocalizedKey.verifier_covid_certificate_prename_key)
+   static var verifier_covid_certificate_prename: String { return UBLocalized.tr(Key.verifier_covid_certificate_prename) }
   /// Zum App Store
-   static let verifier_error_app_store_button = UBLocalized.tr(UBLocalizedKey.verifier_error_app_store_button_key)
+   static var verifier_error_app_store_button: String { return UBLocalized.tr(Key.verifier_error_app_store_button) }
   /// Die Prüfung dieser Art des Covid-Zertifikats bedingt die neuste Version der Check-App. Bitte aktualisieren Sie Ihre App und wiederholen Sie den Prüfvorgang.
-   static let verifier_error_app_store_text = UBLocalized.tr(UBLocalizedKey.verifier_error_app_store_text_key)
+   static var verifier_error_app_store_text: String { return UBLocalized.tr(Key.verifier_error_app_store_text) }
   /// Das Format des Covid-Zertifikats ist ungültig.
-   static let verifier_error_invalid_format = UBLocalized.tr(UBLocalizedKey.verifier_error_invalid_format_key)
+   static var verifier_error_invalid_format: String { return UBLocalized.tr(Key.verifier_error_invalid_format) }
   /// Ihr gewählter Prüfmodus existiert nicht mehr.
-   static let verifier_error_mode_no_longer_exists = UBLocalized.tr(UBLocalizedKey.verifier_error_mode_no_longer_exists_key)
+   static var verifier_error_mode_no_longer_exists: String { return UBLocalized.tr(Key.verifier_error_mode_no_longer_exists) }
   /// Um ein Covid-Zertifikat zu prüfen, scannen Sie den QR-Code auf dem Papierzertifikat oder in der vorgewiesenen COVID Certificate App mit der dafür vorgesehenen COVID Certificate Check App.
-   static let verifier_faq_works_answer_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_1_key)
+   static var verifier_faq_works_answer_1: String { return UBLocalized.tr(Key.verifier_faq_works_answer_1) }
   /// Beim Scannen werden drei Aspekte geprüft:\n– Enthält das Zertifikat eine gültige elektronische Signatur?\n– Ist das Zertifikat nicht widerrufen worden?\n– Entspricht das Zertifikat den Gültigkeitskriterien der Schweiz?\n\nWenn alle drei Aspekte positiv bewertet werden, wird das Covid-Zertifikat als gültig ausgewiesen.
-   static let verifier_faq_works_answer_2 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_2_key)
+   static var verifier_faq_works_answer_2: String { return UBLocalized.tr(Key.verifier_faq_works_answer_2) }
   /// Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:
-   static let verifier_faq_works_answer_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_2_1_key)
+   static var verifier_faq_works_answer_2_1: String { return UBLocalized.tr(Key.verifier_faq_works_answer_2_1) }
   /// Neben Pass oder ID werden auch andere Ausweisdokumente akzeptiert, die die Identität der betreffenden Person mit einem Foto belegen (z.B. Führerausweis). Das Covid-Zertifikat ist zwar fälschungssicher, mit der Überprüfung der Personalien wird aber erst sichergestellt, dass das vorgezeigte Zertifikat auch auf den Vorweisenden ausgestellt wurde.
-   static let verifier_faq_works_answer_3 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_3_key)
+   static var verifier_faq_works_answer_3: String { return UBLocalized.tr(Key.verifier_faq_works_answer_3) }
   /// Ja, Covid-Zertifikate, die mit dem digitalen COVID-Zertifikat der EU kompatibel sind, können mit der COVID Certificate Check App gegen die Gültigkeitskriterien der Schweiz geprüft werden.
-   static let verifier_faq_works_answer_4 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_4_key)
+   static var verifier_faq_works_answer_4: String { return UBLocalized.tr(Key.verifier_faq_works_answer_4) }
   /// Beim Prüfvorgang sehen Sie nur den Namen und das Geburtsdatum der Zertifikatsinhaberin oder des Zertifikatsinhabers und ob das Covid-Zertifikat gültig ist.
-   static let verifier_faq_works_answer_5 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_5_key)
+   static var verifier_faq_works_answer_5: String { return UBLocalized.tr(Key.verifier_faq_works_answer_5) }
   /// Nein, beim Prüfvorgang werden keine Daten gespeichert - weder in der COVID Certificate Check App noch in einem zentralen System. Es ist somit nicht möglich nachzuvollziehen, welches Covid-Zertifikat von wem, wann und wo überprüft wurde.
-   static let verifier_faq_works_answer_6 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_6_key)
+   static var verifier_faq_works_answer_6: String { return UBLocalized.tr(Key.verifier_faq_works_answer_6) }
   /// Grundsätzlich können Covid-Zertifikate auch ohne eine Internetverbindung geprüft werden. Dazu werden regelmässig aktualisierte Prüflisten von einem zentralen Server heruntergeladen. Diese lokal gespeicherten Prüflisten dürfen nicht älter als 48h sein. \n\nUm die Prüflisten zu aktualisieren muss die App mit dem Internet verbunden sein und geöffnet werden. Die Aktualisierung erfolgt unmittelbar und automatisch.
-   static let verifier_faq_works_answer_7 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_7_key)
+   static var verifier_faq_works_answer_7: String { return UBLocalized.tr(Key.verifier_faq_works_answer_7) }
   /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von {LIGHT_CERT_VALIDITY_IN_H} Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der {LIGHT_CERT_VALIDITY_IN_H} Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
-   static let verifier_faq_works_answer_8 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_8_key)
+   static var verifier_faq_works_answer_8: String { return UBLocalized.tr(Key.verifier_faq_works_answer_8) }
   /// Das Zertifikat Light kann durch die Halterin / den Halter jederzeit in der «COVID Certificate»-App deaktiviert werden. Danach steht das normale Covid-Zertifikat wieder zur Verfügung.
-   static let verifier_faq_works_answer_9 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_answer_9_key)
+   static var verifier_faq_works_answer_9: String { return UBLocalized.tr(Key.verifier_faq_works_answer_9) }
   /// Erklärvideo
-   static let verifier_faq_works_linktext_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linktext_1_key)
+   static var verifier_faq_works_linktext_1: String { return UBLocalized.tr(Key.verifier_faq_works_linktext_1) }
   /// Weitere Informationen
-   static let verifier_faq_works_linktext_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linktext_2_1_key)
+   static var verifier_faq_works_linktext_2_1: String { return UBLocalized.tr(Key.verifier_faq_works_linktext_2_1) }
   /// https://youtu.be/DClLZIUjr3w
-   static let verifier_faq_works_linkurl_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linkurl_1_key)
+   static var verifier_faq_works_linkurl_1: String { return UBLocalized.tr(Key.verifier_faq_works_linkurl_1) }
   /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat.html#-837133624
-   static let verifier_faq_works_linkurl_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_linkurl_2_1_key)
+   static var verifier_faq_works_linkurl_2_1: String { return UBLocalized.tr(Key.verifier_faq_works_linkurl_2_1) }
   /// Wie können Covid-Zertifikate geprüft werden?
-   static let verifier_faq_works_question_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_1_key)
+   static var verifier_faq_works_question_1: String { return UBLocalized.tr(Key.verifier_faq_works_question_1) }
   /// Was wird genau geprüft?
-   static let verifier_faq_works_question_2 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_2_key)
+   static var verifier_faq_works_question_2: String { return UBLocalized.tr(Key.verifier_faq_works_question_2) }
   /// Was sind die aktuellen Gültigkeitskriterien der Schweiz?
-   static let verifier_faq_works_question_2_1 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_2_1_key)
+   static var verifier_faq_works_question_2_1: String { return UBLocalized.tr(Key.verifier_faq_works_question_2_1) }
   /// Welche Ausweisdokumente sind gültig? Weshalb müssen die Personalien überprüft werden?
-   static let verifier_faq_works_question_3 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_3_key)
+   static var verifier_faq_works_question_3: String { return UBLocalized.tr(Key.verifier_faq_works_question_3) }
   /// Können auch ausländische Zertifikate geprüft werden?
-   static let verifier_faq_works_question_4 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_4_key)
+   static var verifier_faq_works_question_4: String { return UBLocalized.tr(Key.verifier_faq_works_question_4) }
   /// Welche Daten sehe ich beim Prüfvorgang?
-   static let verifier_faq_works_question_5 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_5_key)
+   static var verifier_faq_works_question_5: String { return UBLocalized.tr(Key.verifier_faq_works_question_5) }
   /// Werden beim Prüfvorgang in der COVID Certificate Check App oder in einem zentralen System Daten gespeichert?
-   static let verifier_faq_works_question_6 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_6_key)
+   static var verifier_faq_works_question_6: String { return UBLocalized.tr(Key.verifier_faq_works_question_6) }
   /// Können Zertifikate auch offline geprüft werden?
-   static let verifier_faq_works_question_7 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_7_key)
+   static var verifier_faq_works_question_7: String { return UBLocalized.tr(Key.verifier_faq_works_question_7) }
   /// Was ist das Zertifikat Light?
-   static let verifier_faq_works_question_8 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_8_key)
+   static var verifier_faq_works_question_8: String { return UBLocalized.tr(Key.verifier_faq_works_question_8) }
   /// Wie kann ein Zertifikat Light wieder in ein EU/EFTA-konformes Covid-Zertifikat umgewandelt werden?
-   static let verifier_faq_works_question_9 = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_question_9_key)
+   static var verifier_faq_works_question_9: String { return UBLocalized.tr(Key.verifier_faq_works_question_9) }
   /// Mit der COVID Certificate Check App können QR-Codes auf Covid-Zertifikaten gescannt und die Zertifikate auf Echtheit und Gültigkeit überprüft werden.
-   static let verifier_faq_works_subtitle = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_subtitle_key)
+   static var verifier_faq_works_subtitle: String { return UBLocalized.tr(Key.verifier_faq_works_subtitle) }
   /// So werden Covid-Zertifikate geprüft
-   static let verifier_faq_works_title = UBLocalized.tr(UBLocalizedKey.verifier_faq_works_title_key)
+   static var verifier_faq_works_title: String { return UBLocalized.tr(Key.verifier_faq_works_title) }
   /// Covid Certificate
-   static let verifier_homescreen_header_title = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_header_title_key)
+   static var verifier_homescreen_header_title: String { return UBLocalized.tr(Key.verifier_homescreen_header_title) }
   /// Vorgewiesenes Zertifikat scannen
-   static let verifier_homescreen_pager_description_1 = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_pager_description_1_key)
+   static var verifier_homescreen_pager_description_1: String { return UBLocalized.tr(Key.verifier_homescreen_pager_description_1) }
   /// Zertifikate werden automatisch geprüft
-   static let verifier_homescreen_pager_description_2 = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_pager_description_2_key)
+   static var verifier_homescreen_pager_description_2: String { return UBLocalized.tr(Key.verifier_homescreen_pager_description_2) }
   /// Prüfen
-   static let verifier_homescreen_scan_button = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_scan_button_key)
+   static var verifier_homescreen_scan_button: String { return UBLocalized.tr(Key.verifier_homescreen_scan_button) }
   /// Prüfen ({MODE})
-   static let verifier_homescreen_scan_button_with_mode = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_scan_button_with_mode_key)
+   static var verifier_homescreen_scan_button_with_mode: String { return UBLocalized.tr(Key.verifier_homescreen_scan_button_with_mode) }
   /// So funktioniert's
-   static let verifier_homescreen_support_button = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_support_button_key)
+   static var verifier_homescreen_support_button: String { return UBLocalized.tr(Key.verifier_homescreen_support_button) }
   /// Check
-   static let verifier_homescreen_title = UBLocalized.tr(UBLocalizedKey.verifier_homescreen_title_key)
+   static var verifier_homescreen_title: String { return UBLocalized.tr(Key.verifier_homescreen_title) }
   /// Prüfmodus
-   static let verifier_mode_title = UBLocalized.tr(UBLocalizedKey.verifier_mode_title_key)
+   static var verifier_mode_title: String { return UBLocalized.tr(Key.verifier_mode_title) }
   /// Ein unerwarteter Fehler ist aufgetreten.
-   static let verifier_network_error_text = UBLocalized.tr(UBLocalizedKey.verifier_network_error_text_key)
+   static var verifier_network_error_text: String { return UBLocalized.tr(Key.verifier_network_error_text) }
   /// Prüfung fehlgeschlagen
-   static let verifier_network_error_title = UBLocalized.tr(UBLocalizedKey.verifier_network_error_title_key)
+   static var verifier_network_error_title: String { return UBLocalized.tr(Key.verifier_network_error_title) }
   /// Eine Internetverbindung wird benötigt, um die Prüflisten zu aktualisieren
-   static let verifier_offline_error_text = UBLocalized.tr(UBLocalizedKey.verifier_offline_error_text_key)
+   static var verifier_offline_error_text: String { return UBLocalized.tr(Key.verifier_offline_error_text) }
   /// Offline-Prüfung nicht möglich
-   static let verifier_offline_error_title = UBLocalized.tr(UBLocalizedKey.verifier_offline_error_title_key)
+   static var verifier_offline_error_title: String { return UBLocalized.tr(Key.verifier_offline_error_title) }
   /// Externer Hardwarescanner erkannt
-   static let verifier_qr_scanner_external_hardware_detected = UBLocalized.tr(UBLocalizedKey.verifier_qr_scanner_external_hardware_detected_key)
+   static var verifier_qr_scanner_external_hardware_detected: String { return UBLocalized.tr(Key.verifier_qr_scanner_external_hardware_detected) }
   /// QR-Code scannen\nzum Prüfen
-   static let verifier_qr_scanner_scan_qr_text = UBLocalized.tr(UBLocalizedKey.verifier_qr_scanner_scan_qr_text_key)
+   static var verifier_qr_scanner_scan_qr_text: String { return UBLocalized.tr(Key.verifier_qr_scanner_scan_qr_text) }
   /// Das Gerät befindet sich im Flugmodus.
-   static let verifier_retry_flightmode_error = UBLocalized.tr(UBLocalizedKey.verifier_retry_flightmode_error_key)
+   static var verifier_retry_flightmode_error: String { return UBLocalized.tr(Key.verifier_retry_flightmode_error) }
   /// Ein Netzwerkfehler ist aufgetreten.
-   static let verifier_retry_network_error = UBLocalized.tr(UBLocalizedKey.verifier_retry_network_error_key)
+   static var verifier_retry_network_error: String { return UBLocalized.tr(Key.verifier_retry_network_error) }
   /// So funktioniert's
-   static let verifier_support_header = UBLocalized.tr(UBLocalizedKey.verifier_support_header_key)
+   static var verifier_support_header: String { return UBLocalized.tr(Key.verifier_support_header) }
   /// https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-check-app.html
-   static let verifier_terms_privacy_link = UBLocalized.tr(UBLocalizedKey.verifier_terms_privacy_link_key)
+   static var verifier_terms_privacy_link: String { return UBLocalized.tr(Key.verifier_terms_privacy_link) }
   /// Prüfen
-   static let verifier_title_qr_scan = UBLocalized.tr(UBLocalizedKey.verifier_title_qr_scan_key)
+   static var verifier_title_qr_scan: String { return UBLocalized.tr(Key.verifier_title_qr_scan) }
   /// Mit diesem Update können Sie in der App auch die Zertifikatskopie ohne Gesundheitsdaten prüfen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.
-   static let verifier_update_boarding_certificate_light_text = UBLocalized.tr(UBLocalizedKey.verifier_update_boarding_certificate_light_text_key)
+   static var verifier_update_boarding_certificate_light_text: String { return UBLocalized.tr(Key.verifier_update_boarding_certificate_light_text) }
   /// Zertifikat Light
-   static let verifier_update_boarding_certificate_light_title = UBLocalized.tr(UBLocalizedKey.verifier_update_boarding_certificate_light_title_key)
+   static var verifier_update_boarding_certificate_light_title: String { return UBLocalized.tr(Key.verifier_update_boarding_certificate_light_title) }
   /// Update
-   static let verifier_update_boarding_header = UBLocalized.tr(UBLocalizedKey.verifier_update_boarding_header_key)
+   static var verifier_update_boarding_header: String { return UBLocalized.tr(Key.verifier_update_boarding_header) }
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDie Gültigkeit des Zertifikat ist abgelaufen.
-   static let verifier_verifiy_error_expired = UBLocalized.tr(UBLocalizedKey.verifier_verifiy_error_expired_key)
+   static var verifier_verifiy_error_expired: String { return UBLocalized.tr(Key.verifier_verifiy_error_expired) }
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz.\n\nDas Zertifikat ist noch nicht gültig.
-   static let verifier_verifiy_error_notyetvalid = UBLocalized.tr(UBLocalizedKey.verifier_verifiy_error_notyetvalid_key)
+   static var verifier_verifiy_error_notyetvalid: String { return UBLocalized.tr(Key.verifier_verifiy_error_notyetvalid) }
   /// Das Covid-Zertifikat wurde widerrufen
-   static let verifier_verify_error_info_for_blacklist = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_info_for_blacklist_key)
+   static var verifier_verify_error_info_for_blacklist: String { return UBLocalized.tr(Key.verifier_verify_error_info_for_blacklist) }
   /// Das Covid-Zertifikat hat keine gültige Signatur
-   static let verifier_verify_error_info_for_certificate_invalid = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_info_for_certificate_invalid_key)
+   static var verifier_verify_error_info_for_certificate_invalid: String { return UBLocalized.tr(Key.verifier_verify_error_info_for_certificate_invalid) }
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz oder des Prüfmodus ({MODUS})
-   static let verifier_verify_error_info_for_national_rules = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_info_for_national_rules_key)
+   static var verifier_verify_error_info_for_national_rules: String { return UBLocalized.tr(Key.verifier_verify_error_info_for_national_rules) }
   /// Ein unerwarteter Fehler ist aufgetreten.
-   static let verifier_verify_error_list_info_text = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_list_info_text_key)
+   static var verifier_verify_error_list_info_text: String { return UBLocalized.tr(Key.verifier_verify_error_list_info_text) }
   /// Prüfung fehlgeschlagen
-   static let verifier_verify_error_list_title = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_list_title_key)
+   static var verifier_verify_error_list_title: String { return UBLocalized.tr(Key.verifier_verify_error_list_title) }
   /// Covid-Zertifikat ungültig
-   static let verifier_verify_error_title = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_title_key)
+   static var verifier_verify_error_title: String { return UBLocalized.tr(Key.verifier_verify_error_title) }
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz.
-   static let verifier_verify_error_validity_range_bold = UBLocalized.tr(UBLocalizedKey.verifier_verify_error_validity_range_bold_key)
+   static var verifier_verify_error_validity_range_bold: String { return UBLocalized.tr(Key.verifier_verify_error_validity_range_bold) }
   /// Die Prüfung kann in diesem Fall nur erfolgen, wenn die Umwandlung in ein Zertifikat Light rückgängig gemacht wird.
-   static let verifier_verify_light_not_supported_by_mode_text = UBLocalized.tr(UBLocalizedKey.verifier_verify_light_not_supported_by_mode_text_key)
+   static var verifier_verify_light_not_supported_by_mode_text: String { return UBLocalized.tr(Key.verifier_verify_light_not_supported_by_mode_text) }
   /// Beim zu prüfenden Covid-Zertifikat handelt es sich um ein Zertifikat Light. Dies kann im {MODUS}-Prüfmodus nicht geprüft werden.
-   static let verifier_verify_light_not_supported_by_mode_title = UBLocalized.tr(UBLocalizedKey.verifier_verify_light_not_supported_by_mode_title_key)
+   static var verifier_verify_light_not_supported_by_mode_title: String { return UBLocalized.tr(Key.verifier_verify_light_not_supported_by_mode_title) }
   /// Zertifikat wird geprüft
-   static let verifier_verify_loading_text = UBLocalized.tr(UBLocalizedKey.verifier_verify_loading_text_key)
+   static var verifier_verify_loading_text: String { return UBLocalized.tr(Key.verifier_verify_loading_text) }
   /// Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig
-   static let verifier_verify_success_certificate_light_info = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_certificate_light_info_key)
+   static var verifier_verify_success_certificate_light_info: String { return UBLocalized.tr(Key.verifier_verify_success_certificate_light_info) }
   /// Nur mit einem \nAusweisdokument gültig
-   static let verifier_verify_success_info = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_key)
+   static var verifier_verify_success_info: String { return UBLocalized.tr(Key.verifier_verify_success_info) }
   /// Nicht widerrufen
-   static let verifier_verify_success_info_for_blacklist = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_for_blacklist_key)
+   static var verifier_verify_success_info_for_blacklist: String { return UBLocalized.tr(Key.verifier_verify_success_info_for_blacklist) }
   /// Signatur gültig
-   static let verifier_verify_success_info_for_certificate_valid = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_info_for_certificate_valid_key)
+   static var verifier_verify_success_info_for_certificate_valid: String { return UBLocalized.tr(Key.verifier_verify_success_info_for_certificate_valid) }
   /// Prüfung erfolgreich
-   static let verifier_verify_success_title = UBLocalized.tr(UBLocalizedKey.verifier_verify_success_title_key)
+   static var verifier_verify_success_title: String { return UBLocalized.tr(Key.verifier_verify_success_title) }
   /// Noch {TIMESPAN} gültig
-   static let wallet_accessibility_light_certificate_expiration_timer = UBLocalized.tr(UBLocalizedKey.wallet_accessibility_light_certificate_expiration_timer_key)
+   static var wallet_accessibility_light_certificate_expiration_timer: String { return UBLocalized.tr(Key.wallet_accessibility_light_certificate_expiration_timer) }
   /// Hinzufügen
-   static let wallet_add_certificate = UBLocalized.tr(UBLocalizedKey.wallet_add_certificate_key)
+   static var wallet_add_certificate: String { return UBLocalized.tr(Key.wallet_add_certificate) }
   /// Hinzufügen
-   static let wallet_add_certificate_button = UBLocalized.tr(UBLocalizedKey.wallet_add_certificate_button_key)
+   static var wallet_add_certificate_button: String { return UBLocalized.tr(Key.wallet_add_certificate_button) }
   /// market://details?id=ch.admin.bag.covidcertificate.wallet
-   static let wallet_android_app_google_play_store_url = UBLocalized.tr(UBLocalizedKey.wallet_android_app_google_play_store_url_key)
+   static var wallet_android_app_google_play_store_url: String { return UBLocalized.tr(Key.wallet_android_app_google_play_store_url) }
   /// Covid Cert
-   static let wallet_app_name = UBLocalized.tr(UBLocalizedKey.wallet_app_name_key)
+   static var wallet_app_name: String { return UBLocalized.tr(Key.wallet_app_name) }
   /// http://itunes.apple.com/app/id1565917320
-   static let wallet_apple_app_store_url = UBLocalized.tr(UBLocalizedKey.wallet_apple_app_store_url_key)
+   static var wallet_apple_app_store_url: String { return UBLocalized.tr(Key.wallet_apple_app_store_url) }
   /// Covid-Zertifikat
-   static let wallet_certificate = UBLocalized.tr(UBLocalizedKey.wallet_certificate_key)
+   static var wallet_certificate: String { return UBLocalized.tr(Key.wallet_certificate) }
   /// Dieses Zertifikat ist bereits in der App gespeichert
-   static let wallet_certificate_already_exists = UBLocalized.tr(UBLocalizedKey.wallet_certificate_already_exists_key)
+   static var wallet_certificate_already_exists: String { return UBLocalized.tr(Key.wallet_certificate_already_exists) }
   /// Datum des ersten positiven Resultats
-   static let wallet_certificate_antigen_positive_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_antigen_positive_date_key)
+   static var wallet_certificate_antigen_positive_date: String { return UBLocalized.tr(Key.wallet_certificate_antigen_positive_date) }
   /// Medizinisches Attest ausgestellt in
-   static let wallet_certificate_ausnahme_issued_country = UBLocalized.tr(UBLocalizedKey.wallet_certificate_ausnahme_issued_country_key)
+   static var wallet_certificate_ausnahme_issued_country: String { return UBLocalized.tr(Key.wallet_certificate_ausnahme_issued_country) }
   /// Für die Ausstellung verantwortliche Stelle
-   static let wallet_certificate_ausnahme_responsible_issuer = UBLocalized.tr(UBLocalizedKey.wallet_certificate_ausnahme_responsible_issuer_key)
+   static var wallet_certificate_ausnahme_responsible_issuer: String { return UBLocalized.tr(Key.wallet_certificate_ausnahme_responsible_issuer) }
   /// Beginn der Gültigkeit
-   static let wallet_certificate_ausnahme_test_attest_start_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_ausnahme_test_attest_start_date_key)
+   static var wallet_certificate_ausnahme_test_attest_start_date: String { return UBLocalized.tr(Key.wallet_certificate_ausnahme_test_attest_start_date) }
   /// Zertifikat erstellt am\n{DATE}
-   static let wallet_certificate_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_date_key)
+   static var wallet_certificate_date: String { return UBLocalized.tr(Key.wallet_certificate_date) }
   /// Wollen Sie das Zertifikat wirklich löschen?
-   static let wallet_certificate_delete_confirm_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_delete_confirm_text_key)
+   static var wallet_certificate_delete_confirm_text: String { return UBLocalized.tr(Key.wallet_certificate_delete_confirm_text) }
   /// Zertifikat Light
-   static let wallet_certificate_detail_certificate_light_button = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_certificate_light_button_key)
+   static var wallet_certificate_detail_certificate_light_button: String { return UBLocalized.tr(Key.wallet_certificate_detail_certificate_light_button) }
   /// Date format used: dd.mm.yyyy
-   static let wallet_certificate_detail_date_format_info = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_date_format_info_key)
+   static var wallet_certificate_detail_date_format_info: String { return UBLocalized.tr(Key.wallet_certificate_detail_date_format_info) }
   /// Exportieren
-   static let wallet_certificate_detail_export_button = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_export_button_key)
+   static var wallet_certificate_detail_export_button: String { return UBLocalized.tr(Key.wallet_certificate_detail_export_button) }
   /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
-   static let wallet_certificate_detail_note = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_key)
+   static var wallet_certificate_detail_note: String { return UBLocalized.tr(Key.wallet_certificate_detail_note) }
   /// Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
-   static let wallet_certificate_detail_note_ausnahme = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_ausnahme_key)
+   static var wallet_certificate_detail_note_ausnahme: String { return UBLocalized.tr(Key.wallet_certificate_detail_note_ausnahme) }
   /// Dieses Zertifikat ist kein Reisedokument.\n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
-   static let wallet_certificate_detail_note_positive_antigen = UBLocalized.tr(UBLocalizedKey.wallet_certificate_detail_note_positive_antigen_key)
+   static var wallet_certificate_detail_note_positive_antigen: String { return UBLocalized.tr(Key.wallet_certificate_detail_note_positive_antigen) }
   /// Nachweis erstellt am\n{DATE}
-   static let wallet_certificate_evidence_creation_date = UBLocalized.tr(UBLocalizedKey.wallet_certificate_evidence_creation_date_key)
+   static var wallet_certificate_evidence_creation_date: String { return UBLocalized.tr(Key.wallet_certificate_evidence_creation_date) }
   /// Nachweis
-   static let wallet_certificate_evidence_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_evidence_title_key)
+   static var wallet_certificate_evidence_title: String { return UBLocalized.tr(Key.wallet_certificate_evidence_title) }
   /// Exportieren
-   static let wallet_certificate_export_button = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_button_key)
+   static var wallet_certificate_export_button: String { return UBLocalized.tr(Key.wallet_certificate_export_button) }
   /// PDF konnte nicht\nerstellt werden
-   static let wallet_certificate_export_detail_error_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_error_title_key)
+   static var wallet_certificate_export_detail_error_title: String { return UBLocalized.tr(Key.wallet_certificate_export_detail_error_title) }
   /// Exportieren
-   static let wallet_certificate_export_detail_export_button = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_export_button_key)
+   static var wallet_certificate_export_detail_export_button: String { return UBLocalized.tr(Key.wallet_certificate_export_detail_export_button) }
   /// Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.
-   static let wallet_certificate_export_detail_general_error_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_general_error_text_key)
+   static var wallet_certificate_export_detail_general_error_text: String { return UBLocalized.tr(Key.wallet_certificate_export_detail_general_error_text) }
   /// Ein unerwarteter Fehler ist aufgetreten.
-   static let wallet_certificate_export_detail_general_error_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_general_error_title_key)
+   static var wallet_certificate_export_detail_general_error_title: String { return UBLocalized.tr(Key.wallet_certificate_export_detail_general_error_title) }
   /// Um das PDF erstellen zu können, muss die App online sein.
-   static let wallet_certificate_export_detail_network_error_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_network_error_text_key)
+   static var wallet_certificate_export_detail_network_error_text: String { return UBLocalized.tr(Key.wallet_certificate_export_detail_network_error_text) }
   /// Keine Verbindung zum Internet
-   static let wallet_certificate_export_detail_network_error_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_network_error_title_key)
+   static var wallet_certificate_export_detail_network_error_title: String { return UBLocalized.tr(Key.wallet_certificate_export_detail_network_error_title) }
   /// Aus den Daten Ihres Covid-Zertifikats wird ein PDF erstellt, das Sie drucken oder teilen können.
-   static let wallet_certificate_export_detail_summary_1 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_summary_1_key)
+   static var wallet_certificate_export_detail_summary_1: String { return UBLocalized.tr(Key.wallet_certificate_export_detail_summary_1) }
   /// Die Erstellung des PDF-Dokuments erfolgt online.
-   static let wallet_certificate_export_detail_summary_2 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_summary_2_key)
+   static var wallet_certificate_export_detail_summary_2: String { return UBLocalized.tr(Key.wallet_certificate_export_detail_summary_2) }
   /// Exportieren
-   static let wallet_certificate_export_detail_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_detail_title_key)
+   static var wallet_certificate_export_detail_title: String { return UBLocalized.tr(Key.wallet_certificate_export_detail_title) }
   /// Aus den Daten Ihres Covid-Zertifikats wird ein PDF erstellt, das Sie drucken oder teilen können.
-   static let wallet_certificate_export_summary_1 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_summary_1_key)
+   static var wallet_certificate_export_summary_1: String { return UBLocalized.tr(Key.wallet_certificate_export_summary_1) }
   /// Die Erstellung des PDF-Dokuments erfolgt online.
-   static let wallet_certificate_export_summary_2 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_summary_2_key)
+   static var wallet_certificate_export_summary_2: String { return UBLocalized.tr(Key.wallet_certificate_export_summary_2) }
   /// Covid-Zertifikat exportieren
-   static let wallet_certificate_export_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_export_title_key)
+   static var wallet_certificate_export_title: String { return UBLocalized.tr(Key.wallet_certificate_export_title) }
   /// UVCI
-   static let wallet_certificate_identifier = UBLocalized.tr(UBLocalizedKey.wallet_certificate_identifier_key)
+   static var wallet_certificate_identifier: String { return UBLocalized.tr(Key.wallet_certificate_identifier) }
   /// Impfdosis
-   static let wallet_certificate_impfdosis_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_impfdosis_title_key)
+   static var wallet_certificate_impfdosis_title: String { return UBLocalized.tr(Key.wallet_certificate_impfdosis_title) }
   /// Hersteller
-   static let wallet_certificate_impfstoff_holder = UBLocalized.tr(UBLocalizedKey.wallet_certificate_impfstoff_holder_key)
+   static var wallet_certificate_impfstoff_holder: String { return UBLocalized.tr(Key.wallet_certificate_impfstoff_holder) }
   /// Produkt
-   static let wallet_certificate_impfstoff_product_name_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_impfstoff_product_name_title_key)
+   static var wallet_certificate_impfstoff_product_name_title: String { return UBLocalized.tr(Key.wallet_certificate_impfstoff_product_name_title) }
   /// Aktivieren
-   static let wallet_certificate_light_detail_activate_button = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_activate_button_key)
+   static var wallet_certificate_light_detail_activate_button: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_activate_button) }
   /// Zertifikat Light\nkonnte nicht aktiviert werden
-   static let wallet_certificate_light_detail_activation_error = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_activation_error_key)
+   static var wallet_certificate_light_detail_activation_error: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_activation_error) }
   /// Versuchen Sie es später erneut.
-   static let wallet_certificate_light_detail_activation_general_error_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_activation_general_error_text_key)
+   static var wallet_certificate_light_detail_activation_general_error_text: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_activation_general_error_text) }
   /// Ein unerwarteter Fehler ist aufgetreten.
-   static let wallet_certificate_light_detail_activation_general_error_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_activation_general_error_title_key)
+   static var wallet_certificate_light_detail_activation_general_error_title: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_activation_general_error_title) }
   /// Um das Zertifikat Light aktivieren zu können, muss die App online sein.
-   static let wallet_certificate_light_detail_activation_network_error_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_activation_network_error_text_key)
+   static var wallet_certificate_light_detail_activation_network_error_text: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_activation_network_error_text) }
   /// Keine Verbindung zum Internet
-   static let wallet_certificate_light_detail_activation_network_error_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_activation_network_error_title_key)
+   static var wallet_certificate_light_detail_activation_network_error_title: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_activation_network_error_title) }
   /// Deaktivieren
-   static let wallet_certificate_light_detail_deactivate_button = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_deactivate_button_key)
+   static var wallet_certificate_light_detail_deactivate_button: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_deactivate_button) }
   /// Kann nur innerhalb der Schweiz verwendet werden
-   static let wallet_certificate_light_detail_summary_1 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_1_key)
+   static var wallet_certificate_light_detail_summary_1: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_summary_1) }
   /// Enthält nur Namen, Vornamen, Geburtsdatum und eine elektronische Signatur
-   static let wallet_certificate_light_detail_summary_2 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_2_key)
+   static var wallet_certificate_light_detail_summary_2: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_summary_2) }
   /// Gültig für max. {LIGHT_CERT_VALIDITY_IN_H} Stunden
-   static let wallet_certificate_light_detail_summary_3 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_3_key)
+   static var wallet_certificate_light_detail_summary_3: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_summary_3) }
   /// Die Konvertierung des Covid-Zertifikats in ein Zertifikat Light erfolgt online.
-   static let wallet_certificate_light_detail_summary_4 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_4_key)
+   static var wallet_certificate_light_detail_summary_4: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_summary_4) }
   /// Sie können das Zertifikat Light jederzeit deaktivieren, um wieder zum normalen Covid-Zertifikat zu wechseln.
-   static let wallet_certificate_light_detail_summary_5 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_5_key)
+   static var wallet_certificate_light_detail_summary_5: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_summary_5) }
   /// Zertifikat Light
-   static let wallet_certificate_light_detail_summary_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_summary_title_key)
+   static var wallet_certificate_light_detail_summary_title: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_summary_title) }
   /// Wenn Sie das Zertifikat Light aktivieren, wird aus den Daten Ihres Covid-Zertifikats ein neuer QR-Code erstellt, der keine Gesundheitsdaten enthält.
-   static let wallet_certificate_light_detail_text_1 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_1_key)
+   static var wallet_certificate_light_detail_text_1: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_text_1) }
   /// Während das normale Covid-Zertifikat im Rahmen seiner Gültigkeit ohne Einschränkungen sowohl in der Schweiz als auch in der EU/EFTA verwendet werden kann, ist der Einsatz des Zertifikats Light nur in der Schweiz möglich. Aus Datenschutzgründen muss das Zertifikat Light nach {LIGHT_CERT_VALIDITY_IN_H} Stunden erneut aktiviert werden. Es bringt keine zusätzlichen Rechte gegenüber dem normalen Covid-Zertifikat.
-   static let wallet_certificate_light_detail_text_2 = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_2_key)
+   static var wallet_certificate_light_detail_text_2: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_text_2) }
   /// nur muss keine
-   static let wallet_certificate_light_detail_text_2_bold = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_text_2_bold_key)
+   static var wallet_certificate_light_detail_text_2_bold: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_text_2_bold) }
   /// Was ist ein \nZertifikat Light?
-   static let wallet_certificate_light_detail_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_detail_title_key)
+   static var wallet_certificate_light_detail_title: String { return UBLocalized.tr(Key.wallet_certificate_light_detail_title) }
   /// Das Zertifikat Light wurde in den letzten 24h bereits zu oft aktiviert.
-   static let wallet_certificate_light_rate_limit_text = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_rate_limit_text_key)
+   static var wallet_certificate_light_rate_limit_text: String { return UBLocalized.tr(Key.wallet_certificate_light_rate_limit_text) }
   /// 24h-Limite erreicht
-   static let wallet_certificate_light_rate_limit_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_rate_limit_title_key)
+   static var wallet_certificate_light_rate_limit_title: String { return UBLocalized.tr(Key.wallet_certificate_light_rate_limit_title) }
   /// Zertifikat Light
-   static let wallet_certificate_light_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_light_title_key)
+   static var wallet_certificate_light_title: String { return UBLocalized.tr(Key.wallet_certificate_light_title) }
   /// Light
-   static let wallet_certificate_list_light_certificate_badge = UBLocalized.tr(UBLocalizedKey.wallet_certificate_list_light_certificate_badge_key)
+   static var wallet_certificate_list_light_certificate_badge: String { return UBLocalized.tr(Key.wallet_certificate_list_light_certificate_badge) }
   /// Zertifikate
-   static let wallet_certificate_list_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_list_title_key)
+   static var wallet_certificate_list_title: String { return UBLocalized.tr(Key.wallet_certificate_list_title) }
   /// Datum des ersten positiven Resultats
-   static let wallet_certificate_recovery_first_positiv_result = UBLocalized.tr(UBLocalizedKey.wallet_certificate_recovery_first_positiv_result_key)
+   static var wallet_certificate_recovery_first_positiv_result: String { return UBLocalized.tr(Key.wallet_certificate_recovery_first_positiv_result) }
   /// Gültig ab
-   static let wallet_certificate_recovery_from = UBLocalized.tr(UBLocalizedKey.wallet_certificate_recovery_from_key)
+   static var wallet_certificate_recovery_from: String { return UBLocalized.tr(Key.wallet_certificate_recovery_from) }
   /// Gültig bis
-   static let wallet_certificate_recovery_until = UBLocalized.tr(UBLocalizedKey.wallet_certificate_recovery_until_key)
+   static var wallet_certificate_recovery_until: String { return UBLocalized.tr(Key.wallet_certificate_recovery_until) }
   /// Krankheit oder Erreger
-   static let wallet_certificate_target_disease_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_target_disease_title_key)
+   static var wallet_certificate_target_disease_title: String { return UBLocalized.tr(Key.wallet_certificate_target_disease_title) }
   /// Testcenter
-   static let wallet_certificate_test_done_by = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_done_by_key)
+   static var wallet_certificate_test_done_by: String { return UBLocalized.tr(Key.wallet_certificate_test_done_by) }
   /// Hersteller
-   static let wallet_certificate_test_holder = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_holder_key)
+   static var wallet_certificate_test_holder: String { return UBLocalized.tr(Key.wallet_certificate_test_holder) }
   /// Hersteller und Name
-   static let wallet_certificate_test_holder_and_name = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_holder_and_name_key)
+   static var wallet_certificate_test_holder_and_name: String { return UBLocalized.tr(Key.wallet_certificate_test_holder_and_name) }
   /// Land des Tests
-   static let wallet_certificate_test_land = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_land_key)
+   static var wallet_certificate_test_land: String { return UBLocalized.tr(Key.wallet_certificate_test_land) }
   /// Name
-   static let wallet_certificate_test_name = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_name_key)
+   static var wallet_certificate_test_name: String { return UBLocalized.tr(Key.wallet_certificate_test_name) }
   /// Datum Resultat
-   static let wallet_certificate_test_result_date_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_result_date_title_key)
+   static var wallet_certificate_test_result_date_title: String { return UBLocalized.tr(Key.wallet_certificate_test_result_date_title) }
   /// Nicht erkannt (Negativ)
-   static let wallet_certificate_test_result_negativ = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_result_negativ_key)
+   static var wallet_certificate_test_result_negativ: String { return UBLocalized.tr(Key.wallet_certificate_test_result_negativ) }
   /// Erkannt (Positiv)
-   static let wallet_certificate_test_result_positiv = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_result_positiv_key)
+   static var wallet_certificate_test_result_positiv: String { return UBLocalized.tr(Key.wallet_certificate_test_result_positiv) }
   /// Ergebnis
-   static let wallet_certificate_test_result_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_result_title_key)
+   static var wallet_certificate_test_result_title: String { return UBLocalized.tr(Key.wallet_certificate_test_result_title) }
   /// Datum der Probenentnahme
-   static let wallet_certificate_test_sample_date_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_sample_date_title_key)
+   static var wallet_certificate_test_sample_date_title: String { return UBLocalized.tr(Key.wallet_certificate_test_sample_date_title) }
   /// Typ
-   static let wallet_certificate_test_type = UBLocalized.tr(UBLocalizedKey.wallet_certificate_test_type_key)
+   static var wallet_certificate_test_type: String { return UBLocalized.tr(Key.wallet_certificate_test_type) }
   /// Unvollständige Impfung
-   static let wallet_certificate_type_incomplete_vaccine = UBLocalized.tr(UBLocalizedKey.wallet_certificate_type_incomplete_vaccine_key)
+   static var wallet_certificate_type_incomplete_vaccine: String { return UBLocalized.tr(Key.wallet_certificate_type_incomplete_vaccine) }
   /// Land der Impfung
-   static let wallet_certificate_vaccination_country_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_vaccination_country_title_key)
+   static var wallet_certificate_vaccination_country_title: String { return UBLocalized.tr(Key.wallet_certificate_vaccination_country_title) }
   /// Impfdatum
-   static let wallet_certificate_vaccination_date_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_vaccination_date_title_key)
+   static var wallet_certificate_vaccination_date_title: String { return UBLocalized.tr(Key.wallet_certificate_vaccination_date_title) }
   /// Herausgeber
-   static let wallet_certificate_vaccination_issuer_title = UBLocalized.tr(UBLocalizedKey.wallet_certificate_vaccination_issuer_title_key)
+   static var wallet_certificate_vaccination_issuer_title: String { return UBLocalized.tr(Key.wallet_certificate_vaccination_issuer_title) }
   /// Art des Impfstoffs
-   static let wallet_certificate_vaccine_prophylaxis = UBLocalized.tr(UBLocalizedKey.wallet_certificate_vaccine_prophylaxis_key)
+   static var wallet_certificate_vaccine_prophylaxis: String { return UBLocalized.tr(Key.wallet_certificate_vaccine_prophylaxis) }
   /// In der Schweiz gültig ab:\n{DATE}
-   static let wallet_certificate_valid_from = UBLocalized.tr(UBLocalizedKey.wallet_certificate_valid_from_key)
+   static var wallet_certificate_valid_from: String { return UBLocalized.tr(Key.wallet_certificate_valid_from) }
   /// bis
-   static let wallet_certificate_valid_until = UBLocalized.tr(UBLocalizedKey.wallet_certificate_valid_until_key)
+   static var wallet_certificate_valid_until: String { return UBLocalized.tr(Key.wallet_certificate_valid_until) }
   /// Gültigkeit in der\nSchweiz
-   static let wallet_certificate_validity = UBLocalized.tr(UBLocalizedKey.wallet_certificate_validity_key)
+   static var wallet_certificate_validity: String { return UBLocalized.tr(Key.wallet_certificate_validity) }
   /// Prüfung erfolgreich
-   static let wallet_certificate_verify_success = UBLocalized.tr(UBLocalizedKey.wallet_certificate_verify_success_key)
+   static var wallet_certificate_verify_success: String { return UBLocalized.tr(Key.wallet_certificate_verify_success) }
   /// Das Zertifikat wird geprüft
-   static let wallet_certificate_verifying = UBLocalized.tr(UBLocalizedKey.wallet_certificate_verifying_key)
+   static var wallet_certificate_verifying: String { return UBLocalized.tr(Key.wallet_certificate_verifying) }
   /// Kein Zutritt.
-   static let wallet_check_mode_info_2g_not_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_not_ok_text_key)
+   static var wallet_check_mode_info_2g_not_ok_text: String { return UBLocalized.tr(Key.wallet_check_mode_info_2g_not_ok_text) }
   /// Zutritt zu Betrieben und Veranstaltungen für geimpfte oder genesene Personen.
-   static let wallet_check_mode_info_2g_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_ok_text_key)
+   static var wallet_check_mode_info_2g_ok_text: String { return UBLocalized.tr(Key.wallet_check_mode_info_2g_ok_text) }
   /// Für den Zutritt zu Betrieben und Veranstaltungen wird zusätzlich zum Covid-Zertifikat für geimpfte oder genesene Personen ein negatives Testresultat benötigt.
-   static let wallet_check_mode_info_2g_plus_not_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_plus_not_ok_text_key)
+   static var wallet_check_mode_info_2g_plus_not_ok_text: String { return UBLocalized.tr(Key.wallet_check_mode_info_2g_plus_not_ok_text) }
   /// Zutritt zu Betrieben und Veranstaltungen für Personen, deren vollständige Impfung, Auffrischimpfung oder Genesung (basierend auf PCR-Test) nicht länger als 120 Tage zurückliegt. Sie benötigen kein zusätzliches Testzertifikat.
-   static let wallet_check_mode_info_2g_plus_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_2g_plus_ok_text_key)
+   static var wallet_check_mode_info_2g_plus_ok_text: String { return UBLocalized.tr(Key.wallet_check_mode_info_2g_plus_ok_text) }
   /// Kein Zutritt.
-   static let wallet_check_mode_info_3g_not_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_3g_not_ok_text_key)
+   static var wallet_check_mode_info_3g_not_ok_text: String { return UBLocalized.tr(Key.wallet_check_mode_info_3g_not_ok_text) }
   /// Zutritt zu Betrieben und Veranstaltungen für geimpfte, genesene oder negativ getestete Personen.
-   static let wallet_check_mode_info_3g_ok_text = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_3g_ok_text_key)
+   static var wallet_check_mode_info_3g_ok_text: String { return UBLocalized.tr(Key.wallet_check_mode_info_3g_ok_text) }
   /// Info
-   static let wallet_check_mode_info_title = UBLocalized.tr(UBLocalizedKey.wallet_check_mode_info_title_key)
+   static var wallet_check_mode_info_title: String { return UBLocalized.tr(Key.wallet_check_mode_info_title) }
   /// Versuchen Sie es später erneut.
-   static let wallet_detail_network_error_text = UBLocalized.tr(UBLocalizedKey.wallet_detail_network_error_text_key)
+   static var wallet_detail_network_error_text: String { return UBLocalized.tr(Key.wallet_detail_network_error_text) }
   /// Prüfung zur Zeit nicht möglich
-   static let wallet_detail_network_error_title = UBLocalized.tr(UBLocalizedKey.wallet_detail_network_error_title_key)
+   static var wallet_detail_network_error_title: String { return UBLocalized.tr(Key.wallet_detail_network_error_title) }
   /// Prüfung offline nicht möglich
-   static let wallet_detail_offline_retry_title = UBLocalized.tr(UBLocalizedKey.wallet_detail_offline_retry_title_key)
+   static var wallet_detail_offline_retry_title: String { return UBLocalized.tr(Key.wallet_detail_offline_retry_title) }
   /// Mehr erfahren
-   static let wallet_eol_banner_invalid_from_first_february_detail_more_info = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_detail_more_info_key)
+   static var wallet_eol_banner_invalid_from_first_february_detail_more_info: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_from_first_february_detail_more_info) }
   /// Dieses Zertifikat wird bald ablaufen.
-   static let wallet_eol_banner_invalid_from_first_february_detail_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_detail_text_key)
+   static var wallet_eol_banner_invalid_from_first_february_detail_text: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_from_first_february_detail_text) }
   /// Verkürzte Gültigkeitsdauer
-   static let wallet_eol_banner_invalid_from_first_february_detail_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_detail_title_key)
+   static var wallet_eol_banner_invalid_from_first_february_detail_title: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_from_first_february_detail_title) }
   /// Verkürzte Gültigkeitsdauer
-   static let wallet_eol_banner_invalid_from_first_february_homescreen_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_homescreen_title_key)
+   static var wallet_eol_banner_invalid_from_first_february_homescreen_title: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_from_first_february_homescreen_title) }
   /// Dieses Covid-Zertifikat kann ab dem 31. Jan. 2022 nicht mehr verwendet werden, da die Gültigkeitsdauer dann bereits abgelaufen sein wird.
-   static let wallet_eol_banner_invalid_from_first_february_popup_bold_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_popup_bold_text_key)
+   static var wallet_eol_banner_invalid_from_first_february_popup_bold_text: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_from_first_february_popup_bold_text) }
   /// Mehr erfahren
-   static let wallet_eol_banner_invalid_from_first_february_popup_link_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_popup_link_text_key)
+   static var wallet_eol_banner_invalid_from_first_february_popup_link_text: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_from_first_february_popup_link_text) }
   /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine
-   static let wallet_eol_banner_invalid_from_first_february_popup_link_url = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_popup_link_url_key)
+   static var wallet_eol_banner_invalid_from_first_february_popup_link_url: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_from_first_february_popup_link_url) }
   /// Per 31. Jan. 2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:
-   static let wallet_eol_banner_invalid_from_first_february_popup_text1 = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_popup_text1_key)
+   static var wallet_eol_banner_invalid_from_first_february_popup_text1: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_from_first_february_popup_text1) }
   /// Info
-   static let wallet_eol_banner_invalid_from_first_february_popup_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_from_first_february_popup_title_key)
+   static var wallet_eol_banner_invalid_from_first_february_popup_title: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_from_first_february_popup_title) }
   /// Mehr erfahren?
-   static let wallet_eol_banner_invalid_in_three_weeks_detail_more_info = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_detail_more_info_key)
+   static var wallet_eol_banner_invalid_in_three_weeks_detail_more_info: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_detail_more_info) }
   /// Dieses Zertifikat läuft bald ab.
-   static let wallet_eol_banner_invalid_in_three_weeks_detail_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_detail_text_key)
+   static var wallet_eol_banner_invalid_in_three_weeks_detail_text: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_detail_text) }
   /// Info
-   static let wallet_eol_banner_invalid_in_three_weeks_detail_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_detail_title_key)
+   static var wallet_eol_banner_invalid_in_three_weeks_detail_title: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_detail_title) }
   /// Bald abgelaufen
-   static let wallet_eol_banner_invalid_in_three_weeks_homescreen_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_homescreen_title_key)
+   static var wallet_eol_banner_invalid_in_three_weeks_homescreen_title: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_homescreen_title) }
   /// Dieses Covid-Zertifikat ist nur noch wenige Tage gültig. Bitte beachten Sie das auf dem Zertifikat ausgewiesene Ablaufdatum.
-   static let wallet_eol_banner_invalid_in_three_weeks_popup_bold_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_bold_text_key)
+   static var wallet_eol_banner_invalid_in_three_weeks_popup_bold_text: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_popup_bold_text) }
   /// Und nun?
-   static let wallet_eol_banner_invalid_in_three_weeks_popup_link_text = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_link_text_key)
+   static var wallet_eol_banner_invalid_in_three_weeks_popup_link_text: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_popup_link_text) }
   /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald
-   static let wallet_eol_banner_invalid_in_three_weeks_popup_link_url = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_link_url_key)
+   static var wallet_eol_banner_invalid_in_three_weeks_popup_link_url: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_popup_link_url) }
   /// 
-   static let wallet_eol_banner_invalid_in_three_weeks_popup_text1 = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_text1_key)
+   static var wallet_eol_banner_invalid_in_three_weeks_popup_text1: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_popup_text1) }
   /// 
-   static let wallet_eol_banner_invalid_in_three_weeks_popup_text2 = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_text2_key)
+   static var wallet_eol_banner_invalid_in_three_weeks_popup_text2: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_popup_text2) }
   /// Info
-   static let wallet_eol_banner_invalid_in_three_weeks_popup_title = UBLocalized.tr(UBLocalizedKey.wallet_eol_banner_invalid_in_three_weeks_popup_title_key)
+   static var wallet_eol_banner_invalid_in_three_weeks_popup_title: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_popup_title) }
   /// Gültigkeit des Zertifikats\nabgelaufen
-   static let wallet_error_expired = UBLocalized.tr(UBLocalizedKey.wallet_error_expired_key)
+   static var wallet_error_expired: String { return UBLocalized.tr(Key.wallet_error_expired) }
   /// abgelaufen
-   static let wallet_error_expired_bold = UBLocalized.tr(UBLocalizedKey.wallet_error_expired_bold_key)
+   static var wallet_error_expired_bold: String { return UBLocalized.tr(Key.wallet_error_expired_bold) }
   /// Format des Zertifikat\nungültig
-   static let wallet_error_invalid_format = UBLocalized.tr(UBLocalizedKey.wallet_error_invalid_format_key)
+   static var wallet_error_invalid_format: String { return UBLocalized.tr(Key.wallet_error_invalid_format) }
   /// ungültig
-   static let wallet_error_invalid_format_bold = UBLocalized.tr(UBLocalizedKey.wallet_error_invalid_format_bold_key)
+   static var wallet_error_invalid_format_bold: String { return UBLocalized.tr(Key.wallet_error_invalid_format_bold) }
   /// Zertifikat mit\nungültiger Signatur
-   static let wallet_error_invalid_signature = UBLocalized.tr(UBLocalizedKey.wallet_error_invalid_signature_key)
+   static var wallet_error_invalid_signature: String { return UBLocalized.tr(Key.wallet_error_invalid_signature) }
   /// ungültiger Signatur
-   static let wallet_error_invalid_signature_bold = UBLocalized.tr(UBLocalizedKey.wallet_error_invalid_signature_bold_key)
+   static var wallet_error_invalid_signature_bold: String { return UBLocalized.tr(Key.wallet_error_invalid_signature_bold) }
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz
-   static let wallet_error_national_rules = UBLocalized.tr(UBLocalizedKey.wallet_error_national_rules_key)
+   static var wallet_error_national_rules: String { return UBLocalized.tr(Key.wallet_error_national_rules) }
   /// Zertifikat wurde\nwiderrufen
-   static let wallet_error_revocation = UBLocalized.tr(UBLocalizedKey.wallet_error_revocation_key)
+   static var wallet_error_revocation: String { return UBLocalized.tr(Key.wallet_error_revocation) }
   /// widerrufen
-   static let wallet_error_revocation_bold = UBLocalized.tr(UBLocalizedKey.wallet_error_revocation_bold_key)
+   static var wallet_error_revocation_bold: String { return UBLocalized.tr(Key.wallet_error_revocation_bold) }
   /// In der Schweiz gültig ab:\n{DATE}
-   static let wallet_error_valid_from = UBLocalized.tr(UBLocalizedKey.wallet_error_valid_from_key)
+   static var wallet_error_valid_from: String { return UBLocalized.tr(Key.wallet_error_valid_from) }
   /// Häufige Fragen
-   static let wallet_faq_header = UBLocalized.tr(UBLocalizedKey.wallet_faq_header_key)
+   static var wallet_faq_header: String { return UBLocalized.tr(Key.wallet_faq_header) }
   /// Ein Covid-Zertifikat können Sie nach einer vollständigen Covid-19-Impfung, nach einer durchgemachten Erkrankung oder nach einem negativen Testergebnis erhalten. Das Zertifikat stellt Ihnen in der Regel das Gesundheitsfachpersonal vor Ort auf Anfrage aus.
-   static let wallet_faq_questions_answer_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_1_key)
+   static var wallet_faq_questions_answer_1: String { return UBLocalized.tr(Key.wallet_faq_questions_answer_1) }
   /// Von Covid-19 genesene Personen können das Covid-Zertifikat über ein Online-Formular auf der Webseite des Kantons beantragen. Das Covid-Zertifikat wird anschliessend per Post zugeschickt.
-   static let wallet_faq_questions_answer_1_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_1_1_key)
+   static var wallet_faq_questions_answer_1_1: String { return UBLocalized.tr(Key.wallet_faq_questions_answer_1_1) }
   /// Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass Sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.
-   static let wallet_faq_questions_answer_2 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_2_key)
+   static var wallet_faq_questions_answer_2: String { return UBLocalized.tr(Key.wallet_faq_questions_answer_2) }
   /// Die Gültigkeitsdauer unterscheidet sich je nachdem, ob Sie eine Covid-19-Impfung, eine durchgemachte Erkrankung oder ein negatives Testergebnis haben. Aufgrund neuer wissenschaftlicher Erkenntnisse kann sich die Gültigkeitsdauer verändern. Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:
-   static let wallet_faq_questions_answer_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_2_1_key)
+   static var wallet_faq_questions_answer_2_1: String { return UBLocalized.tr(Key.wallet_faq_questions_answer_2_1) }
   /// Ihre Daten werden nicht in einem zentralen System gespeichert, sondern nur lokal auf Ihrem Mobilgerät, respektive im QR-Code auf dem Covid-Zertifikat in Papierform.
-   static let wallet_faq_questions_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_3_key)
+   static var wallet_faq_questions_answer_3: String { return UBLocalized.tr(Key.wallet_faq_questions_answer_3) }
   /// Der QR-Code auf dem Covid-Zertifikat enthält eine elektronische Signatur. Die Signatur ist ein wichtiges Sicherheitsmerkmal und macht das Covid-Zertifikat fälschungssicher. Das Covid-Zertifikat ist zudem nur in Kombination mit einem Ausweisdokument gültig.
-   static let wallet_faq_questions_answer_4 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_4_key)
+   static var wallet_faq_questions_answer_4: String { return UBLocalized.tr(Key.wallet_faq_questions_answer_4) }
   /// Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier und/oder als PDF deshalb sorgfältig auf. Bei Verlust und Bedarf nach einem Ersatz kann eine Gebühr erhoben werden.
-   static let wallet_faq_questions_answer_5 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_5_key)
+   static var wallet_faq_questions_answer_5: String { return UBLocalized.tr(Key.wallet_faq_questions_answer_5) }
   /// Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von {LIGHT_CERT_VALIDITY_IN_H} Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der {LIGHT_CERT_VALIDITY_IN_H} Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.
-   static let wallet_faq_questions_answer_6 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_answer_6_key)
+   static var wallet_faq_questions_answer_6: String { return UBLocalized.tr(Key.wallet_faq_questions_answer_6) }
   /// Weitere Informationen
-   static let wallet_faq_questions_linktext_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_linktext_2_1_key)
+   static var wallet_faq_questions_linktext_2_1: String { return UBLocalized.tr(Key.wallet_faq_questions_linktext_2_1) }
   /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/#contents2
-   static let wallet_faq_questions_linkurl_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_linkurl_2_1_key)
+   static var wallet_faq_questions_linkurl_2_1: String { return UBLocalized.tr(Key.wallet_faq_questions_linkurl_2_1) }
   /// Wann und wo kann ich ein Covid-Zertifikat erhalten?
-   static let wallet_faq_questions_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_1_key)
+   static var wallet_faq_questions_question_1: String { return UBLocalized.tr(Key.wallet_faq_questions_question_1) }
   /// Wie erhalte ich nach einer durchgemachten Covid-19-Erkrankung ein Covid-Zertifikat?
-   static let wallet_faq_questions_question_1_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_1_1_key)
+   static var wallet_faq_questions_question_1_1: String { return UBLocalized.tr(Key.wallet_faq_questions_question_1_1) }
   /// Wie kann ich ein Covid-Zertifikat vorweisen?
-   static let wallet_faq_questions_question_2 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_2_key)
+   static var wallet_faq_questions_question_2: String { return UBLocalized.tr(Key.wallet_faq_questions_question_2) }
   /// Wie lange ist das Covid-Zertifikat gültig?
-   static let wallet_faq_questions_question_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_2_1_key)
+   static var wallet_faq_questions_question_2_1: String { return UBLocalized.tr(Key.wallet_faq_questions_question_2_1) }
   /// Wo sind meine Daten gespeichert?
-   static let wallet_faq_questions_question_3 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_3_key)
+   static var wallet_faq_questions_question_3: String { return UBLocalized.tr(Key.wallet_faq_questions_question_3) }
   /// Wie werden Missbrauch und Fälschung verhindert?
-   static let wallet_faq_questions_question_4 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_4_key)
+   static var wallet_faq_questions_question_4: String { return UBLocalized.tr(Key.wallet_faq_questions_question_4) }
   /// Was passiert, wenn ich mein Covid-Zertifikat verliere?
-   static let wallet_faq_questions_question_5 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_5_key)
+   static var wallet_faq_questions_question_5: String { return UBLocalized.tr(Key.wallet_faq_questions_question_5) }
   /// Was ist das Zertifikat Light?
-   static let wallet_faq_questions_question_6 = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_question_6_key)
+   static var wallet_faq_questions_question_6: String { return UBLocalized.tr(Key.wallet_faq_questions_question_6) }
   /// Das Covid-Zertifikat bietet die Möglichkeit, eine Covid-19-Impfung, eine durchgemachte Erkrankung oder ein negatives Testergebnis fälschungssicher zu dokumentieren.
-   static let wallet_faq_questions_subtitle = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_subtitle_key)
+   static var wallet_faq_questions_subtitle: String { return UBLocalized.tr(Key.wallet_faq_questions_subtitle) }
   /// Was sind Covid-Zertifikate?
-   static let wallet_faq_questions_title = UBLocalized.tr(UBLocalizedKey.wallet_faq_questions_title_key)
+   static var wallet_faq_questions_title: String { return UBLocalized.tr(Key.wallet_faq_questions_title) }
   /// Um ein Covid-Zertifikat zur App hinzuzufügen, benötigen Sie das Ihnen ausgestellte Originalzertifikat auf Papier oder als PDF-Dokument. Den darauf abgebildeten QR-Code können Sie mit der COVID Certificate App scannen und hinzufügen. Anschliessend erscheint das Covid-Zertifikat direkt in der App.
-   static let wallet_faq_works_answer_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_1_key)
+   static var wallet_faq_works_answer_1: String { return UBLocalized.tr(Key.wallet_faq_works_answer_1) }
   /// Ja das ist möglich. So können Sie z. B. alle Covid-Zertifikate von Familienangehörigen in Ihrer App speichern. Auch in diesem Fall gilt: Das Covid-Zertifikat ist nur in Kombination mit einem Ausweisdokument des Zertifikatsinhabers / der Zertifikatsinhaberin gültig.
-   static let wallet_faq_works_answer_2 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_2_key)
+   static var wallet_faq_works_answer_2: String { return UBLocalized.tr(Key.wallet_faq_works_answer_2) }
   /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
-   static let wallet_faq_works_answer_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_2_1_key)
+   static var wallet_faq_works_answer_2_1: String { return UBLocalized.tr(Key.wallet_faq_works_answer_2_1) }
   /// Die App prüft automatisch, ob Ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht. Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt auf dem Zertifikat in der App angezeigt.
-   static let wallet_faq_works_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_3_key)
+   static var wallet_faq_works_answer_3: String { return UBLocalized.tr(Key.wallet_faq_works_answer_3) }
   /// Sie können die App ohne eine Internetverbindung verwenden. Auch im Offline-Modus können Zertifikate vorgewiesen und von den Prüfern gescannt und verifiziert werden.\n\nUm in der «COVID Certificate»-App anzeigen zu können, ob ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht und bis wann Ihr Zertifikat gültig ist, muss die App jedoch regelmässig online sein.
-   static let wallet_faq_works_answer_3_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_3_1_key)
+   static var wallet_faq_works_answer_3_1: String { return UBLocalized.tr(Key.wallet_faq_works_answer_3_1) }
   /// Ihre persönlichen Daten werden in keinem zentralen System gespeichert, sondern befinden sich ausschliesslich bei Ihnen lokal auf dem Mobilgerät, respektive im QR-Code auf dem Covid-Zertifikat in Papierform.
-   static let wallet_faq_works_answer_4 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_4_key)
+   static var wallet_faq_works_answer_4: String { return UBLocalized.tr(Key.wallet_faq_works_answer_4) }
   /// Der QR-Code enthält alle Informationen, die Sie auf Ihrem Covid-Zertifikat in Papierform im Klartext finden. Weiter befindet sich im QR-Code eine elektronische Signatur, mit der sich die Echtheit des Covid-Zertifikats überprüfen lässt. Dadurch wird das Covid-Zertifikat fälschungssicher.
-   static let wallet_faq_works_answer_5 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_5_key)
+   static var wallet_faq_works_answer_5: String { return UBLocalized.tr(Key.wallet_faq_works_answer_5) }
   /// In der «COVID Certificate»-App finden Sie in der Detailansicht des elektronischen Covid-Zertifikats die Funktion «Exportieren». Damit können Sie ein PDF erstellen, dieses speichern und ausdrucken.
-   static let wallet_faq_works_answer_5_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_5_1_key)
+   static var wallet_faq_works_answer_5_1: String { return UBLocalized.tr(Key.wallet_faq_works_answer_5_1) }
   /// Sie können Ihr Covid-Zertifikat einfach wieder auf Ihrem Mobilgerät speichern. Laden Sie dazu die App erneut herunter und scannen Sie anschliessend den QR-Code auf Ihrem Covid-Zertifikat auf Papier oder als PDF.
-   static let wallet_faq_works_answer_6 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_answer_6_key)
+   static var wallet_faq_works_answer_6: String { return UBLocalized.tr(Key.wallet_faq_works_answer_6) }
   /// Wie kann ich ein Covid-Zertifikat zur App hinzufügen?
-   static let wallet_faq_works_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_1_key)
+   static var wallet_faq_works_question_1: String { return UBLocalized.tr(Key.wallet_faq_works_question_1) }
   /// Können auch mehrere Covid-Zertifikate hinzugefügt werden?
-   static let wallet_faq_works_question_2 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_2_key)
+   static var wallet_faq_works_question_2: String { return UBLocalized.tr(Key.wallet_faq_works_question_2) }
   /// Was ist ein Transfer-Code?
-   static let wallet_faq_works_question_2_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_2_1_key)
+   static var wallet_faq_works_question_2_1: String { return UBLocalized.tr(Key.wallet_faq_works_question_2_1) }
   /// Wie sehe ich, ob mein Covid-Zertifikat gültig ist?
-   static let wallet_faq_works_question_3 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_3_key)
+   static var wallet_faq_works_question_3: String { return UBLocalized.tr(Key.wallet_faq_works_question_3) }
   /// Kann ich die App auch offline verwenden?
-   static let wallet_faq_works_question_3_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_3_1_key)
+   static var wallet_faq_works_question_3_1: String { return UBLocalized.tr(Key.wallet_faq_works_question_3_1) }
   /// Wie sind meine Daten geschützt?
-   static let wallet_faq_works_question_4 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_4_key)
+   static var wallet_faq_works_question_4: String { return UBLocalized.tr(Key.wallet_faq_works_question_4) }
   /// Welche Daten sind im QR-Code enthalten?
-   static let wallet_faq_works_question_5 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_5_key)
+   static var wallet_faq_works_question_5: String { return UBLocalized.tr(Key.wallet_faq_works_question_5) }
   /// Ich habe das Covid-Zertifikat ausschliesslich elektronisch in der App. Wie komme ich zum Zertifikat als PDF oder auf Papier?
-   static let wallet_faq_works_question_5_1 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_5_1_key)
+   static var wallet_faq_works_question_5_1: String { return UBLocalized.tr(Key.wallet_faq_works_question_5_1) }
   /// Was muss ich tun, wenn ich das Covid-Zertifikat oder die App lösche?
-   static let wallet_faq_works_question_6 = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_question_6_key)
+   static var wallet_faq_works_question_6: String { return UBLocalized.tr(Key.wallet_faq_works_question_6) }
   /// Mit der COVID Certificate App können Sie Covid-Zertifikate einfach und sicher auf Ihrem Mobilgerät abspeichern und vorweisen.
-   static let wallet_faq_works_subtitle = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_subtitle_key)
+   static var wallet_faq_works_subtitle: String { return UBLocalized.tr(Key.wallet_faq_works_subtitle) }
   /// Wie funktioniert \ndie App?
-   static let wallet_faq_works_title = UBLocalized.tr(UBLocalizedKey.wallet_faq_works_title_key)
-  /// Gültigkeit im Ausland
-   static let wallet_foreign_rules_check_button = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_button_key)
+   static var wallet_faq_works_title: String { return UBLocalized.tr(Key.wallet_faq_works_title) }
+  /// Gültigkeit bei Reisen
+   static var wallet_foreign_rules_check_button: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_button) }
   /// Wählen
-   static let wallet_foreign_rules_check_country_empty_label = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_country_empty_label_key)
-  /// Land
-   static let wallet_foreign_rules_check_country_label = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_country_label_key)
+   static var wallet_foreign_rules_check_country_empty_label: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_country_empty_label) }
+  /// Land:
+   static var wallet_foreign_rules_check_country_label: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_country_label) }
   /// Land auswählen
-   static let wallet_foreign_rules_check_country_picker_title = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_country_picker_title_key)
+   static var wallet_foreign_rules_check_country_picker_title: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_country_picker_title) }
   /// Die angegebene Uhrzeit liegt in der Vergangenheit
-   static let wallet_foreign_rules_check_date_in_past_error = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_date_in_past_error_key)
-  /// Datum
-   static let wallet_foreign_rules_check_date_label = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_date_label_key)
-  /// Fehler beim Laden der verfügbaren Länder.
-   static let wallet_foreign_rules_check_error_title = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_error_title_key)
-  /// Zertifikat prüfen für
-   static let wallet_foreign_rules_check_form_title = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_form_title_key)
+   static var wallet_foreign_rules_check_date_in_past_error: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_date_in_past_error) }
+  /// Einreise am:
+   static var wallet_foreign_rules_check_date_label: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_date_label) }
+  /// Fehler beim Laden der verfügbaren Länder
+   static var wallet_foreign_rules_check_error_title: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_error_title) }
+  /// Prüfen für:
+   static var wallet_foreign_rules_check_form_title: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_form_title) }
+  /// Für die Aktualität und Vollständigkeit der gegebenen Informationen übernimmt der Bund keine Haftung.
+   static var wallet_foreign_rules_check_hint_1: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_hint_1) }
+  /// Die Einreiseregeln können sich ändern. Prüfen Sie daher die Gültigkeit kurz vor der Abreise und informieren Sie sich zusätzlich online über die aktuellen Einreiseregeln des Ziellandes.
+   static var wallet_foreign_rules_check_hint_2: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_hint_2) }
+  /// Die oben genannten Angaben beziehen sich nur auf die Einreiseregeln des Ziellandes. Für allfällige zertifikatspflichtige Bereiche innerhalb des Landes können andere Regeln gelten.
+   static var wallet_foreign_rules_check_hint_3: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_hint_3) }
+  /// Land nicht gefunden? Nicht alle Länder akzeptieren Covid-Zertifikate oder es wurden keine Einreiseregeln verfügbar gemacht.
+   static var wallet_foreign_rules_check_hint_4: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_hint_4) }
   /// Mehr Informationen finden Sie unter
-   static let wallet_foreign_rules_check_hints_more_info_label = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_hints_more_info_label_key)
+   static var wallet_foreign_rules_check_hints_more_info_label: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_hints_more_info_label) }
+  /// reopen.europa.eu
+   static var wallet_foreign_rules_check_hints_more_info_link_text: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_hints_more_info_link_text) }
+  /// https://reopen.europa.eu/
+   static var wallet_foreign_rules_check_hints_more_info_link_url: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_hints_more_info_link_url) }
   /// Hinweise
-   static let wallet_foreign_rules_check_hints_title = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_hints_title_key)
-  /// Um die Gültigkeit im Ausland zu überprüfen, muss die App online sein.
-   static let wallet_foreign_rules_check_network_error_text = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_network_error_text_key)
-  /// in {COUNTRY} am {DATE}
-   static let wallet_foreign_rules_check_state_country_and_date = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_state_country_and_date_key)
+   static var wallet_foreign_rules_check_hints_title: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_hints_title) }
+  /// Um die Gültigkeit zu überprüfen, muss Ihr Smartphone mit dem Internet verbunden sein.
+   static var wallet_foreign_rules_check_network_error_text: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_network_error_text) }
+  /// {COUNTRY}, {DATE}
+   static var wallet_foreign_rules_check_state_country_and_date: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_state_country_and_date) }
   /// Bitte wählen Sie ein Land und den Einreisezeitpunkt aus.
-   static let wallet_foreign_rules_check_state_empty = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_state_empty_key)
-  /// Das Zertifikat ist nicht gültig
-   static let wallet_foreign_rules_check_state_invalid = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_state_invalid_key)
-  /// Das Zertifikat ist gültig
-   static let wallet_foreign_rules_check_state_valid = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_state_valid_key)
-  /// Prüfen Sie vor einer Reise, ob Ihr Zertifikat für die Einreise in das gewählte Reiseland gültig ist.
-   static let wallet_foreign_rules_check_subtitle = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_subtitle_key)
-  /// Gültigkeit im Ausland prüfen
-   static let wallet_foreign_rules_check_title = UBLocalized.tr(UBLocalizedKey.wallet_foreign_rules_check_title_key)
+   static var wallet_foreign_rules_check_state_empty: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_state_empty) }
+  /// Ungültig für die Einreise nach:
+   static var wallet_foreign_rules_check_state_invalid: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_state_invalid) }
+  /// Gültig für die Einreise nach:
+   static var wallet_foreign_rules_check_state_valid: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_state_valid) }
+  /// Finden Sie vor einer Auslandreise heraus, ob Ihr Covid-Zertifikat zum Zeitpunkt der Einreise ins Zielland gültig ist.
+   static var wallet_foreign_rules_check_subtitle: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_subtitle) }
+  /// Gültigkeit für Reisen ins Ausland
+   static var wallet_foreign_rules_check_title: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_title) }
   /// Sie haben ein Covid-Zertifikat auf Papier oder als PDF und möchten es zur App hinzufügen.
-   static let wallet_homescreen_add_certificate_description = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_add_certificate_description_key)
+   static var wallet_homescreen_add_certificate_description: String { return UBLocalized.tr(Key.wallet_homescreen_add_certificate_description) }
   /// Zertifikat hinzufügen
-   static let wallet_homescreen_add_title = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_add_title_key)
+   static var wallet_homescreen_add_title: String { return UBLocalized.tr(Key.wallet_homescreen_add_title) }
   /// Transfer-Code erstellen
-   static let wallet_homescreen_add_transfer_code = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_add_transfer_code_key)
+   static var wallet_homescreen_add_transfer_code: String { return UBLocalized.tr(Key.wallet_homescreen_add_transfer_code) }
   /// Scannen Sie den QR-Code auf dem Covid-Zertifikat, um es zur App hinzuzufügen.
-   static let wallet_homescreen_explanation = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_explanation_key)
+   static var wallet_homescreen_explanation: String { return UBLocalized.tr(Key.wallet_homescreen_explanation) }
   /// Gültigkeit konnte nicht ermittelt werden
-   static let wallet_homescreen_network_error = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_network_error_key)
+   static var wallet_homescreen_network_error: String { return UBLocalized.tr(Key.wallet_homescreen_network_error) }
   /// Offline Modus
-   static let wallet_homescreen_offline = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_offline_key)
+   static var wallet_homescreen_offline: String { return UBLocalized.tr(Key.wallet_homescreen_offline) }
   /// PDF importieren
-   static let wallet_homescreen_pdf_import = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_pdf_import_key)
+   static var wallet_homescreen_pdf_import: String { return UBLocalized.tr(Key.wallet_homescreen_pdf_import) }
   /// QR-Code scannen
-   static let wallet_homescreen_qr_code_scannen = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_qr_code_scannen_key)
+   static var wallet_homescreen_qr_code_scannen: String { return UBLocalized.tr(Key.wallet_homescreen_qr_code_scannen) }
   /// Nächsten Schritt wählen
-   static let wallet_homescreen_what_to_do = UBLocalized.tr(UBLocalizedKey.wallet_homescreen_what_to_do_key)
+   static var wallet_homescreen_what_to_do: String { return UBLocalized.tr(Key.wallet_homescreen_what_to_do) }
   /// Zur Check-App
-   static let wallet_info_box_certificate_scan_button_check_app = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_button_check_app_key)
+   static var wallet_info_box_certificate_scan_button_check_app: String { return UBLocalized.tr(Key.wallet_info_box_certificate_scan_button_check_app) }
   /// Verstanden
-   static let wallet_info_box_certificate_scan_close = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_close_key)
+   static var wallet_info_box_certificate_scan_close: String { return UBLocalized.tr(Key.wallet_info_box_certificate_scan_close) }
   /// Für eine Datenschutzkonforme und schnellere Prüfung nutzen Sie die "COVID Certificate Check"-App.
-   static let wallet_info_box_certificate_scan_text = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_text_key)
+   static var wallet_info_box_certificate_scan_text: String { return UBLocalized.tr(Key.wallet_info_box_certificate_scan_text) }
   /// «COVID Certificate Check»-App.
-   static let wallet_info_box_certificate_scan_text_bold = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_text_bold_key)
+   static var wallet_info_box_certificate_scan_text_bold: String { return UBLocalized.tr(Key.wallet_info_box_certificate_scan_text_bold) }
   /// Wollen Sie Zertifikate überprüfen?
-   static let wallet_info_box_certificate_scan_title = UBLocalized.tr(UBLocalizedKey.wallet_info_box_certificate_scan_title_key)
+   static var wallet_info_box_certificate_scan_title: String { return UBLocalized.tr(Key.wallet_info_box_certificate_scan_title) }
   /// Aktivieren
-   static let wallet_notification_disabled_button = UBLocalized.tr(UBLocalizedKey.wallet_notification_disabled_button_key)
+   static var wallet_notification_disabled_button: String { return UBLocalized.tr(Key.wallet_notification_disabled_button) }
   /// Tipp: Mitteilungen aktivieren
-   static let wallet_notification_disabled_titel = UBLocalized.tr(UBLocalizedKey.wallet_notification_disabled_titel_key)
+   static var wallet_notification_disabled_titel: String { return UBLocalized.tr(Key.wallet_notification_disabled_titel) }
   /// Weiter
-   static let wallet_notification_permission_button = UBLocalized.tr(UBLocalizedKey.wallet_notification_permission_button_key)
+   static var wallet_notification_permission_button: String { return UBLocalized.tr(Key.wallet_notification_permission_button) }
   /// Die App kann Sie informieren, sobald das Zertifikat eingetroffen ist.  Erlauben Sie dazu der App, Ihnen Mitteilungen zu senden.
-   static let wallet_notification_permission_text = UBLocalized.tr(UBLocalizedKey.wallet_notification_permission_text_key)
+   static var wallet_notification_permission_text: String { return UBLocalized.tr(Key.wallet_notification_permission_text) }
   /// Mitteilungen erlauben
-   static let wallet_notification_permission_title = UBLocalized.tr(UBLocalizedKey.wallet_notification_permission_title_key)
+   static var wallet_notification_permission_title: String { return UBLocalized.tr(Key.wallet_notification_permission_title) }
   /// Das Covid-Zertifikat ist eingetroffen
-   static let wallet_notification_transfer_text = UBLocalized.tr(UBLocalizedKey.wallet_notification_transfer_text_key)
+   static var wallet_notification_transfer_text: String { return UBLocalized.tr(Key.wallet_notification_transfer_text) }
   /// Transfer erfolgreich
-   static let wallet_notification_transfer_title = UBLocalized.tr(UBLocalizedKey.wallet_notification_transfer_title_key)
+   static var wallet_notification_transfer_title: String { return UBLocalized.tr(Key.wallet_notification_transfer_title) }
   /// Um die aktuelle Gültigkeit anzeigen zu können, muss die App regelmässig online sein.
-   static let wallet_offline_description = UBLocalized.tr(UBLocalizedKey.wallet_offline_description_key)
+   static var wallet_offline_description: String { return UBLocalized.tr(Key.wallet_offline_description) }
   /// Akzeptieren
-   static let wallet_onboarding_accept_button = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_accept_button_key)
+   static var wallet_onboarding_accept_button: String { return UBLocalized.tr(Key.wallet_onboarding_accept_button) }
   /// Die App
-   static let wallet_onboarding_app_header = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_app_header_key)
+   static var wallet_onboarding_app_header: String { return UBLocalized.tr(Key.wallet_onboarding_app_header) }
   /// Mit der App können Sie Covid-Zertifikate sicher auf dem Smartphone aufbewahren und einfach vorweisen.
-   static let wallet_onboarding_app_text = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_app_text_key)
+   static var wallet_onboarding_app_text: String { return UBLocalized.tr(Key.wallet_onboarding_app_text) }
   /// COVID Certificate
-   static let wallet_onboarding_app_title = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_app_title_key)
+   static var wallet_onboarding_app_title: String { return UBLocalized.tr(Key.wallet_onboarding_app_title) }
   /// Datenschutzerklärung &\nNutzungsbedingungen
-   static let wallet_onboarding_external_privacy_button = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_external_privacy_button_key)
+   static var wallet_onboarding_external_privacy_button: String { return UBLocalized.tr(Key.wallet_onboarding_external_privacy_button) }
   /// Nutzungsbedingungen
-   static let wallet_onboarding_privacy_conditionsofuse_title = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_privacy_conditionsofuse_title_key)
+   static var wallet_onboarding_privacy_conditionsofuse_title: String { return UBLocalized.tr(Key.wallet_onboarding_privacy_conditionsofuse_title) }
   /// Datenschutz
-   static let wallet_onboarding_privacy_header = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_privacy_header_key)
+   static var wallet_onboarding_privacy_header: String { return UBLocalized.tr(Key.wallet_onboarding_privacy_header) }
   /// Datenschutzerklärung
-   static let wallet_onboarding_privacy_privacypolicy_title = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_privacy_privacypolicy_title_key)
+   static var wallet_onboarding_privacy_privacypolicy_title: String { return UBLocalized.tr(Key.wallet_onboarding_privacy_privacypolicy_title) }
   /// Die Zertifikate sind nur lokal auf Ihrem Smartphone hinterlegt. Die Daten werden nicht in einem zentralen System gespeichert.
-   static let wallet_onboarding_privacy_text = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_privacy_text_key)
+   static var wallet_onboarding_privacy_text: String { return UBLocalized.tr(Key.wallet_onboarding_privacy_text) }
   /// Ihre Daten bleiben \nin der App
-   static let wallet_onboarding_privacy_title = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_privacy_title_key)
+   static var wallet_onboarding_privacy_title: String { return UBLocalized.tr(Key.wallet_onboarding_privacy_title) }
   /// Vorteile
-   static let wallet_onboarding_show_header = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_show_header_key)
+   static var wallet_onboarding_show_header: String { return UBLocalized.tr(Key.wallet_onboarding_show_header) }
   /// Die auf dem Covid-Zertifikat dargestellten Daten sind auch im QR-Code enthalten.
-   static let wallet_onboarding_show_text1 = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_show_text1_key)
+   static var wallet_onboarding_show_text1: String { return UBLocalized.tr(Key.wallet_onboarding_show_text1) }
   /// Beim Vorweisen wird der QR-Code mit einer Prüf-App gescannt. Die enthaltenen Daten werden dabei automatisch auf Echtheit und Gültigkeit überprüft.
-   static let wallet_onboarding_show_text2 = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_show_text2_key)
+   static var wallet_onboarding_show_text2: String { return UBLocalized.tr(Key.wallet_onboarding_show_text2) }
   /// Zertifikate einfach vorweisen
-   static let wallet_onboarding_show_title = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_show_title_key)
+   static var wallet_onboarding_show_title: String { return UBLocalized.tr(Key.wallet_onboarding_show_title) }
   /// Vorteile
-   static let wallet_onboarding_store_header = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_store_header_key)
+   static var wallet_onboarding_store_header: String { return UBLocalized.tr(Key.wallet_onboarding_store_header) }
   /// Covid-Zertifikate können einfach zur App hinzugefügt und digital aufbewahrt werden.
-   static let wallet_onboarding_store_text1 = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_store_text1_key)
+   static var wallet_onboarding_store_text1: String { return UBLocalized.tr(Key.wallet_onboarding_store_text1) }
   /// Die App prüft die Zertifikate auf ihre Gültigkeit in der Schweiz. So können Sie sich versichern, dass Ihre Zertifikate gültig sind.
-   static let wallet_onboarding_store_text2 = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_store_text2_key)
+   static var wallet_onboarding_store_text2: String { return UBLocalized.tr(Key.wallet_onboarding_store_text2) }
   /// Covid-Zertifikate digital aufbewahren
-   static let wallet_onboarding_store_title = UBLocalized.tr(UBLocalizedKey.wallet_onboarding_store_title_key)
+   static var wallet_onboarding_store_title: String { return UBLocalized.tr(Key.wallet_onboarding_store_title) }
   /// Ausserhalb der Schweiz nicht gültig
-   static let wallet_only_valid_in_switzerland = UBLocalized.tr(UBLocalizedKey.wallet_only_valid_in_switzerland_key)
+   static var wallet_only_valid_in_switzerland: String { return UBLocalized.tr(Key.wallet_only_valid_in_switzerland) }
   /// Für Prüfende
-   static let wallet_refresh_button_info_fat_title_3 = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_fat_title_3_key)
+   static var wallet_refresh_button_info_fat_title_3: String { return UBLocalized.tr(Key.wallet_refresh_button_info_fat_title_3) }
   /// Mehr erfahren
-   static let wallet_refresh_button_info_link_text = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_link_text_key)
+   static var wallet_refresh_button_info_link_text: String { return UBLocalized.tr(Key.wallet_refresh_button_info_link_text) }
   /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/covid-zertifikat/covid-zertifikat-pruefer-aussteller-technische-informationen.html#1070048217
-   static let wallet_refresh_button_info_link_url = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_link_url_key)
+   static var wallet_refresh_button_info_link_url: String { return UBLocalized.tr(Key.wallet_refresh_button_info_link_url) }
   /// Der «Refresh-Button» wurde entfernt.
-   static let wallet_refresh_button_info_text_1 = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_text_1_key)
+   static var wallet_refresh_button_info_text_1: String { return UBLocalized.tr(Key.wallet_refresh_button_info_text_1) }
   /// Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt auf dem Zertifikat angezeigt.
-   static let wallet_refresh_button_info_text_2 = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_text_2_key)
+   static var wallet_refresh_button_info_text_2: String { return UBLocalized.tr(Key.wallet_refresh_button_info_text_2) }
   /// Die Prüfung von Covid-Zertifikaten ist mit der App «COVID Certificate Check» vorzunehmen.
-   static let wallet_refresh_button_info_text_3 = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_text_3_key)
+   static var wallet_refresh_button_info_text_3: String { return UBLocalized.tr(Key.wallet_refresh_button_info_text_3) }
   /// Info
-   static let wallet_refresh_button_info_title = UBLocalized.tr(UBLocalizedKey.wallet_refresh_button_info_title_key)
+   static var wallet_refresh_button_info_title: String { return UBLocalized.tr(Key.wallet_refresh_button_info_title) }
   /// Erneut scannen
-   static let wallet_scan_again = UBLocalized.tr(UBLocalizedKey.wallet_scan_again_key)
+   static var wallet_scan_again: String { return UBLocalized.tr(Key.wallet_scan_again) }
   /// Scannen Sie den QR-Code auf dem Covid-Zertifikat.
-   static let wallet_scanner_explanation = UBLocalized.tr(UBLocalizedKey.wallet_scanner_explanation_key)
+   static var wallet_scanner_explanation: String { return UBLocalized.tr(Key.wallet_scanner_explanation) }
   /// Erstens
-   static let wallet_scanner_how_it_works_accessibility_icon1 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_how_it_works_accessibility_icon1_key)
+   static var wallet_scanner_how_it_works_accessibility_icon1: String { return UBLocalized.tr(Key.wallet_scanner_how_it_works_accessibility_icon1) }
   /// Zweitens
-   static let wallet_scanner_how_it_works_accessibility_icon2 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_how_it_works_accessibility_icon2_key)
+   static var wallet_scanner_how_it_works_accessibility_icon2: String { return UBLocalized.tr(Key.wallet_scanner_how_it_works_accessibility_icon2) }
   /// Drittens
-   static let wallet_scanner_how_it_works_accessibility_icon3 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_how_it_works_accessibility_icon3_key)
+   static var wallet_scanner_how_it_works_accessibility_icon3: String { return UBLocalized.tr(Key.wallet_scanner_how_it_works_accessibility_icon3) }
   /// Ein Covid-Zertifikat können Sie nach einer vollständigen Covid-19-Impfung, nach einer durchgemachten Erkrankung oder nach einem negativen Testergebnis erhalten. Das Zertifikat stellt Ihnen in der Regel das Gesundheitsfachpersonal vor Ort auf Anfrage aus.
-   static let wallet_scanner_howitworks_answer1 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_answer1_key)
+   static var wallet_scanner_howitworks_answer1: String { return UBLocalized.tr(Key.wallet_scanner_howitworks_answer1) }
   /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/
-   static let wallet_scanner_howitworks_external_link = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_external_link_key)
+   static var wallet_scanner_howitworks_external_link: String { return UBLocalized.tr(Key.wallet_scanner_howitworks_external_link) }
   /// Weitere Informationen
-   static let wallet_scanner_howitworks_external_link_title = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_external_link_title_key)
+   static var wallet_scanner_howitworks_external_link_title: String { return UBLocalized.tr(Key.wallet_scanner_howitworks_external_link_title) }
   /// So funktioniert's
-   static let wallet_scanner_howitworks_header = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_header_key)
+   static var wallet_scanner_howitworks_header: String { return UBLocalized.tr(Key.wallet_scanner_howitworks_header) }
   /// Wann und wo kann ich ein Covid-Zertifikat erhalten?
-   static let wallet_scanner_howitworks_question1 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_question1_key)
+   static var wallet_scanner_howitworks_question1: String { return UBLocalized.tr(Key.wallet_scanner_howitworks_question1) }
   /// Um ein Covid-Zertifikat zur App hinzufügen zu können, benötigen Sie das Originalzertifikat auf Papier oder als PDF.
-   static let wallet_scanner_howitworks_text1 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_text1_key)
+   static var wallet_scanner_howitworks_text1: String { return UBLocalized.tr(Key.wallet_scanner_howitworks_text1) }
   /// Tippen Sie in der App auf «Hinzufügen», um ein neues Zertifikat zur App hinzuzufügen.
-   static let wallet_scanner_howitworks_text2 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_text2_key)
+   static var wallet_scanner_howitworks_text2: String { return UBLocalized.tr(Key.wallet_scanner_howitworks_text2) }
   /// Halten Sie nun die Kamera des Smartphones über den QR-Code auf dem Originalzertifikat, um den Code einzuscannen.
-   static let wallet_scanner_howitworks_text3 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_text3_key)
+   static var wallet_scanner_howitworks_text3: String { return UBLocalized.tr(Key.wallet_scanner_howitworks_text3) }
   /// Es erscheint eine Vorschau des Covid-Zertifikats. Tippen Sie auf «Hinzufügen» um das Zertifikat sicher in der App zu speichern.
-   static let wallet_scanner_howitworks_text4 = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_text4_key)
+   static var wallet_scanner_howitworks_text4: String { return UBLocalized.tr(Key.wallet_scanner_howitworks_text4) }
   /// Covid-Zertifikate\nhinzufügen
-   static let wallet_scanner_howitworks_title = UBLocalized.tr(UBLocalizedKey.wallet_scanner_howitworks_title_key)
+   static var wallet_scanner_howitworks_title: String { return UBLocalized.tr(Key.wallet_scanner_howitworks_title) }
   /// So funktioniert's
-   static let wallet_scanner_info_button = UBLocalized.tr(UBLocalizedKey.wallet_scanner_info_button_key)
+   static var wallet_scanner_info_button: String { return UBLocalized.tr(Key.wallet_scanner_info_button) }
   /// Hinzufügen
-   static let wallet_scanner_title = UBLocalized.tr(UBLocalizedKey.wallet_scanner_title_key)
+   static var wallet_scanner_title: String { return UBLocalized.tr(Key.wallet_scanner_title) }
   /// https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html
-   static let wallet_terms_privacy_link = UBLocalized.tr(UBLocalizedKey.wallet_terms_privacy_link_key)
+   static var wallet_terms_privacy_link: String { return UBLocalized.tr(Key.wallet_terms_privacy_link) }
   /// Datum, Uhrzeit oder Zeitzone auf dem Gerät sind falsch eingestellt.
-   static let wallet_time_inconsistency_error_text = UBLocalized.tr(UBLocalizedKey.wallet_time_inconsistency_error_text_key)
+   static var wallet_time_inconsistency_error_text: String { return UBLocalized.tr(Key.wallet_time_inconsistency_error_text) }
   /// Prüfung nicht möglich
-   static let wallet_time_inconsistency_error_title = UBLocalized.tr(UBLocalizedKey.wallet_time_inconsistency_error_title_key)
+   static var wallet_time_inconsistency_error_title: String { return UBLocalized.tr(Key.wallet_time_inconsistency_error_title) }
   /// Transfer
-   static let wallet_transfer_code_card_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_card_title_key)
+   static var wallet_transfer_code_card_title: String { return UBLocalized.tr(Key.wallet_transfer_code_card_title) }
   /// Ihr Transfer-Code wurde erstellt
-   static let wallet_transfer_code_code_created_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_code_created_title_key)
+   static var wallet_transfer_code_code_created_title: String { return UBLocalized.tr(Key.wallet_transfer_code_code_created_title) }
   /// Transfer Code kopiert
-   static let wallet_transfer_code_copied = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_copied_key)
+   static var wallet_transfer_code_copied: String { return UBLocalized.tr(Key.wallet_transfer_code_copied) }
   /// Code erstellen
-   static let wallet_transfer_code_create_code_button = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_create_code_button_key)
+   static var wallet_transfer_code_create_code_button: String { return UBLocalized.tr(Key.wallet_transfer_code_create_code_button) }
   /// Erstellt am {DATE}
-   static let wallet_transfer_code_createdat = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_createdat_key)
+   static var wallet_transfer_code_createdat: String { return UBLocalized.tr(Key.wallet_transfer_code_createdat) }
   /// Fertig
-   static let wallet_transfer_code_done_button = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_done_button_key)
+   static var wallet_transfer_code_done_button: String { return UBLocalized.tr(Key.wallet_transfer_code_done_button) }
   /// Transfer-Code konnte nicht erstellt werden
-   static let wallet_transfer_code_error_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_error_title_key)
+   static var wallet_transfer_code_error_title: String { return UBLocalized.tr(Key.wallet_transfer_code_error_title) }
   /// Noch {DAYS} Tage gültig
-   static let wallet_transfer_code_expire_plural = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_expire_plural_key)
+   static var wallet_transfer_code_expire_plural: String { return UBLocalized.tr(Key.wallet_transfer_code_expire_plural) }
   /// {DAYS} Tage
-   static let wallet_transfer_code_expire_plural_bold = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_expire_plural_bold_key)
+   static var wallet_transfer_code_expire_plural_bold: String { return UBLocalized.tr(Key.wallet_transfer_code_expire_plural_bold) }
   /// Noch 1 Tag gültig
-   static let wallet_transfer_code_expire_singular = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_expire_singular_key)
+   static var wallet_transfer_code_expire_singular: String { return UBLocalized.tr(Key.wallet_transfer_code_expire_singular) }
   /// 1 Tag
-   static let wallet_transfer_code_expire_singular_bold = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_expire_singular_bold_key)
+   static var wallet_transfer_code_expire_singular_bold: String { return UBLocalized.tr(Key.wallet_transfer_code_expire_singular_bold) }
   /// Wenn Sie einen Covid-Test machen (PCR-Test oder Antigen-Schnelltest), kann der Transfer-Code zur schnellen Übermittlung von Covid-Zertifikaten zum Einsatz kommen.\n\nInformieren Sie sich bei Ihrem Testcenter, in der Apotheke oder bei Ihrem Arzt, ob die Übermittlung per Transfer-Code angeboten wird.
-   static let wallet_transfer_code_faq_questions_answer_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_1_key)
+   static var wallet_transfer_code_faq_questions_answer_1: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_answer_1) }
   /// Aktuell ist die Übermittlung per Transfer-Code auf Covid-Tests ausgelegt. Wie Sie ein Covid-Zertifikat nach einer Impfung erhalten erfahren Sie hier:
-   static let wallet_transfer_code_faq_questions_answer_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_2_key)
+   static var wallet_transfer_code_faq_questions_answer_2: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_answer_2) }
   /// Falls die Stelle, die den Covid-Test durchführt, die Übermittlung per Transfer-Code anbietet, werden Sie bereits bei der Anmeldung oder der Testentnahme nach einem Transfer-Code gefragt.\n\nDen Transfer-Code können Sie in der «COVID Certificate»-App erstellen. Tippen Sie dazu auf dem Startbildschirm auf «Hinzufügen» resp. auf das «Plus»-Symbol unten rechts. Danach tippen Sie auf «Transfer-Code erstellen».\n\nDie App zeigt Ihnen einen 9-stelligen Code an. Diesen können Sie entweder bei der Anmeldung in ein Formular eintragen oder direkt bei der Testentnahme angeben.
-   static let wallet_transfer_code_faq_questions_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_3_key)
+   static var wallet_transfer_code_faq_questions_answer_3: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_answer_3) }
   /// Nein, ein Transfer-Code kann nur einmal verwendet werden. Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie bitte für jedes Zertifikat einen neuen Code.
-   static let wallet_transfer_code_faq_questions_answer_4 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_answer_4_key)
+   static var wallet_transfer_code_faq_questions_answer_4: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_answer_4) }
   /// Weitere Informationen
-   static let wallet_transfer_code_faq_questions_linktext_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_linktext_2_key)
+   static var wallet_transfer_code_faq_questions_linktext_2: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_linktext_2) }
   /// https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/
-   static let wallet_transfer_code_faq_questions_linkurl_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_linkurl_2_key)
+   static var wallet_transfer_code_faq_questions_linkurl_2: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_linkurl_2) }
   /// Wer bietet die Übermittlung per Transfer-Code an?
-   static let wallet_transfer_code_faq_questions_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_1_key)
+   static var wallet_transfer_code_faq_questions_question_1: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_question_1) }
   /// Können Transfer-Codes auch zur Übermittlung von Impfzertifikaten verwendet werden?
-   static let wallet_transfer_code_faq_questions_question_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_2_key)
+   static var wallet_transfer_code_faq_questions_question_2: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_question_2) }
   /// Wie funktioniert die Übermittlung per Transfer-Code?
-   static let wallet_transfer_code_faq_questions_question_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_3_key)
+   static var wallet_transfer_code_faq_questions_question_3: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_question_3) }
   /// Kann ich den Transfer-Code mehrmals benutzen?
-   static let wallet_transfer_code_faq_questions_question_4 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_question_4_key)
+   static var wallet_transfer_code_faq_questions_question_4: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_question_4) }
   /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
-   static let wallet_transfer_code_faq_questions_subtitle = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_subtitle_key)
+   static var wallet_transfer_code_faq_questions_subtitle: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_subtitle) }
   /// Covid-Zertifikate direkt in die App geliefert
-   static let wallet_transfer_code_faq_questions_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_questions_title_key)
+   static var wallet_transfer_code_faq_questions_title: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_title) }
   /// Für den Transfer wird Ihr Covid-Zertifikat verschlüsselt bereitgestellt. Der Transfer-Code stellt sicher, dass nur Ihre App das Covid-Zertifikat empfangen kann. Unmittelbar nach dem Transfer werden die Daten wieder vom Server gelöscht.
-   static let wallet_transfer_code_faq_works_answer_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_answer_1_key)
+   static var wallet_transfer_code_faq_works_answer_1: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_works_answer_1) }
   /// Sobald das Zertifikat vom Labor oder Testcenter generiert wurde, steht es zum Transfer zur Verfügung. Stellen Sie sicher, dass Ihr Smartphone mit dem Internet verbunden ist, um Zertifikate empfangen zu können.\n\nSollte ihr Covid-Zertifikat dennoch nicht eintreffen, fragen Sie bei der Stelle nach, die den Test durchgeführt hat (Testcenter, Apotheke, Ärztin / Arzt).
-   static let wallet_transfer_code_faq_works_answer_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_answer_2_key)
+   static var wallet_transfer_code_faq_works_answer_2: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_works_answer_2) }
   /// Bei einem positiven Antigen-Schnelltest erhalten Sie vom Labor kein Covid-Zertifikat. \n\nBei einem positiven PCR-Test erhalten Sie ein Covid-Zertifikat für Genesene. Es ist ab dem 11. Tag nach der Testentnahme gültig.
-   static let wallet_transfer_code_faq_works_answer_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_answer_3_key)
+   static var wallet_transfer_code_faq_works_answer_3: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_works_answer_3) }
   /// Die App prüft regelmässig, ob ein Covid-Zertifikat für Ihren Transfer-Code verfügbar ist.
-   static let wallet_transfer_code_faq_works_intro_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_1_key)
+   static var wallet_transfer_code_faq_works_intro_1: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_works_intro_1) }
   /// Sobald das Covid-Zertifikat verfügbar ist, erscheint es in der App. Wenn Sie Mitteilungen aktiviert haben, werden Sie von der App benachrichtigt.
-   static let wallet_transfer_code_faq_works_intro_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_2_key)
+   static var wallet_transfer_code_faq_works_intro_2: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_works_intro_2) }
   /// Nach {TRANSFER_CODE_VALIDITY} Tagen läuft der Transfer-Code ab. Danach wartet die App noch für weitere 72h auf einen möglichen Transfer, bevor der Transfer-Code ungültig wird.
-   static let wallet_transfer_code_faq_works_intro_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_intro_3_key)
+   static var wallet_transfer_code_faq_works_intro_3: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_works_intro_3) }
   /// Wie sind meine Daten beim Transfer geschützt?
-   static let wallet_transfer_code_faq_works_question_1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_1_key)
+   static var wallet_transfer_code_faq_works_question_1: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_works_question_1) }
   /// Was kann ich tun, wenn das Zertifikat nicht ankommt?
-   static let wallet_transfer_code_faq_works_question_2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_2_key)
+   static var wallet_transfer_code_faq_works_question_2: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_works_question_2) }
   /// Was passiert bei einem positiven Testresultat?
-   static let wallet_transfer_code_faq_works_question_3 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_question_3_key)
+   static var wallet_transfer_code_faq_works_question_3: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_works_question_3) }
   /// So funktioniert der Transfer
-   static let wallet_transfer_code_faq_works_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_faq_works_title_key)
+   static var wallet_transfer_code_faq_works_title: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_works_title) }
   /// Versuchen Sie es später erneut.
-   static let wallet_transfer_code_generate_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_generate_error_text_key)
+   static var wallet_transfer_code_generate_error_text: String { return UBLocalized.tr(Key.wallet_transfer_code_generate_error_text) }
   /// Ein unerwarteter Fehler ist aufgetreten.
-   static let wallet_transfer_code_generate_error_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_generate_error_title_key)
+   static var wallet_transfer_code_generate_error_title: String { return UBLocalized.tr(Key.wallet_transfer_code_generate_error_title) }
   /// Um einen Transfer-Code erstellen zu können, muss die App online sein.
-   static let wallet_transfer_code_generate_no_internet_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_generate_no_internet_error_text_key)
+   static var wallet_transfer_code_generate_no_internet_error_text: String { return UBLocalized.tr(Key.wallet_transfer_code_generate_no_internet_error_text) }
   /// Nächste Schritte
-   static let wallet_transfer_code_next_steps = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps_key)
+   static var wallet_transfer_code_next_steps: String { return UBLocalized.tr(Key.wallet_transfer_code_next_steps) }
   /// Übergeben Sie den Code bei der Testentnahme der Apotheke, dem Testcenter oder der Ärztin / dem Arzt.
-   static let wallet_transfer_code_next_steps1 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps1_key)
+   static var wallet_transfer_code_next_steps1: String { return UBLocalized.tr(Key.wallet_transfer_code_next_steps1) }
   /// Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie für jedes Zertifikat einen neuen Code.
-   static let wallet_transfer_code_next_steps2 = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_next_steps2_key)
+   static var wallet_transfer_code_next_steps2: String { return UBLocalized.tr(Key.wallet_transfer_code_next_steps2) }
   /// Keine Verbindung zum Internet
-   static let wallet_transfer_code_no_internet_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_no_internet_title_key)
+   static var wallet_transfer_code_no_internet_title: String { return UBLocalized.tr(Key.wallet_transfer_code_no_internet_title) }
   /// Code abgelaufen
-   static let wallet_transfer_code_old_code = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_old_code_key)
+   static var wallet_transfer_code_old_code: String { return UBLocalized.tr(Key.wallet_transfer_code_old_code) }
   /// Code erstellen
-   static let wallet_transfer_code_onboarding_button = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_button_key)
+   static var wallet_transfer_code_onboarding_button: String { return UBLocalized.tr(Key.wallet_transfer_code_onboarding_button) }
   /// So funktioniert's
-   static let wallet_transfer_code_onboarding_howto = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_howto_key)
+   static var wallet_transfer_code_onboarding_howto: String { return UBLocalized.tr(Key.wallet_transfer_code_onboarding_howto) }
   /// Sie können Transfer-Codes z. B. bei Covid-Tests angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.
-   static let wallet_transfer_code_onboarding_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_text_key)
+   static var wallet_transfer_code_onboarding_text: String { return UBLocalized.tr(Key.wallet_transfer_code_onboarding_text) }
   /// Transfer Codes
-   static let wallet_transfer_code_onboarding_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_onboarding_title_key)
+   static var wallet_transfer_code_onboarding_title: String { return UBLocalized.tr(Key.wallet_transfer_code_onboarding_title) }
   /// Transfer fehlgeschlagen
-   static let wallet_transfer_code_state_expired = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_expired_key)
+   static var wallet_transfer_code_state_expired: String { return UBLocalized.tr(Key.wallet_transfer_code_state_expired) }
   /// Mit diesem Transfer kann kein Zertifikat mehr empfangen werden.
-   static let wallet_transfer_code_state_no_certificate = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_no_certificate_key)
+   static var wallet_transfer_code_state_no_certificate: String { return UBLocalized.tr(Key.wallet_transfer_code_state_no_certificate) }
   /// Zuletzt aktualisiert\n{DATE}
-   static let wallet_transfer_code_state_updated = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_updated_key)
+   static var wallet_transfer_code_state_updated: String { return UBLocalized.tr(Key.wallet_transfer_code_state_updated) }
   /// Warten auf Transfer
-   static let wallet_transfer_code_state_waiting = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_state_waiting_key)
+   static var wallet_transfer_code_state_waiting: String { return UBLocalized.tr(Key.wallet_transfer_code_state_waiting) }
   /// Die Uhrzeit muss richtig eingestellt sein, damit Transfer-Codes funktionieren. Passen Sie Ihre Uhrzeit an und versuchen sie es erneut.
-   static let wallet_transfer_code_time_inconsistency_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_time_inconsistency_text_key)
+   static var wallet_transfer_code_time_inconsistency_text: String { return UBLocalized.tr(Key.wallet_transfer_code_time_inconsistency_text) }
   /// Uhrzeit Fehler
-   static let wallet_transfer_code_time_inconsistency_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_time_inconsistency_title_key)
+   static var wallet_transfer_code_time_inconsistency_title: String { return UBLocalized.tr(Key.wallet_transfer_code_time_inconsistency_title) }
   /// Transfer-Code
-   static let wallet_transfer_code_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_title_key)
+   static var wallet_transfer_code_title: String { return UBLocalized.tr(Key.wallet_transfer_code_title) }
   /// +41 58 466 07 99
-   static let wallet_transfer_code_unexpected_error_phone_number = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_unexpected_error_phone_number_key)
+   static var wallet_transfer_code_unexpected_error_phone_number: String { return UBLocalized.tr(Key.wallet_transfer_code_unexpected_error_phone_number) }
   /// Kontaktieren Sie den Support
-   static let wallet_transfer_code_unexpected_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_unexpected_error_text_key)
+   static var wallet_transfer_code_unexpected_error_text: String { return UBLocalized.tr(Key.wallet_transfer_code_unexpected_error_text) }
   /// Unerwarteter Fehler
-   static let wallet_transfer_code_unexpected_error_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_unexpected_error_title_key)
+   static var wallet_transfer_code_unexpected_error_title: String { return UBLocalized.tr(Key.wallet_transfer_code_unexpected_error_title) }
   /// Aktualisierung zur Zeit nicht möglich
-   static let wallet_transfer_code_update_error_title = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_update_error_title_key)
+   static var wallet_transfer_code_update_error_title: String { return UBLocalized.tr(Key.wallet_transfer_code_update_error_title) }
   /// Es ist ein unerwarteter Fehler aufgetreten. Versuchen Sie es später erneut.
-   static let wallet_transfer_code_update_general_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_update_general_error_text_key)
+   static var wallet_transfer_code_update_general_error_text: String { return UBLocalized.tr(Key.wallet_transfer_code_update_general_error_text) }
   /// Um den Transfer empfangen zu können, muss die App online sein.
-   static let wallet_transfer_code_update_no_internet_error_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_code_update_no_internet_error_text_key)
+   static var wallet_transfer_code_update_no_internet_error_text: String { return UBLocalized.tr(Key.wallet_transfer_code_update_no_internet_error_text) }
   /// Wollen Sie den Transfer-Code wirklich löschen?
-   static let wallet_transfer_delete_confirm_text = UBLocalized.tr(UBLocalizedKey.wallet_transfer_delete_confirm_text_key)
+   static var wallet_transfer_delete_confirm_text: String { return UBLocalized.tr(Key.wallet_transfer_delete_confirm_text) }
   /// Mit diesem Update können Sie in der App eine Zertifikatskopie ohne Gesundheitsdaten für die Verwendung in der Schweiz generieren lassen. Dazu wurden die Nutzungsbedingungen sowie die Datenschutzerklärung aktualisiert, welche bei Weiternutzung der App als genehmigt gelten.
-   static let wallet_update_boarding_certificate_light_text = UBLocalized.tr(UBLocalizedKey.wallet_update_boarding_certificate_light_text_key)
+   static var wallet_update_boarding_certificate_light_text: String { return UBLocalized.tr(Key.wallet_update_boarding_certificate_light_text) }
   /// Zertifikat Light
-   static let wallet_update_boarding_certificate_light_title = UBLocalized.tr(UBLocalizedKey.wallet_update_boarding_certificate_light_title_key)
+   static var wallet_update_boarding_certificate_light_title: String { return UBLocalized.tr(Key.wallet_update_boarding_certificate_light_title) }
   /// Update
-   static let wallet_update_boarding_header = UBLocalized.tr(UBLocalizedKey.wallet_update_boarding_header_key)
+   static var wallet_update_boarding_header: String { return UBLocalized.tr(Key.wallet_update_boarding_header) }
   /// UVCI kopiert
-   static let wallet_uvci_copied = UBLocalized.tr(UBLocalizedKey.wallet_uvci_copied_key)
+   static var wallet_uvci_copied: String { return UBLocalized.tr(Key.wallet_uvci_copied) }
 }
 // swiftlint:enable function_parameter_count identifier_name line_length type_body_length
 
 // MARK: - Implementation Details
 
-extension UBLocalized {
-  private static func tr(_ key: UBLocalizedKey, _ table: String = "Localizable", _ args: CVarArg...) -> String {
-    let format = BundleToken.bundle.localizedString(forKey: key.rawValue, value: nil, table: table)
-    return String(format: format, locale: Locale.current, arguments: args)
-  }
+class UBLocalizer {
+    static var `default` = UBLocalizer()
+    func makeDefault() {
+        UBLocalizer.default = self
+    }
+
+    func translateWithDefaultLanguage(_ key: UBLocalized.Key, _ table: String = "", _ args: CVarArg...) -> String {
+        let format = BundleToken.bundle.localizedString(forKey: key.rawValue, value: nil, table: table)
+        return String(format: format, locale: Locale.current, arguments: args)
+    }
+
+    public func translate(_ key: UBLocalized.Key, languageKey: String? = nil, table: String = "Localizable", _ args: CVarArg...) -> String {
+      guard let languageKey = languageKey else {
+        return self.translateWithDefaultLanguage(key, table, args)
+      }
+
+      guard let bundlePath = BundleToken.bundle.path(forResource: languageKey, ofType: "lproj"), let bundle = Bundle(path: bundlePath)
+      else { return "" }
+      return String(format: NSLocalizedString(key.rawValue, bundle: bundle, value: "", comment: ""), locale: Locale.current, arguments: args)
+    }
+}
+
+private extension UBLocalized {
+    private static func tr(_ key: UBLocalized.Key, _ table: String = "Localizable", _ args: CVarArg...) -> String {
+      UBLocalizer.default.translate(key, table: table, args)
+    }
 }
 
 extension UBLocalized {
-  public static func translate(_ key: UBLocalizedKey, languageKey: String? = nil, table: String = "Localizable", _ args: CVarArg...) -> String {
-    guard let languageKey = languageKey else {
-      return tr(key, table, args)
+    public static func translate(_ key: UBLocalized.Key, languageKey: String? = nil, table: String = "Localizable", _ args: CVarArg...) -> String {
+        UBLocalizer.default.translate(key, languageKey: languageKey, table: table, args)
     }
-
-    guard let bundlePath = BundleToken.bundle.path(forResource: languageKey, ofType: "lproj"), let bundle = Bundle(path: bundlePath)
-    else { return "" }
-    return String(format: NSLocalizedString(key.rawValue, bundle: bundle, value: "", comment: ""), locale: Locale.current, arguments: args)
-  }
 }
 
 

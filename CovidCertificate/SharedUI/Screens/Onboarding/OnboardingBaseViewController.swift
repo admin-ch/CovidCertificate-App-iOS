@@ -42,7 +42,7 @@ class OnboardingBaseViewController: ViewController {
     }
 
     private let continueContainer = UIView()
-    private let continueButton = Button(titleKey: .continue_button_key, style: .normal(.cc_blue))
+    private let continueButton = Button(titleKey: .continue_button, style: .normal(.cc_blue))
 
     private var currentStep: Int = 0
 

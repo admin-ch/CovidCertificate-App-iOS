@@ -10,7 +10,7 @@
  */
 
 extension UBLocalized {
-    static func translationWithEnglish(key: UBLocalized.UBLocalizedKey) -> (String, String) {
+    static func translationWithEnglish(key: UBLocalized.Key) -> (String, String) {
         return (UBLocalized.translate(key), UBLocalized.translate(key, languageKey: "en"))
     }
 

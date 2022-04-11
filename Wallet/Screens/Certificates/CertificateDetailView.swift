@@ -89,37 +89,37 @@ class CertificateDetailView: UIView {
         }
 
         if vaccinations.isComplete {
-            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_vaccination_title_key))
+            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_vaccination_title))
         } else {
-            addTitle(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_type_incomplete_vaccine_key))
+            addTitle(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_type_incomplete_vaccine))
         }
 
         for vaccination in vaccinations {
             addDividerLine()
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_impfdosis_title_key), value: vaccination.getNumberOverTotalDose)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_impfdosis_title), value: vaccination.getNumberOverTotalDose)
 
             // Vaccine data
             if vaccination.isTargetDiseaseCorrect {
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_target_disease_title_key), value: UBLocalized.target_disease_name)
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_target_disease_title), value: UBLocalized.target_disease_name)
             }
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccine_prophylaxis_key), value: vaccination.prophylaxis)
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_impfstoff_product_name_title_key), value: vaccination.name)
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_impfstoff_holder_key), value: vaccination.authHolder)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccine_prophylaxis), value: vaccination.prophylaxis)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_impfstoff_product_name_title), value: vaccination.name)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_impfstoff_holder), value: vaccination.authHolder)
 
             addDividerLine()
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_date_title_key), value: vaccination.displayDateOfVaccination, accLabel: DateFormatter.ub_accessibilityDateString(dateString: vaccination.displayDateOfVaccination))
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_date_title), value: vaccination.displayDateOfVaccination, accLabel: DateFormatter.ub_accessibilityDateString(dateString: vaccination.displayDateOfVaccination))
             if showEnglishLabels, let displayCountryEnglish = vaccination.displayCountryEnglish {
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_country_title_key), value: vaccination.displayCountry + " / " + displayCountryEnglish)
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_country_title), value: vaccination.displayCountry + " / " + displayCountryEnglish)
             } else {
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_country_title_key), value: vaccination.displayCountry)
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_country_title), value: vaccination.displayCountry)
             }
             addDividerLine()
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title_key), value: vaccination.certificateIssuer)
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier_key), value: vaccination.certificateIdentifier, addEnglishLabels: false, addPasteboardCopyCapability: true)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title), value: vaccination.certificateIssuer)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier), value: vaccination.certificateIdentifier, addEnglishLabels: false, addPasteboardCopyCapability: true)
 
             addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: vaccination.doseNumber != vaccination.totalDoses)
         }
@@ -136,29 +136,29 @@ class CertificateDetailView: UIView {
             addDividerLine()
         }
 
-        addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_recovery_title_key))
+        addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_recovery_title))
 
         for pastInfection in pastInfections {
             addDividerLine()
 
             if pastInfection.isTargetDiseaseCorrect {
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_target_disease_title_key), value: UBLocalized.target_disease_name)
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_target_disease_title), value: UBLocalized.target_disease_name)
             }
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_recovery_first_positiv_result_key), value: pastInfection.displayFirstPositiveTest, accLabel: DateFormatter.ub_accessibilityDateString(dateString: pastInfection.displayFirstPositiveTest))
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_recovery_first_positiv_result), value: pastInfection.displayFirstPositiveTest, accLabel: DateFormatter.ub_accessibilityDateString(dateString: pastInfection.displayFirstPositiveTest))
 
             addDividerLine()
 
             if showEnglishLabels, let displayCountryEnglish = pastInfection.displayCountryEnglish {
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_land_key), value: pastInfection.displayCountry + " / " + displayCountryEnglish)
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_land), value: pastInfection.displayCountry + " / " + displayCountryEnglish)
             } else {
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_land_key), value: pastInfection.displayCountry)
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_land), value: pastInfection.displayCountry)
             }
 
             addDividerLine()
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title_key), value: pastInfection.certificateIssuer)
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier_key), value: pastInfection.certificateIdentifier, addEnglishLabels: false, addPasteboardCopyCapability: true)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title), value: pastInfection.certificateIssuer)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier), value: pastInfection.certificateIdentifier, addEnglishLabels: false, addPasteboardCopyCapability: true)
 
             addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: false)
         }
@@ -176,59 +176,59 @@ class CertificateDetailView: UIView {
         }
 
         if tests[0].isSerologicalTest {
-            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_title_key))
+            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_title))
         } else if tests[0].isSwitzerlandException {
-            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_ch_ausnahme_test_title_key))
+            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_ch_ausnahme_test_title))
         } else if tests[0].isPositiveAntigenTest {
-            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_antigen_positive_test_key))
+            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_antigen_positive_test))
         } else {
-            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_test_title_key))
+            addTitle(title: UBLocalized.translationWithEnglish(key: .covid_certificate_test_title))
         }
 
         for test in tests {
             addDividerLine()
 
             if test.isTargetDiseaseCorrect {
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_target_disease_title_key), value: UBLocalized.target_disease_name)
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_target_disease_title), value: UBLocalized.target_disease_name)
             }
 
             if test.isSwitzerlandException {
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_ausnahme_test_attest_start_date_key), value: test.displaySampleDateTime)
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_ausnahme_test_attest_start_date), value: test.displaySampleDateTime)
 
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_ausnahme_responsible_issuer_key), value: test.testCenter)
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_ausnahme_responsible_issuer), value: test.testCenter)
             } else {
                 if !test.isPositiveAntigenTest {
                     if !test.isSerologicalTest {
-                        let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_positiv_key)
+                        let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ) : UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_positiv)
                         var text = [texts.0, texts.1].joined(separator: "\n")
                         if !showEnglishLabels {
                             text = texts.0
                         }
-                        addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_title_key), value: text)
+                        addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_title), value: text)
                     } else {
-                        let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ_key) : UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_befund_value_key)
+                        let texts = test.isNegative ? UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_negativ) : UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_befund_value)
                         var text = [texts.0, texts.1].joined(separator: "\n")
                         if !showEnglishLabels {
                             text = texts.0
                         }
-                        addValueItem(title: UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_befund_label_key), value: text)
+                        addValueItem(title: UBLocalized.translationWithEnglish(key: .covid_certificate_sero_positiv_test_befund_label), value: text)
                     }
                 }
 
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_type_key), value: test.testType)
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_type), value: test.testType)
                 if !test.isSerologicalTest {
-                    addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_holder_and_name_key), value: test.manufacturerAndTestName)
+                    addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_holder_and_name), value: test.manufacturerAndTestName)
                 }
 
                 addDividerLine()
 
-                let dateKey: UBLocalized.UBLocalizedKey = test.isPositiveAntigenTest ? .wallet_certificate_antigen_positive_date_key : .wallet_certificate_test_sample_date_title_key
+                let dateKey: UBLocalized.Key = test.isPositiveAntigenTest ? .wallet_certificate_antigen_positive_date : .wallet_certificate_test_sample_date_title
                 addValueItem(title: UBLocalized.translationWithEnglish(key: dateKey), value: test.displaySampleDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displaySampleDateTime))
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_date_title_key), value: test.displayResultDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displayResultDateTime))
-                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_done_by_key), value: test.testCenter)
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_result_date_title), value: test.displayResultDateTime, accLabel: DateFormatter.ub_accessibilityDateString(dateString: test.displayResultDateTime))
+                addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_test_done_by), value: test.testCenter)
             }
 
-            let key: UBLocalized.UBLocalizedKey = test.isSwitzerlandException ? .wallet_certificate_ausnahme_issued_country_key : .wallet_certificate_test_land_key
+            let key: UBLocalized.Key = test.isSwitzerlandException ? .wallet_certificate_ausnahme_issued_country : .wallet_certificate_test_land
             let title = UBLocalized.translationWithEnglish(key: key)
 
             if showEnglishLabels, let displayCountryEnglish = test.displayCountryEnglish {
@@ -239,8 +239,8 @@ class CertificateDetailView: UIView {
 
             addDividerLine()
 
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title_key), value: test.certificateIssuer)
-            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier_key), value: test.certificateIdentifier, addEnglishLabels: false, addPasteboardCopyCapability: true)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_vaccination_issuer_title), value: test.certificateIssuer)
+            addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier), value: test.certificateIdentifier, addEnglishLabels: false, addPasteboardCopyCapability: true)
 
             addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: false)
         }
@@ -345,9 +345,9 @@ class CertificateDetailView: UIView {
 
         var values: (String, String)
         if incomplete {
-            values = UBLocalized.translationWithEnglish(key: .wallet_certificate_evidence_creation_date_key)
+            values = UBLocalized.translationWithEnglish(key: .wallet_certificate_evidence_creation_date)
         } else {
-            values = UBLocalized.translationWithEnglish(key: .wallet_certificate_date_key)
+            values = UBLocalized.translationWithEnglish(key: .wallet_certificate_date)
         }
 
         // in the english version show a hint about a date info

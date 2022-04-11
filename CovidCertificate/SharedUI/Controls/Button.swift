@@ -54,7 +54,7 @@ class Button: UBButton {
 
     // MARK: - Init
 
-    init(image: UIImage?, accessibilityKey: UBLocalized.UBLocalizedKey, useCircle: Bool = true, highlightCornerRadius: CGFloat = 3.0) {
+    init(image: UIImage?, accessibilityKey: UBLocalized.Key, useCircle: Bool = true, highlightCornerRadius: CGFloat = 3.0) {
         self.useCircle = useCircle
         style = .normal(.clear)
         customTextColor = nil
@@ -79,7 +79,7 @@ class Button: UBButton {
         }
     }
 
-    init(titleKey: UBLocalized.UBLocalizedKey?, style: Style = .normal(UIColor.cc_blue), customTextColor: UIColor? = nil) {
+    init(titleKey: UBLocalized.Key?, style: Style = .normal(UIColor.cc_blue), customTextColor: UIColor? = nil) {
         self.style = style
         self.customTextColor = customTextColor
 
@@ -123,7 +123,7 @@ class Button: UBButton {
         }
     }
 
-    override var titleKey: UBLocalized.UBLocalizedKey? {
+    override var titleKey: UBLocalized.Key? {
         didSet {
             let titleString = titleKey != nil ? UBLocalized.translate(titleKey!) : nil
             self.title = titleString

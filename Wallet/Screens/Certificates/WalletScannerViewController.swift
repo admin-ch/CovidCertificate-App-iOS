@@ -24,7 +24,7 @@ class WalletScannerViewController: ViewController {
 
     private let imageView = UIImageView(image: UIImage(named: "ic-scan-code"))
     private let explanationLabel = Label(.textBoldLarge, textAlignment: .center)
-    private let moreInfoButton = SimpleTextButton(titleKey: .wallet_scanner_info_button_key, color: .cc_blue)
+    private let moreInfoButton = SimpleTextButton(titleKey: .wallet_scanner_info_button, color: .cc_blue)
 
     private let tooManyScansPopupView = InfoBoxView()
 
@@ -159,7 +159,7 @@ class WalletScannerViewController: ViewController {
                                                 urlTitle: UBLocalized.wallet_info_box_certificate_scan_button_check_app,
                                                 infoId: nil,
                                                 isDismissible: true)
-        tooManyScansPopupView.closeButton.titleKey = .wallet_info_box_certificate_scan_close_key
+        tooManyScansPopupView.closeButton.titleKey = .wallet_info_box_certificate_scan_close
 
         view.addSubview(tooManyScansPopupView)
         tooManyScansPopupView.snp.makeConstraints { make in

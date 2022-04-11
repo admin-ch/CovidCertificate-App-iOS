@@ -15,7 +15,7 @@ class TransferCodeNotificationDisabledView: UIView {
     private let iconView = UIImageView(image: UIImage(named: "ic-push"))
     private let titleLabel = Label(.textBoldLarge, textColor: .cc_blue)
     private let textLabel = Label(.text)
-    private let button = Button(titleKey: .wallet_notification_disabled_button_key, style: .normal(.cc_blue))
+    private let button = Button(titleKey: .wallet_notification_disabled_button, style: .normal(.cc_blue))
 
     var openSettingsCallback: (() -> Void)? {
         didSet {

@@ -1520,13 +1520,16 @@
 "wallet_foreign_rules_check_network_error_text" = "Um die Gültigkeit zu überprüfen, muss Ihr Smartphone mit dem Internet verbunden sein.";
 
 /*Reisefeature: Hinweis 1*/
-"wallet_foreign_rules_check_hint_1" = "Die Einreiseregeln können sich ändern. Prüfen Sie daher die Gültigkeit kurz vor der Abreise und informieren Sie sich zusätzlich online über die aktuellen Einreiseregeln des Ziellandes.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_2" = "Die Einreiseregeln können sich ändern. Prüfen Sie daher die Gültigkeit kurz vor der Abreise und informieren Sie sich zusätzlich online über die aktuellen Einreiseregeln des Ziellandes.";
 
 /*Reisefeature: Hinweis 2*/
-"wallet_foreign_rules_check_hint_2" = "Die oben genannten Angaben beziehen sich nur auf die Einreiseregeln des Ziellandes. Für allfällige zertifikatspflichtige Bereiche innerhalb des Landes können andere Regeln gelten.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_3" = "Die oben genannten Angaben beziehen sich nur auf die Einreiseregeln des Ziellandes. Für allfällige zertifikatspflichtige Bereiche innerhalb des Landes können andere Regeln gelten.";
 
 /*Reisefeature: Hinweis 3*/
-"wallet_foreign_rules_check_hint_3" = "Für die Aktualität und Vollständigkeit der gegebenen Informationen übernimmt der Bund keine Haftung.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_1" = "Für die Aktualität und Vollständigkeit der gegebenen Informationen übernimmt der Bund keine Haftung.";
 
 /*Reisefeature: Hinweis 4*/
 "wallet_foreign_rules_check_hint_4" = "Land nicht gefunden? Nicht alle Länder akzeptieren Covid-Zertifikate oder es wurden keine Einreiseregeln verfügbar gemacht.";

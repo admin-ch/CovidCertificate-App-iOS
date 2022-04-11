@@ -1518,13 +1518,16 @@
 "wallet_foreign_rules_check_network_error_text" = "To check certificate validity your smartphone must be connected to the internet.";
 
 /*Reisefeature: Hinweis 1*/
-"wallet_foreign_rules_check_hint_1" = "Entry rules can change. So check the validity shortly before you depart, and go online to make sure of the latest entry rules for your destination country.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_2" = "Entry rules can change. So check the validity shortly before you depart, and go online to make sure of the latest entry rules for your destination country.";
 
 /*Reisefeature: Hinweis 2*/
-"wallet_foreign_rules_check_hint_2" = "The above information relates only to the rules for entering your destination country. Different rules may apply to settings where a certificate is required within the country.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_3" = "The above information relates only to the rules for entering your destination country. Different rules may apply to settings where a certificate is required within the country.";
 
 /*Reisefeature: Hinweis 3*/
-"wallet_foreign_rules_check_hint_3" = "The federal government assumes no liability for the up-to-dateness or completeness of the information provided.";
+/*Fuzzy*/
+"wallet_foreign_rules_check_hint_1" = "The federal government assumes no liability for the up-to-dateness or completeness of the information provided.";
 
 /*Reisefeature: Hinweis 4*/
 "wallet_foreign_rules_check_hint_4" = "Couldn’t find the country you were looking for? Not all countries accept COVID certificates; it might also be that no entry rules have been made available.";

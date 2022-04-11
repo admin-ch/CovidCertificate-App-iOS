@@ -58,28 +58,28 @@ extension XCUIApplication {
         let isFirst = countTransfercodes == 0
         if isFirst {
             // TODO: this button is not found when info popup is on
-            buttons[.wallet_homescreen_add_transfer_code_key].assertExists().tap()
+            buttons[UBLocalized.Key.wallet_homescreen_add_transfer_code].assertExists().tap()
         } else {
-            buttons[.accessibility_add_button_key].assertExists().tap()
-            buttons[.wallet_homescreen_add_transfer_code_key].assertExists().tap()
+            buttons[UBLocalized.Key.accessibility_add_button].assertExists().tap()
+            buttons[UBLocalized.Key.wallet_homescreen_add_transfer_code].assertExists().tap()
         }
 
-        buttons[.wallet_transfer_code_create_code_button_key].assertExists().tap()
+        buttons[UBLocalized.Key.wallet_transfer_code_create_code_button].assertExists().tap()
 
-        staticTexts[.wallet_transfer_code_code_created_title_key, true].assertExists()
-        buttons[.wallet_transfer_code_done_button_key].assertExists().tap()
+        staticTexts[UBLocalized.Key.wallet_transfer_code_code_created_title, true].assertExists()
+        buttons[UBLocalized.Key.wallet_transfer_code_done_button].assertExists().tap()
 
-        if staticTexts[.wallet_notification_permission_text_key, true].waitForExistence(timeout: 1.0) {
-            buttons[.continue_button_key].assertExists().tap()
+        if staticTexts[UBLocalized.Key.wallet_notification_permission_text, true].waitForExistence(timeout: 1.0) {
+            buttons[UBLocalized.Key.continue_button].assertExists().tap()
             XCUIApplication.allowNotificationPermission()
         }
     }
 
     func deleteVisibleTransfercode() {
         scrollViews.firstMatch.tap()
-        scrollViews.firstMatch.scrollToElement(element: buttons[.delete_button_key])
-        buttons[.delete_button_key].assertExists().tap()
-        sheets.firstMatch.buttons[.delete_button_key, true].assertExists().tap()
+        scrollViews.firstMatch.scrollToElement(element: buttons[UBLocalized.Key.delete_button])
+        buttons[UBLocalized.Key.delete_button].assertExists().tap()
+        sheets.firstMatch.buttons[UBLocalized.Key.delete_button, true].assertExists().tap()
     }
 
     var countTransfercodes: Int {

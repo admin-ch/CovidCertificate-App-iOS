@@ -20,7 +20,7 @@ class RefreshInfoPopupView: PopupView {
     private let titleLabel = Label(.title, textAlignment: .center)
 
     private let buttonView = UIView()
-    private let closeButton = Button(titleKey: .close_button_key, style: .text(.cc_blue))
+    private let closeButton = Button(titleKey: .close_button, style: .text(.cc_blue))
 
     private var infoView = UIStackView()
 
@@ -130,7 +130,7 @@ class RefreshInfoPopupView: PopupView {
 
         // adds covid check icon
         let v = UIView()
-        let b = Button(image: UIImage(named: "img-covid-check"), accessibilityKey: .verifier_app_name_key, useCircle: false, highlightCornerRadius: Padding.medium)
+        let b = Button(image: UIImage(named: "img-covid-check"), accessibilityKey: .verifier_app_name, useCircle: false, highlightCornerRadius: Padding.medium)
         if let url = URL(string: UBLocalized.verifier_apple_app_store_url) {
             b.touchUpCallback = {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)

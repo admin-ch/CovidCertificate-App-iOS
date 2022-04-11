@@ -32,7 +32,7 @@ class CertificateAddDetailViewController: ViewController {
 
     private var alreadyHasCertificate: Bool = false {
         didSet {
-            addOkButton.titleKey = alreadyHasCertificate ? .ok_button_key : .wallet_add_certificate_button_key
+            addOkButton.titleKey = alreadyHasCertificate ? .ok_button : .wallet_add_certificate_button
         }
     }
 
@@ -41,8 +41,8 @@ class CertificateAddDetailViewController: ViewController {
     private let bottomView = UIView()
     private let certificateDetailView = CertificateAddDetailView()
 
-    private let addOkButton = Button(titleKey: .wallet_add_certificate_button_key)
-    private let scanAgainButton = SimpleTextButton(titleKey: .wallet_scan_again_key, color: .cc_blue)
+    private let addOkButton = Button(titleKey: .wallet_add_certificate_button)
+    private let scanAgainButton = SimpleTextButton(titleKey: .wallet_scan_again, color: .cc_blue)
 
     let showScanAgainButton: Bool
 
