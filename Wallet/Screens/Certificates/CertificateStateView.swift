@@ -147,7 +147,7 @@ class CertificateStateView: UIView {
                 self.validityView.textColor = .cc_black
                 self.validityView.untilText = validUntil
             case .failure:
-                if case let .invalid(errors, errorCodes, validUntil, _) = self.states.state {
+                if case let .invalid(errors, errorCodes, validUntil, _, _) = self.states.state {
                     let first = self.states.state.getFirstError()
 
                     self.imageView.image = first?.icon(with: .cc_red)
@@ -221,7 +221,7 @@ class CertificateStateView: UIView {
                     self.validityView.textColor = .cc_black
                     self.validityView.untilText = validUntil
 
-                case let .invalid(errors, errorCodes, validUntil, _):
+                case let .invalid(errors, errorCodes, validUntil, _, _):
                     let first = self.states.state.getFirstError()
 
                     self.imageView.image = first?.icon()
