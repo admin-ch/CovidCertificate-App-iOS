@@ -32,12 +32,12 @@ import Foundation
   {% endfor %}
 {% endfilter %}{% endmacro %}
 {% macro recursiveBlock table item %}
-   enum {{enumName}}Key : String {
+   enum Key : String {
     {% for string in item.strings %}
     {% if not param.noComments %}
     /// {{string.translation}}
     {% endif %}
-    {{accessModifier}} case {{string.key}}_key = "{{string.key}}"
+    {{accessModifier}} case {{string.key}}
     {% endfor %}
     {% for child in item.children %}
     {% call recursiveBlock table child %}
@@ -50,13 +50,13 @@ import Foundation
   {% endif %}
   {% if string.types %}
   {{accessModifier}} static func {{string.key}}({% call parametersBlock string.types %}) -> String {
-    return {{enumName}}.tr({{enumName}}Key.{{string.key}}_key, {% call argumentsBlock string.types %})
+    return {{enumName}}.tr(Key.{{string.key}}, {% call argumentsBlock string.types %})
   }
   {% elif param.lookupFunction %}
   {# custom localization function is mostly used for in-app lang selection, so we want the loc to be recomputed at each call for those (hence the computed var) #}
-  {{accessModifier}} static var {{string.key}}: String { return {{enumName}}.tr({{enumName}}Key.{{string.key}}_key) }
+  {{accessModifier}} static var {{string.key}}: String { return {{enumName}}.tr(Key.{{string.key}}) }
   {% else %}
-  {{accessModifier}} static let {{string.key}} = {{enumName}}.tr({{enumName}}Key.{{string.key}}_key)
+  {{accessModifier}} static var {{string.key}}: String { return {{enumName}}.tr(Key.{{string.key}}) }
   {% endif %}
   {% endfor %}
   {% for child in item.children %}
@@ -80,27 +80,38 @@ import Foundation
 
 // MARK: - Implementation Details
 
-extension {{enumName}} {
-  private static func tr(_ key: {{enumName}}Key, _ table: String = "{{param.tableName}}", _ args: CVarArg...) -> String {
-    {% if param.lookupFunction %}
-    let format = {{ param.lookupFunction }}(key, table)
-    {% else %}
-    let format = {{param.bundle|default:"BundleToken.bundle"}}.localizedString(forKey: key.rawValue, value: nil, table: table)
-    {% endif %}
-    return String(format: format, locale: Locale.current, arguments: args)
-  }
+class UBLocalizer {
+    static var `default` = UBLocalizer()
+    func makeDefault() {
+        UBLocalizer.default = self
+    }
+
+    func translateWithDefaultLanguage(_ key: {{enumName}}.Key, _ table: String = "", _ args: CVarArg...) -> String {
+        let format = BundleToken.bundle.localizedString(forKey: key.rawValue, value: nil, table: table)
+        return String(format: format, locale: Locale.current, arguments: args)
+    }
+
+    public func translate(_ key: {{enumName}}.Key, languageKey: String? = nil, table: String = "{{param.tableName}}", _ args: CVarArg...) -> String {
+      guard let languageKey = languageKey else {
+        return self.translateWithDefaultLanguage(key, table, args)
+      }
+
+      guard let bundlePath = BundleToken.bundle.path(forResource: languageKey, ofType: "lproj"), let bundle = Bundle(path: bundlePath)
+      else { return "" }
+      return String(format: NSLocalizedString(key.rawValue, bundle: bundle, value: "", comment: ""), locale: Locale.current, arguments: args)
+    }
+}
+
+private extension {{enumName}} {
+    private static func tr(_ key: {{enumName}}.Key, _ table: String = "{{param.tableName}}", _ args: CVarArg...) -> String {
+      UBLocalizer.default.translate(key, table: table, args)
+    }
 }
 
 extension {{enumName}} {
-  public static func translate(_ key: {{enumName}}Key, languageKey: String? = nil, table: String = "{{param.tableName}}", _ args: CVarArg...) -> String {
-    guard let languageKey = languageKey else {
-      return tr(key, table, args)
+    public static func translate(_ key: {{enumName}}.Key, languageKey: String? = nil, table: String = "{{param.tableName}}", _ args: CVarArg...) -> String {
+        UBLocalizer.default.translate(key, languageKey: languageKey, table: table, args)
     }
-
-    guard let bundlePath = BundleToken.bundle.path(forResource: languageKey, ofType: "lproj"), let bundle = Bundle(path: bundlePath)
-    else { return "" }
-    return String(format: NSLocalizedString(key.rawValue, bundle: bundle, value: "", comment: ""), locale: Locale.current, arguments: args)
-  }
 }
 
 {% if not param.bundle and not param.lookupFunction %}

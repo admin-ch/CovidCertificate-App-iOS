@@ -228,7 +228,7 @@ class TransferCodeStatusView: UIView {
 
 class ContactSupportView: UIView {
     private let textLabel = Label(.textBoldLarge, textAlignment: .center)
-    let phoneNumber = ExternalLinkButton(titleKey: .wallet_transfer_code_unexpected_error_phone_number_key,
+    let phoneNumber = ExternalLinkButton(titleKey: .wallet_transfer_code_unexpected_error_phone_number,
                                          mode: .phone,
                                          tintColor: .cc_red)
     private let transfercodeLabel = Label(.smallError, textColor: .cc_greyText, textAlignment: .center)

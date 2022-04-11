@@ -12,8 +12,8 @@
 import Foundation
 
 class TransferCodeOnboardingViewController: BasicStaticContentViewController {
-    let createCodeButton = Button(titleKey: .wallet_transfer_code_create_code_button_key)
-    private let howItWorksButton = Button(titleKey: .wallet_transfer_code_onboarding_howto_key, style: .text(.cc_blue))
+    let createCodeButton = Button(titleKey: .wallet_transfer_code_create_code_button)
+    private let howItWorksButton = Button(titleKey: .wallet_transfer_code_onboarding_howto, style: .text(.cc_blue))
 
     init() {
         super.init(models: [StaticContentViewModel(foregroundImage: UIImage(named: "illu-transfer-code"),

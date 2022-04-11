@@ -14,7 +14,7 @@ import Foundation
 
 class VerifyCheckContentViewController: ViewController {
     private let stackScrollView = StackScrollView()
-    private let okButton = Button(titleKey: .ok_button_key, style: .normal(.cc_blue))
+    private let okButton = Button(titleKey: .ok_button, style: .normal(.cc_blue))
 
     private let loadingView = VerifyLoadingView()
     private let statusView = VerifyStatusView()

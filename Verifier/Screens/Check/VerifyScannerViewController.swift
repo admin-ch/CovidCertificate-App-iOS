@@ -49,7 +49,7 @@ class VerifyScannerViewController: ViewController {
     private let lightButton = ScannerLightButton.verifierButton()
 
     private let label = Label(.uppercaseBold, textColor: .white, textAlignment: .center)
-    private let closeButton = Button(image: UIImage(named: "ic-close")?.ub_image(with: .white), accessibilityKey: .accessibility_close_button_key)
+    private let closeButton = Button(image: UIImage(named: "ic-close")?.ub_image(with: .white), accessibilityKey: .accessibility_close_button)
 
     private let scanModeButton = ScanModeButton(addSettingsIcon: false)
 

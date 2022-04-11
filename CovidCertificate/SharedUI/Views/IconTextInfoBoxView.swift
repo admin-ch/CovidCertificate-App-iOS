@@ -26,7 +26,7 @@ class IconTextInfoBoxView: PopupView {
     private let imageHeight: CGFloat
 
     private let buttonView = UIView()
-    private let closeButton = Button(titleKey: .close_button_key, style: .text(.cc_blue))
+    private let closeButton = Button(titleKey: .close_button, style: .text(.cc_blue))
 
     // MARK: - Init
 

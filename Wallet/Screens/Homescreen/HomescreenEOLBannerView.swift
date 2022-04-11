@@ -20,7 +20,7 @@ class HomescreenEOLBannerView: UIView {
     private(set) var container = AccessibilityContainer()
     private let titleLabel = Label(.textBoldLarge, numberOfLines: 1, textAlignment: .left)
 
-    private let dismissButton = Button(image: UIImage(named: "ic-close")?.ub_image(with: .black), accessibilityKey: .accessibility_close_button_key)
+    private let dismissButton = Button(image: UIImage(named: "ic-close")?.ub_image(with: .black), accessibilityKey: .accessibility_close_button)
 
     var banner: ConfigResponseBody.EOLBannerInfo? {
         didSet {

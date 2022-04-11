@@ -16,7 +16,7 @@ class ExternalLinkButton: UBButton {
 
     enum Mode { case link, phone }
 
-    convenience init(titleKey: UBLocalized.UBLocalizedKey, mode: Mode = .link, tintColor: UIColor = .cc_blue) {
+    convenience init(titleKey: UBLocalized.Key, mode: Mode = .link, tintColor: UIColor = .cc_blue) {
         let titleString = UBLocalized.translate(titleKey)
         self.init(title: titleString, mode: mode, tintColor: tintColor)
         self.titleKey = titleKey
@@ -72,7 +72,7 @@ class SimpleTextButton: UBButton {
 
     // MARK: - Init
 
-    init(titleKey: UBLocalized.UBLocalizedKey, color: UIColor) {
+    init(titleKey: UBLocalized.Key, color: UIColor) {
         self.color = color
         super.init()
 

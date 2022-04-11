@@ -19,8 +19,8 @@ class HomescreenBottomView: UIView {
     public var addButtonCallback: (() -> Void)?
 
     private let faqRoundView = UIView()
-    private let faqButton = Button(image: UIImage(named: "ic-faq"), accessibilityKey: .accessibility_faq_button_key)
-    private let listButton = Button(image: UIImage(named: "ic-list"), accessibilityKey: .accessibility_list_button_key)
+    private let faqButton = Button(image: UIImage(named: "ic-faq"), accessibilityKey: .accessibility_faq_button)
+    private let listButton = Button(image: UIImage(named: "ic-list"), accessibilityKey: .accessibility_list_button)
 
     public var state: HomescreenState = .onboarding {
         didSet { update() }

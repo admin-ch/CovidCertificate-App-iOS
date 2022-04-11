@@ -23,9 +23,9 @@ class CertificateLightSummaryView: UIView {
 
     init(isActive: Bool) {
         if isActive {
-            activateButton = Button(titleKey: .wallet_certificate_light_detail_deactivate_button_key, style: .normal(.cc_bund))
+            activateButton = Button(titleKey: .wallet_certificate_light_detail_deactivate_button, style: .normal(.cc_bund))
         } else {
-            activateButton = Button(titleKey: .wallet_certificate_light_detail_activate_button_key)
+            activateButton = Button(titleKey: .wallet_certificate_light_detail_activate_button)
         }
         super.init(frame: .zero)
         setupLayout()

@@ -26,7 +26,7 @@ class HomescreenVaccinationInfoView: UIView {
     private let textLabel = Label(.text, textAlignment: .left)
 
     private let vaccinationButton = TitleIconButton(text: UBLocalized.vaccination_homescreen_button_title, icon: UIImage(named: "ic-arrow")!.ub_image(with: .cc_blue))
-    private let dismissButton = Button(image: UIImage(named: "ic-close")?.ub_image(with: .black), accessibilityKey: .accessibility_close_button_key)
+    private let dismissButton = Button(image: UIImage(named: "ic-close")?.ub_image(with: .black), accessibilityKey: .accessibility_close_button)
 
     init(title: String?, text: String?) {
         super.init(frame: .zero)

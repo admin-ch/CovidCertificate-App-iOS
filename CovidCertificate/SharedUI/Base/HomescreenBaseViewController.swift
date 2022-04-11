@@ -18,7 +18,7 @@ class HomescreenBaseViewController: ViewController {
 
     private let backgroundView: RoundBackgroundView
     private let logoView = UIImageView(image: UIImage(named: "ic-bund"))
-    private let infoButton = Button(image: UIImage(named: "ic-info-outline"), accessibilityKey: .accessibility_info_button_key)
+    private let infoButton = Button(image: UIImage(named: "ic-info-outline"), accessibilityKey: .accessibility_info_button)
     private let boxView = InfoBoxView()
 
     public let infoBoxButton = InfoBoxButton()

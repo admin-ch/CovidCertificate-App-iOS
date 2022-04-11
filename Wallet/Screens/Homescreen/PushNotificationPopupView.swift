@@ -19,7 +19,7 @@ class PushNotificationPopUpView: PopupView {
     private let imageView = UIImageView(image: UIImage(named: "illu-notification"))
     private let titleLabel = Label(.title, textAlignment: .center)
     private let textLabel = Label(.text, textAlignment: .center)
-    private let button = Button(titleKey: .continue_button_key, style: .normal(.cc_blue))
+    private let button = Button(titleKey: .continue_button, style: .normal(.cc_blue))
 
     private var buttonView = UIView()
 

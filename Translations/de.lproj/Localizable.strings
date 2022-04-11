@@ -220,7 +220,7 @@
 "wallet_faq_questions_answer_4" = "Der QR-Code auf dem Covid-Zertifikat enthält eine elektronische Signatur. Die Signatur ist ein wichtiges Sicherheitsmerkmal und macht das Covid-Zertifikat fälschungssicher. Das Covid-Zertifikat ist zudem nur in Kombination mit einem Ausweisdokument gültig.";
 
 /*Antwort 5 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_5" = "Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier und/oder als PDF deshalb sorgfältig auf. Bei Verlust und Bedarf nach einem Ersatz kann eine Gebühr erhoben werden.";
+"wallet_faq_questions_answer_5" = "Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier deshalb sorgfältig auf. Bei Verlust müssen Sie das Covid-Zertifikat erneut bei der ausgebenden Stelle anfragen.";
 
 /*Antwort 6 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_1" = "Um ein Covid-Zertifikat zur App hinzuzufügen, benötigen Sie das Ihnen ausgestellte Originalzertifikat auf Papier oder als PDF-Dokument. Den darauf abgebildeten QR-Code können Sie mit der COVID Certificate App scannen und hinzufügen. Anschliessend erscheint das Covid-Zertifikat direkt in der App.";
@@ -901,7 +901,7 @@
 "wallet_faq_works_question_2_1" = "Was ist ein Transfer-Code?";
 "wallet_faq_works_answer_2_1" = "Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.";
 "wallet_faq_works_question_5_1" = "Ich habe das Covid-Zertifikat ausschliesslich elektronisch in der App. Wie komme ich zum Zertifikat als PDF oder auf Papier?";
-"wallet_faq_works_answer_5_1" = "In der «COVID Certificate»-App finden Sie in der Detailansicht des elektronischen Covid-Zertifikats die Funktion «Exportieren». Damit können Sie ein PDF erstellen, dieses speichern und ausdrucken.";
+"wallet_faq_works_answer_5_1" = "In der «COVID Certificate»-App finden Sie in der Detailansicht des elektronische Covid-Zertifikats die Funktion «Exportieren». Damit können Sie ein PDF erstellen, dieses speichern und ausdrucken.";
 
 /*wallet android app google play store deep link*/
 "wallet_android_app_google_play_store_url" = "market://details?id=ch.admin.bag.covidcertificate.wallet";
@@ -1035,7 +1035,7 @@
 "vaccination_booking_ow_name" = "Obwalden";
 
 /*url for booking an appointment for vaccination for canton ow*/
-"vaccination_booking_ow_url" = "https://www.ow.ch/dienstleistungen/7129";
+"vaccination_booking_ow_url" = "https://www.ow.ch/de/verwaltung/dienstleistungen/?dienst_id=5962#Impfung";
 
 /*canton name sg*/
 "vaccination_booking_sg_name" = "St. Gallen";
@@ -1104,6 +1104,12 @@
 "vaccination_booking_zh_url" = "http://www.zh.ch/coronaimpfung";
 
 /*vaccination hint box title*/
+"vaccination_hint_title_1" = "Jetzt impfen lassen!";
+
+/*vaccination hint box text*/
+"vaccination_hint_text_1" = "Mit der Covid-19-Impfung können Sie auf das wiederholte Testen verzichten.";
+
+/*vaccination hint box title*/
 "vaccination_hint_title_2" = "Jetzt impfen lassen!";
 
 /*vaccination hint box text*/
@@ -1144,6 +1150,12 @@
 
 /*vaccination hint box text*/
 "vaccination_hint_text_8" = "Mit der Covid-19-Impfung können Sie dazu beitragen, das Gesundheitswesen zu entlasten.";
+
+/*vaccination hint box title*/
+"vaccination_hint_title_9" = "Jetzt impfen lassen!";
+
+/*vaccination hint box text*/
+"vaccination_hint_text_9" = "Mit der Covid-19-Impfung können Sie dazu beitragen, die Freiheiten des Alltags zurückzubringen.";
 
 /*vaccination booking info screen title*/
 "vaccination_booking_info_title" = "Impftermin in Ihrer Nähe buchen";
@@ -1188,7 +1200,7 @@
 "wallet_info_box_certificate_scan_button_check_app" = "Zur Check-App";
 "wallet_info_box_certificate_scan_close" = "Verstanden";
 "wallet_info_box_certificate_scan_text_bold" = "«COVID Certificate Check»-App.";
-"wallet_only_valid_in_switzerland" = "Ausserhalb der Schweiz nicht gültig";
+"wallet_only_valid_in_switzerland" = "Nur mit einem Ausweisdokument \n& innerhalb der Schweiz gültig";
 "covid_certificate_sero_positiv_test_befund_label" = "Befund";
 "covid_certificate_sero_positiv_test_befund_value" = "Genügend";
 
@@ -1370,7 +1382,7 @@
 "wallet_certificate_ausnahme_issued_country" = "Medizinisches Attest ausgestellt in";
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
-"wallet_certificate_detail_note_ausnahme" = "Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.";
+"wallet_certificate_detail_note_ausnahme" = "Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen. \n\nDie Inhaberin oder der Inhaber kann entsprechend dem jeweils gültigen Schutzkonzept bei zertifikatspflichtigen Veranstaltungen und Einrichtungen verpflichtet sein, eine Gesichtsmaske zu tragen.";
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Ausnahme";
@@ -1386,32 +1398,33 @@
 "wallet_certificate_detail_note_positive_antigen" = "Dieses Zertifikat ist kein Reisedokument.\n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.";
 
 /*banner title on homescreen. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_homescreen_title" = "Bald abgelaufen";
+"wallet_eol_banner_invalid_in_three_weeks_homescreen_title" = "Verkürzte Gültigkeitsdauer";
 
 /*banner title in certificate detail view. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_detail_title" = "Info";
+"wallet_eol_banner_invalid_in_three_weeks_detail_title" = "Verkürzte Gültigkeitsdauer";
 
 /*banner text in certificate detail view. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_detail_text" = "Dieses Zertifikat läuft bald ab.";
+"wallet_eol_banner_invalid_in_three_weeks_detail_text" = "Dieses Zertifikat wird bald ablaufen.";
 
 /*more info 'button' text in banner in certicate detail view. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_detail_more_info" = "Mehr erfahren?";
+"wallet_eol_banner_invalid_in_three_weeks_detail_more_info" = "Mehr erfahren";
 
 /*title for pop up. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_popup_title" = "Info";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text1" = "";
+/*Fuzzy*/
+"wallet_eol_banner_invalid_in_three_weeks_popup_text1" = "Per 31. Jan. 2022 gelten in der Schweiz reduzierte Gültigkeitsdauern von 270 statt 365 Tagen für Covid-Zertifikate für Geimpfte oder Genesene. Dieses Zertifikat ist von der verkürzten Gültigkeitsdauer unmittelbar betroffen:";
 
 /*bold text box for pop up. case: certificate will be invalid within three weeks of validity change.*/
 /*Fuzzy*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_bold_text" = "Dieses Covid-Zertifikat ist nur noch wenige Tage gültig. Bitte beachten Sie das auf dem Zertifikat ausgewiesene Ablaufdatum.";
+"wallet_eol_banner_invalid_in_three_weeks_popup_bold_text" = "Dieses Covid-Zertifikat ist ab dem 31. Jan. 2022 nur noch wenige Tage gültig.";
 
 /*link text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_link_text" = "Und nun?";
+"wallet_eol_banner_invalid_in_three_weeks_popup_link_text" = "Mehr erfahren";
 
 /*link url for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_link_url" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald";
+"wallet_eol_banner_invalid_in_three_weeks_popup_link_url" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine";
 
 /*banner title on homescreen. case: certificate will be invalid at time of validity change.*/
 "wallet_eol_banner_invalid_from_first_february_homescreen_title" = "Verkürzte Gültigkeitsdauer";
@@ -1442,97 +1455,4 @@
 "wallet_eol_banner_invalid_from_first_february_popup_link_url" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/warum-wird-die-gueltigkeitsdauer-der-zertifikate-fuer-eine-impfung-oder-eine";
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
-"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "";
-
-/*Fuzzy*/
-"infobox_generic_title" = "Zertifikat sichern!";
-
-/*Fuzzy*/
-"infobox_generic_text" = "Wenn Sie die App löschen, Ihr Smartphone wechseln oder verlieren, gehen auch Ihre Covid-Zertifikate verloren.\nBewahren Sie Ihre Zertifikate daher auch ausserhalb der App auf, indem Sie diese als PDF exportieren.";
-
-/*Fuzzy*/
-"infobox_generic_button" = "Mehr erfahren";
-
-/*Fuzzy*/
-"infobox_generic_url_android" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate";
-
-/*Fuzzy*/
-"infobox_generic_url_ios" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/ich-habe-das-covid-zertifikat-ausschliesslich-elektronisch-der-covid-certificate";
-
-/*accessibilityLabel for the "1"-icon*/
-"wallet_scanner_how_it_works_accessibility_icon1" = "Erstens";
-
-/*accessibilityLabel for the "2"-icon*/
-"wallet_scanner_how_it_works_accessibility_icon2" = "Zweitens";
-
-/*accessibilityLabel for the "3"-icon*/
-"wallet_scanner_how_it_works_accessibility_icon3" = "Drittens";
-
-/*Reise-Check: Label des Buttons um Gültigkeit im Ausland zu prüfen*/
-"wallet_foreign_rules_check_button" = "Gültigkeit bei Reisen";
-
-/*Reise-Check: Titel des Reise-Check Screens*/
-"wallet_foreign_rules_check_title" = "Gültigkeit für Reisen ins Ausland";
-
-/*Reise-Check: Untertitel des Reise-Check Screens*/
-"wallet_foreign_rules_check_subtitle" = "Finden Sie vor einer Auslandreise heraus, ob Ihr Covid-Zertifikat zum Zeitpunkt der Einreise ins Zielland gültig ist.";
-
-/*Reise-Check: Titel der Länder- und Datumsauswahl*/
-"wallet_foreign_rules_check_form_title" = "Prüfen für:";
-
-/*Reise-Check: Label des Länder Eingabefeldes*/
-"wallet_foreign_rules_check_country_label" = "Land:";
-
-/*Reise-Check: Wert wenn kein Land ausgewählt*/
-"wallet_foreign_rules_check_country_empty_label" = "Wählen";
-
-/*Reise-Check: Label des Datum Eingabefeldes*/
-"wallet_foreign_rules_check_date_label" = "Einreise am:";
-
-/*Reise-Check: Fehlermeldung wenn Datum in der Vergangenheit liegt*/
-"wallet_foreign_rules_check_date_in_past_error" = "Die angegebene Uhrzeit liegt in der Vergangenheit";
-
-/*Reise-Check: Titel des Hinweise Abschnittes*/
-"wallet_foreign_rules_check_hints_title" = "Hinweise";
-
-/*Reise-Check: Label für den Mehr Informationen Button*/
-"wallet_foreign_rules_check_hints_more_info_label" = "Mehr Informationen finden Sie unter";
-
-/*Reise-Check: Prüfstatus wenn noch kein Land ausgewählt wurde*/
-"wallet_foreign_rules_check_state_empty" = "Bitte wählen Sie ein Land und den Einreisezeitpunkt aus.";
-
-/*Reise-Check: Titel des Auswahldialoges für das Land*/
-"wallet_foreign_rules_check_country_picker_title" = "Land auswählen";
-
-/*Reise-Check: Erste Zeile des Prüfstatus wenn Zertifikat gültig ist*/
-"wallet_foreign_rules_check_state_valid" = "Gültig für die Einreise nach:";
-
-/*Reise-Check: Erste Zeile des Prüfstatus wenn Zertifikat ungültig ist*/
-"wallet_foreign_rules_check_state_invalid" = "Ungültig für die Einreise nach:";
-
-/*Reise-Check: Zweite Zeile des Prüfstatus wenn Zertifikat (un-)gültig ist. {COUNTRY} und {DATE} nicht übersetzen*/
-"wallet_foreign_rules_check_state_country_and_date" = "{COUNTRY}, {DATE}";
-
-/*Error-Titel falls das Reisefeature ("Gültigkeit im Ausland") im Offline-Modus gestartet wurde*/
-"wallet_foreign_rules_check_error_title" = "Fehler beim Laden der verfügbaren Länder";
-
-/*Error-Text falls das Reisefeature ("Gültigkeit im Ausland") im Offline-Modus gestartet wurde*/
-"wallet_foreign_rules_check_network_error_text" = "Um die Gültigkeit zu überprüfen, muss Ihr Smartphone mit dem Internet verbunden sein.";
-
-/*Reisefeature: Hinweis 1*/
-"wallet_foreign_rules_check_hint_1" = "Die Einreiseregeln können sich ändern. Prüfen Sie daher die Gültigkeit kurz vor der Abreise und informieren Sie sich zusätzlich online über die aktuellen Einreiseregeln des Ziellandes.";
-
-/*Reisefeature: Hinweis 2*/
-"wallet_foreign_rules_check_hint_2" = "Die oben genannten Angaben beziehen sich nur auf die Einreiseregeln des Ziellandes. Für allfällige zertifikatspflichtige Bereiche innerhalb des Landes können andere Regeln gelten.";
-
-/*Reisefeature: Hinweis 3*/
-"wallet_foreign_rules_check_hint_3" = "Für die Aktualität und Vollständigkeit der gegebenen Informationen übernimmt der Bund keine Haftung.";
-
-/*Reisefeature: Hinweis 4*/
-"wallet_foreign_rules_check_hint_4" = "Land nicht gefunden? Nicht alle Länder akzeptieren Covid-Zertifikate oder es wurden keine Einreiseregeln verfügbar gemacht.";
-
-/*Reisefeature: Text des Mehr Infos Buttons*/
-"wallet_foreign_rules_check_hints_more_info_link_text" = "reopen.europa.eu";
-
-/*Reisefeature: URL die geöffnet wird wenn auf den Mehr Info Button geklickt wird*/
-"wallet_foreign_rules_check_hints_more_info_link_url" = "https://reopen.europa.eu/";
+"wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "Bitte beachten Sie das auf dem Zertifikat ausgewiesene Ablaufdatum, welches ab dem 31. Jan 2022 mit der reduzierten Gültigkeitsdauer von 270 Tagen berechnet wird.";

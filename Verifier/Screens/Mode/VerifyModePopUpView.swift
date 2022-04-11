@@ -23,10 +23,10 @@ class VerifyModePopUpView: PopupView {
 
     private let titleLabel = Label(.title, textAlignment: .center)
     private let textLabel = Label(.text, textAlignment: .center)
-    private let button = Button(titleKey: .continue_button_key, style: .normal(.cc_blue))
+    private let button = Button(titleKey: .continue_button, style: .normal(.cc_blue))
 
     private let buttonView = UIView()
-    private let chooseButton = Button(titleKey: .verifier_choose_mode_button_title_key, style: .normal(.cc_blue))
+    private let chooseButton = Button(titleKey: .verifier_choose_mode_button_title, style: .normal(.cc_blue))
 
     private var checkBoxes: [CheckBox] = []
 

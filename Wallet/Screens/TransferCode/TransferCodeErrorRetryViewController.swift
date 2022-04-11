@@ -16,7 +16,7 @@ class TransferCodeErrorRetryViewController: StackScrollViewController {
 
     private let errorView = TransferCodeErrorView()
 
-    private let retryButton = Button(titleKey: .error_action_retry_key, style: .normal(.cc_blue))
+    private let retryButton = Button(titleKey: .error_action_retry, style: .normal(.cc_blue))
 
     private let insets = UIEdgeInsets(top: 0, left: 2 * Padding.medium, bottom: 0, right: 2 * Padding.medium)
 

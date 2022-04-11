@@ -16,7 +16,7 @@ class CameraErrorView: UIView {
 
     private let titleLabel = Label(.title, textAlignment: .center)
     private let errorLabel = Label(.text, textAlignment: .center)
-    private let button = Button(titleKey: .ios_settings_open_key)
+    private let button = Button(titleKey: .ios_settings_open)
 
     private let centerYAxis: Bool
     private let isSmall: Bool
