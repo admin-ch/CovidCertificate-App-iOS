@@ -26,7 +26,8 @@ class CertificateDetailViewController: ViewController {
     private let stackScrollView = StackScrollView()
     private let qrCodeNameView = QRCodeNameView()
 
-    private let bannerView = CertificateDetailEOLView()
+    private let bannerView = CertificateDetailBannerView()
+    private let ratBannerView = CertificateDetailBannerView()
 
     private lazy var stateView = CertificateStateView(isHomescreen: false, showValidity: true)
     private lazy var checkValidityAbroadButtonWrapper = UIStackView()
@@ -158,6 +159,11 @@ class CertificateDetailViewController: ViewController {
 
         stackScrollView.addArrangedView(bannerView,
                                         inset: UIEdgeInsets(top: Padding.medium, left: Padding.medium, bottom: 0, right: Padding.medium))
+
+        stackScrollView.addArrangedView(ratBannerView,
+                                        inset: UIEdgeInsets(top: Padding.medium, left: Padding.medium, bottom: 0, right: Padding.medium))
+
+        ratBannerView.bannerContent = CertificateDetailBannerContent(title: UBLocalized.rat_conversion_overview_title, text: UBLocalized.rat_conversion_overview_text, buttonText: UBLocalized.rat_conversion_overview_button)
 
         stackScrollView.addSpacerView(Padding.large)
         stackScrollView.addArrangedView(qrCodeNameView, inset: padding)
@@ -310,6 +316,13 @@ class CertificateDetailViewController: ViewController {
 
             strongSelf.bannerPopupView = EOLBannerPopupView(banner: banner)
             strongSelf.bannerPopupView?.addAndPresent(to: strongSelf.view, from: strongSelf.bannerView.moreInfoButton)
+        }
+
+        ratBannerView.moreInfoTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            guard let c = strongSelf.certificate else { return }
+
+            strongSelf.navigationController?.pushViewController(RatConversionDetailViewController(certificate: c), animated: true)
         }
 
         checkValidityAbroadButton.touchUpCallback = { [weak self] in
@@ -492,15 +505,19 @@ class CertificateDetailViewController: ViewController {
 
         // check certificate color
         var isTest = false
+        var isPositiveAntigenTest = false
 
         switch c {
         case let .success(holder):
             if let dccCert = holder.certificate as? DCCCert {
                 isTest = dccCert.immunisationType == .test
+                isPositiveAntigenTest = dccCert.tests?.contains { $0.isPositiveAntigenTest } ?? false
             }
         default:
             break
         }
+
+        ratBannerView.superview?.ub_setHidden(!isPositiveAntigenTest)
 
         let isSignatureOrRevocationError = state.isSignatureOrRevocationError()
 
