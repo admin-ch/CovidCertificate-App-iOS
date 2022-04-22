@@ -227,7 +227,7 @@ class FormButton: UBButton {
         }
 
         backgroundColor = UIColor.cc_blue
-        highlightedBackgroundColor = UIColor.black
+        highlightedBackgroundColor = UIColor.black.withAlphaComponent(0.2)
 
         label.text = UBLocalized.rat_conversion_form_button
 
