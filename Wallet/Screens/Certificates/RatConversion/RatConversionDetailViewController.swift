@@ -55,8 +55,16 @@ class RatConversionDetailViewController: StackScrollViewController {
         addArrangedView(formView, spacing: 6, insets: UIEdgeInsets(top: 0, left: boxPadding, bottom: Padding.large, right: boxPadding))
 
         let linkButton = ExternalLinkButton(title: UBLocalized.rat_conversion_link_antragsstelle)
-        linkButton.touchUpCallback = {
-            // UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        linkButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            guard let qrCode = strongSelf.certificate.qrCode?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else { return }
+
+            var url = ""
+            url.append("#\(qrCode)")
+
+            guard let u = URL(string: url) else { return }
+
+            UIApplication.shared.open(u, options: [:], completionHandler: nil)
         }
 
         addArrangedView(linkButton,
