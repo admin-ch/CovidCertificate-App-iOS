@@ -79,6 +79,7 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         let foreignRulesHints: LocalizedValue<[ForeignRulesHint]>?
 
         var showRatConversionForm: Bool? = false
+        let ratConversionFormUrl: String?
 
     #elseif VERIFIER
         let checkModesInfos: LocalizedValue<CheckModeContainer>?

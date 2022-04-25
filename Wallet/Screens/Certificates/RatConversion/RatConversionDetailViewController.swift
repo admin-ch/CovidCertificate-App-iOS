@@ -52,19 +52,17 @@ class RatConversionDetailViewController: StackScrollViewController {
         let boxPadding = Padding.medium
         let formView = RatConversionFormView()
 
+        formView.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.openForm(addHcert: true)
+        }
+
         addArrangedView(formView, spacing: 6, insets: UIEdgeInsets(top: 0, left: boxPadding, bottom: Padding.large, right: boxPadding))
 
         let linkButton = ExternalLinkButton(title: UBLocalized.rat_conversion_link_antragsstelle)
         linkButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            guard let qrCode = strongSelf.certificate.qrCode?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else { return }
-
-            var url = ""
-            url.append("#\(qrCode)")
-
-            guard let u = URL(string: url) else { return }
-
-            UIApplication.shared.open(u, options: [:], completionHandler: nil)
+            strongSelf.openForm(addHcert: false)
         }
 
         addArrangedView(linkButton,
@@ -80,6 +78,19 @@ class RatConversionDetailViewController: StackScrollViewController {
         for info in infos {
             addArrangedView(OnboardingInfoView(icon: UIImage(named: info.1), text: info.0, alignment: .left))
         }
+    }
+
+    private func openForm(addHcert: Bool) {
+        guard var url = ConfigManager.currentConfig?.ratConversionFormUrl else {
+            return
+        }
+
+        if let qrCode = certificate.qrCode?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed), addHcert {
+            url.append("#\(qrCode)")
+        }
+
+        guard let u = URL(string: url) else { return }
+        UIApplication.shared.open(u, options: [:], completionHandler: nil)
     }
 }
 
