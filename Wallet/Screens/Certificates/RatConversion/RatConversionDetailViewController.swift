@@ -86,7 +86,7 @@ class RatConversionDetailViewController: StackScrollViewController {
         }
 
         if let qrCode = certificate.qrCode?.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed), addHcert {
-            url.append("#\(qrCode)")
+            url.append("#hcert=\(qrCode)")
         }
 
         guard let u = URL(string: url) else { return }
