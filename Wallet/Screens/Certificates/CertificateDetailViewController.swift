@@ -517,7 +517,9 @@ class CertificateDetailViewController: ViewController {
             break
         }
 
-        ratBannerView.superview?.ub_setHidden(!isPositiveAntigenTest)
+        let showRatConversion = ConfigManager.currentConfig?.showRatConversionForm ?? false
+        let showBanner = isPositiveAntigenTest && showRatConversion
+        ratBannerView.superview?.ub_setHidden(!showBanner)
 
         let isSignatureOrRevocationError = state.isSignatureOrRevocationError()
 
