@@ -136,17 +136,17 @@ import Foundation
      case qr_scanner_error
     /// Zum Formular
      case rat_conversion_form_button
-    /// Ich bin einverstanden, dass die Daten des Covid-Zertifikats an das Onlineformular der nationalen Antragsstelle übertragen werden.
+    /// Ich bin einverstanden, dass die Daten dieses Covid-Zertifikats in das Formular der Nationalen Antragsstelle (eine Website des Bundes) übertragen werden.
      case rat_conversion_form_text
-    /// Zum Onlineformular der nationalen Antragsstelle
+    /// Zum Online-Formular der Nationalen Antragsstelle
      case rat_conversion_form_title
-    /// Das EU-kompatible Covid-Zertifikat kann über ein Onlineformular bei der nationalen Antragsstelle beantragt werden und wird Ihnen per Post zugestellt.
+    /// Ist die Beantragung erfolgreich, wird Ihnen das neue EU-kompatible Covid-Zertifikat per Post zugestellt und kann von Ihnen in die App übernommen werden. Eine direkte Zustellung in die App ist nicht möglich.
      case rat_conversion_info1_text
-    /// Damit das neue Covid-Zertifikat erstellt werden kann, werden die Daten aus dem bestehenden Covid-Zertifikat an das Onlineformular übertragen.
+    /// Durch die Übernahme der Daten des Zertifikats in das Online-Formular kann Ihr Antrag einfacher verarbeitet werden.
      case rat_conversion_info2_text
     /// Weitere Informationen
      case rat_conversion_info_title
-    /// Zur Webseite der nationalen Antragsstelle
+    /// Website der Nationalen Antragsstelle (ohne Datenübernahme)
      case rat_conversion_link_antragsstelle
     /// Mehr erfahren
      case rat_conversion_overview_button
@@ -154,9 +154,9 @@ import Foundation
      case rat_conversion_overview_text
     /// Neu: EU-kompatible Version
      case rat_conversion_overview_title
-    /// Neu werden Covid-Zertifikate für eine Genesung auf Basis von Antigen-Schnelltests auch in der EU akzeptiert.\n\nSie haben die Möglichkeit, eine EU-kompatible Version dieses Covid-Zertifikats bei der nationalen Antragsstelle zu beantragen.
+    /// Neu werden Covid-Zertifikate für Genesene auf Basis von Antigen-Schnelltests auch in der EU akzeptiert.\n\nSie haben die Möglichkeit, eine EU-kompatible Version dieses Zertifikats bei der Nationalen Antragsstelle zu beantragen.
      case rat_conversion_text
-    /// EU-kompatibles Covid-Zertifikat beantragen
+    /// Covid-Zertifikat beantragen (EU-kompatibel)
      case rat_conversion_title
     /// Einstellungen
      case settings_title
@@ -558,7 +558,7 @@ import Foundation
      case wallet_certificate_detail_date_format_info
     /// Exportieren
      case wallet_certificate_detail_export_button
-    /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
+    /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor einer Reise über die am Zielort geltenden Beschränkungen und Gültigkeitsregeln. Die Gültigkeit Ihres Zertifikats wird im Ausland anhand der Regeln des Ziellandes berechnet. Diese kann von der in der «COVID Certificate»-App angegebenen Schweizer Gültigkeit abweichen. Mehr Informationen dazu erhalten Sie in dieser FAQ.
      case wallet_certificate_detail_note
     /// Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
      case wallet_certificate_detail_note_ausnahme
@@ -984,8 +984,8 @@ import Foundation
      case wallet_onboarding_store_title
     /// Ausserhalb der Schweiz nicht gültig
      case wallet_only_valid_in_switzerland
-    /// https://covidcertificate-form-a.admin.ch/immunityrequest/closed
-     case wallet_rat_transformation_url
+    /// https://covidcertificate-form-a.admin.ch/immunityrequest
+     case wallet_rat_recovery_conversion_url
     /// Für Prüfende
      case wallet_refresh_button_info_fat_title_3
     /// Mehr erfahren
@@ -1294,17 +1294,17 @@ import Foundation
    static var qr_scanner_error: String { return UBLocalized.tr(Key.qr_scanner_error) }
   /// Zum Formular
    static var rat_conversion_form_button: String { return UBLocalized.tr(Key.rat_conversion_form_button) }
-  /// Ich bin einverstanden, dass die Daten des Covid-Zertifikats an das Onlineformular der nationalen Antragsstelle übertragen werden.
+  /// Ich bin einverstanden, dass die Daten dieses Covid-Zertifikats in das Formular der Nationalen Antragsstelle (eine Website des Bundes) übertragen werden.
    static var rat_conversion_form_text: String { return UBLocalized.tr(Key.rat_conversion_form_text) }
-  /// Zum Onlineformular der nationalen Antragsstelle
+  /// Zum Online-Formular der Nationalen Antragsstelle
    static var rat_conversion_form_title: String { return UBLocalized.tr(Key.rat_conversion_form_title) }
-  /// Das EU-kompatible Covid-Zertifikat kann über ein Onlineformular bei der nationalen Antragsstelle beantragt werden und wird Ihnen per Post zugestellt.
+  /// Ist die Beantragung erfolgreich, wird Ihnen das neue EU-kompatible Covid-Zertifikat per Post zugestellt und kann von Ihnen in die App übernommen werden. Eine direkte Zustellung in die App ist nicht möglich.
    static var rat_conversion_info1_text: String { return UBLocalized.tr(Key.rat_conversion_info1_text) }
-  /// Damit das neue Covid-Zertifikat erstellt werden kann, werden die Daten aus dem bestehenden Covid-Zertifikat an das Onlineformular übertragen.
+  /// Durch die Übernahme der Daten des Zertifikats in das Online-Formular kann Ihr Antrag einfacher verarbeitet werden.
    static var rat_conversion_info2_text: String { return UBLocalized.tr(Key.rat_conversion_info2_text) }
   /// Weitere Informationen
    static var rat_conversion_info_title: String { return UBLocalized.tr(Key.rat_conversion_info_title) }
-  /// Zur Webseite der nationalen Antragsstelle
+  /// Website der Nationalen Antragsstelle (ohne Datenübernahme)
    static var rat_conversion_link_antragsstelle: String { return UBLocalized.tr(Key.rat_conversion_link_antragsstelle) }
   /// Mehr erfahren
    static var rat_conversion_overview_button: String { return UBLocalized.tr(Key.rat_conversion_overview_button) }
@@ -1312,9 +1312,9 @@ import Foundation
    static var rat_conversion_overview_text: String { return UBLocalized.tr(Key.rat_conversion_overview_text) }
   /// Neu: EU-kompatible Version
    static var rat_conversion_overview_title: String { return UBLocalized.tr(Key.rat_conversion_overview_title) }
-  /// Neu werden Covid-Zertifikate für eine Genesung auf Basis von Antigen-Schnelltests auch in der EU akzeptiert.\n\nSie haben die Möglichkeit, eine EU-kompatible Version dieses Covid-Zertifikats bei der nationalen Antragsstelle zu beantragen.
+  /// Neu werden Covid-Zertifikate für Genesene auf Basis von Antigen-Schnelltests auch in der EU akzeptiert.\n\nSie haben die Möglichkeit, eine EU-kompatible Version dieses Zertifikats bei der Nationalen Antragsstelle zu beantragen.
    static var rat_conversion_text: String { return UBLocalized.tr(Key.rat_conversion_text) }
-  /// EU-kompatibles Covid-Zertifikat beantragen
+  /// Covid-Zertifikat beantragen (EU-kompatibel)
    static var rat_conversion_title: String { return UBLocalized.tr(Key.rat_conversion_title) }
   /// Einstellungen
    static var settings_title: String { return UBLocalized.tr(Key.settings_title) }
@@ -1716,7 +1716,7 @@ import Foundation
    static var wallet_certificate_detail_date_format_info: String { return UBLocalized.tr(Key.wallet_certificate_detail_date_format_info) }
   /// Exportieren
    static var wallet_certificate_detail_export_button: String { return UBLocalized.tr(Key.wallet_certificate_detail_export_button) }
-  /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor der Reise über die am Zielort geltenden Gesundheitsmassnahmen und damit verbundenen Beschränkungen.
+  /// Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor einer Reise über die am Zielort geltenden Beschränkungen und Gültigkeitsregeln. Die Gültigkeit Ihres Zertifikats wird im Ausland anhand der Regeln des Ziellandes berechnet. Diese kann von der in der «COVID Certificate»-App angegebenen Schweizer Gültigkeit abweichen. Mehr Informationen dazu erhalten Sie in dieser FAQ.
    static var wallet_certificate_detail_note: String { return UBLocalized.tr(Key.wallet_certificate_detail_note) }
   /// Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
    static var wallet_certificate_detail_note_ausnahme: String { return UBLocalized.tr(Key.wallet_certificate_detail_note_ausnahme) }
@@ -2142,8 +2142,8 @@ import Foundation
    static var wallet_onboarding_store_title: String { return UBLocalized.tr(Key.wallet_onboarding_store_title) }
   /// Ausserhalb der Schweiz nicht gültig
    static var wallet_only_valid_in_switzerland: String { return UBLocalized.tr(Key.wallet_only_valid_in_switzerland) }
-  /// https://covidcertificate-form-a.admin.ch/immunityrequest/closed
-   static var wallet_rat_transformation_url: String { return UBLocalized.tr(Key.wallet_rat_transformation_url) }
+  /// https://covidcertificate-form-a.admin.ch/immunityrequest
+   static var wallet_rat_recovery_conversion_url: String { return UBLocalized.tr(Key.wallet_rat_recovery_conversion_url) }
   /// Für Prüfende
    static var wallet_refresh_button_info_fat_title_3: String { return UBLocalized.tr(Key.wallet_refresh_button_info_fat_title_3) }
   /// Mehr erfahren
