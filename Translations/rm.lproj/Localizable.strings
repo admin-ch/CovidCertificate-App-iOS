@@ -476,7 +476,7 @@
 "wallet_onboarding_external_privacy_button" = "Decleraziun davart la protecziun da datas & cundiziuns d’utilisaziun";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "Quest attest n'è betg in document da viadi.\n\nLas enconuschientschas scientificas davart la vaccinaziun cunter COVID-19, davart la guariziun da COVID-19 e davart ils tests da COVID-19 sa sviluppan cuntinuadamain, er areguard las novas variantas privlusas dal virus.\n\nAs infurmai per plaschair – avant d'As metter en viadi – davart las mesiras da sanadad e davart las restricziuns che valan en il lieu da destinaziun.";
+"wallet_certificate_detail_note" = "Quest attest n'è betg in document da viadi.\n\nLas enconuschientschas scientificas davart la vaccinaziun cunter COVID-19, davart la guariziun da COVID-19 e davart ils tests da COVID-19 sa sviluppan cuntinuadamain, er areguard las novas variantas privlusas dal virus.\n\nAs infurmai per plaschair avant in viadi davart las restricziuns e davart las reglas da valaivladad che valan al lieu da destinaziun. La valaivladad da Voss certificat vegn calculada a l'exteriur a maun da las reglas dal pajais da destinaziun. La valaivladad a l'exteriur po sa differenziar da quella en Svizra ch'è inditgada en l'app «COVID Certificate». Dapli infurmaziuns chattais Vus en questa glista da dumondas frequentas (FAQ).";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-check-app.html";
 
@@ -1548,31 +1548,32 @@
 "rat_conversion_overview_button" = "Mehr erfahren";
 
 /*RAT-Umwandlung: Titel Detail*/
-"rat_conversion_title" = "EU-kompatibles Covid-Zertifikat beantragen";
+"rat_conversion_title" = "Covid-Zertifikat beantragen (EU-kompatibel)";
 
 /*RAT-Umwandlung: Text auf Detail*/
-"rat_conversion_text" = "Neu werden Covid-Zertifikate für eine Genesung auf Basis von Antigen-Schnelltests auch in der EU akzeptiert.\n\nSie haben die Möglichkeit, eine EU-kompatible Version dieses Covid-Zertifikats bei der nationalen Antragsstelle zu beantragen.";
+"rat_conversion_text" = "Neu werden Covid-Zertifikate für Genesene auf Basis von Antigen-Schnelltests auch in der EU akzeptiert.\n\nSie haben die Möglichkeit, eine EU-kompatible Version dieses Zertifikats bei der Nationalen Antragsstelle zu beantragen.";
 
 /*RAT-Umwandlung: Title bei Formular-Verlinkung*/
-"rat_conversion_form_title" = "Zum Onlineformular der nationalen Antragsstelle";
+"rat_conversion_form_title" = "Zum Online-Formular der Nationalen Antragsstelle";
 
 /*Rat-Umwandlung: Text zum Formular*/
-"rat_conversion_form_text" = "Ich bin einverstanden, dass die Daten des Covid-Zertifikats an das Onlineformular der nationalen Antragsstelle übertragen werden.";
+"rat_conversion_form_text" = "Ich bin einverstanden, dass die Daten dieses Covid-Zertifikats in das Formular der Nationalen Antragsstelle (eine Website des Bundes) übertragen werden.";
 
 /*RAT-Umwandlung: Absprung Button*/
 "rat_conversion_form_button" = "Zum Formular";
 
 /*RAT-Umwandlung: Linktext zur Webseite nationale Antragsstelle*/
-"rat_conversion_link_antragsstelle" = "Zur Webseite der nationalen Antragsstelle";
+"rat_conversion_link_antragsstelle" = "Website der Nationalen Antragsstelle (ohne Datenübernahme)";
 
 /*RAT-Umwandlung: Info Text 1*/
-"rat_conversion_info1_text" = "Das EU-kompatible Covid-Zertifikat kann über ein Onlineformular bei der nationalen Antragsstelle beantragt werden und wird Ihnen per Post zugestellt.";
+"rat_conversion_info1_text" = "Ist die Beantragung erfolgreich, wird Ihnen das neue EU-kompatible Covid-Zertifikat per Post zugestellt und kann von Ihnen in die App übernommen werden. Eine direkte Zustellung in die App ist nicht möglich.";
 
 /*RAT-Umwandlung: Info 2 Text*/
-"rat_conversion_info2_text" = "Damit das neue Covid-Zertifikat erstellt werden kann, werden die Daten aus dem bestehenden Covid-Zertifikat an das Onlineformular übertragen.";
+"rat_conversion_info2_text" = "Durch die Übernahme der Daten des Zertifikats in das Online-Formular kann Ihr Antrag einfacher verarbeitet werden.";
 
 /*Die URL für das Formular, mit dem für ein RAT Genesungszert ein reguläres Genesungszert beantragt werden kann*/
-"wallet_rat_transformation_url" = "https://covidcertificate-form-a.admin.ch/immunityrequest/closed";
+/*Fuzzy*/
+"wallet_rat_recovery_conversion_url" = "https://covidcertificate-form-a.admin.ch/immunityrequest";
 
 /*RAT-Umwandlung: Titel vor Infos*/
 "rat_conversion_info_title" = "Weitere Informationen";
