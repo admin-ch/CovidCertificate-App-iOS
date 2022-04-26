@@ -134,6 +134,30 @@ import Foundation
      case ok_button
     /// Kein gültiger Code
      case qr_scanner_error
+    /// Zum Formular
+     case rat_conversion_form_button
+    /// Ich bin einverstanden, dass die Daten des Covid-Zertifikats an das Onlineformular der nationalen Antragsstelle übertragen werden.
+     case rat_conversion_form_text
+    /// Zum Onlineformular der nationalen Antragsstelle
+     case rat_conversion_form_title
+    /// Das EU-kompatible Covid-Zertifikat kann über ein Onlineformular bei der nationalen Antragsstelle beantragt werden und wird Ihnen per Post zugestellt.
+     case rat_conversion_info1_text
+    /// Damit das neue Covid-Zertifikat erstellt werden kann, werden die Daten aus dem bestehenden Covid-Zertifikat an das Onlineformular übertragen.
+     case rat_conversion_info2_text
+    /// Weitere Informationen
+     case rat_conversion_info_title
+    /// Zur Webseite der nationalen Antragsstelle
+     case rat_conversion_link_antragsstelle
+    /// Mehr erfahren
+     case rat_conversion_overview_button
+    /// Für dieses Covid-Zertifikat kann eine EU-kompatible Version beantragt werden.
+     case rat_conversion_overview_text
+    /// Neu: EU-kompatible Version
+     case rat_conversion_overview_title
+    /// Neu werden Covid-Zertifikate für eine Genesung auf Basis von Antigen-Schnelltests auch in der EU akzeptiert.\n\nSie haben die Möglichkeit, eine EU-kompatible Version dieses Covid-Zertifikats bei der nationalen Antragsstelle zu beantragen.
+     case rat_conversion_text
+    /// EU-kompatibles Covid-Zertifikat beantragen
+     case rat_conversion_title
     /// Einstellungen
      case settings_title
     /// Covid-19
@@ -960,6 +984,8 @@ import Foundation
      case wallet_onboarding_store_title
     /// Ausserhalb der Schweiz nicht gültig
      case wallet_only_valid_in_switzerland
+    /// https://covidcertificate-form-a.admin.ch/immunityrequest/closed
+     case wallet_rat_transformation_url
     /// Für Prüfende
      case wallet_refresh_button_info_fat_title_3
     /// Mehr erfahren
@@ -1266,6 +1292,30 @@ import Foundation
    static var ok_button: String { return UBLocalized.tr(Key.ok_button) }
   /// Kein gültiger Code
    static var qr_scanner_error: String { return UBLocalized.tr(Key.qr_scanner_error) }
+  /// Zum Formular
+   static var rat_conversion_form_button: String { return UBLocalized.tr(Key.rat_conversion_form_button) }
+  /// Ich bin einverstanden, dass die Daten des Covid-Zertifikats an das Onlineformular der nationalen Antragsstelle übertragen werden.
+   static var rat_conversion_form_text: String { return UBLocalized.tr(Key.rat_conversion_form_text) }
+  /// Zum Onlineformular der nationalen Antragsstelle
+   static var rat_conversion_form_title: String { return UBLocalized.tr(Key.rat_conversion_form_title) }
+  /// Das EU-kompatible Covid-Zertifikat kann über ein Onlineformular bei der nationalen Antragsstelle beantragt werden und wird Ihnen per Post zugestellt.
+   static var rat_conversion_info1_text: String { return UBLocalized.tr(Key.rat_conversion_info1_text) }
+  /// Damit das neue Covid-Zertifikat erstellt werden kann, werden die Daten aus dem bestehenden Covid-Zertifikat an das Onlineformular übertragen.
+   static var rat_conversion_info2_text: String { return UBLocalized.tr(Key.rat_conversion_info2_text) }
+  /// Weitere Informationen
+   static var rat_conversion_info_title: String { return UBLocalized.tr(Key.rat_conversion_info_title) }
+  /// Zur Webseite der nationalen Antragsstelle
+   static var rat_conversion_link_antragsstelle: String { return UBLocalized.tr(Key.rat_conversion_link_antragsstelle) }
+  /// Mehr erfahren
+   static var rat_conversion_overview_button: String { return UBLocalized.tr(Key.rat_conversion_overview_button) }
+  /// Für dieses Covid-Zertifikat kann eine EU-kompatible Version beantragt werden.
+   static var rat_conversion_overview_text: String { return UBLocalized.tr(Key.rat_conversion_overview_text) }
+  /// Neu: EU-kompatible Version
+   static var rat_conversion_overview_title: String { return UBLocalized.tr(Key.rat_conversion_overview_title) }
+  /// Neu werden Covid-Zertifikate für eine Genesung auf Basis von Antigen-Schnelltests auch in der EU akzeptiert.\n\nSie haben die Möglichkeit, eine EU-kompatible Version dieses Covid-Zertifikats bei der nationalen Antragsstelle zu beantragen.
+   static var rat_conversion_text: String { return UBLocalized.tr(Key.rat_conversion_text) }
+  /// EU-kompatibles Covid-Zertifikat beantragen
+   static var rat_conversion_title: String { return UBLocalized.tr(Key.rat_conversion_title) }
   /// Einstellungen
    static var settings_title: String { return UBLocalized.tr(Key.settings_title) }
   /// Covid-19
@@ -2092,6 +2142,8 @@ import Foundation
    static var wallet_onboarding_store_title: String { return UBLocalized.tr(Key.wallet_onboarding_store_title) }
   /// Ausserhalb der Schweiz nicht gültig
    static var wallet_only_valid_in_switzerland: String { return UBLocalized.tr(Key.wallet_only_valid_in_switzerland) }
+  /// https://covidcertificate-form-a.admin.ch/immunityrequest/closed
+   static var wallet_rat_transformation_url: String { return UBLocalized.tr(Key.wallet_rat_transformation_url) }
   /// Für Prüfende
    static var wallet_refresh_button_info_fat_title_3: String { return UBLocalized.tr(Key.wallet_refresh_button_info_fat_title_3) }
   /// Mehr erfahren

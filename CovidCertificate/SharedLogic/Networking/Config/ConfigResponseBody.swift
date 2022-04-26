@@ -77,6 +77,10 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         let foreignRulesLinkText: LocalizedValue<String>?
         let foreignRulesLinkUrl: LocalizedValue<String>?
         let foreignRulesHints: LocalizedValue<[ForeignRulesHint]>?
+
+        var showRatConversionForm: Bool? = false
+        let ratConversionFormUrl: String?
+
     #elseif VERIFIER
         let checkModesInfos: LocalizedValue<CheckModeContainer>?
         let checkModeReselectAfterHours: Int

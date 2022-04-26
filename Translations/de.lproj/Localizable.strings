@@ -1539,3 +1539,42 @@
 
 /*Reisefeature: URL die geöffnet wird wenn auf den Mehr Info Button geklickt wird*/
 "wallet_foreign_rules_check_hints_more_info_link_url" = "https://reopen.europa.eu/";
+
+/*RAT-Umwandlung:  Titel bei Zertifikat*/
+"rat_conversion_overview_title" = "Neu: EU-kompatible Version";
+
+/*RAT-Umwandlung: Text bei Zertifikat*/
+"rat_conversion_overview_text" = "Für dieses Covid-Zertifikat kann eine EU-kompatible Version beantragt werden.";
+
+/*RAT-Umwandlung: Button-Text zu Umwandlung Detail*/
+"rat_conversion_overview_button" = "Mehr erfahren";
+
+/*RAT-Umwandlung: Titel Detail*/
+"rat_conversion_title" = "EU-kompatibles Covid-Zertifikat beantragen";
+
+/*RAT-Umwandlung: Text auf Detail*/
+"rat_conversion_text" = "Neu werden Covid-Zertifikate für eine Genesung auf Basis von Antigen-Schnelltests auch in der EU akzeptiert.\n\nSie haben die Möglichkeit, eine EU-kompatible Version dieses Covid-Zertifikats bei der nationalen Antragsstelle zu beantragen.";
+
+/*RAT-Umwandlung: Title bei Formular-Verlinkung*/
+"rat_conversion_form_title" = "Zum Onlineformular der nationalen Antragsstelle";
+
+/*Rat-Umwandlung: Text zum Formular*/
+"rat_conversion_form_text" = "Ich bin einverstanden, dass die Daten des Covid-Zertifikats an das Onlineformular der nationalen Antragsstelle übertragen werden.";
+
+/*RAT-Umwandlung: Absprung Button*/
+"rat_conversion_form_button" = "Zum Formular";
+
+/*RAT-Umwandlung: Linktext zur Webseite nationale Antragsstelle*/
+"rat_conversion_link_antragsstelle" = "Zur Webseite der nationalen Antragsstelle";
+
+/*RAT-Umwandlung: Info Text 1*/
+"rat_conversion_info1_text" = "Das EU-kompatible Covid-Zertifikat kann über ein Onlineformular bei der nationalen Antragsstelle beantragt werden und wird Ihnen per Post zugestellt.";
+
+/*RAT-Umwandlung: Info 2 Text*/
+"rat_conversion_info2_text" = "Damit das neue Covid-Zertifikat erstellt werden kann, werden die Daten aus dem bestehenden Covid-Zertifikat an das Onlineformular übertragen.";
+
+/*Die URL für das Formular, mit dem für ein RAT Genesungszert ein reguläres Genesungszert beantragt werden kann*/
+"wallet_rat_transformation_url" = "https://covidcertificate-form-a.admin.ch/immunityrequest/closed";
+
+/*RAT-Umwandlung: Titel vor Infos*/
+"rat_conversion_info_title" = "Weitere Informationen";

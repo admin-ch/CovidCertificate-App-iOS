@@ -11,7 +11,19 @@
 
 import Foundation
 
-class CertificateDetailEOLView: UIView {
+class CertificateDetailBannerContent {
+    init(title: String, text: String, buttonText: String) {
+        self.title = title
+        self.text = text
+        self.buttonText = buttonText
+    }
+
+    public let title: String
+    public let text: String
+    public let buttonText: String
+}
+
+class CertificateDetailBannerView: UIView {
     public var moreInfoTouchUpCallback: (() -> Void)? {
         didSet {
             container.action = moreInfoTouchUpCallback
@@ -30,9 +42,11 @@ class CertificateDetailEOLView: UIView {
                                          textColor: .cc_text)
 
     var banner: ConfigResponseBody.EOLBannerInfo? {
-        didSet {
-            update()
-        }
+        didSet { update() }
+    }
+
+    var bannerContent: CertificateDetailBannerContent? {
+        didSet { update() }
     }
 
     init() {
@@ -48,14 +62,21 @@ class CertificateDetailEOLView: UIView {
     }
 
     private func update() {
-        guard let banner = banner else {
-            return
+        if let banner = banner {
+            titleLabel.text = banner.detailTitle
+            textLabel.text = banner.detailText
+            moreInfoButton.titleText = banner.detailMoreInfo
+            backgroundColor = UIColor(ub_hexString: banner.detailHexColor) ?? UIColor.cc_yellow
         }
-        titleLabel.text = banner.detailTitle
-        textLabel.text = banner.detailText
-        moreInfoButton.titleText = banner.detailMoreInfo
+
+        if let content = bannerContent {
+            titleLabel.text = content.title
+            textLabel.text = content.text
+            moreInfoButton.titleText = content.buttonText
+            backgroundColor = UIColor.cc_blueish
+        }
+
         container.accessibilityLabel = [titleLabel.text, textLabel.text, moreInfoButton.titleText].compactMap { $0 }.joined(separator: ", ")
-        backgroundColor = UIColor(ub_hexString: banner.detailHexColor) ?? UIColor.cc_yellow
     }
 
     private func setup() {
