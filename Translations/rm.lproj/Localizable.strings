@@ -1539,41 +1539,41 @@
 "wallet_foreign_rules_check_hints_more_info_link_url" = "https://reopen.europa.eu/";
 
 /*RAT-Umwandlung:  Titel bei Zertifikat*/
-"rat_conversion_overview_title" = "Neu: EU-kompatible Version";
+"rat_conversion_overview_title" = "Nov: Versiun cumpatibla cun il certificat da la UE";
 
 /*RAT-Umwandlung: Text bei Zertifikat*/
-"rat_conversion_overview_text" = "Für dieses Covid-Zertifikat kann eine EU-kompatible Version beantragt werden.";
+"rat_conversion_overview_text" = "Per quest certificat COVID po vegnir dumandada ina versiun cumpatibla cun il certificat da la UE.";
 
 /*RAT-Umwandlung: Button-Text zu Umwandlung Detail*/
-"rat_conversion_overview_button" = "Mehr erfahren";
+"rat_conversion_overview_button" = "Dapli infurmaziuns";
 
 /*RAT-Umwandlung: Titel Detail*/
-"rat_conversion_title" = "Covid-Zertifikat beantragen (EU-kompatibel)";
+"rat_conversion_title" = "Dumandar in certificat COVID (cumpatibel cun il certificat da la UE)";
 
 /*RAT-Umwandlung: Text auf Detail*/
-"rat_conversion_text" = "Neu werden Covid-Zertifikate für Genesene auf Basis von Antigen-Schnelltests auch in der EU akzeptiert.\n\nSie haben die Möglichkeit, eine EU-kompatible Version dieses Zertifikats bei der Nationalen Antragsstelle zu beantragen.";
+"rat_conversion_text" = "Da nov vegnan ils certificats COVID per persunas guaridas sin basa da tests svelts d'antigens acceptads er en la UE.\n\nPer quest certificat pudais Vus dumandar ina versiun cumpatibla cun il certificat da la UE. La dumonda per in tal certificat pudais Vus far al Post naziunal da dumondas.";
 
 /*RAT-Umwandlung: Title bei Formular-Verlinkung*/
-"rat_conversion_form_title" = "Zum Online-Formular der Nationalen Antragsstelle";
+"rat_conversion_form_title" = "Al formular online dal Post naziunal da dumondas";
 
 /*Rat-Umwandlung: Text zum Formular*/
-"rat_conversion_form_text" = "Ich bin einverstanden, dass die Daten dieses Covid-Zertifikats in das Formular der Nationalen Antragsstelle (eine Website des Bundes) übertragen werden.";
+"rat_conversion_form_text" = "Jau sun d'accord che las datas da quest certificat COVID vegnan transferidas en il formular dal Post naziunal da dumondas (ina pagina d'internet da la Confederaziun).";
 
 /*RAT-Umwandlung: Absprung Button*/
-"rat_conversion_form_button" = "Zum Formular";
+"rat_conversion_form_button" = "Al formular";
 
 /*RAT-Umwandlung: Linktext zur Webseite nationale Antragsstelle*/
-"rat_conversion_link_antragsstelle" = "Website der Nationalen Antragsstelle (ohne Datenübernahme)";
+"rat_conversion_link_antragsstelle" = "Pagina d'internet dal Post naziunal da dumondas (senza transferiment da datas)";
 
 /*RAT-Umwandlung: Info Text 1*/
-"rat_conversion_info1_text" = "Ist die Beantragung erfolgreich, wird Ihnen das neue EU-kompatible Covid-Zertifikat per Post zugestellt und kann von Ihnen in die App übernommen werden. Eine direkte Zustellung in die App ist nicht möglich.";
+"rat_conversion_info1_text" = "Sche la dumonda vegn acceptada, survegnis Vus il nov certificat COVID cumpatibel cun il certificat da la UE per posta. Quel pudais Vus alura arcunar en Vossa app. I n'è betg pussaivel d'As consegnar il certificat directamain en l'app.";
 
 /*RAT-Umwandlung: Info 2 Text*/
-"rat_conversion_info2_text" = "Durch die Übernahme der Daten des Zertifikats in das Online-Formular kann Ihr Antrag einfacher verarbeitet werden.";
+"rat_conversion_info2_text" = "Cun transferir las datas dal certificat en il formular online po Vossa dumonda vegnir tractada en moda pli simpla.";
 
 /*Die URL für das Formular, mit dem für ein RAT Genesungszert ein reguläres Genesungszert beantragt werden kann*/
 /*Fuzzy*/
 "wallet_rat_recovery_conversion_url" = "https://covidcertificate-form-a.admin.ch/immunityrequest";
 
 /*RAT-Umwandlung: Titel vor Infos*/
-"rat_conversion_info_title" = "Weitere Informationen";
+"rat_conversion_info_title" = "Ulteriuras infurmaziuns";

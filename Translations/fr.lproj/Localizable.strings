@@ -1539,41 +1539,41 @@
 "wallet_foreign_rules_check_hints_more_info_link_url" = "https://reopen.europa.eu/";
 
 /*RAT-Umwandlung:  Titel bei Zertifikat*/
-"rat_conversion_overview_title" = "Neu: EU-kompatible Version";
+"rat_conversion_overview_title" = "Nouveau : version compatible avec l’UE";
 
 /*RAT-Umwandlung: Text bei Zertifikat*/
-"rat_conversion_overview_text" = "Für dieses Covid-Zertifikat kann eine EU-kompatible Version beantragt werden.";
+"rat_conversion_overview_text" = "Pour ce certificat COVID, il est possible de demander une version compatible avec l’UE.";
 
 /*RAT-Umwandlung: Button-Text zu Umwandlung Detail*/
-"rat_conversion_overview_button" = "Mehr erfahren";
+"rat_conversion_overview_button" = "En savoir plus";
 
 /*RAT-Umwandlung: Titel Detail*/
-"rat_conversion_title" = "Covid-Zertifikat beantragen (EU-kompatibel)";
+"rat_conversion_title" = "Demander un certificat COVID (compatible avec l’UE)";
 
 /*RAT-Umwandlung: Text auf Detail*/
-"rat_conversion_text" = "Neu werden Covid-Zertifikate für Genesene auf Basis von Antigen-Schnelltests auch in der EU akzeptiert.\n\nSie haben die Möglichkeit, eine EU-kompatible Version dieses Zertifikats bei der Nationalen Antragsstelle zu beantragen.";
+"rat_conversion_text" = "Nouveau : les certificats COVID pour personnes guéries établis sur la base de tests rapides antigéniques sont aussi acceptés dans l’UE.\n\nVous avez la possibilité de demander une version de ce certificat compatible avec l’UE sur la plateforme nationale de demandes.";
 
 /*RAT-Umwandlung: Title bei Formular-Verlinkung*/
-"rat_conversion_form_title" = "Zum Online-Formular der Nationalen Antragsstelle";
+"rat_conversion_form_title" = "Vers le formulaire en ligne de la plateforme nationale de demandes";
 
 /*Rat-Umwandlung: Text zum Formular*/
-"rat_conversion_form_text" = "Ich bin einverstanden, dass die Daten dieses Covid-Zertifikats in das Formular der Nationalen Antragsstelle (eine Website des Bundes) übertragen werden.";
+"rat_conversion_form_text" = "J’accepte que les données de ce certificat COVID soient transférées dans le formulaire de la plateforme nationale de demandes (site de la Confédération).";
 
 /*RAT-Umwandlung: Absprung Button*/
-"rat_conversion_form_button" = "Zum Formular";
+"rat_conversion_form_button" = "Vers le formulaire";
 
 /*RAT-Umwandlung: Linktext zur Webseite nationale Antragsstelle*/
-"rat_conversion_link_antragsstelle" = "Website der Nationalen Antragsstelle (ohne Datenübernahme)";
+"rat_conversion_link_antragsstelle" = "Site de la plateforme nationale de demandes (sans transfert de données)";
 
 /*RAT-Umwandlung: Info Text 1*/
-"rat_conversion_info1_text" = "Ist die Beantragung erfolgreich, wird Ihnen das neue EU-kompatible Covid-Zertifikat per Post zugestellt und kann von Ihnen in die App übernommen werden. Eine direkte Zustellung in die App ist nicht möglich.";
+"rat_conversion_info1_text" = "Si votre demande est acceptée, le nouveau certificat COVID compatible avec l’UE vous sera envoyé par la poste. Vous pourrez ensuite le transférer dans l’application. Il n’est pas possible de recevoir le document directement dans l’application.";
 
 /*RAT-Umwandlung: Info 2 Text*/
-"rat_conversion_info2_text" = "Durch die Übernahme der Daten des Zertifikats in das Online-Formular kann Ihr Antrag einfacher verarbeitet werden.";
+"rat_conversion_info2_text" = "Le transfert des données du certificat dans le formulaire en ligne permet de faciliter le traitement de votre demande.";
 
 /*Die URL für das Formular, mit dem für ein RAT Genesungszert ein reguläres Genesungszert beantragt werden kann*/
 /*Fuzzy*/
 "wallet_rat_recovery_conversion_url" = "https://covidcertificate-form-a.admin.ch/immunityrequest";
 
 /*RAT-Umwandlung: Titel vor Infos*/
-"rat_conversion_info_title" = "Weitere Informationen";
+"rat_conversion_info_title" = "Informations complémentaires";
