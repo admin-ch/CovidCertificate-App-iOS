@@ -258,6 +258,7 @@ class FormButton: UBButton {
         let stackView = UIStackView()
         stackView.spacing = Padding.small
         stackView.isUserInteractionEnabled = false
+        stackView.alignment = .center
 
         addSubview(stackView)
         stackView.snp.makeConstraints { make in
@@ -265,6 +266,7 @@ class FormButton: UBButton {
             make.centerY.equalToSuperview()
         }
 
+        label.ub_setContentPriorityRequired()
         externalImageView.ub_setContentPriorityRequired()
 
         stackView.addArrangedSubview(label)
