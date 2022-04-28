@@ -476,7 +476,7 @@
 "wallet_onboarding_external_privacy_button" = "Privacy policy & Terms of use";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "This certificate is not a travel document. \n\nThe scientific evidence on COVID-19 vaccination, testing and recovery continues to evolve, including with regard to new virus variants of concern. \n\nPlease check the restrictions and rules on validity that apply at your destination before you travel. When you’re abroad, the validity of your certificate is calculated on the basis of the rules in the destination country, which may differ from the validity periods in Switzerland as stated in the COVID Certificate app. You’ll find more on this in the FAQ.";
+"wallet_certificate_detail_note" = "This certificate is not a travel document. \n<br /><br />\nThe scientific evidence on COVID-19 vaccination, testing and recovery continues to evolve, including with regard to new virus variants of concern. \n<br /><br />\nPlease check the restrictions and rules on validity that apply at your destination before you travel. When you’re abroad, the validity of your certificate is calculated on the basis of the rules in the destination country, which may differ from the validity periods in Switzerland as stated in the COVID Certificate app. You’ll find more on this in <a href=\"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/what-should-i-do-if-my-covid-certificate-about-expire-under-swiss-rules-validity\">the FAQ</a>.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/en/home/documentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/en/home/documentation/covid-certificate-check-app.html";
 
@@ -1370,7 +1370,7 @@
 "wallet_certificate_ausnahme_issued_country" = "Medical certificate issued in";
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
-"wallet_certificate_detail_note_ausnahme" = "This certificate is not a travel document. \n\nThis certificate is only valid for a limited period of time. You can check the current duration of validity in Switzerland at any time using the COVID Certificate app.";
+"wallet_certificate_detail_note_ausnahme" = "This certificate is not a travel document.\n<br /><br />\nThis certificate is only valid for a limited period of time. You can check the current duration of validity in Switzerland at any time using the COVID Certificate app.";
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Exception";
@@ -1383,7 +1383,7 @@
 
 /*Wallet: Blaue Box für positiven Antigen-Test*/
 /*Fuzzy*/
-"wallet_certificate_detail_note_positive_antigen" = "This certificate is not a travel document.\n\nThis certificate is only valid for a limited period of time. You can check the current duration of validity in Switzerland at any time using the COVID Certificate app.";
+"wallet_certificate_detail_note_positive_antigen" = "This certificate is not a travel document.\n<br /><br />\nThis certificate is only valid for a limited period of time. You can check the current duration of validity in Switzerland at any time using the COVID Certificate app.";
 
 /*banner title on homescreen. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_homescreen_title" = "Imminent expiry";

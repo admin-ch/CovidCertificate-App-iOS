@@ -476,7 +476,7 @@
 "wallet_onboarding_external_privacy_button" = "Déclaration de confidentialité & condition d'utilisation";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "Le présent certificat n'est pas un document de voyage. \n\nLes preuves scientifiques relatives à la vaccination, aux tests et au rétablissement liés à la COVID-19 continuent d'évoluer, notamment en ce qui concerne de nouveaux variants préoccupants du virus. \n\nAvant de voyager, veuillez-vous renseigner sur les restrictions et les règles de validité en vigueur à votre lieu de destination. La validité de votre certificat à l’étranger dépend des règles du pays de destination et peut différer de la validité en Suisse indiquée dans l’application « COVID Certificate ». Vous trouverez de plus amples informations sur cette page dédiée aux questions fréquentes.";
+"wallet_certificate_detail_note" = "Le présent certificat n'est pas un document de voyage. \n<br /><br />\nLes preuves scientifiques relatives à la vaccination, aux tests et au rétablissement liés à la COVID-19 continuent d'évoluer, notamment en ce qui concerne de nouveaux variants préoccupants du virus. \n<br /><br />\nAvant de voyager, veuillez-vous renseigner sur les restrictions et les règles de validité en vigueur à votre lieu de destination. La validité de votre certificat à l’étranger dépend des règles du pays de destination et peut différer de la validité en Suisse indiquée dans l’application « COVID Certificate ». Vous trouverez de plus amples informations sur cette page dédiée aux <a href=\"https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/fr/certificat-covid/que-dois-je-faire-si-mon-certificat-covid-est-sur-le-point-dexpirer-en-suisse\">questions fréquentes</a>.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/fr/home/documentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/fr/home/documentation/covid-certificate-check-app.html";
 
@@ -1370,7 +1370,7 @@
 "wallet_certificate_ausnahme_issued_country" = "Attestation médicale délivrée en";
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
-"wallet_certificate_detail_note_ausnahme" = "Le présent certificat n'est pas un document de voyage. \n\nCe certificat n'a qu'une durée de validité limitée. L'application «COVID Certificate» vous permet en tout temps de vérifier la durée de validité actuellement déterminante en Suisse.";
+"wallet_certificate_detail_note_ausnahme" = "Le présent certificat n'est pas un document de voyage. \n<br /><br />\nCe certificat n'a qu'une durée de validité limitée. L'application «COVID Certificate» vous permet en tout temps de vérifier la durée de validité actuellement déterminante en Suisse.";
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Exception";
@@ -1383,7 +1383,7 @@
 
 /*Wallet: Blaue Box für positiven Antigen-Test*/
 /*Fuzzy*/
-"wallet_certificate_detail_note_positive_antigen" = "Le présent certificat n'est pas un document de voyage.\n\nCe certificat n'a qu'une durée de validité limitée. L'application «COVID Certificate» vous permet en tout temps de vérifier la durée de validité actuellement déterminante en Suisse.";
+"wallet_certificate_detail_note_positive_antigen" = "Le présent certificat n'est pas un document de voyage.\n<br /><br />\nCe certificat n'a qu'une durée de validité limitée. L'application «COVID Certificate» vous permet en tout temps de vérifier la durée de validité actuellement déterminante en Suisse.";
 
 /*banner title on homescreen. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_homescreen_title" = "Expiration imminente";

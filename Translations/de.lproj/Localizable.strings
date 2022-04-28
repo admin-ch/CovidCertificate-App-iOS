@@ -476,7 +476,7 @@
 "wallet_onboarding_external_privacy_button" = "Datenschutzerklärung &\nNutzungsbedingungen";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "Dieses Zertifikat ist kein Reisedokument. \n\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n\nBitte informieren Sie sich vor einer Reise über die am Zielort geltenden Beschränkungen und Gültigkeitsregeln. Die Gültigkeit Ihres Zertifikats wird im Ausland anhand der Regeln des Ziellandes berechnet. Diese kann von der in der «COVID Certificate»-App angegebenen Schweizer Gültigkeit abweichen. Mehr Informationen dazu erhalten Sie in dieser FAQ.";
+"wallet_certificate_detail_note" = "Dieses Zertifikat ist kein Reisedokument. \n<br /><br />\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n<br /><br />\nBitte informieren Sie sich vor einer Reise über die am Zielort geltenden Beschränkungen und Gültigkeitsregeln. Die Gültigkeit Ihres Zertifikats wird im Ausland anhand der Regeln des Ziellandes berechnet. Diese kann von der in der «COVID Certificate»-App angegebenen Schweizer Gültigkeit abweichen. Mehr Informationen dazu erhalten Sie <a href=\"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald\">in dieser FAQ</a>.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-check-app.html";
 
@@ -1370,7 +1370,7 @@
 "wallet_certificate_ausnahme_issued_country" = "Medizinisches Attest ausgestellt in";
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
-"wallet_certificate_detail_note_ausnahme" = "Dieses Zertifikat ist kein Reisedokument. \n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.";
+"wallet_certificate_detail_note_ausnahme" = "Dieses Zertifikat ist kein Reisedokument. \n<br /><br />\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.";
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Ausnahme";
@@ -1383,7 +1383,7 @@
 
 /*Wallet: Blaue Box für positiven Antigen-Test*/
 /*Fuzzy*/
-"wallet_certificate_detail_note_positive_antigen" = "Dieses Zertifikat ist kein Reisedokument.\n\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.";
+"wallet_certificate_detail_note_positive_antigen" = "Dieses Zertifikat ist kein Reisedokument.\n<br /><br />\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.";
 
 /*banner title on homescreen. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_homescreen_title" = "Bald abgelaufen";
