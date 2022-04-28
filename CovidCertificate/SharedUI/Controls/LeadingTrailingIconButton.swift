@@ -59,7 +59,7 @@ class LeadingTrailingIconButton: UBButton {
         }
 
         snp.makeConstraints { make in
-            make.height.equalTo(44)
+            make.height.greaterThanOrEqualTo(44)
         }
     }
 }

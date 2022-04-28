@@ -54,6 +54,7 @@ class ExternalLinkButton: UBButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         highlightCornerRadius = frame.size.height * 0.5 + 3.0
+        titleLabel?.preferredMaxLayoutWidth = titleLabel?.frame.size.width ?? .zero
     }
 
     // MARK: - Fix content size
