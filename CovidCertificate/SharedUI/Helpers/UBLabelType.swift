@@ -142,7 +142,7 @@ extension NSMutableAttributedString {
     }
 
     @discardableResult
-    func ub_addAttributes(forLabelType type: UBLabelType, textAlignment: NSTextAlignment = .left, numberOfLines: Int = 0) -> NSMutableAttributedString {
+    fileprivate func ub_addAttributes(forLabelType type: UBLabelType, textAlignment: NSTextAlignment = .left, numberOfLines: Int = 0) -> NSMutableAttributedString {
         // check paragraph style
         let textRange = NSRange(location: 0, length: length)
 
@@ -157,7 +157,7 @@ extension NSMutableAttributedString {
 
         // check hyphenation
         if numberOfLines != 1 {
-            //   paragraphStyle.hyphenationFactor = type.hyphenationFactor
+            paragraphStyle.hyphenationFactor = type.hyphenationFactor
         }
 
         // add attribute for paragraph
