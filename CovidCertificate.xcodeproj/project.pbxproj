@@ -66,6 +66,8 @@
 		6E0281FE265660E500582904 /* CertificateDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0281FD265660E500582904 /* CertificateDetailView.swift */; };
 		6E07357927845540003993F0 /* RefreshInfoPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E07357827845540003993F0 /* RefreshInfoPopupView.swift */; };
 		6E0E46592812D9A700F9FBE8 /* RatConversionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E46582812D9A700F9FBE8 /* RatConversionDetailViewController.swift */; };
+		6E10C8AB281AEA7100AE6F07 /* UBLinkifiedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10C8AA281AEA7100AE6F07 /* UBLinkifiedTextView.swift */; };
+		6E10C8AC281AEA7100AE6F07 /* UBLinkifiedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E10C8AA281AEA7100AE6F07 /* UBLinkifiedTextView.swift */; };
 		6E173918267AA0A800813D30 /* InAppDeliveryPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273324672679D429002D0ED2 /* InAppDeliveryPayload.swift */; };
 		6E17391C267B193800813D30 /* TransferCodeErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E17391B267B193800813D30 /* TransferCodeErrorView.swift */; };
 		6E17391E267B204700813D30 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E17391D267B204700813D30 /* LoadingView.swift */; };
@@ -454,6 +456,7 @@
 		6E0281FD265660E500582904 /* CertificateDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateDetailView.swift; sourceTree = "<group>"; };
 		6E07357827845540003993F0 /* RefreshInfoPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshInfoPopupView.swift; sourceTree = "<group>"; };
 		6E0E46582812D9A700F9FBE8 /* RatConversionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatConversionDetailViewController.swift; sourceTree = "<group>"; };
+		6E10C8AA281AEA7100AE6F07 /* UBLinkifiedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBLinkifiedTextView.swift; sourceTree = "<group>"; };
 		6E17391B267B193800813D30 /* TransferCodeErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCodeErrorView.swift; sourceTree = "<group>"; };
 		6E17391D267B204700813D30 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		6E173923267B31BB00813D30 /* TransferCodeErrorRetryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCodeErrorRetryViewController.swift; sourceTree = "<group>"; };
@@ -858,6 +861,7 @@
 				DC702B16243F70060066C773 /* UIView+CC.swift */,
 				6EA5C3572643C91A00EA066F /* UIImageView+CC.swift */,
 				6EA5C3592643CF0C00EA066F /* QRCodeUtils.swift */,
+				6E10C8AA281AEA7100AE6F07 /* UBLinkifiedTextView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -2058,6 +2062,7 @@
 				6EC1732226429E31002E27DB /* DateFormatter.swift in Sources */,
 				6EF166DD264E638200426985 /* CertificateState.swift in Sources */,
 				6EB988732714DBD400DFFA17 /* QRCodeImageCache.swift in Sources */,
+				6E10C8AC281AEA7100AE6F07 /* UBLinkifiedTextView.swift in Sources */,
 				6EA5C36C2644310D00EA066F /* VerifierImprintViewController.swift in Sources */,
 				F2F568B627E1D825005D28A7 /* UIImage+CC.swift in Sources */,
 				6EA5C3742644500C00EA066F /* VerifyQRScannerOverlay.swift in Sources */,
@@ -2256,6 +2261,7 @@
 				6E7C0D20242CE1190017C4F9 /* UIColor+CC.swift in Sources */,
 				6EA5C362264418ED00EA066F /* BasicStaticContentViewController.swift in Sources */,
 				24780B5B2431B5A9003BB26C /* DateFormatter.swift in Sources */,
+				6E10C8AB281AEA7100AE6F07 /* UBLinkifiedTextView.swift in Sources */,
 				F84089EC2493695200A66CD1 /* Keychain.swift in Sources */,
 				6E361225267239A4008C0C86 /* ImportHandler.swift in Sources */,
 				DCBF64E62678D8AE00450D51 /* TransferCodeViewController.swift in Sources */,

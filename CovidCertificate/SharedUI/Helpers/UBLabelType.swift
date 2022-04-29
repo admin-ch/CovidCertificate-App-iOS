@@ -95,6 +95,7 @@ class UBLabel<T: UBLabelType>: UILabel {
             if let textColor = textColor {
                 textString.addAttribute(NSAttributedString.Key.foregroundColor, value: textColor, range: textRange)
             }
+
         } else {
             textString.ub_addAttributes(forLabelType: type, textAlignment: textAlignment, numberOfLines: numberOfLines)
         }
@@ -118,16 +119,19 @@ class UBLabel<T: UBLabelType>: UILabel {
 }
 
 extension NSMutableAttributedString {
-    func ub_replaceFonts(with font: UIFont) {
+    func ub_replaceFonts(with font: UIFont, useHtmlTraits: Bool = true) {
         // from: https://stackoverflow.com/questions/19921972/
         let baseFontDescriptor = font.fontDescriptor
         var changes = [NSRange: UIFont]()
 
         enumerateAttribute(.font, in: NSRange(location: 0, length: length), options: []) { foundFont, range, _ in
             if let htmlTraits = (foundFont as? UIFont)?.fontDescriptor.symbolicTraits,
-               let adjustedDescriptor = baseFontDescriptor.withSymbolicTraits(htmlTraits) {
+               let adjustedDescriptor = baseFontDescriptor.withSymbolicTraits(htmlTraits),
+               useHtmlTraits {
                 let newFont = UIFont(descriptor: adjustedDescriptor, size: font.pointSize)
                 changes[range] = newFont
+            } else {
+                changes[range] = font
             }
         }
 

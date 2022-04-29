@@ -14,7 +14,7 @@ import Foundation
 class CertificateNoteView: UIView {
     // MARK: - Subviews
 
-    private let label = Label(.text)
+    private let label = UBLinkifiedTextView()
 
     public var isSwitzerlandException: Bool = false {
         didSet { updateText() }

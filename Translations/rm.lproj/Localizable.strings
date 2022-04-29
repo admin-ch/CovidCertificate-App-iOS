@@ -476,7 +476,7 @@
 "wallet_onboarding_external_privacy_button" = "Decleraziun davart la protecziun da datas & cundiziuns d’utilisaziun";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "Quest attest n'è betg in document da viadi.\n\nLas enconuschientschas scientificas davart la vaccinaziun cunter COVID-19, davart la guariziun da COVID-19 e davart ils tests da COVID-19 sa sviluppan cuntinuadamain, er areguard las novas variantas privlusas dal virus.\n\nAs infurmai per plaschair avant in viadi davart las restricziuns e davart las reglas da valaivladad che valan al lieu da destinaziun. La valaivladad da Voss certificat vegn calculada a l'exteriur a maun da las reglas dal pajais da destinaziun. La valaivladad a l'exteriur po sa differenziar da quella en Svizra ch'è inditgada en l'app «COVID Certificate». Dapli infurmaziuns chattais Vus en questa glista da dumondas frequentas (FAQ).";
+"wallet_certificate_detail_note" = "Quest attest n'è betg in document da viadi.\n<br /><br />\nLas enconuschientschas scientificas davart la vaccinaziun cunter COVID-19, davart la guariziun da COVID-19 e davart ils tests da COVID-19 sa sviluppan cuntinuadamain, er areguard las novas variantas privlusas dal virus.\n<br /><br />\nAs infurmai per plaschair avant in viadi davart las restricziuns e davart las reglas da valaivladad che valan al lieu da destinaziun. La valaivladad da Voss certificat vegn calculada a l'exteriur a maun da las reglas dal pajais da destinaziun. La valaivladad a l'exteriur po sa differenziar da quella en Svizra ch'è inditgada en l'app «COVID Certificate». Dapli infurmaziuns chattais Vus en <a href=\"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald\">questa glista da dumondas frequentas (FAQ)</a>.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-check-app.html";
 
@@ -1370,7 +1370,7 @@
 "wallet_certificate_ausnahme_issued_country" = "L'attest dal medi è vegnì emess a";
 
 /*Wallet: Hinweis im Zertifikat Detail für Ausnahme Zertifikat*/
-"wallet_certificate_detail_note_ausnahme" = "Quest attest n'è betg in document da viadi. \n\nQuest certificat è valaivel mo per in tschert temp. La durada da valaivladad actuala en Svizra pudais Vus verifitgar da tut temp cun l'app «Covid-Certificate».";
+"wallet_certificate_detail_note_ausnahme" = "Quest attest n'è betg in document da viadi. \n<br /><br />\nQuest certificat è valaivel mo per in tschert temp. La durada da valaivladad actuala en Svizra pudais Vus verifitgar da tut temp cun l'app «Covid-Certificate».";
 
 /*Wallet: Ausnahme Label für Liste*/
 "covid_certificate_ch_ausnahme_list_label" = "Excepziun";
@@ -1383,7 +1383,7 @@
 
 /*Wallet: Blaue Box für positiven Antigen-Test*/
 /*Fuzzy*/
-"wallet_certificate_detail_note_positive_antigen" = "Quest attest n'è betg in document da viadi.\n\nQuest certificat è valaivel mo per in tschert temp. La durada da valaivladad actuala en Svizra pudais Vus verifitgar da tut temp cun l'app «Covid-Certificate».";
+"wallet_certificate_detail_note_positive_antigen" = "Quest attest n'è betg in document da viadi.\n<br /><br />\nQuest certificat è valaivel mo per in tschert temp. La durada da valaivladad actuala en Svizra pudais Vus verifitgar da tut temp cun l'app «Covid-Certificate».";
 
 /*banner title on homescreen. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_homescreen_title" = "Scada bainbaud";
