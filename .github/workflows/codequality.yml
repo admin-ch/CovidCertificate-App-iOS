@@ -21,5 +21,8 @@ jobs:
     - name: Switch to Xcode ${{ env.XCODE_VERSION }}
       run: sudo xcode-select --switch /Applications/${{ env.XCODE_VERSION }}.app
 
+    - name: Install swiftformat
+      run: brew install swiftformat
+      
     - name: swiftformat
       run: swiftformat . --lint
