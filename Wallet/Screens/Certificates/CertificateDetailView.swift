@@ -122,6 +122,10 @@ class CertificateDetailView: UIView {
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier), value: vaccination.certificateIdentifier, addEnglishLabels: false, addPasteboardCopyCapability: true)
 
             addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: vaccination.doseNumber != vaccination.totalDoses)
+
+            addQRCodeExpiryDate(dateString: holder?.displayExpiresAt)
+
+            addDateFormatInfo()
         }
 
         return true
@@ -161,6 +165,10 @@ class CertificateDetailView: UIView {
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier), value: pastInfection.certificateIdentifier, addEnglishLabels: false, addPasteboardCopyCapability: true)
 
             addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: false)
+
+            addQRCodeExpiryDate(dateString: holder?.displayExpiresAt)
+
+            addDateFormatInfo()
         }
 
         return true
@@ -243,6 +251,8 @@ class CertificateDetailView: UIView {
             addValueItem(title: UBLocalized.translationWithEnglish(key: .wallet_certificate_identifier), value: test.certificateIdentifier, addEnglishLabels: false, addPasteboardCopyCapability: true)
 
             addIssuedDate(dateString: holder?.displayIssuedAt, incomplete: false)
+
+            addDateFormatInfo()
         }
 
         return true
@@ -350,19 +360,34 @@ class CertificateDetailView: UIView {
             values = UBLocalized.translationWithEnglish(key: .wallet_certificate_date)
         }
 
-        // in the english version show a hint about a date info
-        if UBLocalized.languageIsEnglish() {
-            values.0 = values.0 + "\n\n" + UBLocalized.wallet_certificate_detail_date_format_info
-        }
-
-        values.1 = values.1 + "\n\n" + UBLocalized.wallet_certificate_detail_date_format_info
-
         if let accD = DateFormatter.ub_accessibilityDateString(dateString: d) {
             let accLabel = (values.0.replacingOccurrences(of: "{DATE}", with: accD), values.1.replacingOccurrences(of: "{DATE}", with: accD))
             addValueItem(value: (values.0.replacingOccurrences(of: "{DATE}", with: d), values.1.replacingOccurrences(of: "{DATE}", with: d)), spacing: Padding.large, accLabel: accLabel)
         } else {
             addValueItem(value: (values.0.replacingOccurrences(of: "{DATE}", with: d), values.1.replacingOccurrences(of: "{DATE}", with: d)), spacing: Padding.large)
         }
+    }
+
+    private func addQRCodeExpiryDate(dateString: String?) {
+        guard let d = dateString else { return }
+
+        let label = Label(.text, textColor: .cc_grey)
+        label.text = UBLocalized.translate(.wallet_certificate_qr_code_expiration_date, languageKey: "en").replacingOccurrences(of: "{DATE}", with: d)
+        label.isAccessibilityElement = false
+        stackView.addArrangedView(label)
+        stackView.addSpacerView(Padding.large)
+
+        englishLabels.append(label)
+    }
+
+    private func addDateFormatInfo() {
+        let label = Label(.text, textColor: .cc_grey)
+        label.text = UBLocalized.wallet_certificate_detail_date_format_info
+        label.isAccessibilityElement = false
+        stackView.addArrangedView(label)
+        stackView.addSpacerView(Padding.large)
+
+        englishLabels.append(label)
     }
 
     // MARK: - Update

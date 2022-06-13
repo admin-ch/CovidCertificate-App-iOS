@@ -33,6 +33,14 @@ public extension CertificateHolder {
 
         return nil
     }
+
+    var displayExpiresAt: String? {
+        if let i = expiresAt {
+            return DateFormatter.ub_dayTimeString(from: i)
+        }
+
+        return nil
+    }
 }
 
 #if WALLET
