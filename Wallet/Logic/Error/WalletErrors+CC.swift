@@ -24,11 +24,9 @@ extension VerificationError {
         case .otherNationalRules:
             return UBLocalized.wallet_error_national_rules.formattingOccurrenceBold("")
         case .expired:
-            let bold = UBLocalized.wallet_error_qr_code_expired
-            return UBLocalized.wallet_error_expired.formattingOccurrenceBold(bold)
+            return UBLocalized.wallet_error_expired.formattingOccurrenceBold("")
         case .signatureExpired:
-            let bold = UBLocalized.wallet_error_invalid_signature_bold
-            return UBLocalized.wallet_error_invalid_signature.formattingOccurrenceBold(bold)
+            return UBLocalized.wallet_error_qr_code_expired.formattingOccurrenceBold("")
         case let .notYetValid(date):
             let dayDate = DateFormatter.ub_dayString(from: date)
             return UBLocalized.wallet_error_valid_from.replacingOccurrences(of: "{DATE}", with: dayDate).formattingOccurrenceBold(dayDate)
