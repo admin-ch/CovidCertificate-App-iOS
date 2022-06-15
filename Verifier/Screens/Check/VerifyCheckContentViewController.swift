@@ -191,7 +191,7 @@ class VerifyCheckContentViewController: ViewController {
         switch state {
         case .loading:
             loadingView.rotate()
-        case let .success(_, _, modeResults, _):
+        case let .success(_, _, modeResults, _, _):
             if let successCode = CheckModesHelper.successValidationCode(modeResults: modeResults, mode: mode),
                successCode.is2GPlusSuccessWithAnotherCertificate {
                 // 2G Plus Case
@@ -237,7 +237,7 @@ class VerifyCheckContentViewController: ViewController {
                              showReloadButton: false)
             }
 
-        case let .invalid(_, errorCodes, _, _, _):
+        case let .invalid(_, errorCodes, _, _, _, _):
             let error = state?.getFirstError()
 
             let text: NSAttributedString = error?.displayName() ?? NSAttributedString(string: "")

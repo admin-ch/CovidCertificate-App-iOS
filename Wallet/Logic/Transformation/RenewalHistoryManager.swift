@@ -11,11 +11,6 @@
 
 import Foundation
 
-struct RenewalHistoryEntry: UBCodable, Equatable {
-    let uvci: String
-    let timestamp: Date
-}
-
 class RenewalHistoryManager {
     static let shared = RenewalHistoryManager()
     private init() {}
