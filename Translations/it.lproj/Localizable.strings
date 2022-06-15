@@ -334,7 +334,7 @@
 "wallet_error_national_rules" = "Non soddisfa i criteri di validità della Svizzera";
 
 /*Wallet: Gültigkeit des Zertifikats abgelaufen*/
-"wallet_error_expired" = "La validità del certificato \nè scaduta";
+"wallet_error_expired" = "Gültigkeitsdauer für die\nSchweiz überschritten";
 
 /*Wallet: Zertifikat wurde widerrufen*/
 "wallet_error_revocation" = "Il certificato è stato \nrevocato";
@@ -347,9 +347,6 @@
 
 /*Wallet: widerrufen (gleiches Wort wie bei wallet_error_revocation)*/
 "wallet_error_revocation_bold" = "revocato";
-
-/*Wallet: abgelaufen (gleiches Wort wie bei wallet_error_expired verwenden)*/
-"wallet_error_expired_bold" = "è scaduta";
 
 /*Meldung wenn erneute ein Zertifikat gescannt wurde, welches bereits in der App ist*/
 "wallet_certificate_already_exists" = "Questo certificato è già salvato nell'app";
@@ -1628,3 +1625,28 @@
 
 /*Wallet: Buttontext der Info-Bubble wenn das Zertifikat erneuert werden muss*/
 "wallet_certificate_renewal_required_bubble_button" = "Mehr erfahren";
+
+/*Wallet: Buttontext um den QR Code eines Zertifikats zu erneuern*/
+"wallet_certificate_renew_now_button" = "QR-Code erneuern";
+"wallet_certificate_renewal_qr_code_expiration" = "Ablaufdatum QR-Code";
+"wallet_certificate_renewal_required_info" = "Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht.";
+"wallet_certificate_renewal_in_progress_info" = "QR-Code wird erneuert";
+"wallet_certificate_renewal_successful_info" = "Der QR-Code wurde erfolgreich erneuert";
+"wallet_certificate_renewal_offline_error_title" = "Keine Verbindung zum Internet";
+"wallet_certificate_renewal_offline_error_text" = "Um den QR-Code erneuern zu können, muss die App online sein.";
+"wallet_certificate_renewal_general_error_title" = "Ein unerwarteter Fehler ist aufgetreten.";
+"wallet_certificate_renewal_general_error_text" = "Versuchen Sie es später erneut.";
+
+/*Wallet: Titel der Info-Bubble wenn das Zertifikat erfolgreich erneuert wurde*/
+"wallet_certificate_renewal_successful_bubble_title" = "Erfolgreich erneuert";
+
+/*Wallet: Text der Info-Bubble wenn das Zertifikat erfolgreich erneuert wurde*/
+"wallet_certificate_renewal_successful_bubble_text" = "Ersetzen Sie auch ausgedruckte oder gespeicherte Versionen dieses Zertifikats durch diese erneuerte Version.";
+
+/*Wallet: Button der Info-Bubble wenn das Zertifikat erfolgreich erneuert wurde*/
+"wallet_certificate_renewal_successful_bubble_button" = "Mehr erfahren";
+
+/*Wallet: QR Code des Zertifikats abgelaufen*/
+"wallet_error_qr_code_expired" = "Das technische Ablaufdatum für\ndiesen QR-Code ist erreicht.";
+"wallet_certificate_renewal_rate_limit_error_title" = "24h-Limite erreicht";
+"wallet_certificate_renewal_rate_limit_error_text" = "Dieser QR Code wurde in den letzten 24h bereits zu oft erneuert.";

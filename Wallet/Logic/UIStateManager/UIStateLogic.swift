@@ -25,9 +25,9 @@ class UIStateLogic {
 
     private func buildCertificateState() -> CertificateState {
         #if WALLET
-            return CertificateState(certificates: CertificateStorage.shared.userCertificates)
+            return CertificateState(certificates: CertificateStorage.shared.userCertificates, renewalDates: WalletUserStorage.shared.renewalDates)
         #elseif VERIFIER
-            return CertificateState(certificates: [])
+            return CertificateState(certificates: [], renewalDates: [])
         #endif
     }
 

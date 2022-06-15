@@ -39,6 +39,33 @@ enum TransformationManager {
         }
     }
 
+    static func renewCertificate(certificate: UserCertificate,
+                                 completionHandler: @escaping (Result<UserCertificate, TransformationError>) -> Void) {
+        guard let qrCode = certificate.qrCode else {
+            assertionFailure()
+            return
+        }
+        TransformationService.renewCertificate(qrCode: qrCode) { result in
+            switch result {
+            case let .success(newQrCode):
+
+                guard let model = CertificateStorage.shared.renewCertificate(oldQrCode: qrCode, newQrCode: newQrCode) else {
+                    DispatchQueue.main.async {
+                        completionHandler(.failure(.certificateInvalid(.renew)))
+                    }
+                    return
+                }
+                DispatchQueue.main.async {
+                    completionHandler(.success(model))
+                }
+            case let .failure(error):
+                DispatchQueue.main.async {
+                    completionHandler(.failure(error))
+                }
+            }
+        }
+    }
+
     static func getPDF(certificate: UserCertificate,
                        completionHandler: @escaping (Result<UserCertificate, TransformationError>) -> Void) {
         guard let qrCode = certificate.qrCode else {

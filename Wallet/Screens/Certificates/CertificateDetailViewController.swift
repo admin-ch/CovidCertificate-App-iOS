@@ -26,7 +26,8 @@ class CertificateDetailViewController: ViewController {
     private let stackScrollView = StackScrollView()
     private let qrCodeNameView = QRCodeNameView()
 
-    private let bannerView = CertificateDetailBannerView()
+    private let renewBannerView = CertificateDetailBannerView()
+    private let eolBannerView = CertificateDetailBannerView()
     private let ratBannerView = CertificateDetailBannerView()
 
     private lazy var stateView = CertificateStateView(isHomescreen: false, showValidity: true)
@@ -157,13 +158,16 @@ class CertificateDetailViewController: ViewController {
             make.edges.equalToSuperview()
         }
 
-        stackScrollView.addArrangedView(bannerView,
+        stackScrollView.addArrangedView(renewBannerView,
+                                        inset: UIEdgeInsets(top: Padding.medium, left: Padding.medium, bottom: 0, right: Padding.medium))
+
+        stackScrollView.addArrangedView(eolBannerView,
                                         inset: UIEdgeInsets(top: Padding.medium, left: Padding.medium, bottom: 0, right: Padding.medium))
 
         stackScrollView.addArrangedView(ratBannerView,
                                         inset: UIEdgeInsets(top: Padding.medium, left: Padding.medium, bottom: 0, right: Padding.medium))
 
-        ratBannerView.bannerContent = CertificateDetailBannerContent(title: UBLocalized.rat_conversion_overview_title, text: UBLocalized.rat_conversion_overview_text, buttonText: UBLocalized.rat_conversion_overview_button)
+        ratBannerView.state = .rat(CertificateDetailBannerContent(title: UBLocalized.rat_conversion_overview_title, text: UBLocalized.rat_conversion_overview_text, buttonText: UBLocalized.rat_conversion_overview_button))
 
         stackScrollView.addSpacerView(Padding.large)
         stackScrollView.addArrangedView(qrCodeNameView, inset: padding)
@@ -306,16 +310,41 @@ class CertificateDetailViewController: ViewController {
             strongSelf.infoPopupView?.addAndPresent(to: strongSelf.view, from: strongSelf.modeView.button)
         }
 
-        bannerView.moreInfoTouchUpCallback = { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.bannerPopupView?.removeFromSuperview()
+        renewBannerView.moreInfoTouchUpCallback = { [weak self] in
+            guard let self = self,
+                  let certificate = self.certificate else { return }
+            switch self.renewBannerView.state {
+            case .wasRenewed:
+                self.navigationController?.pushViewController(CertificateRenewViewController(certificate: certificate, isExpired: false), animated: true)
+            case .renew:
+                self.navigationController?.pushViewController(CertificateRenewViewController(certificate: certificate, isExpired: true), animated: true)
+            default:
+                break
+            }
+        }
 
-            guard case let .success(_, _, _, eolIdentifierOpt) = strongSelf.state,
-                  let eolIdentifier = eolIdentifierOpt,
-                  let banner = ConfigManager.currentConfig?.eolBannerInfo?.value?[eolIdentifier] else { return }
+        renewBannerView.dismissButtonTouchUpCallback = { [weak self] in
+            guard let self = self else { return }
+            switch self.renewBannerView.state {
+            case let .wasRenewed(_, uvci):
+                RenewalHistoryManager.shared.removeRenewal(uvci: uvci)
+                self.update()
+            default:
+                break
+            }
+        }
 
-            strongSelf.bannerPopupView = EOLBannerPopupView(banner: banner)
-            strongSelf.bannerPopupView?.addAndPresent(to: strongSelf.view, from: strongSelf.bannerView.moreInfoButton)
+        eolBannerView.moreInfoTouchUpCallback = { [weak self] in
+            guard let self = self else { return }
+            self.bannerPopupView?.removeFromSuperview()
+
+            switch self.eolBannerView.state {
+            case let .eol(banner):
+                self.bannerPopupView = EOLBannerPopupView(banner: banner)
+                self.bannerPopupView?.addAndPresent(to: self.view, from: self.eolBannerView.moreInfoButton)
+            default:
+                break
+            }
         }
 
         ratBannerView.moreInfoTouchUpCallback = { [weak self] in
@@ -394,7 +423,7 @@ class CertificateDetailViewController: ViewController {
                 switch state {
                 case .loading: self.temporaryVerifierState = .verifying
                 case .skipped: self.temporaryVerifierState = .idle
-                case let .success(validUntil, _, modesResult, _): self.temporaryVerifierState = .success(validUntil, modesResult)
+                case let .success(validUntil, _, modesResult, _, _): self.temporaryVerifierState = .success(validUntil, modesResult)
                 case .invalid: self.temporaryVerifierState = .failure
                 case let .retry(error, errorCodes): self.temporaryVerifierState = .retry(error, errorCodes)
                 }
@@ -423,6 +452,19 @@ class CertificateDetailViewController: ViewController {
         alert.addAction(UIAlertAction(title: UBLocalized.delete_button, style: .destructive, handler: { _ in
             self.certificate?.deleteUserActivity()
             CertificateStorage.shared.userCertificates = CertificateStorage.shared.userCertificates.filter { $0 != self.certificate }
+
+            switch CovidCertificateSDK.Wallet.decode(encodedData: self.certificate?.qrCode ?? "") {
+            case let .success(holder):
+                if let certificate = holder.certificate as? DCCCert,
+                   let uvci = certificate.vaccinations?.first?.certificateIdentifier ??
+                   certificate.pastInfections?.first?.certificateIdentifier ??
+                   certificate.tests?.first?.certificateIdentifier {
+                    RenewalHistoryManager.shared.removeRenewal(uvci: uvci)
+                }
+            default:
+                break
+            }
+
             self.dismiss(animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: UBLocalized.cancel_button, style: .cancel, handler: nil))
@@ -448,9 +490,9 @@ class CertificateDetailViewController: ViewController {
 
         var isSwitzerlandOnly = false
         switch state {
-        case let .success(_, switzerlandOnly, _, _):
+        case let .success(_, switzerlandOnly, _, _, _):
             isSwitzerlandOnly = switzerlandOnly ?? false
-        case let .invalid(_, _, _, _, switzerlandOnly):
+        case let .invalid(_, _, _, _, switzerlandOnly, _):
             isSwitzerlandOnly = switzerlandOnly ?? false
         default:
             break
@@ -488,19 +530,36 @@ class CertificateDetailViewController: ViewController {
                 }
             }
 
-            if case let .success(_, _, _, eolIdentifierOpt) = state,
-               let eolIdentifier = eolIdentifierOpt,
-               let banner = ConfigManager.currentConfig?.eolBannerInfo?.value?[eolIdentifier] {
-                bannerView.banner = banner
-                bannerView.superview?.isHidden = false
+            if let certificate = holder.certificate as? DCCCert,
+               let uvci = certificate.vaccinations?.first?.certificateIdentifier ??
+               certificate.pastInfections?.first?.certificateIdentifier ??
+               certificate.tests?.first?.certificateIdentifier,
+               RenewalHistoryManager.shared.showRenewBanner(for: uvci) {
+                renewBannerView.state = .wasRenewed(CertificateDetailBannerContent(title: UBLocalized.wallet_certificate_renewal_successful_bubble_title,
+                                                                                   text: UBLocalized.wallet_certificate_renewal_successful_bubble_text,
+                                                                                   buttonText: UBLocalized.wallet_certificate_renewal_successful_bubble_button), uvci: uvci)
+            } else if state.showRenewBanner != nil {
+                renewBannerView.state = .renew(CertificateDetailBannerContent(title: UBLocalized.wallet_certificate_renewal_required_bubble_title,
+                                                                              text: UBLocalized.wallet_certificate_renewal_required_bubble_text,
+                                                                              buttonText: UBLocalized.wallet_certificate_renewal_required_bubble_button))
+                renewBannerView.superview?.isHidden = false
             } else {
-                bannerView.superview?.isHidden = true
+                renewBannerView.superview?.isHidden = true
+            }
+
+            if case let .success(_, _, _, .some(eolIdentifier), _) = state,
+               let banner = ConfigManager.currentConfig?.eolBannerInfo?.value?[eolIdentifier] {
+                eolBannerView.state = .eol(banner)
+                eolBannerView.superview?.isHidden = false
+            } else {
+                eolBannerView.superview?.isHidden = true
             }
         case .failure:
             exportRow.isEnabled = false
             certificateLightRow.isEnabled = false
 
-            bannerView.superview?.isHidden = true
+            renewBannerView.superview?.isHidden = true
+            eolBannerView.superview?.isHidden = true
         }
 
         // check certificate color

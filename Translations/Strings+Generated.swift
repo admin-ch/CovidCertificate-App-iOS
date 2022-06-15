@@ -680,12 +680,40 @@ import Foundation
      case wallet_certificate_recovery_from
     /// Gültig bis
      case wallet_certificate_recovery_until
+    /// QR-Code erneuern
+     case wallet_certificate_renew_now_button
+    /// Versuchen Sie es später erneut.
+     case wallet_certificate_renewal_general_error_text
+    /// Ein unerwarteter Fehler ist aufgetreten.
+     case wallet_certificate_renewal_general_error_title
+    /// QR-Code wird erneuert
+     case wallet_certificate_renewal_in_progress_info
+    /// Um den QR-Code erneuern zu können, muss die App online sein.
+     case wallet_certificate_renewal_offline_error_text
+    /// Keine Verbindung zum Internet
+     case wallet_certificate_renewal_offline_error_title
+    /// Ablaufdatum QR-Code
+     case wallet_certificate_renewal_qr_code_expiration
+    /// Dieser QR Code wurde in den letzten 24h bereits zu oft erneuert.
+     case wallet_certificate_renewal_rate_limit_error_text
+    /// 24h-Limite erreicht
+     case wallet_certificate_renewal_rate_limit_error_title
     /// Mehr erfahren
      case wallet_certificate_renewal_required_bubble_button
     /// Um dieses Zertifikat weiterhin verwenden zu können, muss der QR-Code erneuert werden.
      case wallet_certificate_renewal_required_bubble_text
     /// QR-Code erneuern
      case wallet_certificate_renewal_required_bubble_title
+    /// Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht.
+     case wallet_certificate_renewal_required_info
+    /// Mehr erfahren
+     case wallet_certificate_renewal_successful_bubble_button
+    /// Ersetzen Sie auch ausgedruckte oder gespeicherte Versionen dieses Zertifikats durch diese erneuerte Version.
+     case wallet_certificate_renewal_successful_bubble_text
+    /// Erfolgreich erneuert
+     case wallet_certificate_renewal_successful_bubble_title
+    /// Der QR-Code wurde erfolgreich erneuert
+     case wallet_certificate_renewal_successful_info
     /// Krankheit oder Erreger
      case wallet_certificate_target_disease_title
     /// Testcenter
@@ -788,10 +816,8 @@ import Foundation
      case wallet_eol_banner_invalid_in_three_weeks_popup_text2
     /// Info
      case wallet_eol_banner_invalid_in_three_weeks_popup_title
-    /// Gültigkeit des Zertifikats\nabgelaufen
+    /// Gültigkeitsdauer für die\nSchweiz überschritten
      case wallet_error_expired
-    /// abgelaufen
-     case wallet_error_expired_bold
     /// Format des Zertifikat\nungültig
      case wallet_error_invalid_format
     /// ungültig
@@ -802,6 +828,8 @@ import Foundation
      case wallet_error_invalid_signature_bold
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz
      case wallet_error_national_rules
+    /// Das technische Ablaufdatum für\ndiesen QR-Code ist erreicht.
+     case wallet_error_qr_code_expired
     /// Zertifikat wurde\nwiderrufen
      case wallet_error_revocation
     /// widerrufen
@@ -1872,12 +1900,40 @@ import Foundation
    static var wallet_certificate_recovery_from: String { return UBLocalized.tr(Key.wallet_certificate_recovery_from) }
   /// Gültig bis
    static var wallet_certificate_recovery_until: String { return UBLocalized.tr(Key.wallet_certificate_recovery_until) }
+  /// QR-Code erneuern
+   static var wallet_certificate_renew_now_button: String { return UBLocalized.tr(Key.wallet_certificate_renew_now_button) }
+  /// Versuchen Sie es später erneut.
+   static var wallet_certificate_renewal_general_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_general_error_text) }
+  /// Ein unerwarteter Fehler ist aufgetreten.
+   static var wallet_certificate_renewal_general_error_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_general_error_title) }
+  /// QR-Code wird erneuert
+   static var wallet_certificate_renewal_in_progress_info: String { return UBLocalized.tr(Key.wallet_certificate_renewal_in_progress_info) }
+  /// Um den QR-Code erneuern zu können, muss die App online sein.
+   static var wallet_certificate_renewal_offline_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_offline_error_text) }
+  /// Keine Verbindung zum Internet
+   static var wallet_certificate_renewal_offline_error_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_offline_error_title) }
+  /// Ablaufdatum QR-Code
+   static var wallet_certificate_renewal_qr_code_expiration: String { return UBLocalized.tr(Key.wallet_certificate_renewal_qr_code_expiration) }
+  /// Dieser QR Code wurde in den letzten 24h bereits zu oft erneuert.
+   static var wallet_certificate_renewal_rate_limit_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_rate_limit_error_text) }
+  /// 24h-Limite erreicht
+   static var wallet_certificate_renewal_rate_limit_error_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_rate_limit_error_title) }
   /// Mehr erfahren
    static var wallet_certificate_renewal_required_bubble_button: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_bubble_button) }
   /// Um dieses Zertifikat weiterhin verwenden zu können, muss der QR-Code erneuert werden.
    static var wallet_certificate_renewal_required_bubble_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_bubble_text) }
   /// QR-Code erneuern
    static var wallet_certificate_renewal_required_bubble_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_bubble_title) }
+  /// Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht.
+   static var wallet_certificate_renewal_required_info: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_info) }
+  /// Mehr erfahren
+   static var wallet_certificate_renewal_successful_bubble_button: String { return UBLocalized.tr(Key.wallet_certificate_renewal_successful_bubble_button) }
+  /// Ersetzen Sie auch ausgedruckte oder gespeicherte Versionen dieses Zertifikats durch diese erneuerte Version.
+   static var wallet_certificate_renewal_successful_bubble_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_successful_bubble_text) }
+  /// Erfolgreich erneuert
+   static var wallet_certificate_renewal_successful_bubble_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_successful_bubble_title) }
+  /// Der QR-Code wurde erfolgreich erneuert
+   static var wallet_certificate_renewal_successful_info: String { return UBLocalized.tr(Key.wallet_certificate_renewal_successful_info) }
   /// Krankheit oder Erreger
    static var wallet_certificate_target_disease_title: String { return UBLocalized.tr(Key.wallet_certificate_target_disease_title) }
   /// Testcenter
@@ -1980,10 +2036,8 @@ import Foundation
    static var wallet_eol_banner_invalid_in_three_weeks_popup_text2: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_popup_text2) }
   /// Info
    static var wallet_eol_banner_invalid_in_three_weeks_popup_title: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_popup_title) }
-  /// Gültigkeit des Zertifikats\nabgelaufen
+  /// Gültigkeitsdauer für die\nSchweiz überschritten
    static var wallet_error_expired: String { return UBLocalized.tr(Key.wallet_error_expired) }
-  /// abgelaufen
-   static var wallet_error_expired_bold: String { return UBLocalized.tr(Key.wallet_error_expired_bold) }
   /// Format des Zertifikat\nungültig
    static var wallet_error_invalid_format: String { return UBLocalized.tr(Key.wallet_error_invalid_format) }
   /// ungültig
@@ -1994,6 +2048,8 @@ import Foundation
    static var wallet_error_invalid_signature_bold: String { return UBLocalized.tr(Key.wallet_error_invalid_signature_bold) }
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz
    static var wallet_error_national_rules: String { return UBLocalized.tr(Key.wallet_error_national_rules) }
+  /// Das technische Ablaufdatum für\ndiesen QR-Code ist erreicht.
+   static var wallet_error_qr_code_expired: String { return UBLocalized.tr(Key.wallet_error_qr_code_expired) }
   /// Zertifikat wurde\nwiderrufen
    static var wallet_error_revocation: String { return UBLocalized.tr(Key.wallet_error_revocation) }
   /// widerrufen

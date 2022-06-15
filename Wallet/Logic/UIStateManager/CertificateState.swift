@@ -13,4 +13,5 @@ import Foundation
 
 struct CertificateState: Equatable {
     let certificates: [UserCertificate]
+    var renewalDates: [RenewalHistoryEntry]
 }

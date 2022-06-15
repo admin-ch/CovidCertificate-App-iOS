@@ -24,7 +24,7 @@ extension VerificationError {
         case .otherNationalRules:
             return UBLocalized.wallet_error_national_rules.formattingOccurrenceBold("")
         case .expired:
-            let bold = UBLocalized.wallet_error_expired_bold
+            let bold = UBLocalized.wallet_error_qr_code_expired
             return UBLocalized.wallet_error_expired.formattingOccurrenceBold(bold)
         case .signatureExpired:
             let bold = UBLocalized.wallet_error_invalid_signature_bold

@@ -81,6 +81,8 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         var showRatConversionForm: Bool? = false
         let ratConversionFormUrl: String?
 
+        let certRenewalInfo: LocalizedValue<[String: CertificateRenewal]>
+
     #elseif VERIFIER
         let checkModesInfos: LocalizedValue<CheckModeContainer>?
         let checkModeReselectAfterHours: Int
@@ -165,6 +167,16 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         }
 
         class ForeignRulesHint: UBCodable {
+            let iconIos: String
+            let text: String
+        }
+
+        class CertificateRenewal: UBCodable {
+            let heading: String
+            let infos: [CertificateRenewalInfo]
+        }
+
+        struct CertificateRenewalInfo: UBCodable {
             let iconIos: String
             let text: String
         }
