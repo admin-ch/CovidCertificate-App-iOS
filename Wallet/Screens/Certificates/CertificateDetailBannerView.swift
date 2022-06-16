@@ -102,7 +102,7 @@ class CertificateDetailBannerView: UIView {
             break
         }
 
-        container.accessibilityLabel = [titleLabel.text, textLabel.text, moreInfoButton.titleText].compactMap { $0 }.joined(separator: ", ")
+        setupAccessibility()
     }
 
     private func setup() {

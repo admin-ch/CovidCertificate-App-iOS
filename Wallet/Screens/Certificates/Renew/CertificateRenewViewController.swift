@@ -120,6 +120,8 @@ class CertificateRenewViewController: StackScrollViewController {
                 let certVC = WalletDetailViewController(certificate: newUserCertificate)
                 self.navigationController?.setViewControllers([certVC, self], animated: false)
                 certVC.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
+
+                UIAccessibility.post(notification: .layoutChanged, argument: self)
             case let .failure(error):
                 self.expiryView.state = .error(error)
                 self.renewButton.titleKey = .error_action_retry
