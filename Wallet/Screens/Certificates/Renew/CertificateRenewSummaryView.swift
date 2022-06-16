@@ -58,7 +58,7 @@ class CertificateRenewSummaryView: UIView {
 
         guard let infos = ConfigManager.currentConfig?.certRenewalInfo.value?[mode.identifier] else { return }
 
-        let title = Label(.textBoldLarge, textAlignment: .center)
+        let title = Label(.textBoldLarge)
         title.text = infos.heading
 
         stackView.addSpacerView(Padding.large)
