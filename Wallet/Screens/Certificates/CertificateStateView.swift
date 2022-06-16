@@ -226,13 +226,15 @@ class CertificateStateView: UIView {
 
                     self.imageView.image = first?.icon()
                     self.textLabel.attributedText = first?.displayName()
-                    if let e = first, case .expired = e {
+                    switch first {
+                    case .signatureExpired, .expired:
                         self.backgroundView.backgroundColor = .cc_blueish
                         self.validityView.backgroundColor = .cc_blueish
-                    } else {
+                    default:
                         self.backgroundView.backgroundColor = .cc_greyish
                         self.validityView.backgroundColor = .cc_greyish
                     }
+
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
 
