@@ -488,6 +488,11 @@ class CertificateDetailViewController: ViewController {
             isOnlyNationalRulesInvalid = (e.nationalRuleError != nil) && !state.isSignatureOrRevocationError()
         }
 
+        var isOnlySignatureExpired = false
+        if let (signatureErr, revocationErr, _) = state.getVerifierErrorState() {
+            isOnlySignatureExpired = signatureErr == .signatureExpired && revocationErr == nil
+        }
+
         var isSwitzerlandOnly = false
         switch state {
         case let .success(_, switzerlandOnly, _, _, _):
@@ -499,7 +504,7 @@ class CertificateDetailViewController: ViewController {
         }
 
         let foreignEnabled = ConfigManager.currentConfig?.foreignRulesCheckEnabled ?? false
-        let notInvalid = (isSuccessState || isOnlyNationalRulesInvalid)
+        let notInvalid = (isSuccessState || isOnlyNationalRulesInvalid || isOnlySignatureExpired)
         let showCheckValidityAbroadButton = foreignEnabled && notInvalid && !isSwitzerlandOnly
 
         if showCheckValidityAbroadButton {

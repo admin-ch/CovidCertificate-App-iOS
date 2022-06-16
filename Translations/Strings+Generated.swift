@@ -42,27 +42,27 @@ import Foundation
      case cancel_button
     /// Was bedeutet das?
      case cert_renewal_info_expired_heading
-    /// Die QR-Codes der Covid-Zertifikate haben ein technisches Ablaufdatum.
+    /// Die QR-Codes der Covid-Zertifikate sind technisch nur begrenzt gültig.
      case cert_renewal_info_expired_text_1
-    /// Um dieses Zertifikat weiterhin verwenden zu können, muss der QR-Code erneuert werden.
+    /// Damit dieses Zertifikat (z. B. auf Reisen) weiterhin geprüft werden kann, muss der QR-Code erneuert werden.
      case cert_renewal_info_expired_text_2
-    /// Die Erneuerung des QR-Codes erfolg online. Dazu werden die Daten sicher an das System des Bundes zur Ausstellung von Covid-Zertifikaten übermittelt.
+    /// Die Erneuerung können Sie hier in der App selbst durchführen (Internetverbindung nötig). Die Daten des aktuellen Zertifikats werden dazu verschlüsselt von der App an das System des Bundes zur Ausstellung von Covid-Zertifikaten übermittelt. Danach wird ein neuer QR-Code zurück an die App gesendet. Anschliessend werden die Daten gelöscht.
      case cert_renewal_info_expired_text_3
     /// Erneuern Sie den QR-Code auch dann, wenn die Gültigkeit in der Schweiz bald abläuft oder bereits abgelaufen ist.
      case cert_renewal_info_expired_text_4
     /// Was bedeutet das?
      case cert_renewal_info_info_heading
-    /// Die QR-Codes der Covid-Zertifikate haben ein technisches Ablaufdatum.
+    /// Die QR-Codes der Covid-Zertifikate sind technisch nur begrenzt gültig.
      case cert_renewal_info_info_text_1
-    /// Um dieses Zertifikat weiterhin verwenden zu können, muss der QR-Code erneuert werden.
+    /// Damit dieses Zertifikat (z. B. auf Reisen) weiterhin geprüft werden kann, muss der QR-Code erneuert werden.
      case cert_renewal_info_info_text_2
-    /// Die Erneuerung des QR-Codes erfolg online. Dazu werden die Daten sicher an das System des Bundes zur Ausstellung von Covid-Zertifikaten übermittelt.
+    /// Die Erneuerung können Sie hier in der App selbst durchführen (Internetverbindung nötig). Die Daten des aktuellen Zertifikats werden dazu verschlüsselt von der App an das System des Bundes zur Ausstellung von Covid-Zertifikaten übermittelt. Danach wird ein neuer QR-Code zurück an die App gesendet. Anschliessend werden die Daten gelöscht.
      case cert_renewal_info_info_text_3
-    /// Erneuern Sie den QR-Code auch dann, wenn die Gültigkeit in der Schweiz bald abläuft oder bereits abgelaufen ist.
+    /// Wieso Sie den QR-Code auch dann erneuern sollten, wenn Ihr Impf- oder Genesungszertifikat nach den Schweizer Gültigkeitsregeln bald abläuft oder bereits abgelaufen ist, lesen Sie in dieser FAQ.
      case cert_renewal_info_info_text_4
-    /// Gut zu wissen
+    /// Wichtig!
      case cert_renewal_info_renewed_heading
-    /// Ersetzen Sie auch ausgedruckte Zertifikate oder gespeicherte PDFs durch die erneuerte Version.
+    /// Ersetzen Sie auch zuvor ausgedruckte oder gespeicherte Zertifikate durch diese erneuerte Version.
      case cert_renewal_info_renewed_text_1
     /// Wie lange ein Covid-Zertifikat gültig ist wird in jedem Land gemäss den aktuell geltenden Regeln berechnet. Die Erneuerung des QR-Codes hat darauf keinen Einfluss.
      case cert_renewal_info_renewed_text_2
@@ -682,6 +682,10 @@ import Foundation
      case wallet_certificate_recovery_until
     /// QR-Code erneuern
      case wallet_certificate_renew_now_button
+    /// Zur FAQ
+     case wallet_certificate_renewal_faq_link_text
+    /// 
+     case wallet_certificate_renewal_faq_link_url
     /// Versuchen Sie es später erneut.
      case wallet_certificate_renewal_general_error_text
     /// Ein unerwarteter Fehler ist aufgetreten.
@@ -692,7 +696,7 @@ import Foundation
      case wallet_certificate_renewal_offline_error_text
     /// Keine Verbindung zum Internet
      case wallet_certificate_renewal_offline_error_title
-    /// Ablaufdatum QR-Code
+    /// QR-Code Ablaufdatum (technisch)
      case wallet_certificate_renewal_qr_code_expiration
     /// Dieser QR Code wurde in den letzten 24h bereits zu oft erneuert.
      case wallet_certificate_renewal_rate_limit_error_text
@@ -704,7 +708,7 @@ import Foundation
      case wallet_certificate_renewal_required_bubble_text
     /// QR-Code erneuern
      case wallet_certificate_renewal_required_bubble_title
-    /// Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht.
+    /// Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht. \n[QR-Code erneuern]
      case wallet_certificate_renewal_required_info
     /// Mehr erfahren
      case wallet_certificate_renewal_successful_bubble_button
@@ -828,7 +832,7 @@ import Foundation
      case wallet_error_invalid_signature_bold
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz
      case wallet_error_national_rules
-    /// Das technische Ablaufdatum für\ndiesen QR-Code ist erreicht.
+    /// Das technische Ablaufdatum für diesen QR-Code ist erreicht.
      case wallet_error_qr_code_expired
     /// Zertifikat wurde\nwiderrufen
      case wallet_error_revocation
@@ -1262,27 +1266,27 @@ import Foundation
    static var cancel_button: String { return UBLocalized.tr(Key.cancel_button) }
   /// Was bedeutet das?
    static var cert_renewal_info_expired_heading: String { return UBLocalized.tr(Key.cert_renewal_info_expired_heading) }
-  /// Die QR-Codes der Covid-Zertifikate haben ein technisches Ablaufdatum.
+  /// Die QR-Codes der Covid-Zertifikate sind technisch nur begrenzt gültig.
    static var cert_renewal_info_expired_text_1: String { return UBLocalized.tr(Key.cert_renewal_info_expired_text_1) }
-  /// Um dieses Zertifikat weiterhin verwenden zu können, muss der QR-Code erneuert werden.
+  /// Damit dieses Zertifikat (z. B. auf Reisen) weiterhin geprüft werden kann, muss der QR-Code erneuert werden.
    static var cert_renewal_info_expired_text_2: String { return UBLocalized.tr(Key.cert_renewal_info_expired_text_2) }
-  /// Die Erneuerung des QR-Codes erfolg online. Dazu werden die Daten sicher an das System des Bundes zur Ausstellung von Covid-Zertifikaten übermittelt.
+  /// Die Erneuerung können Sie hier in der App selbst durchführen (Internetverbindung nötig). Die Daten des aktuellen Zertifikats werden dazu verschlüsselt von der App an das System des Bundes zur Ausstellung von Covid-Zertifikaten übermittelt. Danach wird ein neuer QR-Code zurück an die App gesendet. Anschliessend werden die Daten gelöscht.
    static var cert_renewal_info_expired_text_3: String { return UBLocalized.tr(Key.cert_renewal_info_expired_text_3) }
   /// Erneuern Sie den QR-Code auch dann, wenn die Gültigkeit in der Schweiz bald abläuft oder bereits abgelaufen ist.
    static var cert_renewal_info_expired_text_4: String { return UBLocalized.tr(Key.cert_renewal_info_expired_text_4) }
   /// Was bedeutet das?
    static var cert_renewal_info_info_heading: String { return UBLocalized.tr(Key.cert_renewal_info_info_heading) }
-  /// Die QR-Codes der Covid-Zertifikate haben ein technisches Ablaufdatum.
+  /// Die QR-Codes der Covid-Zertifikate sind technisch nur begrenzt gültig.
    static var cert_renewal_info_info_text_1: String { return UBLocalized.tr(Key.cert_renewal_info_info_text_1) }
-  /// Um dieses Zertifikat weiterhin verwenden zu können, muss der QR-Code erneuert werden.
+  /// Damit dieses Zertifikat (z. B. auf Reisen) weiterhin geprüft werden kann, muss der QR-Code erneuert werden.
    static var cert_renewal_info_info_text_2: String { return UBLocalized.tr(Key.cert_renewal_info_info_text_2) }
-  /// Die Erneuerung des QR-Codes erfolg online. Dazu werden die Daten sicher an das System des Bundes zur Ausstellung von Covid-Zertifikaten übermittelt.
+  /// Die Erneuerung können Sie hier in der App selbst durchführen (Internetverbindung nötig). Die Daten des aktuellen Zertifikats werden dazu verschlüsselt von der App an das System des Bundes zur Ausstellung von Covid-Zertifikaten übermittelt. Danach wird ein neuer QR-Code zurück an die App gesendet. Anschliessend werden die Daten gelöscht.
    static var cert_renewal_info_info_text_3: String { return UBLocalized.tr(Key.cert_renewal_info_info_text_3) }
-  /// Erneuern Sie den QR-Code auch dann, wenn die Gültigkeit in der Schweiz bald abläuft oder bereits abgelaufen ist.
+  /// Wieso Sie den QR-Code auch dann erneuern sollten, wenn Ihr Impf- oder Genesungszertifikat nach den Schweizer Gültigkeitsregeln bald abläuft oder bereits abgelaufen ist, lesen Sie in dieser FAQ.
    static var cert_renewal_info_info_text_4: String { return UBLocalized.tr(Key.cert_renewal_info_info_text_4) }
-  /// Gut zu wissen
+  /// Wichtig!
    static var cert_renewal_info_renewed_heading: String { return UBLocalized.tr(Key.cert_renewal_info_renewed_heading) }
-  /// Ersetzen Sie auch ausgedruckte Zertifikate oder gespeicherte PDFs durch die erneuerte Version.
+  /// Ersetzen Sie auch zuvor ausgedruckte oder gespeicherte Zertifikate durch diese erneuerte Version.
    static var cert_renewal_info_renewed_text_1: String { return UBLocalized.tr(Key.cert_renewal_info_renewed_text_1) }
   /// Wie lange ein Covid-Zertifikat gültig ist wird in jedem Land gemäss den aktuell geltenden Regeln berechnet. Die Erneuerung des QR-Codes hat darauf keinen Einfluss.
    static var cert_renewal_info_renewed_text_2: String { return UBLocalized.tr(Key.cert_renewal_info_renewed_text_2) }
@@ -1902,6 +1906,10 @@ import Foundation
    static var wallet_certificate_recovery_until: String { return UBLocalized.tr(Key.wallet_certificate_recovery_until) }
   /// QR-Code erneuern
    static var wallet_certificate_renew_now_button: String { return UBLocalized.tr(Key.wallet_certificate_renew_now_button) }
+  /// Zur FAQ
+   static var wallet_certificate_renewal_faq_link_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_faq_link_text) }
+  /// 
+   static var wallet_certificate_renewal_faq_link_url: String { return UBLocalized.tr(Key.wallet_certificate_renewal_faq_link_url) }
   /// Versuchen Sie es später erneut.
    static var wallet_certificate_renewal_general_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_general_error_text) }
   /// Ein unerwarteter Fehler ist aufgetreten.
@@ -1912,7 +1920,7 @@ import Foundation
    static var wallet_certificate_renewal_offline_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_offline_error_text) }
   /// Keine Verbindung zum Internet
    static var wallet_certificate_renewal_offline_error_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_offline_error_title) }
-  /// Ablaufdatum QR-Code
+  /// QR-Code Ablaufdatum (technisch)
    static var wallet_certificate_renewal_qr_code_expiration: String { return UBLocalized.tr(Key.wallet_certificate_renewal_qr_code_expiration) }
   /// Dieser QR Code wurde in den letzten 24h bereits zu oft erneuert.
    static var wallet_certificate_renewal_rate_limit_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_rate_limit_error_text) }
@@ -1924,7 +1932,7 @@ import Foundation
    static var wallet_certificate_renewal_required_bubble_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_bubble_text) }
   /// QR-Code erneuern
    static var wallet_certificate_renewal_required_bubble_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_bubble_title) }
-  /// Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht.
+  /// Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht. \n[QR-Code erneuern]
    static var wallet_certificate_renewal_required_info: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_info) }
   /// Mehr erfahren
    static var wallet_certificate_renewal_successful_bubble_button: String { return UBLocalized.tr(Key.wallet_certificate_renewal_successful_bubble_button) }
@@ -2048,7 +2056,7 @@ import Foundation
    static var wallet_error_invalid_signature_bold: String { return UBLocalized.tr(Key.wallet_error_invalid_signature_bold) }
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz
    static var wallet_error_national_rules: String { return UBLocalized.tr(Key.wallet_error_national_rules) }
-  /// Das technische Ablaufdatum für\ndiesen QR-Code ist erreicht.
+  /// Das technische Ablaufdatum für diesen QR-Code ist erreicht.
    static var wallet_error_qr_code_expired: String { return UBLocalized.tr(Key.wallet_error_qr_code_expired) }
   /// Zertifikat wurde\nwiderrufen
    static var wallet_error_revocation: String { return UBLocalized.tr(Key.wallet_error_revocation) }
