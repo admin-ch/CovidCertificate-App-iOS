@@ -698,7 +698,7 @@ import Foundation
      case wallet_certificate_renewal_offline_error_title
     /// QR-Code Ablaufdatum (technisch)
      case wallet_certificate_renewal_qr_code_expiration
-    /// Dieser QR Code wurde in den letzten 24h bereits zu oft erneuert.
+    /// QR-Code zu oft erneuert. Erneuerung temporär gesperrt.
      case wallet_certificate_renewal_rate_limit_error_text
     /// 24h-Limite erreicht
      case wallet_certificate_renewal_rate_limit_error_title
@@ -708,7 +708,7 @@ import Foundation
      case wallet_certificate_renewal_required_bubble_text
     /// QR-Code erneuern
      case wallet_certificate_renewal_required_bubble_title
-    /// Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht. \n[QR-Code erneuern]
+    /// Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht. 
      case wallet_certificate_renewal_required_info
     /// Mehr erfahren
      case wallet_certificate_renewal_successful_bubble_button
@@ -1922,7 +1922,7 @@ import Foundation
    static var wallet_certificate_renewal_offline_error_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_offline_error_title) }
   /// QR-Code Ablaufdatum (technisch)
    static var wallet_certificate_renewal_qr_code_expiration: String { return UBLocalized.tr(Key.wallet_certificate_renewal_qr_code_expiration) }
-  /// Dieser QR Code wurde in den letzten 24h bereits zu oft erneuert.
+  /// QR-Code zu oft erneuert. Erneuerung temporär gesperrt.
    static var wallet_certificate_renewal_rate_limit_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_rate_limit_error_text) }
   /// 24h-Limite erreicht
    static var wallet_certificate_renewal_rate_limit_error_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_rate_limit_error_title) }
@@ -1932,7 +1932,7 @@ import Foundation
    static var wallet_certificate_renewal_required_bubble_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_bubble_text) }
   /// QR-Code erneuern
    static var wallet_certificate_renewal_required_bubble_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_bubble_title) }
-  /// Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht. \n[QR-Code erneuern]
+  /// Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht. 
    static var wallet_certificate_renewal_required_info: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_info) }
   /// Mehr erfahren
    static var wallet_certificate_renewal_successful_bubble_button: String { return UBLocalized.tr(Key.wallet_certificate_renewal_successful_bubble_button) }

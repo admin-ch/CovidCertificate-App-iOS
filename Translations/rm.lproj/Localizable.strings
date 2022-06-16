@@ -1629,8 +1629,8 @@
 /*Wallet: Buttontext um den QR Code eines Zertifikats zu erneuern*/
 "wallet_certificate_renew_now_button" = "Renovar il code QR";
 "wallet_certificate_renewal_qr_code_expiration" = "Data da scadenza (tecnica) dal code QR";
-"wallet_certificate_renewal_required_info" = "La data da la scadenza tecnica da quest code QR è (bainbaud) arrivada.\n[Renovar il code QR]";
-"wallet_certificate_renewal_in_progress_info" = "QR-Code wird erneuert";
+"wallet_certificate_renewal_required_info" = "La data da la scadenza tecnica da quest code QR è (bainbaud) arrivada.";
+"wallet_certificate_renewal_in_progress_info" = "Il code QR vegn renovà";
 "wallet_certificate_renewal_successful_info" = "Il code QR è vegnì renovà cun success.";
 "wallet_certificate_renewal_offline_error_title" = "Nagina colliaziun cun l'internet";
 "wallet_certificate_renewal_offline_error_text" = "Per pudair renovar il code QR sto l'app esser online.";
@@ -1650,6 +1650,6 @@
 /*Fuzzy*/
 "wallet_error_qr_code_expired" = "La data da la scadenza tecnica da quest code QR è arrivada.";
 "wallet_certificate_renewal_rate_limit_error_title" = "La limita da 24 uras è cuntanschida";
-"wallet_certificate_renewal_rate_limit_error_text" = "Dieser QR Code wurde in den letzten 24h bereits zu oft erneuert.";
+"wallet_certificate_renewal_rate_limit_error_text" = " Code QR renovà memia savens. Renovaziun bloccada temporarmain.";
 "wallet_certificate_renewal_faq_link_text" = "A la FAQ";
 "wallet_certificate_renewal_faq_link_url" = "";

@@ -1629,8 +1629,8 @@
 /*Wallet: Buttontext um den QR Code eines Zertifikats zu erneuern*/
 "wallet_certificate_renew_now_button" = "Renew QR code";
 "wallet_certificate_renewal_qr_code_expiration" = "QR code expiration date (technical)";
-"wallet_certificate_renewal_required_info" = "The technical expiration date for this QR code has elapsed (or will elapse soon).\n[Renew QR code!]";
-"wallet_certificate_renewal_in_progress_info" = "QR-Code wird erneuert";
+"wallet_certificate_renewal_required_info" = "The technical expiration date for this QR code has elapsed (or will elapse soon).";
+"wallet_certificate_renewal_in_progress_info" = "The QR code is being updated";
 "wallet_certificate_renewal_successful_info" = "The QR code has been successfully renewed";
 "wallet_certificate_renewal_offline_error_title" = "No Internet connection";
 "wallet_certificate_renewal_offline_error_text" = "The app must be online for the QR code to be renewed.";
@@ -1650,6 +1650,6 @@
 /*Fuzzy*/
 "wallet_error_qr_code_expired" = "The technical expiration date for this QR code has elapsed.";
 "wallet_certificate_renewal_rate_limit_error_title" = "24h-limit reached";
-"wallet_certificate_renewal_rate_limit_error_text" = "Dieser QR Code wurde in den letzten 24h bereits zu oft erneuert.";
+"wallet_certificate_renewal_rate_limit_error_text" = "QR code updated too often. Update temporarily blocked.";
 "wallet_certificate_renewal_faq_link_text" = "To the FAQ";
 "wallet_certificate_renewal_faq_link_url" = "";
