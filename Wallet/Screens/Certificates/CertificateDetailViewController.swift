@@ -63,7 +63,9 @@ class CertificateDetailViewController: ViewController {
     private var state: VerificationState = .loading {
         didSet {
             if oldValue != state {
-                update()
+                UIView.animate(withDuration: 0.2) {
+                    self.update()
+                }
             }
         }
     }
