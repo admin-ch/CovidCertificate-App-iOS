@@ -177,18 +177,22 @@ class CertificateCheckValidityAbroadDetailViewController: StackScrollViewControl
             self.errorRetryVC.view.alpha = 0.0
         }, completion: nil)
 
-        CovidCertificateSDK.Wallet.foreignRulesCountryCodes(forceUpdate: forceUpdate) { result in
-            switch result {
-            case let .success(countryCodes):
-                self.loadingView.stopLoading()
-                self.selectionView.countries = countryCodes.map { ArrivalCountry(countryCode: $0) }.compactMap { $0 }.sortedByLocalizedName
-                self.showStoredSelection()
-            case let .failure(error):
-                self.errorRetryVC.error = error
-                UIView.animate(withDuration: 0.25) {
-                    self.errorRetryVC.view.alpha = 1.0
-                } completion: { _ in
-                    self.loadingView.stopLoading()
+        DispatchQueue.global().async {
+            CovidCertificateSDK.Wallet.foreignRulesCountryCodes(forceUpdate: forceUpdate) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case let .success(countryCodes):
+                        self.loadingView.stopLoading()
+                        self.selectionView.countries = countryCodes.map { ArrivalCountry(countryCode: $0) }.compactMap { $0 }.sortedByLocalizedName
+                        self.showStoredSelection()
+                    case let .failure(error):
+                        self.errorRetryVC.error = error
+                        UIView.animate(withDuration: 0.25) {
+                            self.errorRetryVC.view.alpha = 1.0
+                        } completion: { _ in
+                            self.loadingView.stopLoading()
+                        }
+                    }
                 }
             }
         }
