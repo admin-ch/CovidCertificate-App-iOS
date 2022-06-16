@@ -578,11 +578,11 @@ class CertificateDetailViewController: ViewController {
             break
         }
 
-        let showRatConversion = ConfigManager.currentConfig?.showRatConversionForm ?? false
-        let showBanner = isPositiveAntigenTest && showRatConversion
-        ratBannerView.superview?.ub_setHidden(!showBanner)
-
         let isSignatureOrRevocationError = state.isSignatureOrRevocationError()
+
+        let showRatConversion = ConfigManager.currentConfig?.showRatConversionForm ?? false
+        let showBanner = isPositiveAntigenTest && showRatConversion && !isSignatureOrRevocationError
+        ratBannerView.superview?.ub_setHidden(!showBanner)
 
         let isInvalid = (isTest || isSignatureOrRevocationError) ? state.isInvalid() : false
         qrCodeNameView.enabled = temporaryVerifierState != .idle || !isInvalid
