@@ -29,7 +29,7 @@ class CertificateDetailView: UIView {
     private let addTopDivider: Bool
 
     private var labels: [UILabel] = []
-    private var englishLabels: [UILabel] = []
+    private var englishLabels: [UIView] = []
 
     // MARK: - Init
 
@@ -339,10 +339,11 @@ class CertificateDetailView: UIView {
         englishLabel.isAccessibilityElement = false
         stackView.addArrangedView(englishLabel)
 
-        stackView.addSpacerView(Padding.large)
+        let englishSpacer = stackView.addSpacerView(Padding.large)
 
         labels.append(textLabel)
         englishLabels.append(englishLabel)
+        englishLabels.append(englishSpacer)
     }
 
     private func addDividerLine(hasTopPadding _: Bool = true) {
@@ -376,8 +377,6 @@ class CertificateDetailView: UIView {
         label.isAccessibilityElement = false
         stackView.addArrangedView(label)
         stackView.addSpacerView(Padding.large)
-
-        englishLabels.append(label)
     }
 
     private func addDateFormatInfo() {
@@ -386,8 +385,6 @@ class CertificateDetailView: UIView {
         label.isAccessibilityElement = false
         stackView.addArrangedView(label)
         stackView.addSpacerView(Padding.large)
-
-        englishLabels.append(label)
     }
 
     // MARK: - Update
