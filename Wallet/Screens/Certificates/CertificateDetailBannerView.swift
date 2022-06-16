@@ -164,7 +164,7 @@ class CertificateDetailBannerView: UIView {
         container.accessibilityLabel = [titleLabel.text, textLabel.text, moreInfoButton.titleText].compactMap { $0 }.joined(separator: ", ")
         container.accessibilityTraits = .button
 
-        accessibilityElements = [container, moreInfoButton] + (dismissButton.isHidden ? [] : [dismissButton])
+        accessibilityElements = [container] + (dismissButton.isHidden ? [] : [dismissButton])
         isAccessibilityElement = false
     }
 }
