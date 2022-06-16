@@ -75,6 +75,24 @@ class CertificateRenewSummaryView: UIView {
                                    leftRightInset: Padding.medium)
             )
         }
+        stackView.addSpacerView(Padding.large)
+
+        if let faqLinkText = infos.faqLinkText,
+           let faqLinkUrl = infos.faqLinkUrl {
+            let button = ExternalLinkButton(title: faqLinkText)
+            button.touchUpCallback = {
+                UIApplication.shared.open(faqLinkUrl, options: [:], completionHandler: nil)
+            }
+
+            let buttonWrapper = UIView()
+            buttonWrapper.addSubview(button)
+            button.snp.makeConstraints { make in
+                make.top.left.bottom.equalToSuperview()
+                make.right.lessThanOrEqualToSuperview()
+            }
+
+            stackView.addArrangedView(buttonWrapper)
+        }
 
         stackView.addSpacerView(Padding.large)
     }

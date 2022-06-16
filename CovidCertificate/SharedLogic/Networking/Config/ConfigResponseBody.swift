@@ -174,6 +174,8 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         class CertificateRenewal: UBCodable {
             let heading: String
             let infos: [CertificateRenewalInfo]
+            let faqLinkText: String?
+            let faqLinkUrl: URL?
         }
 
         struct CertificateRenewalInfo: UBCodable {
