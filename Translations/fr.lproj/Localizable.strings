@@ -1464,7 +1464,7 @@
 "wallet_scanner_how_it_works_accessibility_icon3" = "Deuxième";
 
 /*Reise-Check: Label des Buttons um Gültigkeit im Ausland zu prüfen*/
-"wallet_foreign_rules_check_button" = "Validité pour les voyages";
+"wallet_foreign_rules_check_button" = "Validité à l'étranger";
 
 /*Reise-Check: Titel des Reise-Check Screens*/
 "wallet_foreign_rules_check_title" = "Validité pour les voyages à l’étranger";
@@ -1630,7 +1630,7 @@
 "wallet_certificate_renew_now_button" = "Renouveler le code QR";
 "wallet_certificate_renewal_qr_code_expiration" = "Date d’expiration du code QR (technique)";
 "wallet_certificate_renewal_required_info" = "La date d’expiration technique de ce code QR est (bientôt) atteinte.";
-"wallet_certificate_renewal_in_progress_info" = "Le code QR sera renouvelé";
+"wallet_certificate_renewal_in_progress_info" = "Le code QR est en cours de renouvellement";
 "wallet_certificate_renewal_successful_info" = "Le code QR a été renouvelé avec succès.";
 "wallet_certificate_renewal_offline_error_title" = "Pas de connexion Internet";
 "wallet_certificate_renewal_offline_error_text" = "Pour pouvoir renouveler le code QR, l’application doit être connectée à Internet.";
@@ -1650,6 +1650,6 @@
 /*Fuzzy*/
 "wallet_error_qr_code_expired" = "La date d’expiration technique de ce code QR est atteinte.";
 "wallet_certificate_renewal_rate_limit_error_title" = "Limite des 24 heures atteinte";
-"wallet_certificate_renewal_rate_limit_error_text" = "Code QR renouvellé trop souvent. Renouvellement temporairement bloqué.";
+"wallet_certificate_renewal_rate_limit_error_text" = "Le code QR a été renouvelé trop souvent. Le renouvellement est temporairement bloqué.";
 "wallet_certificate_renewal_faq_link_text" = "Vers la FAQ";
-"wallet_certificate_renewal_faq_link_url" = "";
+"wallet_certificate_renewal_faq_link_url" = "https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/fr/certificat-covid/pourquoi-dois-je-renouveler-le-code-qr-de-mon-certificat-covid-alors-que-selon-les";

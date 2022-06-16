@@ -684,7 +684,7 @@ import Foundation
      case wallet_certificate_renew_now_button
     /// Zur FAQ
      case wallet_certificate_renewal_faq_link_text
-    /// 
+    /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/wieso-soll-ich-den-qr-code-meines-covid-zertifikats-erneuern-obwohl-das-zertifikat
      case wallet_certificate_renewal_faq_link_url
     /// Versuchen Sie es später erneut.
      case wallet_certificate_renewal_general_error_text
@@ -922,7 +922,7 @@ import Foundation
      case wallet_faq_works_subtitle
     /// Wie funktioniert \ndie App?
      case wallet_faq_works_title
-    /// Gültigkeit bei Reisen
+    /// Gültigkeit im Ausland
      case wallet_foreign_rules_check_button
     /// Wählen
      case wallet_foreign_rules_check_country_empty_label
@@ -1908,7 +1908,7 @@ import Foundation
    static var wallet_certificate_renew_now_button: String { return UBLocalized.tr(Key.wallet_certificate_renew_now_button) }
   /// Zur FAQ
    static var wallet_certificate_renewal_faq_link_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_faq_link_text) }
-  /// 
+  /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/wieso-soll-ich-den-qr-code-meines-covid-zertifikats-erneuern-obwohl-das-zertifikat
    static var wallet_certificate_renewal_faq_link_url: String { return UBLocalized.tr(Key.wallet_certificate_renewal_faq_link_url) }
   /// Versuchen Sie es später erneut.
    static var wallet_certificate_renewal_general_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_general_error_text) }
@@ -2146,7 +2146,7 @@ import Foundation
    static var wallet_faq_works_subtitle: String { return UBLocalized.tr(Key.wallet_faq_works_subtitle) }
   /// Wie funktioniert \ndie App?
    static var wallet_faq_works_title: String { return UBLocalized.tr(Key.wallet_faq_works_title) }
-  /// Gültigkeit bei Reisen
+  /// Gültigkeit im Ausland
    static var wallet_foreign_rules_check_button: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_button) }
   /// Wählen
    static var wallet_foreign_rules_check_country_empty_label: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_country_empty_label) }

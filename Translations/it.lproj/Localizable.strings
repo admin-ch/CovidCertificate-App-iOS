@@ -1464,7 +1464,7 @@
 "wallet_scanner_how_it_works_accessibility_icon3" = "Terzo";
 
 /*Reise-Check: Label des Buttons um Gültigkeit im Ausland zu prüfen*/
-"wallet_foreign_rules_check_button" = "Validità per i viaggi";
+"wallet_foreign_rules_check_button" = "Validità all'estero";
 
 /*Reise-Check: Titel des Reise-Check Screens*/
 "wallet_foreign_rules_check_title" = "Validità per i viaggi all’estero";
@@ -1630,7 +1630,7 @@
 "wallet_certificate_renew_now_button" = "Rinnova il codice QR";
 "wallet_certificate_renewal_qr_code_expiration" = "Codice QR - Data di scadenza (tecnica)";
 "wallet_certificate_renewal_required_info" = "La data di scadenza tecnica di questo codice QR sarà (presto) raggiunta.";
-"wallet_certificate_renewal_in_progress_info" = "Il codice QR viene rinnovato";
+"wallet_certificate_renewal_in_progress_info" = "Codice QR viene rinnovato";
 "wallet_certificate_renewal_successful_info" = "Il codice QR è stato rinnovato.";
 "wallet_certificate_renewal_offline_error_title" = "Nessuna connessione a Internet";
 "wallet_certificate_renewal_offline_error_text" = "Per rinnovare il codice QR è necessario che l’app sia online.";
@@ -1652,4 +1652,4 @@
 "wallet_certificate_renewal_rate_limit_error_title" = "È stato raggiunto il limite di 24 ore";
 "wallet_certificate_renewal_rate_limit_error_text" = "Codice QR rinnovato troppo spesso. Rinnovo temporaneamente bloccato.";
 "wallet_certificate_renewal_faq_link_text" = "Alle FAQ";
-"wallet_certificate_renewal_faq_link_url" = "";
+"wallet_certificate_renewal_faq_link_url" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/perche-devo-rinnovare-il-codice-qr-del-mio-certificato-covid-anche-se-secondo-le";

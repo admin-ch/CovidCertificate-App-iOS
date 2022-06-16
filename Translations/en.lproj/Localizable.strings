@@ -1464,7 +1464,7 @@
 "wallet_scanner_how_it_works_accessibility_icon3" = "Third";
 
 /*Reise-Check: Label des Buttons um Gültigkeit im Ausland zu prüfen*/
-"wallet_foreign_rules_check_button" = "Validity for travel";
+"wallet_foreign_rules_check_button" = "Validity abroad";
 
 /*Reise-Check: Titel des Reise-Check Screens*/
 "wallet_foreign_rules_check_title" = "Validity for travel abroad";
@@ -1652,4 +1652,4 @@
 "wallet_certificate_renewal_rate_limit_error_title" = "24h-limit reached";
 "wallet_certificate_renewal_rate_limit_error_text" = "QR code updated too often. Update temporarily blocked.";
 "wallet_certificate_renewal_faq_link_text" = "To the FAQ";
-"wallet_certificate_renewal_faq_link_url" = "";
+"wallet_certificate_renewal_faq_link_url" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/why-should-i-renew-qr-code-my-covid-certificate-even-though-certificate-about";
