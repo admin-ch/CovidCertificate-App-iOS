@@ -58,28 +58,28 @@ enum TransformationService {
         URLSession.certificatePinned.dataTask(with: request) { data, response, error in
 
             if let error = error?.asNetworkError() {
-                completionHandler(.failure(.networkError(error, .certificateLight)))
+                completionHandler(.failure(.networkError(error, .renew)))
                 return
             }
 
             guard let response = response as? HTTPURLResponse,
                   response.statusCode != 400 else {
-                completionHandler(.failure(.certificateInvalid(.certificateLight)))
+                completionHandler(.failure(.certificateInvalid(.renew)))
                 return
             }
 
             guard response.statusCode != 429 else {
-                completionHandler(.failure(.rateLimit(.certificateLight)))
+                completionHandler(.failure(.rateLimit(.renew)))
                 return
             }
 
             guard let data = data else {
-                completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR, .certificateLight)))
+                completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR, .renew)))
                 return
             }
 
             guard let cert = try? JSONDecoder().decode(TransformationRenewCertificateResponsePayload.self, from: data) else {
-                completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR, .certificateLight)))
+                completionHandler(.failure(.networkError(.NETWORK_PARSE_ERROR, .renew)))
                 return
             }
 
