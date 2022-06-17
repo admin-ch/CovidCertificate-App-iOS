@@ -672,7 +672,7 @@ import Foundation
      case wallet_certificate_list_light_certificate_badge
     /// Zertifikate
      case wallet_certificate_list_title
-    /// Ablaufdatum QR Code\n{DATE}
+    /// QR code expiration date (technical)\n{DATE}
      case wallet_certificate_qr_code_expiration_date
     /// Datum des ersten positiven Resultats
      case wallet_certificate_recovery_first_positiv_result
@@ -696,7 +696,7 @@ import Foundation
      case wallet_certificate_renewal_offline_error_text
     /// Keine Verbindung zum Internet
      case wallet_certificate_renewal_offline_error_title
-    /// QR-Code Ablaufdatum (technisch)
+    /// Ablaufdatum QR Code
      case wallet_certificate_renewal_qr_code_expiration
     /// QR-Code zu oft erneuert. Erneuerung temporär gesperrt.
      case wallet_certificate_renewal_rate_limit_error_text
@@ -820,7 +820,7 @@ import Foundation
      case wallet_eol_banner_invalid_in_three_weeks_popup_text2
     /// Info
      case wallet_eol_banner_invalid_in_three_weeks_popup_title
-    /// Gültigkeitsdauer für die\nSchweiz überschritten
+    /// Gültigkeitsdauer für die Schweiz überschritten
      case wallet_error_expired
     /// Format des Zertifikat\nungültig
      case wallet_error_invalid_format
@@ -1896,7 +1896,7 @@ import Foundation
    static var wallet_certificate_list_light_certificate_badge: String { return UBLocalized.tr(Key.wallet_certificate_list_light_certificate_badge) }
   /// Zertifikate
    static var wallet_certificate_list_title: String { return UBLocalized.tr(Key.wallet_certificate_list_title) }
-  /// Ablaufdatum QR Code\n{DATE}
+  /// QR code expiration date (technical)\n{DATE}
    static var wallet_certificate_qr_code_expiration_date: String { return UBLocalized.tr(Key.wallet_certificate_qr_code_expiration_date) }
   /// Datum des ersten positiven Resultats
    static var wallet_certificate_recovery_first_positiv_result: String { return UBLocalized.tr(Key.wallet_certificate_recovery_first_positiv_result) }
@@ -1920,7 +1920,7 @@ import Foundation
    static var wallet_certificate_renewal_offline_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_offline_error_text) }
   /// Keine Verbindung zum Internet
    static var wallet_certificate_renewal_offline_error_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_offline_error_title) }
-  /// QR-Code Ablaufdatum (technisch)
+  /// Ablaufdatum QR Code
    static var wallet_certificate_renewal_qr_code_expiration: String { return UBLocalized.tr(Key.wallet_certificate_renewal_qr_code_expiration) }
   /// QR-Code zu oft erneuert. Erneuerung temporär gesperrt.
    static var wallet_certificate_renewal_rate_limit_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_rate_limit_error_text) }
@@ -2044,7 +2044,7 @@ import Foundation
    static var wallet_eol_banner_invalid_in_three_weeks_popup_text2: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_popup_text2) }
   /// Info
    static var wallet_eol_banner_invalid_in_three_weeks_popup_title: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_popup_title) }
-  /// Gültigkeitsdauer für die\nSchweiz überschritten
+  /// Gültigkeitsdauer für die Schweiz überschritten
    static var wallet_error_expired: String { return UBLocalized.tr(Key.wallet_error_expired) }
   /// Format des Zertifikat\nungültig
    static var wallet_error_invalid_format: String { return UBLocalized.tr(Key.wallet_error_invalid_format) }

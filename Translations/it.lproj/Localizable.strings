@@ -334,7 +334,7 @@
 "wallet_error_national_rules" = "Non soddisfa i criteri di validità della Svizzera";
 
 /*Wallet: Gültigkeit des Zertifikats abgelaufen*/
-"wallet_error_expired" = "Gültigkeitsdauer für die\nSchweiz überschritten";
+"wallet_error_expired" = "La durata di validità in Svizzera è stata superata ";
 
 /*Wallet: Zertifikat wurde widerrufen*/
 "wallet_error_revocation" = "Il certificato è stato \nrevocato";
@@ -1615,7 +1615,7 @@
 "cert_renewal_info_renewed_text_2" = "La durata del riconoscimento di una vaccinazione in un Paese non è specificata nel certificato. Questo viene calcolato durante la verifica in base alle regole del Paese esaminatore. Il rinnovo del codice QR garantisce solo che tale codice possa continuare a essere tecnicamente utilizzato.";
 
 /*Wallet: Zertifikat QR Code läuft ab am {DATE}*/
-"wallet_certificate_qr_code_expiration_date" = "Data di scadenza del codice QR";
+"wallet_certificate_qr_code_expiration_date" = "QR code expiration date (technical)\n{DATE}";
 
 /*Wallet: Titel der Info-Bubble wenn das Zertifikat erneuert werden muss*/
 "wallet_certificate_renewal_required_bubble_title" = "Rinnova il codice QR!";
@@ -1628,7 +1628,7 @@
 
 /*Wallet: Buttontext um den QR Code eines Zertifikats zu erneuern*/
 "wallet_certificate_renew_now_button" = "Rinnova il codice QR";
-"wallet_certificate_renewal_qr_code_expiration" = "Codice QR - Data di scadenza (tecnica)";
+"wallet_certificate_renewal_qr_code_expiration" = "Data di scadenza del codice QR";
 "wallet_certificate_renewal_required_info" = "La data di scadenza tecnica di questo codice QR sarà (presto) raggiunta.";
 "wallet_certificate_renewal_in_progress_info" = "Codice QR viene rinnovato";
 "wallet_certificate_renewal_successful_info" = "Il codice QR è stato rinnovato.";
