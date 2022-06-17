@@ -268,7 +268,7 @@ class HomescreenCertificateView: UIView {
                     showRenewBanner = true
                 }
 
-                if RenewalHistoryManager.shared.showRenewBanner(for: uvci) {
+                if RenewalHistoryManager.shared.shouldShowWasRenewedBanner(for: uvci) {
                     certificateBannerView?.banner = .wasRenewed(uvci: uvci)
                     accessibilityLabel = [certificateBannerView?.container.accessibilityLabel ?? "", titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
                     showBanner = true

@@ -35,15 +35,16 @@ class RenewalHistoryManager {
         WalletUserStorage.shared.renewalDates = []
     }
 
-    func showRenewBanner(for uvci: String) -> Bool {
+    func shouldShowWasRenewedBanner(for uvci: String) -> Bool {
         cleanupOldRenewals()
         return WalletUserStorage.shared.renewalDates.contains(where: { $0.uvci == uvci })
     }
 
     func cleanupOldRenewals() {
         let countBefore = WalletUserStorage.shared.renewalDates.count
+        let now = Date()
         WalletUserStorage.shared.renewalDates = WalletUserStorage.shared.renewalDates.filter {
-            Date().timeIntervalSince($0.timestamp) < 60 * 60 * 24 * 14
+            now.timeIntervalSince($0.timestamp) < 60 * 60 * 24 * 14
         }
         if countBefore != WalletUserStorage.shared.renewalDates.count {
             UIStateManager.shared.stateChanged()

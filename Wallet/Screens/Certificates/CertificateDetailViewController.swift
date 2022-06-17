@@ -536,7 +536,7 @@ class CertificateDetailViewController: ViewController {
                let uvci = certificate.vaccinations?.first?.certificateIdentifier ??
                certificate.pastInfections?.first?.certificateIdentifier ??
                certificate.tests?.first?.certificateIdentifier,
-               RenewalHistoryManager.shared.showRenewBanner(for: uvci) {
+               RenewalHistoryManager.shared.shouldShowWasRenewedBanner(for: uvci) {
                 renewBannerView.state = .wasRenewed(CertificateDetailBannerContent(title: UBLocalized.wallet_certificate_renewal_successful_bubble_title,
                                                                                    text: UBLocalized.wallet_certificate_renewal_successful_bubble_text,
                                                                                    buttonText: UBLocalized.wallet_certificate_renewal_successful_bubble_button), uvci: uvci)

@@ -151,7 +151,6 @@ class CertificateRenewExpiryView: UIView {
             imageView.image = nil
             errorView.isHidden = false
             errorView.error = error
-        // TODO: maybe use ErrorView view here
         case .none:
             break
         }
