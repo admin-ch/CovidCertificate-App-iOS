@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/admin-ch/CovidCertificate-SDK-iOS",
       "state" : {
-        "branch" : "feature/renew-banner",
-        "revision" : "cdb62add6a00108dced0ca1c53a06ec776c2f2ea"
+        "branch" : "main",
+        "revision" : "0ef5b33c32f647cd70bb9946daddecbadddae9f0"
       }
     },
     {
