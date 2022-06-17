@@ -334,7 +334,7 @@
 "wallet_error_national_rules" = "Na correspunda betg als criteris da valaivladad da la Svizra";
 
 /*Wallet: Gültigkeit des Zertifikats abgelaufen*/
-"wallet_error_expired" = "Gültigkeitsdauer für die\nSchweiz überschritten";
+"wallet_error_expired" = "Surpassà la durada da valaivladad en Svizra";
 
 /*Wallet: Zertifikat wurde widerrufen*/
 "wallet_error_revocation" = "Il certificat è vegnì \nrevocà";
@@ -1615,7 +1615,7 @@
 "cert_renewal_info_renewed_text_2" = "Quant ditg ch'ina vaccinaziun vegn renconuschida en in pajais, n'è betg fixà en il certificat. Quai vegn calculà a chaschun da la verificaziun tenor las reglas dal pajais che fa la verificaziun. La renovaziun dal code QR garantescha unicamain l'utilisaziun tecnica dal code QR";
 
 /*Wallet: Zertifikat QR Code läuft ab am {DATE}*/
-"wallet_certificate_qr_code_expiration_date" = "Data da scadenza dal code QR";
+"wallet_certificate_qr_code_expiration_date" = "QR code expiration date (technical)\n{DATE}";
 
 /*Wallet: Titel der Info-Bubble wenn das Zertifikat erneuert werden muss*/
 "wallet_certificate_renewal_required_bubble_title" = "Renovar il code QR!";
@@ -1628,7 +1628,7 @@
 
 /*Wallet: Buttontext um den QR Code eines Zertifikats zu erneuern*/
 "wallet_certificate_renew_now_button" = "Renovar il code QR";
-"wallet_certificate_renewal_qr_code_expiration" = "Data da scadenza (tecnica) dal code QR";
+"wallet_certificate_renewal_qr_code_expiration" = "Data da scadenza dal code QR";
 "wallet_certificate_renewal_required_info" = "La data da la scadenza tecnica da quest code QR è (bainbaud) arrivada.";
 "wallet_certificate_renewal_in_progress_info" = "Il code QR vegn renovà";
 "wallet_certificate_renewal_successful_info" = "Il code QR è vegnì renovà cun success.";

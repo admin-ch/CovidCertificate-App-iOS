@@ -334,7 +334,7 @@
 "wallet_error_national_rules" = "Entspricht nicht den Gültigkeitskriterien der Schweiz";
 
 /*Wallet: Gültigkeit des Zertifikats abgelaufen*/
-"wallet_error_expired" = "Gültigkeitsdauer für die\nSchweiz überschritten";
+"wallet_error_expired" = "Gültigkeitsdauer für die Schweiz überschritten";
 
 /*Wallet: Zertifikat wurde widerrufen*/
 "wallet_error_revocation" = "Zertifikat wurde\nwiderrufen";
@@ -1617,7 +1617,7 @@
 "cert_renewal_info_renewed_text_2" = "Wie lange ein Covid-Zertifikat gültig ist wird in jedem Land gemäss den aktuell geltenden Regeln berechnet. Die Erneuerung des QR-Codes hat darauf keinen Einfluss.";
 
 /*Wallet: Zertifikat QR Code läuft ab am {DATE}*/
-"wallet_certificate_qr_code_expiration_date" = "Ablaufdatum QR Code\n{DATE}";
+"wallet_certificate_qr_code_expiration_date" = "QR code expiration date (technical)\n{DATE}";
 
 /*Wallet: Titel der Info-Bubble wenn das Zertifikat erneuert werden muss*/
 "wallet_certificate_renewal_required_bubble_title" = "QR-Code erneuern";
@@ -1630,7 +1630,7 @@
 
 /*Wallet: Buttontext um den QR Code eines Zertifikats zu erneuern*/
 "wallet_certificate_renew_now_button" = "QR-Code erneuern";
-"wallet_certificate_renewal_qr_code_expiration" = "QR-Code Ablaufdatum (technisch)";
+"wallet_certificate_renewal_qr_code_expiration" = "Ablaufdatum QR Code";
 "wallet_certificate_renewal_required_info" = "Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht. ";
 "wallet_certificate_renewal_in_progress_info" = "QR-Code wird erneuert";
 "wallet_certificate_renewal_successful_info" = "Der QR-Code wurde erfolgreich erneuert";
