@@ -11,7 +11,7 @@
 
 import Foundation
 
-struct CertificateState: Equatable {
-    let certificates: [UserCertificate]
-    var renewalDates: [RenewalHistoryEntry]
+struct RenewalHistoryEntry: UBCodable, Equatable {
+    let uvci: String
+    let timestamp: Date
 }

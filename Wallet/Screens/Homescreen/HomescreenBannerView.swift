@@ -12,7 +12,7 @@
 import Foundation
 import UIKit
 
-class HomescreenEOLBannerView: UIView {
+class HomescreenBannerView: UIView {
     public var dismissButtonTouchUpCallback: (() -> Void)?
 
     private let insets = UIEdgeInsets(top: 13, left: 13, bottom: 13, right: 10)
@@ -22,7 +22,13 @@ class HomescreenEOLBannerView: UIView {
 
     private let dismissButton = Button(image: UIImage(named: "ic-close")?.ub_image(with: .black), accessibilityKey: .accessibility_close_button)
 
-    var banner: ConfigResponseBody.EOLBannerInfo? {
+    enum State {
+        case eol(ConfigResponseBody.EOLBannerInfo)
+        case renew
+        case wasRenewed(uvci: String)
+    }
+
+    var banner: State? {
         didSet {
             update()
         }
@@ -40,12 +46,28 @@ class HomescreenEOLBannerView: UIView {
     }
 
     private func update() {
-        guard let banner = banner else {
-            return
+        switch banner {
+        case let .eol(eolBanner):
+            titleLabel.text = eolBanner.homescreenTitle
+            container.accessibilityLabel = [titleLabel.text].compactMap { $0 }.joined(separator: ", ")
+            backgroundColor = UIColor(ub_hexString: eolBanner.homescreenHexColor) ?? UIColor.cc_yellow
+            dismissButton.isHidden = false
+        case .wasRenewed:
+            titleLabel.text = UBLocalized.wallet_certificate_renewal_successful_bubble_title
+            container.accessibilityLabel = UBLocalized.wallet_certificate_renewal_successful_bubble_title
+            backgroundColor = UIColor.cc_greenish
+            dismissButton.isHidden = false
+        case .renew:
+            titleLabel.text = UBLocalized.wallet_certificate_renewal_required_bubble_title
+            container.accessibilityLabel = UBLocalized.wallet_certificate_renewal_required_bubble_title
+            backgroundColor = UIColor.cc_redish
+            dismissButton.isHidden = true
+        case .none:
+            titleLabel.text = nil
+            container.accessibilityLabel = nil
+            backgroundColor = UIColor.clear
+            dismissButton.isHidden = true
         }
-        titleLabel.text = banner.homescreenTitle
-        container.accessibilityLabel = [titleLabel.text].compactMap { $0 }.joined(separator: ", ")
-        backgroundColor = UIColor(ub_hexString: banner.homescreenHexColor) ?? UIColor.cc_yellow
     }
 
     private func setup() {
@@ -90,12 +112,12 @@ class HomescreenEOLBannerView: UIView {
 
     private func setupAccessibility() {
         container.isAccessibilityElement = true
-        dismissButton.isAccessibilityElement = true
+        dismissButton.isAccessibilityElement = !dismissButton.isHidden
 
         container.accessibilityLabel = [titleLabel.text].compactMap { $0 }.joined(separator: ", ")
         container.accessibilityTraits = .button
 
-        accessibilityElements = [container, dismissButton]
+        accessibilityElements = [container] + (dismissButton.isHidden ? [] : [dismissButton])
         isAccessibilityElement = false
     }
 }

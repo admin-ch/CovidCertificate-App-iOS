@@ -27,11 +27,13 @@ public extension ImmunisationType {
 
 public extension CertificateHolder {
     var displayIssuedAt: String? {
-        if let i = issuedAt {
-            return DateFormatter.ub_dayTimeString(from: i)
-        }
+        guard let issuedAt = issuedAt else { return nil }
+        return DateFormatter.ub_dayTimeString(from: issuedAt)
+    }
 
-        return nil
+    var displayExpiresAt: String? {
+        guard let expiresAt = expiresAt else { return nil }
+        return DateFormatter.ub_dayTimeString(from: expiresAt)
     }
 }
 
@@ -121,11 +123,8 @@ extension PastInfection {
     }
 
     var displayFirstPositiveTest: String? {
-        if let d = firstPositiveTestResultDate {
-            return DateFormatter.ub_dayString(from: d)
-        }
-
-        return nil
+        guard let firstPositiveTestResultDate = firstPositiveTestResultDate else { return nil }
+        return DateFormatter.ub_dayTimeString(from: firstPositiveTestResultDate)
     }
 }
 
@@ -139,18 +138,12 @@ extension Test {
     }
 
     var displaySampleDateTime: String? {
-        if let d = validFromDate {
-            return DateFormatter.ub_dayTimeString(from: d)
-        }
-
-        return timestampSample
+        guard let validFromDate = validFromDate else { return nil }
+        return DateFormatter.ub_dayTimeString(from: validFromDate)
     }
 
     var displayResultDateTime: String? {
-        if let d = resultDate {
-            return DateFormatter.ub_dayTimeString(from: d)
-        }
-
-        return timestampResult
+        guard let resultDate = resultDate else { return nil }
+        return DateFormatter.ub_dayTimeString(from: resultDate)
     }
 }

@@ -20,6 +20,10 @@ struct TransformationLightCertificateResponsePayload: Codable {
     let qrCode: Data
 }
 
+struct TransformationRenewCertificateResponsePayload: Codable {
+    let hcert: String
+}
+
 struct TransformationPdfResponsePayload: Codable {
     let pdf: Data
 }

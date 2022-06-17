@@ -158,6 +158,11 @@ extension Endpoint {
         return Environment.current.transformationService.endpoint(path, method: .post, headers: ["Content-Type": "application/json", "Accept": "application/json"], body: payload)
     }
 
+    static func renewCertificate(payload: TransformationRequestPayload) -> Endpoint {
+        let path = "renew"
+        return Environment.current.transformationService.endpoint(path, method: .post, headers: ["Content-Type": "application/json", "Accept": "application/json"], body: payload)
+    }
+
     static func pdf(payload: TransformationRequestPayload) -> Endpoint {
         let path = "pdf"
         return Environment.current.transformationService.endpoint(path, method: .post, headers: ["Content-Type": "application/json", "Accept": "application/json"], body: payload)

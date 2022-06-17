@@ -53,7 +53,8 @@ extension UIStackView {
         addArrangedView(v)
     }
 
-    func addSpacerView(_ size: CGFloat, color: UIColor? = nil, insets: UIEdgeInsets? = nil) {
+    @discardableResult
+    func addSpacerView(_ size: CGFloat, color: UIColor? = nil, insets: UIEdgeInsets? = nil) -> UIView {
         let extraSpacer = UIView()
         extraSpacer.backgroundColor = color
         addArrangedView(extraSpacer, size: size)
@@ -66,6 +67,7 @@ extension UIStackView {
                 }
             }
         }
+        return extraSpacer
     }
 
     func addDividerView(inset: CGFloat) {

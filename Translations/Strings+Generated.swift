@@ -40,6 +40,32 @@ import Foundation
      case camera_permission_dialog_text
     /// Abbrechen
      case cancel_button
+    /// Was bedeutet das?
+     case cert_renewal_info_expired_heading
+    /// Die QR-Codes der Covid-Zertifikate sind technisch nur begrenzt gültig.
+     case cert_renewal_info_expired_text_1
+    /// Damit dieses Zertifikat (z. B. auf Reisen) weiterhin geprüft werden kann, muss der QR-Code erneuert werden.
+     case cert_renewal_info_expired_text_2
+    /// Die Erneuerung können Sie hier in der App selbst durchführen (Internetverbindung nötig). Die Daten des aktuellen Zertifikats werden dazu verschlüsselt von der App an das System des Bundes zur Ausstellung von Covid-Zertifikaten übermittelt. Danach wird ein neuer QR-Code zurück an die App gesendet. Anschliessend werden die Daten gelöscht.
+     case cert_renewal_info_expired_text_3
+    /// Erneuern Sie den QR-Code auch dann, wenn die Gültigkeit in der Schweiz bald abläuft oder bereits abgelaufen ist.
+     case cert_renewal_info_expired_text_4
+    /// Was bedeutet das?
+     case cert_renewal_info_info_heading
+    /// Die QR-Codes der Covid-Zertifikate sind technisch nur begrenzt gültig.
+     case cert_renewal_info_info_text_1
+    /// Damit dieses Zertifikat (z. B. auf Reisen) weiterhin geprüft werden kann, muss der QR-Code erneuert werden.
+     case cert_renewal_info_info_text_2
+    /// Die Erneuerung können Sie hier in der App selbst durchführen (Internetverbindung nötig). Die Daten des aktuellen Zertifikats werden dazu verschlüsselt von der App an das System des Bundes zur Ausstellung von Covid-Zertifikaten übermittelt. Danach wird ein neuer QR-Code zurück an die App gesendet. Anschliessend werden die Daten gelöscht.
+     case cert_renewal_info_info_text_3
+    /// Wieso Sie den QR-Code auch dann erneuern sollten, wenn Ihr Impf- oder Genesungszertifikat nach den Schweizer Gültigkeitsregeln bald abläuft oder bereits abgelaufen ist, lesen Sie in dieser FAQ.
+     case cert_renewal_info_info_text_4
+    /// Wichtig!
+     case cert_renewal_info_renewed_heading
+    /// Ersetzen Sie auch zuvor ausgedruckte oder gespeicherte Zertifikate durch diese erneuerte Version.
+     case cert_renewal_info_renewed_text_1
+    /// Wie lange ein Covid-Zertifikat gültig ist wird in jedem Land gemäss den aktuell geltenden Regeln berechnet. Die Erneuerung des QR-Codes hat darauf keinen Einfluss.
+     case cert_renewal_info_renewed_text_2
     /// Genesen
      case certificate_reason_recovered
     /// Test
@@ -646,12 +672,52 @@ import Foundation
      case wallet_certificate_list_light_certificate_badge
     /// Zertifikate
      case wallet_certificate_list_title
+    /// Ablaufdatum QR Code\n{DATE}
+     case wallet_certificate_qr_code_expiration_date
     /// Datum des ersten positiven Resultats
      case wallet_certificate_recovery_first_positiv_result
     /// Gültig ab
      case wallet_certificate_recovery_from
     /// Gültig bis
      case wallet_certificate_recovery_until
+    /// QR-Code erneuern
+     case wallet_certificate_renew_now_button
+    /// Zur FAQ
+     case wallet_certificate_renewal_faq_link_text
+    /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/wieso-soll-ich-den-qr-code-meines-covid-zertifikats-erneuern-obwohl-das-zertifikat
+     case wallet_certificate_renewal_faq_link_url
+    /// Versuchen Sie es später erneut.
+     case wallet_certificate_renewal_general_error_text
+    /// Ein unerwarteter Fehler ist aufgetreten.
+     case wallet_certificate_renewal_general_error_title
+    /// QR-Code wird erneuert
+     case wallet_certificate_renewal_in_progress_info
+    /// Um den QR-Code erneuern zu können, muss die App online sein.
+     case wallet_certificate_renewal_offline_error_text
+    /// Keine Verbindung zum Internet
+     case wallet_certificate_renewal_offline_error_title
+    /// QR-Code Ablaufdatum (technisch)
+     case wallet_certificate_renewal_qr_code_expiration
+    /// QR-Code zu oft erneuert. Erneuerung temporär gesperrt.
+     case wallet_certificate_renewal_rate_limit_error_text
+    /// 24h-Limite erreicht
+     case wallet_certificate_renewal_rate_limit_error_title
+    /// Mehr erfahren
+     case wallet_certificate_renewal_required_bubble_button
+    /// Um dieses Zertifikat weiterhin verwenden zu können, muss der QR-Code erneuert werden.
+     case wallet_certificate_renewal_required_bubble_text
+    /// QR-Code erneuern
+     case wallet_certificate_renewal_required_bubble_title
+    /// Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht. 
+     case wallet_certificate_renewal_required_info
+    /// Mehr erfahren
+     case wallet_certificate_renewal_successful_bubble_button
+    /// Ersetzen Sie auch ausgedruckte oder gespeicherte Versionen dieses Zertifikats durch diese erneuerte Version.
+     case wallet_certificate_renewal_successful_bubble_text
+    /// Erfolgreich erneuert
+     case wallet_certificate_renewal_successful_bubble_title
+    /// Der QR-Code wurde erfolgreich erneuert
+     case wallet_certificate_renewal_successful_info
     /// Krankheit oder Erreger
      case wallet_certificate_target_disease_title
     /// Testcenter
@@ -754,10 +820,8 @@ import Foundation
      case wallet_eol_banner_invalid_in_three_weeks_popup_text2
     /// Info
      case wallet_eol_banner_invalid_in_three_weeks_popup_title
-    /// Gültigkeit des Zertifikats\nabgelaufen
+    /// Gültigkeitsdauer für die\nSchweiz überschritten
      case wallet_error_expired
-    /// abgelaufen
-     case wallet_error_expired_bold
     /// Format des Zertifikat\nungültig
      case wallet_error_invalid_format
     /// ungültig
@@ -768,6 +832,8 @@ import Foundation
      case wallet_error_invalid_signature_bold
     /// Entspricht nicht den Gültigkeitskriterien der Schweiz
      case wallet_error_national_rules
+    /// Das technische Ablaufdatum für diesen QR-Code ist erreicht.
+     case wallet_error_qr_code_expired
     /// Zertifikat wurde\nwiderrufen
      case wallet_error_revocation
     /// widerrufen
@@ -856,7 +922,7 @@ import Foundation
      case wallet_faq_works_subtitle
     /// Wie funktioniert \ndie App?
      case wallet_faq_works_title
-    /// Gültigkeit bei Reisen
+    /// Gültigkeit im Ausland
      case wallet_foreign_rules_check_button
     /// Wählen
      case wallet_foreign_rules_check_country_empty_label
@@ -984,7 +1050,7 @@ import Foundation
      case wallet_onboarding_store_title
     /// Ausserhalb der Schweiz nicht gültig
      case wallet_only_valid_in_switzerland
-    /// https://covidcertificate-form-a.admin.ch/immunityrequest
+    /// https://covidcertificate-form.admin.ch/immunityrequest
      case wallet_rat_recovery_conversion_url
     /// Für Prüfende
      case wallet_refresh_button_info_fat_title_3
@@ -1198,6 +1264,32 @@ import Foundation
    static var camera_permission_dialog_text: String { return UBLocalized.tr(Key.camera_permission_dialog_text) }
   /// Abbrechen
    static var cancel_button: String { return UBLocalized.tr(Key.cancel_button) }
+  /// Was bedeutet das?
+   static var cert_renewal_info_expired_heading: String { return UBLocalized.tr(Key.cert_renewal_info_expired_heading) }
+  /// Die QR-Codes der Covid-Zertifikate sind technisch nur begrenzt gültig.
+   static var cert_renewal_info_expired_text_1: String { return UBLocalized.tr(Key.cert_renewal_info_expired_text_1) }
+  /// Damit dieses Zertifikat (z. B. auf Reisen) weiterhin geprüft werden kann, muss der QR-Code erneuert werden.
+   static var cert_renewal_info_expired_text_2: String { return UBLocalized.tr(Key.cert_renewal_info_expired_text_2) }
+  /// Die Erneuerung können Sie hier in der App selbst durchführen (Internetverbindung nötig). Die Daten des aktuellen Zertifikats werden dazu verschlüsselt von der App an das System des Bundes zur Ausstellung von Covid-Zertifikaten übermittelt. Danach wird ein neuer QR-Code zurück an die App gesendet. Anschliessend werden die Daten gelöscht.
+   static var cert_renewal_info_expired_text_3: String { return UBLocalized.tr(Key.cert_renewal_info_expired_text_3) }
+  /// Erneuern Sie den QR-Code auch dann, wenn die Gültigkeit in der Schweiz bald abläuft oder bereits abgelaufen ist.
+   static var cert_renewal_info_expired_text_4: String { return UBLocalized.tr(Key.cert_renewal_info_expired_text_4) }
+  /// Was bedeutet das?
+   static var cert_renewal_info_info_heading: String { return UBLocalized.tr(Key.cert_renewal_info_info_heading) }
+  /// Die QR-Codes der Covid-Zertifikate sind technisch nur begrenzt gültig.
+   static var cert_renewal_info_info_text_1: String { return UBLocalized.tr(Key.cert_renewal_info_info_text_1) }
+  /// Damit dieses Zertifikat (z. B. auf Reisen) weiterhin geprüft werden kann, muss der QR-Code erneuert werden.
+   static var cert_renewal_info_info_text_2: String { return UBLocalized.tr(Key.cert_renewal_info_info_text_2) }
+  /// Die Erneuerung können Sie hier in der App selbst durchführen (Internetverbindung nötig). Die Daten des aktuellen Zertifikats werden dazu verschlüsselt von der App an das System des Bundes zur Ausstellung von Covid-Zertifikaten übermittelt. Danach wird ein neuer QR-Code zurück an die App gesendet. Anschliessend werden die Daten gelöscht.
+   static var cert_renewal_info_info_text_3: String { return UBLocalized.tr(Key.cert_renewal_info_info_text_3) }
+  /// Wieso Sie den QR-Code auch dann erneuern sollten, wenn Ihr Impf- oder Genesungszertifikat nach den Schweizer Gültigkeitsregeln bald abläuft oder bereits abgelaufen ist, lesen Sie in dieser FAQ.
+   static var cert_renewal_info_info_text_4: String { return UBLocalized.tr(Key.cert_renewal_info_info_text_4) }
+  /// Wichtig!
+   static var cert_renewal_info_renewed_heading: String { return UBLocalized.tr(Key.cert_renewal_info_renewed_heading) }
+  /// Ersetzen Sie auch zuvor ausgedruckte oder gespeicherte Zertifikate durch diese erneuerte Version.
+   static var cert_renewal_info_renewed_text_1: String { return UBLocalized.tr(Key.cert_renewal_info_renewed_text_1) }
+  /// Wie lange ein Covid-Zertifikat gültig ist wird in jedem Land gemäss den aktuell geltenden Regeln berechnet. Die Erneuerung des QR-Codes hat darauf keinen Einfluss.
+   static var cert_renewal_info_renewed_text_2: String { return UBLocalized.tr(Key.cert_renewal_info_renewed_text_2) }
   /// Genesen
    static var certificate_reason_recovered: String { return UBLocalized.tr(Key.certificate_reason_recovered) }
   /// Test
@@ -1804,12 +1896,52 @@ import Foundation
    static var wallet_certificate_list_light_certificate_badge: String { return UBLocalized.tr(Key.wallet_certificate_list_light_certificate_badge) }
   /// Zertifikate
    static var wallet_certificate_list_title: String { return UBLocalized.tr(Key.wallet_certificate_list_title) }
+  /// Ablaufdatum QR Code\n{DATE}
+   static var wallet_certificate_qr_code_expiration_date: String { return UBLocalized.tr(Key.wallet_certificate_qr_code_expiration_date) }
   /// Datum des ersten positiven Resultats
    static var wallet_certificate_recovery_first_positiv_result: String { return UBLocalized.tr(Key.wallet_certificate_recovery_first_positiv_result) }
   /// Gültig ab
    static var wallet_certificate_recovery_from: String { return UBLocalized.tr(Key.wallet_certificate_recovery_from) }
   /// Gültig bis
    static var wallet_certificate_recovery_until: String { return UBLocalized.tr(Key.wallet_certificate_recovery_until) }
+  /// QR-Code erneuern
+   static var wallet_certificate_renew_now_button: String { return UBLocalized.tr(Key.wallet_certificate_renew_now_button) }
+  /// Zur FAQ
+   static var wallet_certificate_renewal_faq_link_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_faq_link_text) }
+  /// https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/wieso-soll-ich-den-qr-code-meines-covid-zertifikats-erneuern-obwohl-das-zertifikat
+   static var wallet_certificate_renewal_faq_link_url: String { return UBLocalized.tr(Key.wallet_certificate_renewal_faq_link_url) }
+  /// Versuchen Sie es später erneut.
+   static var wallet_certificate_renewal_general_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_general_error_text) }
+  /// Ein unerwarteter Fehler ist aufgetreten.
+   static var wallet_certificate_renewal_general_error_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_general_error_title) }
+  /// QR-Code wird erneuert
+   static var wallet_certificate_renewal_in_progress_info: String { return UBLocalized.tr(Key.wallet_certificate_renewal_in_progress_info) }
+  /// Um den QR-Code erneuern zu können, muss die App online sein.
+   static var wallet_certificate_renewal_offline_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_offline_error_text) }
+  /// Keine Verbindung zum Internet
+   static var wallet_certificate_renewal_offline_error_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_offline_error_title) }
+  /// QR-Code Ablaufdatum (technisch)
+   static var wallet_certificate_renewal_qr_code_expiration: String { return UBLocalized.tr(Key.wallet_certificate_renewal_qr_code_expiration) }
+  /// QR-Code zu oft erneuert. Erneuerung temporär gesperrt.
+   static var wallet_certificate_renewal_rate_limit_error_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_rate_limit_error_text) }
+  /// 24h-Limite erreicht
+   static var wallet_certificate_renewal_rate_limit_error_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_rate_limit_error_title) }
+  /// Mehr erfahren
+   static var wallet_certificate_renewal_required_bubble_button: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_bubble_button) }
+  /// Um dieses Zertifikat weiterhin verwenden zu können, muss der QR-Code erneuert werden.
+   static var wallet_certificate_renewal_required_bubble_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_bubble_text) }
+  /// QR-Code erneuern
+   static var wallet_certificate_renewal_required_bubble_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_bubble_title) }
+  /// Das technische Ablaufdatum für diesen QR-Code ist (bald) erreicht. 
+   static var wallet_certificate_renewal_required_info: String { return UBLocalized.tr(Key.wallet_certificate_renewal_required_info) }
+  /// Mehr erfahren
+   static var wallet_certificate_renewal_successful_bubble_button: String { return UBLocalized.tr(Key.wallet_certificate_renewal_successful_bubble_button) }
+  /// Ersetzen Sie auch ausgedruckte oder gespeicherte Versionen dieses Zertifikats durch diese erneuerte Version.
+   static var wallet_certificate_renewal_successful_bubble_text: String { return UBLocalized.tr(Key.wallet_certificate_renewal_successful_bubble_text) }
+  /// Erfolgreich erneuert
+   static var wallet_certificate_renewal_successful_bubble_title: String { return UBLocalized.tr(Key.wallet_certificate_renewal_successful_bubble_title) }
+  /// Der QR-Code wurde erfolgreich erneuert
+   static var wallet_certificate_renewal_successful_info: String { return UBLocalized.tr(Key.wallet_certificate_renewal_successful_info) }
   /// Krankheit oder Erreger
    static var wallet_certificate_target_disease_title: String { return UBLocalized.tr(Key.wallet_certificate_target_disease_title) }
   /// Testcenter
@@ -1912,10 +2044,8 @@ import Foundation
    static var wallet_eol_banner_invalid_in_three_weeks_popup_text2: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_popup_text2) }
   /// Info
    static var wallet_eol_banner_invalid_in_three_weeks_popup_title: String { return UBLocalized.tr(Key.wallet_eol_banner_invalid_in_three_weeks_popup_title) }
-  /// Gültigkeit des Zertifikats\nabgelaufen
+  /// Gültigkeitsdauer für die\nSchweiz überschritten
    static var wallet_error_expired: String { return UBLocalized.tr(Key.wallet_error_expired) }
-  /// abgelaufen
-   static var wallet_error_expired_bold: String { return UBLocalized.tr(Key.wallet_error_expired_bold) }
   /// Format des Zertifikat\nungültig
    static var wallet_error_invalid_format: String { return UBLocalized.tr(Key.wallet_error_invalid_format) }
   /// ungültig
@@ -1926,6 +2056,8 @@ import Foundation
    static var wallet_error_invalid_signature_bold: String { return UBLocalized.tr(Key.wallet_error_invalid_signature_bold) }
   /// Entspricht nicht den Gültigkeitskriterien der Schweiz
    static var wallet_error_national_rules: String { return UBLocalized.tr(Key.wallet_error_national_rules) }
+  /// Das technische Ablaufdatum für diesen QR-Code ist erreicht.
+   static var wallet_error_qr_code_expired: String { return UBLocalized.tr(Key.wallet_error_qr_code_expired) }
   /// Zertifikat wurde\nwiderrufen
    static var wallet_error_revocation: String { return UBLocalized.tr(Key.wallet_error_revocation) }
   /// widerrufen
@@ -2014,7 +2146,7 @@ import Foundation
    static var wallet_faq_works_subtitle: String { return UBLocalized.tr(Key.wallet_faq_works_subtitle) }
   /// Wie funktioniert \ndie App?
    static var wallet_faq_works_title: String { return UBLocalized.tr(Key.wallet_faq_works_title) }
-  /// Gültigkeit bei Reisen
+  /// Gültigkeit im Ausland
    static var wallet_foreign_rules_check_button: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_button) }
   /// Wählen
    static var wallet_foreign_rules_check_country_empty_label: String { return UBLocalized.tr(Key.wallet_foreign_rules_check_country_empty_label) }
@@ -2142,7 +2274,7 @@ import Foundation
    static var wallet_onboarding_store_title: String { return UBLocalized.tr(Key.wallet_onboarding_store_title) }
   /// Ausserhalb der Schweiz nicht gültig
    static var wallet_only_valid_in_switzerland: String { return UBLocalized.tr(Key.wallet_only_valid_in_switzerland) }
-  /// https://covidcertificate-form-a.admin.ch/immunityrequest
+  /// https://covidcertificate-form.admin.ch/immunityrequest
    static var wallet_rat_recovery_conversion_url: String { return UBLocalized.tr(Key.wallet_rat_recovery_conversion_url) }
   /// Für Prüfende
    static var wallet_refresh_button_info_fat_title_3: String { return UBLocalized.tr(Key.wallet_refresh_button_info_fat_title_3) }

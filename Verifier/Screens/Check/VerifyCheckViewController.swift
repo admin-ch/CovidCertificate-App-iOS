@@ -183,7 +183,7 @@ class VerifyCheckViewController: ViewController {
                 self.imageView.image = UIImage(named: "ic-header-load")
                 self.imageView.rotate(time: 1.0)
                 self.backgroundView.backgroundColor = .cc_grey
-            case let .success(_, _, modeResults, _):
+            case let .success(_, _, modeResults, _, _):
                 if let successCode = CheckModesHelper.successValidationCode(modeResults: modeResults, mode: self.mode), successCode.is2GPlusSuccessWithAnotherCertificate {
                     // 2G+ success
                     if successCode.is2GPlusTestSuccess {

@@ -337,6 +337,8 @@
 		F234B5B927610DA100B361DF /* IconTextInfoBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F234B5B827610DA100B361DF /* IconTextInfoBoxView.swift */; };
 		F249B8F427D21DC700DBF78F /* UIImage+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F249B8F327D21DC700DBF78F /* UIImage+CC.swift */; };
 		F2F568B627E1D825005D28A7 /* UIImage+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F249B8F327D21DC700DBF78F /* UIImage+CC.swift */; };
+		F8023D9A285A09E600B78ECC /* CertificateRenewExpiryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8023D99285A09E600B78ECC /* CertificateRenewExpiryView.swift */; };
+		F8023D9C285A161F00B78ECC /* RenewalHistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8023D9B285A161F00B78ECC /* RenewalHistoryManager.swift */; };
 		F803F4DC26A9731A0068311C /* UIStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */; };
 		F809AF322693B21D00D16EED /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDEA264A5C5600FDE0E1 /* OnboardingBaseViewController.swift */; };
 		F809AF342693B25700D16EED /* OnboardingDisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDFA264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift */; };
@@ -352,7 +354,7 @@
 		F80CB027268CD154004A12D1 /* TransformationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5B156268B66A500C39836 /* TransformationPayload.swift */; };
 		F80E735A245AD7B400C934B8 /* URLSession+pinning.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */; };
 		F80E7376245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */; };
-		F80FA8B52797159200172880 /* HomescreenEOLBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FA8B42797159200172880 /* HomescreenEOLBannerView.swift */; };
+		F80FA8B52797159200172880 /* HomescreenBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FA8B42797159200172880 /* HomescreenBannerView.swift */; };
 		F80FA8B72797221700172880 /* CertificateDetailBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FA8B62797221700172880 /* CertificateDetailBannerView.swift */; };
 		F80FA8B92797297D00172880 /* EOLBannerPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FA8B82797297D00172880 /* EOLBannerPopupView.swift */; };
 		F8118D6927847076007FC484 /* RefreshButtonVisibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */; };
@@ -361,6 +363,8 @@
 		F8130CDD2685B46200A29326 /* URLSession+synchron.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDB2685B46200A29326 /* URLSession+synchron.swift */; };
 		F8130CDF2685B99F00A29326 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDE2685B99F00A29326 /* Collection+Safe.swift */; };
 		F8130CE02685B99F00A29326 /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDE2685B99F00A29326 /* Collection+Safe.swift */; };
+		F8307D1B28588A6A00BD88FE /* CertificateRenewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8307D1A28588A6A00BD88FE /* CertificateRenewViewController.swift */; };
+		F8307D1D28588AB600BD88FE /* CertificateRenewSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8307D1C28588AB600BD88FE /* CertificateRenewSummaryView.swift */; };
 		F84089EC2493695200A66CD1 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089EB2493695200A66CD1 /* Keychain.swift */; };
 		F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089ED2493696500A66CD1 /* KeychainPersisted.swift */; };
 		F84089F024936D8700A66CD1 /* MockKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089EF24936D8700A66CD1 /* MockKeychain.swift */; };
@@ -408,6 +412,8 @@
 		F8E6C57E268480D200A9E112 /* covidcertificate-app-d.bit.admin.ch.der in Resources */ = {isa = PBXBuildFile; fileRef = F8E6C579268480D100A9E112 /* covidcertificate-app-d.bit.admin.ch.der */; };
 		F8E9496126836F2B0054374B /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9496026836F2B0054374B /* DebugViewController.swift */; };
 		F8E9496226836F2B0054374B /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E9496026836F2B0054374B /* DebugViewController.swift */; };
+		F8F83C8E285A306A00388A08 /* RenewalHistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F83C8D285A306A00388A08 /* RenewalHistoryEntry.swift */; };
+		F8F83C8F285A306A00388A08 /* RenewalHistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F83C8D285A306A00388A08 /* RenewalHistoryEntry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -644,6 +650,8 @@
 		F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationPopupView.swift; sourceTree = "<group>"; };
 		F234B5B827610DA100B361DF /* IconTextInfoBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconTextInfoBoxView.swift; sourceTree = "<group>"; };
 		F249B8F327D21DC700DBF78F /* UIImage+CC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CC.swift"; sourceTree = "<group>"; };
+		F8023D99285A09E600B78ECC /* CertificateRenewExpiryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateRenewExpiryView.swift; sourceTree = "<group>"; };
+		F8023D9B285A161F00B78ECC /* RenewalHistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewalHistoryManager.swift; sourceTree = "<group>"; };
 		F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateManagerTests.swift; sourceTree = "<group>"; };
 		F809AF352693B27C00D16EED /* CertificateLightUpdateBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificateLightUpdateBoardingViewController.swift; sourceTree = "<group>"; };
 		F80A1142278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElementQuery+UBLocalizedKey.swift"; sourceTree = "<group>"; };
@@ -653,7 +661,7 @@
 		F80A114A278EBC0800E54FD2 /* TransfercodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransfercodeTests.swift; sourceTree = "<group>"; };
 		F80E7359245AD7B400C934B8 /* URLSession+pinning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+pinning.swift"; sourceTree = "<group>"; };
 		F80E7375245AF74C00C934B8 /* UBPinnedCertificatesTrustEvaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBPinnedCertificatesTrustEvaluator.swift; sourceTree = "<group>"; };
-		F80FA8B42797159200172880 /* HomescreenEOLBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomescreenEOLBannerView.swift; sourceTree = "<group>"; };
+		F80FA8B42797159200172880 /* HomescreenBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomescreenBannerView.swift; sourceTree = "<group>"; };
 		F80FA8B62797221700172880 /* CertificateDetailBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateDetailBannerView.swift; sourceTree = "<group>"; };
 		F80FA8B82797297D00172880 /* EOLBannerPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOLBannerPopupView.swift; sourceTree = "<group>"; };
 		F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButtonVisibilityManager.swift; sourceTree = "<group>"; };
@@ -661,6 +669,8 @@
 		F8119171278888B8007FC484 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		F8130CDB2685B46200A29326 /* URLSession+synchron.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+synchron.swift"; sourceTree = "<group>"; };
 		F8130CDE2685B99F00A29326 /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
+		F8307D1A28588A6A00BD88FE /* CertificateRenewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CertificateRenewViewController.swift; path = Wallet/Screens/Certificates/Renew/CertificateRenewViewController.swift; sourceTree = SOURCE_ROOT; };
+		F8307D1C28588AB600BD88FE /* CertificateRenewSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificateRenewSummaryView.swift; sourceTree = "<group>"; };
 		F84089EB2493695200A66CD1 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		F84089ED2493696500A66CD1 /* KeychainPersisted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPersisted.swift; sourceTree = "<group>"; };
 		F84089EF24936D8700A66CD1 /* MockKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockKeychain.swift; sourceTree = "<group>"; };
@@ -698,6 +708,7 @@
 		F8E6C578268480D100A9E112 /* covidcertificate-app.bit.admin.ch.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "covidcertificate-app.bit.admin.ch.der"; sourceTree = "<group>"; };
 		F8E6C579268480D100A9E112 /* covidcertificate-app-d.bit.admin.ch.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "covidcertificate-app-d.bit.admin.ch.der"; sourceTree = "<group>"; };
 		F8E9496026836F2B0054374B /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
+		F8F83C8D285A306A00388A08 /* RenewalHistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewalHistoryEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1052,7 +1063,7 @@
 				6E87E3852669744D000C5517 /* WalletHomescreenActionPopupView.swift */,
 				F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */,
 				B61114DE27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift */,
-				F80FA8B42797159200172880 /* HomescreenEOLBannerView.swift */,
+				F80FA8B42797159200172880 /* HomescreenBannerView.swift */,
 			);
 			path = Homescreen;
 			sourceTree = "<group>";
@@ -1068,6 +1079,7 @@
 		6EC172C326407F0E002E27DB /* Certificates */ = {
 			isa = PBXGroup;
 			children = (
+				F8307D1928588A5800BD88FE /* Renew */,
 				6E0E46572812D99700F9FBE8 /* RatConversion */,
 				B6A3B9C927F22EC400D16C31 /* Abroad */,
 				F88DA6B9268C78E5001DB072 /* Export */,
@@ -1498,6 +1510,16 @@
 			path = CovidCertificateWalletUITests;
 			sourceTree = "<group>";
 		};
+		F8307D1928588A5800BD88FE /* Renew */ = {
+			isa = PBXGroup;
+			children = (
+				F8307D1C28588AB600BD88FE /* CertificateRenewSummaryView.swift */,
+				F8307D1A28588A6A00BD88FE /* CertificateRenewViewController.swift */,
+				F8023D99285A09E600B78ECC /* CertificateRenewExpiryView.swift */,
+			);
+			path = Renew;
+			sourceTree = "<group>";
+		};
 		F88DA6B5268C7885001DB072 /* CertificateLight */ = {
 			isa = PBXGroup;
 			children = (
@@ -1533,6 +1555,8 @@
 				F88DA6C0268CA60A001DB072 /* TransformationManager.swift */,
 				F88DA6CA268CAD2A001DB072 /* TransformationError.swift */,
 				F8D5B156268B66A500C39836 /* TransformationPayload.swift */,
+				F8023D9B285A161F00B78ECC /* RenewalHistoryManager.swift */,
+				F8F83C8D285A306A00388A08 /* RenewalHistoryEntry.swift */,
 			);
 			path = Transformation;
 			sourceTree = "<group>";
@@ -2038,6 +2062,7 @@
 				6EC1731326429E31002E27DB /* Bundle+BuildInfo.swift in Sources */,
 				6EC1731426429E31002E27DB /* ReusableView.swift in Sources */,
 				6EC1731526429E31002E27DB /* LayoutConstants.swift in Sources */,
+				F8F83C8F285A306A00388A08 /* RenewalHistoryEntry.swift in Sources */,
 				6EC1731626429E31002E27DB /* KeychainPersisted.swift in Sources */,
 				6EE55D9C27609F7F001F9E1F /* CheckModes.swift in Sources */,
 				6E8F52DA265BA94B00406430 /* CameraErrorView.swift in Sources */,
@@ -2097,9 +2122,11 @@
 				2733246A2679DC8D002D0ED2 /* Luhn.swift in Sources */,
 				DC8AC74926541723005A2543 /* CertificateStateValidityView.swift in Sources */,
 				6EF28CFE26370538001C1565 /* WalletQRScannerOverlay.swift in Sources */,
+				F8307D1B28588A6A00BD88FE /* CertificateRenewViewController.swift in Sources */,
 				B66545C727F72CCC0091E58D /* ArrivalCountry.swift in Sources */,
 				F8944F8326834E94005A2B33 /* TransferCodeFailedExplanatoryView.swift in Sources */,
 				6E5A0F25264336B4004718B4 /* UIStateLogic.swift in Sources */,
+				F8F83C8E285A306A00388A08 /* RenewalHistoryEntry.swift in Sources */,
 				DC8F1EDA267C6F8200F44FF7 /* TransferCodeTableViewCell.swift in Sources */,
 				6EF166D4264E5C3200426985 /* ConfigResponseBody.swift in Sources */,
 				F88DA6D3268CC9CE001DB072 /* TimeInterval+CC.swift in Sources */,
@@ -2114,6 +2141,7 @@
 				A6BBA110246BFCBC00E42EE7 /* UIDevice+ScreenType.swift in Sources */,
 				B61114DF27033C4900E7DBAB /* HomescreenVaccinationInfoView.swift in Sources */,
 				DCBF64DD267883CC00450D51 /* TransferCodeLabel.swift in Sources */,
+				F8023D9A285A09E600B78ECC /* CertificateRenewExpiryView.swift in Sources */,
 				6EE55DAC27613D5F001F9E1F /* CheckModes.swift in Sources */,
 				6E7C0D37242E02600017C4F9 /* StackScrollView.swift in Sources */,
 				DCA3FFB824504B190003F5AD /* ClickthroughStackView.swift in Sources */,
@@ -2178,6 +2206,7 @@
 				DCBF64DF2678875D00450D51 /* TransferCodeNextStepsViewController.swift in Sources */,
 				F8130CDC2685B46200A29326 /* URLSession+synchron.swift in Sources */,
 				6EE81DEB245163C400FC7218 /* PhoneCallHelper.swift in Sources */,
+				F8307D1D28588AB600BD88FE /* CertificateRenewSummaryView.swift in Sources */,
 				F86A6A832637F93D003CAC1B /* UICollection+CC.swift in Sources */,
 				6EA5C35A2643CF0C00EA066F /* QRCodeUtils.swift in Sources */,
 				F8E9496126836F2B0054374B /* DebugViewController.swift in Sources */,
@@ -2192,6 +2221,7 @@
 				6E17392E267B487900813D30 /* TransferCodeUpdateView.swift in Sources */,
 				6EC172C926407F5F002E27DB /* CertificateAddDetailViewController.swift in Sources */,
 				6E6036032678792000EB57E7 /* UserTransferCode.swift in Sources */,
+				F8023D9C285A161F00B78ECC /* RenewalHistoryManager.swift in Sources */,
 				6E0281FE265660E500582904 /* CertificateDetailView.swift in Sources */,
 				6E17391C267B193800813D30 /* TransferCodeErrorView.swift in Sources */,
 				F80FA8B92797297D00172880 /* EOLBannerPopupView.swift in Sources */,
@@ -2267,7 +2297,7 @@
 				DCBF64E62678D8AE00450D51 /* TransferCodeViewController.swift in Sources */,
 				F8454AA3263983B8005CF491 /* NSMutableAttributedString+CC.swift in Sources */,
 				6EF166AF264BB18800426985 /* Verifier.swift in Sources */,
-				F80FA8B52797159200172880 /* HomescreenEOLBannerView.swift in Sources */,
+				F80FA8B52797159200172880 /* HomescreenBannerView.swift in Sources */,
 				6E87E382266950D1000C5517 /* WalletHomescreenActionView.swift in Sources */,
 				6EC172BF26407EBF002E27DB /* WalletHomescreenViewController.swift in Sources */,
 			);
@@ -2394,7 +2424,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 4.1.0;
+				MARKETING_VERSION = 4.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "-D RELEASE_DEV";
@@ -2621,7 +2651,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 4.1.0;
+				MARKETING_VERSION = 4.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "-D RELEASE_ABNAHME";
@@ -2748,7 +2778,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 4.1.0;
+				MARKETING_VERSION = 4.3.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2860,7 +2890,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 4.1.0;
+				MARKETING_VERSION = 4.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "-D RELEASE_PROD";

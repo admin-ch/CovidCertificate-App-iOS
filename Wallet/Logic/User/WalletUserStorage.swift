@@ -50,6 +50,9 @@ class WalletUserStorage {
 
     @UBUserDefault(key: "wallet.user.foreignRulesCheckSelectedDate", defaultValue: Date())
     var foreignRulesCheckSelectedDate: Date
+
+    @UBUserDefault(key: "wallet.user.renewalDates", defaultValue: [])
+    var renewalDates: [RenewalHistoryEntry]
 }
 
 class CertificateStorage {
@@ -134,6 +137,20 @@ class CertificateStorage {
     }
 
     @discardableResult
+    func renewCertificate(oldQrCode: String, newQrCode: String) -> UserCertificate? {
+        var newModel: UserCertificate?
+        userCertificates = userCertificates.map { uc in
+            if let qr = uc.qrCode, qr == oldQrCode {
+                let model = UserCertificate(qrCode: newQrCode, transferCode: uc.transferCode, lightCertificate: uc.lightCertificate, pdf: uc.pdf)
+                newModel = model
+                return model
+            }
+            return uc
+        }
+        return newModel
+    }
+
+    @discardableResult
     func updateCertificate(with qrCode: String, pdf: Data?) -> UserCertificate? {
         var newModel: UserCertificate?
         userCertificates = userCertificates.map { uc in
@@ -188,6 +205,7 @@ class CertificateStorage {
 
     func removeAll() {
         userCertificates = []
+        RenewalHistoryManager.shared.removeAll()
     }
 
     /// certififcates are automatically saved on chages, this method forces a synchronous save

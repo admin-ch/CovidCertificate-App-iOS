@@ -157,7 +157,7 @@ class CertificateCheckAbroadVerificationStateView: UIView {
                 self.textLabel.attributedText = text
                 self.imageView.image = UIImage(named: "ic-check-filled")
                 self.backgroundView.backgroundColor = .cc_greenish
-            case let .invalid(errors, errorCodes, _, _, _):
+            case let .invalid(errors, errorCodes, _, _, _, _):
                 let first = state.state.getFirstError()
 
                 self.imageView.image = first?.icon(with: .cc_red)

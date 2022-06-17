@@ -45,9 +45,9 @@ enum VerificationState: Equatable {
     // verification was skipped
     case skipped
     // validity as formatted date as String, whether the certificate is valid for switzerland only, mode results, eolBannerIdentifier
-    case success(validityDate: String?, switzerlandOnly: Bool?, modeResults: ModeResults?, eolBannerIdentifier: String?)
+    case success(validityDate: String?, switzerlandOnly: Bool?, modeResults: ModeResults?, eolBannerIdentifier: String?, showRenewBanner: String?)
     // sorted errors, error codes, validity as formatted date as String
-    case invalid(errors: [VerificationError], errorCodes: [String], validity: String?, wasRevocationSkipped: Bool, switzerlandOnly: Bool?)
+    case invalid(errors: [VerificationError], errorCodes: [String], validity: String?, wasRevocationSkipped: Bool, switzerlandOnly: Bool?, showRenewBanner: String?)
     // retry error, error codes
     case retry(RetryError, [String])
 
@@ -80,7 +80,7 @@ enum VerificationState: Equatable {
 
     public func verificationErrors() -> [VerificationError]? {
         switch self {
-        case let .invalid(errors, _, _, _, _):
+        case let .invalid(errors, _, _, _, _, _):
             return errors
         default:
             return nil
@@ -89,7 +89,7 @@ enum VerificationState: Equatable {
 
     public func validUntilDateString() -> String? {
         switch self {
-        case let .invalid(_, _, date, _, _):
+        case let .invalid(_, _, date, _, _, _):
             return date
         default:
             return nil
@@ -98,7 +98,7 @@ enum VerificationState: Equatable {
 
     public func errorCodes() -> [String] {
         switch self {
-        case let .invalid(_, codes, _, _, _):
+        case let .invalid(_, codes, _, _, _, _):
             return codes
         default:
             return []
@@ -113,10 +113,21 @@ enum VerificationState: Equatable {
 
     public var wasRevocationSkipped: Bool {
         switch self {
-        case let .invalid(_, _, _, wasRevocationSkipped, _):
+        case let .invalid(_, _, _, wasRevocationSkipped, _, _):
             return wasRevocationSkipped
         default:
             return false
+        }
+    }
+
+    public var showRenewBanner: String? {
+        switch self {
+        case let .invalid(_, _, _, _, _, .some(showRenewBanner)):
+            return showRenewBanner
+        case let .success(validityDate: _, switzerlandOnly: _, modeResults: _, eolBannerIdentifier: _, showRenewBanner: .some(showRenewBanner)):
+            return showRenewBanner
+        default:
+            return nil
         }
     }
 
@@ -137,7 +148,7 @@ enum VerificationState: Equatable {
     // (nil, nil, error) --> show signature ok, revocation ok, show national error
     public func getVerifierErrorState() -> (VerificationError?, VerificationError?, VerificationError?)? {
         switch self {
-        case let .invalid(errors, _, _, _, _):
+        case let .invalid(errors, _, _, _, _, _):
             let signatureError = errors.filter { $0 == .signature || $0 == .typeInvalid || $0 == .signatureExpired }.first
             let revocationError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 != .signatureExpired && $0 == .revocation }.first
             let nationalError = errors.filter { $0 != .signature && $0 != .typeInvalid && $0 != .signatureExpired && $0 != .revocation }.first
@@ -150,7 +161,7 @@ enum VerificationState: Equatable {
 
     public func getFirstError() -> VerificationError? {
         switch self {
-        case let .invalid(errors, _, _, _, _):
+        case let .invalid(errors, _, _, _, _, _):
             let (signatureError, revocationError, nationalError) = getVerifierErrorState() ?? (nil, nil, nil)
             return signatureError ?? revocationError ?? nationalError ?? errors.first
         default:
@@ -202,7 +213,7 @@ class Verifier: NSObject {
 
         guard let holder = holder else {
             // should never happen
-            self.stateUpdate?(.invalid(errors: [.unknown], errorCodes: ["V|HN"], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil))
+            self.stateUpdate?(.invalid(errors: [.unknown], errorCodes: ["V|HN"], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil))
             return
         }
 
@@ -242,11 +253,20 @@ class Verifier: NSObject {
         errorCodes.sort()
 
         var isSwitzerlandOnly: Bool?
+        var showRenewBanner: String?
         switch checkNationalRulesState {
-        case let .success(_, switzerlandOnly, _, _):
+        case let .success(_, switzerlandOnly, _, _, showRenewBanner_):
             isSwitzerlandOnly = switzerlandOnly
-        case let .invalid(_, _, _, _, switzerlandOnly):
+            // only use showRenewBanner if signature error was expired
+            if case .some(VerificationError.signatureExpired) = checkSignatureState.getFirstError() {
+                showRenewBanner = showRenewBanner_
+            }
+        case let .invalid(_, _, _, _, switzerlandOnly, showRenewBanner_):
             isSwitzerlandOnly = switzerlandOnly
+            // only use showRenewBanner if signature error was expired
+            if case .some(VerificationError.signatureExpired) = checkSignatureState.getFirstError() {
+                showRenewBanner = showRenewBanner_
+            }
         default:
             break
         }
@@ -255,7 +275,8 @@ class Verifier: NSObject {
 
         if errors.count > 0 {
             let validityString = checkNationalRulesState.validUntilDateString()
-            stateUpdate?(.invalid(errors: errors, errorCodes: errorCodes, validity: validityString, wasRevocationSkipped: results.revocationStatus == nil, switzerlandOnly: isSwitzerlandOnly))
+
+            stateUpdate?(.invalid(errors: errors, errorCodes: errorCodes, validity: validityString, wasRevocationSkipped: results.revocationStatus == nil, switzerlandOnly: isSwitzerlandOnly, showRenewBanner: showRenewBanner))
         } else if let r = retries.first {
             stateUpdate?(r)
         } else if states.allSatisfy({ $0.isSuccess() }) {
@@ -274,11 +295,11 @@ class Verifier: NSObject {
         switch result {
         case let .success(result):
             if result.isValid {
-                return .success(validityDate: nil, switzerlandOnly: nil, modeResults: nil, eolBannerIdentifier: nil)
+                return .success(validityDate: nil, switzerlandOnly: nil, modeResults: nil, eolBannerIdentifier: nil, showRenewBanner: nil)
             } else {
                 // !: checked
                 let errorCodes = result.error != nil ? [result.error!.errorCode] : []
-                return .invalid(errors: [.signature], errorCodes: errorCodes, validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
+                return .invalid(errors: [.signature], errorCodes: errorCodes, validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil)
             }
 
         case let .failure(err):
@@ -291,12 +312,12 @@ class Verifier: NSObject {
             case .TIME_INCONSISTENCY:
                 return .retry(.timeShift, [err.errorCode])
             case .SIGNATURE_TYPE_INVALID:
-                return .invalid(errors: [.typeInvalid], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
+                return .invalid(errors: [.typeInvalid], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil)
             case .CWT_EXPIRED:
-                return .invalid(errors: [.signatureExpired], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
+                return .invalid(errors: [.signatureExpired], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil)
             default:
                 // error
-                return .invalid(errors: [.signature], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
+                return .invalid(errors: [.signature], errorCodes: [err.errorCode], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil)
             }
         }
     }
@@ -306,11 +327,11 @@ class Verifier: NSObject {
         switch result {
         case let .success(result):
             if result.isValid {
-                return .success(validityDate: nil, switzerlandOnly: nil, modeResults: nil, eolBannerIdentifier: nil)
+                return .success(validityDate: nil, switzerlandOnly: nil, modeResults: nil, eolBannerIdentifier: nil, showRenewBanner: nil)
             } else {
                 // !: checked
                 let errorCodes = result.error != nil ? [result.error!.errorCode] : []
-                return .invalid(errors: [.revocation], errorCodes: errorCodes, validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
+                return .invalid(errors: [.revocation], errorCodes: errorCodes, validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil)
             }
 
         case let .failure(err):
@@ -336,18 +357,18 @@ class Verifier: NSObject {
         switch modeResult {
         case let .success(r):
             if r.isValid {
-                return .success(validityDate: nil, switzerlandOnly: nil, modeResults: result, eolBannerIdentifier: nil)
+                return .success(validityDate: nil, switzerlandOnly: nil, modeResults: result, eolBannerIdentifier: nil, showRenewBanner: nil)
             } else {
                 // if is invalid, check for unknown mode or unsupported light certificate,
                 // always remove all error codes afterwards as it shows mode error
                 if r.isModeUnknown() {
-                    return VerificationState.invalid(errors: [.unknownMode], errorCodes: [], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
+                    return VerificationState.invalid(errors: [.unknownMode], errorCodes: [], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil)
                 } else if r.isLightUnsupported() {
-                    return VerificationState.invalid(errors: [.lightUnsupported(mode.displayName)], errorCodes: [], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
+                    return VerificationState.invalid(errors: [.lightUnsupported(mode.displayName)], errorCodes: [], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil)
                 } else if r.isUnknown() {
-                    return VerificationState.invalid(errors: [.unknown], errorCodes: [], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
+                    return VerificationState.invalid(errors: [.unknown], errorCodes: [], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil)
                 } else {
-                    return VerificationState.invalid(errors: [.otherNationalRules(mode.displayName)], errorCodes: [], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
+                    return VerificationState.invalid(errors: [.otherNationalRules(mode.displayName)], errorCodes: [], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil)
                 }
             }
 
@@ -359,13 +380,14 @@ class Verifier: NSObject {
     private func handleNationalRulesResult(_ result: Result<VerificationResult, NationalRulesError>, modeResults: ModeResults?) -> VerificationState {
         guard let holder = holder else {
             assertionFailure()
-            return .invalid(errors: [.unknown], errorCodes: ["V|HN"], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
+            return .invalid(errors: [.unknown], errorCodes: ["V|HN"], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil)
         }
         switch result {
         case let .success(result):
             var validUntil: String?
             var isSwitzerlandOnly: Bool?
             var eolBannerIdentifier: String?
+            var showRenewBanner: String?
 
             #if WALLET
                 // get expired date string
@@ -389,23 +411,25 @@ class Verifier: NSObject {
                 if let identifier = result.eolBannerIdentifier {
                     eolBannerIdentifier = identifier
                 }
+
+                showRenewBanner = result.renewBanner
             #endif
 
             // check for validity
             if result.isValid {
-                return .success(validityDate: validUntil, switzerlandOnly: isSwitzerlandOnly, modeResults: modeResults, eolBannerIdentifier: eolBannerIdentifier)
+                return .success(validityDate: validUntil, switzerlandOnly: isSwitzerlandOnly, modeResults: modeResults, eolBannerIdentifier: eolBannerIdentifier, showRenewBanner: showRenewBanner)
             } else if let dateError = result.dateError {
                 switch dateError {
                 case .NOT_YET_VALID:
-                    return .invalid(errors: [.notYetValid(result.validFrom ?? Date())], errorCodes: [], validity: validUntil, wasRevocationSkipped: false, switzerlandOnly: isSwitzerlandOnly)
+                    return .invalid(errors: [.notYetValid(result.validFrom ?? Date())], errorCodes: [], validity: validUntil, wasRevocationSkipped: false, switzerlandOnly: isSwitzerlandOnly, showRenewBanner: showRenewBanner)
                 case .EXPIRED:
-                    return .invalid(errors: [.expired(result.validUntil ?? Date())], errorCodes: [], validity: validUntil, wasRevocationSkipped: false, switzerlandOnly: isSwitzerlandOnly)
+                    return .invalid(errors: [.expired(result.validUntil ?? Date())], errorCodes: [], validity: validUntil, wasRevocationSkipped: false, switzerlandOnly: isSwitzerlandOnly, showRenewBanner: showRenewBanner)
                 case .NO_VALID_DATE:
-                    return .invalid(errors: [.typeInvalid], errorCodes: [], validity: validUntil, wasRevocationSkipped: false, switzerlandOnly: isSwitzerlandOnly)
+                    return .invalid(errors: [.typeInvalid], errorCodes: [], validity: validUntil, wasRevocationSkipped: false, switzerlandOnly: isSwitzerlandOnly, showRenewBanner: showRenewBanner)
                 }
             } else {
                 let displayName = modeResults?.results.first?.key.displayName ?? ""
-                return .invalid(errors: [.otherNationalRules(displayName)], errorCodes: [], validity: validUntil, wasRevocationSkipped: false, switzerlandOnly: isSwitzerlandOnly)
+                return .invalid(errors: [.otherNationalRules(displayName)], errorCodes: [], validity: validUntil, wasRevocationSkipped: false, switzerlandOnly: isSwitzerlandOnly, showRenewBanner: showRenewBanner)
             }
         case let .failure(err):
             return handleNationalRulesError(err: err)
@@ -433,9 +457,9 @@ class Verifier: NSObject {
             // do not show the explicit error code on the verifier app, s.t.
             // no information is shown about the checked user (e.g. certificate type)
             #if WALLET
-                return .invalid(errors: [.otherNationalRules("")], errorCodes: error, validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
+                return .invalid(errors: [.otherNationalRules("")], errorCodes: error, validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil)
             #elseif VERIFIER
-                return .invalid(errors: [.otherNationalRules(modes?.first?.displayName ?? "")], errorCodes: [], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil)
+                return .invalid(errors: [.otherNationalRules(modes?.first?.displayName ?? "")], errorCodes: [], validity: nil, wasRevocationSkipped: false, switzerlandOnly: nil, showRenewBanner: nil)
             #endif
         }
     }

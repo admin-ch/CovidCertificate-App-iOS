@@ -14,13 +14,15 @@ import Foundation
 
 enum TransformationError: Error {
     enum Mode {
-        case export, certificateLight
+        case export, certificateLight, renew
         var errorPrefix: String {
             switch self {
             case .export:
                 return "EX"
             case .certificateLight:
                 return "CI"
+            case .renew:
+                return "RN"
             }
         }
     }
@@ -55,13 +57,18 @@ extension TransformationError: ErrorViewError {
         switch self {
         case let .networkError(.NETWORK_NO_INTERNET_CONNECTION, mode):
             switch mode {
-            case .certificateLight:
+            case .certificateLight, .renew:
                 return UBLocalized.wallet_certificate_light_detail_activation_network_error_title
             case .export:
                 return UBLocalized.wallet_certificate_export_detail_network_error_title
             }
-        case .rateLimit:
-            return UBLocalized.wallet_certificate_light_rate_limit_title
+        case let .rateLimit(mode):
+            switch mode {
+            case .renew:
+                return UBLocalized.wallet_certificate_renewal_rate_limit_error_title
+            default:
+                return UBLocalized.wallet_certificate_light_rate_limit_title
+            }
         default:
             return UBLocalized.wallet_certificate_light_detail_activation_general_error_title
         }
@@ -71,13 +78,18 @@ extension TransformationError: ErrorViewError {
         switch self {
         case let .networkError(.NETWORK_NO_INTERNET_CONNECTION, mode):
             switch mode {
-            case .certificateLight:
+            case .certificateLight, .renew:
                 return UBLocalized.wallet_certificate_light_detail_activation_network_error_text
             case .export:
                 return UBLocalized.wallet_certificate_export_detail_network_error_text
             }
-        case .rateLimit:
-            return UBLocalized.wallet_certificate_light_rate_limit_text
+        case let .rateLimit(mode):
+            switch mode {
+            case .renew:
+                return UBLocalized.wallet_certificate_renewal_rate_limit_error_text
+            default:
+                return UBLocalized.wallet_certificate_light_rate_limit_text
+            }
         default:
             return UBLocalized.wallet_certificate_light_detail_activation_general_error_text
         }

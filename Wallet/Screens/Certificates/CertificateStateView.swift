@@ -147,7 +147,7 @@ class CertificateStateView: UIView {
                 self.validityView.textColor = .cc_black
                 self.validityView.untilText = validUntil
             case .failure:
-                if case let .invalid(errors, errorCodes, validUntil, _, _) = self.states.state {
+                if case let .invalid(errors, errorCodes, validUntil, _, _, _) = self.states.state {
                     let first = self.states.state.getFirstError()
 
                     self.imageView.image = first?.icon(with: .cc_red)
@@ -205,7 +205,7 @@ class CertificateStateView: UIView {
                     self.validityView.textColor = .cc_black
                     self.validityView.untilText = nil
 
-                case let .success(validUntil, isSwitzerlandOnly, _, _):
+                case let .success(validUntil, isSwitzerlandOnly, _, _, _):
                     let chOnly = isSwitzerlandOnly ?? false
                     self.setRedBorder(enabled: chOnly)
                     self.roundImageBackgroundView.ub_setHidden(chOnly)
@@ -221,18 +221,20 @@ class CertificateStateView: UIView {
                     self.validityView.textColor = .cc_black
                     self.validityView.untilText = validUntil
 
-                case let .invalid(errors, errorCodes, validUntil, _, _):
+                case let .invalid(errors, errorCodes, validUntil, _, _, _):
                     let first = self.states.state.getFirstError()
 
                     self.imageView.image = first?.icon()
                     self.textLabel.attributedText = first?.displayName()
-                    if let e = first, case .expired = e {
+                    switch first {
+                    case .signatureExpired, .expired:
                         self.backgroundView.backgroundColor = .cc_blueish
                         self.validityView.backgroundColor = .cc_blueish
-                    } else {
+                    default:
                         self.backgroundView.backgroundColor = .cc_greyish
                         self.validityView.backgroundColor = .cc_greyish
                     }
+
                     self.validityView.textColor = .cc_grey
                     self.validityView.untilText = validUntil
 

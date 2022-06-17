@@ -30,6 +30,12 @@ class CertificateDetailBannerView: UIView {
         }
     }
 
+    public var dismissButtonTouchUpCallback: (() -> Void)? {
+        didSet {
+            dismissButton.touchUpCallback = dismissButtonTouchUpCallback
+        }
+    }
+
     private let insets = UIEdgeInsets(top: 13, left: 13, bottom: 13, right: 10)
 
     private var container = AccessibilityContainer()
@@ -41,11 +47,16 @@ class CertificateDetailBannerView: UIView {
                                          labelType: .textBold,
                                          textColor: .cc_text)
 
-    var banner: ConfigResponseBody.EOLBannerInfo? {
-        didSet { update() }
+    private let dismissButton = Button(image: UIImage(named: "ic-close")?.ub_image(with: .black), accessibilityKey: .accessibility_close_button)
+
+    enum State {
+        case eol(ConfigResponseBody.EOLBannerInfo)
+        case rat(CertificateDetailBannerContent)
+        case renew(CertificateDetailBannerContent)
+        case wasRenewed(CertificateDetailBannerContent, uvci: String)
     }
 
-    var bannerContent: CertificateDetailBannerContent? {
+    var state: State? {
         didSet { update() }
     }
 
@@ -62,21 +73,36 @@ class CertificateDetailBannerView: UIView {
     }
 
     private func update() {
-        if let banner = banner {
+        switch state {
+        case let .eol(banner):
             titleLabel.text = banner.detailTitle
             textLabel.text = banner.detailText
             moreInfoButton.titleText = banner.detailMoreInfo
             backgroundColor = UIColor(ub_hexString: banner.detailHexColor) ?? UIColor.cc_yellow
-        }
-
-        if let content = bannerContent {
+            dismissButton.isHidden = true
+        case let .rat(content):
             titleLabel.text = content.title
             textLabel.text = content.text
             moreInfoButton.titleText = content.buttonText
             backgroundColor = UIColor.cc_blueish
+            dismissButton.isHidden = true
+        case let .renew(content):
+            titleLabel.text = content.title
+            textLabel.text = content.text
+            moreInfoButton.titleText = content.buttonText
+            backgroundColor = UIColor.cc_redish
+            dismissButton.isHidden = true
+        case let .wasRenewed(content, _):
+            titleLabel.text = content.title
+            textLabel.text = content.text
+            moreInfoButton.titleText = content.buttonText
+            backgroundColor = UIColor.cc_greenish
+            dismissButton.isHidden = false
+        default:
+            break
         }
 
-        container.accessibilityLabel = [titleLabel.text, textLabel.text, moreInfoButton.titleText].compactMap { $0 }.joined(separator: ", ")
+        setupAccessibility()
     }
 
     private func setup() {
@@ -84,6 +110,7 @@ class CertificateDetailBannerView: UIView {
         container.addSubview(titleLabel)
         container.addSubview(textLabel)
         container.addSubview(moreInfoButton)
+        container.addSubview(dismissButton)
 
         container.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -103,6 +130,11 @@ class CertificateDetailBannerView: UIView {
             make.trailing.lessThanOrEqualToSuperview()
             make.top.equalTo(textLabel.snp.bottom).offset(Padding.medium)
             make.bottom.equalToSuperview().inset(insets)
+        }
+
+        dismissButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview()
+            make.top.equalToSuperview()
         }
 
         layer.cornerRadius = 10
@@ -127,11 +159,12 @@ class CertificateDetailBannerView: UIView {
 
     private func setupAccessibility() {
         container.isAccessibilityElement = true
+        dismissButton.isAccessibilityElement = !dismissButton.isHidden
 
         container.accessibilityLabel = [titleLabel.text, textLabel.text, moreInfoButton.titleText].compactMap { $0 }.joined(separator: ", ")
         container.accessibilityTraits = .button
 
-        accessibilityElements = [container, moreInfoButton]
+        accessibilityElements = [container] + (dismissButton.isHidden ? [] : [dismissButton])
         isAccessibilityElement = false
     }
 }

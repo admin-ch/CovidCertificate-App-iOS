@@ -29,7 +29,7 @@ class HomescreenCertificateView: UIView {
     private let lightQrCodeView: LightQRCodeView
     private let transferView: TransferView
     private var vaccinationInfoView: HomescreenVaccinationInfoView?
-    private var certificateBannerView: HomescreenEOLBannerView?
+    private var certificateBannerView: HomescreenBannerView?
     private var topViewLayoutGuide = UILayoutGuide()
     private let backgroundButton = BackgroundButton()
 
@@ -126,7 +126,7 @@ class HomescreenCertificateView: UIView {
                 strongSelf.vaccinationButtonTouchUpCallback?()
             }
         } else if certificate?.type == .certificate {
-            certificateBannerView = HomescreenEOLBannerView()
+            certificateBannerView = HomescreenBannerView()
             contentView.addSubview(certificateBannerView!)
             backgroundButton.certificateBannerView = certificateBannerView
             certificateBannerView?.snp.makeConstraints { make in
@@ -205,9 +205,19 @@ class HomescreenCertificateView: UIView {
     }
 
     private func dismissCertificateBanner() {
-        guard let key = currentEOLBannerKey else { return }
-        WalletUserStorage.shared.dismissedEOLBanners.append(key)
-        update(animated: true)
+        switch certificateBannerView?.banner {
+        case .eol:
+            guard let key = currentEOLBannerKey else { return }
+            WalletUserStorage.shared.dismissedEOLBanners.append(key)
+            update(animated: true)
+        case let .wasRenewed(uvci):
+            RenewalHistoryManager.shared.removeRenewal(uvci: uvci)
+            update(animated: true)
+        case .renew:
+            break
+        case .none:
+            break
+        }
     }
 
     private func update(animated: Bool) {
@@ -245,17 +255,28 @@ class HomescreenCertificateView: UIView {
                     certificate.pastInfections?.first?.certificateIdentifier ??
                     certificate.tests?.first?.certificateIdentifier ?? ""
 
-                if case let .success(_, _, _, eolIdentifierOpt) = verificationState,
-                   let eolIdentifier = eolIdentifierOpt,
+                if case let .success(_, _, _, .some(eolIdentifier), _) = verificationState,
                    let eolBanner = ConfigManager.currentConfig?.eolBannerInfo?.value?[eolIdentifier],
                    shouldShowBanner(certificateIdentifier: uvci, eolIdentifier: eolIdentifier) {
                     showBanner = true
                     banner = eolBanner
                 }
 
-                if showBanner {
-                    certificateBannerView?.banner = banner
+                var showRenewBanner = false
+                if verificationState.showRenewBanner != nil {
+                    showBanner = true
+                    showRenewBanner = true
+                }
 
+                if RenewalHistoryManager.shared.shouldShowWasRenewedBanner(for: uvci) {
+                    certificateBannerView?.banner = .wasRenewed(uvci: uvci)
+                    accessibilityLabel = [certificateBannerView?.container.accessibilityLabel ?? "", titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+                    showBanner = true
+                } else if showRenewBanner {
+                    certificateBannerView?.banner = .renew
+                    accessibilityLabel = [certificateBannerView?.container.accessibilityLabel ?? "", titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+                } else if let eolBanner = banner {
+                    certificateBannerView?.banner = .eol(eolBanner)
                     accessibilityLabel = [certificateBannerView?.container.accessibilityLabel ?? "", titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
                 } else {
                     accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
@@ -335,7 +356,7 @@ class HomescreenCertificateView: UIView {
 private class BackgroundButton: UBButton {
     weak var transferView: TransferView?
     weak var vaccinationInfoView: HomescreenVaccinationInfoView?
-    weak var certificateBannerView: HomescreenEOLBannerView?
+    weak var certificateBannerView: HomescreenBannerView?
 
     var type: CertificateType = .certificate
 

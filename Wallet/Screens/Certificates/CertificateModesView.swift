@@ -99,7 +99,7 @@ class CertificateModeView: UIView {
                 switch self.states.state {
                 case .loading, .skipped, .invalid, .retry:
                     self.modeResults = nil
-                case let .success(_, _, results, _):
+                case let .success(_, _, results, _, _):
                     guard let r = results, r.results.count > 1 else {
                         self.modeResults = nil
                         return
