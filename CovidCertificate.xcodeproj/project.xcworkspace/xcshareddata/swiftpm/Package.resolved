@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-green-certificates/json-logic-swift",
       "state" : {
-        "revision" : "3898636b43b62e571849790f74485dd1504ee785",
-        "version" : "1.2.3"
+        "revision" : "10580f69c911df26736ebf31b4eaf629f2972d10",
+        "version" : "1.2.4"
       }
     },
     {

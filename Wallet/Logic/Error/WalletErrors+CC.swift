@@ -43,9 +43,9 @@ extension VerificationError {
     func icon(with color: UIColor? = nil) -> UIImage? {
         switch self {
         case .signature, .typeInvalid, .unknownMode, .lightUnsupported: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
-        case .revocation: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
-        case .otherNationalRules: return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
-        case .expired, .signatureExpired:
+        case .revocation, .otherNationalRules, .expired:
+            return UIImage(named: "ic-info-alert")?.ub_image(with: color ?? UIColor.cc_grey)
+        case .signatureExpired:
             if let c = color {
                 return UIImage(named: "ic-invalid")?.ub_image(with: c)
             } else {
