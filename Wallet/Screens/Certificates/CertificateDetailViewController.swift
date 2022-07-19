@@ -41,13 +41,10 @@ class CertificateDetailViewController: ViewController {
     private let modeView = CertificateModeView()
     private var infoPopupView: IconTextInfoBoxView?
     private var bannerPopupView: EOLBannerPopupView?
-    private var refreshInfoPopupView: RefreshInfoPopupView?
 
     private let noteView = CertificateNoteView()
 
     private let removeButton = Button(titleKey: .delete_button, style: .normal(.cc_bund))
-
-    private let floatingButton = Button(image: UIImage(named: "ic-load")?.withRenderingMode(.alwaysTemplate), accessibilityKey: .accessibility_refresh_button)
 
     private lazy var qrCodeStateView = CertificateQRCodeStateView(initialState: temporaryVerifierState)
 
@@ -84,7 +81,6 @@ class CertificateDetailViewController: ViewController {
                     guard let strongSelf = self else { return }
                     UIView.animate(withDuration: 0.2) {
                         strongSelf.temporaryVerifierState = .idle
-                        strongSelf.floatingButton.alpha = 1
                         strongSelf.update()
                     }
                 }
@@ -123,28 +119,6 @@ class CertificateDetailViewController: ViewController {
         UIStateManager.shared.addObserver(self) { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.startCheck()
-        }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        switch RefreshButtonVisibilityManager.state {
-        case .refreshButton:
-            floatingButton.isHidden = false
-            floatingButton.setImage(UIImage(named: "ic-load")?.withRenderingMode(.alwaysTemplate), for: .normal)
-
-            floatingButton.backgroundColor = .cc_blue
-            floatingButton.tintColor = .cc_white
-            floatingButton.layer.borderWidth = 0.0
-        case .infoButton:
-            floatingButton.isHidden = false
-            floatingButton.setImage(UIImage(named: "ic-info"), for: .normal)
-
-            floatingButton.backgroundColor = .cc_white
-            floatingButton.tintColor = .cc_blue
-            floatingButton.layer.borderWidth = 2.0
-        case .none:
-            floatingButton.isHidden = true
         }
     }
 
@@ -233,41 +207,10 @@ class CertificateDetailViewController: ViewController {
             make.top.equalTo(spacer.snp.top)
         }
 
-        floatingButton.backgroundColor = .cc_blue
-        floatingButton.tintColor = .cc_white
-        let size: CGFloat = 50.0
-        floatingButton.layer.cornerRadius = size * 0.5
-        floatingButton.layer.borderColor = UIColor.cc_blue.cgColor
-        floatingButton.highlightCornerRadius = size * 0.5
-        floatingButton.ub_addShadow(radius: 4.0, opacity: 0.2, xOffset: 0.0, yOffset: 0.0)
-        view.addSubview(floatingButton)
-        floatingButton.snp.makeConstraints { make in
-            make.size.equalTo(size)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Padding.large)
-            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(Padding.large + Padding.small)
-        }
-        floatingButton.alpha = 0
-
         update()
     }
 
     private func setupInteraction() {
-        floatingButton.touchUpCallback = { [weak self] in
-            guard let strongSelf = self else { return }
-
-            switch RefreshButtonVisibilityManager.state {
-            case .refreshButton:
-                strongSelf.stackScrollView.scrollToTop(animated: true)
-                strongSelf.startTemporaryCheck()
-            case .infoButton:
-                strongSelf.refreshInfoPopupView?.removeFromSuperview()
-                strongSelf.refreshInfoPopupView = RefreshInfoPopupView()
-                strongSelf.refreshInfoPopupView?.addAndPresent(to: strongSelf.view, from: strongSelf.floatingButton)
-            case .none:
-                break
-            }
-        }
-
         removeButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.removeCertificate()
@@ -413,7 +356,6 @@ class CertificateDetailViewController: ViewController {
         temporaryVerifierState = .verifying
         state = .loading
         UIView.animate(withDuration: 0.2) {
-            self.floatingButton.alpha = 0
             self.qrCodeStateView.state = self.temporaryVerifierState
         }
 
@@ -439,12 +381,10 @@ class CertificateDetailViewController: ViewController {
         guard let qrCode = certificate?.qrCode else { return }
 
         state = .loading
-        floatingButton.alpha = 0
 
         VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes()) { [weak self] state in
             guard let self = self else { return }
             self.qrCodeStateView.alpha = 0
-            self.floatingButton.alpha = state == .loading ? 0 : 1
             self.state = state
         }
     }
