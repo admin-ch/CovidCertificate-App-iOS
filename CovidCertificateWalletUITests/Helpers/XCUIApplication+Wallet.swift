@@ -15,7 +15,7 @@ extension XCUIApplication {
     @discardableResult
     func setOnboarding(completed: Bool) -> Self {
         launchArguments += ["-wallet.user.hasCompletedOnboarding", "\(completed ? "YES" : "NO")"]
-        launchArguments += ["-wallet.user.hasCompletedLightCertificateUpdateBoarding", "\(completed ? "YES" : "NO")"]
+        launchArguments += ["-wallet.user.hasCompletedTermsAndConditionsUpdateBoarding", "\(completed ? "YES" : "NO")"]
         return self
     }
 

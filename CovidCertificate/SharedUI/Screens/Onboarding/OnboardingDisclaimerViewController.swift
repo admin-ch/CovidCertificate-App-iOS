@@ -14,9 +14,9 @@ import UIKit
 class OnboardingDisclaimerViewController: StaticContentViewController {
     // MARK: - Init
 
-    init(model: StaticContentViewModel) {
+    init(model: StaticContentViewModel, continueButtonTextKey: UBLocalized.Key = .wallet_onboarding_accept_button) {
         super.init(models: [model])
-        continueButtonTextKey = .wallet_onboarding_accept_button
+        self.continueButtonTextKey = continueButtonTextKey
     }
 
     override func setupViews(addBottomSpacer _: Bool = true) {

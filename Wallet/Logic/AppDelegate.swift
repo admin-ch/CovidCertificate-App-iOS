@@ -124,8 +124,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let onboardingViewController = OnboardingViewController()
             onboardingViewController.modalPresentationStyle = .fullScreen
             window?.rootViewController = onboardingViewController
-        } else if !WalletUserStorage.shared.hasCompletedLightCertificateUpdateBoarding {
-            let onboardingViewController = CertificateLightUpdateBoardingViewController()
+        } else if !WalletUserStorage.shared.hasCompletedTermsAndConditionsUpdateBoarding {
+            let onboardingViewController = TermsAndConditionsUpdateBoardingViewController()
             onboardingViewController.modalPresentationStyle = .fullScreen
             window?.rootViewController = onboardingViewController
         } else {
