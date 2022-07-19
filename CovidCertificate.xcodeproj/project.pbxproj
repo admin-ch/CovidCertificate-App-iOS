@@ -357,7 +357,6 @@
 		F80FA8B52797159200172880 /* HomescreenBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FA8B42797159200172880 /* HomescreenBannerView.swift */; };
 		F80FA8B72797221700172880 /* CertificateDetailBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FA8B62797221700172880 /* CertificateDetailBannerView.swift */; };
 		F80FA8B92797297D00172880 /* EOLBannerPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80FA8B82797297D00172880 /* EOLBannerPopupView.swift */; };
-		F8118D6927847076007FC484 /* RefreshButtonVisibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */; };
 		F8119172278888B8007FC484 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8119171278888B8007FC484 /* OnboardingTests.swift */; };
 		F8130CDC2685B46200A29326 /* URLSession+synchron.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDB2685B46200A29326 /* URLSession+synchron.swift */; };
 		F8130CDD2685B46200A29326 /* URLSession+synchron.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8130CDB2685B46200A29326 /* URLSession+synchron.swift */; };
@@ -664,7 +663,6 @@
 		F80FA8B42797159200172880 /* HomescreenBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomescreenBannerView.swift; sourceTree = "<group>"; };
 		F80FA8B62797221700172880 /* CertificateDetailBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateDetailBannerView.swift; sourceTree = "<group>"; };
 		F80FA8B82797297D00172880 /* EOLBannerPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOLBannerPopupView.swift; sourceTree = "<group>"; };
-		F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButtonVisibilityManager.swift; sourceTree = "<group>"; };
 		F811916F278888B8007FC484 /* CovidCertificateWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidCertificateWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8119171278888B8007FC484 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		F8130CDB2685B46200A29326 /* URLSession+synchron.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+synchron.swift"; sourceTree = "<group>"; };
@@ -1249,7 +1247,6 @@
 				6EF166CE264E5C3200426985 /* ConfigResponseBody.swift */,
 				6EF166CF264E5C3200426985 /* InfoBoxVisibilityManager.swift */,
 				DC286A25242CE0B9001D5344 /* Environment.swift */,
-				F8118D6827847076007FC484 /* RefreshButtonVisibilityManager.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -2160,7 +2157,6 @@
 				6EBF9C7A267C809700E86B45 /* Migration.swift in Sources */,
 				8E81CC9D241FCC7D006F2437 /* ViewController.swift in Sources */,
 				6ED9161F2681B171006D9E7C /* UBPushRegistrationManager.swift in Sources */,
-				F8118D6927847076007FC484 /* RefreshButtonVisibilityManager.swift in Sources */,
 				F88DA6B3268C786D001DB072 /* Error+NetworkError.swift in Sources */,
 				6EE55DA82761075B001F9E1F /* CheckModeState.swift in Sources */,
 				6E173924267B31BB00813D30 /* TransferCodeErrorRetryViewController.swift in Sources */,
