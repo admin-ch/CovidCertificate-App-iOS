@@ -188,6 +188,10 @@ import Foundation
      case settings_title
     /// Covid-19
      case target_disease_name
+    /// Die Nutzungsbedingungen und die Datenschutzerklärung der App wurden punktuell aktualisiert und an die rechtlichen Grundlagen angepasst.
+     case terms_and_conditions_update_boarding_text
+    /// Aktualisierung
+     case terms_and_conditions_update_boarding_title
     /// Ein unbekannter Fehler ist aufgetreten.
      case unknown_error
     /// Impftermin
@@ -1412,6 +1416,10 @@ import Foundation
    static var settings_title: String { return UBLocalized.tr(Key.settings_title) }
   /// Covid-19
    static var target_disease_name: String { return UBLocalized.tr(Key.target_disease_name) }
+  /// Die Nutzungsbedingungen und die Datenschutzerklärung der App wurden punktuell aktualisiert und an die rechtlichen Grundlagen angepasst.
+   static var terms_and_conditions_update_boarding_text: String { return UBLocalized.tr(Key.terms_and_conditions_update_boarding_text) }
+  /// Aktualisierung
+   static var terms_and_conditions_update_boarding_title: String { return UBLocalized.tr(Key.terms_and_conditions_update_boarding_title) }
   /// Ein unbekannter Fehler ist aufgetreten.
    static var unknown_error: String { return UBLocalized.tr(Key.unknown_error) }
   /// Impftermin

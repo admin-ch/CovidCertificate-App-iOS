@@ -11,8 +11,8 @@
 
 import UIKit
 
-class CertificateLightUpdateBoardingViewController: OnboardingBaseViewController {
-    private let step1VC = OnboardingDisclaimerViewController(model: .certificateLightUpdateBoarding)
+class TermsAndConditionsUpdateBoardingViewController: OnboardingBaseViewController {
+    private let step1VC = OnboardingDisclaimerViewController(model: .termsAndConditionsUpdateBoarding, continueButtonTextKey: .continue_button)
 
     override internal var stepViewControllers: [OnboardingContentViewController] {
         [step1VC]
@@ -24,9 +24,9 @@ class CertificateLightUpdateBoardingViewController: OnboardingBaseViewController
 
     override public func completedOnboarding() {
         #if WALLET
-            WalletUserStorage.shared.hasCompletedLightCertificateUpdateBoarding = true
+            WalletUserStorage.shared.hasCompletedTermsAndConditionsUpdateBoarding = true
         #elseif VERIFIER
-            VerifierUserStorage.shared.hasCompletedLightCertificateUpdateBoarding = true
+            VerifierUserStorage.shared.hasCompletedTermsAndConditionsUpdateBoarding = true
         #endif
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.completedOnboarding()

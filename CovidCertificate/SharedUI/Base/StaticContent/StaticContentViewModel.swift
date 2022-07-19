@@ -79,17 +79,17 @@ struct StaticContentViewModel: Equatable {
                                                    expandableTextGroups: [(UBLocalized.wallet_scanner_howitworks_question1, UBLocalized.wallet_scanner_howitworks_answer1, UBLocalized.wallet_scanner_howitworks_external_link_title, URL(string: UBLocalized.wallet_scanner_howitworks_external_link))])
 
     #if WALLET
-        static let certificateLightUpdateBoarding = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
-                                                                           foregroundImage: UIImage(named: "ic-how-it-works-image"),
-                                                                           title: UBLocalized.wallet_update_boarding_certificate_light_title,
-                                                                           alignment: .center,
-                                                                           textGroups: [(nil, UBLocalized.wallet_update_boarding_certificate_light_text)])
+        static let termsAndConditionsUpdateBoarding = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
+                                                                             foregroundImage: UIImage(named: "illu-onboarding-data-protection"),
+                                                                             title: UBLocalized.terms_and_conditions_update_boarding_title,
+                                                                             alignment: .center,
+                                                                             textGroups: [(nil, UBLocalized.terms_and_conditions_update_boarding_text)])
     #elseif VERIFIER
-        static let certificateLightUpdateBoarding = StaticContentViewModel(heading: UBLocalized.verifier_update_boarding_header,
-                                                                           foregroundImage: UIImage(named: "illu-update-light"),
-                                                                           title: UBLocalized.verifier_update_boarding_certificate_light_title,
-                                                                           alignment: .center,
-                                                                           textGroups: [(nil, UBLocalized.verifier_update_boarding_certificate_light_text)])
+        static let termsAndConditionsUpdateBoarding = StaticContentViewModel(heading: UBLocalized.verifier_update_boarding_header,
+                                                                             foregroundImage: UIImage(named: "illu-onboarding-data-protection"),
+                                                                             title: UBLocalized.verifier_update_boarding_certificate_light_title,
+                                                                             alignment: .center,
+                                                                             textGroups: [(nil, UBLocalized.terms_and_conditions_update_boarding_text)])
     #endif
 
     static let certificateLight = StaticContentViewModel(title: UBLocalized.wallet_certificate_light_detail_summary_title,

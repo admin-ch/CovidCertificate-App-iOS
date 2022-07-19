@@ -27,7 +27,7 @@ class OnboardingViewController: OnboardingBaseViewController {
 
     override public func completedOnboarding() {
         WalletUserStorage.shared.hasCompletedOnboarding = true
-        WalletUserStorage.shared.hasCompletedLightCertificateUpdateBoarding = true
+        WalletUserStorage.shared.hasCompletedTermsAndConditionsUpdateBoarding = true
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.completedOnboarding()
         }

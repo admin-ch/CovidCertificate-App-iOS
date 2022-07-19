@@ -1653,3 +1653,5 @@
 "wallet_certificate_renewal_rate_limit_error_text" = "Codice QR rinnovato troppo spesso. Rinnovo temporaneamente bloccato.";
 "wallet_certificate_renewal_faq_link_text" = "Alle FAQ";
 "wallet_certificate_renewal_faq_link_url" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/perche-devo-rinnovare-il-codice-qr-del-mio-certificato-covid-anche-se-secondo-le";
+"terms_and_conditions_update_boarding_title" = "Aggiornamento";
+"terms_and_conditions_update_boarding_text" = "L’informativa sulla privacy (dichiarazione sulla protezione dei dati) e le condizioni d’uso dell’app sono state puntualmente aggiornate e adeguate alle basi legali.";
