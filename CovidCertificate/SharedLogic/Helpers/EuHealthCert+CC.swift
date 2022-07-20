@@ -68,7 +68,7 @@ public extension ExtensionModel {
     }
 
     var displayMonospacedName: String? {
-        return [person.standardizedFamilyName, person.standardizedGivenName].compactMap { $0 }.joined(separator: "<<")
+        return [person.standardizedFamilyName, person.standardizedGivenName].map { $0 ?? "" }.joined(separator: "<<")
     }
 
     #if WALLET
