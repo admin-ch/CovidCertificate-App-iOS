@@ -87,7 +87,7 @@ struct StaticContentViewModel: Equatable {
     #elseif VERIFIER
         static let termsAndConditionsUpdateBoarding = StaticContentViewModel(heading: UBLocalized.verifier_update_boarding_header,
                                                                              foregroundImage: UIImage(named: "illu-onboarding-data-protection"),
-                                                                             title: UBLocalized.verifier_update_boarding_certificate_light_title,
+                                                                             title: UBLocalized.terms_and_conditions_update_boarding_title,
                                                                              alignment: .center,
                                                                              textGroups: [(nil, UBLocalized.terms_and_conditions_update_boarding_text)])
     #endif
