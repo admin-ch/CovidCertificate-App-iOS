@@ -73,6 +73,7 @@ class CertificateAddDetailView: UIView {
         stackScrollView.addSpacerView(Padding.large + Padding.medium)
 
         let nameLabel = Label(.title, textAlignment: .center)
+        let monoLabel = Label(.monospaced, textAlignment: .center)
         let birthdayLabel = Label(.text, textAlignment: .center)
 
         if let qrCode = certificate?.qrCode {
@@ -80,6 +81,12 @@ class CertificateAddDetailView: UIView {
             switch c {
             case let .success(holder):
                 nameLabel.text = holder.certificate.displayFullName
+
+                if holder.certificate.isStandardizedNameDifferent,
+                   let standardizedFullName = holder.certificate.displayMonospacedName {
+                    monoLabel.text = standardizedFullName
+                }
+
                 birthdayLabel.text = holder.certificate.dateOfBirthFormatted
                 birthdayLabel.accessibilityLabel = DateFormatter.ub_accessibilityDateString(dateString: holder.certificate.dateOfBirthFormatted) ?? birthdayLabel.text
             case .failure:
@@ -88,6 +95,10 @@ class CertificateAddDetailView: UIView {
         }
 
         stackScrollView.addArrangedView(nameLabel)
+        if monoLabel.text != nil {
+            stackScrollView.addSpacerView(Padding.small)
+            stackScrollView.addArrangedView(monoLabel)
+        }
         stackScrollView.addSpacerView(Padding.small * 2.0)
 
         stackScrollView.addArrangedView(birthdayLabel)

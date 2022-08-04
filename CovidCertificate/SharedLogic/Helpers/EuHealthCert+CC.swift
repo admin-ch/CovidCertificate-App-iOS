@@ -59,6 +59,14 @@ public extension ExtensionModel {
         return [displayLastName, displayName].compactMap { $0 }.joined(separator: " ")
     }
 
+    var displayStandardizedFullName: String? {
+        return [person.standardizedFamilyName, person.standardizedGivenName].compactMap { $0 }.joined(separator: " ")
+    }
+
+    var isStandardizedNameDifferent: Bool {
+        return person.standardizedFamilyName != person.familyName?.uppercased() || person.standardizedGivenName != person.givenName?.uppercased()
+    }
+
     var displayLastName: String? {
         return person.familyName.isNilOrEmpty ? person.standardizedFamilyName : person.familyName
     }

@@ -28,6 +28,7 @@ class QRCodeNameView: UIView {
     private let imageView = UIImageView()
     private lazy var certificateTimer = CertificateLightExpirationTimer()
     private let nameView = Label(.title, numberOfLines: 3, textAlignment: .center)
+    private let monoLabel = Label(.monospaced, numberOfLines: 3, textAlignment: .center)
     private let birthdayLabelView = Label(.text, textAlignment: .center)
 
     private let qrCodeInset: CGFloat
@@ -63,6 +64,7 @@ class QRCodeNameView: UIView {
             addSubview(certificateTimer)
         }
         addSubview(nameView)
+        addSubview(monoLabel)
         addSubview(birthdayLabelView)
 
         imageView.snp.makeConstraints { make in
@@ -97,8 +99,13 @@ class QRCodeNameView: UIView {
             make.leading.trailing.equalToSuperview().inset(self.qrCodeInset)
         }
 
+        monoLabel.snp.makeConstraints { make in
+            make.top.equalTo(self.nameView.snp.bottom).offset(Padding.small)
+            make.leading.trailing.equalToSuperview().inset(self.qrCodeInset)
+        }
+
         birthdayLabelView.snp.makeConstraints { make in
-            make.top.equalTo(self.nameView.snp.bottom).offset(2.0 * Padding.small)
+            make.top.equalTo(self.monoLabel.snp.bottom).offset(2.0 * Padding.small)
             make.leading.trailing.equalToSuperview().inset(self.qrCodeInset)
             make.bottom.equalToSuperview()
         }
@@ -124,6 +131,10 @@ class QRCodeNameView: UIView {
         switch c {
         case let .success(holder):
             nameView.text = holder.certificate.displayFullName
+            if holder.certificate.isStandardizedNameDifferent,
+               let standardizedFullName = holder.certificate.displayMonospacedName {
+                monoLabel.text = standardizedFullName
+            }
             birthdayLabelView.text = holder.certificate.dateOfBirthFormatted
 
             birthdayLabelView.accessibilityLabel = DateFormatter.ub_accessibilityDateString(dateString: holder.certificate.dateOfBirthFormatted) ?? birthdayLabelView.text
