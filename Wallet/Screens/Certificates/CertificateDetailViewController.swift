@@ -24,7 +24,7 @@ enum TemporaryVerifierState: Equatable {
 
 class CertificateDetailViewController: ViewController {
     private let stackScrollView = StackScrollView()
-    private let qrCodeNameView = QRCodeNameView()
+    private let qrCodeNameView = QRCodeNameView(isOnHomeScreen: false)
 
     private let renewBannerView = CertificateDetailBannerView()
     private let eolBannerView = CertificateDetailBannerView()

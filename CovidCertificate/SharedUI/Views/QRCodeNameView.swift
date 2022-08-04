@@ -33,15 +33,17 @@ class QRCodeNameView: UIView {
 
     private let qrCodeInset: CGFloat
     private let isLightCertificate: Bool
+    private let isOnHomeScreen: Bool
     let qrCodeLayoutGuide = UILayoutGuide()
 
     var didExpireCallback: (() -> Void)?
 
     // MARK: - Init
 
-    init(qrCodeInset: CGFloat = 0, isLightCertificate: Bool = false) {
+    init(qrCodeInset: CGFloat = 0, isLightCertificate: Bool = false, isOnHomeScreen: Bool) {
         self.qrCodeInset = qrCodeInset
         self.isLightCertificate = isLightCertificate
+        self.isOnHomeScreen = isOnHomeScreen
         super.init(frame: .zero)
         setup()
 
@@ -64,7 +66,9 @@ class QRCodeNameView: UIView {
             addSubview(certificateTimer)
         }
         addSubview(nameView)
-        addSubview(monoLabel)
+        if !isOnHomeScreen {
+            addSubview(monoLabel)
+        }
         addSubview(birthdayLabelView)
 
         imageView.snp.makeConstraints { make in
@@ -99,13 +103,19 @@ class QRCodeNameView: UIView {
             make.leading.trailing.equalToSuperview().inset(self.qrCodeInset)
         }
 
-        monoLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.nameView.snp.bottom).offset(Padding.small)
-            make.leading.trailing.equalToSuperview().inset(self.qrCodeInset)
+        if !isOnHomeScreen {
+            monoLabel.snp.makeConstraints { make in
+                make.top.equalTo(self.nameView.snp.bottom).offset(Padding.small)
+                make.leading.trailing.equalToSuperview().inset(self.qrCodeInset)
+            }
         }
 
         birthdayLabelView.snp.makeConstraints { make in
-            make.top.equalTo(self.monoLabel.snp.bottom).offset(2.0 * Padding.small)
+            if isOnHomeScreen {
+                make.top.equalTo(self.nameView.snp.bottom).offset(2.0 * Padding.small)
+            } else {
+                make.top.equalTo(self.monoLabel.snp.bottom).offset(2.0 * Padding.small)
+            }
             make.leading.trailing.equalToSuperview().inset(self.qrCodeInset)
             make.bottom.equalToSuperview()
         }
