@@ -82,8 +82,7 @@ class CertificateAddDetailView: UIView {
             case let .success(holder):
                 nameLabel.text = holder.certificate.displayFullName
 
-                if holder.certificate.isStandardizedNameDifferent,
-                   let standardizedFullName = holder.certificate.displayMonospacedName {
+                if let standardizedFullName = holder.certificate.displayMonospacedName {
                     monoLabel.text = standardizedFullName
                 }
 
