@@ -141,9 +141,7 @@ class QRCodeNameView: UIView {
         switch c {
         case let .success(holder):
             nameView.text = holder.certificate.displayFullName
-            if let standardizedFullName = holder.certificate.displayMonospacedName {
-                monoLabel.text = standardizedFullName
-            }
+            monoLabel.text = holder.certificate.displayMonospacedName
             birthdayLabelView.text = holder.certificate.dateOfBirthFormatted
 
             birthdayLabelView.accessibilityLabel = DateFormatter.ub_accessibilityDateString(dateString: holder.certificate.dateOfBirthFormatted) ?? birthdayLabelView.text

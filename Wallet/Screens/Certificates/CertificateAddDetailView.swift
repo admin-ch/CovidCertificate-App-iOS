@@ -81,10 +81,7 @@ class CertificateAddDetailView: UIView {
             switch c {
             case let .success(holder):
                 nameLabel.text = holder.certificate.displayFullName
-
-                if let standardizedFullName = holder.certificate.displayMonospacedName {
-                    monoLabel.text = standardizedFullName
-                }
+                monoLabel.text = holder.certificate.displayMonospacedName
 
                 birthdayLabel.text = holder.certificate.dateOfBirthFormatted
                 birthdayLabel.accessibilityLabel = DateFormatter.ub_accessibilityDateString(dateString: holder.certificate.dateOfBirthFormatted) ?? birthdayLabel.text
