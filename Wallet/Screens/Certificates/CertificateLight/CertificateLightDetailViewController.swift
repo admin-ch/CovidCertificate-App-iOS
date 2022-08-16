@@ -14,7 +14,7 @@ import UIKit
 class CertificateLightDetailViewController: StackScrollViewController {
     private let certificate: UserCertificate
 
-    private let qrCodeNameView = QRCodeNameView(isLightCertificate: true)
+    private let qrCodeNameView = QRCodeNameView(isLightCertificate: true, isOnHomeScreen: false)
     private let verificationStateView = CertificateStateView(isHomescreen: false, showValidity: false, isLightCertificate: true)
     private let summary = CertificateLightSummaryView(isActive: true)
 

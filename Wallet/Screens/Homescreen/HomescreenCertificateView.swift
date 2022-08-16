@@ -609,7 +609,7 @@ private class QRCodeView: UIView {
     // MARK: - Inset
 
     private let titleLabel = Label(.uppercaseBold, textColor: .cc_greyText, textAlignment: .center)
-    private let nameView = QRCodeNameView(qrCodeInset: Padding.large)
+    private let nameView = QRCodeNameView(qrCodeInset: Padding.large, isOnHomeScreen: true)
     private let stateView = CertificateStateView(showValidity: false)
 
     public var certificate: UserCertificate?
@@ -683,7 +683,7 @@ private class LightQRCodeView: UIView {
     // MARK: - Inset
 
     private let titleLabel = Label(.uppercaseBold, textColor: .cc_greyText, textAlignment: .center)
-    private let nameView = QRCodeNameView(qrCodeInset: Padding.large, isLightCertificate: true)
+    private let nameView = QRCodeNameView(qrCodeInset: Padding.large, isLightCertificate: true, isOnHomeScreen: true)
     private let stateView = CertificateStateView(showValidity: false, isLightCertificate: true)
 
     public var certificate: UserCertificate?
