@@ -1236,6 +1236,20 @@ import Foundation
      case wallet_update_boarding_header
     /// UVCI kopiert
      case wallet_uvci_copied
+    /// {DAYS} Tagen
+     case wallet_validity_since_days_plural
+    /// 1 Tag
+     case wallet_validity_since_days_singular
+    /// {HOURS} Stunden
+     case wallet_validity_since_hours_plural
+    /// 1 Stunde
+     case wallet_validity_since_hours_singular
+    /// vor
+     case wallet_validity_since_prefix
+    /// Testdatum
+     case wallet_validity_since_test_date
+    /// Impfdatum
+     case wallet_validity_since_vaccination_date
   }
 
   /// Zertifikat hinzufügen
@@ -2464,6 +2478,20 @@ import Foundation
    static var wallet_update_boarding_header: String { return UBLocalized.tr(Key.wallet_update_boarding_header) }
   /// UVCI kopiert
    static var wallet_uvci_copied: String { return UBLocalized.tr(Key.wallet_uvci_copied) }
+  /// {DAYS} Tagen
+   static var wallet_validity_since_days_plural: String { return UBLocalized.tr(Key.wallet_validity_since_days_plural) }
+  /// 1 Tag
+   static var wallet_validity_since_days_singular: String { return UBLocalized.tr(Key.wallet_validity_since_days_singular) }
+  /// {HOURS} Stunden
+   static var wallet_validity_since_hours_plural: String { return UBLocalized.tr(Key.wallet_validity_since_hours_plural) }
+  /// 1 Stunde
+   static var wallet_validity_since_hours_singular: String { return UBLocalized.tr(Key.wallet_validity_since_hours_singular) }
+  /// vor
+   static var wallet_validity_since_prefix: String { return UBLocalized.tr(Key.wallet_validity_since_prefix) }
+  /// Testdatum
+   static var wallet_validity_since_test_date: String { return UBLocalized.tr(Key.wallet_validity_since_test_date) }
+  /// Impfdatum
+   static var wallet_validity_since_vaccination_date: String { return UBLocalized.tr(Key.wallet_validity_since_vaccination_date) }
 }
 // swiftlint:enable function_parameter_count identifier_name line_length type_body_length
 

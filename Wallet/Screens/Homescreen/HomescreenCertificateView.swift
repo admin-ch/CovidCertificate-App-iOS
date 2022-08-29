@@ -616,7 +616,7 @@ private class QRCodeView: UIView {
 
     public var state: VerificationState = .loading {
         didSet {
-            stateView.states = (state, .idle)
+            stateView.states = (state, .idle, certificate)
             update(animated: true)
         }
     }
@@ -690,7 +690,7 @@ private class LightQRCodeView: UIView {
 
     public var state: VerificationState = .loading {
         didSet {
-            stateView.states = (state, .idle)
+            stateView.states = (state, .idle, certificate)
             update(animated: true)
         }
     }

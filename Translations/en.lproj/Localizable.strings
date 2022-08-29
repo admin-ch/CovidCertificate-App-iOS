@@ -1379,7 +1379,6 @@
 "wallet_certificate_antigen_positive_date" = "Date of first positive test result";
 
 /*Wallet: Blaue Box für positiven Antigen-Test*/
-/*Fuzzy*/
 "wallet_certificate_detail_note_positive_antigen" = "This certificate is not a travel document.\n<br /><br />\nThis certificate is only valid for a limited period of time. You can check the current duration of validity in Switzerland at any time using the COVID Certificate app.";
 
 /*banner title on homescreen. case: certificate will be invalid within three weeks of validity change.*/
@@ -1438,20 +1437,10 @@
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "";
-
-/*Fuzzy*/
 "infobox_generic_title" = "Back up your certificate!";
-
-/*Fuzzy*/
 "infobox_generic_text" = "If you uninstall the app or change or lose your smartphone, you will also lose your COVID certificates.\nThis means you should also keep a copy of your certificates outside the app by exporting them as PDFs.";
-
-/*Fuzzy*/
 "infobox_generic_button" = "Find out more";
-
-/*Fuzzy*/
 "infobox_generic_url_android" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/i-only-have-my-covid-certificate-electronically-covid-certificate-app-how-can-i";
-
-/*Fuzzy*/
 "infobox_generic_url_ios" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/i-only-have-my-covid-certificate-electronically-covid-certificate-app-how-can-i";
 
 /*accessibilityLabel for the "1"-icon*/
@@ -1515,15 +1504,12 @@
 "wallet_foreign_rules_check_network_error_text" = "To check certificate validity your smartphone must be connected to the internet.";
 
 /*Reisefeature: Hinweis 1*/
-/*Fuzzy*/
 "wallet_foreign_rules_check_hint_2" = "Entry rules can change. So check the validity shortly before you depart, and go online to make sure of the latest entry rules for your destination country.";
 
 /*Reisefeature: Hinweis 2*/
-/*Fuzzy*/
 "wallet_foreign_rules_check_hint_3" = "The above information relates only to the rules for entering your destination country. Different rules may apply to settings where a certificate is required within the country.";
 
 /*Reisefeature: Hinweis 3*/
-/*Fuzzy*/
 "wallet_foreign_rules_check_hint_1" = "The federal government assumes no liability for the up-to-dateness or completeness of the information provided.";
 
 /*Reisefeature: Hinweis 4*/
@@ -1569,7 +1555,6 @@
 "rat_conversion_info2_text" = "Transferring the certificate data to the National Application Office’s online form makes it easier to validate your application.";
 
 /*Die URL für das Formular, mit dem für ein RAT Genesungszert ein reguläres Genesungszert beantragt werden kann*/
-/*Fuzzy*/
 "wallet_rat_recovery_conversion_url" = "https://covidcertificate-form.admin.ch/immunityrequest";
 
 /*RAT-Umwandlung: Titel vor Infos*/
@@ -1647,7 +1632,6 @@
 "wallet_certificate_renewal_successful_bubble_button" = "More information";
 
 /*Wallet: QR Code des Zertifikats abgelaufen*/
-/*Fuzzy*/
 "wallet_error_qr_code_expired" = "The technical expiration date for this QR code has elapsed.";
 "wallet_certificate_renewal_rate_limit_error_title" = "24h-limit reached";
 "wallet_certificate_renewal_rate_limit_error_text" = "QR code updated too often. Update temporarily blocked.";
@@ -1655,3 +1639,20 @@
 "wallet_certificate_renewal_faq_link_url" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/why-should-i-renew-qr-code-my-covid-certificate-even-though-certificate-about";
 "terms_and_conditions_update_boarding_title" = "Update";
 "terms_and_conditions_update_boarding_text" = "Certain points of the terms of use and privacy statement for the app have been updated and adapted in line with the relevant legal bases.";
+"wallet_validity_since_vaccination_date" = "";
+"wallet_validity_since_test_date" = "";
+
+/*vor 2 Tagen - must be before "2 Tagen"!*/
+"wallet_validity_since_prefix" = "";
+
+/*vor 1 Stunde*/
+"wallet_validity_since_hours_singular" = "";
+
+/*vor 2 Stunden*/
+"wallet_validity_since_hours_plural" = "";
+
+/*vor 1 Tag*/
+"wallet_validity_since_days_singular" = "";
+
+/*vor 2 Tagen*/
+"wallet_validity_since_days_plural" = "";

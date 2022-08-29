@@ -415,7 +415,7 @@ class CertificateDetailViewController: ViewController {
     }
 
     private func update() {
-        stateView.states = (state, temporaryVerifierState)
+        stateView.states = (state, temporaryVerifierState, certificate)
         modeView.states = (state, temporaryVerifierState)
         detailView.updateLabelColors(for: (state, temporaryVerifierState), animated: true)
 

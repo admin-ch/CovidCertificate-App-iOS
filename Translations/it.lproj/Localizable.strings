@@ -1379,7 +1379,6 @@
 "wallet_certificate_antigen_positive_date" = "Data del primo risultato positivo";
 
 /*Wallet: Blaue Box für positiven Antigen-Test*/
-/*Fuzzy*/
 "wallet_certificate_detail_note_positive_antigen" = "La presente attestazione non costituisce un documento di viaggio.\n<br /><br />\nQuesto certificato ha soltanto una validità temporanea. L'applicazione «COVID Certificate» consente di verificare in qualsiasi momento l'attuale durata di validità in Svizzera.";
 
 /*banner title on homescreen. case: certificate will be invalid within three weeks of validity change.*/
@@ -1438,20 +1437,10 @@
 
 /*text for pop up. case: certificate will be invalid within three weeks of validity change.*/
 "wallet_eol_banner_invalid_in_three_weeks_popup_text2" = "";
-
-/*Fuzzy*/
 "infobox_generic_title" = "Mettete al sicuro il vostro certificato!";
-
-/*Fuzzy*/
 "infobox_generic_text" = "Se cancellate l’app, cambiate o smarrite il vostro smartphone, anche i vostri certificati COVID andranno persi. \nConservate quindi i vostri certificati anche al di fuori dell’app esportandoli in formato PDF.";
-
-/*Fuzzy*/
 "infobox_generic_button" = "Per maggiori informazioni";
-
-/*Fuzzy*/
 "infobox_generic_url_android" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/ho-il-certificato-covid-esclusivamente-formato-elettronico-nellapp-covid";
-
-/*Fuzzy*/
 "infobox_generic_url_ios" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/ho-il-certificato-covid-esclusivamente-formato-elettronico-nellapp-covid";
 
 /*accessibilityLabel for the "1"-icon*/
@@ -1515,15 +1504,12 @@
 "wallet_foreign_rules_check_network_error_text" = "Per poter verificare la validità, lo smartphone deve essere collegato a Internet.";
 
 /*Reisefeature: Hinweis 1*/
-/*Fuzzy*/
 "wallet_foreign_rules_check_hint_2" = "Le disposizioni d’entrata possono cambiare. Verificate poco prima della partenza se il vostro certificato è valido e informatevi ulteriormente online sulle disposizioni d’entrata attuali del Paese di destinazione.";
 
 /*Reisefeature: Hinweis 2*/
-/*Fuzzy*/
 "wallet_foreign_rules_check_hint_3" = "Le informazioni sopra indicate si riferiscono solo alle disposizioni d’entrata del Paese di destinazione. Per eventuali settori soggetti all’obbligo di certificato all’interno del Paese possono vigere altre regole.";
 
 /*Reisefeature: Hinweis 3*/
-/*Fuzzy*/
 "wallet_foreign_rules_check_hint_1" = "La Confederazione non si assume la responsabilità per l’attualità e la completezza delle informazioni fornite.";
 
 /*Reisefeature: Hinweis 4*/
@@ -1569,7 +1555,6 @@
 "rat_conversion_info2_text" = "Con il trasferimento dei dati del certificato nel modulo online, la richiesta può essere elaborata più semplicemente.";
 
 /*Die URL für das Formular, mit dem für ein RAT Genesungszert ein reguläres Genesungszert beantragt werden kann*/
-/*Fuzzy*/
 "wallet_rat_recovery_conversion_url" = "https://covidcertificate-form.admin.ch/immunityrequest";
 
 /*RAT-Umwandlung: Titel vor Infos*/
@@ -1647,7 +1632,6 @@
 "wallet_certificate_renewal_successful_bubble_button" = "Per saperne di più";
 
 /*Wallet: QR Code des Zertifikats abgelaufen*/
-/*Fuzzy*/
 "wallet_error_qr_code_expired" = "La data di scadenza tecnica di questo codice QR sarà raggiunta.";
 "wallet_certificate_renewal_rate_limit_error_title" = "È stato raggiunto il limite di 24 ore";
 "wallet_certificate_renewal_rate_limit_error_text" = "Codice QR rinnovato troppo spesso. Rinnovo temporaneamente bloccato.";
@@ -1655,3 +1639,20 @@
 "wallet_certificate_renewal_faq_link_url" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/perche-devo-rinnovare-il-codice-qr-del-mio-certificato-covid-anche-se-secondo-le";
 "terms_and_conditions_update_boarding_title" = "Aggiornamento";
 "terms_and_conditions_update_boarding_text" = "L’informativa sulla privacy (dichiarazione sulla protezione dei dati) e le condizioni d’uso dell’app sono state puntualmente aggiornate e adeguate alle basi legali.";
+"wallet_validity_since_vaccination_date" = "";
+"wallet_validity_since_test_date" = "";
+
+/*vor 2 Tagen - must be before "2 Tagen"!*/
+"wallet_validity_since_prefix" = "";
+
+/*vor 1 Stunde*/
+"wallet_validity_since_hours_singular" = "";
+
+/*vor 2 Stunden*/
+"wallet_validity_since_hours_plural" = "";
+
+/*vor 1 Tag*/
+"wallet_validity_since_days_singular" = "";
+
+/*vor 2 Tagen*/
+"wallet_validity_since_days_plural" = "";
