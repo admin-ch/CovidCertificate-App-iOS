@@ -342,8 +342,7 @@
 		F803F4DC26A9731A0068311C /* UIStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */; };
 		F809AF322693B21D00D16EED /* OnboardingBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDEA264A5C5600FDE0E1 /* OnboardingBaseViewController.swift */; };
 		F809AF342693B25700D16EED /* OnboardingDisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDFA264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift */; };
-		F809AF362693B27C00D16EED /* TermsAndConditionsUpdateBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809AF352693B27C00D16EED /* TermsAndConditionsUpdateBoardingViewController.swift */; };
-		F809AF372693B27C00D16EED /* TermsAndConditionsUpdateBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809AF352693B27C00D16EED /* TermsAndConditionsUpdateBoardingViewController.swift */; };
+		F809AF362693B27C00D16EED /* UpdateBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F809AF352693B27C00D16EED /* UpdateBoardingViewController.swift */; };
 		F80A1140278DE3C700E54FD2 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8AC73C265291C0005A2543 /* Strings+Generated.swift */; };
 		F80A1143278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A1142278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift */; };
 		F80A1145278E2BDA00E54FD2 /* HomescreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A1144278E2BDA00E54FD2 /* HomescreenTests.swift */; };
@@ -652,7 +651,7 @@
 		F8023D99285A09E600B78ECC /* CertificateRenewExpiryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateRenewExpiryView.swift; sourceTree = "<group>"; };
 		F8023D9B285A161F00B78ECC /* RenewalHistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewalHistoryManager.swift; sourceTree = "<group>"; };
 		F803F4DB26A9731A0068311C /* UIStateManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateManagerTests.swift; sourceTree = "<group>"; };
-		F809AF352693B27C00D16EED /* TermsAndConditionsUpdateBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsUpdateBoardingViewController.swift; sourceTree = "<group>"; };
+		F809AF352693B27C00D16EED /* UpdateBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBoardingViewController.swift; sourceTree = "<group>"; };
 		F80A1142278DE47B00E54FD2 /* XCUIElementQuery+UBLocalizedKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElementQuery+UBLocalizedKey.swift"; sourceTree = "<group>"; };
 		F80A1144278E2BDA00E54FD2 /* HomescreenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomescreenTests.swift; sourceTree = "<group>"; };
 		F80A1146278E2D8000E54FD2 /* XCUIApplication+Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Wallet.swift"; sourceTree = "<group>"; };
@@ -1382,6 +1381,7 @@
 		DC8ABDE9264A5C4500FDE0E1 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				F809AF2D2693AE0700D16EED /* UpdateBoarding */,
 				DC8ABDEE264A643000FDE0E1 /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
@@ -1469,7 +1469,7 @@
 		F809AF2D2693AE0700D16EED /* UpdateBoarding */ = {
 			isa = PBXGroup;
 			children = (
-				F809AF352693B27C00D16EED /* TermsAndConditionsUpdateBoardingViewController.swift */,
+				F809AF352693B27C00D16EED /* UpdateBoardingViewController.swift */,
 			);
 			path = UpdateBoarding;
 			sourceTree = "<group>";
@@ -1478,7 +1478,6 @@
 			isa = PBXGroup;
 			children = (
 				DC8ABDEA264A5C5600FDE0E1 /* OnboardingBaseViewController.swift */,
-				F809AF2D2693AE0700D16EED /* UpdateBoarding */,
 				DC8ABDFA264AA2BF00FDE0E1 /* OnboardingDisclaimerViewController.swift */,
 			);
 			path = Onboarding;
@@ -2016,7 +2015,6 @@
 				6EC172FD26429E31002E27DB /* UIImage+UBHelpers.m in Sources */,
 				6E0281F326550E1100582904 /* InfoBoxView.swift in Sources */,
 				6EC172FE26429E31002E27DB /* OSLogger.swift in Sources */,
-				F809AF372693B27C00D16EED /* TermsAndConditionsUpdateBoardingViewController.swift in Sources */,
 				6EC172FF26429E31002E27DB /* NavigationController.swift in Sources */,
 				6EE55DA02760A01F001F9E1F /* VerifierHomescreenBottomView.swift in Sources */,
 				DCF9C35726562E5C00E34481 /* ExpandableViewHeader.swift in Sources */,
@@ -2142,7 +2140,7 @@
 				6EE55DAC27613D5F001F9E1F /* CheckModes.swift in Sources */,
 				6E7C0D37242E02600017C4F9 /* StackScrollView.swift in Sources */,
 				DCA3FFB824504B190003F5AD /* ClickthroughStackView.swift in Sources */,
-				F809AF362693B27C00D16EED /* TermsAndConditionsUpdateBoardingViewController.swift in Sources */,
+				F809AF362693B27C00D16EED /* UpdateBoardingViewController.swift in Sources */,
 				6E5A0F26264336B4004718B4 /* UIStateManager.swift in Sources */,
 				F84E70B12714DFD700512A49 /* UserCertificate+UserActivity.swift in Sources */,
 				F8D5B159268C400B00C39836 /* IconImageRowView.swift in Sources */,

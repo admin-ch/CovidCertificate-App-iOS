@@ -78,24 +78,34 @@ struct StaticContentViewModel: Equatable {
                                                                 (UIImage.icon(named: "ic-three", withAccessibilityLabel: UBLocalized.wallet_scanner_how_it_works_accessibility_icon3), UBLocalized.wallet_scanner_howitworks_text4)],
                                                    expandableTextGroups: [(UBLocalized.wallet_scanner_howitworks_question1, UBLocalized.wallet_scanner_howitworks_answer1, UBLocalized.wallet_scanner_howitworks_external_link_title, URL(string: UBLocalized.wallet_scanner_howitworks_external_link))])
 
-    #if WALLET
-        static let termsAndConditionsUpdateBoarding = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
-                                                                             foregroundImage: UIImage(named: "illu-onboarding-data-protection"),
-                                                                             title: UBLocalized.terms_and_conditions_update_boarding_title,
-                                                                             alignment: .center,
-                                                                             textGroups: [(nil, UBLocalized.terms_and_conditions_update_boarding_text)])
-    #elseif VERIFIER
-        static let termsAndConditionsUpdateBoarding = StaticContentViewModel(heading: UBLocalized.verifier_update_boarding_header,
-                                                                             foregroundImage: UIImage(named: "illu-onboarding-data-protection"),
-                                                                             title: UBLocalized.terms_and_conditions_update_boarding_title,
-                                                                             alignment: .center,
-                                                                             textGroups: [(nil, UBLocalized.terms_and_conditions_update_boarding_text)])
-    #endif
-
     static let certificateLight = StaticContentViewModel(title: UBLocalized.wallet_certificate_light_detail_summary_title,
                                                          alignment: .center,
                                                          textGroups: [(UIImage(named: "ic-bund-small"), UBLocalized.wallet_scanner_howitworks_text1),
                                                                       (UIImage(named: "ic-one"), UBLocalized.wallet_scanner_howitworks_text2),
                                                                       (UIImage(named: "ic-two"), UBLocalized.wallet_scanner_howitworks_text3),
                                                                       (UIImage(named: "ic-three"), UBLocalized.wallet_scanner_howitworks_text4)])
+
+    #if WALLET
+
+        static let updateBoardingStep1 = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
+                                                                foregroundImage: UIImage(named: "illu-onboarding-hero"),
+                                                                title: "Lorem ipsum",
+                                                                alignment: .center,
+                                                                textGroups: [(nil, "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.")])
+
+        static let updateBoardingStep2 = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
+                                                                foregroundImage: UIImage(named: "illu-onboarding-hero"),
+                                                                title: "Lorem ipsum",
+                                                                alignment: .center,
+                                                                textGroups: [(UIImage(named: "ic-bund-small"), "Lorem ipsum dolor sit amet, consetetur sadipscing elitr"),
+                                                                             (UIImage(named: "ic-one"), "Lorem ipsum dolor sit amet, consetetur sadipscing elitr")])
+
+        static let updateBoardingStep3 = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
+                                                                foregroundImage: UIImage(named: "illu-onboarding-hero"),
+                                                                title: "Lorem ipsum",
+                                                                alignment: .center,
+                                                                textGroups: [(UIImage(named: "ic-bund-small"), "Lorem ipsum dolor sit amet, consetetur sadipscing elitr"),
+                                                                             (UIImage(named: "ic-one"), "Lorem ipsum dolor sit amet, consetetur sadipscing elitr")])
+
+    #endif
 }

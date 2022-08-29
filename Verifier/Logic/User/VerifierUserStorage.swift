@@ -19,9 +19,6 @@ class VerifierUserStorage {
     @UBUserDefault(key: "verifier.user.hasCompletedOnboarding", defaultValue: false)
     var hasCompletedOnboarding: Bool
 
-    @UBUserDefault(key: "wallet.user.hasCompletedTermsAndConditionsUpdateBoarding", defaultValue: false)
-    var hasCompletedTermsAndConditionsUpdateBoarding: Bool
-
     @UBUserDefault(key: "verifier.user.checkmode.key", defaultValue: nil)
     var checkModeKey: String? {
         didSet {

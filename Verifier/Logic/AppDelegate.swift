@@ -36,8 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if isFirstLaunch {
             Keychain().deleteAll()
             isFirstLaunch = false
-            // dont show light certificate update boarding on first launch
-            VerifierUserStorage.shared.hasCompletedTermsAndConditionsUpdateBoarding = true
         }
 
         // no onboarding: so directly complete it here (so that the
@@ -98,14 +96,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
 
         setupAppearance()
-
-        if !VerifierUserStorage.shared.hasCompletedTermsAndConditionsUpdateBoarding {
-            let onboardingViewController = TermsAndConditionsUpdateBoardingViewController()
-            onboardingViewController.modalPresentationStyle = .fullScreen
-            window?.rootViewController = onboardingViewController
-        } else {
-            window?.rootViewController = navigationController
-        }
 
         window?.makeKeyAndVisible()
     }
