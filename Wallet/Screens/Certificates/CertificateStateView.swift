@@ -110,7 +110,7 @@ class CertificateStateView: UIView {
                 make.bottom.equalToSuperview()
             }
 
-            validityErrorStackView.addArrangedSubview((ConfigManager.currentConfig?.showValiditySince ?? true) ? ageView : validityView)
+            validityErrorStackView.addArrangedSubview((ConfigManager.currentConfig?.showValidityState ?? false) ? validityView : ageView)
             validityErrorStackView.addArrangedSubview(errorLabel)
 
             validityView.backgroundColor = .cc_greyBackground
@@ -264,7 +264,7 @@ class CertificateStateView: UIView {
                         self.ageView.backgroundColor = .cc_greyish
                     }
 
-                    if ConfigManager.currentConfig?.showValiditySince ?? true,
+                    if !(ConfigManager.currentConfig?.showValidityState ?? false),
                        let error = first,
                        case VerificationError.expired = error {
                         self.validityView.textColor = .cc_black
