@@ -12,20 +12,6 @@
 import Foundation
 
 enum RelativeDateFormatter {
-    private static let dayComponentFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .full
-        formatter.allowedUnits = [.day]
-        return formatter
-    }()
-
-    private static let hourComponentFormatter = {
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .full
-        formatter.allowedUnits = [.hour]
-        return formatter
-    }()
-
     static func string(from date: Date?) -> String? {
         guard let date = date else { return nil }
         let now = Date()
