@@ -13,7 +13,7 @@ import CovidCertificateSDK
 import UIKit
 
 class CertificateStateAgeView: UIView {
-    // MARK: - Validity
+    // MARK: - Age
 
     let dateTitleLabel = Label(.text)
     let dateLabel = Label(.textBold)

@@ -318,8 +318,14 @@ class CertificateStateView: UIView {
 
             let accText = String(with: self.textLabel.attributedText?.string.filter { $0 != "\n" } ?? self.textLabel.attributedText?.string ?? "")
             if self.hasValidityView {
-                let accValidText = String(with: self.validityView.validityTitleLabel.text?.filter { $0 != "\n" } ?? self.validityView.validityTitleLabel.text?.string ?? "")
-                self.accessibilityLabel = [accText, accValidText, self.validityView.untilTitleLabel.text, DateFormatter.ub_accessibilityDateString(dateString: self.validityView.untilText)].compactMap { $0 }.joined(separator: ", ")
+                if (ConfigManager.currentConfig?.showValidityState ?? false) {
+                    let accValidText = String(with: self.validityView.validityTitleLabel.text?.filter { $0 != "\n" } ?? self.validityView.validityTitleLabel.text?.string ?? "")
+                    self.accessibilityLabel = [accText, accValidText, self.validityView.untilTitleLabel.text, DateFormatter.ub_accessibilityDateString(dateString: self.validityView.untilText)].compactMap { $0 }.joined(separator: ", ")
+                } else  {
+                    let accAgeText = [self.ageView.dateTitleLabel.text, self.ageView.dateLabel.text].compactMap{ $0 }.joined(separator: " ")
+                    self.accessibilityLabel = [accText, accAgeText, self.validityView.untilTitleLabel.text, DateFormatter.ub_accessibilityDateString(dateString: self.validityView.untilText)].compactMap { $0 }.joined(separator: ", ")
+                }
+
             } else {
                 self.accessibilityLabel = accText
             }
