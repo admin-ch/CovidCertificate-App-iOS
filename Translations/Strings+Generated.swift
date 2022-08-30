@@ -1234,6 +1234,42 @@ import Foundation
      case wallet_update_boarding_certificate_light_title
     /// Update
      case wallet_update_boarding_header
+    /// Neu wird auf dem Covid-Zertifikat das Feld «Gültigkeit in der Schweiz» nicht mehr dargestellt. Stattdessen zeigt die App den Zeitpunkt der Impfung bzw. des Tests an. Warum?
+     case wallet_update_boarding_page_1_text
+    /// Was ist neu?
+     case wallet_update_boarding_page_1_title
+    /// Die Zertifikatspflicht in der Schweiz wurde im Februar 2022 aufgehoben.
+     case wallet_update_boarding_page_2_bullet_1
+    /// Die Schweizer Gültigkeitsdauern bestehen seitdem nur noch formell und haben im Inland keine praktische Bedeutung mehr.
+     case wallet_update_boarding_page_2_bullet_2
+    /// Die Schweizer Gültigkeitsdauer hat auch im Ausland keine Bedeutung.
+     case wallet_update_boarding_page_2_bullet_3
+    /// Covid-Zertifikate \nin der Schweiz
+     case wallet_update_boarding_page_2_title
+    /// Im Ausland gelten die Regeln des entsprechenden Landes.
+     case wallet_update_boarding_page_3_bullet_1
+    /// Neu zeigt die App an, wie viele Tage eine Impfung bzw. ein Test her ist.
+     case wallet_update_boarding_page_3_bullet_2
+    /// So können Sie einfacher feststellen, ob Ihr Zertifikat den Regeln Ihres Ziellandes entspricht (falls das Land noch ein Covid-Zertifikat voraussetzt).
+     case wallet_update_boarding_page_3_bullet_3
+    /// Covid-Zertifikate \nim Ausland
+     case wallet_update_boarding_page_3_title
+    /// Die meisten Länder in Europa haben die Zertifikatspflicht für die Einreise inzwischen aufgehoben.
+     case wallet_update_boarding_page_4_bullet_1
+    /// Die Funktion «Gültigkeit im Ausland» wurde daher ebenfalls entfernt.
+     case wallet_update_boarding_page_4_bullet_2
+    /// Ob in in einem Land noch eine Zertifikatspflicht gilt, erfahren Sie auf diesen Webseiten:
+     case wallet_update_boarding_page_4_bullet_3
+    /// reopen.europa.eu
+     case wallet_update_boarding_page_4_link_1_text
+    /// https://reopen.europa.eu
+     case wallet_update_boarding_page_4_link_1_url
+    /// iatatravelcentre.com
+     case wallet_update_boarding_page_4_link_2_text
+    /// https://www.iatatravelcentre.com
+     case wallet_update_boarding_page_4_link_2_url
+    /// Aktuelle Situation in Europa und weltweit
+     case wallet_update_boarding_page_4_title
     /// UVCI kopiert
      case wallet_uvci_copied
     /// {DAYS} Tagen
@@ -2476,6 +2512,42 @@ import Foundation
    static var wallet_update_boarding_certificate_light_title: String { return UBLocalized.tr(Key.wallet_update_boarding_certificate_light_title) }
   /// Update
    static var wallet_update_boarding_header: String { return UBLocalized.tr(Key.wallet_update_boarding_header) }
+  /// Neu wird auf dem Covid-Zertifikat das Feld «Gültigkeit in der Schweiz» nicht mehr dargestellt. Stattdessen zeigt die App den Zeitpunkt der Impfung bzw. des Tests an. Warum?
+   static var wallet_update_boarding_page_1_text: String { return UBLocalized.tr(Key.wallet_update_boarding_page_1_text) }
+  /// Was ist neu?
+   static var wallet_update_boarding_page_1_title: String { return UBLocalized.tr(Key.wallet_update_boarding_page_1_title) }
+  /// Die Zertifikatspflicht in der Schweiz wurde im Februar 2022 aufgehoben.
+   static var wallet_update_boarding_page_2_bullet_1: String { return UBLocalized.tr(Key.wallet_update_boarding_page_2_bullet_1) }
+  /// Die Schweizer Gültigkeitsdauern bestehen seitdem nur noch formell und haben im Inland keine praktische Bedeutung mehr.
+   static var wallet_update_boarding_page_2_bullet_2: String { return UBLocalized.tr(Key.wallet_update_boarding_page_2_bullet_2) }
+  /// Die Schweizer Gültigkeitsdauer hat auch im Ausland keine Bedeutung.
+   static var wallet_update_boarding_page_2_bullet_3: String { return UBLocalized.tr(Key.wallet_update_boarding_page_2_bullet_3) }
+  /// Covid-Zertifikate \nin der Schweiz
+   static var wallet_update_boarding_page_2_title: String { return UBLocalized.tr(Key.wallet_update_boarding_page_2_title) }
+  /// Im Ausland gelten die Regeln des entsprechenden Landes.
+   static var wallet_update_boarding_page_3_bullet_1: String { return UBLocalized.tr(Key.wallet_update_boarding_page_3_bullet_1) }
+  /// Neu zeigt die App an, wie viele Tage eine Impfung bzw. ein Test her ist.
+   static var wallet_update_boarding_page_3_bullet_2: String { return UBLocalized.tr(Key.wallet_update_boarding_page_3_bullet_2) }
+  /// So können Sie einfacher feststellen, ob Ihr Zertifikat den Regeln Ihres Ziellandes entspricht (falls das Land noch ein Covid-Zertifikat voraussetzt).
+   static var wallet_update_boarding_page_3_bullet_3: String { return UBLocalized.tr(Key.wallet_update_boarding_page_3_bullet_3) }
+  /// Covid-Zertifikate \nim Ausland
+   static var wallet_update_boarding_page_3_title: String { return UBLocalized.tr(Key.wallet_update_boarding_page_3_title) }
+  /// Die meisten Länder in Europa haben die Zertifikatspflicht für die Einreise inzwischen aufgehoben.
+   static var wallet_update_boarding_page_4_bullet_1: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_bullet_1) }
+  /// Die Funktion «Gültigkeit im Ausland» wurde daher ebenfalls entfernt.
+   static var wallet_update_boarding_page_4_bullet_2: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_bullet_2) }
+  /// Ob in in einem Land noch eine Zertifikatspflicht gilt, erfahren Sie auf diesen Webseiten:
+   static var wallet_update_boarding_page_4_bullet_3: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_bullet_3) }
+  /// reopen.europa.eu
+   static var wallet_update_boarding_page_4_link_1_text: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_link_1_text) }
+  /// https://reopen.europa.eu
+   static var wallet_update_boarding_page_4_link_1_url: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_link_1_url) }
+  /// iatatravelcentre.com
+   static var wallet_update_boarding_page_4_link_2_text: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_link_2_text) }
+  /// https://www.iatatravelcentre.com
+   static var wallet_update_boarding_page_4_link_2_url: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_link_2_url) }
+  /// Aktuelle Situation in Europa und weltweit
+   static var wallet_update_boarding_page_4_title: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_title) }
   /// UVCI kopiert
    static var wallet_uvci_copied: String { return UBLocalized.tr(Key.wallet_uvci_copied) }
   /// {DAYS} Tagen

@@ -1656,3 +1656,21 @@
 
 /*vor 2 Tagen*/
 "wallet_validity_since_days_plural" = "";
+"wallet_update_boarding_page_1_title" = "";
+"wallet_update_boarding_page_1_text" = "";
+"wallet_update_boarding_page_2_title" = "";
+"wallet_update_boarding_page_2_bullet_1" = "";
+"wallet_update_boarding_page_2_bullet_2" = "";
+"wallet_update_boarding_page_2_bullet_3" = "";
+"wallet_update_boarding_page_3_title" = "";
+"wallet_update_boarding_page_3_bullet_1" = "";
+"wallet_update_boarding_page_3_bullet_2" = "";
+"wallet_update_boarding_page_3_bullet_3" = "";
+"wallet_update_boarding_page_4_title" = "";
+"wallet_update_boarding_page_4_bullet_1" = "";
+"wallet_update_boarding_page_4_bullet_2" = "";
+"wallet_update_boarding_page_4_bullet_3" = "";
+"wallet_update_boarding_page_4_link_1_text" = "reopen.europa.eu";
+"wallet_update_boarding_page_4_link_1_url" = "https://reopen.europa.eu";
+"wallet_update_boarding_page_4_link_2_text" = "iatatravelcentre.com";
+"wallet_update_boarding_page_4_link_2_url" = "https://www.iatatravelcentre.com";

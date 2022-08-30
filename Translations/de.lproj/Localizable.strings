@@ -1656,3 +1656,21 @@
 
 /*vor 2 Tagen*/
 "wallet_validity_since_days_plural" = "{DAYS} Tagen";
+"wallet_update_boarding_page_1_title" = "Was ist neu?";
+"wallet_update_boarding_page_1_text" = "Neu wird auf dem Covid-Zertifikat das Feld «Gültigkeit in der Schweiz» nicht mehr dargestellt. Stattdessen zeigt die App den Zeitpunkt der Impfung bzw. des Tests an. Warum?";
+"wallet_update_boarding_page_2_title" = "Covid-Zertifikate \nin der Schweiz";
+"wallet_update_boarding_page_2_bullet_1" = "Die Zertifikatspflicht in der Schweiz wurde im Februar 2022 aufgehoben.";
+"wallet_update_boarding_page_2_bullet_2" = "Die Schweizer Gültigkeitsdauern bestehen seitdem nur noch formell und haben im Inland keine praktische Bedeutung mehr.";
+"wallet_update_boarding_page_2_bullet_3" = "Die Schweizer Gültigkeitsdauer hat auch im Ausland keine Bedeutung.";
+"wallet_update_boarding_page_3_title" = "Covid-Zertifikate \nim Ausland";
+"wallet_update_boarding_page_3_bullet_1" = "Im Ausland gelten die Regeln des entsprechenden Landes.";
+"wallet_update_boarding_page_3_bullet_2" = "Neu zeigt die App an, wie viele Tage eine Impfung bzw. ein Test her ist.";
+"wallet_update_boarding_page_3_bullet_3" = "So können Sie einfacher feststellen, ob Ihr Zertifikat den Regeln Ihres Ziellandes entspricht (falls das Land noch ein Covid-Zertifikat voraussetzt).";
+"wallet_update_boarding_page_4_title" = "Aktuelle Situation in Europa und weltweit";
+"wallet_update_boarding_page_4_bullet_1" = "Die meisten Länder in Europa haben die Zertifikatspflicht für die Einreise inzwischen aufgehoben.";
+"wallet_update_boarding_page_4_bullet_2" = "Die Funktion «Gültigkeit im Ausland» wurde daher ebenfalls entfernt.";
+"wallet_update_boarding_page_4_bullet_3" = "Ob in in einem Land noch eine Zertifikatspflicht gilt, erfahren Sie auf diesen Webseiten:";
+"wallet_update_boarding_page_4_link_1_text" = "reopen.europa.eu";
+"wallet_update_boarding_page_4_link_1_url" = "https://reopen.europa.eu";
+"wallet_update_boarding_page_4_link_2_text" = "iatatravelcentre.com";
+"wallet_update_boarding_page_4_link_2_url" = "https://www.iatatravelcentre.com";
