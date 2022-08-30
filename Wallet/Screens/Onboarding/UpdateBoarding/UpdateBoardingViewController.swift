@@ -15,13 +15,14 @@ class UpdateBoardingViewController: OnboardingBaseViewController {
     private let step1VC = StaticContentViewController(models: [.updateBoardingStep1])
     private let step2VC = StaticContentViewController(models: [.updateBoardingStep2])
     private let step3VC = StaticContentViewController(models: [.updateBoardingStep3])
+    private let step4VC = StaticContentViewController(models: [.updateBoardingStep4])
 
     override internal var stepViewControllers: [OnboardingContentViewController] {
-        [step1VC, step2VC, step3VC]
+        [step1VC, step2VC, step3VC, step4VC]
     }
 
     override internal var finalStepIndex: Int {
-        return 2
+        return 3
     }
 
     override public func completedOnboarding() {

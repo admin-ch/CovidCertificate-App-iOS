@@ -75,6 +75,32 @@ class StaticContentViewController: OnboardingContentViewController {
                 }
             }
 
+            if !model.externalLinks.isEmpty {
+                for (title, url) in model.externalLinks {
+                    let externalLink = ExternalLinkButton(title: title)
+                    externalLink.touchUpCallback = {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                    externalLink.accessibilityTraits = .link
+
+                    let buttonWrapper = UIView()
+                    buttonWrapper.addSubview(externalLink)
+                    externalLink.snp.makeConstraints { make in
+                        make.left.equalToSuperview().inset(4 * Padding.medium + Padding.small)
+                        make.top.bottom.equalToSuperview()
+                        make.right.lessThanOrEqualToSuperview()
+                    }
+
+                    Self.addArrangedView(buttonWrapper, stackView: stackView)
+
+                    buttonWrapper.snp.makeConstraints { make in
+                        make.width.equalTo(stackView)
+                    }
+
+                    stackView.addSpacerView(Padding.medium)
+                }
+            }
+
             if !model.expandableTextGroups.isEmpty {
                 stackView.addSpacerView(2.0 * Padding.medium)
                 for (title, text, linkTitle, linkUrl) in model.expandableTextGroups {
