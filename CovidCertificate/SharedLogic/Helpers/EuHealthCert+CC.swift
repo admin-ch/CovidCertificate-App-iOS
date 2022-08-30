@@ -130,6 +130,11 @@ extension PastInfection {
         guard let firstPositiveTestResultDate = firstPositiveTestResultDate else { return nil }
         return DateFormatter.ub_dayTimeString(from: firstPositiveTestResultDate)
     }
+
+    var displayFirstPositiveTestDay: String? {
+        guard let firstPositiveTestResultDate = firstPositiveTestResultDate else { return nil }
+        return DateFormatter.ub_dayString(from: firstPositiveTestResultDate)
+    }
 }
 
 extension Test {
@@ -144,6 +149,11 @@ extension Test {
     var displaySampleDateTime: String? {
         guard let validFromDate = validFromDate else { return nil }
         return DateFormatter.ub_dayTimeString(from: validFromDate)
+    }
+
+    var displaySampleDate: String? {
+        guard let validFromDate = validFromDate else { return nil }
+        return DateFormatter.ub_dayString(from: validFromDate)
     }
 
     var displayResultDateTime: String? {
