@@ -21,8 +21,8 @@ class WalletUserStorage {
         }
     }
 
-    @UBUserDefault(key: "wallet.user.hasCompletedTermsAndConditionsUpdateBoarding", defaultValue: false)
-    var hasCompletedTermsAndConditionsUpdateBoarding: Bool
+    @UBUserDefault(key: "wallet.user.hasCompletedUpdateBoarding2022.8", defaultValue: false)
+    var hasCompletedUpdateBoarding: Bool
 
     @UBUserDefault(key: "wallet.user.hasCompletedSecureStorageMigration", defaultValue: false)
     var hasCompletedSecureStorageMigration: Bool

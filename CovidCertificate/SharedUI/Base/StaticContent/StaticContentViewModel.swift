@@ -18,19 +18,22 @@ struct StaticContentViewModel: Equatable {
     let alignment: NSTextAlignment
     let textGroups: [(UIImage?, String)]
     let expandableTextGroups: [(String, String, String?, URL?)]
+    let externalLinks: [(String, URL)]
 
     init(heading: String? = nil,
          foregroundImage: UIImage? = nil,
          title: String,
          alignment: NSTextAlignment = .left,
          textGroups: [(UIImage?, String)] = [],
-         expandableTextGroups: [(String, String, String?, URL?)] = []) {
+         expandableTextGroups: [(String, String, String?, URL?)] = [],
+         externalLinks: [(String, URL)] = []) {
         self.heading = heading
         self.foregroundImage = foregroundImage
         self.title = title
         self.alignment = alignment
         self.textGroups = textGroups
         self.expandableTextGroups = expandableTextGroups
+        self.externalLinks = externalLinks
     }
 
     static func == (lhs: StaticContentViewModel, rhs: StaticContentViewModel) -> Bool {
@@ -42,6 +45,8 @@ struct StaticContentViewModel: Equatable {
                 $0.0 == $1.0 && $0.1 == $1.1
             } && lhs.expandableTextGroups.elementsEqual(rhs.expandableTextGroups) {
                 $0.0 == $1.0 && $0.1 == $1.1 && $0.2 == $1.2 && $0.3 == $1.3
+            } && lhs.externalLinks.elementsEqual(rhs.externalLinks) {
+                $0.0 == $1.0 && $0.1 == $1.1
             }
     }
 
@@ -78,24 +83,46 @@ struct StaticContentViewModel: Equatable {
                                                                 (UIImage.icon(named: "ic-three", withAccessibilityLabel: UBLocalized.wallet_scanner_how_it_works_accessibility_icon3), UBLocalized.wallet_scanner_howitworks_text4)],
                                                    expandableTextGroups: [(UBLocalized.wallet_scanner_howitworks_question1, UBLocalized.wallet_scanner_howitworks_answer1, UBLocalized.wallet_scanner_howitworks_external_link_title, URL(string: UBLocalized.wallet_scanner_howitworks_external_link))])
 
-    #if WALLET
-        static let termsAndConditionsUpdateBoarding = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
-                                                                             foregroundImage: UIImage(named: "illu-onboarding-data-protection"),
-                                                                             title: UBLocalized.terms_and_conditions_update_boarding_title,
-                                                                             alignment: .center,
-                                                                             textGroups: [(nil, UBLocalized.terms_and_conditions_update_boarding_text)])
-    #elseif VERIFIER
-        static let termsAndConditionsUpdateBoarding = StaticContentViewModel(heading: UBLocalized.verifier_update_boarding_header,
-                                                                             foregroundImage: UIImage(named: "illu-onboarding-data-protection"),
-                                                                             title: UBLocalized.terms_and_conditions_update_boarding_title,
-                                                                             alignment: .center,
-                                                                             textGroups: [(nil, UBLocalized.terms_and_conditions_update_boarding_text)])
-    #endif
-
     static let certificateLight = StaticContentViewModel(title: UBLocalized.wallet_certificate_light_detail_summary_title,
                                                          alignment: .center,
                                                          textGroups: [(UIImage(named: "ic-bund-small"), UBLocalized.wallet_scanner_howitworks_text1),
                                                                       (UIImage(named: "ic-one"), UBLocalized.wallet_scanner_howitworks_text2),
                                                                       (UIImage(named: "ic-two"), UBLocalized.wallet_scanner_howitworks_text3),
                                                                       (UIImage(named: "ic-three"), UBLocalized.wallet_scanner_howitworks_text4)])
+
+    #if WALLET
+
+        static let updateBoardingStep1 = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
+                                                                foregroundImage: UIImage(named: "illu-onboarding-hero"),
+                                                                title: UBLocalized.wallet_update_boarding_page_1_title,
+                                                                alignment: .center,
+                                                                textGroups: [(nil, UBLocalized.wallet_update_boarding_page_1_text)])
+
+        static let updateBoardingStep2 = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
+                                                                title: UBLocalized.wallet_update_boarding_page_2_title,
+                                                                textGroups: [(nil, ""),
+                                                                             (UIImage(named: "ic-bund-small"), UBLocalized.wallet_update_boarding_page_2_bullet_1),
+                                                                             (UIImage(named: "ic-timelapse")?.ub_image(with: .cc_blue), UBLocalized.wallet_update_boarding_page_2_bullet_2),
+                                                                             (UIImage(named: "ic-travel"), UBLocalized.wallet_update_boarding_page_2_bullet_3)])
+
+        static let updateBoardingStep3 = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
+                                                                title: UBLocalized.wallet_update_boarding_page_3_title,
+                                                                textGroups: [(nil, ""),
+                                                                             (UIImage(named: "ic-travel"), UBLocalized.wallet_update_boarding_page_3_bullet_1),
+                                                                             (UIImage(named: "ic-calendar"), UBLocalized.wallet_update_boarding_page_3_bullet_2),
+                                                                             (UIImage(named: "ic-data-protection"), UBLocalized.wallet_update_boarding_page_3_bullet_3)])
+
+        static let updateBoardingStep4 = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
+                                                                title: UBLocalized.wallet_update_boarding_page_4_title,
+                                                                textGroups: [(nil, ""),
+                                                                             (UIImage(named: "ic-check-mark"), UBLocalized.wallet_update_boarding_page_4_bullet_1),
+                                                                             (UIImage(named: "ic-travel"), UBLocalized.wallet_update_boarding_page_4_bullet_2),
+                                                                             (UIImage(named: "ic-question-outline"), UBLocalized.wallet_update_boarding_page_4_bullet_3)],
+                                                                externalLinks:
+                                                                [
+                                                                    (UBLocalized.wallet_update_boarding_page_4_link_1_text, URL(string: UBLocalized.wallet_update_boarding_page_4_link_1_url)!),
+                                                                    (UBLocalized.wallet_update_boarding_page_4_link_2_text, URL(string: UBLocalized.wallet_update_boarding_page_4_link_2_url)!),
+                                                                ])
+
+    #endif
 }

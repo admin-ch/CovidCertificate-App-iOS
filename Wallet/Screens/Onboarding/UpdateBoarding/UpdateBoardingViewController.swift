@@ -11,23 +11,22 @@
 
 import UIKit
 
-class TermsAndConditionsUpdateBoardingViewController: OnboardingBaseViewController {
-    private let step1VC = OnboardingDisclaimerViewController(model: .termsAndConditionsUpdateBoarding, continueButtonTextKey: .continue_button)
+class UpdateBoardingViewController: OnboardingBaseViewController {
+    private let step1VC = StaticContentViewController(models: [.updateBoardingStep1])
+    private let step2VC = StaticContentViewController(models: [.updateBoardingStep2])
+    private let step3VC = StaticContentViewController(models: [.updateBoardingStep3])
+    private let step4VC = StaticContentViewController(models: [.updateBoardingStep4])
 
     override internal var stepViewControllers: [OnboardingContentViewController] {
-        [step1VC]
+        [step1VC, step2VC, step3VC, step4VC]
     }
 
     override internal var finalStepIndex: Int {
-        return 0
+        return 3
     }
 
     override public func completedOnboarding() {
-        #if WALLET
-            WalletUserStorage.shared.hasCompletedTermsAndConditionsUpdateBoarding = true
-        #elseif VERIFIER
-            VerifierUserStorage.shared.hasCompletedTermsAndConditionsUpdateBoarding = true
-        #endif
+        WalletUserStorage.shared.hasCompletedUpdateBoarding = true
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             appDelegate.completedOnboarding()
         }
