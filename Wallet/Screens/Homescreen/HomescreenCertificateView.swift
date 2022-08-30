@@ -669,7 +669,11 @@ private class QRCodeView: UIView {
 
         let isSignatureOrRevocationError = state.isSignatureOrRevocationError()
 
-        let isInvalid = (isTest || isSignatureOrRevocationError) ? state.isInvalid() : false
+        var isInvalid = (isTest || isSignatureOrRevocationError) ? state.isInvalid() : false
+
+        if state.getFirstError()?.showError == false {
+            isInvalid = false
+        }
 
         nameView.enabled = !isInvalid
         nameView.certificate = certificate

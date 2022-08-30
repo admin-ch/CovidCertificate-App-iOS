@@ -65,6 +65,18 @@ extension VerificationError {
             }
         }
     }
+
+    var showError: Bool {
+        if ConfigManager.currentConfig?.showValidityState ?? false {
+            return true
+        }
+        switch self {
+        case .expired, .notYetValid:
+            return false
+        default:
+            return true
+        }
+    }
 }
 
 extension RetryError {

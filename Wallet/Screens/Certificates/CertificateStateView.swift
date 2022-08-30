@@ -254,7 +254,7 @@ class CertificateStateView: UIView {
                     let first = self.states.state.getFirstError()
 
                     switch first {
-                    case .signatureExpired, .expired:
+                    case .signatureExpired, .expired, .notYetValid:
                         self.backgroundView.backgroundColor = .cc_blueish
                         self.validityView.backgroundColor = .cc_blueish
                         self.ageView.backgroundColor = .cc_blueish
@@ -264,20 +264,18 @@ class CertificateStateView: UIView {
                         self.ageView.backgroundColor = .cc_greyish
                     }
 
-                    if !(ConfigManager.currentConfig?.showValidityState ?? false),
-                       let error = first,
-                       case VerificationError.expired = error {
-                        self.validityView.textColor = .cc_black
-                        self.ageView.textColor = .cc_black
-
-                        self.imageView.image = UIImage(named: "ic-info-filled")
-                        self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
-                    } else {
+                    if first?.showError ?? true {
                         self.validityView.textColor = .cc_grey
                         self.ageView.textColor = .cc_grey
 
                         self.imageView.image = first?.icon()
                         self.textLabel.attributedText = first?.displayName()
+                    } else {
+                        self.validityView.textColor = .cc_black
+                        self.ageView.textColor = .cc_black
+
+                        self.imageView.image = UIImage(named: "ic-info-filled")
+                        self.textLabel.attributedText = NSAttributedString(string: UBLocalized.verifier_verify_success_info)
                     }
 
                     self.validityView.untilText = validUntil
