@@ -373,6 +373,8 @@
 		F85ED9A32499EF93007EBC49 /* Bundle+BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85ED9A22499EF93007EBC49 /* Bundle+BuildInfo.swift */; };
 		F86A6A832637F93D003CAC1B /* UICollection+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86A6A822637F93D003CAC1B /* UICollection+CC.swift */; };
 		F86A6A862637F944003CAC1B /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86A6A852637F944003CAC1B /* ReusableView.swift */; };
+		F87E3F8E28BCB359000E7AD4 /* CertificateStateAgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E3F8D28BCB359000E7AD4 /* CertificateStateAgeView.swift */; };
+		F87E3F9028BCBA49000E7AD4 /* RelativeDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E3F8F28BCBA49000E7AD4 /* RelativeDateFormatter.swift */; };
 		F87E96D7263AEA9100755AF1 /* OSLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87E96D6263AEA9100755AF1 /* OSLogger.swift */; };
 		F88D99DB2497938E0081790E /* UIImage+localizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */; };
 		F88DA6B3268C786D001DB072 /* Error+NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88DA6B2268C786D001DB072 /* Error+NetworkError.swift */; };
@@ -679,6 +681,8 @@
 		F86A6A822637F93D003CAC1B /* UICollection+CC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollection+CC.swift"; sourceTree = "<group>"; };
 		F86A6A852637F944003CAC1B /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		F87C369F258B6652008DCC81 /* ExposureNotification.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExposureNotification.framework; path = System/Library/Frameworks/ExposureNotification.framework; sourceTree = SDKROOT; };
+		F87E3F8D28BCB359000E7AD4 /* CertificateStateAgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificateStateAgeView.swift; sourceTree = "<group>"; };
+		F87E3F8F28BCBA49000E7AD4 /* RelativeDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeDateFormatter.swift; sourceTree = "<group>"; };
 		F87E96D6263AEA9100755AF1 /* OSLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OSLogger.swift; sourceTree = "<group>"; };
 		F88D99DA2497938E0081790E /* UIImage+localizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+localizedImage.swift"; sourceTree = "<group>"; };
 		F88DA6B2268C786D001DB072 /* Error+NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+NetworkError.swift"; sourceTree = "<group>"; };
@@ -763,6 +767,7 @@
 				6EC172BA2640769D002E27DB /* LinkHandler.swift */,
 				F88DA6B2268C786D001DB072 /* Error+NetworkError.swift */,
 				24780B562431B5A9003BB26C /* DateFormatter.swift */,
+				F87E3F8F28BCBA49000E7AD4 /* RelativeDateFormatter.swift */,
 				6EE81DEA245163C400FC7218 /* PhoneCallHelper.swift */,
 				8EB23D77245AF2C30073E83A /* RandomGenerators.swift */,
 				242D21D0245C3853005DAEA8 /* Logger.swift */,
@@ -1094,6 +1099,7 @@
 				6EF166DF264E7FD900426985 /* CertificateStateView.swift */,
 				6E701458265420C70097BBC8 /* CertificateAlreadyAddedView.swift */,
 				DC8AC74826541723005A2543 /* CertificateStateValidityView.swift */,
+				F87E3F8D28BCB359000E7AD4 /* CertificateStateAgeView.swift */,
 				6E0281FD265660E500582904 /* CertificateDetailView.swift */,
 				6E8F52EB265EC33F00406430 /* CertificateNoteView.swift */,
 				F84E70B02714DFD700512A49 /* UserCertificate+UserActivity.swift */,
@@ -2156,6 +2162,7 @@
 				8E81CC9D241FCC7D006F2437 /* ViewController.swift in Sources */,
 				6ED9161F2681B171006D9E7C /* UBPushRegistrationManager.swift in Sources */,
 				F88DA6B3268C786D001DB072 /* Error+NetworkError.swift in Sources */,
+				F87E3F8E28BCB359000E7AD4 /* CertificateStateAgeView.swift in Sources */,
 				6EE55DA82761075B001F9E1F /* CheckModeState.swift in Sources */,
 				6E173924267B31BB00813D30 /* TransferCodeErrorRetryViewController.swift in Sources */,
 				DC8ABDF1264A64DD00FDE0E1 /* StaticContentViewController.swift in Sources */,
@@ -2163,6 +2170,7 @@
 				DCEDD04D273931EA0008B8F8 /* WalletScanCounter.swift in Sources */,
 				F20E4F31268208DB00D14609 /* PushNotificationPopupView.swift in Sources */,
 				6E17392A267B382900813D30 /* TransferCodeAnimationView.swift in Sources */,
+				F87E3F9028BCBA49000E7AD4 /* RelativeDateFormatter.swift in Sources */,
 				DC8ABDFF264AAA1B00FDE0E1 /* ExpandableViewBody.swift in Sources */,
 				B6A3B9CD27F2327600D16C31 /* CertificateCheckAbroadSelectionView.swift in Sources */,
 				F8E6C5622683808F00A9E112 /* DebugSwitchView.swift in Sources */,

@@ -83,6 +83,8 @@ class ConfigResponseBody: UBCodable, JWTExtension {
 
         let certRenewalInfo: LocalizedValue<[String: CertificateRenewal]>
 
+        var showValidityState: Bool? = false
+
     #elseif VERIFIER
         let checkModesInfos: LocalizedValue<CheckModeContainer>?
         let checkModeReselectAfterHours: Int
