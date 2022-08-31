@@ -1639,23 +1639,23 @@
 "wallet_certificate_renewal_faq_link_url" = "https://www.bag.admin.ch/bag/it/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/it/certificato-covid/perche-devo-rinnovare-il-codice-qr-del-mio-certificato-covid-anche-se-secondo-le";
 "terms_and_conditions_update_boarding_title" = "Aggiornamento";
 "terms_and_conditions_update_boarding_text" = "L’informativa sulla privacy (dichiarazione sulla protezione dei dati) e le condizioni d’uso dell’app sono state puntualmente aggiornate e adeguate alle basi legali.";
-"wallet_validity_since_vaccination_date" = "";
-"wallet_validity_since_test_date" = "";
+"wallet_validity_since_vaccination_date" = "Data di vaccinazione";
+"wallet_validity_since_test_date" = "Test negativo";
 
 /*vor 2 Tagen - must be before "2 Tagen"!*/
 "wallet_validity_since_prefix" = "";
 
 /*vor 1 Stunde*/
-"wallet_validity_since_hours_singular" = "";
+"wallet_validity_since_hours_singular" = "1 ora fa";
 
 /*vor 2 Stunden*/
-"wallet_validity_since_hours_plural" = "";
+"wallet_validity_since_hours_plural" = "{HOURS} ore fa";
 
 /*vor 1 Tag*/
-"wallet_validity_since_days_singular" = "";
+"wallet_validity_since_days_singular" = "1 giorno fa";
 
 /*vor 2 Tagen*/
-"wallet_validity_since_days_plural" = "";
+"wallet_validity_since_days_plural" = "{DAYS} giorni fa";
 "wallet_update_boarding_page_1_title" = "Quali sono le novità?";
 "wallet_update_boarding_page_1_text" = "Nel certificato COVID non viene più indicato il campo «Validità in Svizzera». Al suo posto l’app riporta la data della vaccinazione o del test. Perché?";
 "wallet_update_boarding_page_2_title" = "Certificato COVID in Svizzera";
