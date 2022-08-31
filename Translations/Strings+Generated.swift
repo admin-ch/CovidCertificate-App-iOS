@@ -1258,7 +1258,7 @@ import Foundation
      case wallet_update_boarding_page_4_bullet_1
     /// Die Funktion «Gültigkeit im Ausland» wurde daher ebenfalls entfernt.
      case wallet_update_boarding_page_4_bullet_2
-    /// Ob in in einem Land noch eine Zertifikatspflicht gilt, erfahren Sie auf diesen Webseiten:
+    /// Ob in einem Land noch eine Zertifikatspflicht gilt, erfahren Sie auf diesen Webseiten:
      case wallet_update_boarding_page_4_bullet_3
     /// reopen.europa.eu
      case wallet_update_boarding_page_4_link_1_text
@@ -1280,9 +1280,13 @@ import Foundation
      case wallet_validity_since_hours_plural
     /// 1 Stunde
      case wallet_validity_since_hours_singular
+    /// vor mehr als
+     case wallet_validity_since_more_hours_prefix
     /// vor
      case wallet_validity_since_prefix
-    /// Testdatum
+    /// Positiv getestet
+     case wallet_validity_since_recovery_date
+    /// Negativ getestet
      case wallet_validity_since_test_date
     /// Impfdatum
      case wallet_validity_since_vaccination_date
@@ -2536,7 +2540,7 @@ import Foundation
    static var wallet_update_boarding_page_4_bullet_1: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_bullet_1) }
   /// Die Funktion «Gültigkeit im Ausland» wurde daher ebenfalls entfernt.
    static var wallet_update_boarding_page_4_bullet_2: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_bullet_2) }
-  /// Ob in in einem Land noch eine Zertifikatspflicht gilt, erfahren Sie auf diesen Webseiten:
+  /// Ob in einem Land noch eine Zertifikatspflicht gilt, erfahren Sie auf diesen Webseiten:
    static var wallet_update_boarding_page_4_bullet_3: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_bullet_3) }
   /// reopen.europa.eu
    static var wallet_update_boarding_page_4_link_1_text: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_link_1_text) }
@@ -2558,9 +2562,13 @@ import Foundation
    static var wallet_validity_since_hours_plural: String { return UBLocalized.tr(Key.wallet_validity_since_hours_plural) }
   /// 1 Stunde
    static var wallet_validity_since_hours_singular: String { return UBLocalized.tr(Key.wallet_validity_since_hours_singular) }
+  /// vor mehr als
+   static var wallet_validity_since_more_hours_prefix: String { return UBLocalized.tr(Key.wallet_validity_since_more_hours_prefix) }
   /// vor
    static var wallet_validity_since_prefix: String { return UBLocalized.tr(Key.wallet_validity_since_prefix) }
-  /// Testdatum
+  /// Positiv getestet
+   static var wallet_validity_since_recovery_date: String { return UBLocalized.tr(Key.wallet_validity_since_recovery_date) }
+  /// Negativ getestet
    static var wallet_validity_since_test_date: String { return UBLocalized.tr(Key.wallet_validity_since_test_date) }
   /// Impfdatum
    static var wallet_validity_since_vaccination_date: String { return UBLocalized.tr(Key.wallet_validity_since_vaccination_date) }
