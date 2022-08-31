@@ -83,19 +83,7 @@ class StaticContentViewController: OnboardingContentViewController {
                     }
                     externalLink.accessibilityTraits = .link
 
-                    let buttonWrapper = UIView()
-                    buttonWrapper.addSubview(externalLink)
-                    externalLink.snp.makeConstraints { make in
-                        make.left.equalToSuperview().inset(4 * Padding.medium + Padding.small)
-                        make.top.bottom.equalToSuperview()
-                        make.right.lessThanOrEqualToSuperview()
-                    }
-
-                    Self.addArrangedView(buttonWrapper, stackView: stackView)
-
-                    buttonWrapper.snp.makeConstraints { make in
-                        make.width.equalTo(stackView)
-                    }
+                    stackView.addArrangedViewCentered(externalLink)
 
                     stackView.addSpacerView(Padding.medium)
                 }
