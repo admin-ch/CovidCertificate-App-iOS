@@ -151,9 +151,9 @@ class CertificateStateAgeView: UIView {
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(dateTitleLabel.snp.bottom)
             make.leading.equalToSuperview().inset(Padding.medium)
+            make.bottom.greaterThanOrEqualToSuperview().inset(2 * Padding.medium)
         }
 
-        ageTitleLabel.text = "vor"
         ageTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(dateTitleLabel)
             make.trailing.equalToSuperview().inset(Padding.medium)
@@ -161,10 +161,9 @@ class CertificateStateAgeView: UIView {
         }
         ageTitleLabel.ub_setContentPriorityRequired()
 
-        ageLabel.text = "–"
         ageLabel.snp.makeConstraints { make in
             make.trailing.equalTo(ageTitleLabel)
-            make.top.equalTo(ageTitleLabel.snp.bottom)
+            make.firstBaseline.equalTo(dateLabel.snp.firstBaseline)
             make.bottom.equalToSuperview().inset(2 * Padding.small)
         }
 
