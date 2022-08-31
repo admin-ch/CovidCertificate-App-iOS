@@ -1643,19 +1643,19 @@
 "wallet_validity_since_test_date" = "Tested negative on";
 
 /*vor 2 Tagen - must be before "2 Tagen"!*/
-"wallet_validity_since_prefix" = "before";
+"wallet_validity_since_prefix" = "";
 
 /*vor 1 Stunde*/
-"wallet_validity_since_hours_singular" = "1 hour";
+"wallet_validity_since_hours_singular" = "1 hour ago";
 
 /*vor 2 Stunden*/
-"wallet_validity_since_hours_plural" = "{HOURS} hours";
+"wallet_validity_since_hours_plural" = "{HOURS} hours ago";
 
 /*vor 1 Tag*/
-"wallet_validity_since_days_singular" = "1 Day";
+"wallet_validity_since_days_singular" = "1 Day ago";
 
 /*vor 2 Tagen*/
-"wallet_validity_since_days_plural" = "{DAYS} Days";
+"wallet_validity_since_days_plural" = "{DAYS} Days ago";
 "wallet_update_boarding_page_1_title" = "What’s new?";
 "wallet_update_boarding_page_1_text" = "The COVID certificate now no longer displays the Validity in Switzerland field. Instead, the app shows the time of your vaccination or test. Why?";
 "wallet_update_boarding_page_2_title" = "COVID certificates in Switzerland";

@@ -1639,23 +1639,23 @@
 "wallet_certificate_renewal_faq_link_url" = "https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/fr/certificat-covid/pourquoi-dois-je-renouveler-le-code-qr-de-mon-certificat-covid-alors-que-selon-les";
 "terms_and_conditions_update_boarding_title" = "Mise à jour";
 "terms_and_conditions_update_boarding_text" = "Les conditions d’utilisation et la politique de confidentialité de l’application ont été ponctuellement mises à jour et adaptées aux bases légales.";
-"wallet_validity_since_vaccination_date" = "";
-"wallet_validity_since_test_date" = "";
+"wallet_validity_since_vaccination_date" = "Date de vaccination";
+"wallet_validity_since_test_date" = "Test positif ";
 
 /*vor 2 Tagen - must be before "2 Tagen"!*/
-"wallet_validity_since_prefix" = "";
+"wallet_validity_since_prefix" = "il y a";
 
 /*vor 1 Stunde*/
-"wallet_validity_since_hours_singular" = "";
+"wallet_validity_since_hours_singular" = "1 heure";
 
 /*vor 2 Stunden*/
-"wallet_validity_since_hours_plural" = "";
+"wallet_validity_since_hours_plural" = "{HOURS} heures";
 
 /*vor 1 Tag*/
-"wallet_validity_since_days_singular" = "";
+"wallet_validity_since_days_singular" = "1 jour";
 
 /*vor 2 Tagen*/
-"wallet_validity_since_days_plural" = "";
+"wallet_validity_since_days_plural" = "{DAYS} jours";
 "wallet_update_boarding_page_1_title" = "Nouveautés";
 "wallet_update_boarding_page_1_text" = "Désormais, le certificat COVID n’affichera plus l’encadré «Validité en Suisse». Celui-ci sera remplacé par la date de la vaccination ou du test. Pourquoi?";
 "wallet_update_boarding_page_2_title" = "Certificats COVID en Suisse";
@@ -1674,5 +1674,5 @@
 "wallet_update_boarding_page_4_link_1_url" = "https://reopen.europa.eu";
 "wallet_update_boarding_page_4_link_2_text" = "iatatravelcentre.com";
 "wallet_update_boarding_page_4_link_2_url" = "https://www.iatatravelcentre.com";
-"wallet_validity_since_more_hours_prefix" = "il y a plus de ";
+"wallet_validity_since_more_hours_prefix" = "il y a plus de";
 "wallet_validity_since_recovery_date" = "Test positif";
