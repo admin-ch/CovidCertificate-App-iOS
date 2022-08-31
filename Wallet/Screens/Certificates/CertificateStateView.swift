@@ -264,7 +264,7 @@ class CertificateStateView: UIView {
                         self.ageView.backgroundColor = .cc_greyish
                     }
 
-                    if first?.showError ?? true {
+                    if first?.showError ?? false {
                         self.validityView.textColor = .cc_grey
                         self.ageView.textColor = .cc_grey
 

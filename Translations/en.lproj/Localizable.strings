@@ -1675,3 +1675,4 @@
 "wallet_update_boarding_page_4_link_2_text" = "iatatravelcentre.com";
 "wallet_update_boarding_page_4_link_2_url" = "https://www.iatatravelcentre.com";
 "wallet_validity_since_more_hours_prefix" = "";
+"wallet_validity_since_recovery_date" = "";

@@ -1640,7 +1640,7 @@
 "terms_and_conditions_update_boarding_title" = "Aktualisierung";
 "terms_and_conditions_update_boarding_text" = "Die Nutzungsbedingungen und die Datenschutzerklärung der App wurden punktuell aktualisiert und an die rechtlichen Grundlagen angepasst.";
 "wallet_validity_since_vaccination_date" = "Impfdatum";
-"wallet_validity_since_test_date" = "Testdatum";
+"wallet_validity_since_test_date" = "Negativ getestet";
 
 /*vor 2 Tagen - must be before "2 Tagen"!*/
 "wallet_validity_since_prefix" = "vor";
@@ -1675,3 +1675,4 @@
 "wallet_update_boarding_page_4_link_2_text" = "iatatravelcentre.com";
 "wallet_update_boarding_page_4_link_2_url" = "https://www.iatatravelcentre.com";
 "wallet_validity_since_more_hours_prefix" = "vor mehr als";
+"wallet_validity_since_recovery_date" = "Positiv getestet";

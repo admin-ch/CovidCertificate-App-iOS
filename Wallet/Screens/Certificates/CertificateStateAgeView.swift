@@ -100,7 +100,7 @@ class CertificateStateAgeView: UIView {
                 }
 
             case .test:
-                dateTitleLabel.text = UBLocalized.wallet_validity_since_test_date
+                dateTitleLabel.text = UBLocalized.wallet_validity_since_recovery_date
                 if let test = cert.tests?.first {
                     if let sampleDate = test.sampleDate {
                         let now = Date()

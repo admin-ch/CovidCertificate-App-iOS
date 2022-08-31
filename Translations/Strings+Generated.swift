@@ -1284,7 +1284,9 @@ import Foundation
      case wallet_validity_since_more_hours_prefix
     /// vor
      case wallet_validity_since_prefix
-    /// Testdatum
+    /// Positiv getestet
+     case wallet_validity_since_recovery_date
+    /// Negativ getestet
      case wallet_validity_since_test_date
     /// Impfdatum
      case wallet_validity_since_vaccination_date
@@ -2564,7 +2566,9 @@ import Foundation
    static var wallet_validity_since_more_hours_prefix: String { return UBLocalized.tr(Key.wallet_validity_since_more_hours_prefix) }
   /// vor
    static var wallet_validity_since_prefix: String { return UBLocalized.tr(Key.wallet_validity_since_prefix) }
-  /// Testdatum
+  /// Positiv getestet
+   static var wallet_validity_since_recovery_date: String { return UBLocalized.tr(Key.wallet_validity_since_recovery_date) }
+  /// Negativ getestet
    static var wallet_validity_since_test_date: String { return UBLocalized.tr(Key.wallet_validity_since_test_date) }
   /// Impfdatum
    static var wallet_validity_since_vaccination_date: String { return UBLocalized.tr(Key.wallet_validity_since_vaccination_date) }
