@@ -473,7 +473,7 @@
 "wallet_onboarding_external_privacy_button" = "Decleraziun davart la protecziun da datas & cundiziuns d’utilisaziun";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "Quest attest n'è betg in document da viadi.\n<br /><br />\nLas enconuschientschas scientificas davart la vaccinaziun cunter COVID-19, davart la guariziun da COVID-19 e davart ils tests da COVID-19 sa sviluppan cuntinuadamain, er areguard las novas variantas privlusas dal virus.\n<br /><br />\nAs infurmai per plaschair avant in viadi davart las restricziuns e davart las reglas da valaivladad che valan al lieu da destinaziun. La valaivladad da Voss certificat vegn calculada a l'exteriur a maun da las reglas dal pajais da destinaziun. La valaivladad a l'exteriur po sa differenziar da quella en Svizra ch'è inditgada en l'app «COVID Certificate». Dapli infurmaziuns chattais Vus en <a href=\"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald\">questa glista da dumondas frequentas (FAQ)</a>.";
+"wallet_certificate_detail_note" = "Quest attest n'è betg in document da viadi.\n<br /><br />\nLas enconuschientschas scientificas davart la vaccinaziun cunter COVID-19, davart la guariziun da COVID-19 e davart ils tests da COVID-19 sa sviluppan cuntinuadamain, er areguard las novas variantas privlusas dal virus.\n<br /><br />\nAs infurmai per plaschair avant in viadi davart las restricziuns e davart las reglas da valaivladad che valan al lieu da destinaziun. La valaivladad da Voss certificat vegn calculada a l'exteriur a maun da las reglas dal pajais da destinaziun. Dapli infurmaziuns chattais Vus en <a href=\"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald\">questa glista da dumondas frequentas (FAQ)</a>.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-check-app.html";
 
@@ -1656,23 +1656,23 @@
 
 /*vor 2 Tagen*/
 "wallet_validity_since_days_plural" = "";
-"wallet_update_boarding_page_1_title" = "";
-"wallet_update_boarding_page_1_text" = "";
-"wallet_update_boarding_page_2_title" = "";
-"wallet_update_boarding_page_2_bullet_1" = "";
-"wallet_update_boarding_page_2_bullet_2" = "";
-"wallet_update_boarding_page_2_bullet_3" = "";
-"wallet_update_boarding_page_3_title" = "";
-"wallet_update_boarding_page_3_bullet_1" = "";
-"wallet_update_boarding_page_3_bullet_2" = "";
-"wallet_update_boarding_page_3_bullet_3" = "";
-"wallet_update_boarding_page_4_title" = "";
-"wallet_update_boarding_page_4_bullet_1" = "";
-"wallet_update_boarding_page_4_bullet_2" = "";
-"wallet_update_boarding_page_4_bullet_3" = "";
+"wallet_update_boarding_page_1_title" = "Tge è nov?";
+"wallet_update_boarding_page_1_text" = "Sin il certificat COVID vegn da nov betg pli mussà il champ «Valaivladad en Svizra». Empè da quai mussa l'app la data da la vaccinaziun resp. dal test. Pertge?";
+"wallet_update_boarding_page_2_title" = "Certificats COVID en Svizra";
+"wallet_update_boarding_page_2_bullet_1" = "En Svizra è l'obligatori dal certificat vegnì abolì il favrer 2022.";
+"wallet_update_boarding_page_2_bullet_2" = "Las duradas da valaivladad svizras existan dapi lura mo anc formalmain e n'han nagina impurtanza pratica pli en Svizra.";
+"wallet_update_boarding_page_2_bullet_3" = "La durada da valaivladad svizra n'ha er nagina impurtanza a l'exteriur.";
+"wallet_update_boarding_page_3_title" = "Certificats COVID a l'exteriur";
+"wallet_update_boarding_page_3_bullet_1" = "A l'exteriur valan mintgamai las reglas dal pajais respectiv.";
+"wallet_update_boarding_page_3_bullet_2" = "Da nov mussa l'app, avant quants dis ch'igl è vegnì fatg ina vaccinaziun resp. in test.";
+"wallet_update_boarding_page_3_bullet_3" = "Uschia pudais Vus constatar en moda pli simpla, sche Voss certificat correspunda a las reglas da Voss pajais da destinaziun (premess ch'il pajais pretenda anc in certificat).";
+"wallet_update_boarding_page_4_title" = "La situaziun actuala en l'Europa e sin l'entir mund";
+"wallet_update_boarding_page_4_bullet_1" = "La gronda part dals pajais en l'Europa ha entant abolì l'obligatori dal certificat per l'entrada en il pajais.";
+"wallet_update_boarding_page_4_bullet_2" = "La funcziun «Valaivladad a l'exteriur» è perquai medemamain vegnida stizzada.";
+"wallet_update_boarding_page_4_bullet_3" = "Sche l'obligatori dal certificat vala anc en in tschert pajais, vegnis Vus a savair sin questas paginas d'internet:";
 "wallet_update_boarding_page_4_link_1_text" = "reopen.europa.eu";
 "wallet_update_boarding_page_4_link_1_url" = "https://reopen.europa.eu";
 "wallet_update_boarding_page_4_link_2_text" = "iatatravelcentre.com";
 "wallet_update_boarding_page_4_link_2_url" = "https://www.iatatravelcentre.com";
 "wallet_validity_since_more_hours_prefix" = "avant pli che";
-"wallet_validity_since_recovery_date" = "";
+"wallet_validity_since_recovery_date" = "Data dal test positiv";

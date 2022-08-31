@@ -473,7 +473,7 @@
 "wallet_onboarding_external_privacy_button" = "Privacy policy & Terms of use";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "This certificate is not a travel document. \n<br /><br />\nThe scientific evidence on COVID-19 vaccination, testing and recovery continues to evolve, including with regard to new virus variants of concern. \n<br /><br />\nPlease check the restrictions and rules on validity that apply at your destination before you travel. When you’re abroad, the validity of your certificate is calculated on the basis of the rules in the destination country, which may differ from the validity periods in Switzerland as stated in the COVID Certificate app. You’ll find more on this in <a href=\"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/what-should-i-do-if-my-covid-certificate-about-expire-under-swiss-rules-validity\">the FAQ</a>.";
+"wallet_certificate_detail_note" = "This certificate is not a travel document. \n<br /><br />\nThe scientific evidence on COVID-19 vaccination, testing and recovery continues to evolve, including with regard to new virus variants of concern. \n<br /><br />\nPlease check the restrictions and rules on validity that apply at your destination before you travel. When you’re abroad, the validity of your certificate is calculated on the basis of the rules in the destination country. You’ll find more on this in <a href=\"https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/what-should-i-do-if-my-covid-certificate-about-expire-under-swiss-rules-validity\">the FAQ</a>.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/en/home/documentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/en/home/documentation/covid-certificate-check-app.html";
 
@@ -1639,40 +1639,40 @@
 "wallet_certificate_renewal_faq_link_url" = "https://www.bag.admin.ch/bag/en/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/en/covid-certificate/why-should-i-renew-qr-code-my-covid-certificate-even-though-certificate-about";
 "terms_and_conditions_update_boarding_title" = "Update";
 "terms_and_conditions_update_boarding_text" = "Certain points of the terms of use and privacy statement for the app have been updated and adapted in line with the relevant legal bases.";
-"wallet_validity_since_vaccination_date" = "";
-"wallet_validity_since_test_date" = "";
+"wallet_validity_since_vaccination_date" = "Vaccinated on";
+"wallet_validity_since_test_date" = "Tested negative on";
 
 /*vor 2 Tagen - must be before "2 Tagen"!*/
-"wallet_validity_since_prefix" = "";
+"wallet_validity_since_prefix" = "before";
 
 /*vor 1 Stunde*/
-"wallet_validity_since_hours_singular" = "";
+"wallet_validity_since_hours_singular" = "1 hour";
 
 /*vor 2 Stunden*/
-"wallet_validity_since_hours_plural" = "";
+"wallet_validity_since_hours_plural" = "{HOURS} hours";
 
 /*vor 1 Tag*/
-"wallet_validity_since_days_singular" = "";
+"wallet_validity_since_days_singular" = "1 Day";
 
 /*vor 2 Tagen*/
-"wallet_validity_since_days_plural" = "";
-"wallet_update_boarding_page_1_title" = "";
-"wallet_update_boarding_page_1_text" = "";
-"wallet_update_boarding_page_2_title" = "";
-"wallet_update_boarding_page_2_bullet_1" = "";
-"wallet_update_boarding_page_2_bullet_2" = "";
-"wallet_update_boarding_page_2_bullet_3" = "";
-"wallet_update_boarding_page_3_title" = "";
-"wallet_update_boarding_page_3_bullet_1" = "";
-"wallet_update_boarding_page_3_bullet_2" = "";
-"wallet_update_boarding_page_3_bullet_3" = "";
-"wallet_update_boarding_page_4_title" = "";
-"wallet_update_boarding_page_4_bullet_1" = "";
-"wallet_update_boarding_page_4_bullet_2" = "";
-"wallet_update_boarding_page_4_bullet_3" = "";
+"wallet_validity_since_days_plural" = "{DAYS} Days";
+"wallet_update_boarding_page_1_title" = "What’s new?";
+"wallet_update_boarding_page_1_text" = "The COVID certificate now no longer displays the Validity in Switzerland field. Instead, the app shows the time of your vaccination or test. Why?";
+"wallet_update_boarding_page_2_title" = "COVID certificates in Switzerland";
+"wallet_update_boarding_page_2_bullet_1" = "The certificate requirement in Switzerland was lifted in February 2022.";
+"wallet_update_boarding_page_2_bullet_2" = "Since then, the Swiss validity periods have only existed formally and no longer have any practical significance in this country.";
+"wallet_update_boarding_page_2_bullet_3" = "The Swiss validity period also has no meaning abroad.";
+"wallet_update_boarding_page_3_title" = "COVID certificates abroad";
+"wallet_update_boarding_page_3_bullet_1" = "Abroad the rules of the country in question apply.";
+"wallet_update_boarding_page_3_bullet_2" = "The app now shows how many days ago you had the vaccination or a test.";
+"wallet_update_boarding_page_3_bullet_3" = "This makes it easier to work out whether your certificate complies with the rules of your destination country (if the country still requires a Covid certificate).";
+"wallet_update_boarding_page_4_title" = "Current situation in Switzerland and worldwide";
+"wallet_update_boarding_page_4_bullet_1" = "Most countries in Europe have now lifted the certificate requirement for entry.";
+"wallet_update_boarding_page_4_bullet_2" = "The Validity abroad function has therefore also been removed from the app.";
+"wallet_update_boarding_page_4_bullet_3" = "You can find out whether a certificate requirement still applies in a country on these websites:";
 "wallet_update_boarding_page_4_link_1_text" = "reopen.europa.eu";
 "wallet_update_boarding_page_4_link_1_url" = "https://reopen.europa.eu";
 "wallet_update_boarding_page_4_link_2_text" = "iatatravelcentre.com";
 "wallet_update_boarding_page_4_link_2_url" = "https://www.iatatravelcentre.com";
-"wallet_validity_since_more_hours_prefix" = "";
-"wallet_validity_since_recovery_date" = "";
+"wallet_validity_since_more_hours_prefix" = "exceeding";
+"wallet_validity_since_recovery_date" = "Tested positive on";

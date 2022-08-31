@@ -473,7 +473,7 @@
 "wallet_onboarding_external_privacy_button" = "Déclaration de confidentialité & condition d'utilisation";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "Le présent certificat n'est pas un document de voyage. \n<br /><br />\nLes preuves scientifiques relatives à la vaccination, aux tests et au rétablissement liés à la COVID-19 continuent d'évoluer, notamment en ce qui concerne de nouveaux variants préoccupants du virus. \n<br /><br />\nAvant de voyager, veuillez-vous renseigner sur les restrictions et les règles de validité en vigueur à votre lieu de destination. La validité de votre certificat à l’étranger dépend des règles du pays de destination et peut différer de la validité en Suisse indiquée dans l’application « COVID Certificate ». Vous trouverez de plus amples informations sur cette page dédiée aux <a href=\"https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/fr/certificat-covid/que-dois-je-faire-si-mon-certificat-covid-est-sur-le-point-dexpirer-en-suisse\">questions fréquentes</a>.";
+"wallet_certificate_detail_note" = "Le présent certificat n'est pas un document de voyage. \n<br /><br />\nLes preuves scientifiques relatives à la vaccination, aux tests et au rétablissement liés à la COVID-19 continuent d'évoluer, notamment en ce qui concerne de nouveaux variants préoccupants du virus. \n<br /><br />\nAvant de voyager, veuillez-vous renseigner sur les restrictions et les règles de validité en vigueur à votre lieu de destination. La validité de votre certificat à l’étranger dépend des règles du pays de destination. Vous trouverez de plus amples informations sur cette page dédiée aux <a href=\"https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/fr/certificat-covid/que-dois-je-faire-si-mon-certificat-covid-est-sur-le-point-dexpirer-en-suisse\">questions fréquentes</a>.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/fr/home/documentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/fr/home/documentation/covid-certificate-check-app.html";
 
@@ -1656,23 +1656,23 @@
 
 /*vor 2 Tagen*/
 "wallet_validity_since_days_plural" = "";
-"wallet_update_boarding_page_1_title" = "";
-"wallet_update_boarding_page_1_text" = "";
-"wallet_update_boarding_page_2_title" = "";
-"wallet_update_boarding_page_2_bullet_1" = "";
-"wallet_update_boarding_page_2_bullet_2" = "";
-"wallet_update_boarding_page_2_bullet_3" = "";
-"wallet_update_boarding_page_3_title" = "";
-"wallet_update_boarding_page_3_bullet_1" = "";
-"wallet_update_boarding_page_3_bullet_2" = "";
-"wallet_update_boarding_page_3_bullet_3" = "";
-"wallet_update_boarding_page_4_title" = "";
-"wallet_update_boarding_page_4_bullet_1" = "";
-"wallet_update_boarding_page_4_bullet_2" = "";
-"wallet_update_boarding_page_4_bullet_3" = "";
+"wallet_update_boarding_page_1_title" = "Nouveautés";
+"wallet_update_boarding_page_1_text" = "Désormais, le certificat COVID n’affichera plus l’encadré «Validité en Suisse». Celui-ci sera remplacé par la date de la vaccination ou du test. Pourquoi?";
+"wallet_update_boarding_page_2_title" = "Certificats COVID en Suisse";
+"wallet_update_boarding_page_2_bullet_1" = "L’obligation de présenter un certificat en Suisse a été levée en février 2022.";
+"wallet_update_boarding_page_2_bullet_2" = "Depuis lors, les durées de validité pour la Suisse sont purement formelles et n’ont plus de pertinence pratique dans le pays.";
+"wallet_update_boarding_page_2_bullet_3" = "La durée de validité pour la Suisse n’a pas non plus de pertinence à l’étranger.";
+"wallet_update_boarding_page_3_title" = "Certificats COVID à l’étranger";
+"wallet_update_boarding_page_3_bullet_1" = "À l’étranger, les règles en vigueur dépendent de chaque pays.";
+"wallet_update_boarding_page_3_bullet_2" = "Désormais, l’application indique le nombre de jours écoulés depuis une vaccination ou un test.";
+"wallet_update_boarding_page_3_bullet_3" = "Vous pourrez ainsi déterminer plus facilement si votre certificat est conforme aux règles en vigueur dans votre pays de destination (si celui-ci exige encore un certificat COVID).";
+"wallet_update_boarding_page_4_title" = "Situation actuelle en Europe et dans le monde";
+"wallet_update_boarding_page_4_bullet_1" = "Dans l’intervalle, la plupart des pays d’Europe ont levé l’obligation de présenter un certificat pour entrer sur leur territoire.";
+"wallet_update_boarding_page_4_bullet_2" = "La fonction «Validité à l’étranger» a donc également été supprimée.";
+"wallet_update_boarding_page_4_bullet_3" = "Pour savoir quels pays exigent encore un certificat, vous pouvez consulter les sites suivants:";
 "wallet_update_boarding_page_4_link_1_text" = "reopen.europa.eu";
 "wallet_update_boarding_page_4_link_1_url" = "https://reopen.europa.eu";
 "wallet_update_boarding_page_4_link_2_text" = "iatatravelcentre.com";
 "wallet_update_boarding_page_4_link_2_url" = "https://www.iatatravelcentre.com";
-"wallet_validity_since_more_hours_prefix" = "";
-"wallet_validity_since_recovery_date" = "";
+"wallet_validity_since_more_hours_prefix" = "il y a plus de ";
+"wallet_validity_since_recovery_date" = "Test positif";
