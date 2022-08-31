@@ -588,7 +588,7 @@ import Foundation
      case wallet_certificate_detail_date_format_info
     /// Exportieren
      case wallet_certificate_detail_export_button
-    /// Dieses Zertifikat ist kein Reisedokument. \n<br /><br />\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n<br /><br />\nBitte informieren Sie sich vor einer Reise über die am Zielort geltenden Beschränkungen und Gültigkeitsregeln. Die Gültigkeit Ihres Zertifikats wird im Ausland anhand der Regeln des Ziellandes berechnet. Diese kann von der in der «COVID Certificate»-App angegebenen Schweizer Gültigkeit abweichen. Mehr Informationen dazu erhalten Sie <a href="https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald">in dieser FAQ</a>.
+    /// Dieses Zertifikat ist kein Reisedokument. \n<br /><br />\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n<br /><br />\nBitte informieren Sie sich vor einer Reise über die am Zielort geltenden Beschränkungen und Gültigkeitsregeln. Die Gültigkeit Ihres Zertifikats wird im Ausland anhand der Regeln des Ziellandes berechnet. Mehr Informationen dazu erhalten Sie <a href="https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald">in dieser FAQ</a>.
      case wallet_certificate_detail_note
     /// Dieses Zertifikat ist kein Reisedokument. \n<br /><br />\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
      case wallet_certificate_detail_note_ausnahme
@@ -1244,7 +1244,7 @@ import Foundation
      case wallet_update_boarding_page_2_bullet_2
     /// Die Schweizer Gültigkeitsdauer hat auch im Ausland keine Bedeutung.
      case wallet_update_boarding_page_2_bullet_3
-    /// Covid-Zertifikate \nin der Schweiz
+    /// Covid-Zertifikate in der Schweiz
      case wallet_update_boarding_page_2_title
     /// Im Ausland gelten die Regeln des entsprechenden Landes.
      case wallet_update_boarding_page_3_bullet_1
@@ -1252,7 +1252,7 @@ import Foundation
      case wallet_update_boarding_page_3_bullet_2
     /// So können Sie einfacher feststellen, ob Ihr Zertifikat den Regeln Ihres Ziellandes entspricht (falls das Land noch ein Covid-Zertifikat voraussetzt).
      case wallet_update_boarding_page_3_bullet_3
-    /// Covid-Zertifikate \nim Ausland
+    /// Covid-Zertifikate im Ausland
      case wallet_update_boarding_page_3_title
     /// Die meisten Länder in Europa haben die Zertifikatspflicht für die Einreise inzwischen aufgehoben.
      case wallet_update_boarding_page_4_bullet_1
@@ -1870,7 +1870,7 @@ import Foundation
    static var wallet_certificate_detail_date_format_info: String { return UBLocalized.tr(Key.wallet_certificate_detail_date_format_info) }
   /// Exportieren
    static var wallet_certificate_detail_export_button: String { return UBLocalized.tr(Key.wallet_certificate_detail_export_button) }
-  /// Dieses Zertifikat ist kein Reisedokument. \n<br /><br />\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n<br /><br />\nBitte informieren Sie sich vor einer Reise über die am Zielort geltenden Beschränkungen und Gültigkeitsregeln. Die Gültigkeit Ihres Zertifikats wird im Ausland anhand der Regeln des Ziellandes berechnet. Diese kann von der in der «COVID Certificate»-App angegebenen Schweizer Gültigkeit abweichen. Mehr Informationen dazu erhalten Sie <a href="https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald">in dieser FAQ</a>.
+  /// Dieses Zertifikat ist kein Reisedokument. \n<br /><br />\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n<br /><br />\nBitte informieren Sie sich vor einer Reise über die am Zielort geltenden Beschränkungen und Gültigkeitsregeln. Die Gültigkeit Ihres Zertifikats wird im Ausland anhand der Regeln des Ziellandes berechnet. Mehr Informationen dazu erhalten Sie <a href="https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald">in dieser FAQ</a>.
    static var wallet_certificate_detail_note: String { return UBLocalized.tr(Key.wallet_certificate_detail_note) }
   /// Dieses Zertifikat ist kein Reisedokument. \n<br /><br />\nDieses Zertifikat ist zeitlich nur begrenzt gültig. Die aktuell in der Schweiz massgebliche Gültigkeitsdauer können Sie jederzeit mit der Covid-Certificate App überprüfen.
    static var wallet_certificate_detail_note_ausnahme: String { return UBLocalized.tr(Key.wallet_certificate_detail_note_ausnahme) }
@@ -2526,7 +2526,7 @@ import Foundation
    static var wallet_update_boarding_page_2_bullet_2: String { return UBLocalized.tr(Key.wallet_update_boarding_page_2_bullet_2) }
   /// Die Schweizer Gültigkeitsdauer hat auch im Ausland keine Bedeutung.
    static var wallet_update_boarding_page_2_bullet_3: String { return UBLocalized.tr(Key.wallet_update_boarding_page_2_bullet_3) }
-  /// Covid-Zertifikate \nin der Schweiz
+  /// Covid-Zertifikate in der Schweiz
    static var wallet_update_boarding_page_2_title: String { return UBLocalized.tr(Key.wallet_update_boarding_page_2_title) }
   /// Im Ausland gelten die Regeln des entsprechenden Landes.
    static var wallet_update_boarding_page_3_bullet_1: String { return UBLocalized.tr(Key.wallet_update_boarding_page_3_bullet_1) }
@@ -2534,7 +2534,7 @@ import Foundation
    static var wallet_update_boarding_page_3_bullet_2: String { return UBLocalized.tr(Key.wallet_update_boarding_page_3_bullet_2) }
   /// So können Sie einfacher feststellen, ob Ihr Zertifikat den Regeln Ihres Ziellandes entspricht (falls das Land noch ein Covid-Zertifikat voraussetzt).
    static var wallet_update_boarding_page_3_bullet_3: String { return UBLocalized.tr(Key.wallet_update_boarding_page_3_bullet_3) }
-  /// Covid-Zertifikate \nim Ausland
+  /// Covid-Zertifikate im Ausland
    static var wallet_update_boarding_page_3_title: String { return UBLocalized.tr(Key.wallet_update_boarding_page_3_title) }
   /// Die meisten Länder in Europa haben die Zertifikatspflicht für die Einreise inzwischen aufgehoben.
    static var wallet_update_boarding_page_4_bullet_1: String { return UBLocalized.tr(Key.wallet_update_boarding_page_4_bullet_1) }
