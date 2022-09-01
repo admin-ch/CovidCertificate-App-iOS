@@ -90,29 +90,23 @@ class CertificateStateAgeView: UIView {
                 dateTitleLabel.text = UBLocalized.wallet_validity_since_vaccination_date
                 if let vaccination = cert.vaccinations?.first {
                     dateLabel.text = vaccination.displayDateOfVaccination
-                    ageLabel.text = RelativeDateFormatter.string(from: vaccination.dateOfVaccination)
+                    ageLabel.text = RelativeDateFormatter.string(from: vaccination.dateOfVaccination, certType: .vaccination)
                 }
             case .recovery:
-                dateTitleLabel.text = UBLocalized.wallet_validity_since_test_date
+                dateTitleLabel.text = UBLocalized.wallet_validity_since_recovery_date
                 if let infection = cert.pastInfections?.first {
                     dateLabel.text = infection.displayFirstPositiveTestDay
-                    ageLabel.text = RelativeDateFormatter.string(from: infection.firstPositiveTestResultDate)
+                    ageLabel.text = RelativeDateFormatter.string(from: infection.firstPositiveTestResultDate, certType: .recovery)
                 }
 
             case .test:
-                dateTitleLabel.text = UBLocalized.wallet_validity_since_recovery_date
-                if let test = cert.tests?.first {
-                    if let sampleDate = test.sampleDate {
-                        let now = Date()
-                        let hours = Calendar.current.dateComponents([.hour], from: sampleDate, to: now).hour ?? 0
-                        if hours > 72 {
-                            ageTitleLabel.text = UBLocalized.wallet_validity_since_more_hours_prefix
-                            ageLabel.text = UBLocalized.wallet_validity_since_hours_plural.replacingOccurrences(of: "{HOURS}", with: "72")
-                        } else {
-                            ageLabel.text = RelativeDateFormatter.string(from: sampleDate)
-                        }
+                dateTitleLabel.text = UBLocalized.wallet_validity_since_test_date
+                if let test = cert.tests?.first, let date = test.sampleDate {
+                    let hours = Calendar.current.dateComponents([.hour], from: date, to: Date()).hour ?? 0
+                    if hours >= 72 {
+                        ageTitleLabel.text = UBLocalized.wallet_validity_since_more_hours_prefix
                     }
-
+                    ageLabel.text = RelativeDateFormatter.string(from: test.sampleDate, certType: .test)
                     dateLabel.text = test.displaySampleDate
                 }
             default:
@@ -151,9 +145,9 @@ class CertificateStateAgeView: UIView {
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(dateTitleLabel.snp.bottom)
             make.leading.equalToSuperview().inset(Padding.medium)
+            make.bottom.greaterThanOrEqualToSuperview().inset(2 * Padding.medium)
         }
 
-        ageTitleLabel.text = "vor"
         ageTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(dateTitleLabel)
             make.trailing.equalToSuperview().inset(Padding.medium)
@@ -161,10 +155,9 @@ class CertificateStateAgeView: UIView {
         }
         ageTitleLabel.ub_setContentPriorityRequired()
 
-        ageLabel.text = "–"
         ageLabel.snp.makeConstraints { make in
             make.trailing.equalTo(ageTitleLabel)
-            make.top.equalTo(ageTitleLabel.snp.bottom)
+            make.firstBaseline.equalTo(dateLabel.snp.firstBaseline)
             make.bottom.equalToSuperview().inset(2 * Padding.small)
         }
 

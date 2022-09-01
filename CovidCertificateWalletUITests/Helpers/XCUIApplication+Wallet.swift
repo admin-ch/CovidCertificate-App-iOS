@@ -24,6 +24,11 @@ extension XCUIApplication {
         let button = app.alerts.firstMatch.buttons["Allow"]
         if button.waitForExistence(timeout: 2) {
             button.tap()
+        } else {
+            let button = app.alerts.firstMatch.buttons["Erlauben"]
+            if button.waitForExistence(timeout: 2) {
+                button.tap()
+            }
         }
     }
 

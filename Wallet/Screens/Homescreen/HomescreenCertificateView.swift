@@ -232,10 +232,12 @@ class HomescreenCertificateView: UIView {
             lightQrCodeView.alpha = 1.0
             titleLabel.text = UBLocalized.wallet_certificate_light_title
             accessibilityLabel = [titleLabel.text, qrCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
+            accessibilityIdentifier = "HomescreenCertificateView.LightQRCodeView"
         case .certificate:
             qrCodeView.alpha = 1.0
             transferView.alpha = 0.0
             lightQrCodeView.alpha = 0.0
+            accessibilityIdentifier = "HomescreenCertificateView.QRCodeView"
 
             let c = CovidCertificateSDK.Wallet.decode(encodedData: cert.qrCode ?? "")
             switch c {
@@ -313,6 +315,7 @@ class HomescreenCertificateView: UIView {
             qrCodeView.alpha = 0.0
             transferView.alpha = 1.0
             lightQrCodeView.alpha = 0.0
+            accessibilityIdentifier = "HomescreenCertificateView.TransferView"
 
             if showVaccinationInfo {
                 contentView.accessibilityLabel = [vaccinationInfoView?.accessibilityLabel ?? "", transferView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
@@ -565,7 +568,6 @@ private class TransferView: UIView {
         }
 
         accessibilityLabel = [nameView.text, transferCodeView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
-        accessibilityIdentifier = "HomescreenCertificateView.TransferView"
     }
 
     private func setWaitingState() {
@@ -679,7 +681,6 @@ private class QRCodeView: UIView {
         nameView.certificate = certificate
 
         accessibilityLabel = [nameView.accessibilityLabel, stateView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
-        accessibilityIdentifier = "HomescreenCertificateView.QRCodeView"
     }
 }
 
@@ -744,6 +745,5 @@ private class LightQRCodeView: UIView {
         nameView.certificate = certificate
 
         accessibilityLabel = [nameView.accessibilityLabel, stateView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
-        accessibilityIdentifier = "HomescreenCertificateView.LightQRCodeView"
     }
 }
