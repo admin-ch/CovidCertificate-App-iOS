@@ -39,7 +39,7 @@ enum RelativeDateFormatter {
                 if days <= 1 {
                     return UBLocalized.wallet_validity_since_days_singular
                 } else {
-                    return UBLocalized.wallet_validity_since_days_plural.replacingOccurrences(of: "{HOURS}", with: "\(hours)")
+                    return UBLocalized.wallet_validity_since_days_plural.replacingOccurrences(of: "{DAYS}", with: "\(days)")
                 }
             }
         }
