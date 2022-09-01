@@ -24,7 +24,6 @@ class HomescreenTests: XCTestCase {
         app.buttons[UBLocalized.Key.wallet_homescreen_pdf_import].assertExists()
         app.buttons[UBLocalized.Key.wallet_homescreen_add_transfer_code].assertExists()
         app.buttons[UBLocalized.Key.wallet_homescreen_add_transfer_code].assertExists()
-        app.buttons[UBLocalized.Key.vaccination_homescreen_button_title].assertExists()
     }
 
     func testShowHomescreenSlowNetwork() {
@@ -36,6 +35,5 @@ class HomescreenTests: XCTestCase {
         app.buttons[UBLocalized.Key.wallet_homescreen_qr_code_scannen].assertExists()
         app.buttons[UBLocalized.Key.wallet_homescreen_pdf_import].assertExists()
         app.buttons[UBLocalized.Key.wallet_homescreen_add_transfer_code].assertExists()
-        app.buttons[UBLocalized.Key.vaccination_homescreen_button_title].assertExists()
     }
 }
