@@ -79,11 +79,11 @@ extension XCUIApplication {
         scrollViews.firstMatch.tap()
         scrollViews.firstMatch.scrollToElement(element: buttons[UBLocalized.Key.delete_button])
         buttons[UBLocalized.Key.delete_button].assertExists().tap()
-        sheets.firstMatch.buttons[UBLocalized.Key.delete_button, true].assertExists().tap()
+        buttons[UBLocalized.Key.delete_button, true].assertExists().tap()
     }
 
     var countTransfercodes: Int {
-        _ = otherElements["HomescreenCertificateView.TransferView"].waitForExistence(timeout: 1.0)
-        return otherElements.matching(identifier: "HomescreenCertificateView.TransferView").count
+        _ = buttons["HomescreenCertificateView.TransferView"].waitForExistence(timeout: 1.0)
+        return buttons.matching(identifier: "HomescreenCertificateView.TransferView").count
     }
 }

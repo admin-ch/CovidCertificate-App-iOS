@@ -192,10 +192,12 @@ class TransferCodeDetailViewController: ViewController {
 
     private func removeTransfer() {
         let alert = UIAlertController(title: nil, message: UBLocalized.wallet_transfer_delete_confirm_text, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: UBLocalized.delete_button, style: .destructive, handler: { _ in
+        let deleteAction = UIAlertAction(title: UBLocalized.delete_button, style: .destructive, handler: { _ in
             CertificateStorage.shared.userCertificates = CertificateStorage.shared.userCertificates.filter { $0.transferCode != self.certificate.transferCode }
             self.dismiss(animated: true, completion: nil)
-        }))
+        })
+        deleteAction.accessibilityIdentifier = UBLocalized.Key.delete_button.rawValue
+        alert.addAction(deleteAction)
         alert.addAction(UIAlertAction(title: UBLocalized.cancel_button, style: .cancel, handler: nil))
 
         present(alert, animated: true, completion: nil)
