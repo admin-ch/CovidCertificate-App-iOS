@@ -26,7 +26,10 @@ enum RelativeDateFormatter {
             } else if hours <= 72 {
                 return UBLocalized.wallet_validity_since_hours_plural.replacingOccurrences(of: "{HOURS}", with: "\(hours)")
             } else {
-                return UBLocalized.wallet_validity_since_hours_plural.replacingOccurrences(of: "{HOURS}", with: "72")
+                // in this case only english uses "exceeding" as title, then you don't need "... hours ago",
+                // but just the number of hours
+                let ago = " ago"
+                return UBLocalized.wallet_validity_since_hours_plural.replacingOccurrences(of: "{HOURS}", with: "72").replacingOccurrences(of: ago, with: "")
             }
         default:
             if days == 0 {
