@@ -27,6 +27,7 @@ struct UserCertificate: Codable, Equatable {
     let transferCode: UserTransferCode?
     var lightCertificate: LightCertificate?
     var pdf: Data?
+    var pdfLanguage: String?
 
     var type: CertificateType {
         if lightCertificate != nil {

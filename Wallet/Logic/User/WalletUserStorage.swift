@@ -112,10 +112,10 @@ class CertificateStorage {
         }
     }
 
-    func updateCertificate(with transferCode: String, qrCode: String?, pdf: Data?) {
+    func updateCertificate(with transferCode: String, qrCode: String?, pdf: Data?, pdfLanguage: String?) {
         userCertificates = userCertificates.map { uc in
             if let t = uc.transferCode?.transferCode, t == transferCode {
-                return UserCertificate(qrCode: qrCode, transferCode: uc.transferCode, pdf: pdf)
+                return UserCertificate(qrCode: qrCode, transferCode: uc.transferCode, pdf: pdf, pdfLanguage: pdfLanguage)
             }
 
             return uc
@@ -127,7 +127,7 @@ class CertificateStorage {
         var newModel: UserCertificate?
         userCertificates = userCertificates.map { uc in
             if let qr = uc.qrCode, qr == qrCode {
-                let model = UserCertificate(qrCode: uc.qrCode, transferCode: uc.transferCode, lightCertificate: lightCertififcate, pdf: uc.pdf)
+                let model = UserCertificate(qrCode: uc.qrCode, transferCode: uc.transferCode, lightCertificate: lightCertififcate, pdf: uc.pdf, pdfLanguage: uc.pdfLanguage)
                 newModel = model
                 return model
             }
@@ -141,7 +141,7 @@ class CertificateStorage {
         var newModel: UserCertificate?
         userCertificates = userCertificates.map { uc in
             if let qr = uc.qrCode, qr == oldQrCode {
-                let model = UserCertificate(qrCode: newQrCode, transferCode: uc.transferCode, lightCertificate: uc.lightCertificate, pdf: uc.pdf)
+                let model = UserCertificate(qrCode: newQrCode, transferCode: uc.transferCode, lightCertificate: uc.lightCertificate, pdf: uc.pdf, pdfLanguage: nil)
                 newModel = model
                 return model
             }
@@ -151,11 +151,11 @@ class CertificateStorage {
     }
 
     @discardableResult
-    func updateCertificate(with qrCode: String, pdf: Data?) -> UserCertificate? {
+    func updateCertificate(with qrCode: String, pdf: Data?, pdfLanguage: String?) -> UserCertificate? {
         var newModel: UserCertificate?
         userCertificates = userCertificates.map { uc in
             if let qr = uc.qrCode, qr == qrCode {
-                let model = UserCertificate(qrCode: uc.qrCode, transferCode: uc.transferCode, lightCertificate: uc.lightCertificate, pdf: pdf)
+                let model = UserCertificate(qrCode: uc.qrCode, transferCode: uc.transferCode, lightCertificate: uc.lightCertificate, pdf: pdf, pdfLanguage: pdfLanguage)
                 newModel = model
                 return model
             }
