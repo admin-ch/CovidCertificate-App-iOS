@@ -72,7 +72,10 @@ enum TransformationManager {
             assertionFailure()
             return
         }
-        guard certificate.pdf == nil else {
+
+        // if the pdf exists and the language is the same as the current set language key, then
+        // return this pdf
+        if certificate.pdf != nil, let l = certificate.pdfLanguage, l == UBLocalized.language_key {
             if Thread.isMainThread {
                 completionHandler(.success(certificate))
             } else {
@@ -82,10 +85,11 @@ enum TransformationManager {
             }
             return
         }
+
         TransformationService.getPdf(qrCode: qrCode) { result in
             switch result {
             case let .success(pdf):
-                guard let model = CertificateStorage.shared.updateCertificate(with: qrCode, pdf: pdf) else {
+                guard let model = CertificateStorage.shared.updateCertificate(with: qrCode, pdf: pdf, pdfLanguage: UBLocalized.language_key) else {
                     DispatchQueue.main.async {
                         completionHandler(.failure(.certificateInvalid(.export)))
                     }

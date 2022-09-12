@@ -126,7 +126,7 @@ final class TransferManager {
                     // if a certificate was downloaded we schedule a local notification
                     LocalPush.shared.scheduleNotification(identifier: code)
 
-                    Self.updateCertificateStorage(code: code, certificates: certificates)
+                    Self.updateCertificateStorage(code: code, certificates: certificates, languageKey: UBLocalized.language_key)
 
                     // certificates were inserted, can be deleted on backend (best effort)
                     _ = InAppDelivery.shared.tryDeleteCertificate(withCode: code)
@@ -144,19 +144,19 @@ final class TransferManager {
         }
     }
 
-    static func updateCertificateStorage(code: String, certificates: [DecryptedCertificate]) {
+    static func updateCertificateStorage(code: String, certificates: [DecryptedCertificate], languageKey: String) {
         // get created date of object with transfer-code equal to code
         let created: Date? = CertificateStorage.shared.userCertificates.first { $0.transferCode?.transferCode ?? "" == code }?.transferCode?.created
 
         // update card of transfer-code to have a certificate
         if let first = certificates.first {
-            CertificateStorage.shared.updateCertificate(with: code, qrCode: first.cert, pdf: first.pdf)
+            CertificateStorage.shared.updateCertificate(with: code, qrCode: first.cert, pdf: first.pdf, pdfLanguage: languageKey)
         }
 
         // add all additional codes
         let certs: [UserCertificate] = certificates
             .dropFirst()
-            .map { UserCertificate(qrCode: $0.cert, transferCode: UserTransferCode(transferCode: code, created: created ?? Date()), pdf: $0.pdf) }
+            .map { UserCertificate(qrCode: $0.cert, transferCode: UserTransferCode(transferCode: code, created: created ?? Date()), pdf: $0.pdf, pdfLanguage: languageKey) }
         CertificateStorage.shared.insertCertificates(certificates: certs)
     }
 
