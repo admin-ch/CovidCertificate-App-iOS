@@ -1643,7 +1643,7 @@
 "wallet_validity_since_test_date" = "Test negativo";
 
 /*vor 2 Tagen - must be before "2 Tagen"!*/
-"wallet_validity_since_prefix" = "";
+"wallet_validity_since_prefix" = " ";
 
 /*vor 1 Stunde*/
 "wallet_validity_since_hours_singular" = "1 ora fa";
@@ -1676,3 +1676,9 @@
 "wallet_update_boarding_page_4_link_2_url" = "https://www.iatatravelcentre.com";
 "wallet_validity_since_more_hours_prefix" = "più di";
 "wallet_validity_since_recovery_date" = "Test positivo";
+"covid_certificate_news_text" = "it";
+"covid_certificate_news_title" = "it";
+"covid_certificate_news_item1" = "it";
+"covid_certificate_news_item2" = "it";
+"covid_certificate_news_item3" = "it";
+"covid_certificate_news_item4" = "it";

@@ -82,6 +82,18 @@ import Foundation
      case covid_certificate_ch_ausnahme_list_label
     /// Ausnahmezertifikat
      case covid_certificate_ch_ausnahme_test_title
+    /// Die Zertifikatspflicht in der Schweiz wurde im Februar 2022 aufgehoben.
+     case covid_certificate_news_item1
+    /// Die Schweizer Gültigkeitsdauern bestehen seitdem nur noch formal und haben im Inland keine praktische Bedeutung mehr.
+     case covid_certificate_news_item2
+    /// Diese Schweizer Prüf-App prüft Covid-Zertifikate nach den Schweizer Gültigkeitsregeln. Das Prüfergebnis ist für einen Einsatz im Ausland nicht massgeblich.
+     case covid_certificate_news_item3
+    /// Falls ein Land noch ein Covid-Zertifikat voraussetzt, gelten jeweils die Regeln des entsprechenden Landes.
+     case covid_certificate_news_item4
+    /// Zertifikatspflicht aufgehoben
+     case covid_certificate_news_text
+    /// Info
+     case covid_certificate_news_title
     /// Genesung
      case covid_certificate_recovery_title
     /// Befund
@@ -1364,6 +1376,18 @@ import Foundation
    static var covid_certificate_ch_ausnahme_list_label: String { return UBLocalized.tr(Key.covid_certificate_ch_ausnahme_list_label) }
   /// Ausnahmezertifikat
    static var covid_certificate_ch_ausnahme_test_title: String { return UBLocalized.tr(Key.covid_certificate_ch_ausnahme_test_title) }
+  /// Die Zertifikatspflicht in der Schweiz wurde im Februar 2022 aufgehoben.
+   static var covid_certificate_news_item1: String { return UBLocalized.tr(Key.covid_certificate_news_item1) }
+  /// Die Schweizer Gültigkeitsdauern bestehen seitdem nur noch formal und haben im Inland keine praktische Bedeutung mehr.
+   static var covid_certificate_news_item2: String { return UBLocalized.tr(Key.covid_certificate_news_item2) }
+  /// Diese Schweizer Prüf-App prüft Covid-Zertifikate nach den Schweizer Gültigkeitsregeln. Das Prüfergebnis ist für einen Einsatz im Ausland nicht massgeblich.
+   static var covid_certificate_news_item3: String { return UBLocalized.tr(Key.covid_certificate_news_item3) }
+  /// Falls ein Land noch ein Covid-Zertifikat voraussetzt, gelten jeweils die Regeln des entsprechenden Landes.
+   static var covid_certificate_news_item4: String { return UBLocalized.tr(Key.covid_certificate_news_item4) }
+  /// Zertifikatspflicht aufgehoben
+   static var covid_certificate_news_text: String { return UBLocalized.tr(Key.covid_certificate_news_text) }
+  /// Info
+   static var covid_certificate_news_title: String { return UBLocalized.tr(Key.covid_certificate_news_title) }
   /// Genesung
    static var covid_certificate_recovery_title: String { return UBLocalized.tr(Key.covid_certificate_recovery_title) }
   /// Befund

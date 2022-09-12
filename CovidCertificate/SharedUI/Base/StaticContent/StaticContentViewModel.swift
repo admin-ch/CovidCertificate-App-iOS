@@ -16,6 +16,7 @@ struct StaticContentViewModel: Equatable {
     let foregroundImage: UIImage?
     let title: String
     let alignment: NSTextAlignment
+    let textGroupAlignment: NSTextAlignment
     let textGroups: [(UIImage?, String)]
     let expandableTextGroups: [(String, String, String?, URL?)]
     let externalLinks: [(String, URL)]
@@ -25,12 +26,14 @@ struct StaticContentViewModel: Equatable {
          title: String,
          alignment: NSTextAlignment = .left,
          textGroups: [(UIImage?, String)] = [],
+         textGroupAlignment: NSTextAlignment? = nil,
          expandableTextGroups: [(String, String, String?, URL?)] = [],
          externalLinks: [(String, URL)] = []) {
         self.heading = heading
         self.foregroundImage = foregroundImage
         self.title = title
         self.alignment = alignment
+        self.textGroupAlignment = textGroupAlignment ?? alignment
         self.textGroups = textGroups
         self.expandableTextGroups = expandableTextGroups
         self.externalLinks = externalLinks
@@ -41,6 +44,7 @@ struct StaticContentViewModel: Equatable {
             lhs.foregroundImage == rhs.foregroundImage &&
             lhs.title == rhs.title &&
             lhs.alignment == rhs.alignment &&
+            lhs.textGroupAlignment == rhs.textGroupAlignment &&
             lhs.textGroups.elementsEqual(rhs.textGroups) {
                 $0.0 == $1.0 && $0.1 == $1.1
             } && lhs.expandableTextGroups.elementsEqual(rhs.expandableTextGroups) {
@@ -52,11 +56,11 @@ struct StaticContentViewModel: Equatable {
 
     // MARK: - Factory
 
-    static let theApp = StaticContentViewModel(heading: UBLocalized.wallet_onboarding_app_header,
-                                               foregroundImage: UIImage(named: "illu-onboarding-hero"),
-                                               title: UBLocalized.wallet_onboarding_app_title,
+    static let theApp = StaticContentViewModel(heading: UBLocalized.wallet_certificate_list_title, title: UBLocalized.wallet_update_boarding_page_2_title,
                                                alignment: .center,
-                                               textGroups: [(nil, UBLocalized.wallet_onboarding_app_text)])
+                                               textGroups: [(UIImage(named: "ic-bund-small"), UBLocalized.wallet_update_boarding_page_2_bullet_1), (UIImage(named: "ic-timelapse-blue"), UBLocalized.wallet_update_boarding_page_2_bullet_2),
+                                                            (UIImage(named: "ic-travel"), UBLocalized.wallet_update_boarding_page_2_bullet_3 + " " + UBLocalized.covid_certificate_news_item4)],
+                                               textGroupAlignment: .left)
 
     static let store = StaticContentViewModel(heading: UBLocalized.wallet_onboarding_store_header,
                                               foregroundImage: UIImage(named: "illu-onboarding-privacy"),
@@ -100,22 +104,19 @@ struct StaticContentViewModel: Equatable {
 
         static let updateBoardingStep2 = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
                                                                 title: UBLocalized.wallet_update_boarding_page_2_title,
-                                                                textGroups: [(nil, ""),
-                                                                             (UIImage(named: "ic-bund-small"), UBLocalized.wallet_update_boarding_page_2_bullet_1),
+                                                                textGroups: [(UIImage(named: "ic-bund-small"), UBLocalized.wallet_update_boarding_page_2_bullet_1),
                                                                              (UIImage(named: "ic-timelapse")?.ub_image(with: .cc_blue), UBLocalized.wallet_update_boarding_page_2_bullet_2),
                                                                              (UIImage(named: "ic-travel"), UBLocalized.wallet_update_boarding_page_2_bullet_3)])
 
         static let updateBoardingStep3 = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
                                                                 title: UBLocalized.wallet_update_boarding_page_3_title,
-                                                                textGroups: [(nil, ""),
-                                                                             (UIImage(named: "ic-travel"), UBLocalized.wallet_update_boarding_page_3_bullet_1),
+                                                                textGroups: [(UIImage(named: "ic-travel"), UBLocalized.wallet_update_boarding_page_3_bullet_1),
                                                                              (UIImage(named: "ic-calendar"), UBLocalized.wallet_update_boarding_page_3_bullet_2),
                                                                              (UIImage(named: "ic-data-protection"), UBLocalized.wallet_update_boarding_page_3_bullet_3)])
 
         static let updateBoardingStep4 = StaticContentViewModel(heading: UBLocalized.wallet_update_boarding_header,
                                                                 title: UBLocalized.wallet_update_boarding_page_4_title,
-                                                                textGroups: [(nil, ""),
-                                                                             (UIImage(named: "ic-check-mark"), UBLocalized.wallet_update_boarding_page_4_bullet_1),
+                                                                textGroups: [(UIImage(named: "ic-check-mark"), UBLocalized.wallet_update_boarding_page_4_bullet_1),
                                                                              (UIImage(named: "ic-travel"), UBLocalized.wallet_update_boarding_page_4_bullet_2),
                                                                              (UIImage(named: "ic-question-outline"), UBLocalized.wallet_update_boarding_page_4_bullet_3)],
                                                                 externalLinks:

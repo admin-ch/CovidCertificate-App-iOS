@@ -16,7 +16,7 @@ class OnboardingInfoView: UIView {
 
     private let leftRightInset: CGFloat
 
-    init(icon: UIImage?, text: String, alignment: NSTextAlignment, leftRightInset: CGFloat = 2 * Padding.medium, height: CGFloat? = nil, width: CGFloat? = nil, imageAccessibilityText: String? = nil) {
+    init(icon: UIImage?, text: String, alignment: NSTextAlignment, leftRightInset: CGFloat = 2 * Padding.medium, height: CGFloat? = nil, width: CGFloat? = nil, imageAccessibilityText: String? = nil, textSpacing: CGFloat? = nil) {
         self.leftRightInset = leftRightInset
 
         super.init(frame: .zero)
@@ -36,9 +36,11 @@ class OnboardingInfoView: UIView {
                 make.top.equalToSuperview()
                 make.leading.equalToSuperview().inset(leftRightInset)
 
-                if let h = height,
-                   let w = width {
+                if let h = height {
                     make.height.equalTo(h)
+                }
+
+                if let w = width {
                     make.width.equalTo(w)
                 }
             }
@@ -46,7 +48,7 @@ class OnboardingInfoView: UIView {
 
         label.snp.makeConstraints { make in
             make.top.equalToSuperview()
-            make.bottom.equalToSuperview().inset(Padding.medium + Padding.small)
+            make.bottom.equalToSuperview().inset(textSpacing ?? Padding.medium + Padding.small)
             if icon != nil {
                 make.leading.equalTo(imgView.snp.trailing).offset(Padding.medium + Padding.small)
             } else {

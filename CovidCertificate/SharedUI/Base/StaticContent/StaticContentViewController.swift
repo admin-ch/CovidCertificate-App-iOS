@@ -60,15 +60,16 @@ class StaticContentViewController: OnboardingContentViewController {
             titleContainer.addSubview(titleLabel)
             titleLabel.snp.makeConstraints { make in
                 make.leading.trailing.equalToSuperview().inset(2 * Padding.medium)
-                make.top.bottom.equalToSuperview()
+                make.top.equalToSuperview().inset(model.foregroundImage == nil ? Padding.medium : 0.0)
+                make.bottom.equalToSuperview().inset(2.0 * Padding.small)
             }
-            Self.addArrangedView(titleContainer, spacing: Padding.medium, stackView: stackView)
+            Self.addArrangedView(titleContainer, spacing: 2 * Padding.medium, stackView: stackView)
             titleContainer.snp.makeConstraints { make in
                 make.leading.trailing.equalTo(stackView)
             }
 
             for (icon, text) in model.textGroups {
-                let v = OnboardingInfoView(icon: icon, text: text, alignment: model.alignment, imageAccessibilityText: icon?.accessibilityLabel)
+                let v = OnboardingInfoView(icon: icon, text: text, alignment: model.textGroupAlignment, width: 24.0, imageAccessibilityText: icon?.accessibilityLabel, textSpacing: 2.0 * Padding.medium)
                 Self.addArrangedView(v, stackView: stackView)
                 v.snp.makeConstraints { make in
                     make.leading.trailing.equalTo(stackView)
