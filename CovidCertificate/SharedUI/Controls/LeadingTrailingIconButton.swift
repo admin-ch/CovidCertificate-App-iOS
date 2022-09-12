@@ -20,7 +20,7 @@ class LeadingTrailingIconButton: UBButton {
 
     // MARK: Init
 
-    init(text: String, leadingIcon: UIImage, trailingIcon: UIImage) {
+    init(text: String, leadingIcon: UIImage? = nil, trailingIcon: UIImage?, hasBorder: Bool = true) {
         super.init()
 
         textLabel.text = text
@@ -30,23 +30,38 @@ class LeadingTrailingIconButton: UBButton {
         highlightedBackgroundColor = UIColor.cc_blue.withAlphaComponent(0.15)
 
         layer.cornerRadius = 22
-        layer.borderColor = UIColor.cc_blue.cgColor
-        layer.borderWidth = 1.5
+
+        if hasBorder {
+            layer.borderColor = UIColor.cc_blue.cgColor
+            layer.borderWidth = 1.5
+        }
 
         addSubview(leadingImageView)
         addSubview(textLabel)
         addSubview(trailingImageView)
 
-        leadingImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.top.greaterThanOrEqualToSuperview()
-            make.bottom.lessThanOrEqualToSuperview()
-            make.centerY.equalToSuperview()
+        let hasLeadingIcon = leadingIcon != nil
+
+        if hasLeadingIcon {
+            addSubview(leadingImageView)
+
+            leadingImageView.snp.makeConstraints { make in
+                make.leading.equalToSuperview().offset(10)
+                make.top.greaterThanOrEqualToSuperview()
+                make.bottom.lessThanOrEqualToSuperview()
+                make.centerY.equalToSuperview()
+            }
         }
+
         textLabel.snp.makeConstraints { make in
-            make.leading.equalTo(self.leadingImageView.snp.trailing).offset(4)
-            make.top.greaterThanOrEqualToSuperview()
-            make.bottom.lessThanOrEqualToSuperview()
+            if hasLeadingIcon {
+                make.leading.equalTo(self.leadingImageView.snp.trailing).offset(4)
+            } else {
+                make.leading.equalToSuperview().offset(15)
+            }
+
+            make.top.greaterThanOrEqualToSuperview().inset(Padding.small)
+            make.bottom.lessThanOrEqualToSuperview().inset(Padding.small)
             make.centerY.equalToSuperview()
         }
 

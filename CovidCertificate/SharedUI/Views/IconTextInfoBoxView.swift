@@ -28,9 +28,12 @@ class IconTextInfoBoxView: PopupView {
     private let buttonView = UIView()
     private let closeButton = Button(titleKey: .close_button, style: .text(.cc_blue))
 
+    private let title: String?
+
     // MARK: - Init
 
-    init(iconTextSource: [IconText], imageHeight: CGFloat) {
+    init(title: String?, iconTextSource: [IconText], imageHeight: CGFloat) {
+        self.title = title
         self.imageHeight = imageHeight
         self.iconTextSource = iconTextSource
         super.init()
@@ -78,7 +81,7 @@ class IconTextInfoBoxView: PopupView {
             make.bottom.equalTo(buttonView.snp.top)
         }
 
-        titleLabel.text = ConfigManager.currentConfig?.checkModesInfo?.value?.title ?? UBLocalized.accessibility_info_box
+        titleLabel.text = title ?? UBLocalized.accessibility_info_box
 
         stackScrollView.addArrangedView(titleLabel, inset: UIEdgeInsets(top: Padding.large + Padding.small, left: 0, bottom: Padding.large + Padding.small, right: 0))
 

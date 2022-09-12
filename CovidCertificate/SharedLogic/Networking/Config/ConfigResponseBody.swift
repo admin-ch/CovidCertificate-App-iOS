@@ -88,6 +88,9 @@ class ConfigResponseBody: UBCodable, JWTExtension {
     #elseif VERIFIER
         let checkModesInfos: LocalizedValue<CheckModeContainer>?
         let checkModeReselectAfterHours: Int
+
+        let covidCertificateNewsText: LocalizedValue<String>?
+        let infoCovidCertificateNews: LocalizedValue<News>?
     #endif
 
     class RefreshButtonInfo: UBCodable {
@@ -140,6 +143,11 @@ class ConfigResponseBody: UBCodable, JWTExtension {
         let iconAndroid: String
         let iconIos: String
         let text: String
+    }
+
+    class News: UBCodable {
+        let title: String?
+        let newsItems: [CheckModeInfo]
     }
 
     #if WALLET
