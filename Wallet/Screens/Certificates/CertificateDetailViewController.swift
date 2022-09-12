@@ -251,7 +251,9 @@ class CertificateDetailViewController: ViewController {
         modeView.button.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.infoPopupView?.removeFromSuperview()
-            strongSelf.infoPopupView = IconTextInfoBoxView(iconTextSource: strongSelf.modeView.infoImageTexts(size: 24.0), imageHeight: 24.0)
+
+            let title = ConfigManager.currentConfig?.checkModesInfo?.value?.title
+            strongSelf.infoPopupView = IconTextInfoBoxView(title: title, iconTextSource: strongSelf.modeView.infoImageTexts(size: 24.0), imageHeight: 24.0)
             strongSelf.infoPopupView?.addAndPresent(to: strongSelf.view, from: strongSelf.modeView.button)
         }
 

@@ -37,6 +37,10 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
     private let modePopupView = VerifyModePopUpView()
     private var modePopupIsShown: Bool = false
 
+    private let infoButtonContainerView = UIView()
+    private let infoButton = LeadingTrailingIconButton(text: "Zertifikatspflicht aufgehoben", trailingIcon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_blue), hasBorder: false)
+    private var infoPopupView: IconTextInfoBoxView?
+
     private var mode: CheckModeUIObject?
 
     // MARK: - View
@@ -81,11 +85,26 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
             make.top.equalTo(self.backgroundTopLayoutGuide).offset(Padding.large)
         }
 
-        view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
+        let titleInfoStackView = UIStackView()
+        titleInfoStackView.spacing = p
+        titleInfoStackView.axis = .vertical
+
+        view.addSubview(titleInfoStackView)
+        titleInfoStackView.snp.makeConstraints { make in
             make.top.equalTo(self.headerLabel.snp.bottom).offset(Padding.medium)
-            make.left.right.equalToSuperview().inset(p)
+            make.left.right.equalToSuperview()
         }
+
+        titleInfoStackView.addArrangedViewCentered(titleLabel)
+
+        infoButtonContainerView.addSubview(infoButton)
+        infoButton.snp.makeConstraints { make in
+            make.centerX.top.bottom.equalToSuperview()
+            make.right.lessThanOrEqualToSuperview()
+            make.left.greaterThanOrEqualToSuperview()
+        }
+
+        titleInfoStackView.addArrangedViewCentered(infoButtonContainerView)
 
         view.addSubview(bottomView)
 
@@ -98,7 +117,7 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
 
         v.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(Padding.large)
+            make.top.equalTo(titleInfoStackView.snp.bottom).offset(Padding.large)
             make.bottom.equalToSuperview().offset(-4.0 * Padding.large)
         }
 
@@ -174,6 +193,11 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
             guard let strongSelf = self else { return }
             strongSelf.modePopupIsShown = show
         }
+
+        infoButton.touchUpCallback = { [weak self] in
+            guard let self = self else { return }
+            self.presentInfoBox()
+        }
     }
 
     private func updateUI() {
@@ -187,6 +211,13 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
         let title = (mode == nil || CheckModesHelper.onlyOneMode()) ? UBLocalized.verifier_homescreen_scan_button : UBLocalized.verifier_homescreen_scan_button_with_mode
 
         checkButton.title = title.replacingOccurrences(of: "{MODE}", with: mode?.displayName ?? "")
+
+        var hasInfoButton = false
+        if let config = ConfigManager.currentConfig {
+            hasInfoButton = config.covidCertificateNewsText != nil
+        }
+
+        infoButtonContainerView.ub_setHidden(!hasInfoButton)
     }
 
     @objc private func userScannedWithUnknownMode() {
@@ -196,6 +227,21 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
         let alert = UIAlertController(title: nil, message: UBLocalized.verifier_error_mode_no_longer_exists, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: UBLocalized.ok_button, style: .default))
         present(alert, animated: true)
+    }
+
+    private func presentInfoBox() {
+        guard let config = ConfigManager.currentConfig,
+              let news = config.infoCovidCertificateNews?.value
+        else { return }
+
+        infoPopupView?.removeFromSuperview()
+        let iconTexts: [IconText] = news.newsItems.compactMap {
+            guard let img = UIImage(named: $0.iconIos) else { return nil }
+            return IconText(text: $0.text, icon: img, iconAccessibility: nil)
+        }
+
+        infoPopupView = IconTextInfoBoxView(title: news.title, iconTextSource: iconTexts, imageHeight: 24.0)
+        infoPopupView?.addAndPresent(to: view, from: infoButton)
     }
 
     deinit {

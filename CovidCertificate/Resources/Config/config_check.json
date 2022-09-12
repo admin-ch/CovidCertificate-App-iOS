@@ -949,5 +949,139 @@
       }
     }
   },
-  "checkModeReselectAfterHours": 48
+  "checkModeReselectAfterHours": 48,
+  "covidCertificateNewsText": {
+    "de": "Zertifikatspflicht aufgehoben",
+    "en": "en",
+    "fr": "fr",
+    "it": "it",
+    "rm": "rm"
+  },
+  "infoCovidCertificateNews": {
+    "de": {
+      "title": null,
+      "newsItems": [
+        {
+          "text": "Die Zertifikatspflicht in der Schweiz wurde im Februar 2022 aufgehoben.",
+          "iconIos": "ic-info-outline",
+          "iconAndroid": "ic_info_outline"
+        },
+        {
+          "text": "Die Schweizer Gültigkeitsdauern bestehen seitdem nur noch formal und haben im Inland keine praktische Bedeutung mehr.",
+          "iconIos": "ic-timelapse",
+          "iconAndroid": "ic_timelapse"
+        },
+        {
+          "text": "Diese Schweizer Prüf-App prüft Covid-Zertifikate nach den Schweizer Gültigkeitsregeln. Das Prüfergebnis ist für einen Einsatz im Ausland nicht massgeblich.",
+          "iconIos": "ic-travel",
+          "iconAndroid": "ic_travel"
+        },
+        {
+          "text": "Falls ein Land noch ein Covid-Zertifikat voraussetzt, gelten jeweils die Regeln des entsprechenden Landes.",
+          "iconIos": "ic-question-outline",
+          "iconAndroid": "ic_question_outline"
+        }
+      ]
+    },
+    "en": {
+      "title": null,
+      "newsItems": [
+        {
+          "text": "en",
+          "iconIos": "ic-info-outline",
+          "iconAndroid": "ic_info_outline"
+        },
+        {
+          "text": "en",
+          "iconIos": "ic-timelapse",
+          "iconAndroid": "ic_timelapse"
+        },
+        {
+          "text": "en",
+          "iconIos": "ic-travel",
+          "iconAndroid": "ic_travel"
+        },
+        {
+          "text": "en",
+          "iconIos": "ic-question-outline",
+          "iconAndroid": "ic_question_outline"
+        }
+      ]
+    },
+    "fr": {
+      "title": null,
+      "newsItems": [
+        {
+          "text": "fr",
+          "iconIos": "ic-info-outline",
+          "iconAndroid": "ic_info_outline"
+        },
+        {
+          "text": "fr",
+          "iconIos": "ic-timelapse",
+          "iconAndroid": "ic_timelapse"
+        },
+        {
+          "text": "fr",
+          "iconIos": "ic-travel",
+          "iconAndroid": "ic_travel"
+        },
+        {
+          "text": "fr",
+          "iconIos": "ic-question-outline",
+          "iconAndroid": "ic_question_outline"
+        }
+      ]
+    },
+    "it": {
+      "title": null,
+      "newsItems": [
+        {
+          "text": "it",
+          "iconIos": "ic-info-outline",
+          "iconAndroid": "ic_info_outline"
+        },
+        {
+          "text": "it",
+          "iconIos": "ic-timelapse",
+          "iconAndroid": "ic_timelapse"
+        },
+        {
+          "text": "it",
+          "iconIos": "ic-travel",
+          "iconAndroid": "ic_travel"
+        },
+        {
+          "text": "it",
+          "iconIos": "ic-question-outline",
+          "iconAndroid": "ic_question_outline"
+        }
+      ]
+    },
+    "rm": {
+      "title": null,
+      "newsItems": [
+        {
+          "text": "rm",
+          "iconIos": "ic-info-outline",
+          "iconAndroid": "ic_info_outline"
+        },
+        {
+          "text": "rm",
+          "iconIos": "ic-timelapse",
+          "iconAndroid": "ic_timelapse"
+        },
+        {
+          "text": "rm",
+          "iconIos": "ic-travel",
+          "iconAndroid": "ic_travel"
+        },
+        {
+          "text": "rm",
+          "iconIos": "ic-question-outline",
+          "iconAndroid": "ic_question_outline"
+        }
+      ]
+    }
+  }
 }
