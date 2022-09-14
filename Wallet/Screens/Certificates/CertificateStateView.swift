@@ -269,7 +269,7 @@ class CertificateStateView: UIView {
                         self.ageView.textColor = .cc_grey
 
                         self.imageView.image = first?.icon()
-                        self.textLabel.attributedText = first?.displayName()
+                        self.textLabel.attributedText = first?.displayName(errorCodes: errorCodes)
                     } else {
                         self.validityView.textColor = .cc_black
                         self.ageView.textColor = .cc_black

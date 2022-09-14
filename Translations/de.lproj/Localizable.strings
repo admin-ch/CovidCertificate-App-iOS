@@ -196,7 +196,7 @@
 "wallet_faq_works_question_2" = "Können auch mehrere Covid-Zertifikate hinzugefügt werden?";
 
 /*Frage 8 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_question_3" = "Wie sehe ich, ob mein Covid-Zertifikat gültig ist?";
+"wallet_faq_works_question_3" = "Wo sehe ich, ob mein Covid-Zertifikat gültig ist?";
 
 /*Frage 9 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_question_4" = "Wie sind meine Daten geschützt?";
@@ -208,19 +208,19 @@
 "wallet_faq_works_question_6" = "Was muss ich tun, wenn ich das Covid-Zertifikat oder die App lösche?";
 
 /*Antwort 1 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_1" = "Ein Covid-Zertifikat können Sie nach einer vollständigen Covid-19-Impfung, nach einer durchgemachten Erkrankung oder nach einem negativen Testergebnis erhalten. Das Zertifikat stellt Ihnen in der Regel das Gesundheitsfachpersonal vor Ort auf Anfrage aus.";
+"wallet_faq_questions_answer_1" = "Ein Covid-Zertifikat können Sie nach einer Covid-19-Impfung, nach einer durchgemachten Erkrankung oder nach einem negativen Testergebnis erhalten. Das Zertifikat stellt Ihnen in der Regel das Gesundheitsfachpersonal vor Ort auf Anfrage aus.";
 
 /*Antwort 2 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_2" = "Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die COVID Certificate App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. Ob Sie Ihr Zertifikat auf Papier oder in der App vorweisen, ist Ihnen überlassen. \n\nBeachten Sie, dass Sie in jedem Fall auf Verlangen auch noch ein Ausweisdokument vorweisen müssen.";
+"wallet_faq_questions_answer_2" = "Sie können Ihr Covid-Zertifikat in Papierform vorweisen oder Sie benutzen die «COVID Certificate»-App, um Zertifikate in der App zu speichern und direkt aus der App vorzuweisen. \n\nBeachten Sie, dass Sie in jedem Fall auch noch ein Ausweisdokument vorweisen müssen.\nIn einigen Ländern wird eine ausgedruckte Version des Zertifikats verlangt und das elektronische Zertifikat nicht akzeptiert. Führen Sie auf Reisen daher stets auch die ausgedruckte Version mit.";
 
 /*Antwort 3 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_3" = "Ihre Daten werden nicht in einem zentralen System gespeichert, sondern nur lokal auf Ihrem Mobilgerät, respektive im QR-Code auf dem Covid-Zertifikat in Papierform.";
+"wallet_faq_questions_answer_3" = "Ihre Zertifikatsdaten werden nicht in einem zentralen System des Bundes gespeichert, sondern befinden sich nur lokal auf Ihrem Mobilgerät, respektive auf dem Covid-Zertifikat in Papierform.";
 
 /*Antwort 4 im FAQ-Screen der Wallet App*/
 "wallet_faq_questions_answer_4" = "Der QR-Code auf dem Covid-Zertifikat enthält eine elektronische Signatur. Die Signatur ist ein wichtiges Sicherheitsmerkmal und macht das Covid-Zertifikat fälschungssicher. Das Covid-Zertifikat ist zudem nur in Kombination mit einem Ausweisdokument gültig.";
 
 /*Antwort 5 im FAQ-Screen der Wallet App*/
-"wallet_faq_questions_answer_5" = "Ihr Covid-Zertifikat wird in keinem zentralen System gespeichert. Es befindet sich ausschliesslich in Ihrem Besitz. Bewahren Sie das Covid-Zertifikat auf Papier und/oder als PDF deshalb sorgfältig auf. Bei Verlust und Bedarf nach einem Ersatz kann eine Gebühr erhoben werden.";
+"wallet_faq_questions_answer_5" = "Ihr Covid-Zertifikat wird in keinem zentralen System des Bundes gespeichert. Bewahren Sie das Covid-Zertifikat auf Papier und/oder als PDF deshalb sorgfältig auf. Bei Verlust und Bedarf nach einem Einsatz kann für die Neuausstellung durch die Gesundheitseinrichtungen (z. B. der Test- oder Impf-stelle) eine Gebühr erhoben werden. ";
 
 /*Antwort 6 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_1" = "Um ein Covid-Zertifikat zur App hinzuzufügen, benötigen Sie das Ihnen ausgestellte Originalzertifikat auf Papier oder als PDF-Dokument. Den darauf abgebildeten QR-Code können Sie mit der COVID Certificate App scannen und hinzufügen. Anschliessend erscheint das Covid-Zertifikat direkt in der App.";
@@ -229,7 +229,7 @@
 "wallet_faq_works_answer_2" = "Ja das ist möglich. So können Sie z. B. alle Covid-Zertifikate von Familienangehörigen in Ihrer App speichern. Auch in diesem Fall gilt: Das Covid-Zertifikat ist nur in Kombination mit einem Ausweisdokument des Zertifikatsinhabers / der Zertifikatsinhaberin gültig.";
 
 /*Antwort 8 im FAQ-Screen der Wallet App*/
-"wallet_faq_works_answer_3" = "Die App prüft automatisch, ob Ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht. Sollte Ihr Covid-Zertifikat abgelaufen oder technisch ungültig sein, wird Ihnen dies direkt auf dem Zertifikat in der App angezeigt.";
+"wallet_faq_works_answer_3" = "Die Zertifikatspflicht in der Schweiz wurde im Februar 2022 aufgehoben. Die Schweizer Gültigkeitsdauern bestehen seitdem nur noch formal und haben praktisch im Inland keine Bedeutung mehr. Deshalb wird in der App das Feld «Gültigkeit in der Schweiz» nicht mehr dargestellt. Stattdessen zeigt sie den Zeitpunkt der Impfung bzw. des Tests an. \n\nEs wird auch angezeigt, wie viele Tage eine Impfung bzw. ein Test her ist. So können Sie einfacher feststellen, ob Ihr Zertifikat den Gültigkeitsregeln Ihres Ziellandes entspricht (falls das Land noch ein Covid-Zertifikat voraussetzt). Im Ausland gelten immer die Regeln des entsprechenden Landes.";
 
 /*Antwort 9 im FAQ-Screen der Wallet App*/
 "wallet_faq_works_answer_4" = "Ihre persönlichen Daten werden in keinem zentralen System gespeichert, sondern befinden sich ausschliesslich bei Ihnen lokal auf dem Mobilgerät, respektive im QR-Code auf dem Covid-Zertifikat in Papierform.";
@@ -331,7 +331,7 @@
 "wallet_error_valid_from" = "In der Schweiz gültig ab:\n{DATE}";
 
 /*Wallet: Fehler wenn Zertifikat nicht den CH-Gültigkeitskriterien entspricht*/
-"wallet_error_national_rules" = "Entspricht nicht den Gültigkeitskriterien der Schweiz";
+"wallet_error_national_rules" = "Enthält Daten, die nicht den internationalen Standards entsprechen.";
 
 /*Wallet: Gültigkeit des Zertifikats abgelaufen*/
 "wallet_error_expired" = "Gültigkeitsdauer für die Schweiz überschritten";
@@ -473,14 +473,14 @@
 "wallet_onboarding_external_privacy_button" = "Datenschutzerklärung &\nNutzungsbedingungen";
 
 /*Wallet: Hinweis im Zertifikat Detail*/
-"wallet_certificate_detail_note" = "Dieses Zertifikat ist kein Reisedokument. \n<br /><br />\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n<br /><br />\nBitte informieren Sie sich vor einer Reise über die am Zielort geltenden Beschränkungen und Gültigkeitsregeln. Die Gültigkeit Ihres Zertifikats wird im Ausland anhand der Regeln des Ziellandes berechnet. Mehr Informationen dazu erhalten Sie <a href=\"https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/haeufig-gestellte-fragen.html?faq-url=/covid/de/covid-zertifikat/was-soll-ich-tun-wenn-mein-covid-zertifikat-nach-schweizer-gueltigkeitsregeln-bald\">in dieser FAQ</a>.";
+"wallet_certificate_detail_note" = "Dieses Zertifikat ist kein Reisedokument. \n<br /><br />\nDie wissenschaftlichen Erkenntnisse über Covid-19-Impfungen und -Tests sowie über die Genesung von einer Covid-19-Infektion entwickeln sich ständig weiter, auch im Hinblick auf neue besorgniserregende Virusvarianten. \n<br /><br />\nBitte informieren Sie sich vor einer Reise über die am Zielort geltenden Beschränkungen und Gültigkeitsregeln. Die Gültigkeit Ihres Zertifikats wird im Ausland anhand der Regeln des Ziellandes berechnet.";
 "wallet_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-app.html";
 "verifier_terms_privacy_link" = "https://www.bit.admin.ch/bit/de/home/dokumentation/covid-certificate-check-app.html";
 
 /*Verifier: Titel in der App (z.B. Impressum)*/
 "verifier_app_title" = "COVID Certificate Check";
 "wallet_faq_questions_question_1_1" = "Wie erhalte ich nach einer durchgemachten Covid-19-Erkrankung ein Covid-Zertifikat?";
-"wallet_faq_questions_answer_1_1" = "Von Covid-19 genesene Personen können das Covid-Zertifikat über ein Online-Formular auf der Webseite des Kantons beantragen. Das Covid-Zertifikat wird anschliessend per Post zugeschickt.";
+"wallet_faq_questions_answer_1_1" = "Je nach Kanton wird Ihnen das Covid-Zertifikat teilweise direkt von der Teststelle oder dem Labor ausgestellt, in dem Ihr positives Testresultat festgestellt wurde. Falls dies nicht der Fall ist, können Sie nachträglich online über die Webseite der «Nationale Antragsstelle Covid-Zertifikat» ein Covid-Zertifikat beantragen. Der Antrag wird dort von der zuständigen kantonalen Behörde bearbeitet. Die Webseite der «Nationale Antragsstelle Covid-Zertifikat» finden Sie hier:";
 
 /*Wallet: Homescreen Was wollen sie machen?*/
 "wallet_homescreen_what_to_do" = "Nächsten Schritt wählen";
@@ -712,11 +712,11 @@
 "wallet_notification_transfer_title" = "Transfer erfolgreich";
 "wallet_notification_transfer_text" = "Das Covid-Zertifikat ist eingetroffen";
 "wallet_faq_questions_question_2_1" = "Wie lange ist das Covid-Zertifikat gültig?";
-"wallet_faq_questions_answer_2_1" = "Die Gültigkeitsdauer unterscheidet sich je nachdem, ob Sie eine Covid-19-Impfung, eine durchgemachte Erkrankung oder ein negatives Testergebnis haben. Aufgrund neuer wissenschaftlicher Erkenntnisse kann sich die Gültigkeitsdauer verändern. Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:";
-"wallet_faq_questions_linktext_2_1" = "Weitere Informationen";
-"wallet_faq_questions_linkurl_2_1" = "https://bag-coronavirus.ch/zertifikat/wie-erhalte-ich-ein-covid-zertifikat-und-wie-verwende-ich-es/#contents2";
+"wallet_faq_questions_answer_2_1" = "In der Schweiz wurde die Zertifikatspflicht im Februar 2022 aufgehoben. Die Schweizer Gültigkeitsdauern bestehen seitdem nur noch formal und haben praktisch im Inland keine Bedeutung mehr. Im Ausland gelten jeweils die Gültigkeitsregeln des entsprechenden Landes. Informieren Sie sich kurz vor Ihrer Abreise auf der Webseite der Behörden Ihres Transit- oder Ziellandes, ob das Land noch zertifikatsbasierte Massnahmen hat und welche falls ja, welche Gültigkeitsdauern für Ihr Zielland festgelegt sind. Hilfreiche Webseite bei Auslandsreisen:";
+"wallet_faq_questions_linktext_2_1" = "Re-open EU (europa.eu)";
+"wallet_faq_questions_linkurl_2_1" = "https://reopen.europa.eu/de";
 "wallet_faq_works_question_3_1" = "Kann ich die App auch offline verwenden?";
-"wallet_faq_works_answer_3_1" = "Sie können die App ohne eine Internetverbindung verwenden. Auch im Offline-Modus können Zertifikate vorgewiesen und von den Prüfern gescannt und verifiziert werden.\n\nUm in der «COVID Certificate»-App anzeigen zu können, ob ihr Zertifikat den Gültigkeitskriterien der Schweiz entspricht und bis wann Ihr Zertifikat gültig ist, muss die App jedoch regelmässig online sein.";
+"wallet_faq_works_answer_3_1" = "Sie können die App ohne eine Internetverbindung verwenden. Auch im Offline-Modus können Zertifikate vorgewiesen und von den Prüfern gescannt und verifiziert werden.";
 "verifier_faq_works_question_2_1" = "Was sind die aktuellen Gültigkeitskriterien der Schweiz?";
 "verifier_faq_works_answer_2_1" = "Die aktuell geltende Gültigkeitsdauer von Covid-Zertifikaten finden Sie hier:";
 "verifier_faq_works_linktext_2_1" = "Weitere Informationen";
@@ -882,7 +882,7 @@
 "wallet_faq_questions_question_6" = "Was ist das Zertifikat Light?";
 
 /*there is a placeholder ({LIGHT_CERT_VALIDITY_IN_H}) which describes the number of hours a light certificate is valid. do NOT translate!*/
-"wallet_faq_questions_answer_6" = "Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zu generieren. Dieses «Zertifikat Light» zeigt lediglich das Vorliegen eines gültigen Covid-Zertifikats an, jedoch ohne Gesundheitsdaten zu enthalten. \n\nDie datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Dritte mit selbstentwickelten Apps bei der Prüfung von Covid-Zertifikaten Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung einsehen könnten. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von {LIGHT_CERT_VALIDITY_IN_H} Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der {LIGHT_CERT_VALIDITY_IN_H} Stunden benötigt, kann das Zertifikat Light einfach deaktiviert werden.";
+"wallet_faq_questions_answer_6" = "Die «COVID Certificate»-App bietet Inhaberinnen und Inhabern von Covid-Zertifikaten die Möglichkeit, eine datenminimierte Zertifikatskopie zur Nutzung in der Schweiz zu generieren. Das «Zertifikat Light» bestätigt das Vorliegen eines gültigen Covid-Zertifikats, ohne selbst Gesundheitsdaten zu enthalten. \n\nDiese datenminimierte Alternative zum Covid-Zertifikat wurde auf Wunsch des Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) entwickelt, da Covid-Zertifikategewisse Gesundheitsdaten wie beispielsweise Impfstoff oder Datum der Impfung enthalten, die auch ausgelesen werden können. Mittels dem «Zertifikat Light» wird dies verhindert.\n\nDas «Zertifikat Light» ist lediglich elektronisch innerhalb der App verfügbar und wird nur in der Schweiz anerkannt. Aus Datenschutzgründen hat das «Zertifikat Light» eine maximale Gültigkeitsdauer von {LIGHT_CERT_VALIDITY_IN_H} Stunden und muss danach erneut aktiviert werden. Wird das normale Zertifikat vor Ablauf der {LIGHT_CERT_VALIDITY_IN_H} Stunden benötigt, kann das «Zertifikat Light» einfach deaktiviert werden.";
 "verifier_faq_works_question_8" = "Was ist das Zertifikat Light?";
 
 /*there is a placeholder ({LIGHT_CERT_VALIDITY_IN_H}) which describes the number of hours a light certificate is valid. do NOT translate!*/
@@ -1677,8 +1677,13 @@
 "wallet_validity_since_more_hours_prefix" = "vor mehr als";
 "wallet_validity_since_recovery_date" = "Positiv getestet";
 "covid_certificate_news_text" = "Zertifikatspflicht aufgehoben";
-"covid_certificate_news_title" = "Info";
+"covid_certificate_news_title" = "Zertifikatspflicht aufgehoben";
 "covid_certificate_news_item1" = "Die Zertifikatspflicht in der Schweiz wurde im Februar 2022 aufgehoben.";
 "covid_certificate_news_item2" = "Die Schweizer Gültigkeitsdauern bestehen seitdem nur noch formal und haben im Inland keine praktische Bedeutung mehr.";
 "covid_certificate_news_item3" = "Diese Schweizer Prüf-App prüft Covid-Zertifikate nach den Schweizer Gültigkeitsregeln. Das Prüfergebnis ist für einen Einsatz im Ausland nicht massgeblich.";
 "covid_certificate_news_item4" = "Falls ein Land noch ein Covid-Zertifikat voraussetzt, gelten jeweils die Regeln des entsprechenden Landes.";
+"wallet_faq_questions_linktext_1_1" = "Nationale Antragsstelle Covid-Zertifikat (admin.ch)";
+"wallet_faq_questions_linkurl_1_1" = "https://covidcertificate-form.admin.ch/immunityrequest";
+"wallet_faq_questions_question_2_2" = "Im Ausland gelten jeweils die Gültigkeitsregeln des entsprechenden Landes, sowohl für die Einreise wie auch innerhalb des Ziellandes. Für die Verwendung des Zertifikats innerhalb des Ziellandes können andere Regeln als bei der Einreise gelten. Diese Regeln können kurzfristig ändern. Informieren Sie sich daher kurz vor Ihrer Abreise auf der Webseite der Behörden Ihres Transit- oder Ziellandes, ob dort noch Regeln im Zusammenhang mit Covid-19 gelten und wenn ja, welche.";
+"wallet_faq_questions_answer_2_2" = "Ich verreise ins Ausland und brauche für die Einreise ein Covid-Zertifikat. Was muss ich beachten?";
+"wallet_error_not_fully_protected_national_rules" = "Unvollständige Impfserie gemäss internationalen Standards.";
