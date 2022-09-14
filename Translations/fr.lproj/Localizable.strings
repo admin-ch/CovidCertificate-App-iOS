@@ -1640,7 +1640,7 @@
 "terms_and_conditions_update_boarding_title" = "Mise à jour";
 "terms_and_conditions_update_boarding_text" = "Les conditions d’utilisation et la politique de confidentialité de l’application ont été ponctuellement mises à jour et adaptées aux bases légales.";
 "wallet_validity_since_vaccination_date" = "Date de vaccination";
-"wallet_validity_since_test_date" = "Test positif ";
+"wallet_validity_since_test_date" = "Test négatif ";
 
 /*vor 2 Tagen - must be before "2 Tagen"!*/
 "wallet_validity_since_prefix" = "il y a";
