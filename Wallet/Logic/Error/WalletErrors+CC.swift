@@ -13,7 +13,7 @@ import CovidCertificateSDK
 import Foundation
 
 extension VerificationError {
-    func displayName() -> NSAttributedString {
+    func displayName(errorCodes: [String] = []) -> NSAttributedString {
         switch self {
         case .signature:
             let bold = UBLocalized.wallet_error_invalid_signature_bold
@@ -22,7 +22,11 @@ extension VerificationError {
             let bold = UBLocalized.wallet_error_revocation_bold
             return UBLocalized.wallet_error_revocation.formattingOccurrenceBold(bold)
         case .otherNationalRules:
-            return UBLocalized.wallet_error_national_rules.formattingOccurrenceBold("")
+            if errorCodes.contains(NationalRulesError.NOT_FULLY_PROTECTED.errorCode) {
+                return UBLocalized.wallet_error_not_fully_protected_national_rules.formattingOccurrenceBold("")
+            } else {
+                return UBLocalized.wallet_error_national_rules.formattingOccurrenceBold("")
+            }
         case .expired:
             return UBLocalized.wallet_error_expired.formattingOccurrenceBold("")
         case .signatureExpired:
