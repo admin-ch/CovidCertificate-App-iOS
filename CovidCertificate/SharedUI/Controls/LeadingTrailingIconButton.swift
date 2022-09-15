@@ -18,6 +18,12 @@ class LeadingTrailingIconButton: UBButton {
     private let trailingImageView = UIImageView()
     private let textLabel = Label(.textBold, textColor: .cc_blue)
 
+    var text: String? {
+        didSet {
+            textLabel.text = text
+        }
+    }
+
     // MARK: Init
 
     init(text: String, leadingIcon: UIImage? = nil, trailingIcon: UIImage?, hasBorder: Bool = true) {
