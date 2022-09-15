@@ -36,4 +36,7 @@ class VerifierUserStorage {
         let validPeriod = ConfigManager.currentConfig?.checkModeReselectAfterHours ?? Self.checkModeValidPeriodHours
         return Date() > last.addingTimeInterval(TimeInterval(60 * 60 * validPeriod))
     }
+
+    @UBUserDefault(key: "verifier.user.lastshownnews", defaultValue: nil)
+    var lastShownNews: String?
 }

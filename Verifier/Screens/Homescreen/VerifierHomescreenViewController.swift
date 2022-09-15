@@ -38,7 +38,7 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
     private var modePopupIsShown: Bool = false
 
     private let infoButtonContainerView = UIView()
-    private let infoButton = LeadingTrailingIconButton(text: "Zertifikatspflicht aufgehoben", trailingIcon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_blue), hasBorder: false)
+    private let infoButton = LeadingTrailingIconButton(text: "", trailingIcon: UIImage(named: "ic-info-outline")?.ub_image(with: .cc_blue), hasBorder: false)
     private var infoPopupView: IconTextInfoBoxView?
 
     private var mode: CheckModeUIObject?
@@ -103,6 +103,8 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
             make.right.lessThanOrEqualToSuperview()
             make.left.greaterThanOrEqualToSuperview()
         }
+
+        infoButtonContainerView.ub_setHidden(true)
 
         titleInfoStackView.addArrangedViewCentered(infoButtonContainerView)
 
@@ -214,10 +216,15 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
 
         var hasInfoButton = false
         if let config = ConfigManager.currentConfig {
-            hasInfoButton = config.covidCertificateNewsText != nil
+            hasInfoButton = config.hasNews
         }
 
+        infoButton.text = ConfigManager.currentConfig?.covidCertificateNewsText?.value
         infoButtonContainerView.ub_setHidden(!hasInfoButton)
+
+        if shouldShowNewsInfoBox() {
+            presentInfoBox()
+        }
     }
 
     @objc private func userScannedWithUnknownMode() {
@@ -229,10 +236,24 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
         present(alert, animated: true)
     }
 
+    private func shouldShowNewsInfoBox() -> Bool {
+        // check if there are news
+        guard let config = ConfigManager.currentConfig, config.hasNews else { return false }
+
+        if let lastNews = VerifierUserStorage.shared.lastShownNews, let key = config.newsKey,
+           key == lastNews {
+            return false
+        }
+
+        return true
+    }
+
     private func presentInfoBox() {
         guard let config = ConfigManager.currentConfig,
               let news = config.infoCovidCertificateNews?.value
         else { return }
+
+        VerifierUserStorage.shared.lastShownNews = config.newsKey
 
         infoPopupView?.removeFromSuperview()
         let iconTexts: [IconText] = news.newsItems.compactMap {
