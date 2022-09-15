@@ -214,10 +214,14 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
 
         var hasInfoButton = false
         if let config = ConfigManager.currentConfig {
-            hasInfoButton = config.covidCertificateNewsText != nil
+            hasInfoButton = config.hasNews
         }
 
         infoButtonContainerView.ub_setHidden(!hasInfoButton)
+
+        if shouldShowNewsInfoBox() {
+            presentInfoBox()
+        }
     }
 
     @objc private func userScannedWithUnknownMode() {
@@ -229,10 +233,24 @@ class VerifierHomescreenViewController: HomescreenBaseViewController {
         present(alert, animated: true)
     }
 
+    private func shouldShowNewsInfoBox() -> Bool {
+        // check if there are news
+        guard let config = ConfigManager.currentConfig, config.hasNews else { return false }
+
+        if let lastNews = VerifierUserStorage.shared.lastShownNews, let key = config.newsKey,
+           key == lastNews {
+            return false
+        }
+
+        return true
+    }
+
     private func presentInfoBox() {
         guard let config = ConfigManager.currentConfig,
               let news = config.infoCovidCertificateNews?.value
         else { return }
+
+        VerifierUserStorage.shared.lastShownNews = config.newsKey
 
         infoPopupView?.removeFromSuperview()
         let iconTexts: [IconText] = news.newsItems.compactMap {

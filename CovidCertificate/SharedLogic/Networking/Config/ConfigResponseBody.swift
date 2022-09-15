@@ -272,3 +272,15 @@ extension ConfigResponseBody.VaccinationBookingInfo {
             && impfcheckUrl != nil
     }
 }
+
+#if VERIFIER
+    extension ConfigResponseBody {
+        var hasNews: Bool {
+            return covidCertificateNewsText != nil
+        }
+
+        var newsKey: String? {
+            return covidCertificateNewsText?.value(for: "de")
+        }
+    }
+#endif
