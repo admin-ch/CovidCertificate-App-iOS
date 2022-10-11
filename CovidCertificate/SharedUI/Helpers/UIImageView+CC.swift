@@ -13,8 +13,11 @@ import Foundation
 
 public extension UIImageView {
     func setQrCode(_ qrCode: String) {
-        image = QRCodeImageCache.shared.image(for: qrCode)
-        layer.magnificationFilter = .nearest
+        QRCodeImageCache.shared.image(for: qrCode) { [weak self] image in
+            guard let self = self else { return }
+            self.image = image
+            self.layer.magnificationFilter = .nearest
+        }
     }
 
     func rotate(time: Double) {
