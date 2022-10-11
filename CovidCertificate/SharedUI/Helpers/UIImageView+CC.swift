@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Foundation
+import UIKit
 
 public extension UIImageView {
     func setQrCode(_ qrCode: String) {

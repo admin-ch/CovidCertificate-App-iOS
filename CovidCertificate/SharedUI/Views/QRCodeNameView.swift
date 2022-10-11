@@ -10,7 +10,7 @@
  */
 
 import CovidCertificateSDK
-import Foundation
+import UIKit
 
 class QRCodeNameView: UIView {
     // MARK: - Public API
@@ -25,7 +25,7 @@ class QRCodeNameView: UIView {
 
     // MARK: - Subviews
 
-    private let imageView = UIImageView()
+    private let imageView = LoadingImageView()
     private lazy var certificateTimer = CertificateLightExpirationTimer()
     private let nameView = Label(.title, numberOfLines: 3, textAlignment: .center)
     private let monoLabel = Label(.monospaced, numberOfLines: 3, textAlignment: .center)
@@ -166,5 +166,32 @@ class QRCodeNameView: UIView {
                     nameView.text,
                     birthdayLabelView.accessibilityLabel].compactMap { $0 }.joined(separator: ", ")
         }
+    }
+}
+
+class LoadingImageView: UIImageView {
+    let activityIndicatorView = UIActivityIndicatorView(style: .gray)
+
+    override var image: UIImage? {
+        didSet {
+            activityIndicatorView.stopAnimating()
+        }
+    }
+
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    init() {
+        super.init(frame: .zero)
+
+        addSubview(activityIndicatorView)
+
+        activityIndicatorView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+
+        activityIndicatorView.startAnimating()
+        activityIndicatorView.hidesWhenStopped = true
     }
 }
