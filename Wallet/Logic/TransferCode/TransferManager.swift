@@ -81,8 +81,10 @@ final class TransferManager {
             }
 
             if let result = cachedResult[safe: code], !forceUpdate {
-                // Return last cached result
-                block(result)
+                DispatchQueue.main.async {
+                    // Return last cached result
+                    block(result)
+                }
             } else {
                 download(code: code)
             }
