@@ -10,7 +10,7 @@
  */
 
 import CovidCertificateSDK
-import Foundation
+import UIKit
 
 extension VerificationError {
     func displayName(errorCodes: [String] = []) -> NSAttributedString {
