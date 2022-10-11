@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Foundation
+import UIKit
 
 final class QRCodeUtils {
     static func createQrCodeImage(from string: String) -> UIImage? {

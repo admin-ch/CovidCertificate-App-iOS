@@ -23,16 +23,23 @@ final class QRCodeImageCache {
 
     private init() {}
 
-    func image(for payload: String) -> UIImage? {
+    func image(for payload: String, callback: @escaping (UIImage?) -> Void) {
         if let renderedImage = renderedQRCodeImageCache.object(forKey: payload as AnyObject) as? UIImage {
-            return renderedImage
+            callback(renderedImage)
+            return
         }
 
-        if let qrImage = QRCodeUtils.createQrCodeImage(from: payload) {
-            renderedQRCodeImageCache.setObject(qrImage as AnyObject, forKey: payload as AnyObject)
-            return qrImage
+        DispatchQueue.global(qos: .userInteractive).async {
+            if let qrImage = QRCodeUtils.createQrCodeImage(from: payload) {
+                self.renderedQRCodeImageCache.setObject(qrImage as AnyObject, forKey: payload as AnyObject)
+                DispatchQueue.main.async {
+                    callback(qrImage)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    callback(nil)
+                }
+            }
         }
-
-        return nil
     }
 }
