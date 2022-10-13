@@ -145,26 +145,29 @@ class HomescreenCertificatesViewController: ViewController {
 
     private func startChecks() {
         DispatchQueue.global(qos: .userInitiated).async {
-            for i in self.certificateViews {
-                if let lightQrCode = i.certificate?.lightCertificate?.certificate {
-                    VerifierManager.shared.addObserver(self, for: lightQrCode, modes: Verifier.currentModes()) { [weak i] state in
-                        i?.verificationState = state
-                    }
-                } else if let qrCode = i.certificate?.qrCode {
-                    VerifierManager.shared.addObserver(self, for: qrCode, modes: Verifier.currentModes()) { [weak i] state in
-                        i?.verificationState = state
-                    }
-                } else if let transferCode = i.certificate?.transferCode,
-                          transferCode.state != .failed // only start when not already failed
-                {
-                    TransferManager.shared.addObserver(self, for: transferCode.transferCode) { [weak i] result in
-                        guard let strongI = i else { return }
-                        switch result {
-                        case .success:
-                            // TransferManager adds all the certificates
-                            strongI.transferError = nil
-                        case let .failure(error):
-                            strongI.transferError = error
+            let modes = Verifier.currentModes()
+            DispatchQueue.main.async {
+                for i in self.certificateViews {
+                    if let lightQrCode = i.certificate?.lightCertificate?.certificate {
+                        VerifierManager.shared.addObserver(self, for: lightQrCode, modes: modes) { [weak i] state in
+                            i?.verificationState = state
+                        }
+                    } else if let qrCode = i.certificate?.qrCode {
+                        VerifierManager.shared.addObserver(self, for: qrCode, modes: modes) { [weak i] state in
+                            i?.verificationState = state
+                        }
+                    } else if let transferCode = i.certificate?.transferCode,
+                              transferCode.state != .failed // only start when not already failed
+                    {
+                        TransferManager.shared.addObserver(self, for: transferCode.transferCode) { [weak i] result in
+                            guard let strongI = i else { return }
+                            switch result {
+                            case .success:
+                                // TransferManager adds all the certificates
+                                strongI.transferError = nil
+                            case let .failure(error):
+                                strongI.transferError = error
+                            }
                         }
                     }
                 }
