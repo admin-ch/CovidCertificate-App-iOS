@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var lastForegroundActivity: Date?
     private var blurView: UIVisualEffectView?
 
-    @CCUserDefault(key: "isFirstLaunch", defaultValue: true)
+    @UBUserDefault(key: "isFirstLaunch", defaultValue: true)
     var isFirstLaunch: Bool
 
     let linkHandler = LinkHandler()
