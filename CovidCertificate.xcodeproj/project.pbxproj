@@ -335,6 +335,8 @@
 		DCF9C35926562E7F00E34481 /* OnboardingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8ABDF4264A65C100FDE0E1 /* OnboardingInfoView.swift */; };
 		DCF9C3652656395A00E34481 /* config_check.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF9C3622656395A00E34481 /* config_check.json */; };
 		DCF9C3662656395A00E34481 /* config_wallet.json in Resources */ = {isa = PBXBuildFile; fileRef = DCF9C3632656395A00E34481 /* config_wallet.json */; };
+		E0B87ABC28F9935D00A1ABA1 /* UBDevTools in Frameworks */ = {isa = PBXBuildFile; productRef = E0B87ABB28F9935D00A1ABA1 /* UBDevTools */; };
+		E0B87ABE28F9937D00A1ABA1 /* UBDevTools in Frameworks */ = {isa = PBXBuildFile; productRef = E0B87ABD28F9937D00A1ABA1 /* UBDevTools */; };
 		F20E4F31268208DB00D14609 /* PushNotificationPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E4F30268208DB00D14609 /* PushNotificationPopupView.swift */; };
 		F234B5B927610DA100B361DF /* IconTextInfoBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F234B5B827610DA100B361DF /* IconTextInfoBoxView.swift */; };
 		F249B8F427D21DC700DBF78F /* UIImage+CC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F249B8F327D21DC700DBF78F /* UIImage+CC.swift */; };
@@ -604,7 +606,7 @@
 		B6A3B9C727F22C8000D16C31 /* CertificateCheckValidityAbroadDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateCheckValidityAbroadDetailViewController.swift; sourceTree = "<group>"; };
 		B6A3B9CA27F22F0500D16C31 /* SelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionButton.swift; sourceTree = "<group>"; };
 		B6A3B9CC27F2327600D16C31 /* CertificateCheckAbroadSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateCheckAbroadSelectionView.swift; sourceTree = "<group>"; };
-		B6D6B41C27F8A76F00BC810E /* CertificateCheckAbroadVerificationStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateCheckAbroadVerificationStateView.swift; sourceTree = "<group>"; };
+		B6D6B41C27F8A76F00BC810E /* CertificateCheckAbroadVerificationStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateCheckAbroadVerificationStateView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		B6D6B41E27FAF9C500BC810E /* LeadingTrailingIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingTrailingIconButton.swift; sourceTree = "<group>"; };
 		B6D6B42027FB510600BC810E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		DC286A25242CE0B9001D5344 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -721,6 +723,7 @@
 			files = (
 				6EC1732926429E31002E27DB /* SnapKit in Frameworks */,
 				48CCA623265F93DB00887F63 /* CovidCertificateSDK in Frameworks */,
+				E0B87ABE28F9937D00A1ABA1 /* UBDevTools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +733,7 @@
 			files = (
 				6ECBB9BD2642FB1700007E29 /* SnapKit in Frameworks */,
 				48CCA621265F93D200887F63 /* CovidCertificateSDK in Frameworks */,
+				E0B87ABC28F9935D00A1ABA1 /* UBDevTools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1606,6 +1610,7 @@
 			packageProductDependencies = (
 				6EC172E226429E31002E27DB /* SnapKit */,
 				48CCA622265F93DB00887F63 /* CovidCertificateSDK */,
+				E0B87ABD28F9937D00A1ABA1 /* UBDevTools */,
 			);
 			productName = IVC;
 			productReference = 6EC1733D26429E31002E27DB /* CovidCertificateVerifier.app */;
@@ -1630,6 +1635,7 @@
 			packageProductDependencies = (
 				6ECBB9BC2642FB1700007E29 /* SnapKit */,
 				48CCA620265F93D200887F63 /* CovidCertificateSDK */,
+				E0B87ABB28F9935D00A1ABA1 /* UBDevTools */,
 			);
 			productName = IVC;
 			productReference = 8E81CC95241FCC7D006F2437 /* CovidCertificateWallet.app */;
@@ -1718,6 +1724,7 @@
 			packageReferences = (
 				6ECBB9BB2642FB1700007E29 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				48CCA61F265F93D200887F63 /* XCRemoteSwiftPackageReference "CovidCertificate-SDK-iOS" */,
+				E0B87ABA28F9935D00A1ABA1 /* XCRemoteSwiftPackageReference "ubkit-ios" */,
 			);
 			productRefGroup = 8E81CC96241FCC7D006F2437 /* Products */;
 			projectDirPath = "";
@@ -3361,6 +3368,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		E0B87ABA28F9935D00A1ABA1 /* XCRemoteSwiftPackageReference "ubkit-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/UbiqueInnovation/ubkit-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 1.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3383,6 +3398,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6ECBB9BB2642FB1700007E29 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		E0B87ABB28F9935D00A1ABA1 /* UBDevTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0B87ABA28F9935D00A1ABA1 /* XCRemoteSwiftPackageReference "ubkit-ios" */;
+			productName = UBDevTools;
+		};
+		E0B87ABD28F9937D00A1ABA1 /* UBDevTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0B87ABA28F9935D00A1ABA1 /* XCRemoteSwiftPackageReference "ubkit-ios" */;
+			productName = UBDevTools;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -125,6 +125,15 @@
         "revision" : "0209a2d1a30b1b42334c4ad3f8bd221b977b2273",
         "version" : "0.4.4"
       }
+    },
+    {
+      "identity" : "ubkit-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/UbiqueInnovation/ubkit-ios",
+      "state" : {
+        "revision" : "feccf4bf62bb5f671854ea3b11c34924b77567ed",
+        "version" : "1.6.0"
+      }
     }
   ],
   "version" : 2
