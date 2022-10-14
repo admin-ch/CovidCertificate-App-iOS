@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import UBFoundation
 
 public typealias TransferCodeResult = Result<[DecryptedCertificate], TransferError>
 

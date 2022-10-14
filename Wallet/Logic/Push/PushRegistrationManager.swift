@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import UBFoundation
 
 class PushRegistrationManager: UBPushRegistrationManager {
     override var pushRegistrationRequest: URLRequest? {

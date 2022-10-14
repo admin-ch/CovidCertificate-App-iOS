@@ -10,6 +10,7 @@
 
 import CovidCertificateSDK
 import Foundation
+import UBFoundation
 import UIKit
 
 /// Config request allows to disable old versions of the app if

@@ -9,7 +9,6 @@
  */
 
 import CovidCertificateSDK
-import UBDevTools
 import UIKit
 
 @UIApplicationMain
@@ -18,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var lastForegroundActivity: Date?
     private var blurView: UIVisualEffectView?
 
-    @UBUserDefault(key: "isFirstLaunch", defaultValue: true)
+    @CCUserDefault(key: "isFirstLaunch", defaultValue: true)
     var isFirstLaunch: Bool
 
     let linkHandler = LinkHandler()
@@ -26,16 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var navigationController = NavigationController(rootViewController: VerifierHomescreenViewController())
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        #if DEBUG || RELEASE_DEV || RELEASE_ABNAHME
-            if #available(iOS 13.0, *) {
-                UBDevTools.setup()
-                UBDevTools.setupBaseUrls(baseUrls: [
-                    BaseUrl(title: "config", url: Environment.current.configService.baseURL.absoluteString),
-                    BaseUrl(title: "register", url: Environment.current.registerService.baseURL.absoluteString),
-                    BaseUrl(title: "transformation", url: Environment.current.transformationService.baseURL.absoluteString),
-                ])
-            }
-        #endif
+        DevTools.setup()
 
         // Pre-populate isFirstLaunch for users which already installed the app before we introduced this flag
         if VerifierUserStorage.shared.hasCompletedOnboarding {
