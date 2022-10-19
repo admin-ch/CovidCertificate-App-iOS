@@ -82,5 +82,8 @@ class LeadingTrailingIconButton: UBButton {
         snp.makeConstraints { make in
             make.height.greaterThanOrEqualTo(44)
         }
+
+        leadingImageView.ub_setContentPriorityRequired()
+        trailingImageView.ub_setContentPriorityRequired()
     }
 }
