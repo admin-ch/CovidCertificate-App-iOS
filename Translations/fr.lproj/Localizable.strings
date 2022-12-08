@@ -498,7 +498,7 @@
 "wallet_transfer_code_onboarding_title" = "Codes transfert";
 
 /*Wallet: Transfer Code Text*/
-"wallet_transfer_code_onboarding_text" = "Vous pouvez utiliser votre code transfert, p. ex. lors d’un test, pour recevoir le certificat COVID directement dans votre application.";
+"wallet_transfer_code_onboarding_text" = "Vous pouvez utiliser votre code transfert lors d’un test ou d’une vaccination pour recevoir le certificat COVID directement dans votre application.";
 
 /*Wallet: Transfer Code Onboarding Button*/
 "wallet_transfer_code_onboarding_button" = "Créer un code";
@@ -511,7 +511,7 @@
 "wallet_transfer_code_faq_questions_title" = "Recevez les certificats COVID directement dans l'application";
 
 /*Wallet: Transfer Code FAQ Text*/
-"wallet_transfer_code_faq_questions_subtitle" = "Les codes de transfert permettent de transmettre les certificats COVID rapidement et en toute sécurité. De cette façon, vous recevez votre certificat (p. ex. après un test) directement dans l’application.";
+"wallet_transfer_code_faq_questions_subtitle" = "Les codes de transfert permettent de transmettre les certificats COVID rapidement et en toute sécurité. De cette façon, vous recevez votre certificat après un test ou une vaccination directement dans l’application.";
 
 /*Wallet: Transfer Code FAQ Frage 1*/
 "wallet_transfer_code_faq_questions_question_1" = "Qui propose la transmission du certificat COVID par code de transfert ?";
@@ -526,13 +526,13 @@
 "wallet_transfer_code_faq_questions_question_4" = "Puis-je utiliser plusieurs fois le même code de transfert ?";
 
 /*Wallet: Transfer Code FAQ Antwort 1*/
-"wallet_transfer_code_faq_questions_answer_1" = "Si vous effectuez un test COVID (test PCR ou test rapide antigénique), le code de transfert peut être utilisé pour transmettre rapidement le certificat COVID.\n\nRenseignez-vous auprès de votre centre de test, de votre pharmacie ou de votre médecin pour savoir si cette option est proposée.";
+"wallet_transfer_code_faq_questions_answer_1" = "Si vous effectuez un test COVID (test PCR ou test rapide antigénique) ou recevez un vaccin contre le COVID-19, le code de transfert peut être utilisé pour transmettre rapidement le certificat COVID.\n\nRenseignez-vous auprès de votre centre de test ou de vaccination, de votre pharmacie ou de votre médecin pour savoir si cette option est proposée.";
 
 /*Wallet: Transfer Code FAQ Antwort 2*/
 "wallet_transfer_code_faq_questions_answer_2" = "Actuellement, la transmission du certificat par code de transfert est réservée aux tests COVID. Pour savoir comment obtenir un certificat COVID après une vaccination, cliquez ici :";
 
 /*Wallet: Transfer Code FAQ Antwort 3*/
-"wallet_transfer_code_faq_questions_answer_3" = "Si le centre de test propose de transmettre le certificat par code de transfert, un code vous sera demandé au moment de l’inscription ou du test.\n\nVous pouvez créer le code de transfert dans l’application « COVID Certificate » : appuyez sur « Ajouter » sur l’écran d’accueil ou sur le symbole « Plus » en bas à droite, puis sur « Créer un code de transfert ».\n\nL’application vous montre un code à 9 caractères, que vous pouvez soit inscrire dans un formulaire lors de l’inscription, soit transmettre directement lors du test.";
+"wallet_transfer_code_faq_questions_answer_3" = "Si le centre qui effectue le test ou administre le vaccin propose de transmettre le certificat par code de transfert, vous pouvez communiquer votre code au moment de l’inscription, du test ou avant de recevoir le vaccin.\n\nVous pouvez créer à tout moment un code de transfert dans l’application « COVID Certificate » : appuyez sur « Ajouter » sur l’écran d’accueil ou sur le symbole « Plus » en bas à droite, puis sur « Créer un code de transfert ». L’application vous montre le code à 9 caractères.";
 
 /*Wallet: Transfer Code FAQ Antwort 4*/
 "wallet_transfer_code_faq_questions_answer_4" = "Non, un code de transfert ne peut être utilisé qu’une seule fois. Si vous souhaitez obtenir plusieurs certificats (p. ex. pour vos proches), veuillez créer un nouveau code pour chaque certificat.";
@@ -896,7 +896,7 @@
 /*Toast Text wenn ein Transfer Code durch Klicken kopiert wurde*/
 "wallet_transfer_code_copied" = "Code de transfert copié";
 "wallet_faq_works_question_2_1" = "Qu'est-ce qu'un code de transfert ?";
-"wallet_faq_works_answer_2_1" = "Les codes de transfert permettent de transmettre les certificats COVID rapidement et en toute sécurité. De cette façon, vous recevez votre certificat (p. ex. après un test) directement dans l’application.";
+"wallet_faq_works_answer_2_1" = "Les codes de transfert permettent de transmettre les certificats COVID rapidement et en toute sécurité. De cette façon, vous recevez votre certificat après un test ou une vaccination directement dans l’application.";
 "wallet_faq_works_question_5_1" = "Mon certificat COVID n’est disponible qu’au format électronique dans l’application. Comment puis-je obtenir mon certificat en PDF ou sur papier ?";
 "wallet_faq_works_answer_5_1" = "Dans l’application « COVID Certificate », vous trouvez la fonction « Exporter » dans la vue détaillée du certificat. Vous pouvez ainsi générer un PDF afin de le sauvegarder et de l’imprimer.";
 

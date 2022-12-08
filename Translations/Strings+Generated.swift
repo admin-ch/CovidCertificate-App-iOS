@@ -912,7 +912,7 @@ import Foundation
      case wallet_faq_works_answer_1
     /// Ja das ist möglich. So können Sie z. B. alle Covid-Zertifikate von Familienangehörigen in Ihrer App speichern. Auch in diesem Fall gilt: Das Covid-Zertifikat ist nur in Kombination mit einem Ausweisdokument des Zertifikatsinhabers / der Zertifikatsinhaberin gültig.
      case wallet_faq_works_answer_2
-    /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
+    /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem Covid-Test oder einer Covid-19-Impfung direkt in die App geliefert.
      case wallet_faq_works_answer_2_1
     /// Die Zertifikatspflicht in der Schweiz wurde im Februar 2022 aufgehoben. Die Schweizer Gültigkeitsdauern bestehen seitdem nur noch formal und haben praktisch im Inland keine Bedeutung mehr. Deshalb wird in der App das Feld «Gültigkeit in der Schweiz» nicht mehr dargestellt. Stattdessen zeigt sie den Zeitpunkt der Impfung bzw. des Tests an. \n\nEs wird auch angezeigt, wie viele Tage eine Impfung bzw. ein Test her ist. So können Sie einfacher feststellen, ob Ihr Zertifikat den Gültigkeitsregeln Ihres Ziellandes entspricht (falls das Land noch ein Covid-Zertifikat voraussetzt). Im Ausland gelten immer die Regeln des entsprechenden Landes.
      case wallet_faq_works_answer_3
@@ -1154,11 +1154,11 @@ import Foundation
      case wallet_transfer_code_expire_singular
     /// 1 Tag
      case wallet_transfer_code_expire_singular_bold
-    /// Wenn Sie einen Covid-Test machen (PCR-Test oder Antigen-Schnelltest), kann der Transfer-Code zur schnellen Übermittlung von Covid-Zertifikaten zum Einsatz kommen.\n\nInformieren Sie sich bei Ihrem Testcenter, in der Apotheke oder bei Ihrem Arzt, ob die Übermittlung per Transfer-Code angeboten wird.
+    /// Wenn Sie einen Covid-Test (PCR-Test oder Antigen-Schnelltest) machen oder eine Covid-19-Impfung bekommen, kann der Transfer-Code zur schnellen Übermittlung von Covid-Zertifikaten zum Einsatz kommen.\n\nInformieren Sie sich bei Ihrem Testcenter, bei der Impfstelle, in der Apotheke oder bei Ihrem Arzt, ob die Übermittlung per Transfer-Code angeboten wird.
      case wallet_transfer_code_faq_questions_answer_1
     /// Aktuell ist die Übermittlung per Transfer-Code auf Covid-Tests ausgelegt. Wie Sie ein Covid-Zertifikat nach einer Impfung erhalten erfahren Sie hier:
      case wallet_transfer_code_faq_questions_answer_2
-    /// Falls die Stelle, die den Covid-Test durchführt, die Übermittlung per Transfer-Code anbietet, werden Sie bereits bei der Anmeldung oder der Testentnahme nach einem Transfer-Code gefragt.\n\nDen Transfer-Code können Sie in der «COVID Certificate»-App erstellen. Tippen Sie dazu auf dem Startbildschirm auf «Hinzufügen» resp. auf das «Plus»-Symbol unten rechts. Danach tippen Sie auf «Transfer-Code erstellen».\n\nDie App zeigt Ihnen einen 9-stelligen Code an. Diesen können Sie entweder bei der Anmeldung in ein Formular eintragen oder direkt bei der Testentnahme angeben.
+    /// Falls die Stelle, die den Covid-Test durchführt oder die Covid-19-Impfung verabreicht, die Übermittlung per Transfer-Code anbietet, können Sie bereits bei der Anmeldung, der Testentnahme oder vor Erhalt der Impfung Ihren Transfer-Code angeben.\n\nEinen Transfer-Code erstellen Sie jederzeit in der «COVID Certificate»-App. Tippen Sie dazu auf dem Startbildschirm auf «Hinzufügen» resp. auf das «Plus»-Symbol unten rechts. Danach tippen Sie auf «Transfer-Code erstellen». Die App zeigt Ihnen dann den 9-stelligen Code an.
      case wallet_transfer_code_faq_questions_answer_3
     /// Nein, ein Transfer-Code kann nur einmal verwendet werden. Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie bitte für jedes Zertifikat einen neuen Code.
      case wallet_transfer_code_faq_questions_answer_4
@@ -1174,7 +1174,7 @@ import Foundation
      case wallet_transfer_code_faq_questions_question_3
     /// Kann ich den Transfer-Code mehrmals benutzen?
      case wallet_transfer_code_faq_questions_question_4
-    /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
+    /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem Covid-Test oder einer Covid-19-Impfung direkt in die App geliefert.
      case wallet_transfer_code_faq_questions_subtitle
     /// Covid-Zertifikate direkt in die App geliefert
      case wallet_transfer_code_faq_questions_title
@@ -1218,7 +1218,7 @@ import Foundation
      case wallet_transfer_code_onboarding_button
     /// So funktioniert's
      case wallet_transfer_code_onboarding_howto
-    /// Sie können Transfer-Codes z. B. bei Covid-Tests angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.
+    /// Sie können Transfer-Codes bei Covid-Tests oder Covid-19-Impfungen angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.
      case wallet_transfer_code_onboarding_text
     /// Transfer Codes
      case wallet_transfer_code_onboarding_title
@@ -2216,7 +2216,7 @@ import Foundation
    static var wallet_faq_works_answer_1: String { return UBLocalized.tr(Key.wallet_faq_works_answer_1) }
   /// Ja das ist möglich. So können Sie z. B. alle Covid-Zertifikate von Familienangehörigen in Ihrer App speichern. Auch in diesem Fall gilt: Das Covid-Zertifikat ist nur in Kombination mit einem Ausweisdokument des Zertifikatsinhabers / der Zertifikatsinhaberin gültig.
    static var wallet_faq_works_answer_2: String { return UBLocalized.tr(Key.wallet_faq_works_answer_2) }
-  /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
+  /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem Covid-Test oder einer Covid-19-Impfung direkt in die App geliefert.
    static var wallet_faq_works_answer_2_1: String { return UBLocalized.tr(Key.wallet_faq_works_answer_2_1) }
   /// Die Zertifikatspflicht in der Schweiz wurde im Februar 2022 aufgehoben. Die Schweizer Gültigkeitsdauern bestehen seitdem nur noch formal und haben praktisch im Inland keine Bedeutung mehr. Deshalb wird in der App das Feld «Gültigkeit in der Schweiz» nicht mehr dargestellt. Stattdessen zeigt sie den Zeitpunkt der Impfung bzw. des Tests an. \n\nEs wird auch angezeigt, wie viele Tage eine Impfung bzw. ein Test her ist. So können Sie einfacher feststellen, ob Ihr Zertifikat den Gültigkeitsregeln Ihres Ziellandes entspricht (falls das Land noch ein Covid-Zertifikat voraussetzt). Im Ausland gelten immer die Regeln des entsprechenden Landes.
    static var wallet_faq_works_answer_3: String { return UBLocalized.tr(Key.wallet_faq_works_answer_3) }
@@ -2458,11 +2458,11 @@ import Foundation
    static var wallet_transfer_code_expire_singular: String { return UBLocalized.tr(Key.wallet_transfer_code_expire_singular) }
   /// 1 Tag
    static var wallet_transfer_code_expire_singular_bold: String { return UBLocalized.tr(Key.wallet_transfer_code_expire_singular_bold) }
-  /// Wenn Sie einen Covid-Test machen (PCR-Test oder Antigen-Schnelltest), kann der Transfer-Code zur schnellen Übermittlung von Covid-Zertifikaten zum Einsatz kommen.\n\nInformieren Sie sich bei Ihrem Testcenter, in der Apotheke oder bei Ihrem Arzt, ob die Übermittlung per Transfer-Code angeboten wird.
+  /// Wenn Sie einen Covid-Test (PCR-Test oder Antigen-Schnelltest) machen oder eine Covid-19-Impfung bekommen, kann der Transfer-Code zur schnellen Übermittlung von Covid-Zertifikaten zum Einsatz kommen.\n\nInformieren Sie sich bei Ihrem Testcenter, bei der Impfstelle, in der Apotheke oder bei Ihrem Arzt, ob die Übermittlung per Transfer-Code angeboten wird.
    static var wallet_transfer_code_faq_questions_answer_1: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_answer_1) }
   /// Aktuell ist die Übermittlung per Transfer-Code auf Covid-Tests ausgelegt. Wie Sie ein Covid-Zertifikat nach einer Impfung erhalten erfahren Sie hier:
    static var wallet_transfer_code_faq_questions_answer_2: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_answer_2) }
-  /// Falls die Stelle, die den Covid-Test durchführt, die Übermittlung per Transfer-Code anbietet, werden Sie bereits bei der Anmeldung oder der Testentnahme nach einem Transfer-Code gefragt.\n\nDen Transfer-Code können Sie in der «COVID Certificate»-App erstellen. Tippen Sie dazu auf dem Startbildschirm auf «Hinzufügen» resp. auf das «Plus»-Symbol unten rechts. Danach tippen Sie auf «Transfer-Code erstellen».\n\nDie App zeigt Ihnen einen 9-stelligen Code an. Diesen können Sie entweder bei der Anmeldung in ein Formular eintragen oder direkt bei der Testentnahme angeben.
+  /// Falls die Stelle, die den Covid-Test durchführt oder die Covid-19-Impfung verabreicht, die Übermittlung per Transfer-Code anbietet, können Sie bereits bei der Anmeldung, der Testentnahme oder vor Erhalt der Impfung Ihren Transfer-Code angeben.\n\nEinen Transfer-Code erstellen Sie jederzeit in der «COVID Certificate»-App. Tippen Sie dazu auf dem Startbildschirm auf «Hinzufügen» resp. auf das «Plus»-Symbol unten rechts. Danach tippen Sie auf «Transfer-Code erstellen». Die App zeigt Ihnen dann den 9-stelligen Code an.
    static var wallet_transfer_code_faq_questions_answer_3: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_answer_3) }
   /// Nein, ein Transfer-Code kann nur einmal verwendet werden. Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie bitte für jedes Zertifikat einen neuen Code.
    static var wallet_transfer_code_faq_questions_answer_4: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_answer_4) }
@@ -2478,7 +2478,7 @@ import Foundation
    static var wallet_transfer_code_faq_questions_question_3: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_question_3) }
   /// Kann ich den Transfer-Code mehrmals benutzen?
    static var wallet_transfer_code_faq_questions_question_4: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_question_4) }
-  /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.
+  /// Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem Covid-Test oder einer Covid-19-Impfung direkt in die App geliefert.
    static var wallet_transfer_code_faq_questions_subtitle: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_subtitle) }
   /// Covid-Zertifikate direkt in die App geliefert
    static var wallet_transfer_code_faq_questions_title: String { return UBLocalized.tr(Key.wallet_transfer_code_faq_questions_title) }
@@ -2522,7 +2522,7 @@ import Foundation
    static var wallet_transfer_code_onboarding_button: String { return UBLocalized.tr(Key.wallet_transfer_code_onboarding_button) }
   /// So funktioniert's
    static var wallet_transfer_code_onboarding_howto: String { return UBLocalized.tr(Key.wallet_transfer_code_onboarding_howto) }
-  /// Sie können Transfer-Codes z. B. bei Covid-Tests angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.
+  /// Sie können Transfer-Codes bei Covid-Tests oder Covid-19-Impfungen angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.
    static var wallet_transfer_code_onboarding_text: String { return UBLocalized.tr(Key.wallet_transfer_code_onboarding_text) }
   /// Transfer Codes
    static var wallet_transfer_code_onboarding_title: String { return UBLocalized.tr(Key.wallet_transfer_code_onboarding_title) }
