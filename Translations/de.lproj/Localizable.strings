@@ -498,7 +498,7 @@
 "wallet_transfer_code_onboarding_title" = "Transfer Codes";
 
 /*Wallet: Transfer Code Text*/
-"wallet_transfer_code_onboarding_text" = "Sie können Transfer-Codes z. B. bei Covid-Tests angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.";
+"wallet_transfer_code_onboarding_text" = "Sie können Transfer-Codes bei Covid-Tests oder Covid-19-Impfungen angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.";
 
 /*Wallet: Transfer Code Onboarding Button*/
 "wallet_transfer_code_onboarding_button" = "Code erstellen";
@@ -511,7 +511,7 @@
 "wallet_transfer_code_faq_questions_title" = "Covid-Zertifikate direkt in die App geliefert";
 
 /*Wallet: Transfer Code FAQ Text*/
-"wallet_transfer_code_faq_questions_subtitle" = "Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.";
+"wallet_transfer_code_faq_questions_subtitle" = "Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem Covid-Test oder einer Covid-19-Impfung direkt in die App geliefert.";
 
 /*Wallet: Transfer Code FAQ Frage 1*/
 "wallet_transfer_code_faq_questions_question_1" = "Wer bietet die Übermittlung per Transfer-Code an?";
@@ -526,13 +526,13 @@
 "wallet_transfer_code_faq_questions_question_4" = "Kann ich den Transfer-Code mehrmals benutzen?";
 
 /*Wallet: Transfer Code FAQ Antwort 1*/
-"wallet_transfer_code_faq_questions_answer_1" = "Wenn Sie einen Covid-Test machen (PCR-Test oder Antigen-Schnelltest), kann der Transfer-Code zur schnellen Übermittlung von Covid-Zertifikaten zum Einsatz kommen.\n\nInformieren Sie sich bei Ihrem Testcenter, in der Apotheke oder bei Ihrem Arzt, ob die Übermittlung per Transfer-Code angeboten wird.";
+"wallet_transfer_code_faq_questions_answer_1" = "Wenn Sie einen Covid-Test (PCR-Test oder Antigen-Schnelltest) machen oder eine Covid-19-Impfung bekommen, kann der Transfer-Code zur schnellen Übermittlung von Covid-Zertifikaten zum Einsatz kommen.\n\nInformieren Sie sich bei Ihrem Testcenter, bei der Impfstelle, in der Apotheke oder bei Ihrem Arzt, ob die Übermittlung per Transfer-Code angeboten wird.";
 
 /*Wallet: Transfer Code FAQ Antwort 2*/
 "wallet_transfer_code_faq_questions_answer_2" = "Aktuell ist die Übermittlung per Transfer-Code auf Covid-Tests ausgelegt. Wie Sie ein Covid-Zertifikat nach einer Impfung erhalten erfahren Sie hier:";
 
 /*Wallet: Transfer Code FAQ Antwort 3*/
-"wallet_transfer_code_faq_questions_answer_3" = "Falls die Stelle, die den Covid-Test durchführt, die Übermittlung per Transfer-Code anbietet, werden Sie bereits bei der Anmeldung oder der Testentnahme nach einem Transfer-Code gefragt.\n\nDen Transfer-Code können Sie in der «COVID Certificate»-App erstellen. Tippen Sie dazu auf dem Startbildschirm auf «Hinzufügen» resp. auf das «Plus»-Symbol unten rechts. Danach tippen Sie auf «Transfer-Code erstellen».\n\nDie App zeigt Ihnen einen 9-stelligen Code an. Diesen können Sie entweder bei der Anmeldung in ein Formular eintragen oder direkt bei der Testentnahme angeben.";
+"wallet_transfer_code_faq_questions_answer_3" = "Falls die Stelle, die den Covid-Test durchführt oder die Covid-19-Impfung verabreicht, die Übermittlung per Transfer-Code anbietet, können Sie bereits bei der Anmeldung, der Testentnahme oder vor Erhalt der Impfung Ihren Transfer-Code angeben.\n\nEinen Transfer-Code erstellen Sie jederzeit in der «COVID Certificate»-App. Tippen Sie dazu auf dem Startbildschirm auf «Hinzufügen» resp. auf das «Plus»-Symbol unten rechts. Danach tippen Sie auf «Transfer-Code erstellen». Die App zeigt Ihnen dann den 9-stelligen Code an.";
 
 /*Wallet: Transfer Code FAQ Antwort 4*/
 "wallet_transfer_code_faq_questions_answer_4" = "Nein, ein Transfer-Code kann nur einmal verwendet werden. Falls Sie mehrere Zertifikate z. B. von Familienangehörigen empfangen möchten, erstellen Sie bitte für jedes Zertifikat einen neuen Code.";
@@ -896,7 +896,7 @@
 /*Toast Text wenn ein Transfer Code durch Klicken kopiert wurde*/
 "wallet_transfer_code_copied" = "Transfer Code kopiert";
 "wallet_faq_works_question_2_1" = "Was ist ein Transfer-Code?";
-"wallet_faq_works_answer_2_1" = "Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat, z. B. nach einem Covid-Test, direkt in die App geliefert.";
+"wallet_faq_works_answer_2_1" = "Mit Transfer-Codes können Covid-Zertifikate schnell und sicher übermittelt werden. Auf diesem Weg erhalten Sie das Covid-Zertifikat nach einem Covid-Test oder einer Covid-19-Impfung direkt in die App geliefert.";
 "wallet_faq_works_question_5_1" = "Ich habe das Covid-Zertifikat ausschliesslich elektronisch in der App. Wie komme ich zum Zertifikat als PDF oder auf Papier?";
 "wallet_faq_works_answer_5_1" = "In der «COVID Certificate»-App finden Sie in der Detailansicht des elektronischen Covid-Zertifikats die Funktion «Exportieren». Damit können Sie ein PDF erstellen, dieses speichern und ausdrucken.";
 
