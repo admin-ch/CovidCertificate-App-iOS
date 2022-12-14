@@ -1220,7 +1220,7 @@ import Foundation
      case wallet_transfer_code_onboarding_howto
     /// Sie können Transfer-Codes bei Covid-Tests oder Covid-19-Impfungen angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.
      case wallet_transfer_code_onboarding_text
-    /// Transfer Codes
+    /// Transfer-Code
      case wallet_transfer_code_onboarding_title
     /// Transfer fehlgeschlagen
      case wallet_transfer_code_state_expired
@@ -2524,7 +2524,7 @@ import Foundation
    static var wallet_transfer_code_onboarding_howto: String { return UBLocalized.tr(Key.wallet_transfer_code_onboarding_howto) }
   /// Sie können Transfer-Codes bei Covid-Tests oder Covid-19-Impfungen angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.
    static var wallet_transfer_code_onboarding_text: String { return UBLocalized.tr(Key.wallet_transfer_code_onboarding_text) }
-  /// Transfer Codes
+  /// Transfer-Code
    static var wallet_transfer_code_onboarding_title: String { return UBLocalized.tr(Key.wallet_transfer_code_onboarding_title) }
   /// Transfer fehlgeschlagen
    static var wallet_transfer_code_state_expired: String { return UBLocalized.tr(Key.wallet_transfer_code_state_expired) }
