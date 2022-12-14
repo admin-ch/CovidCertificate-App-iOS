@@ -17,7 +17,7 @@ class TransferCodeOnboardingViewController: BasicStaticContentViewController {
 
     init() {
         super.init(models: [StaticContentViewModel(foregroundImage: UIImage(named: "illu-transfer-code"),
-                                                   title: UBLocalized.wallet_transfer_code_title,
+                                                   title: UBLocalized.wallet_transfer_code_onboarding_title,
                                                    alignment: .center,
                                                    textGroups: [(nil, UBLocalized.wallet_transfer_code_onboarding_text)])],
         title: UBLocalized.wallet_transfer_code_card_title.uppercased())

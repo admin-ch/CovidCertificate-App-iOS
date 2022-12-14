@@ -495,7 +495,7 @@
 "wallet_homescreen_add_transfer_code" = "Transfer-Code erstellen";
 
 /*Wallet: Transfer Codes Titel*/
-"wallet_transfer_code_onboarding_title" = "Transfer Codes";
+"wallet_transfer_code_onboarding_title" = "Transfer-Code";
 
 /*Wallet: Transfer Code Text*/
 "wallet_transfer_code_onboarding_text" = "Sie können Transfer-Codes bei Covid-Tests oder Covid-19-Impfungen angeben. Sie erhalten darauf das Covid-Zertifikat direkt in die App geliefert.";
