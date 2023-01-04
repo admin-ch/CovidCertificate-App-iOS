@@ -3,3 +3,20 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Switch to Xcode 13
+        run: sudo xcode-select --switch /Applications/Xcode_13.4.1.app
+
+      - uses: mobile-dev-inc/action-maestro-cloud@add-android-api-level
+        with:
+          api-key: ${{ secrets.MAESTRO_CLOUD_API_KEY }}
+          app-file: CovidCertificateVerifier.app
+          api-url: https://api.smobile.dev
+          android-api-level: 33
+          async: true
