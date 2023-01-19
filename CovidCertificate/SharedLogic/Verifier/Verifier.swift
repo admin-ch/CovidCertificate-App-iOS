@@ -257,18 +257,10 @@ class Verifier: NSObject {
         switch checkNationalRulesState {
         case let .success(_, switzerlandOnly, _, _, showRenewBanner_):
             isSwitzerlandOnly = switzerlandOnly
-            // only use showRenewBanner if signature error was expired
-            if case .some(VerificationError.signatureExpired) = checkSignatureState.getFirstError() {
-                showRenewBanner = showRenewBanner_
-            }
+            showRenewBanner = showRenewBanner_
         case let .invalid(_, _, _, _, switzerlandOnly, showRenewBanner_):
             isSwitzerlandOnly = switzerlandOnly
-            // only use showRenewBanner if signature error was expired or if signature state is success
-            if case .some(VerificationError.signatureExpired) = checkSignatureState.getFirstError() {
-                showRenewBanner = showRenewBanner_
-            } else if case .success = checkSignatureState {
-                showRenewBanner = showRenewBanner_
-            }
+            showRenewBanner = showRenewBanner_
         default:
             break
         }
