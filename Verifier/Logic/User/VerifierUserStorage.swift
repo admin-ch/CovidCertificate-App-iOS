@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import UBFoundation
 
 class VerifierUserStorage {
     static let shared = VerifierUserStorage()

@@ -9,6 +9,7 @@
  */
 
 import CovidCertificateSDK
+import UBFoundation
 
 // simple user storage only for User Default values
 class WalletUserStorage {

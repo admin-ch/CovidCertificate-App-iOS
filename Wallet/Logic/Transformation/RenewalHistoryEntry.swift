@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import UBFoundation
 
 struct RenewalHistoryEntry: UBCodable, Equatable {
     let uvci: String

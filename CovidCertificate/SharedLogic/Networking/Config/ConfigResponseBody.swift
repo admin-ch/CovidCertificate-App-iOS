@@ -9,6 +9,7 @@
  */
 
 import CovidCertificateSDK
+import UBFoundation
 import UIKit
 
 struct LocalizedValue<T: Codable>: Codable {

@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Kitura/BlueCryptor.git",
       "state" : {
-        "revision" : "88fc6e132f41ece53e49acc0e4f67b0331c15b90",
-        "version" : "2.0.1"
+        "revision" : "cec97c24b111351e70e448972a7d3fe68a756d6d",
+        "version" : "2.0.2"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Kitura/BlueECC.git",
       "state" : {
-        "revision" : "baf6ed3fc1a622675f0041b4aff7c02dd1a93818",
-        "version" : "1.2.200"
+        "revision" : "1485268a54f8135435a825a855e733f026fa6cc8",
+        "version" : "1.2.201"
       }
     },
     {
@@ -113,8 +113,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
       "state" : {
-        "revision" : "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
-        "version" : "1.4.2"
+        "revision" : "6fe203dc33195667ce1759bf0182975e4653ba1c",
+        "version" : "1.4.4"
       }
     },
     {
@@ -124,6 +124,15 @@
       "state" : {
         "revision" : "0209a2d1a30b1b42334c4ad3f8bd221b977b2273",
         "version" : "0.4.4"
+      }
+    },
+    {
+      "identity" : "ubkit-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/UbiqueInnovation/ubkit-ios",
+      "state" : {
+        "revision" : "ce771cf67535ae1d8db073bcbe97c722d378037e",
+        "version" : "1.6.1"
       }
     }
   ],

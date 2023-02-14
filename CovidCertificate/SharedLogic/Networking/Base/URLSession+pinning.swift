@@ -10,6 +10,7 @@
 
 import Foundation
 import Security
+import UBFoundation
 
 extension URLSession {
     static let evaluator = CertificateEvaluator()

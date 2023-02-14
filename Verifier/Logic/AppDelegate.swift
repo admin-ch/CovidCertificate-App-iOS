@@ -9,6 +9,7 @@
  */
 
 import CovidCertificateSDK
+import UBFoundation
 import UIKit
 
 @UIApplicationMain
@@ -25,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var navigationController = NavigationController(rootViewController: VerifierHomescreenViewController())
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        DevTools.setup()
+
         // Pre-populate isFirstLaunch for users which already installed the app before we introduced this flag
         if VerifierUserStorage.shared.hasCompletedOnboarding {
             isFirstLaunch = false

@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import UBFoundation
 
 public class ArrivalCountry: Codable, UBUserDefaultValue {
     public typealias ID = String
